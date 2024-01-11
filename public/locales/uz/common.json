@@ -1,0 +1,12 @@
+{
+  "header": {
+    "catalog": "Каталог",
+    "about": "О нас",
+    "stores": "Магазины",
+    "faq": "FAQ",
+    "searchProducts": "Поиск продуктов",
+    "favourites": "Избранное",
+    "login": "Войти",
+    "basket": "Корзина"
+  }
+}

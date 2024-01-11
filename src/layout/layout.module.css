@@ -1,0 +1,10 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main{
+    flex: 1 0 auto;
+    min-height: 90vh;
+}
