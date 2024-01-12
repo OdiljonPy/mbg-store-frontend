@@ -1,0 +1,16 @@
+.detectLocale {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 4px;
+}
+
+.text {
+    font-weight: 500;
+    color: var(--text-green);
+}

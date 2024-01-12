@@ -1,3 +1,4 @@
-.header{
-
+.header {
+    background: var(--light-gray);
+    padding: 12px 0;
 }

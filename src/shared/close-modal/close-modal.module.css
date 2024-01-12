@@ -1,0 +1,14 @@
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--icon-gray);
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    height: 24px;
+    border: none;
+    width: 24px;
+    top: 0;
+    right: 0;
+}

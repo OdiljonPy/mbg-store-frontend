@@ -1,0 +1,13 @@
+.list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+}
+
+.item{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-black);
+    margin-right: 40px;
+}

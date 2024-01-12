@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/roots.css'
 import type {AppProps} from 'next/app'
 import Layout from "@/layout/layout";
 import {appWithTranslation} from "next-i18next";
