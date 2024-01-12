@@ -1,9 +1,10 @@
 import React from 'react';
 import css from './catalog-top.module.css'
 import Link from "next/link";
-import {ICategoryItem} from "@/layout/components/header/main-header/data-types/data-types";
+import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/data-types";
+
 interface props {
-item: ICategoryItem
+item: ICategoryItemGeneral
 }
 
 const CatalogTop = ({item}: props) => {

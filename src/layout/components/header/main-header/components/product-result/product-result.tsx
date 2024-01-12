@@ -1,10 +1,10 @@
 import React from 'react';
 import css from './product-result.module.css'
 import Link from "next/link";
-import {ICategoryItem} from "@/layout/components/header/main-header/data-types/data-types";
+import {ICategoryItem, ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/data-types";
 
 interface props {
-    item: ICategoryItem
+    item: ICategoryItemGeneral
 }
 
 const ProductResult = ({item}: props) => {
