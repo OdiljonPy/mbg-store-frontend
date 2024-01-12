@@ -3,6 +3,8 @@ import Head from "next/head";
 import Header from "@/layout/components/header/header";
 import css from './layout.module.css'
 import Footer from "@/layout/components/footer/footer";
+import {raleway} from "@/constants/fonts";
+import Loader from "@/shared/loader/loader";
 
 
 
@@ -20,7 +22,7 @@ const Layout = ({children}: PropsWithChildren) => {
                 />
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <div className={css.content}>
+            <div className={`${css.content} ${raleway.className}`}>
                 <Header/>
                 <main className={css.main}>
                     {children}

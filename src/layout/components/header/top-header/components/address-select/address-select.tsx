@@ -27,7 +27,7 @@ const AddressSelect = (props: props) => {
              }
          }}
         >
-            <Dropdown menu={{items}}>
+            <Dropdown menu={{items}} trigger={['click']}>
                 <button className={`${css.btn} ${raleway.className}`}>
                     <svg className={css.svg} width="18" height="22" viewBox="0 0 18 22" fill="none"
                          xmlns="http://www.w3.org/2000/svg">

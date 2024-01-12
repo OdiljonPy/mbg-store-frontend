@@ -4,6 +4,7 @@
     background: none;
     border: none;
     flex: 0 0 25%;
+    cursor: pointer;
 }
 
 .text {
