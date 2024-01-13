@@ -1,0 +1,17 @@
+.cashback, .title {
+    display: flex;
+}
+
+.title {
+    color: var(--black);
+    font-size: 44px;
+    font-weight: 700;
+    flex-direction: column;
+    margin-bottom: 79px;
+}
+
+.cashback {
+    align-items: center;
+    gap: 12px;
+}
+

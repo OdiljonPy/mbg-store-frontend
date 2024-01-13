@@ -16,6 +16,9 @@ const HeroSwiper = (props: props) => {
     const [loaded, setLoaded] = useState<boolean>(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
+        slides: {
+          spacing: 15
+        },
         slideChanged(slider) {
             setCurrentSlide(slider.track.details.rel)
         },
@@ -24,18 +27,22 @@ const HeroSwiper = (props: props) => {
         },
     })
 
+
     const onChangeSlide = (index: number) => {
         instanceRef.current?.moveToIdx(index)
     }
 
 
+
+    const slides: number[] = instanceRef.current?.track.details.slides.map(({abs}) => abs) ?? []
     return (
         <div className={css.wrapper}>
             {!loaded && <Loader/>}
             <div className={`${css.swiper} keen-slider`} ref={sliderRef}>
                 <HeroSwiperItem/>
+                <HeroSwiperItem/>
             </div>
-            <HeroSwiperDots onChangeSlide={onChangeSlide} current={currentSlide}/>
+            <HeroSwiperDots slides={slides} onChangeSlide={onChangeSlide} current={currentSlide}/>
         </div>
     );
 };
