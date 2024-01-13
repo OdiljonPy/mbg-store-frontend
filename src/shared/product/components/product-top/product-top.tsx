@@ -1,18 +1,20 @@
 import React from 'react';
-import css from './product-actions.module.css'
+import css from './product-top.module.css'
 import ResponsiveImage from "@/shared/responsive-image/responsive-image";
 import {IProduct} from "@/data-types/products/products";
 import DiscountBadge from "@/shared/discount-badge/discount-badge";
+import ProductActions from "@/shared/product/components/product-top/product-actions/product-actions";
 
 interface props {
     product: IProduct
 }
 
-const ProductActions = ({product}: props) => {
+const ProductTop = ({product}: props) => {
     const {
         img,
         title,
-        discount_percentage
+        discount_percentage,
+        count
     } = product
     return (
         <div className={css.actions}>
@@ -20,8 +22,9 @@ const ProductActions = ({product}: props) => {
             <div className={css.img}>
                 <ResponsiveImage src={img} alt={title}/>
             </div>
+            <ProductActions count={count}/>
         </div>
     );
 };
 
-export default ProductActions;
+export default ProductTop;
