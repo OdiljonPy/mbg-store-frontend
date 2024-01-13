@@ -3,7 +3,7 @@ import css from './product-actions.module.css'
 import ProductActionBtn from "@/shared/product-action-btn/product-action-btn";
 
 interface props {
-    count: number
+    count?: number
 }
 
 const ProductActions = ({count}: props) => {
