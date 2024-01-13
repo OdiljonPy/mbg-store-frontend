@@ -11,7 +11,7 @@ const ContactList = (props: props) => {
     return (
         <ul className={css.list}>
             {contacts.map((contact) => (
-                <ContactItem item={contact} key={contact.path}/>
+                <ContactItem item={contact} key={contact.title}/>
             ))}
         </ul>
     );
