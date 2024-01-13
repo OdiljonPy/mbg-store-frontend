@@ -1,0 +1,42 @@
+.btn{
+    background: #FFFFFF;
+    border-radius: 50%;
+    height: 54px;
+    width: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--input-gray);
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    transition: all .2s linear;
+    z-index: 5;
+    left: -27px;
+}
+
+.btnNext{
+    right: -27px;
+    left: unset;
+}
+
+.btn:hover{
+    background: var(--green);
+    border-color: transparent;
+}
+
+
+
+.path{
+    transition: all .2s linear;
+}
+
+.btn:hover .path{
+    fill: #FFFFFF;
+}
+
+
+.iconNext{
+    transform: rotate(180deg);
+}

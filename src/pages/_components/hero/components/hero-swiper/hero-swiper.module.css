@@ -1,4 +1,15 @@
-.wrapper{
+.wrapper {
     position: relative;
+}
+
+.swiper {
+    opacity: 0;
+    transition: all .2s linear;
+    visibility: hidden;
     cursor: grab;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
 }

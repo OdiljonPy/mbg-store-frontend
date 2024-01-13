@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import css from './mobile-app-link.module.css'
+import Link from "next/link";
 
 interface props {
-
+    icon: ReactElement
+    path: string
 }
 
-const MobileAppLink = (props: props) => {
+const MobileAppLink = ({icon, path}: props) => {
     return (
-        <div className={css.mobileApp}>
-
-        </div>
+        <a href={path} target={'_blank'} rel={'noreferrer'} className={css.mobileApp}>
+            {icon}
+        </a>
     );
 };
 

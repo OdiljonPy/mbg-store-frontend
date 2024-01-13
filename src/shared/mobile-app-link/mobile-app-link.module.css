@@ -1,0 +1,7 @@
+.mobileApp{
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 18px;
+    padding: 12px 20px;
+    cursor: pointer;
+}

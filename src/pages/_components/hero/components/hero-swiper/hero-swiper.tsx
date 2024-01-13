@@ -5,6 +5,7 @@ import {useKeenSlider} from "keen-slider/react"
 import Loader from "@/shared/loader/loader";
 import HeroSwiperDots from "@/pages/_components/hero/components/hero-swiper/hero-swiper-dots/hero-swiper-dots";
 import HeroSwiperItem from "@/pages/_components/hero/components/hero-swiper/hero-swiper-item/hero-swiper-item";
+import HeroSwiperArrow from "@/pages/_components/hero/components/hero-swiper/hero-swiper-arrow/hero-swiper-arrow";
 
 
 interface props {
@@ -33,12 +34,21 @@ const HeroSwiper = (props: props) => {
     }
 
 
+    const onPrevSlide = () =>{
+        instanceRef.current?.prev()
+    }
+    const onNextSlide = () =>{
+        instanceRef.current?.next()
+    }
+
+
 
     const slides: number[] = instanceRef.current?.track.details.slides.map(({abs}) => abs) ?? []
     return (
         <div className={css.wrapper}>
-            {!loaded && <Loader/>}
-            <div className={`${css.swiper} keen-slider`} ref={sliderRef}>
+            <HeroSwiperArrow onClick={onPrevSlide}/>
+            <HeroSwiperArrow onClick={onNextSlide} isNext={true}/>
+            <div className={`${css.swiper} ${loaded ? css.show : ''} keen-slider`} ref={sliderRef}>
                 <HeroSwiperItem/>
                 <HeroSwiperItem/>
             </div>
