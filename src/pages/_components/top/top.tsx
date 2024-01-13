@@ -13,7 +13,7 @@ const Top = (props: props) => {
         <section className={css.sales}>
             <div className={'container'}>
                 <HeadingLine heading={{
-                    title: 'products.near',
+                    title: 'products.top',
                     count: 978
                 }}/>
                 <div className={css.wrapper}>
