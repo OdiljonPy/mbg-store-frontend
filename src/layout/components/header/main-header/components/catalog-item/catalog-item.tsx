@@ -3,20 +3,24 @@ import css from './catalog-item.module.css'
 import Link from "next/link";
 import {ICategoryItem} from "@/layout/components/header/main-header/data-types/category";
 import ResponsiveImage from "@/shared/responsive-image/responsive-image";
+import {useRouter} from "next/router";
 
 interface props {
     item: ICategoryItem
 }
 
 const CatalogItem = ({item}: props) => {
+    const {query} = useRouter()
     const {
-        title,
-        img,
-        id
+        title
     } = item
     return (
-        <Link href={`/category/${id}`} className={css.item}>
-
+        <Link href={{
+            pathname: `/products`,
+            query: {
+                category: title
+            }
+        }} className={css.item}>
             <span className={css.text}>
                 {title}
            </span>

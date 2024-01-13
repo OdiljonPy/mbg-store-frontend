@@ -9,7 +9,7 @@ interface props {
 }
 
 const ProductResult = ({item}: props) => {
-    const {push} = useRouter()
+    const {push, query} = useRouter()
     const {
         title
     } = item

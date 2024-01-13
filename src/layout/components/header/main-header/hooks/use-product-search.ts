@@ -24,9 +24,11 @@ export function useProductSearch() {
         if (isReady && pathname === '/products') {
             if (search) {
                 setSearchText(search)
+            } else {
+                setSearchText('')
             }
         }
-    }, [isReady, search])
+    }, [isReady, searchParams])
 
 
     useEffect(() => {

@@ -24,7 +24,8 @@
     "placeholder": "Поиск товаров",
     "often": "Часто ищут",
     "title": "Поиск",
-    "found": "Найдено {{products}} товаров в {{categories}} категориях"
+    "found": "Найдено {{products}} товаров в {{categories}} категориях",
+    "categories": "{{products}} товаров"
   },
   "errors": {
     "required": "Это поле обязательно"

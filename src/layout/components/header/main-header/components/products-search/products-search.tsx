@@ -18,7 +18,7 @@ interface props {
 
 const ProductsSearch = (props: props) => {
     const {t} = useTranslation()
-    const {push, isReady} = useRouter()
+    const {push, isReady, query} = useRouter()
 
     const {focused, onFocused, searchText, onChange, onBlur, onClearValue} = useProductSearch()
 
@@ -50,6 +50,7 @@ const ProductsSearch = (props: props) => {
             push({
                 pathname: '/products',
                 query: {
+                    ...query,
                     search: searchText
                 }
             }, undefined)
