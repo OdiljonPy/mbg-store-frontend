@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Logo = () => {
     return (
-        <Link href={'/'} >
+        <Link href={'/'}>
             <ResponsiveImage src={logo} alt={'MGB store'}/>
         </Link>
     );

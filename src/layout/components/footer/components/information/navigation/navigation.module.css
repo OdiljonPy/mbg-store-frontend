@@ -1,0 +1,15 @@
+.nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+.link {
+    flex: 0 0 50%;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+}

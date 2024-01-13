@@ -4,9 +4,10 @@
     margin: 0 50px 0 14px;
     border: 2px solid var(--input-gray);
     border-radius: var(--default-radius);
-    flex: 0 0 50%;
+    flex: 1 0 auto;
     transition: all .2s linear;
     position: relative;
+    gap: 14px;
 }
 
 .inputWrapper {
@@ -14,7 +15,7 @@
 }
 
 .input, .title{
-    color: var(--text-black);
+    color: var(--black);
 }
 .input {
     font-weight: 500;
@@ -30,7 +31,7 @@
 .btn {
     border: none;
     border-radius: var(--default-radius);
-    background: var(--btn-green);
+    background: var(--green);
     padding: 13px;
     display: flex;
     align-items: center;
@@ -40,11 +41,16 @@
     top: -2px;
     right: -2px;
     bottom: -2px;
+    transition: all .2s linear;
+}
+
+.btn:hover{
+    background: var(--light-green);
 }
 
 
 .focused {
-    border-color: var(--btn-green);
+    border-color: var(--green);
 }
 
 

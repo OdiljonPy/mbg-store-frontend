@@ -1,0 +1,22 @@
+.menuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    text-decoration: none;
+}
+
+.badge{
+    background: var(--green);
+    border-color: transparent;
+}
+
+.icon{
+    position: relative;
+}
+
+.text {
+    color: var(--black);
+    font-weight: 500;
+    font-size: 16px;
+}

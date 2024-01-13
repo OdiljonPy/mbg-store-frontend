@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './catalog-top.module.css'
 import Link from "next/link";
-import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/data-types";
+import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/category";
 
 interface props {
 item: ICategoryItemGeneral

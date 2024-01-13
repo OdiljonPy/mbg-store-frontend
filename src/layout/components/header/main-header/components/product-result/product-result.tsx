@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './product-result.module.css'
 import Link from "next/link";
-import {ICategoryItem, ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/data-types";
+import {ICategoryItem, ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/category";
 
 interface props {
     item: ICategoryItemGeneral

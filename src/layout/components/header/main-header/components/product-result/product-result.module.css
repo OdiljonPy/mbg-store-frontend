@@ -12,5 +12,5 @@
 .text {
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-black);
+    color: var(--black);
 }

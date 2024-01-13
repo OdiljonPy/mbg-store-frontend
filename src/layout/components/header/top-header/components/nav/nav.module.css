@@ -8,6 +8,6 @@
 .item{
     font-size: 18px;
     font-weight: 500;
-    color: var(--text-black);
+    color: var(--black);
     margin-right: 40px;
 }

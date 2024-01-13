@@ -1,0 +1,17 @@
+.qr{
+    flex: 0 0 20%;
+}
+
+.icon{
+    background: #FFFFff;
+    border-radius: 30px;
+    padding: 24px;
+}
+
+.text {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--icon-gray);
+    margin-top: 20px;
+    text-align: center;
+}

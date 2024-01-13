@@ -9,3 +9,4 @@ export interface ICategoryItemGeneral {
 export interface ICategoryItem extends ICategoryItemGeneral {
     img: ReactElement
 }
+

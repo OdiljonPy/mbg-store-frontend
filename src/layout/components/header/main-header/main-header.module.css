@@ -2,18 +2,26 @@
     padding: 18px 0;
 }
 
-.wrapper, .nav{
+.wrapper, .nav, .search{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 
-.nav{
-    flex: 0 0 60%;
-    justify-content: flex-start;
+.wrapper{
+    gap: 51px;
 }
 
+.nav{
+    justify-content: space-between;
+    flex: 1 0 auto;
+    gap: 40px;
+}
+
+.search{
+    flex: 0 0 50%;
+}
 
 .logo{
     display: block;

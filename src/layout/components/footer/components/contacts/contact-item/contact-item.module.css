@@ -1,0 +1,29 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-bottom: 34px;
+}
+
+.item:last-child{
+    margin-bottom: 0;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.label {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--icon-gray);
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    margin-top: 4px;
+}

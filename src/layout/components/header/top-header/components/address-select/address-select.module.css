@@ -10,8 +10,8 @@
 .text {
     font-weight: 600;
     font-size: 16px;
-    color: var(--text-black);
-    border-bottom: 1px solid var(--text-black);
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
 }
 
 .svg {

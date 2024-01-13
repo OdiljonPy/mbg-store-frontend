@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './catalog-item.module.css'
 import Link from "next/link";
-import {ICategoryItem} from "@/layout/components/header/main-header/data-types/data-types";
+import {ICategoryItem} from "@/layout/components/header/main-header/data-types/category";
 import ResponsiveImage from "@/shared/responsive-image/responsive-image";
 
 interface props {

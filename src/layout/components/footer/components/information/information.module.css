@@ -1,0 +1,12 @@
+.information {
+    flex: 0 0 20%;
+    margin-top: 23px;
+
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 36px;
+}
