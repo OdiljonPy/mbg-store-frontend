@@ -27,7 +27,7 @@ const LanguageSwitcher = (props: props) => {
             <span className={css.icon}>
                 <ResponsiveImage src={languagesIcons[language as keyof ILanguagesIcons]} alt={language}/>
             </span>
-            {languagesObj[language as keyof ILanguagePointer].slice(0,3)}
+            {languagesObj[language as keyof ILanguagePointer]?.slice(0,3)}
         </Link>
     );
 };

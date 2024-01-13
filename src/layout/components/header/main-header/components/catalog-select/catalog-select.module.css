@@ -13,6 +13,10 @@
     background: var(--light-green);
 }
 
+.btn:active{
+    background: var(--green);
+}
+
 .text{
     color: #ffffff;
     font-size: 18px;

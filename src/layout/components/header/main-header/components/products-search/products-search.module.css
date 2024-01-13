@@ -48,6 +48,9 @@
     background: var(--light-green);
 }
 
+.btn:active{
+    background: var(--green);
+}
 
 .focused {
     border-color: var(--green);

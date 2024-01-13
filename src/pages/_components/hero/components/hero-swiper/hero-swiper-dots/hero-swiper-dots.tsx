@@ -10,7 +10,7 @@ interface props {
 const HeroSwiperDots = ({current, onChangeSlide, slides}: props) => {
     return (
         <div className={css.dots}>
-            {slides.map((slide) => (
+            {slides?.map((slide) => (
                 <button onClick={() => onChangeSlide(slide)} key={slide} className={`${css.dot} ${current === slide ? css.active : ''}`}/>
             ))}
         </div>

@@ -7,13 +7,13 @@ import {appWithTranslation} from "next-i18next";
 
 
 function App({Component, pageProps}: AppProps) {
-    return <Layout>
+    return (<Layout>
         <NextNProgress color={`#39B969`}
                        startPosition={0.3}
                        stopDelayMs={200}
                        height={8}
                        showOnShallow={true}/>
-        <Component {...pageProps} /></Layout>
+        <Component {...pageProps} /></Layout>)
 }
 
 

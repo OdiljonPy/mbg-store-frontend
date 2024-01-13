@@ -11,6 +11,7 @@ const HeroSwiperItem = (props: props) => {
         <div className={`keen-slider__slide ${css.swiperItem}`}>
             <div className={css.info}>
                 <Info/>
+
             </div>
         </div>
     );

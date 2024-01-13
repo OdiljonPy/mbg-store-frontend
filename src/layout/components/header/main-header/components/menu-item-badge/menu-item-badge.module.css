@@ -15,6 +15,14 @@
     position: relative;
 }
 
+.icon svg path{
+    transition: all .2s linear;
+}
+
+.menuItem:hover svg path{
+    fill: var(--green);
+}
+
 .text {
     color: var(--black);
     font-weight: 500;

@@ -19,7 +19,7 @@ const MenuItemBadge = ({badge}: props) => {
 
             <Badge count={count} style={{backgroundColor: '#39B969', borderColor: 'transparent'}}>
             <span className={css.icon}>
-                <ResponsiveImage src={icon} alt={title}/>
+            {icon}
             </span>
             </Badge>
             <span className={css.text}>
