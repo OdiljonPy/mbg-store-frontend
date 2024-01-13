@@ -1,0 +1,10 @@
+.info {
+    margin-top: 14px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--black);
+    margin: 6px 0;
+}

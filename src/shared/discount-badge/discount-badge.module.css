@@ -1,0 +1,35 @@
+.discount {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--orange);
+    border-radius: 5px;
+    padding: 6px 10px 7px;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+
+.discount:before, .discount:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    display: block;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: var(--light-gray);
+}
+
+.discount:before {
+    left: -6px;
+}
+
+.discount:after {
+    right: -6px;
+}

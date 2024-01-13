@@ -22,7 +22,7 @@ const LanguageSwitcher = (props: props) => {
     const {language} = i18n
 
     return (
-        <Link href={pathname} className={css.language}
+        <Link href={pathname} scroll={false} className={css.language}
               locale={languages.find((item) => item.code !== language)?.code ?? 'uz'}>
             <span className={css.icon}>
                 <ResponsiveImage src={languagesIcons[language as keyof ILanguagesIcons]} alt={language}/>

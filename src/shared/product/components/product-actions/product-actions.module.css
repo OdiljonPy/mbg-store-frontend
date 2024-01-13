@@ -1,0 +1,15 @@
+.actions {
+    border-radius: 30px;
+    height: 330px;
+    background: var(--light-gray);
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.img {
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+}

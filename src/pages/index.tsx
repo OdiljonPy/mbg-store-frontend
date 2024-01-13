@@ -1,17 +1,21 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {GetStaticProps} from "next";
 import Head from "next/head";
-import {useTranslation} from "next-i18next";
 import Hero from "@/pages/_components/hero/hero";
+import Sales from "@/pages/_components/sales/sales";
+import Near from "@/pages/_components/near/near";
+import Top from "@/pages/_components/top/top";
 
 export default function Home() {
-    const {t} = useTranslation()
     return (
         <>
             <Head>
                 <title>MGB store</title>
             </Head>
             <Hero/>
+            <Sales/>
+            <Near/>
+            <Top/>
         </>
     )
 }
