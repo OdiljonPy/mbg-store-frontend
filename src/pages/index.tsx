@@ -5,6 +5,7 @@ import Hero from "@/pages/_components/hero/hero";
 import Sales from "@/pages/_components/sales/sales";
 import Near from "@/pages/_components/near/near";
 import Top from "@/pages/_components/top/top";
+import Popular from "@/pages/_components/popular/popular";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
             </Head>
             <Hero/>
             <Sales/>
+            <Popular/>
             <Near/>
             <Top/>
         </>

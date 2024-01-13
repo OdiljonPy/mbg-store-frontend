@@ -1,0 +1,56 @@
+.breadcrumbs {
+    color: var(--black);
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    transform: rotate(-180deg);
+    margin-right: 3px;
+
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb {
+    margin-right: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--icon-gray);
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+
+.breadcrumb:hover {
+    color: var(--black);
+}
+
+
+.current {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+@media screen and (max-width: 768px) {
+    .breadcrumb {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .breadcrumbs {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+
+
+
+

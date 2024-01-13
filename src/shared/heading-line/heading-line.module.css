@@ -24,7 +24,14 @@
     font-size: 22px;
     font-weight: 500;
     color: var(--black);
+    transition: all .2s linear;
 }
+
+
+.link:hover .text{
+    color: var(--green);
+}
+
 
 
 
@@ -35,4 +42,11 @@
 .icon{
     display: block;
     transform: rotate(180deg);
+}
+.icon path{
+    transition: all .2s linear;
+}
+
+.link:hover .icon path{
+    fill: var(--green);
 }

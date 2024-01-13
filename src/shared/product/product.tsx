@@ -6,12 +6,13 @@ import ProductTop from "@/shared/product/components/product-top/product-top";
 
 interface props {
     product: IProduct
+    isNotSwiper?: boolean
 }
 
-const Product = ({product}: props) => {
+const Product = ({product, isNotSwiper}: props) => {
 
     return (
-        <div className={css.product}>
+        <div className={`${css.product} ${isNotSwiper ? css.notSwiper : ''}`}>
             <ProductTop product={product}/>
             <ProductInfo product={product}/>
         </div>

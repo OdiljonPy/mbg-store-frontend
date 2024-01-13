@@ -12,20 +12,35 @@
 
 .inputWrapper {
     flex: 1 0 auto;
+    display: flex;
+    align-items: center;
 }
 
-.input, .title{
+.input, .title {
     color: var(--black);
 }
+
 .input {
     font-weight: 500;
     border-radius: var(--default-radius);
     padding: var(--default-padding);
     border: none;
-    flex: 0 0 calc(100% - 40px);
-    width: calc(100% - 40px);
+    flex: 0 0 calc(100% - 70px);
+    width: calc(100% - 70px);
     outline: none;
 
+}
+
+.icon {
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
 }
 
 .btn {
@@ -44,11 +59,11 @@
     transition: all .2s linear;
 }
 
-.btn:hover{
+.btn:hover {
     background: var(--light-green);
 }
 
-.btn:active{
+.btn:active {
     background: var(--green);
 }
 
@@ -57,7 +72,7 @@
 }
 
 
-.title{
+.title {
     font-size: 14px;
     font-weight: 700;
 }
