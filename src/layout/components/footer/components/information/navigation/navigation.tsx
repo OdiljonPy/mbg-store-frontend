@@ -16,7 +16,7 @@ const Navigation = (props: props) => {
                                      path,
                                      title
                                  }) => (
-                <Link href={path} className={css.link}>
+                <Link href={path} className={css.link} key={path}>
                     {t(title)}
                 </Link>
             ))}

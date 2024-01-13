@@ -41,7 +41,7 @@ const ProductsSearch = (props: props) => {
         if (debouncedValue) {
             onOpen()
         }
-    }, [debouncedValue])
+    }, [debouncedValue, onOpen])
 
 
     const onSearch = () => {

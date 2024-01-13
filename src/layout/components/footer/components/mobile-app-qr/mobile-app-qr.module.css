@@ -4,7 +4,7 @@
 
 .icon{
     background: #FFFFff;
-    border-radius: 30px;
+    border-radius: var(--medium-radius);
     padding: 24px;
 }
 

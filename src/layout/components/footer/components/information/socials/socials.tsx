@@ -14,7 +14,7 @@ const Socials = (props: props) => {
                               path,
                               icon
                           }) => (
-                <a className={css.social} href={path} target={'_blank'} rel={'noreferrer'}>
+                <a key={path} className={css.social} href={path} target={'_blank'} rel={'noreferrer'}>
                     {icon}
                 </a>
             ))}

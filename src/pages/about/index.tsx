@@ -6,7 +6,7 @@ interface props {
 
 }
 
-const About = (props: props) => {
+const Index = (props: props) => {
     return (
         <>
             About
@@ -25,4 +25,4 @@ export const getStaticProps: GetStaticProps<Props> = async ({locale}) => {
         },
     };
 };
-export default About;
+export default Index;
