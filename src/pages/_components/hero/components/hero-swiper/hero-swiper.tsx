@@ -5,7 +5,7 @@ import {useKeenSlider} from "keen-slider/react"
 import Loader from "@/shared/loader/loader";
 import HeroSwiperDots from "@/pages/_components/hero/components/hero-swiper/hero-swiper-dots/hero-swiper-dots";
 import HeroSwiperItem from "@/pages/_components/hero/components/hero-swiper/hero-swiper-item/hero-swiper-item";
-import HeroSwiperArrow from "@/pages/_components/hero/components/hero-swiper/hero-swiper-arrow/hero-swiper-arrow";
+import SwiperArrow from "@/shared/swiper-arrow/swiper-arrow";
 
 
 interface props {
@@ -18,7 +18,7 @@ const HeroSwiper = (props: props) => {
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
         slides: {
-          spacing: 15
+            spacing: 15
         },
         slideChanged(slider) {
             setCurrentSlide(slider.track.details.rel)
@@ -34,26 +34,28 @@ const HeroSwiper = (props: props) => {
     }
 
 
-    const onPrevSlide = () =>{
+    const onPrevSlide = () => {
         instanceRef.current?.prev()
     }
-    const onNextSlide = () =>{
+    const onNextSlide = () => {
         instanceRef.current?.next()
     }
 
 
-
     const slides: number[] = instanceRef.current?.track.details.slides.map(({abs}) => abs) ?? []
     return (
-        <div className={css.wrapper}>
-            <HeroSwiperArrow onClick={onPrevSlide}/>
-            <HeroSwiperArrow onClick={onNextSlide} isNext={true}/>
-            <div className={`${css.swiper} ${loaded ? css.show : ''} keen-slider`} ref={sliderRef}>
-                <HeroSwiperItem/>
-                <HeroSwiperItem/>
+        <>
+            <div className={css.wrapper}>
+                <SwiperArrow onClick={onPrevSlide}/>
+                <SwiperArrow onClick={onNextSlide} isNext={true}/>
+                <div className={`${css.swiper} ${loaded ? css.show : ''} keen-slider`} ref={sliderRef}>
+                    <HeroSwiperItem/>
+                    <HeroSwiperItem/>
+                </div>
             </div>
             <HeroSwiperDots slides={slides} onChangeSlide={onChangeSlide} current={currentSlide}/>
-        </div>
+
+        </>
     );
 };
 

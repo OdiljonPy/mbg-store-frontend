@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import css from './sales.module.css'
 import HeadingLine from "@/shared/heading-line/heading-line";
 import Product from "@/shared/product/product";
 import {product, productWithoutDiscount} from "@/constants/product";
+import {useKeenSlider} from "keen-slider/react";
+import {useSlider} from "@/hooks/use-slider";
 
 interface props {
 
 }
 
 const Sales = (props: props) => {
+    const {sliderRef, loaded} = useSlider()
     return (
         <section className={css.sales}>
             <div className={'container'}>
@@ -16,11 +19,19 @@ const Sales = (props: props) => {
                     title: 'sales.title',
                     count: 1538
                 }}/>
-                <div className={css.wrapper}>
-                    <Product product={product}/>
-                    <Product product={productWithoutDiscount}/>
-                    <Product product={product}/>
-                    <Product product={productWithoutDiscount}/>
+                <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
+                    <div className={`keen-slider__slide`}>
+                        <Product product={product}/>
+                    </div>
+                    <div className={`keen-slider__slide`}>
+                        <Product product={productWithoutDiscount}/>
+                    </div>
+                    <div className={`keen-slider__slide`}>
+                        <Product product={product}/>
+                    </div>
+                    <div className={`keen-slider__slide`}>
+                        <Product product={productWithoutDiscount}/>
+                    </div>
                 </div>
             </div>
         </section>

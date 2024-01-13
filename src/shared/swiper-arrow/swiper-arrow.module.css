@@ -1,3 +1,18 @@
+.btnWrapper{
+    width: 64px;
+    height: 64px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -27px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .btn{
     background: #FFFFFF;
     border-radius: 50%;
@@ -8,12 +23,8 @@
     justify-content: center;
     border: 2px solid var(--input-gray);
     cursor: pointer;
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
     transition: all .2s linear;
-    z-index: 5;
-    left: -27px;
+
 }
 
 .btnNext{
