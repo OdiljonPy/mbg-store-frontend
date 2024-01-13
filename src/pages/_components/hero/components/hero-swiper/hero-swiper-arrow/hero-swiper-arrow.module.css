@@ -22,8 +22,7 @@
 }
 
 .btn:hover{
-    background: var(--green);
-    border-color: transparent;
+    border-color: var(--green);
 }
 
 
@@ -33,7 +32,7 @@
 }
 
 .btn:hover .path{
-    fill: #FFFFFF;
+    fill: var(--green);
 }
 
 
