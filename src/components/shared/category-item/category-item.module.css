@@ -38,10 +38,22 @@
     z-index: 1;
 }
 
+@media (max-width: 1199px) {
+    .item{
+        flex: 0 0 31%;
+    }
+}
+@media (max-width: 991px) {
+    .item{
+        flex: 0 0 48%;
+    }
+}
 @media (max-width: 767px) {
     .background{
         background-size: contain;
         background-position: bottom center;
+    }
+    .item{
     }
 }
 
@@ -56,6 +68,7 @@
         min-height: 150px;
         padding: 14px;
     }
+
     .title{
         font-size: 14px;
     }
