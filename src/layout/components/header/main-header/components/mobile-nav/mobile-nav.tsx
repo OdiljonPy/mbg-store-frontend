@@ -11,13 +11,13 @@ interface props {
 }
 
 const MobileNav = (props: props) => {
-    const {open, onToggle} = useModal()
+    const {open, onClose, onToggle} = useModal()
     const pathname = usePathname()
     const {i18n} = useTranslation()
 
 
     useEffect(() => {
-        onToggle()
+        onClose()
     }, [i18n.language, pathname])
 
     return (
