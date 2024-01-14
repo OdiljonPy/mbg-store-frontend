@@ -5,6 +5,7 @@ import {INav} from "@/layout/components/header/top-header/data-types/nav";
 import Link from "next/link";
 import {raleway} from "@/constants/fonts/fonts";
 import {navTopList} from "@/constants/nav/nav";
+import {usePathname} from "next/navigation";
 
 interface props {
 
@@ -16,6 +17,7 @@ interface props {
 
 const Nav = (props: props) => {
     const {t} = useTranslation()
+    const pathname = usePathname()
     return (
         <nav className={css.nav}>
             <ul className={css.list}>
@@ -23,7 +25,7 @@ const Nav = (props: props) => {
                     path,
                     title
                               }) => (
-                    <Link href={path} className={`${css.item} ${raleway.className}`} key={path}>
+                    <Link href={path} className={`${css.item} ${raleway.className} ${path === pathname ? css.active : ''}`} key={path}>
                         {t(title)}
                     </Link>
                 ))}

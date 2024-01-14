@@ -17,6 +17,11 @@
     color: var(--green);
 }
 
+.active{
+    text-decoration: underline!important;
+    font-weight: 600;
+}
+
 
 @media (max-width: 1199px) {
     .nav {
