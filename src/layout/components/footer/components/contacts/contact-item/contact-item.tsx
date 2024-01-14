@@ -2,7 +2,7 @@ import React from 'react';
 import css from './contact-item.module.css'
 import {IContact} from "@/layout/components/footer/components/contacts/data-types/contacts";
 import {useTranslation} from "next-i18next";
-import ResponsiveImage from "@/shared/responsive-image/responsive-image";
+import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 
 interface props {
     item: IContact

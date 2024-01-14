@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './mobile-app-qr.module.css'
-import ResponsiveImage from "@/shared/responsive-image/responsive-image";
+import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import qr from '@/../public/images/icons/qr.svg'
 import {useTranslation} from "next-i18next";
 

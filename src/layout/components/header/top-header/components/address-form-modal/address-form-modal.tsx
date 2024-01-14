@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import {IAddressForm} from "@/layout/components/header/top-header/data-types/address-form";
 import AddressForm from "@/layout/components/header/top-header/components/address-form/address-form";
 import AddressMap from "@/layout/components/header/top-header/components/address-map/address-map";
-import CloseModal from "@/shared/close-modal/close-modal";
+import CloseModal from "@/components/shared/close-modal/close-modal";
 
 interface props {
 

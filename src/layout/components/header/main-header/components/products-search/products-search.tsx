@@ -7,7 +7,7 @@ import {useProductSearch} from "@/layout/components/header/main-header/hooks/use
 import useDebounce from "@/hooks/use-debounce";
 import ProductResult from "@/layout/components/header/main-header/components/product-result/product-result";
 import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/category";
-import ProductSearchIcon from "@/shared/product-search-icon/product-search-icon";
+import ProductSearchIcon from "@/components/shared/product-search-icon/product-search-icon";
 import {useRouter} from "next/router";
 
 

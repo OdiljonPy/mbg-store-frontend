@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './contacts.module.css'
-import Logo from "@/shared/logo/logo";
+import Logo from "@/components/shared/logo/logo";
 import ContactList from "@/layout/components/footer/components/contacts/contact-list/contact-list";
 
 interface props {

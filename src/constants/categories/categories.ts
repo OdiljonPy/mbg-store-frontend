@@ -1,10 +1,10 @@
-import {ICategory} from "@/pages/_components/popular/categories/data-types/category";
 import sweets from '@/../public/images/categories/sweet.png'
 import img from '@/../public/images/categories/category.png'
 import vegs from '@/../public/images/categories/vegs.png'
 import bread from '@/../public/images/categories/bread.png'
 import meat from '@/../public/images/categories/meat.png'
 import milk from '@/../public/images/categories/milk.png'
+import {ICategory} from "@/data-types/categories/categories";
 export const category: ICategory[] = [
     {
         id: 1,

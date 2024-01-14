@@ -2,7 +2,7 @@ import React from 'react';
 import {GetStaticProps} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import Wrapper from "@/pages/products/components/wrapper/wrapper";
+import Wrapper from "@/components/pages/products/wrapper/wrapper";
 
 interface props {
 

@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {languages, languagesIcons, languagesObj} from "@/constants/languages/languages";
-import ResponsiveImage from "@/shared/responsive-image/responsive-image";
+import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 
 interface props {
 

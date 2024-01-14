@@ -2,7 +2,7 @@ import React from 'react';
 import css from './catalog-item.module.css'
 import Link from "next/link";
 import {ICategoryItem} from "@/layout/components/header/main-header/data-types/category";
-import ResponsiveImage from "@/shared/responsive-image/responsive-image";
+import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {useRouter} from "next/router";
 
 interface props {

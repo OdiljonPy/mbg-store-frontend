@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './main-header.module.css'
-import Logo from "@/shared/logo/logo";
+import Logo from "@/components/shared/logo/logo";
 import CatalogSelect from "@/layout/components/header/main-header/components/catalog-select/catalog-select";
 import LanguageSwitcher from "@/layout/components/header/main-header/components/language-switcher/language-switcher";
 import MenuItemBadge from "@/layout/components/header/main-header/components/menu-item-badge/menu-item-badge";

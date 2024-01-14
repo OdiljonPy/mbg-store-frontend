@@ -10,8 +10,8 @@ import milk from '@/../public/images/icons/milk.svg'
 import meat from '@/../public/images/icons/meat.svg'
 import {ICategoryItem} from "@/layout/components/header/main-header/data-types/category";
 import CatalogItem from "@/layout/components/header/main-header/components/catalog-item/catalog-item";
-import ResponsiveImage from "@/shared/responsive-image/responsive-image";
-import CatalogIcon from "@/shared/catalog-icon/catalog-icon";
+import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
+import CatalogIcon from "@/components/shared/catalog-icon/catalog-icon";
 
 interface props {
 

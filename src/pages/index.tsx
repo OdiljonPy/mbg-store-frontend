@@ -1,11 +1,11 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {GetStaticProps} from "next";
 import Head from "next/head";
-import Hero from "@/pages/_components/hero/hero";
-import Sales from "@/pages/_components/sales/sales";
-import Near from "@/pages/_components/near/near";
-import Top from "@/pages/_components/top/top";
-import Popular from "@/pages/_components/popular/popular";
+import Hero from "@/components/pages/home/hero/hero";
+import Sales from "@/components/pages/home/sales/sales";
+import Near from "@/components/pages/home/near/near";
+import Top from "@/components/pages/home/top/top";
+import Popular from "@/components/pages/home/popular/popular";
 
 export default function Home() {
     return (
