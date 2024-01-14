@@ -80,20 +80,15 @@
     .wrapper {
         display: grid;
         gap: 24px;
-        grid-template-columns: repeat(1, 2fr);
-        grid-template-areas:
-     'item1'
-     'item2'
-     'item3'
-     'item4'
-     'item5'
-     'item6'
-        'link'
-    ;
+        grid-template-columns: repeat(2, 2fr);
+
     }
 }
 
 @media (max-width: 575px) {
+    .wrapper{
+        gap: 10px;
+    }
     .link{
         padding: 16px;
         font-size: 14px;

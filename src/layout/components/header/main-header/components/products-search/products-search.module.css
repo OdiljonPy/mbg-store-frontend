@@ -1,7 +1,7 @@
 .search {
     display: flex;
     align-items: center;
-    margin: 0 50px 0 14px;
+    margin-left: 14px;
     border: 2px solid var(--input-gray);
     border-radius: var(--default-radius);
     flex: 1 0 auto;
@@ -75,4 +75,17 @@
 .title {
     font-size: 14px;
     font-weight: 700;
+}
+
+
+@media (max-width: 1199px) {
+    .search{
+        margin: 0 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .search{
+        margin: 0;
+    }
 }

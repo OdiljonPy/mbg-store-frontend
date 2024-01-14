@@ -17,7 +17,6 @@ const Footer = (props: props) => {
                     <Contacts/>
                     <Information/>
                     <MobileAppQr/>
-
                 </div>
             </div>
             <Copyright/>

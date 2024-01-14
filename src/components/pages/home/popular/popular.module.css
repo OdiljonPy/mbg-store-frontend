@@ -5,3 +5,10 @@
 .wrapper{
 
 }
+
+
+@media (max-width: 575px) {
+    .popular{
+        margin: 40px 0 29px;
+    }
+}

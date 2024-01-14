@@ -1,8 +1,8 @@
-.qr{
+.qr {
     flex: 0 0 20%;
 }
 
-.icon{
+.icon {
     background: #FFFFff;
     border-radius: var(--medium-radius);
     padding: 24px;
@@ -14,4 +14,33 @@
     color: var(--icon-gray);
     margin-top: 20px;
     text-align: center;
+}
+
+.title {
+    display: none;
+}
+
+.app{
+    display: none;
+}
+
+@media (max-width: 767px) {
+
+    .qr {
+        flex: 0 0 100%;
+    }
+
+    .icon, .text {
+        display: none;
+    }
+
+    .app, .title{
+        display: block;
+    }
+    .title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--black);
+        margin: 30px 0 12px;
+    }
 }

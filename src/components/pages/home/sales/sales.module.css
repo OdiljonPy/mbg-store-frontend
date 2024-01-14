@@ -17,3 +17,10 @@
     opacity: 1;
     visibility: visible;
 }
+
+
+@media (max-width: 575px) {
+    .sales{
+        margin-bottom: 40px;
+    }
+}

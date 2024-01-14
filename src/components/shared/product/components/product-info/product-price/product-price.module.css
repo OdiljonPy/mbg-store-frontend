@@ -23,3 +23,14 @@
     color: var(--icon-gray);
 
 }
+
+
+@media (max-width: 575px) {
+    .lineThrough{
+        font-size: 12px;
+    }
+
+    .discountPrice, .price{
+        font-size: 16px;
+    }
+}

@@ -1,11 +1,11 @@
-.list{
+.list {
     display: flex;
     align-items: center;
     list-style: none;
 
 }
 
-.item{
+.item {
     font-size: 18px;
     font-weight: 500;
     color: var(--black);
@@ -13,6 +13,13 @@
     transition: all .2s linear;
 }
 
-.item:hover{
+.item:hover {
     color: var(--green);
+}
+
+
+@media (max-width: 1199px) {
+    .nav {
+        display: none;
+    }
 }

@@ -1,5 +1,5 @@
 .actions {
-    border-radius: 30px;
+    border-radius: var(--medium-radius);
     height: 330px;
     background: var(--light-gray);
     position: relative;
@@ -15,8 +15,14 @@
 }
 
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
     .actions{
-        height: 300px;
+        height: 180px;
+        border-radius: var(--default-radius);
+    }
+    .img{
+        width: 104px;
+        height: 104px;
+        margin-top: 26px;
     }
 }

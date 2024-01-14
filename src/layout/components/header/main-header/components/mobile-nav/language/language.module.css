@@ -1,0 +1,17 @@
+.language {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 0;
+    flex: 0 0 48%;
+    background: var(--light-gray);
+    border-radius: 10px;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.active {
+    background: var(--pale-green);
+}

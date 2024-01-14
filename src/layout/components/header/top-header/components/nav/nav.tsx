@@ -4,26 +4,14 @@ import {useTranslation} from "next-i18next";
 import {INav} from "@/layout/components/header/top-header/data-types/nav";
 import Link from "next/link";
 import {raleway} from "@/constants/fonts/fonts";
+import {navTopList} from "@/constants/nav/nav";
 
 interface props {
 
 }
 
 
-const navList: INav[] = [
-    {
-        path: '/about',
-        title: 'header.about'
-    },
-    {
-        path: '/stores',
-        title: 'header.stores'
-    },
-    {
-        path: '/faq',
-        title: 'header.faq'
-    }
-]
+
 
 
 const Nav = (props: props) => {
@@ -31,7 +19,7 @@ const Nav = (props: props) => {
     return (
         <nav className={css.nav}>
             <ul className={css.list}>
-                {navList.map(({
+                {navTopList.map(({
                     path,
                     title
                               }) => (

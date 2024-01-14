@@ -9,21 +9,28 @@
     transition: all .2s linear;
 }
 
-.btn:hover{
+.btn:hover {
     background: var(--light-green);
 }
 
-.btn:active{
+.btn:active {
     background: var(--green);
 }
 
-.text{
+.text {
     color: #ffffff;
     font-size: 18px;
     font-weight: 600;
     margin-left: 6px;
 }
 
-.dropdown{
+.dropdown {
     width: 282px;
+}
+
+
+@media (max-width: 991px) {
+    .dropdown, .btn {
+        display: none;
+    }
 }

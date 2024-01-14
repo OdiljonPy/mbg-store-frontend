@@ -13,5 +13,16 @@ export function useModal () {
         setOpen(false)
     }
 
-    return {open, onClose, onOpen}
+    const onToggle = () => {
+        setOpen((prev) => {
+            if (prev) {
+                document.body.style.overflow = 'visible'
+            } else {
+                document.body.style.overflow = 'hidden'
+            }
+            return !prev
+        })
+    }
+
+    return {open, onClose, onOpen, onToggle}
 }

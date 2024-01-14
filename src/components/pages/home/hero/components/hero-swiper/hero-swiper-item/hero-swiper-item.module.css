@@ -11,3 +11,23 @@
     padding: 52px 0 52px 80px;
 }
 
+@media (max-width: 1199px) {
+    .info{
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .info{
+        flex: 0 0 100%;
+        padding: 32px;
+    }
+}
+
+@media (max-width: 575px) {
+    .info{
+        flex: 0 0 100%;
+        padding: 16px;
+    }
+}
+

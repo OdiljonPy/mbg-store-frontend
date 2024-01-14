@@ -5,3 +5,17 @@
     padding: 12px 20px;
     cursor: pointer;
 }
+
+
+@media (max-width: 575px) {
+    .mobileApp{
+        padding: 4px 7px;
+    flex: 0 0 48%;
+        display: flex;
+        align-items: center;
+    }
+
+   .mobileApp svg{
+       width: 100px!important;
+   }
+}

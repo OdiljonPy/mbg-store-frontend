@@ -7,6 +7,8 @@ import MenuItemBadge from "@/layout/components/header/main-header/components/men
 import {cartBadge, favouritesBadge} from "@/constants/badges/badges";
 import Login from "@/layout/components/header/main-header/components/login/login";
 import dynamic from "next/dynamic";
+import LogoMobile from "@/components/shared/logo-mobile/logo-mobile";
+import MobileNav from "@/layout/components/header/main-header/components/mobile-nav/mobile-nav";
 
 const ProductsSearch = dynamic(() => import('@/layout/components/header/main-header/components/products-search/products-search'), {
     ssr: false
@@ -24,10 +26,14 @@ const MainHeader = (props: props) => {
                     <div className={css.logo}>
                         <Logo/>
                     </div>
+                    <div className={css.mobileLogo}>
+                        <LogoMobile/>
+                    </div>
                     <div className={css.search}>
                         <CatalogSelect/>
                         <ProductsSearch/>
                     </div>
+                    <MobileNav/>
                     <div className={css.nav}>
                         <LanguageSwitcher/>
                         <MenuItemBadge badge={favouritesBadge}/>

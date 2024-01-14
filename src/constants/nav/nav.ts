@@ -26,3 +26,18 @@ export const navigationList: INav[] = [
         title: 'footer.offert'
     }
 ]
+
+export const navTopList: INav[] = [
+    {
+        path: '/about',
+        title: 'header.about'
+    },
+    {
+        path: '/stores',
+        title: 'header.stores'
+    },
+    {
+        path: '/faq',
+        title: 'header.faq'
+    }
+]

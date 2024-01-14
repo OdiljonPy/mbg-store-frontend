@@ -18,3 +18,10 @@
 .link:hover{
     color: var(--green);
 }
+
+
+@media (max-width: 575px) {
+    .link{
+        font-size: 16px;
+    }
+}

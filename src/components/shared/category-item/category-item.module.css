@@ -14,7 +14,7 @@
 }
 
 .item:hover {
-    transform: translateY(-5%);
+    transform: translateY(-15px);
 }
 
 .background {
@@ -38,9 +38,25 @@
     z-index: 1;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
     .background{
         background-size: contain;
         background-position: bottom center;
+    }
+}
+
+@media (max-width: 767px) {
+    .title{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .item{
+        min-height: 150px;
+        padding: 14px;
+    }
+    .title{
+        font-size: 14px;
     }
 }

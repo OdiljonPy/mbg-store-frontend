@@ -11,18 +11,18 @@ const ProductList = (props: props) => {
     return (
         <>
             <div className={css.list}>
-                <Product product={product}/>
-                <Product product={productWithoutDiscount}/>
-                <Product product={product}/>
-                <Product product={productWithoutDiscount}/>
-                <Product product={product}/>
-                <Product product={productWithoutDiscount}/>
-                <Product product={product}/>
-                <Product product={productWithoutDiscount}/>
-                <Product product={product}/>
-                <Product product={productWithoutDiscount}/>
-                <Product product={product}/>
-                <Product product={productWithoutDiscount}/>
+                <Product product={product} isNotSwiper/>
+                <Product product={productWithoutDiscount} isNotSwiper/>
+                <Product product={product} isNotSwiper/>
+                <Product product={productWithoutDiscount} isNotSwiper/>
+                <Product product={product} isNotSwiper/>
+                <Product product={productWithoutDiscount} isNotSwiper/>
+                <Product product={product} isNotSwiper/>
+                <Product product={productWithoutDiscount} isNotSwiper/>
+                <Product product={product} isNotSwiper/>
+                <Product product={productWithoutDiscount} isNotSwiper/>
+                <Product product={product} isNotSwiper/>
+                <Product product={productWithoutDiscount} isNotSwiper/>
             </div>
 
         </>

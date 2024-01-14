@@ -32,9 +32,6 @@
     color: var(--green);
 }
 
-
-
-
 .hide{
     display: none;
 }
@@ -50,3 +47,16 @@
 .link:hover .icon path{
     fill: var(--green);
 }
+
+
+@media (max-width: 767px) {
+    .title{
+        font-size: 16px;
+    }
+    .text{
+        font-size: 14px;
+    }
+}
+
+
+
