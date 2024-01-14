@@ -8,3 +8,10 @@
 }
 
 
+@media (max-width: 575px) {
+    .list{
+        margin: 14px 0;
+        gap: 10px;
+    }
+}
+
