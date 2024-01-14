@@ -1,0 +1,35 @@
+.item {
+    min-height: 250px;
+    border-radius: var(--medium-radius);
+    background: #DFCF76;
+    padding: 24px 30px;
+    flex: 1 0 auto;
+    position: relative;
+    cursor: pointer;
+    transition: all .2s linear;
+    text-decoration: none;
+}
+
+.item:hover {
+    transform: translateY(-5%);
+}
+
+.background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-image: url("../../../public/images/categories/category.svg");
+}
+
+.title {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFFFFF;
+}

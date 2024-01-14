@@ -4,7 +4,6 @@ import {useTranslation} from "next-i18next";
 import {useSearchParams} from "next/navigation";
 
 interface props {
-
 }
 
 const Title = (props: props) => {
@@ -15,7 +14,7 @@ const Title = (props: props) => {
 
     const chooseTitle = () => {
         if (search || category) {
-            if (search){
+            if (search) {
                 return `${t('products.title')}: ${search}`
             }
             return category

@@ -2,28 +2,17 @@ import React from 'react';
 import css from './catalog-top.module.css'
 import Link from "next/link";
 import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/category";
-import {useRouter} from "next/router";
-import {useSearchParams} from "next/navigation";
 
 interface props {
     item: ICategoryItemGeneral
 }
 
 const CatalogTop = ({item}: props) => {
-    const {query} = useRouter()
-
-    const actualQuery = {
-        ...query
-    }
-
-
-    delete query['category']
 
 
     return (
         <Link href={{
-            pathname: `/products`,
-            query: actualQuery
+            pathname: `/catalog`
         }} className={css.item}>
             <span className={css.title}>
                 {item.title}

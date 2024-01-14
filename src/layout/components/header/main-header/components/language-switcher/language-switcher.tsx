@@ -8,7 +8,7 @@ import {
 } from "@/layout/components/header/main-header/data-types/languages";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import {languages, languagesIcons, languagesObj} from "@/constants/languages";
+import {languages, languagesIcons, languagesObj} from "@/constants/languages/languages";
 import ResponsiveImage from "@/shared/responsive-image/responsive-image";
 
 interface props {

@@ -4,7 +4,7 @@ import Logo from "@/shared/logo/logo";
 import CatalogSelect from "@/layout/components/header/main-header/components/catalog-select/catalog-select";
 import LanguageSwitcher from "@/layout/components/header/main-header/components/language-switcher/language-switcher";
 import MenuItemBadge from "@/layout/components/header/main-header/components/menu-item-badge/menu-item-badge";
-import {cartBadge, favouritesBadge} from "@/constants/badges";
+import {cartBadge, favouritesBadge} from "@/constants/badges/badges";
 import Login from "@/layout/components/header/main-header/components/login/login";
 import dynamic from "next/dynamic";
 

@@ -3,7 +3,7 @@ import {UseFormReturn} from "react-hook-form";
 import {IAddressForm} from "@/layout/components/header/top-header/data-types/address-form";
 import css from './address-form.module.css'
 import {useTranslation} from "next-i18next";
-import {raleway} from "@/constants/fonts";
+import {raleway} from "@/constants/fonts/fonts";
 import FormError from "@/shared/form-error/form-error";
 import AddressDetect from "@/layout/components/header/top-header/components/address-detect/address-detect";
 

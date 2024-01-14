@@ -3,6 +3,7 @@ import {useKeenSlider} from "keen-slider/react";
 
 export function useSlider() {
     const [loaded, setLoaded] = useState<boolean>(false)
+    const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
         breakpoints: {
@@ -40,11 +41,14 @@ export function useSlider() {
         created() {
             setLoaded(true)
         },
+        slideChanged(slider) {
+            setCurrentSlide(slider.track.details.rel)
+        },
     })
 
     const onNext = () => instanceRef.current?.next()
 
     const onPrev = () => instanceRef.current?.prev()
 
-    return {loaded, sliderRef, instanceRef, onNext, onPrev}
+    return {loaded, sliderRef, instanceRef, onNext, onPrev, currentSlide}
 }

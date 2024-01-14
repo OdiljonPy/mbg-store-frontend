@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import css from './sales.module.css'
 import HeadingLine from "@/shared/heading-line/heading-line";
 import Product from "@/shared/product/product";
-import {product, productWithoutDiscount} from "@/constants/product";
+import {product, productWithoutDiscount} from "@/constants/product/product";
 import {useKeenSlider} from "keen-slider/react";
 import {useSlider} from "@/hooks/use-slider";
 

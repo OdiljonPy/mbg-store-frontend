@@ -4,14 +4,16 @@ import css from './product-swiper-arrow.module.css'
 interface props {
     isNext?: boolean
     onClick: () => void
+    isDisabled?: boolean
 }
 
 const ProductSwiperArrow = ({
                                 isNext,
-                                onClick
+                                onClick,
+                                isDisabled
                             }: props) => {
     return (
-        <div className={`${css.btnWrapper} ${isNext ? css.btnNext : ''}`}>
+        <div className={`${css.btnWrapper} ${isDisabled ? css.hide : ''} ${isNext ? css.btnNext : ''}`}>
             <button onClick={onClick} className={`${css.btn} `}>
                 <svg className={`${css.icon} ${isNext ? css.iconNext : ''} `} width="30" height="30" viewBox="0 0 30 30"
                      fill="none" xmlns="http://www.w3.org/2000/svg">

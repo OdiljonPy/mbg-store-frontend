@@ -1,6 +1,6 @@
 import React from 'react';
 import css from "@/layout/components/header/main-header/components/menu-item-badge/menu-item-badge.module.css";
-import {raleway} from "@/constants/fonts";
+import {raleway} from "@/constants/fonts/fonts";
 import loginCss from './login.module.css'
 import ResponsiveImage from "@/shared/responsive-image/responsive-image";
 import {useTranslation} from "next-i18next";

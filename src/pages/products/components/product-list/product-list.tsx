@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './product-list.module.css'
 import Product from "@/shared/product/product";
-import {product, productWithoutDiscount} from "@/constants/product";
+import {product, productWithoutDiscount} from "@/constants/product/product";
 
 interface props {
 

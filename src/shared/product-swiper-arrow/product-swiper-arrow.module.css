@@ -50,3 +50,7 @@
 .iconNext{
     transform: rotate(180deg);
 }
+
+.hide{
+    display: none;
+}

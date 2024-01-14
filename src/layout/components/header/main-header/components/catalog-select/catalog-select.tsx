@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from "next-i18next";
 import {ConfigProvider, Dropdown, MenuProps} from "antd";
 import css from './catalog-select.module.css'
-import {raleway} from "@/constants/fonts";
+import {raleway} from "@/constants/fonts/fonts";
 import CatalogTop from "@/layout/components/header/main-header/components/catalog-top/catalog-top";
 import food from '@/../public/images/icons/cooked-food.svg'
 import veg from '@/../public/images/icons/fruits-and-veg.svg'

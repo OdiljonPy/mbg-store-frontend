@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import css from "@/pages/_components/sales/sales.module.css";
 import HeadingLine from "@/shared/heading-line/heading-line";
 import Product from "@/shared/product/product";
-import {product, productWithoutDiscount} from "@/constants/product";
-import {useKeenSlider} from "keen-slider/react";
+import {product, productWithoutDiscount} from "@/constants/product/product";
 import {useSlider} from "@/hooks/use-slider";
-import SwiperArrow from "@/shared/swiper-arrow/swiper-arrow";
 import ProductSwiperArrow from "@/shared/product-swiper-arrow/product-swiper-arrow";
 
 
@@ -14,7 +12,7 @@ interface props {
 }
 
 const Near = (props: props) => {
-    const {sliderRef, loaded, onNext, onPrev, instanceRef} = useSlider()
+    const {sliderRef, loaded, onNext, onPrev, currentSlide} = useSlider()
 
     return (
         <section className={css.sales}>
@@ -24,7 +22,7 @@ const Near = (props: props) => {
                     count: 978
                 }}/>
                 <div className={css.wrapperOuter}>
-                    <ProductSwiperArrow onClick={onPrev}/>
+                    <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
                     <ProductSwiperArrow onClick={onNext} isNext/>
                     <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
                         <div className={`keen-slider__slide`}>

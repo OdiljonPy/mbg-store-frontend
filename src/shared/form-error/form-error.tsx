@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './form-error.module.css'
-import {raleway} from "@/constants/fonts";
+import {raleway} from "@/constants/fonts/fonts";
 
 interface props {
 error?: string

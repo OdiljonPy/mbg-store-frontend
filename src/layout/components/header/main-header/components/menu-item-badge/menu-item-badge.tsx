@@ -3,7 +3,7 @@ import css from './menu-item-badge.module.css'
 import {IBadge} from "@/layout/components/header/main-header/data-types/badge";
 import {useTranslation} from "next-i18next";
 import Link from "next/link";
-import {raleway} from "@/constants/fonts";
+import {raleway} from "@/constants/fonts/fonts";
 import {Badge} from "antd";
 
 interface props {

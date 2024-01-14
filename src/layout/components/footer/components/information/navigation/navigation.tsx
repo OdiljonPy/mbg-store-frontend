@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './navigation.module.css'
 import Link from "next/link";
-import {navigationList} from "@/constants/nav";
+import {navigationList} from "@/constants/nav/nav";
 import {useTranslation} from "next-i18next";
 
 interface props {

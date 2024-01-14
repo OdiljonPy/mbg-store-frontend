@@ -3,7 +3,7 @@ import css from './nav.module.css'
 import {useTranslation} from "next-i18next";
 import {INav} from "@/layout/components/header/top-header/data-types/nav";
 import Link from "next/link";
-import {raleway} from "@/constants/fonts";
+import {raleway} from "@/constants/fonts/fonts";
 
 interface props {
 
