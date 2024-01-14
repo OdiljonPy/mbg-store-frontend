@@ -13,3 +13,10 @@
     width: 200px;
     margin-top: 50px;
 }
+
+
+@media (max-width: 575px) {
+    .actions{
+        height: 300px;
+    }
+}

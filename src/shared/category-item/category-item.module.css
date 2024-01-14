@@ -1,9 +1,12 @@
+.item, .background{
+    border-radius: var(--medium-radius);
+}
+
 .item {
     min-height: 250px;
-    border-radius: var(--medium-radius);
-    background: #DFCF76;
+    display: block;
     padding: 24px 30px;
-    flex: 1 0 auto;
+    flex: 0 0 23%;
     position: relative;
     cursor: pointer;
     transition: all .2s linear;
@@ -19,12 +22,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    object-fit: cover;
     height: 100%;
     width: 100%;
-    background-size: cover;
-    background-position: bottom center;
     background-repeat: no-repeat;
-    background-image: url("../../../public/images/categories/category.svg");
+    background-position: bottom left;
+    background-size: cover;
 }
 
 .title {
@@ -32,4 +35,12 @@
     font-size: 28px;
     font-weight: 700;
     color: #FFFFFF;
+    z-index: 1;
+}
+
+@media (max-width: 575px) {
+    .background{
+        background-size: contain;
+        background-position: bottom center;
+    }
 }

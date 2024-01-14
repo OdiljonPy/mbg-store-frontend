@@ -9,7 +9,7 @@ export function useSlider() {
         breakpoints: {
             "(min-width: 320px)": {
                 slides: {
-                    perView: 2.2,
+                    perView: 1.4,
                     spacing: 24
                 }
             },

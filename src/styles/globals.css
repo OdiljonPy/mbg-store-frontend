@@ -24,27 +24,27 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
     .container {
         max-width: 960px;
     }
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .container {
         max-width: 720px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .container {
         max-width: 540px;
     }
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
     .container {
         max-width: 100%;
         padding: 0 16px;
