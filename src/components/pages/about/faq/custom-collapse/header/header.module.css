@@ -29,7 +29,7 @@
 }
 
 .opened .number{
-    color: var(--green);
+    color: var(--text-green);
 }
 
 
