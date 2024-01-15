@@ -21,7 +21,7 @@ const Header = ({item, onToggle, open}: props) => {
                     {question}
                 </h4>
             </div>
-            <PlusBtn open={open} onClick={onToggle}/>
+            <PlusBtn open={open}/>
         </div>
     );
 };
