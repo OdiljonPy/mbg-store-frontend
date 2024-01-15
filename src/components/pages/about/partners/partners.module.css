@@ -1,3 +1,10 @@
 .partners{
     margin: 50px 0;
 }
+
+
+@media (max-width: 575px){
+    .partners{
+        margin: 20px 0;
+    }
+}

@@ -7,6 +7,7 @@ import {useTranslation} from "next-i18next";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import Information from "@/components/pages/about/information/information";
 import Partners from "@/components/pages/about/partners/partners";
+import Faq from "@/components/pages/about/faq/faq";
 
 interface props {
 
@@ -37,6 +38,7 @@ const Index = (props: props) => {
 
                 <Information/>
                 <Partners/>
+                <Faq/>
             </section>
         </>
     );

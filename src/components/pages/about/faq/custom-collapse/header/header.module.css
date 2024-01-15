@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    cursor: pointer;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.number, .question {
+    font-weight: 700;
+}
+
+.question {
+    font-size: 28px;
+    color: var(--black);
+}
+
+.number {
+    font-size: 30px;
+    color: var(--icon-gray);
+    transition: all .2s linear;
+}
+
+.opened .number{
+    color: var(--green);
+}
+
+
+
+@media (max-width: 1199px) {
+
+}
