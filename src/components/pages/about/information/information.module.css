@@ -1,0 +1,32 @@
+.info{
+    margin: 12px 0 50px;
+}
+
+.title{
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--black);
+    margin-bottom: 26px;
+}
+
+
+@media (max-width: 991px) {
+    .title{
+        font-size: 34px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .title{
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+    .title{
+        font-size: 28px;
+    }
+}

@@ -11,10 +11,10 @@ const ProductPrice = ({price, discount_price}: props) => {
     return (
         <div className={css.priceWrapper}>
             <p className={`${css.discountPrice} ${!discount_price ? css.hide : ''}`}>
-                {discount_price ? priceFormatter(discount_price) : null}
+                {discount_price ? priceFormatter(discount_price, true) : null}
             </p>
             <p className={`${css.price} ${discount_price ? css.lineThrough : ''}`}>
-                {priceFormatter(price)}
+                {priceFormatter(price, true)}
             </p>
         </div>
     );

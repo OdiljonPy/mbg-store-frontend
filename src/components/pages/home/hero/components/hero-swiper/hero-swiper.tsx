@@ -15,7 +15,7 @@ const HeroSwiper = (props: props) => {
     const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [loaded, setLoaded] = useState<boolean>(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-        initial: 1,
+        initial: 0,
         breakpoints: {
             "(min-width: 320px)": {
                 slides: {
