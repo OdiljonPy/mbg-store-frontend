@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './heading-line.module.css'
 import {useTranslation} from "next-i18next";
-import {IHeadingLine} from "@/components/shared/heading-line/data-types/heading-line";
+import {IHeadingLine} from "@/components/pages/home/heading-line/data-types/heading-line";
 import Link from "next/link";
 
 interface props {

@@ -1,20 +1,19 @@
 import React from 'react';
 import css from './information.module.css'
-import {useTranslation} from "next-i18next";
 import InformationList from "@/components/pages/about/information/information-list/information-list";
+import HeadingLine from "@/components/pages/about/heading-line/heading-line";
 
 interface props {
 
 }
 
 const Information = (props: props) => {
-    const {t} = useTranslation()
     return (
         <section className={css.info}>
-            <h1 className={css.title}>
-                {t('about.title')}
-            </h1>
-            <InformationList/>
+          <div className={'container'}>
+              <HeadingLine title={'about.title'}/>
+              <InformationList/>
+          </div>
         </section>
     );
 };

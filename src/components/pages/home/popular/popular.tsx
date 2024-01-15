@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './popular.module.css'
-import HeadingLine from "@/components/shared/heading-line/heading-line";
+import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Categories from "@/components/pages/home/popular/categories/categories";
 
 interface props {

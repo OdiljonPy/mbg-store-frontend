@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import css from "@/components/pages/home/sales/sales.module.css";
-import HeadingLine from "@/components/shared/heading-line/heading-line";
+import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Product from "@/components/shared/product/product";
 import {product, productWithoutDiscount} from "@/constants/product/product";
 import {useKeenSlider} from "keen-slider/react";
