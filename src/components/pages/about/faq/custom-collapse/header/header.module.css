@@ -5,6 +5,7 @@
     padding: 20px 0;
     cursor: pointer;
     border-bottom: 2px solid var(--light-gray);
+    gap: 20px;
 }
 
 .info {
@@ -35,5 +36,40 @@
 
 
 @media (max-width: 1199px) {
+.question{
+    font-size: 24px;
+}
+    .number{
+        font-size: 26px;
+    }
+}
 
+@media (max-width: 991px) {
+    .question{
+        font-size: 22px;
+    }
+    .number{
+        font-size: 24px;
+    }
+    .info{
+        gap: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .question{
+        font-size: 20px;
+    }
+    .number{
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 575px) {
+    .info{
+        gap: 6px;
+    }
+    .question, .number{
+        font-size: 14px;
+    }
 }

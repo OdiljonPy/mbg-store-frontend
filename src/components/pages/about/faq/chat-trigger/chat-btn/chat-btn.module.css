@@ -1,0 +1,20 @@
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-green);
+    border-radius: var(--default-radius);
+    padding: 15px 0;
+    background: var(--pale-green);
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+@media (max-width: 991px) {
+    
+}

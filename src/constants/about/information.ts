@@ -8,7 +8,7 @@ export const informationItems: IInformation[] = [
     {
         title: 'about.products',
         count: 25000,
-        img: products
+        img: products,
     },
     {
         title: 'about.stores',
@@ -21,3 +21,4 @@ export const informationItems: IInformation[] = [
         img: orders
     },
 ]
+

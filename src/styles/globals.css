@@ -26,6 +26,12 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
+@media (max-width: 1320px) {
+    .container{
+        max-width: 1170px;
+    }
+}
+
 @media (max-width: 1199px) {
     .container {
         max-width: 960px;

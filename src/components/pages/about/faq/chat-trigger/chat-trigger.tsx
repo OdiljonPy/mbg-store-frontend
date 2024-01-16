@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './chat-trigger.module.css'
 import {useTranslation} from "next-i18next";
+import ChatBtn from "@/components/pages/about/faq/chat-trigger/chat-btn/chat-btn";
 
 interface props {
 
@@ -19,6 +20,7 @@ const ChatTrigger = (props: props) => {
             <p className={css.text}>
                 {t('about.chat')}
             </p>
+            <ChatBtn/>
         </div>
     );
 };

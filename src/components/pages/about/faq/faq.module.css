@@ -8,3 +8,13 @@
 .questions{
     flex: 0 0 60%;
 }
+
+@media (max-width: 767px) {
+    .wrapper{
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .questions{
+        flex-basis: 100%;
+    }
+}

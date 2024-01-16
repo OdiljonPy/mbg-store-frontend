@@ -21,3 +21,22 @@
 .icon:hover path{
     fill: var(--green);
 }
+
+
+@media (max-width: 991px) {
+    .chat{
+        flex-basis: 35%;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .chat{
+        flex-basis: 100%;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+
+}
