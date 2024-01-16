@@ -10,7 +10,7 @@ interface props {
 
 const ProductList = (props: props) => {
     const searchParams = useSearchParams()
-    const isOpened: boolean = searchParams.get('filters')
+    const isOpened: string | null = searchParams.get('filters')
     return (
         <>
             <div className={`${css.list} ${isOpened ? css.short: ''}`}>

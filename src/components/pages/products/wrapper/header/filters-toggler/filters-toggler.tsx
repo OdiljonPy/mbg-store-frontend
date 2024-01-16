@@ -14,7 +14,7 @@ const FiltersToggler = (props: props) => {
     const pathname = usePathname()
     const {query, push} = useRouter()
     const {t} = useTranslation()
-    const isOpened: boolean = searchParams.get('filters')
+    const isOpened: string | null = searchParams.get('filters')
 
     const onToggle = () => {
         const queries = {
