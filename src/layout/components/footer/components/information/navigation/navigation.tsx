@@ -14,9 +14,13 @@ const Navigation = (props: props) => {
         <nav className={css.nav}>
             {navigationList.map(({
                                      path,
-                                     title
+                                     title,
+                                     query
                                  }) => (
-                <Link href={path} className={css.link} key={path}>
+                <Link href={{
+                    pathname: path,
+                    query
+                }} className={css.link} key={path}>
                     {t(title)}
                 </Link>
             ))}

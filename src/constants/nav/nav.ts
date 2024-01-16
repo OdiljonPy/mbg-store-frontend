@@ -7,7 +7,10 @@ export const navigationList: INav[] = [
     },
     {
         path: '/stores',
-        title: 'header.stores'
+        title: 'header.stores',
+        query: {
+            letter: 'a'
+        }
     },
     {
         path: '/faq',
