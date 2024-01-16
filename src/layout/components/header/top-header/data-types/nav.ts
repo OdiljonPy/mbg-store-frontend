@@ -1,4 +1,6 @@
-export interface INav{
+export interface INav {
     path: string
     title: string
+    query?: Record<string, string>
 }
+

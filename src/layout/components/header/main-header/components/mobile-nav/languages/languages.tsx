@@ -4,14 +4,15 @@ import {languages} from "@/constants/languages/languages";
 import Language from "@/layout/components/header/main-header/components/mobile-nav/language/language";
 
 interface props {
+onClose: () => void
 
 }
 
-const Languages = (props: props) => {
+const Languages = ({onClose}: props) => {
     return (
         <div className={css.languages}>
             {languages.map((language) => (
-                <Language language={language} key={language.code}/>
+                <Language onClose={onClose} language={language} key={language.code}/>
             ))}
         </div>
     );

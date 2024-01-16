@@ -12,9 +12,6 @@ interface props {
 }
 
 
-
-
-
 const Nav = (props: props) => {
     const {t} = useTranslation()
     const pathname = usePathname()
@@ -22,10 +19,14 @@ const Nav = (props: props) => {
         <nav className={css.nav}>
             <ul className={css.list}>
                 {navTopList.map(({
-                    path,
-                    title
-                              }) => (
-                    <Link href={path} className={`${css.item} ${raleway.className} ${path === pathname ? css.active : ''}`} key={path}>
+                                     path,
+                                     title,
+                                     query
+                                 }) => (
+                    <Link href={{
+                        pathname: path,
+                        query
+                    }} className={`${css.item} ${raleway.className} ${path === pathname ? css.active : ''}`} key={path}>
                         {t(title)}
                     </Link>
                 ))}

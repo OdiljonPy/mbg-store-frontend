@@ -54,3 +54,9 @@
         flex: 1 0 auto;
     }
 }
+
+@media (max-width: 575px) {
+    .wrapper{
+        gap: 6px;
+    }
+}

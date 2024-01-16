@@ -34,10 +34,9 @@ export const navTopList: INav[] = [
     },
     {
         path: '/stores',
-        title: 'header.stores'
-    },
-    {
-        path: '/faq',
-        title: 'header.faq'
+        title: 'header.stores',
+        query: {
+            letter: 'a'
+        }
     }
 ]

@@ -9,16 +9,18 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 
 interface props {
     language: ILanguage
+    onClose: () => void
 }
 
-const Language = ({language}: props) => {
+const Language = ({language, onClose}: props) => {
     const {code, title} = language
     const pathname = usePathname()
     const {i18n} = useTranslation()
     return (
         <Link href={{
             pathname
-        }} locale={code} scroll={false} className={`${css.language} ${i18n.language === code ? css.active : ''}`}>
+        }} onClick={onClose} locale={code} scroll={false}
+              className={`${css.language} ${i18n.language === code ? css.active : ''}`}>
             <span className={css.icon}>
                 <ResponsiveImage src={languagesIcons[code as keyof ILanguagesIcons]} alt={title}/>
             </span>

@@ -5,18 +5,22 @@ import Link from "next/link";
 import {useTranslation} from "next-i18next";
 
 interface props {
-
+    onClose: () => void
 }
 
-const List = (props: props) => {
+const List = ({onClose}: props) => {
     const {t} = useTranslation()
     return (
         <ul className={css.list}>
             {navTopList.map(({
-                path,
-                title
+                                 path,
+                                 title,
+                                 query
                              }) => (
-                <Link href={path} key={path} className={css.item}>
+                <Link href={{
+                    pathname: path,
+                    query
+                }} onClick={onClose} key={path} className={css.item}>
                     {t(title)}
                 </Link>
             ))}

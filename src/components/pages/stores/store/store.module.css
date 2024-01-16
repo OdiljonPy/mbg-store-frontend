@@ -1,0 +1,12 @@
+.store{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--icon-gray);
+}
+
+
+@media (max-width: 575px) {
+    .store{
+        font-size: 14px;
+    }
+}

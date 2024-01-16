@@ -1,10 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import css from './mobile-nav.module.css'
 import {useModal} from "@/hooks/use-modal";
 import List from "@/layout/components/header/main-header/components/mobile-nav/list/list";
 import Languages from "@/layout/components/header/main-header/components/mobile-nav/languages/languages";
-import {usePathname} from "next/navigation";
-import {useTranslation} from "next-i18next";
 
 interface props {
 
@@ -12,13 +10,10 @@ interface props {
 
 const MobileNav = (props: props) => {
     const {open, onClose, onToggle} = useModal()
-    const pathname = usePathname()
-    const {i18n} = useTranslation()
 
 
-    useEffect(() => {
-        onClose()
-    }, [i18n.language, pathname])
+
+
 
     return (
         <nav className={css.nav}>
@@ -28,8 +23,8 @@ const MobileNav = (props: props) => {
                 <span className={`${css.line} ${css.line3}`}/>
             </button>
             <div className={`${css.drawer} ${open ? css.show : ''}`}>
-                <Languages/>
-                <List/>
+                <Languages onClose={onClose}/>
+                <List onClose={onClose}/>
             </div>
         </nav>
     );

@@ -1,0 +1,9 @@
+.letters {
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+}
+
+.letters::-webkit-scrollbar {
+    width: 0;
+}
