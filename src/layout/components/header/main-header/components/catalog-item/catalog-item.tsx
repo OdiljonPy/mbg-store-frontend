@@ -18,7 +18,8 @@ const CatalogItem = ({item}: props) => {
         <Link href={{
             pathname: `/products`,
             query: {
-                category: title
+                category: title,
+                sort: 'popular'
             }
         }} className={css.item}>
             <span className={css.text}>

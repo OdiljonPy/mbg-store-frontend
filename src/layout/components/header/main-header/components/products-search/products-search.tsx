@@ -51,7 +51,8 @@ const ProductsSearch = (props: props) => {
                 pathname: '/products',
                 query: {
                     ...query,
-                    search: searchText
+                    search: searchText,
+                    sort: 'popular'
                 }
             }, undefined)
         }

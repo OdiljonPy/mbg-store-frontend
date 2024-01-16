@@ -1,7 +1,11 @@
 .product {
     flex: 0 0 24%;
+    transition: all .2s linear;
 }
 
+.short{
+    flex: 0 0 32%;
+}
 
 @media (max-width: 992px) {
     .notSwiper {

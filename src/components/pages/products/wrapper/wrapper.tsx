@@ -6,6 +6,8 @@ import {useSearchParams} from "next/navigation";
 import ProductList from "@/components/pages/products/product-list/product-list";
 import Title from "@/components/pages/products/wrapper/title/title";
 import ProductsCount from "@/components/pages/products/wrapper/products-count/products-count";
+import Header from "@/components/pages/products/wrapper/header/header";
+import Filters from "@/components/pages/products/filters/filters";
 
 interface props {
 
@@ -28,9 +30,11 @@ const Wrapper = (props: props) => {
                         label: category ?? t('categories.all')
                     }
                 ]}/>
-                <Title/>
-                <ProductsCount/>
-                <ProductList/>
+                <Header/>
+                <div className={css.wrapper}>
+                    <Filters/>
+                    <ProductList/>
+                </div>
             </div>
         </section>
     );

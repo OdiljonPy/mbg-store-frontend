@@ -23,7 +23,8 @@ const CategoryItem = ({category, classNames}: props) => {
             href={{
             pathname: '/products',
             query: {
-                category: title
+                category: title,
+                sort: 'popular'
             }
         }} className={`${css.item} ${classNames ?? ''}`}>
             <span className={css.background} style={{

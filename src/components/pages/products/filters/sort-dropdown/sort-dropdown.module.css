@@ -1,0 +1,14 @@
+.btn{
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    gap: 4px;
+    font-weight: 600;
+    color: var(--black);
+}
+.sort{
+    color: var(--icon-gray);
+}
