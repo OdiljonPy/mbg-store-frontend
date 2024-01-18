@@ -12,3 +12,14 @@
 .sort{
     color: var(--icon-gray);
 }
+.icon{
+    flex-basis: 24px;
+    height: 24px;
+    display: block;
+    transition: all .2s linear;
+    transform: rotate(-90deg);
+}
+
+.opened{
+transform: rotate(90deg);
+}

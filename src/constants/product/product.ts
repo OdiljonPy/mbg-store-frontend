@@ -1,5 +1,6 @@
 import {IProduct} from "@/data-types/products/products";
 import img from '../../../public/images/products/mikado.png'
+import {ISortingOption} from "@/components/pages/products/filters/data-types/sorting";
 
 export const product: IProduct = {
     id: 1,
@@ -20,3 +21,23 @@ export const productWithoutDiscount: IProduct = {
     price: 30000,
     img: img
 }
+
+
+export const sortingOptions:ISortingOption[] = [
+    {
+        title: 'filters.sorting.popular',
+        val: 'popular',
+    },
+    {
+        title: 'filters.sorting.cheap',
+        val: 'cheap'
+    },
+    {
+        title: 'filters.sorting.expensive',
+        val: 'expensive'
+    },
+    {
+        title: 'filters.sorting.highRate',
+        val: 'highRate'
+    },
+]

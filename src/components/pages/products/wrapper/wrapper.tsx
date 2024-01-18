@@ -4,8 +4,6 @@ import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslation} from "next-i18next";
 import {useSearchParams} from "next/navigation";
 import ProductList from "@/components/pages/products/product-list/product-list";
-import Title from "@/components/pages/products/wrapper/title/title";
-import ProductsCount from "@/components/pages/products/wrapper/products-count/products-count";
 import Header from "@/components/pages/products/wrapper/header/header";
 import Filters from "@/components/pages/products/filters/filters";
 
@@ -31,6 +29,7 @@ const Wrapper = (props: props) => {
                     }
                 ]}/>
                 <Header/>
+
                 <div className={css.wrapper}>
                     <Filters/>
                     <ProductList/>
