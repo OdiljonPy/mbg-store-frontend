@@ -3,6 +3,7 @@ import css from './product-list.module.css'
 import Product from "@/components/shared/product/product";
 import {product, productWithoutDiscount} from "@/constants/product/product";
 import {useSearchParams} from "next/navigation";
+import {useRouter} from "next/router";
 
 interface props {
 
@@ -11,6 +12,9 @@ interface props {
 const ProductList = (props: props) => {
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
+    const {isReady} = useRouter()
+
+    if (!isReady) return
     return (
         <>
             <div className={`${css.list} ${isOpened ? css.short: ''}`}>

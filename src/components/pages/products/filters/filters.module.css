@@ -1,7 +1,9 @@
 .filters {
-
+    transition: all .4s ease-in-out;
+    overflow: hidden;
+    flex-basis: 0;
 }
 
 .show {
-
+   flex-basis: 23%;
 }

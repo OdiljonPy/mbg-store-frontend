@@ -1,0 +1,27 @@
+.btn {
+    border-radius: 14px;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 17px 0;
+    width: 100%;
+    color: var(--icon-gray);
+    font-size: 17px;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+.btn:hover {
+    color: #FFFFFF;
+    background: var(--green);
+}
+
+
+.btn:active {
+    background: var(--light-green);
+}

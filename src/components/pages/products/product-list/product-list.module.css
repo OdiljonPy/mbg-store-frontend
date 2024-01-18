@@ -4,20 +4,19 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 26px 0 60px;
+
     row-gap: 30px;
-    transition: all .2s linear;
+    transition: flex-basis .4s ease-in-out;
     flex-basis: 100%;
 }
 
 .short{
-    flex-basis: 70%;
+    flex-basis: 75%;
 }
 
 
 @media (max-width: 575px) {
     .list{
-        margin: 14px 0;
         row-gap: 10px;
     }
 }

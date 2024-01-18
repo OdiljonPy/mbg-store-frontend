@@ -1,4 +1,4 @@
-.btn{
+.btn {
     display: flex;
     align-items: center;
     background: none;
@@ -9,10 +9,12 @@
     font-weight: 600;
     color: var(--black);
 }
-.sort{
+
+.sort {
     color: var(--icon-gray);
 }
-.icon{
+
+.icon {
     flex-basis: 24px;
     height: 24px;
     display: block;
@@ -20,6 +22,6 @@
     transform: rotate(-90deg);
 }
 
-.opened{
-transform: rotate(90deg);
+.opened {
+    transform: rotate(90deg);
 }

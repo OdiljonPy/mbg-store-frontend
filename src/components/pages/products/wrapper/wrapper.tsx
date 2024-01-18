@@ -30,7 +30,7 @@ const Wrapper = (props: props) => {
                 ]}/>
                 <Header/>
 
-                <div className={css.wrapper}>
+                <div className={`${css.wrapper}`}>
                     <Filters/>
                     <ProductList/>
                 </div>
