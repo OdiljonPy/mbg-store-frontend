@@ -7,6 +7,7 @@ import milk from '@/../public/images/icons/milk.svg'
 import meat from '@/../public/images/icons/meat.svg'
 import {ICategoryFilter} from "@/components/pages/products/filters/data-types/category/category";
 import Category from "@/components/pages/products/filters/categories/category/category";
+import {useTranslation} from "next-i18next";
 
 interface props {
 
@@ -41,8 +42,9 @@ const categoriesList: ICategoryFilter[] = [
 ]
 
 const Categories = (props: props) => {
+    const {t} = useTranslation()
     return (
-        <FilterCollapse title={'Категории'}>
+        <FilterCollapse title={t('categories.title')}>
             {categoriesList.map((category) => (
                 <Category category={category} key={category.id}/>
             ))}

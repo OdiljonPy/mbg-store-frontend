@@ -3,25 +3,35 @@ import css from './catalog-item.module.css'
 import Link from "next/link";
 import {ICategoryItem} from "@/layout/components/header/main-header/data-types/category";
 import {useSearchParams} from "next/navigation";
+import {ParsedUrlQueryInput} from "querystring";
 
 interface props {
     item: ICategoryItem
 }
 
+
 const CatalogItem = ({item}: props) => {
     const searchParams = useSearchParams()
     const filters: string | null = searchParams.get('filters')
+
     const {
         title
     } = item
+
+    const queries: ParsedUrlQueryInput = {
+        category: title,
+        sort: 'popular',
+        filters: filters
+    }
+
+    if (!filters) {
+        delete queries.filters
+    }
+
     return (
         <Link href={{
             pathname: `/products`,
-            query: {
-                category: title,
-                sort: 'popular',
-                filters: filters
-            }
+            query: queries
         }} className={css.item}>
             <span className={css.text}>
                 {title}

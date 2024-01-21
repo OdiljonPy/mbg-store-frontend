@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 0 !important;
+}
+
+
+.wrapper span:last-child {
+    flex: 1 0 auto;
+}
+
+.title, .text{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.text {
+    text-align: right;
+    color: var(--icon-gray);
+
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+}
+
+
+.title{
+    color: var(--black);
+}

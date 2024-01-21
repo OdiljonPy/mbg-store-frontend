@@ -17,8 +17,8 @@
 
 .wrapper {
     display: flex;
-    align-items: stretch;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 26px 0 60px;
 }
 

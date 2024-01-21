@@ -20,10 +20,12 @@
     font-size: 14px;
 }
 
+
 .text{
     font-weight: 700;
     color: var(--black);
     transition: all .2s linear;
+    white-space: nowrap;
 }
 
 
@@ -35,5 +37,9 @@
 
 
 .active{
+    color: var(--text-green);
+}
+
+.item:hover .text{
     color: var(--text-green);
 }

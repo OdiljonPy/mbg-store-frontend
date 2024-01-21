@@ -2,10 +2,12 @@ import React from 'react';
 import css from './filters.module.css'
 import {useSearchParams} from "next/navigation";
 import ResetFilters from "@/components/pages/products/filters/reset-filters/reset-filters";
-import FilterCollapse from "@/components/pages/products/filters/filter-collapse/filter-collapse";
 import {useRouter} from "next/router";
 import Categories from "@/components/pages/products/filters/categories/categories";
 import Prices from "@/components/pages/products/filters/prices/prices";
+import Stores from "@/components/pages/products/filters/stores/stores";
+import Sales from "@/components/pages/products/filters/sales/sales";
+import Rating from "@/components/pages/products/filters/rating/rating";
 
 interface props {
 
@@ -16,13 +18,15 @@ const Filters = (props: props) => {
     const isOpened: string | null = searchParams.get('filters')
     const {isReady} = useRouter()
 
-    if (!isReady) return
 
     return (
-        <div className={`${css.filters} ${isOpened ? css.show : ''}`}>
+        <div className={`${css.filters} ${!isReady ? css.hide : ''} ${isOpened ? css.show : ''}`}>
             <ResetFilters/>
             <Categories/>
             <Prices/>
+            <Stores/>
+            <Sales/>
+            <Rating/>
         </div>
     );
 };

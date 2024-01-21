@@ -17,7 +17,8 @@ const ResetFilters = (props: props) => {
 
     const onReset = () => push({
         pathname, query: {
-            filters: filters
+            filters: filters,
+            sort: 'popular'
         }
     }, undefined, {
         scroll: false

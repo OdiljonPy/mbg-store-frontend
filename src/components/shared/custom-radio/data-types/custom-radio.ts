@@ -1,7 +1,7 @@
-import {UseFormRegister} from "react-hook-form";
+import {ReactElement} from "react";
 
 export interface ICustomRadio{
-    title: string
+    title: string | ReactElement
     key: string
     name: string
 }

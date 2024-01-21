@@ -48,6 +48,7 @@
     "title": "Аккаунт"
   },
   "sales": {
+    "sale": "Скидки",
     "title": "На скидке"
   },
   "products": {
@@ -82,5 +83,8 @@
   },
   "from": "От",
   "to": "До",
-  "fromBeginning": "Сначала"
+  "fromBeginning": "Сначала",
+  "rating": {
+    "title": "Рейтинг"
+  }
 }
