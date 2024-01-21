@@ -2,6 +2,7 @@ import React from 'react';
 import css from './catalog-top.module.css'
 import Link from "next/link";
 import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/category";
+import {useSearchParams} from "next/navigation";
 
 interface props {
     item: ICategoryItemGeneral
@@ -9,10 +10,15 @@ interface props {
 
 const CatalogTop = ({item}: props) => {
 
+    const searchParams = useSearchParams()
+    const filters: string | null = searchParams.get('filters')
 
     return (
         <Link href={{
-            pathname: `/catalog`
+            pathname: `/catalog`,
+            query: {
+                filters: filters
+            }
         }} className={css.item}>
             <span className={css.title}>
                 {item.title}

@@ -2,15 +2,15 @@ import React from 'react';
 import css from './catalog-item.module.css'
 import Link from "next/link";
 import {ICategoryItem} from "@/layout/components/header/main-header/data-types/category";
-import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {useRouter} from "next/router";
+import {useSearchParams} from "next/navigation";
 
 interface props {
     item: ICategoryItem
 }
 
 const CatalogItem = ({item}: props) => {
-    const {query} = useRouter()
+    const searchParams = useSearchParams()
+    const filters: string | null = searchParams.get('filters')
     const {
         title
     } = item
@@ -19,7 +19,8 @@ const CatalogItem = ({item}: props) => {
             pathname: `/products`,
             query: {
                 category: title,
-                sort: 'popular'
+                sort: 'popular',
+                filters: filters
             }
         }} className={css.item}>
             <span className={css.text}>

@@ -1,0 +1,39 @@
+.item, .info{
+    display: flex;
+    align-items: center;
+}
+
+.item{
+    width: 100%;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 10px 0;
+    background: none;
+    border: none;
+}
+
+.info{
+    gap: 8px;
+}
+
+.text, .count{
+    font-size: 14px;
+}
+
+.text{
+    font-weight: 700;
+    color: var(--black);
+    transition: all .2s linear;
+}
+
+
+
+.count{
+    font-weight: 600;
+    color: var(--icon-gray);
+}
+
+
+.active{
+    color: var(--text-green);
+}
