@@ -21,3 +21,11 @@
 .btn:hover .path{
     fill: var(--green);
 }
+
+
+
+@media (max-width: 767px) {
+    .btn{
+        display: none;
+    }
+}

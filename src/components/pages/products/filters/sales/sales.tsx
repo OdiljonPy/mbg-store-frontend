@@ -11,30 +11,34 @@ interface props {
 }
 
 
-const storesList: ICustomCheckbox[] = [
-    {
-        id: 1,
-        title: '80% и более',
-        count: 120
-    },
-    {
-        id: 2,
-        title: '70% и более',
-        count: 856
-    },
-    {
-        id: 3,
-        title: '60% и более',
-        count: 123
-    },
-    {
-        id: 4,
-        title: '50% и более',
-        count: 345
-    }
-]
+
 const Sales = (props: props) => {
+
     const {t} = useTranslation()
+
+    const storesList: ICustomCheckbox[] = [
+        {
+            id: 1,
+            title: t('sales.more', {count: 80}),
+            count: 120
+        },
+        {
+            id: 2,
+            title: t('sales.more', {count: 70}),
+            count: 856
+        },
+        {
+            id: 3,
+            title: t('sales.more', {count: 60}),
+            count: 123
+        },
+        {
+            id: 4,
+            title: t('sales.more', {count: 50}),
+            count: 345
+        }
+    ]
+
     return (
         <FilterCollapse title={t('sales.sale')}>
             <div className={css.stores}>

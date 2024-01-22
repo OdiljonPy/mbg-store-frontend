@@ -1,0 +1,29 @@
+
+.header{
+    position: relative;
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+}
+
+.reset{
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-transform: lowercase;
+    color: var(--icon-gray);
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hide{
+    display: none;
+}
+

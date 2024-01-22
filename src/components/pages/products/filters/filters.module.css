@@ -13,3 +13,16 @@
 .hide{
  opacity: 0;
 }
+
+
+@media (max-width: 991px) {
+    .show{
+        flex-basis: 33%;
+    }
+}
+
+@media (max-width: 767px) {
+    .filters{
+        display: none;
+    }
+}

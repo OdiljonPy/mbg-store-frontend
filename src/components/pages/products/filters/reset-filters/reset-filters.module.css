@@ -16,12 +16,39 @@
 }
 
 
+.active {
+    background: var(--super-light-green);
+    color: var(--text-green);
+}
+
 .btn:hover {
-    color: #FFFFFF;
-    background: var(--green);
+    color: var(--text-green);
+    background: var(--super-light-green);
 }
 
 
 .btn:active {
-    background: var(--light-green);
+   opacity: .8;
+}
+
+
+.info {
+    margin-left: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    padding: 3px 7px;
+    transition: all .2s linear;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
 }

@@ -1,0 +1,27 @@
+.btn{
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .btn {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        gap: 4px;
+    }
+
+    .text {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--black);
+    }
+}
+
+@media (max-width: 575px) {
+
+
+    .text {
+        font-size: 12px;
+    }
+}

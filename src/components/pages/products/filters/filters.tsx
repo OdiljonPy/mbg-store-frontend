@@ -8,6 +8,8 @@ import Prices from "@/components/pages/products/filters/prices/prices";
 import Stores from "@/components/pages/products/filters/stores/stores";
 import Sales from "@/components/pages/products/filters/sales/sales";
 import Rating from "@/components/pages/products/filters/rating/rating";
+import Delivery from "@/components/pages/products/filters/delivery/delivery";
+import Accessibility from "@/components/pages/products/filters/accessibility/accessibility";
 
 interface props {
 
@@ -27,6 +29,8 @@ const Filters = (props: props) => {
             <Stores/>
             <Sales/>
             <Rating/>
+            <Delivery/>
+            <Accessibility/>
         </div>
     );
 };

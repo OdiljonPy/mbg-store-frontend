@@ -8,12 +8,18 @@ interface props {
 
 }
 
+const diffFilters: string[] = ['filters', 'search', 'sort']
+
 const ResetFilters = (props: props) => {
     const {t} = useTranslation()
-    const {push} = useRouter()
+    const {push, query} = useRouter()
     const searchParams = useSearchParams()
     const pathname: string = usePathname()
     const filters: string | null = searchParams.get('filters')
+
+
+    const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
+
 
     const onReset = () => push({
         pathname, query: {
@@ -24,8 +30,10 @@ const ResetFilters = (props: props) => {
         scroll: false
     })
     return (
-        <button onClick={onReset} type={'button'} className={css.btn}>
-            {t('filters.reset')}
+        <button onClick={onReset} type={'button'}
+                className={`${css.btn} ${activeFilters.length ? css.active : ''}`}>
+            {t('filters.reset')} <span
+            className={`${css.info} ${activeFilters.length ? css.show : ''}`}>{activeFilters.length}</span>
         </button>
     );
 };
