@@ -25,7 +25,8 @@
     "often": "Часто ищут",
     "title": "Поиск",
     "found": "Найдено {{products}} товаров в {{categories}} категориях",
-    "categories": "{{products}} товаров"
+    "categories": "{{products}} товаров",
+    "byName": "Поиск по названию"
   },
   "errors": {
     "required": "Это поле обязательно"

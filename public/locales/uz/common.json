@@ -25,7 +25,8 @@
     "often": "Часто ищут",
     "title": "Поиск",
     "found": "Найдено {{products}} товаров в {{categories}} категориях",
-    "categories": "{{products}} товаров"
+    "categories": "{{products}} товаров",
+    "byName": "Поиск по названию"
   },
   "errors": {
     "required": "Это поле обязательно"
@@ -48,6 +49,7 @@
     "title": "Аккаунт"
   },
   "sales": {
+    "sale": "Скидки",
     "title": "На скидке"
   },
   "products": {
@@ -82,5 +84,8 @@
   },
   "from": "От",
   "to": "До",
-  "fromBeginning": "Сначала"
+  "fromBeginning": "Сначала",
+  "rating": {
+    "title": "Рейтинг"
+  }
 }

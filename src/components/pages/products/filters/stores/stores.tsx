@@ -4,6 +4,7 @@ import {useTranslation} from "next-i18next";
 import css from './stores.module.css'
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 import Store from "@/components/pages/products/filters/stores/store/store";
+import Search from "@/components/pages/products/filters/stores/search/search";
 
 interface props {
 
@@ -39,6 +40,7 @@ const Stores = (props: props) => {
     return (
         <FilterCollapse title={t('header.stores')}>
             <div className={css.stores}>
+                <Search/>
                 {storesList.map((item) => (
                     <Store item={item} key={item.id}/>
                 ))}

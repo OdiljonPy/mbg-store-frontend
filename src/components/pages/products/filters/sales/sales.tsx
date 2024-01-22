@@ -4,6 +4,7 @@ import FilterCollapse from "@/components/pages/products/filters/filter-collapse/
 import css from "@/components/pages/products/filters/stores/stores.module.css";
 import {useTranslation} from "next-i18next";
 import Sale from "@/components/pages/products/filters/sales/sale/sale";
+import SaleSwitch from "@/components/pages/products/filters/sales/sale-switch/sale-switch";
 
 interface props {
 
@@ -37,6 +38,7 @@ const Sales = (props: props) => {
     return (
         <FilterCollapse title={t('sales.sale')}>
             <div className={css.stores}>
+                <SaleSwitch/>
                 {storesList.map((item) => (
                     <Sale item={item} key={item.id}/>
                 ))}
