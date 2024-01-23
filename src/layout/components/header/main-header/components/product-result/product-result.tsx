@@ -18,7 +18,7 @@ const ProductResult = ({item}: props) => {
 
 
     const queries: ParsedUrlQueryInput = {
-        category: title,
+        search: title,
         sort: 'popular',
         filters: filters
     }
