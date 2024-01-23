@@ -13,9 +13,7 @@ const Input = ({price, label}: props) => {
             <p className={css.text}>
                 {label}
             </p>
-            <p className={css.value}>
-                {priceFormatter(price)}
-            </p>
+            <input value={priceFormatter(price)} disabled className={css.value}/>
         </div>
     );
 };

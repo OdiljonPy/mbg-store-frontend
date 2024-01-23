@@ -3,7 +3,8 @@
     align-items: center;
     gap: 5px;
     border: 1px solid var(--input-gray);
-    flex: 0 0 48%;
+    flex-basis: 48%;
+    width: 48%;
     border-radius: 14px;
     padding: 15px 12px;
 }
@@ -20,4 +21,7 @@
 .value {
     font-size: 14px;
     color: var(--black);
+    background: none;
+    border: none;
+    outline: none;
 }

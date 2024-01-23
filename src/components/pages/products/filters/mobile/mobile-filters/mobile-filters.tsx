@@ -1,23 +1,44 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useTranslation} from "next-i18next";
 import css from './mobile-filters.module.css'
 import {Drawer} from "antd";
 import {raleway} from "@/constants/fonts/fonts";
-import Accessibility from "@/components/pages/products/filters/desktop/accessibility/accessibility";
 import Categories from "@/components/pages/products/filters/mobile/categories/categories";
+import {FormProvider, useForm} from "react-hook-form";
+import {IFilters} from "./data-types/index";
+import {useRouter} from "next/router";
+import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
+import {useModal} from "@/hooks/use-modal";
+import Prices from "@/components/pages/products/filters/mobile/prices/prices";
 
 interface props {
 
 }
 
-const MobileFilters = (props: props) => {
+
+const MobileFilters = ({}: props) => {
+
     const {t} = useTranslation()
-    const [open, setOpen] = useState<boolean>(false)
+    const {query} = useRouter()
+    const defaultValues = {
+        ...query,
+        prices: typeof query.prices === 'string' ? query.prices : '1000,1000'
+    }
+    const {open, onClose, onOpen} = useModal()
+    const methods = useForm<IFilters>({
+        defaultValues: defaultValues
+    })
 
 
-    const onOpen = () => setOpen(true)
 
-    const onClose = () => setOpen(false)
+    const valuesCount: number = Object.values(methods.getValues()).length
+    const onFilter = (values: IFilters) => {
+
+    }
+
+    const onReset = () => {
+        methods.reset()
+    }
 
 
     return (
@@ -33,8 +54,21 @@ const MobileFilters = (props: props) => {
                     {t('filters.title')}
                </span>
             </button>
-            <Drawer onClose={onClose} placement={'bottom'} height={'100%'} open={open}>
-                <Categories/>
+            <Drawer classNames={{
+                body: 'custom-body'
+            }} closeIcon={false} onClose={onClose} placement={'bottom'} height={'100%'} open={open}>
+                <DrawerHeader options={{
+                    title: t('filters.title'),
+                    onClose,
+                    onReset,
+                    count: valuesCount > 1 ? valuesCount : undefined
+                }}/>
+                <FormProvider {...methods}>
+                    <form onSubmit={methods.handleSubmit(onFilter)}>
+                        <Categories/>
+                        <Prices/>
+                    </form>
+                </FormProvider>
             </Drawer>
         </>
     );

@@ -1,0 +1,28 @@
+.bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.btn {
+    display: block;
+    border: none;
+    background: none;
+}
+
+.icon {
+    transform: rotate(180deg);
+    display: block;
+}
+
+.hide {
+    display: none;
+    pointer-events: none;
+}

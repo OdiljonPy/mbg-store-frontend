@@ -7,12 +7,14 @@ import {usePathname, useSearchParams} from "next/navigation";
 import {IPriceRange} from "@/components/pages/products/filters/desktop/data-types/prices/prices";
 import PriceSlider from "@/components/pages/products/filters/desktop/prices/slider/slider";
 import Inputs from "@/components/pages/products/filters/desktop/prices/inputs/inputs";
+import {useTranslation} from "next-i18next";
 
 interface props {
 
 }
 
 const Prices = (props: props) => {
+    const {t} = useTranslation()
     const pathname = usePathname()
     const {push, query, isReady} = useRouter()
     const searchParams = useSearchParams()
@@ -46,7 +48,7 @@ const Prices = (props: props) => {
     }, [prices])
 
     return (
-        <FilterCollapse title={'Цена, UZS'}>
+        <FilterCollapse title={t('price.title')}>
             <div className={css.price}>
                 <Inputs priceRange={priceRange}/>
                 <PriceSlider priceRange={priceRange} onChangeComplete={onChangeComplete} onChange={onChange}/>

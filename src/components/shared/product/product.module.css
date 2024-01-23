@@ -11,13 +11,11 @@
     .notSwiper {
         flex-basis: 32%;
     }
-}
-
-@media (max-width: 991px) {
     .short{
         flex-basis: 48%;
     }
 }
+
 
 @media (max-width: 768px) {
     .notSwiper {
