@@ -1,38 +1,30 @@
 import React from 'react';
-import {useModal} from "@/hooks/use-modal";
 import css from "@/components/pages/products/filters/mobile/categories/categories.module.css";
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
-import Body from "@/components/pages/products/filters/mobile/categories/body/body";
 import {useTranslation} from "next-i18next";
-import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
-import {Drawer} from "antd";
+import Inputs from "@/components/pages/products/filters/desktop/prices/inputs/inputs";
+import {useFormContext} from "react-hook-form";
+import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
+import SliderPrices from "@/components/pages/products/filters/mobile/prices/slider/slider";
 
 interface props {
 
 }
 
 const Prices = (props: props) => {
-    const {open, onOpen, onClose} = useModal()
+    const {watch, unregister} = useFormContext<IFilters>()
     const {t} = useTranslation()
+    const prices = watch('prices')
+    const parsedPrice = prices ? prices.split(',')?.map((item) => Number(item)) : [1000, 50000]
     const onReset = () => {
-
+        unregister('prices')
     }
     return (
-        <>
-            <div className={css.btn}>
-                <TopBar hideIcon title={t('price.title')} onOpen={onOpen}/>
-
-            </div>
-            <Drawer classNames={{
-                body: 'custom-body'
-            }} open={open} closeIcon={false} placement={'bottom'} height={'100%'} onClose={onClose}>
-                <DrawerHeader options={{
-                    title: t('categories.title'),
-                    onClose,
-                    onReset
-                }}/>
-            </Drawer>
-        </>
+        <div className={css.btn}>
+            <TopBar onReset={onReset} hideIcon title={t('price.title')}/>
+            <Inputs priceRange={parsedPrice}/>
+            <SliderPrices/>
+        </div>
     );
 };
 

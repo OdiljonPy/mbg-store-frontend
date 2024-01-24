@@ -1,11 +1,14 @@
 
 .header {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #FFFFFF;
     padding-bottom: 12px;
+    position: fixed;
+    top: 10px;
+    left: 16px;
+    right: 16px;
 }
 
 .title {

@@ -10,6 +10,8 @@ import {useRouter} from "next/router";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
 import {useModal} from "@/hooks/use-modal";
 import Prices from "@/components/pages/products/filters/mobile/prices/prices";
+import Stores from "@/components/pages/products/filters/mobile/stores/stores";
+import {hideArr} from "@/components/pages/products/filters/mobile/mobile-filters/constants/filters";
 
 interface props {
 
@@ -20,25 +22,22 @@ const MobileFilters = ({}: props) => {
 
     const {t} = useTranslation()
     const {query} = useRouter()
-    const defaultValues = {
-        ...query,
-        prices: typeof query.prices === 'string' ? query.prices : '1000,1000'
-    }
+
     const {open, onClose, onOpen} = useModal()
     const methods = useForm<IFilters>({
-        defaultValues: defaultValues
+        defaultValues: query
     })
 
 
-
-    const valuesCount: number = Object.values(methods.getValues()).length
+    const valuesCount: number = Object.values(methods.getValues()).filter((item) => !!item && !hideArr.includes(item)).length
     const onFilter = (values: IFilters) => {
 
     }
 
     const onReset = () => {
-        methods.reset()
+        methods.reset(undefined)
     }
+
 
 
     return (
@@ -61,12 +60,13 @@ const MobileFilters = ({}: props) => {
                     title: t('filters.title'),
                     onClose,
                     onReset,
-                    count: valuesCount > 1 ? valuesCount : undefined
+                    count: valuesCount
                 }}/>
                 <FormProvider {...methods}>
                     <form onSubmit={methods.handleSubmit(onFilter)}>
                         <Categories/>
                         <Prices/>
+                        <Stores/>
                     </form>
                 </FormProvider>
             </Drawer>

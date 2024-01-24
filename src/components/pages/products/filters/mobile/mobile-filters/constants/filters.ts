@@ -1,0 +1,1 @@
+export const hideArr: string[] = ['sort', 'search', 'filters']

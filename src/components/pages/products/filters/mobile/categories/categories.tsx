@@ -12,11 +12,10 @@ import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 
 
-
 const Categories = () => {
     const {t} = useTranslation()
     const {open, onClose, onOpen} = useModal()
-    const { unregister, watch} = useFormContext<IFilters>()
+    const {unregister, watch} = useFormContext<IFilters>()
 
     const category = watch('category')
     const onReset = () => {
@@ -25,9 +24,9 @@ const Categories = () => {
     }
     return (
         <>
-            <div className={css.btn}>
-                <TopBar title={t('categories.title')} onOpen={onOpen}/>
-                {!open && <Body/>}
+            <div className={css.wrapper}>
+                <TopBar onReset={category ? onReset : undefined} title={t('categories.title')} onOpen={onOpen}/>
+                <Body/>
             </div>
             <Drawer classNames={{
                 body: 'custom-body'

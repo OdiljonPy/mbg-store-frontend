@@ -38,6 +38,10 @@ const MobileSort = (props: props) => {
 
     }
 
+    const onReset = () => {
+
+    }
+
     return (
         <>
             <button onClick={onOpen} className={`${css.btn} ${raleway.className}`}>
@@ -52,7 +56,11 @@ const MobileSort = (props: props) => {
                 </svg>
             </button>
             <Drawer open={open} placement={'bottom'} closeIcon={false} title={false} onClose={onClose}>
-                <DrawerHeader classNames={css.header} title={t('filters.sorting.title')}/>
+                <DrawerHeader options={{
+                    title: t('filters.sorting.title'),
+                    onClose,
+                    onReset
+                }} />
                 {sortingOptions.map(({
                                          title,
                                          val

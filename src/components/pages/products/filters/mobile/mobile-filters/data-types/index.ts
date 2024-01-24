@@ -1,7 +1,7 @@
 export interface IFilters {
     category: string
     prices: string
-    stores: string
+    stores: string[]
     sales: string
     onSales: boolean
     rating: string
@@ -10,3 +10,4 @@ export interface IFilters {
     hasDelivery: boolean
     accessibility: string
 }
+

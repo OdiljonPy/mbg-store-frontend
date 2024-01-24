@@ -5,34 +5,14 @@ import css from './stores.module.css'
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 import Store from "@/components/pages/products/filters/desktop/stores/store/store";
 import Search from "@/components/pages/products/filters/desktop/stores/search/search";
+import {storesList} from "@/constants/stores/stores";
 
 interface props {
 
 }
 
 
-const storesList: ICustomCheckbox[] = [
-    {
-        id: 1,
-        title: 'Зеленая лавка',
-        count: 2132
-    },
-    {
-        id: 2,
-        title: 'Солнечные поля',
-        count: 856
-    },
-    {
-        id: 3,
-        title: 'Гурманский уголок',
-        count: 123
-    },
-    {
-        id: 4,
-        title: 'Фермерская базарка',
-        count: 345
-    }
-]
+
 
 const Stores = (props: props) => {
     const {t} = useTranslation()
