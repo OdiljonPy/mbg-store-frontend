@@ -31,8 +31,6 @@ const CustomCheckbox = ({options, item}: props) => {
                 </span>
             </Checkbox>
         </ConfigProvider>
-
-
     );
 };
 

@@ -6,21 +6,21 @@ import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filter
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 
 interface props {
-item: ICustomCheckbox
+    item: ICustomCheckbox
 }
 
 const Store = ({item}: props) => {
     const {watch, register, unregister} = useFormContext<IFilters>()
     const {id, title, count} = item
-    const stores: string[] = watch('stores')
+    const stores: string[] | undefined = watch('stores')
 
-    const onChange = () => {
-
-    }
+    const {ref, onBlur, onChange, name} = register('stores')
 
     return (
-        <label  className={`${css.item} ${storeCss.store} ${ stores && stores?.includes(id.toString())  ? css.active : ''}`}>
-            <input className={css.input} value={id}  type={'checkbox'}/>
+        <label
+            className={`${css.item} ${storeCss.store}  ${stores && stores?.includes(id.toString()) ? css.active : ''}`}>
+            <input className={css.input} value={id} name={name} onChange={onChange} onBlur={onBlur}
+                   ref={ref} type={'checkbox'}/>
             <span className={css.title}>
                 {title}
              </span>

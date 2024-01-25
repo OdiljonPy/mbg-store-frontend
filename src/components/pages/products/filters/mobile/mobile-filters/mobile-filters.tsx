@@ -29,7 +29,7 @@ const MobileFilters = ({}: props) => {
     })
 
 
-    const valuesCount: number = Object.values(methods.getValues()).filter((item) => !!item && !hideArr.includes(item)).length
+    const valuesCount: number = Object.entries(methods.getValues()).filter(([key, value]) => !!value && !hideArr.includes(key) && value?.length).length
     const onFilter = (values: IFilters) => {
 
     }
@@ -37,7 +37,6 @@ const MobileFilters = ({}: props) => {
     const onReset = () => {
         methods.reset(undefined)
     }
-
 
 
     return (

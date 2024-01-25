@@ -20,10 +20,10 @@ const TopBar = ({title, onOpen, hideIcon, onReset}: props) => {
                 {title}
             </h3>
             <div className={css.actions}>
-                <button onClick={onReset} type={'button'}
+                <div onClick={onReset}
                         className={`${header.reset} ${!onReset ? css.hide : ''} ${raleway.className}`}>
                     {t('reset')}
-                </button>
+                </div>
                 <button onClick={onOpen} className={`${css.btn} ${hideIcon ? css.hide : ''}`} type={'button'}>
                     <svg className={css.icon} width="25" height="25" viewBox="0 0 30 30" fill="none"
                          xmlns="http://www.w3.org/2000/svg">

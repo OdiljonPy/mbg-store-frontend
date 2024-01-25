@@ -5,10 +5,11 @@ import TopBar from "@/components/pages/products/filters/mobile/categories/top-ba
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
-import {categoriesItems} from "@/components/pages/products/filters/mobile/categories/constants/mock";
-import Option from "@/components/pages/products/filters/mobile/categories/option/option";
 import {Drawer} from "antd";
 import Body from "@/components/pages/products/filters/mobile/stores/body/body";
+import {storesList} from "@/constants/stores/stores";
+import Option from "@/components/pages/products/filters/mobile/stores/option/option";
+import css from './stores.module.css'
 
 interface props {
 
@@ -17,18 +18,19 @@ interface props {
 const Stores = (props: props) => {
     const {t} = useTranslation()
     const {open, onOpen, onClose} = useModal()
-    const {watch, unregister, resetField} = useFormContext<IFilters>()
-    const stores: string[] = watch('stores')
+    const {watch, setValue} = useFormContext<IFilters>()
+    const stores: string[] | undefined = watch('stores')
 
 
     const onReset = () => {
-        unregister('stores')
+        setValue('stores', undefined)
     }
+
 
     return (
         <>
             <div>
-                <TopBar onReset={stores ? onReset : undefined} title={t('header.stores')} onOpen={onOpen}/>
+                <TopBar onReset={stores?.length ? onReset : undefined} title={t('header.stores')} onOpen={onOpen}/>
                 <Body/>
             </div>
             <Drawer classNames={{
@@ -40,7 +42,11 @@ const Stores = (props: props) => {
                     onReset,
                     count: stores?.length ?? 0
                 }}/>
-
+                <div className={css.wrapper}>
+                    {storesList.map((store) => (
+                        <Option item={store} key={store.id}/>
+                    ))}
+                </div>
             </Drawer>
         </>
     );

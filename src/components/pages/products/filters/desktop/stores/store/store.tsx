@@ -23,7 +23,6 @@ const Store = ({item}: props) => {
             ...query
         }
 
-
         if (e.target.checked) {
             queries.stores = stores ? stores + ',' + value : value
         } else {

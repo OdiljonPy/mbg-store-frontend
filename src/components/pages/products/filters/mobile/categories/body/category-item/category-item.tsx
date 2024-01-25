@@ -15,7 +15,7 @@ const CategoryItem = ({item}: props) => {
         setValue
     } = useFormContext<IFilters>()
 
-    const category: string = watch('category')
+    const category: string | undefined = watch('category')
 
     const {
         icon,
