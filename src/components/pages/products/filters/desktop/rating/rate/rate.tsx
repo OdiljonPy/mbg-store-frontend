@@ -26,6 +26,7 @@ const Rate = ({rate}: props) => {
 
         if (e.target.checked) {
             queries.rating = key
+            queries.withFeedback = 'true'
         } else {
             delete queries.rating
             delete queries.withFeedbacks
@@ -41,7 +42,7 @@ const Rate = ({rate}: props) => {
             <div className={css.checkbox}>
                 <CustomRadio radio={rate} options={{
                     onChange: onChange,
-                    disabled: !withFeedback,
+                    disabled: false,
                     checked: rating === rate.key
                 }}>
                    <CustomLabel title={title} count={count}/>

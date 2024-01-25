@@ -26,6 +26,7 @@ const Sale = ({item}: props) => {
 
         if (e.target.checked) {
             queries.sales = sales ? sales + ',' + value : value
+            queries.onSales = 'true'
         } else {
             if (sales?.length === 1) {
                 delete queries.sales
@@ -41,7 +42,7 @@ const Sale = ({item}: props) => {
     }
 
     const options: ISlideOptions = {
-        disabled: !onSales,
+        disabled: false,
         checked: !!sales?.includes(id.toString()),
         onChange: onChange
     }

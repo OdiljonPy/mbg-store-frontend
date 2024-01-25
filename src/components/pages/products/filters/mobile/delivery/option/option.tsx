@@ -1,9 +1,9 @@
-import React, {ChangeEvent} from 'react';
-import {Controller, useFormContext} from "react-hook-form";
+import React from 'react';
+import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
+import {CheckboxChangeEvent} from "antd/lib/checkbox";
 import CustomCheckbox from "@/components/shared/custom-checkbox/custom-checkbox";
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
-import {CheckboxChangeEvent} from "antd/lib/checkbox";
 
 interface props {
     item: ICustomCheckbox
@@ -14,24 +14,26 @@ const Option = ({item}: props) => {
 
     const {watch, setValue} = useFormContext<IFilters>()
 
-    const stores: string[] | undefined = watch('stores')
+    const delivery: string[] | undefined = watch('delivery')
+
 
 
     const onChange = (e: CheckboxChangeEvent) => {
         const value = e.target.value.toString()
         const checked = e.target.checked
-        const storesArr: string[] = stores ? stores : []
-        const newStores: string[] = checked ? [...storesArr, value] : storesArr.filter((item) => item !== value)
-        setValue('stores', newStores)
+        const salesArr: string[] = delivery ? delivery : []
+        const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
+        setValue('delivery', newStores)
+        setValue('hasDelivery', true)
     }
 
 
     return (
-       <CustomCheckbox options={{
-           onChange,
-           disabled: false,
-           checked: !!stores && !!stores?.includes(id.toString())
-       }} item={item}/>
+        <CustomCheckbox options={{
+            onChange,
+            disabled: false,
+            checked:!!delivery && !!delivery?.includes(id.toString())
+        }} item={item}/>
     );
 };
 

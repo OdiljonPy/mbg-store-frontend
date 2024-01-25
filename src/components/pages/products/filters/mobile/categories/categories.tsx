@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Drawer} from "antd";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
 import {useTranslation} from "next-i18next";
-import css from './categories.module.css'
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
 import Body from "@/components/pages/products/filters/mobile/categories/body/body";
 import {categoriesItems} from "@/components/pages/products/filters/mobile/categories/constants/mock";
@@ -10,11 +9,12 @@ import Option from "@/components/pages/products/filters/mobile/categories/option
 import {useModal} from "@/hooks/use-modal";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
+import css from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters.module.css";
 
 
 const Categories = () => {
     const {t} = useTranslation()
-    const {open, onClose, onOpen} = useModal()
+    const {open, onClose, onOpen} = useModal(true)
     const {unregister, watch} = useFormContext<IFilters>()
 
     const category = watch('category')
@@ -24,7 +24,7 @@ const Categories = () => {
     }
     return (
         <>
-            <div className={css.wrapper}>
+            <div className={css.item}>
                 <TopBar onReset={category ? onReset : undefined} title={t('categories.title')} onOpen={onOpen}/>
                 <Body/>
             </div>
@@ -37,9 +37,11 @@ const Categories = () => {
                     onReset,
                     count: category ? 1 : undefined
                 }}/>
-                {categoriesItems.map((category) => (
-                    <Option onClose={onClose} item={category} key={category.id}/>
-                ))}
+                <div className={css.inner}>
+                    {categoriesItems.map((category) => (
+                        <Option onClose={onClose} item={category} key={category.id}/>
+                    ))}
+                </div>
             </Drawer>
         </>
     );

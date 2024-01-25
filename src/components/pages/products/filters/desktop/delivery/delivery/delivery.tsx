@@ -24,6 +24,7 @@ const DeliveryItem = ({item}: props) => {
 
         if (e.target.checked) {
             queries.delivery = delivery ? delivery + ',' + value : value
+            queries.hasDelivery = 'true'
         } else {
             if (delivery?.length === 1) {
                 delete queries.delivery

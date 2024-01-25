@@ -19,7 +19,11 @@ img {
 }
 
 .custom-body{
-    padding: 12px 16px!important;
+    padding: 0!important;
+    display: flex;
+    flex-direction: column;
+    background: #F2F2F2!important;
+    justify-content: space-between;
 }
 
 

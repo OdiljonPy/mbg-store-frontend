@@ -4,7 +4,10 @@ import FilterCollapse from "@/components/pages/products/filters/desktop/filter-c
 import css from "@/components/pages/products/filters/desktop/stores/stores.module.css";
 import {useTranslation} from "next-i18next";
 import Sale from "@/components/pages/products/filters/desktop/sales/sale/sale";
-import SaleSwitch from "@/components/pages/products/filters/desktop/sales/sale-switch/sale-switch";
+import Switch from "@/components/shared/switch/switch";
+import {usePathname, useSearchParams} from "next/navigation";
+import {useRouter} from "next/router";
+import {ParsedUrlQuery} from "querystring";
 
 interface props {
 
@@ -15,6 +18,28 @@ interface props {
 const Sales = (props: props) => {
 
     const {t} = useTranslation()
+    const pathname = usePathname()
+    const {push, query} = useRouter()
+    const searchParams = useSearchParams()
+    const onSales: string | null = searchParams.get('onSales')
+
+    const onChange = (checked: boolean) => {
+        const queries: ParsedUrlQuery = {
+            ...query
+        }
+        if (checked) {
+            queries.onSales = 'true'
+        } else {
+            delete queries.onSales
+            delete queries.sales
+        }
+        push({
+            pathname,
+            query: queries
+        }, undefined, {
+            scroll: false
+        })
+    }
 
     const storesList: ICustomCheckbox[] = [
         {
@@ -42,7 +67,7 @@ const Sales = (props: props) => {
     return (
         <FilterCollapse title={t('sales.sale')}>
             <div className={css.stores}>
-                <SaleSwitch/>
+                <Switch title={t('sales.title')} checked={!!onSales} onChange={onChange}/>
                 {storesList.map((item) => (
                     <Sale item={item} key={item.id}/>
                 ))}

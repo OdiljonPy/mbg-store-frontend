@@ -3,7 +3,7 @@ import {useTranslation} from "next-i18next";
 import {usePathname, useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
 import {ParsedUrlQuery} from "querystring";
-import css from "@/components/pages/products/filters/desktop/sales/sale-switch/sale-switch.module.css";
+import css from "@/components/shared/switch/switch.module.css";
 import CustomSwitch from "@/components/shared/custom-switch/custom-switch";
 
 interface props {

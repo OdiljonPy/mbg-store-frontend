@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import css from './mobile-sort.module.css'
 import {usePathname, useSearchParams} from "next/navigation";
 import {useTranslation} from "next-i18next";
@@ -8,6 +8,7 @@ import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
 import {useRouter} from "next/router";
 import {sortingOptions} from "@/constants/product/product";
 import CustomRadio from "@/components/shared/custom-radio/custom-radio";
+import {useModal} from "@/hooks/use-modal";
 
 interface props {
 
@@ -15,15 +16,13 @@ interface props {
 
 const MobileSort = (props: props) => {
     const {t} = useTranslation()
-    const [open, setOpen] = useState<boolean>(false)
+    const {open, onOpen, onClose} = useModal()
     const pathname = usePathname()
     const {push, query} = useRouter()
     const searchParams = useSearchParams()
 
     const sort: string | null = searchParams.get('sort')
-    const onOpen = () => setOpen(true)
 
-    const onClose = () => setOpen(false)
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         push({
             pathname,
@@ -55,22 +54,26 @@ const MobileSort = (props: props) => {
                         fill="#232323"/>
                 </svg>
             </button>
-            <Drawer open={open} placement={'bottom'} closeIcon={false} title={false} onClose={onClose}>
+            <Drawer classNames={{
+                body: 'custom-body'
+            }} open={open} placement={'bottom'} closeIcon={false} title={false} onClose={onClose}>
                 <DrawerHeader options={{
                     title: t('filters.sorting.title'),
                     onClose,
                     onReset
                 }} />
-                {sortingOptions.map(({
-                                         title,
-                                         val
-                                     }) => (
-                    <CustomRadio options={{
-                        onChange,
-                        disabled: false,
-                        checked: val === sort
-                    }} radio={{title: t(title), key: val, name: 'sort'}} key={val}/>
-                ))}
+               <div className={css.wrapper}>
+                   {sortingOptions.map(({
+                                            title,
+                                            val
+                                        }) => (
+                       <CustomRadio options={{
+                           onChange,
+                           disabled: false,
+                           checked: val === sort
+                       }} radio={{title: t(title), key: val, name: 'sort'}} key={val}/>
+                   ))}
+               </div>
             </Drawer>
         </>
     );

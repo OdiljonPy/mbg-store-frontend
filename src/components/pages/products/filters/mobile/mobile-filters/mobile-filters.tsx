@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useTranslation} from "next-i18next";
 import css from './mobile-filters.module.css'
 import {Drawer} from "antd";
@@ -12,6 +12,9 @@ import {useModal} from "@/hooks/use-modal";
 import Prices from "@/components/pages/products/filters/mobile/prices/prices";
 import Stores from "@/components/pages/products/filters/mobile/stores/stores";
 import {hideArr} from "@/components/pages/products/filters/mobile/mobile-filters/constants/filters";
+import Sales from "@/components/pages/products/filters/mobile/sales/sales";
+import Rating from "@/components/pages/products/filters/mobile/rating/rating";
+import Delivery from "@/components/pages/products/filters/mobile/delivery/delivery";
 
 interface props {
 
@@ -62,10 +65,13 @@ const MobileFilters = ({}: props) => {
                     count: valuesCount
                 }}/>
                 <FormProvider {...methods}>
-                    <form onSubmit={methods.handleSubmit(onFilter)}>
+                    <form className={css.wrapper} onSubmit={methods.handleSubmit(onFilter)}>
                         <Categories/>
                         <Prices/>
                         <Stores/>
+                        <Sales/>
+                        <Rating/>
+                        <Delivery/>
                     </form>
                 </FormProvider>
             </Drawer>

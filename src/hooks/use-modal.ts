@@ -1,6 +1,9 @@
 import {useState} from "react";
 
-export function useModal () {
+
+
+
+export function useModal(inner?: boolean) {
     const [open, setOpen] = useState<boolean>(false)
 
     const onOpen = () => {
@@ -9,7 +12,9 @@ export function useModal () {
     }
 
     const onClose = () => {
-        document.body.style.overflow = 'visible'
+        if (!inner) {
+            document.body.style.overflow = 'visible'
+        }
         setOpen(false)
     }
 

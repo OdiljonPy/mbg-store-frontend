@@ -43,8 +43,7 @@ const CategoryItem = ({item}: props) => {
              </span>
         </label>
 
-    )
-        ;
+    );
 };
 
 export default CategoryItem;
