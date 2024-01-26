@@ -10,26 +10,28 @@ interface props {
 }
 
 
+export const accessibilityList: ICustomCheckbox[] = [
+    {
+        id: 1,
+        title: 'товары в наличии',
+        count: 150
+
+    },
+    {
+        id: 2,
+        title: '24/7',
+        count: 15
+    }
+]
+
 const Accessibility = (props: props) => {
     const {t} = useTranslation()
-    const storesList: ICustomCheckbox[] = [
-        {
-            id: 1,
-            title: 'товары в наличии',
-            count: 150
 
-        },
-        {
-            id: 2,
-            title: '24/7',
-            count: 15
-        }
-    ]
 
     return (
         <FilterCollapse title={t('filters.accessibility.title')}>
             <div className={css.delivery}>
-                {storesList.map((item) => (
+                {accessibilityList.map((item) => (
                     <Item item={item} key={item.id}/>
                 ))}
             </div>

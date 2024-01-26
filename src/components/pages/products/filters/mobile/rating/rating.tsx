@@ -8,6 +8,9 @@ import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filter
 import css from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters.module.css";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
 import {Drawer} from "antd";
+import Body from "@/components/pages/products/filters/mobile/rating/body/body";
+import {useRatingList} from "@/components/pages/products/filters/mobile/hooks/use-rating-list/use-rating-list";
+import Option from "@/components/pages/products/filters/mobile/rating/option/option";
 
 interface props {
 
@@ -15,6 +18,7 @@ interface props {
 
 const Rating = (props: props) => {
     const {t} = useTranslation()
+    const items = useRatingList()
     const {open, onOpen, onClose} = useModal(true)
     const {watch, setValue} = useFormContext<IFilters>()
     const rating: string | undefined = watch('rating')
@@ -34,7 +38,7 @@ const Rating = (props: props) => {
                 <TopBar onReset={rating?.length || withFeedback ? onReset : undefined} title={t('rating.title')}
                         onOpen={onOpen}/>
                 <Switch checked={!!withFeedback} title={t('products.withFeedbacks')} onChange={onEnableSales}/>
-
+                <Body/>
             </div>
             <Drawer classNames={{
                 body: 'custom-body'
@@ -46,6 +50,10 @@ const Rating = (props: props) => {
                     count: rating ? 1 : undefined
                 }}/>
                 <div className={css.inner}>
+                    <Switch checked={!!withFeedback} title={t('products.withFeedbacks')} onChange={onEnableSales}/>
+                    {items.map((item) => (
+                        <Option onClose={onClose} item={item} key={item.key}/>
+                    ))}
                 </div>
             </Drawer>
         </>

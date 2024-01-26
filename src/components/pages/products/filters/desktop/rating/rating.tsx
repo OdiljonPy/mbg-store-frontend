@@ -2,45 +2,18 @@ import React from 'react';
 import css from './rating.module.css'
 import FilterCollapse from "@/components/pages/products/filters/desktop/filter-collapse/filter-collapse";
 import {useTranslation} from "next-i18next";
-import {ICustomRadio} from "@/components/shared/custom-radio/data-types/custom-radio";
 import RatingToggler from "@/components/pages/products/filters/desktop/rating/rating-toggler/rating-toggler";
-import CustomLabel from "@/components/pages/products/filters/desktop/rating/custom-label/custom-label";
 import Rate from "@/components/pages/products/filters/desktop/rating/rate/rate";
+import {useRatingList} from "@/components/pages/products/filters/mobile/hooks/use-rating-list/use-rating-list";
 
 interface props {
 
 }
 
 
-
 const Rating = (props: props) => {
     const {t} = useTranslation()
-    const items: ICustomRadio[] = [
-        {
-            name: 'rating',
-            key: '4',
-            title: t('rating.rate', {count: 4}),
-            count: 15
-        },
-        {
-            name: 'rating',
-            key: '3',
-            title: t('rating.rate', {count: 3}),
-            count: 15
-        },
-        {
-            name: 'rating',
-            key: '2',
-            title: t('rating.rate', {count: 2}),
-            count: 15
-        },
-        {
-            name: 'rating',
-            key: '1',
-            title: t('rating.rate', {count: 1}),
-            count: 15
-        }
-    ]
+    const items = useRatingList()
     return (
         <FilterCollapse title={t('rating.title')}>
             <div className={css.rating}>

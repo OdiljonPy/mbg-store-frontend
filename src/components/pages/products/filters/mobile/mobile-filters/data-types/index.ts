@@ -8,11 +8,11 @@ export interface IFilters {
     withFeedback?: boolean
     delivery?: string[]
     hasDelivery?: boolean
-    accessibility?: string
+    accessibility?: string[]
 }
 
 
 
-export type CheckboxFields =  'stores' | 'sales' | 'delivery'
+export type CheckboxFields =  'stores' | 'sales' | 'delivery' | 'accessibility'
 
 export type BoolFields = 'onSales' | 'withFeedback' | 'hasDelivery'

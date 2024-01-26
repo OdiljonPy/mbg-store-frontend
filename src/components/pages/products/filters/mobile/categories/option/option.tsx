@@ -38,7 +38,6 @@ const Option = ({item, onClose}: props) => {
             <span className={`${css.count} text-mobile-size`}>
                 {count}
             </span>
-
         </label>
     );
 };

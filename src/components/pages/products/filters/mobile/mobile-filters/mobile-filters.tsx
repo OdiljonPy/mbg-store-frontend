@@ -15,6 +15,7 @@ import {hideArr} from "@/components/pages/products/filters/mobile/mobile-filters
 import Sales from "@/components/pages/products/filters/mobile/sales/sales";
 import Rating from "@/components/pages/products/filters/mobile/rating/rating";
 import Delivery from "@/components/pages/products/filters/mobile/delivery/delivery";
+import Accessibility from "@/components/pages/products/filters/mobile/accessibility/accessibility";
 
 interface props {
 
@@ -72,6 +73,7 @@ const MobileFilters = ({}: props) => {
                         <Sales/>
                         <Rating/>
                         <Delivery/>
+                        <Accessibility/>
                     </form>
                 </FormProvider>
             </Drawer>

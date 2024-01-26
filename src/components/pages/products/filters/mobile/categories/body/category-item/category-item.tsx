@@ -42,7 +42,6 @@ const CategoryItem = ({item}: props) => {
                 {count}
              </span>
         </label>
-
     );
 };
 
