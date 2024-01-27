@@ -4,6 +4,7 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 import {IProduct} from "@/data-types/products/products";
 import DiscountBadge from "@/components/shared/discount-badge/discount-badge";
 import ProductActions from "@/components/shared/product/components/product-top/product-actions/product-actions";
+import Link from "next/link";
 
 interface props {
     product: IProduct
@@ -11,6 +12,7 @@ interface props {
 
 const ProductTop = ({product}: props) => {
     const {
+        id,
         img,
         title,
         discount_percentage,
@@ -21,9 +23,9 @@ const ProductTop = ({product}: props) => {
             {discount_percentage && <div className={css.discount}>
                 <DiscountBadge discount_percentage={discount_percentage}/>
             </div>}
-            <div className={css.img}>
+            <Link href={`/products/${id}`} className={css.img}>
                 <ResponsiveImage src={img} alt={title}/>
-            </div>
+            </Link>
             <ProductActions count={count}/>
         </div>
     );

@@ -14,6 +14,8 @@ const Product = ({product, isNotSwiper}: props) => {
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
 
+
+
     return (
         <div className={`${css.product} ${isOpened ? css.short : ''} ${isNotSwiper ? css.notSwiper : ''}`}>
             <ProductTop product={product}/>

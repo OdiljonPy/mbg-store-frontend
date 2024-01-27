@@ -1,12 +1,9 @@
 .description{
     flex-basis: 48%;
 }
-.title, .weight{
+.weight{
     font-size: 30px;
     font-weight: 700;
-}
-.title{
-    color: var(--black);
 }
 
 .text{

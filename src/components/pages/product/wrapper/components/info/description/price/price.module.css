@@ -1,0 +1,22 @@
+.price {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.discount:after, .discount:before {
+    background: #FFFFFF;
+}
+
+.discountPrice {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--orange);
+}
+
+.actualPrice {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--icon-gray);
+    text-decoration: line-through;
+}

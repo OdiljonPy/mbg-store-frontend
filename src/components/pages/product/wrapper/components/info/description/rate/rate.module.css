@@ -1,0 +1,23 @@
+.rate {
+    display: flex;
+    align-items: center;
+    margin: 16px 0 24px;
+}
+
+.img{
+    flex-basis: 20px;
+    height: 20px;
+}
+.text, .count{
+    font-size: 20px;
+}
+.text {
+    margin: 0 6px 0 4px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.count{
+font-weight: 500;
+    color: var(--icon-gray);
+}
