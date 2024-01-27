@@ -19,7 +19,7 @@ const LanguageSwitcher = (props: props) => {
 
     const {language} = i18n
 
-    console.log(query)
+
 
     return (
         <Link href={{
