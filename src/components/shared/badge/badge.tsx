@@ -2,13 +2,14 @@ import React from 'react';
 import css from './badge.module.css'
 
 interface props {
-count: number
+    text: string
+    color: string
 }
 
-const Badge = ({count}: props) => {
+const Badge = ({text, color}: props) => {
     return (
-        <div className={css.badge}>
-            {count}
+        <div className={css.badge} style={{background: color}}>
+            {text}
         </div>
     );
 };

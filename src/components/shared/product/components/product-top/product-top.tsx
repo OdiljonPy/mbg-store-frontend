@@ -18,7 +18,9 @@ const ProductTop = ({product}: props) => {
     } = product
     return (
         <div className={css.actions}>
-            {discount_percentage && <DiscountBadge discount_percentage={discount_percentage}/>}
+            {discount_percentage && <div className={css.discount}>
+                <DiscountBadge discount_percentage={discount_percentage}/>
+            </div>}
             <div className={css.img}>
                 <ResponsiveImage src={img} alt={title}/>
             </div>

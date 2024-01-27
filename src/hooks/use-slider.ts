@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useKeenSlider} from "keen-slider/react";
-
+import "keen-slider/keen-slider.min.css"
 export function useSlider() {
     const [loaded, setLoaded] = useState<boolean>(false)
     const [currentSlide, setCurrentSlide] = useState<number>(0)

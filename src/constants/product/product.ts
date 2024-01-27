@@ -1,5 +1,5 @@
 import {IProduct} from "@/data-types/products/products";
-import img from '../../../public/images/products/mikado.png'
+import img from '@/../public/images/products/mikado.png'
 import {ISortingOption} from "@/components/pages/products/filters/desktop/data-types/sorting/sorting";
 
 export const product: IProduct = {

@@ -1,7 +1,4 @@
 .discount {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
     background: var(--orange);
     border-radius: 5px;
     padding: 6px 10px 7px;

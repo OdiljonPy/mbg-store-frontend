@@ -1,0 +1,26 @@
+.wrapper {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.active{
+    background: var(--green);
+}
+
+@media (max-width: 991px) {
+    .wrapper{
+        display: flex;
+        order: 1;
+    }
+}

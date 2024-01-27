@@ -1,0 +1,20 @@
+.description{
+    flex-basis: 48%;
+}
+.title, .weight{
+    font-size: 30px;
+    font-weight: 700;
+}
+.title{
+    color: var(--black);
+}
+
+.text{
+    display: flex;align-items: center;
+    gap: 12px;
+    margin: 12px 0 16px;
+}
+
+.weight{
+   color: var(--icon-gray);
+}
