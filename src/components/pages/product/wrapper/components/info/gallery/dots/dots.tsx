@@ -12,7 +12,7 @@ const Dots = ({items, currentSlide, onChangeSlide}: props) => {
     return (
         <div className={css.wrapper}>
             {Array.from(Array(5), (_, i) => i+1).map((item, index) => (
-                <div onClick={() => onChangeSlide(index)} className={`${css.dot} ${index === currentSlide ? css.active : ''}`}/>
+                <div key={item} onClick={() => onChangeSlide(index)} className={`${css.dot} ${index === currentSlide ? css.active : ''}`}/>
             ))}
         </div>
     );

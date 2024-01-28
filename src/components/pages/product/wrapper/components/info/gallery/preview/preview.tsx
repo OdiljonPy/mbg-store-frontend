@@ -26,4 +26,6 @@ const Preview = forwardRef((props: props, ref: ForwardedRef<HTMLDivElement>) => 
     );
 })
 
+
+Preview.displayName = 'Preview'
 export default Preview;

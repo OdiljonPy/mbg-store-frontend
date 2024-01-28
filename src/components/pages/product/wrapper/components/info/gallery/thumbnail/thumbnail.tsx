@@ -19,4 +19,6 @@ const Thumbnail = forwardRef(({currentSlide}: props, ref: ForwardedRef<HTMLDivEl
     );
 })
 
+Thumbnail.displayName = 'Thumbnail'
+
 export default Thumbnail;
