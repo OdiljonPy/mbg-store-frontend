@@ -5,6 +5,7 @@ import {useTranslation} from "next-i18next";
 import Similar from "@/components/pages/product/wrapper/components/similar/similar";
 import Info from "@/components/pages/product/wrapper/components/info/info";
 import Comparison from "@/components/pages/product/wrapper/components/info/comparison/comparison";
+import Feedbacks from "@/components/pages/product/wrapper/components/feedbacks/feedbacks";
 
 interface props {
 
@@ -32,6 +33,7 @@ const Wrapper = (props: props) => {
                 <Info/>
                 <Comparison/>
                 <Similar/>
+                <Feedbacks/>
             </div>
         </section>
     );

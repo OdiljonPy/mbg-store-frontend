@@ -1,0 +1,8 @@
+.feedback{
+    margin-top: 50px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}

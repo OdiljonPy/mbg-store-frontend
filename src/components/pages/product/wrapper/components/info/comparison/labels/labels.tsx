@@ -17,7 +17,7 @@ const Labels = (props: props) => {
         <div className={css.fields}>
             <div className={css.icon}/>
             {labelItems.map((item, index) => (
-                <p className={`${css.field} ${index === labelItems.length -1 ? css.last: ''} ${index === 0 ? css.fieldSmall : ''}`}>
+                <p key={item} className={`${css.field} ${index === labelItems.length -1 ? css.last: ''} ${index === 0 ? css.fieldSmall : ''}`}>
                     {item}
                 </p>
             ))}
