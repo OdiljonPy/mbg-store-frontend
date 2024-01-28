@@ -6,16 +6,17 @@ import Link from "next/link";
 
 interface props {
     heading: IHeadingLine
+    small?: boolean
 }
 
-const HeadingLine = ({heading}: props) => {
+const HeadingLine = ({heading, small}: props) => {
     const {t} = useTranslation()
     const {
         title,
         count
     } = heading
     return (
-        <div className={css.heading}>
+        <div className={`${css.heading} ${small ? css.small : ''}`}>
             <h3 className={css.title}>
                 {t(title)}
             </h3>

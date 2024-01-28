@@ -14,7 +14,7 @@ const Similar = (props: props) => {
     return (
         <section className={css.sales}>
             <div className={'container'}>
-                <HeadingLine heading={{
+                <HeadingLine small heading={{
                     title: 'product.similar',
                     count: 15
                 }}/>

@@ -10,7 +10,8 @@ export const product: IProduct = {
     price: 30000,
     discount_percentage: 50,
     discount_price: 15000,
-    img: img
+    img: img,
+    seller: 'Продавец'
 }
 
 export const productWithoutDiscount: IProduct = {
@@ -19,7 +20,8 @@ export const productWithoutDiscount: IProduct = {
     rating: 4.9,
     total_rate_count: 12358,
     price: 30000,
-    img: img
+    img: img,
+    seller: 'Продавец'
 }
 
 

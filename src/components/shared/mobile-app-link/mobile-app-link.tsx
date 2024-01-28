@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 import css from './mobile-app-link.module.css'
-import Link from "next/link";
 
 interface props {
     icon: ReactElement

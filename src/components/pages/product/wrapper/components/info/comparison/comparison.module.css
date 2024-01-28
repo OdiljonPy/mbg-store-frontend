@@ -1,0 +1,10 @@
+.comparison{
+    margin: 50px 0;
+}
+
+
+.wrapper{
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+}

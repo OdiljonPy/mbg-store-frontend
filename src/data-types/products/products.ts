@@ -10,5 +10,5 @@ export interface IProduct{
     price: number
     discount_price?: number
     count?: number
-
+    seller: string
 }

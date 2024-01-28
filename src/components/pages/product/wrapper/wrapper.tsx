@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslation} from "next-i18next";
 import Similar from "@/components/pages/product/wrapper/components/similar/similar";
 import Info from "@/components/pages/product/wrapper/components/info/info";
+import Comparison from "@/components/pages/product/wrapper/components/info/comparison/comparison";
 
 interface props {
 
@@ -20,7 +21,7 @@ const Wrapper = (props: props) => {
                         label: t('header.home')
                     },
                     {
-                        path: '/products',
+                        path: '/products?sort=popular',
                         label: t('products.title')
                     },
                     {
@@ -29,6 +30,7 @@ const Wrapper = (props: props) => {
                     }
                 ]}/>
                 <Info/>
+                <Comparison/>
                 <Similar/>
             </div>
         </section>

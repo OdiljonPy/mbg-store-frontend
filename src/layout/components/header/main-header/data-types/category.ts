@@ -1,4 +1,3 @@
-import {StaticImageData} from "next/image";
 import {ReactElement} from "react";
 
 export interface ICategoryItemGeneral {
