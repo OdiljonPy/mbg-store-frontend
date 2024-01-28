@@ -13,7 +13,6 @@ const Comparison = (props: props) => {
 
     return (
         <section className={css.comparison}>
-            <div className={'container'}>
                 <HeadingLine small heading={{
                     title: 'product.comparison'
                 }}/>
@@ -26,7 +25,6 @@ const Comparison = (props: props) => {
                     <Product product={product}/>
                     <Product product={productWithoutDiscount}/>
                 </div>
-            </div>
         </section>
     );
 };

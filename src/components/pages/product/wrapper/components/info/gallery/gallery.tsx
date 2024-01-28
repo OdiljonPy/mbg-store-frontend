@@ -3,15 +3,10 @@ import css from './gallery.module.css'
 import {useKeenSlider} from "keen-slider/react";
 import {ThumbnailPlugin} from "@/components/pages/product/wrapper/plugins/thumbnail/thumbnail";
 import Thumbnail from "@/components/pages/product/wrapper/components/info/gallery/thumbnail/thumbnail";
-import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import img from "../../../../../../../../public/images/products/mikado.png";
 import Preview from "@/components/pages/product/wrapper/components/info/gallery/preview/preview";
-import mainCss from "@/components/pages/product/wrapper/components/info/gallery/preview/preview.module.css";
 import "keen-slider/keen-slider.min.css"
 import NavigationBtn from "@/components/pages/product/wrapper/components/info/gallery/navigation-btn/navigation-btn";
 import Dots from "@/components/pages/product/wrapper/components/info/gallery/dots/dots";
-
-
 
 
 const Gallery = () => {

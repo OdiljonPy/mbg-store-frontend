@@ -13,7 +13,6 @@ const Similar = (props: props) => {
     const {loaded, sliderRef} = useSlider()
     return (
         <section className={css.sales}>
-            <div className={'container'}>
                 <HeadingLine small heading={{
                     title: 'product.similar',
                     count: 15
@@ -32,7 +31,6 @@ const Similar = (props: props) => {
                         <Product product={productWithoutDiscount}/>
                     </div>
                 </div>
-            </div>
         </section>
     );
 };

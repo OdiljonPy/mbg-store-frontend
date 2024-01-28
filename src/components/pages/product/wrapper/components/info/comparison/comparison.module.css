@@ -8,3 +8,9 @@
     align-items: stretch;
     overflow-x: auto;
 }
+
+@media (max-width: 767px) {
+    .comparison{
+        margin: 20px 0;
+    }
+}

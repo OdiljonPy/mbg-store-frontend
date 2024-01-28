@@ -40,6 +40,11 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
+
+::-webkit-scrollbar-track{
+    background: var(--pale-green);
+}
+
 @media (max-width: 1320px) {
     .container{
         max-width: 1170px;

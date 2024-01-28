@@ -15,3 +15,30 @@
 .weight{
    color: var(--icon-gray);
 }
+
+
+@media (max-width: 991px) {
+    .text{
+        margin: 10px 0;
+    }
+
+    .weight{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .description{
+        flex-basis: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .text{
+        margin: 5px 0 8px;
+    }
+    .weight{
+        font-size: 16px;
+    }
+}

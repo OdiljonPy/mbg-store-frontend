@@ -17,3 +17,10 @@
 .btn:active {
     background: var(--green);
 }
+
+
+@media (max-width: 991px) {
+    .btn{
+        padding: 10px 32px;
+    }
+}

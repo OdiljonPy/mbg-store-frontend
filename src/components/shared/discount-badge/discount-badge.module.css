@@ -33,13 +33,6 @@
 }
 
 
-@media (max-width: 1199px) {
-    .discount{
-        bottom: unset;
-        top: 8px;
-        left: 16px;
-    }
-}
 
 @media (max-width: 991px) {
     .discount{
@@ -50,9 +43,6 @@
 
 @media (max-width: 575px) {
     .discount{
-        bottom: unset;
-        top: 8px;
-        left: 8px;
         font-size: 10px;
     }
 }

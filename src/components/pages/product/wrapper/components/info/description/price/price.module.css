@@ -20,3 +20,25 @@
     color: var(--icon-gray);
     text-decoration: line-through;
 }
+
+
+@media(max-width: 991px) {
+    .discountPrice{
+        font-size: 20px;
+    }
+    .actualPrice{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    .price{
+        gap: 6px;
+    }
+    .discountPrice{
+        font-size: 16px;
+    }
+    .actualPrice{
+        font-size: 12px;
+    }
+}

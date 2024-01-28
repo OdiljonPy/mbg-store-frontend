@@ -2,3 +2,10 @@
     margin: 0;
     padding: 14px 10px;
 }
+
+
+@media (max-width: 991px) {
+    .rate{
+        padding: 10px;
+    }
+}

@@ -23,3 +23,13 @@
     width: 22px;
     height: 15px;
 }
+
+
+@media (max-width: 575px) {
+    .title{
+        font-size: 14px;
+    }
+    .text{
+        font-size: 12px;
+    }
+}

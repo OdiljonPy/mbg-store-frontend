@@ -54,6 +54,9 @@
     .info{
         gap: 15px;
     }
+    .header{
+        padding: 12px 0;
+    }
 }
 
 @media (max-width: 767px) {

@@ -7,3 +7,9 @@
     max-width: 360px;
     height: auto;
 }
+
+@media (max-width: 575px) {
+    .img img{
+        max-width: 150px;
+    }
+}

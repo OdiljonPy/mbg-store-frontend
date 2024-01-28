@@ -29,3 +29,33 @@
     overflow: hidden;
     margin-top: 14px;
 }
+
+@media (max-width: 991px) {
+    .fields{
+        flex-basis: 100px;
+        min-width: 100px;
+    }
+    .field{
+        font-size: 17px;
+        padding: 10px 0;
+    }
+    .icon{
+        min-height: 180px;
+    }
+    .fieldSmall{
+        height: 60px;
+    }
+}
+
+@media (max-width: 575px) {
+    .fields{
+        flex-basis: 90px;
+        min-width: 90px;
+    }
+    .field{
+        font-size: 14px;
+    }
+    .fieldSmall{
+        height: 52px;
+    }
+}

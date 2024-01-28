@@ -21,3 +21,27 @@
 font-weight: 500;
     color: var(--icon-gray);
 }
+
+
+@media (max-width: 991px) {
+    .rate{
+        margin: 12px 0;
+    }
+    .text, .count{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .text, .count{
+        font-size: 12px;
+    }
+    .rate{
+        margin: 9px 0 12px;
+    }
+    .img{
+        flex-basis: 16px;
+        height: 16px;
+    }
+}

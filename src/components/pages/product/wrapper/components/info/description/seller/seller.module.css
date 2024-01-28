@@ -11,3 +11,11 @@
 .value{
     color: var(--text-green);
 }
+
+
+
+@media (max-width: 575px) {
+    .seller{
+        font-size: 14px;
+    }
+}
