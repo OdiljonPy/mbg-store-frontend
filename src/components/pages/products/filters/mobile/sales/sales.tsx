@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {useModal} from "@/hooks/use-modal";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
@@ -17,7 +17,7 @@ interface props {
 }
 
 const Sales = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {open, onOpen, onClose} = useModal(true)
     const salesList = useSalesList()
     const {watch, setValue} = useFormContext<IFilters>()

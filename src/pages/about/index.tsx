@@ -1,9 +1,8 @@
 import React from 'react';
 import css from './index.module.css'
 import {GetStaticProps} from "next";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import Information from "@/components/pages/about/information/information";
 import Partners from "@/components/pages/about/partners/partners";
@@ -14,7 +13,7 @@ interface props {
 }
 
 const Index = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <>
             <Head>
@@ -51,7 +50,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({locale}) => {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
+            messages: require(`@/../messages/${locale}.json`)
         },
     };
 };

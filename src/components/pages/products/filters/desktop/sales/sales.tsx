@@ -2,7 +2,7 @@ import React from 'react';
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 import FilterCollapse from "@/components/pages/products/filters/desktop/filter-collapse/filter-collapse";
 import css from "@/components/pages/products/filters/desktop/stores/stores.module.css";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import Sale from "@/components/pages/products/filters/desktop/sales/sale/sale";
 import Switch from "@/components/shared/switch/switch";
 import {usePathname, useSearchParams} from "next/navigation";
@@ -17,7 +17,7 @@ interface props {
 
 const Sales = (props: props) => {
 
-    const {t} = useTranslation()
+    const t = useTranslations()
     const pathname = usePathname()
     const {push, query} = useRouter()
     const searchParams = useSearchParams()

@@ -2,7 +2,7 @@ import React from 'react';
 import css from './information-item.module.css'
 import {IInformation} from "@/components/pages/about/information/data-types/information";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 
 interface props {
@@ -10,7 +10,7 @@ interface props {
 }
 
 const InformationItem = ({item}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {
         img,
         title,

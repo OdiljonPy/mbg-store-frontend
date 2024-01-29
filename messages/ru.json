@@ -24,8 +24,8 @@
     "placeholder": "Поиск товаров",
     "often": "Часто ищут",
     "title": "Поиск",
-    "found": "Найдено {{products}} товаров в {{categories}} категориях",
-    "categories": "{{products}} товаров",
+    "found": "Найдено {products} товаров в {categories} категориях",
+    "categories": "{products} товаров",
     "byName": "Поиск по названию"
   },
   "errors": {
@@ -51,7 +51,7 @@
   "sales": {
     "sale": "Скидки",
     "title": "На скидке",
-    "more": "{{count}}% и более"
+    "more": "{count}% и более"
   },
   "products": {
     "title": "Товары",
@@ -81,7 +81,8 @@
       "popular": "Популярные",
       "cheap": "Подешевле",
       "expensive": "Подороже",
-      "highRate": "Высокий рейтинг"
+      "highRate": "Высокий рейтинг",
+      "null": "Популярные"
     },
     "delivery": {
       "title": "Доставка",
@@ -99,7 +100,7 @@
   "fromBeginning": "Сначала",
   "rating": {
     "title": "Рейтинг",
-    "rate": "{{count}} и более"
+    "rate": "{count} и более"
   },
   "reset": "Сбросить",
   "price": {

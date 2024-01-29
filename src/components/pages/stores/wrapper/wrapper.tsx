@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {Badge} from "antd";
 import Letters from "@/components/pages/stores/letters/letters";
 import StoreLetter from "@/components/pages/stores/store-letter/store-letter";
@@ -12,7 +12,7 @@ interface props {
 }
 
 const Wrapper = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <section className={css.stores}>
             <div className={'container'}>

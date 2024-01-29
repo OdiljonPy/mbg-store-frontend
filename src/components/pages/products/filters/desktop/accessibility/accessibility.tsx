@@ -1,6 +1,6 @@
 import React from 'react';
 import css from "@/components/pages/products/filters/desktop/delivery/delivery.module.css";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import FilterCollapse from "@/components/pages/products/filters/desktop/filter-collapse/filter-collapse";
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 import Item from "@/components/pages/products/filters/desktop/accessibility/item/item";
@@ -25,7 +25,7 @@ export const accessibilityList: ICustomCheckbox[] = [
 ]
 
 const Accessibility = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
 
 
     return (

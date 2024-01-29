@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import css from './address-form-modal.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {Modal} from "antd";
 import {useForm} from "react-hook-form";
 import {IAddressForm} from "@/layout/components/header/top-header/data-types/address-form";
@@ -13,7 +13,7 @@ interface props {
 }
 
 const AddressFormModal = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const [open, setOpen] = useState<boolean>(false)
 
     const methods = useForm<IAddressForm>()

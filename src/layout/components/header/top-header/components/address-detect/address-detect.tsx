@@ -1,13 +1,13 @@
 import React from 'react';
 import css from './address-detect.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const AddressDetect = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <button type={'button'} className={css.detectLocale}>
             <svg className={css.icon} width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">

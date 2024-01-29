@@ -4,7 +4,7 @@ import CustomRadio from "@/components/shared/custom-radio/custom-radio";
 import {ICustomRadio, IOptions} from "@/components/shared/custom-radio/data-types/custom-radio";
 import star from '@/../public/images/icons/star.svg'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {usePathname, useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
 import {ParsedUrlQuery} from "querystring";
@@ -16,7 +16,7 @@ interface IProps {
 }
 
 const Rating = ({item, hasIcon, checked}: IProps) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
 
     const searchParams = useSearchParams()
     const rating: string | null = searchParams.get('rating')

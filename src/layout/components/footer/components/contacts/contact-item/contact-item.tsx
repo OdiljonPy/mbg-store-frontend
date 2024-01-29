@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './contact-item.module.css'
 import {IContact} from "@/layout/components/footer/components/contacts/data-types/contacts";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 
 interface props {
@@ -9,7 +9,7 @@ interface props {
 }
 
 const ContactItem = ({item}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {
         icon,
         title,

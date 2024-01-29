@@ -1,4 +1,3 @@
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import Hero from "@/components/pages/home/hero/hero";
@@ -29,7 +28,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({locale}) => {
 
     return {
         props: {
-            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
+            messages: require(`@/../messages/${locale}.json`)
         },
     };
 };

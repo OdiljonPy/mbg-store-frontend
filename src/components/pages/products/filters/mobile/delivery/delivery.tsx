@@ -3,7 +3,7 @@ import css from "@/components/pages/products/filters/mobile/mobile-filters/mobil
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
 import Switch from "@/components/shared/switch/switch";
 import Body from "@/components/pages/products/filters/mobile/delivery/body/body";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {useModal} from "@/hooks/use-modal";
 import {useSalesList} from "@/components/pages/products/filters/mobile/hooks/sales-list";
 import {useFormContext} from "react-hook-form";
@@ -18,7 +18,7 @@ interface props {
 }
 
 const Delivery = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {open, onOpen, onClose} = useModal(true)
     const deliveryOptions = useDeliveryOptions()
     const {watch, setValue} = useFormContext<IFilters>()

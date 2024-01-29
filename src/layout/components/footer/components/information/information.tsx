@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './information.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import Navigation from "@/layout/components/footer/components/information/navigation/navigation";
 import Socials from "@/layout/components/footer/components/information/socials/socials";
 
@@ -9,7 +9,7 @@ interface props {
 }
 
 const Information = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div className={css.information}>
             <h3 className={css.title}>

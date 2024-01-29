@@ -7,14 +7,14 @@ import {usePathname, useSearchParams} from "next/navigation";
 import {IPriceRange} from "@/components/pages/products/filters/desktop/data-types/prices/prices";
 import PriceSlider from "@/components/pages/products/filters/desktop/prices/slider/slider";
 import Inputs from "@/components/pages/products/filters/desktop/prices/inputs/inputs";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const Prices = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const pathname = usePathname()
     const {push, query, isReady} = useRouter()
     const searchParams = useSearchParams()

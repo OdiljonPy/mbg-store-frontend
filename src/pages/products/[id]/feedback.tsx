@@ -1,6 +1,5 @@
 import React from 'react';
-import {GetServerSideProps, GetStaticPaths, GetStaticProps} from "next";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {GetServerSideProps} from "next";
 
 interface props {
 
@@ -26,7 +25,7 @@ type Props  = {
 export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
     return {
         props: {
-            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
+            messages: require(`@/../messages/${locale}.json`)
         },
     };
 };

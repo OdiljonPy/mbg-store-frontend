@@ -3,7 +3,7 @@ import css from "@/layout/components/header/main-header/components/menu-item-bad
 import {raleway} from "@/constants/fonts/fonts";
 import loginCss from './login.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import user from '@/../public/images/icons/user.svg'
 
 interface props {
@@ -11,7 +11,7 @@ interface props {
 }
 
 const Login = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <>
             <button className={`${css.menuItem} ${loginCss.btn} ${raleway.className}`}>

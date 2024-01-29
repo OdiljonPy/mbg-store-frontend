@@ -1,13 +1,13 @@
 import React from 'react';
 import css from './seller.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
     seller: string
 }
 
 const Seller = ({seller}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <p className={css.seller}>
             <span className={css.label}>

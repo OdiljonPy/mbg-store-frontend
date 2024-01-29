@@ -1,14 +1,14 @@
 import React, {ChangeEvent, useState} from 'react';
 import css from './search.module.css'
 import useDebounce from "@/hooks/use-debounce";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const Search = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const [searchText, setSearchText] = useState<string>('')
 
     const debouncedValue = useDebounce(searchText, 500)

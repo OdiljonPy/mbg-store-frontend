@@ -4,14 +4,14 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 import img from "../../../../../../../../../public/images/products/mikado.png";
 import mainCss from './preview.module.css'
 import Badge from "@/components/shared/badge/badge";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const Preview = forwardRef((props: props, ref: ForwardedRef<HTMLDivElement>) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div ref={ref} className={`keen-slider ${mainCss.wrapper}`}>
             {Array.from(Array(5), (_, i) => i + 1).map((item) => (

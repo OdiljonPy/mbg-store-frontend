@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './labels.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
@@ -8,7 +8,7 @@ interface props {
 
 
 const Labels = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
 
 
     const labelItems: string[] = [t('product.title'), t('product.price'), t('rating.title'), t('product.seller')]

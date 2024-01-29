@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './catalog-list.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import CategoryItem from "@/components/shared/category-item/category-item";
 import {category} from "@/constants/categories/categories";
 
@@ -9,7 +9,7 @@ interface props {
 }
 
 const CatalogList = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
 
         <div className={css.list}>

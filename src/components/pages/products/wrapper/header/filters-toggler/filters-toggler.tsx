@@ -1,7 +1,7 @@
 import React from 'react';
 import {usePathname, useSearchParams} from "next/navigation";
 import css from './filters-toggle.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {useRouter} from "next/router";
 import {raleway} from "@/constants/fonts/fonts";
 import {Drawer} from "antd";
@@ -14,7 +14,7 @@ const FiltersToggler = (props: props) => {
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const {query, push} = useRouter()
-    const {t} = useTranslation()
+    const t = useTranslations()
     const isOpened: string | null = searchParams.get('filters')
 
     const onToggle = () => {

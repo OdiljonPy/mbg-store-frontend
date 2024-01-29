@@ -1,13 +1,13 @@
 import React from 'react';
 import css from './chat-btn.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const ChatBtn = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <button className={css.btn}>
             <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">

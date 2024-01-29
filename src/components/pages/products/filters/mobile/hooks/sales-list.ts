@@ -1,9 +1,9 @@
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 
 
 export function useSalesList () {
-    const {t} = useTranslation()
+    const t = useTranslations()
 
     const salesList: ICustomCheckbox[] = [
         {

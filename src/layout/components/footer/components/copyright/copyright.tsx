@@ -1,13 +1,13 @@
 import React from 'react';
 import css from './copyright.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const Copyright = (props: props) => {
-const {t} = useTranslation()
+const t = useTranslations()
     const year = new Date().getFullYear()
 
     return (

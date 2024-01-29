@@ -3,7 +3,7 @@ import css from './categories.module.css'
 import CategoryItem from "@/components/shared/category-item/category-item";
 import {category} from "@/constants/categories/categories";
 import Link from "next/link";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {raleway} from "@/constants/fonts/fonts";
 
 interface props {
@@ -11,7 +11,7 @@ interface props {
 }
 
 const Categories = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div className={css.wrapper}>
             {category.slice(0,6).map((category, index) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './language.module.css'
-import {useTranslation} from "next-i18next";
+import {useLocale, useTranslations} from 'next-intl';
 import {ILanguage, ILanguagesIcons} from "@/layout/components/header/main-header/data-types/languages";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
@@ -15,12 +15,12 @@ interface props {
 const Language = ({language, onClose}: props) => {
     const {code, title} = language
     const pathname = usePathname()
-    const {i18n} = useTranslation()
+    const locale = useLocale()
     return (
         <Link href={{
             pathname
         }} onClick={onClose} locale={code} scroll={false}
-              className={`${css.language} ${i18n.language === code ? css.active : ''}`}>
+              className={`${css.language} ${locale === code ? css.active : ''}`}>
             <span className={css.icon}>
                 <ResponsiveImage src={languagesIcons[code as keyof ILanguagesIcons]} alt={title}/>
             </span>

@@ -30,6 +30,7 @@ export const navigationList: INav[] = [
     }
 ]
 
+
 export const navTopList: INav[] = [
     {
         path: '/about',

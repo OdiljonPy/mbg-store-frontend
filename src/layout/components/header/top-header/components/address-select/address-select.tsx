@@ -2,7 +2,6 @@ import React from 'react';
 import css from './address-select.module.css'
 import {raleway} from '@/constants/fonts/fonts'
 import {ConfigProvider, Dropdown, MenuProps} from "antd";
-import {useTranslation} from "next-i18next";
 import AddressFormModal from "@/layout/components/header/top-header/components/address-form-modal/address-form-modal";
 
 interface props {
@@ -10,7 +9,6 @@ interface props {
 }
 
 const AddressSelect = (props: props) => {
-    const {t} = useTranslation()
 
     const items: MenuProps['items'] = [
         {

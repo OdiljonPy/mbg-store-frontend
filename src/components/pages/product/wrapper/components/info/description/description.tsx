@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './description.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import Badge from "@/components/shared/badge/badge";
 import Title from "@/components/pages/product/wrapper/components/info/description/title/title";
 import Seller from "@/components/pages/product/wrapper/components/info/description/seller/seller";
@@ -15,7 +15,7 @@ interface props {
 }
 
 const Description = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div className={css.description}>
             <Title title={'Кукуруза Bonduelle Classique сладкая'}/>

@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './heading-line.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {IHeadingLine} from "@/components/pages/home/heading-line/data-types/heading-line";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ interface props {
 }
 
 const HeadingLine = ({heading, small}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {
         title,
         count

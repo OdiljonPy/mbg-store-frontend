@@ -2,14 +2,14 @@ import React from 'react';
 import css from './navigation.module.css'
 import Link from "next/link";
 import {navigationList} from "@/constants/nav/nav";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const Navigation = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <nav className={css.nav}>
             {navigationList.map(({

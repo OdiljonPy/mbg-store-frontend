@@ -1,13 +1,11 @@
 import type {DocumentContext} from 'next/document';
 import Document, {DocumentProps, Head, Html, Main, NextScript} from 'next/document';
 import {createCache, extractStyle, StyleProvider} from '@ant-design/cssinjs';
-import i18nextConfig from '../../next-i18next.config'
 
 
 const MyDocument = ({__NEXT_DATA__}: DocumentProps) => {
     const currentLocale =
-        __NEXT_DATA__.locale ??
-        i18nextConfig.i18n.defaultLocale
+        __NEXT_DATA__.locale ?? 'uz'
     return (<Html lang={currentLocale}>
         <Head>
         </Head>

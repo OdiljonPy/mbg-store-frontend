@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import Similar from "@/components/pages/product/wrapper/components/similar/similar";
 import Info from "@/components/pages/product/wrapper/components/info/info";
 import Comparison from "@/components/pages/product/wrapper/components/info/comparison/comparison";
@@ -12,7 +12,7 @@ interface props {
 }
 
 const Wrapper = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <section className={css.wrapper}>
             <div className={'container'}>

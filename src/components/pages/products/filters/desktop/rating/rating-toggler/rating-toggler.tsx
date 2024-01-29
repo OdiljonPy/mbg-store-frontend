@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {usePathname, useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
 import {ParsedUrlQuery} from "querystring";
@@ -11,7 +11,7 @@ interface props {
 }
 
 const RatingToggler = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const pathname = usePathname()
     const {push, query} = useRouter()
     const searchParams = useSearchParams()

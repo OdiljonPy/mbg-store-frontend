@@ -1,7 +1,7 @@
 import React from 'react';
 import {Drawer} from "antd";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
 import Body from "@/components/pages/products/filters/mobile/categories/body/body";
 import {categoriesItems} from "@/components/pages/products/filters/mobile/categories/constants/mock";
@@ -13,7 +13,7 @@ import css from "@/components/pages/products/filters/mobile/mobile-filters/mobil
 
 
 const Categories = () => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {open, onClose, onOpen} = useModal(true)
     const {unregister, watch} = useFormContext<IFilters>()
 

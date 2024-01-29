@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './products-search.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {raleway} from "@/constants/fonts/fonts";
 import {ConfigProvider, Dropdown, MenuProps} from "antd";
 import {useProductSearch} from "@/layout/components/header/main-header/hooks/use-product-search";
@@ -17,7 +17,7 @@ interface props {
 
 
 const ProductsSearch = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {push, isReady, query} = useRouter()
 
     const {focused, onFocused, searchText, onChange, onBlur, onClearValue} = useProductSearch()

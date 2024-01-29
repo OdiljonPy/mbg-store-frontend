@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './chat-trigger.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import ChatBtn from "@/components/pages/about/faq/chat-trigger/chat-btn/chat-btn";
 
 interface props {
@@ -8,7 +8,7 @@ interface props {
 }
 
 const ChatTrigger = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div className={css.chat}>
             <svg className={css.icon} width="34" height="34" viewBox="0 0 34 34" fill="none"

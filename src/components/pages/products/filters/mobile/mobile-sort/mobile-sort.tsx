@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import css from './mobile-sort.module.css'
 import {usePathname, useSearchParams} from "next/navigation";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {raleway} from "@/constants/fonts/fonts";
 import {Drawer} from "antd";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
@@ -15,7 +15,7 @@ interface props {
 }
 
 const MobileSort = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {open, onOpen, onClose} = useModal()
     const pathname = usePathname()
     const {push, query} = useRouter()

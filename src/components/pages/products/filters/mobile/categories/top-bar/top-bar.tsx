@@ -2,7 +2,7 @@ import React from 'react';
 import css from './top-bar.module.css'
 import header from '@/components/shared/drawer-header/drawer-header.module.css'
 
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {raleway} from "@/constants/fonts/fonts";
 
 interface props {
@@ -13,7 +13,7 @@ interface props {
 }
 
 const TopBar = ({title, onOpen, hideIcon, onReset}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div className={css.bar}>
             <h3 className={css.title}>

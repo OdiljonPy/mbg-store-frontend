@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import css from './mobile-filters.module.css'
 import {Drawer} from "antd";
 import {raleway} from "@/constants/fonts/fonts";
@@ -24,7 +24,7 @@ interface props {
 
 const MobileFilters = ({}: props) => {
 
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {query} = useRouter()
 
     const {open, onClose, onOpen} = useModal()

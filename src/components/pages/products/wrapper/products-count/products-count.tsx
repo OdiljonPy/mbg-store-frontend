@@ -1,6 +1,6 @@
 import React from 'react';
 import css from "@/components/pages/products/wrapper/wrapper.module.css";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {useSearchParams} from "next/navigation";
 
 interface props {
@@ -8,7 +8,7 @@ interface props {
 }
 
 const ProductsCount = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const searchParams = useSearchParams()
     const search: string | null = searchParams.get('search')
 

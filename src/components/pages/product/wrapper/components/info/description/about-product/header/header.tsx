@@ -1,7 +1,7 @@
 import React from 'react';
 import css from "@/components/pages/about/faq/custom-collapse/header/header.module.css";
 import PlusBtn from "@/components/shared/plus-btn/plus-btn";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
     onToggle: () => void
@@ -9,7 +9,7 @@ interface props {
 }
 
 const Header = ({onToggle, open}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
 
     return (
         <div onClick={onToggle} className={`${css.header} ${open ? css.opened : ''}`}>

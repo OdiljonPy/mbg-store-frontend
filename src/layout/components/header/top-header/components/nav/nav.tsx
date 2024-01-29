@@ -1,7 +1,6 @@
 import React from 'react';
 import css from './nav.module.css'
-import {useTranslation} from "next-i18next";
-import {INav} from "@/layout/components/header/top-header/data-types/nav";
+import {useTranslations} from 'next-intl';
 import Link from "next/link";
 import {raleway} from "@/constants/fonts/fonts";
 import {navTopList} from "@/constants/nav/nav";
@@ -13,7 +12,7 @@ interface props {
 
 
 const Nav = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const pathname = usePathname()
     return (
         <nav className={css.nav}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useModal} from "@/hooks/use-modal";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
@@ -17,7 +17,7 @@ interface props {
 }
 
 const Stores = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {open, onOpen, onClose} = useModal(true)
     const {watch, setValue} = useFormContext<IFilters>()
     const stores: string[] | undefined = watch('stores')

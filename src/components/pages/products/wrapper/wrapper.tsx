@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {useSearchParams} from "next/navigation";
 import ProductList from "@/components/pages/products/product-list/product-list";
 import Header from "@/components/pages/products/wrapper/header/header";
@@ -12,7 +12,7 @@ interface props {
 }
 
 const Wrapper = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const searchParams = useSearchParams()
     const category: string | null = searchParams.get('category')
     return (

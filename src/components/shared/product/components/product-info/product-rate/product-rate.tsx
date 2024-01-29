@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './product-rate.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
     rating: number
@@ -8,7 +8,7 @@ interface props {
 }
 
 const ProductRate = ({rating, total_rate_count}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <div className={css.rate}>
             <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">

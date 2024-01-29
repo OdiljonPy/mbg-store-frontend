@@ -1,14 +1,14 @@
 import React from 'react';
 import css from './send-feedback.module.css'
 import Link from "next/link";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 id: number
 }
 
 const SendFeedback = ({id}: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
 
 
 

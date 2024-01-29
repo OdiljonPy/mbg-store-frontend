@@ -1,8 +1,8 @@
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {ICustomRadio} from "@/components/shared/custom-radio/data-types/custom-radio";
 
 export function useRatingList () {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const items: ICustomRadio[] = [
 
         {

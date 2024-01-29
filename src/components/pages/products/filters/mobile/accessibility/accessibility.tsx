@@ -1,7 +1,7 @@
 import React from 'react';
 import css from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters.module.css";
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 import {useModal} from "@/hooks/use-modal";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
@@ -16,7 +16,7 @@ interface props {
 }
 
 const Accessibility = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const {watch, unregister} = useFormContext<IFilters>()
     const accessibility = watch('accessibility')
     const {

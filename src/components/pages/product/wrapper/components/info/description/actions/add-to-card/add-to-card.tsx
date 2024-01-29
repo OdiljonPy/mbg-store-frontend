@@ -1,13 +1,13 @@
 import React from 'react';
 import css from './add-to-card.module.css'
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 interface props {
 
 }
 
 const AddToCard = (props: props) => {
-    const {t} = useTranslation()
+    const t = useTranslations()
     return (
         <button className={css.btn}>
             {t('product.addToCart')}

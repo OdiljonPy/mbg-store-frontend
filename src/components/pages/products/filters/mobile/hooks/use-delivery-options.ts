@@ -1,8 +1,8 @@
 import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
-import {useTranslation} from "next-i18next";
+import {useTranslations} from 'next-intl';
 
 export function useDeliveryOptions( ) {
-    const {t} = useTranslation()
+    const t = useTranslations()
     const storesList: ICustomCheckbox[] = [
         {
             id: 1,
