@@ -3,7 +3,15 @@ import '@/styles/roots.css'
 import type {AppProps} from 'next/app'
 import NextNProgress from 'nextjs-progressbar';
 import Layout from "@/layout/layout";
-import {appWithTranslation} from "next-i18next";
+import nextI18NextConfig from '@/../next-i18next.config.js'
+import {appWithTranslation, UserConfig} from "next-i18next";
+
+const emptyInitialI18NextConfig: UserConfig = {
+    i18n: {
+        defaultLocale: nextI18NextConfig.i18n.defaultLocale,
+        locales: nextI18NextConfig.i18n.locales,
+    },
+};
 
 
 function App({Component, pageProps}: AppProps) {
@@ -17,5 +25,5 @@ function App({Component, pageProps}: AppProps) {
 }
 
 
-export default appWithTranslation(App)
+export default appWithTranslation(App, emptyInitialI18NextConfig)
 

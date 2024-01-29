@@ -9,7 +9,7 @@ interface props {
 
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
+export const getStaticProps: GetStaticProps<Props> = async ({locale}) => {
 
 
     return {

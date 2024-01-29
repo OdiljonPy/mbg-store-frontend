@@ -1,5 +1,5 @@
 import React from 'react';
-import {GetServerSideProps} from "next";
+import {GetServerSideProps, GetStaticPaths, GetStaticProps} from "next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 interface props {
@@ -16,10 +16,14 @@ const Feedback = (props: props) => {
 
 export default Feedback;
 
-type Props = {};
+type Props  = {
+
+}
+
+
+
+
 export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
-
-
     return {
         props: {
             ...(await serverSideTranslations(locale ?? "uz", ["common"])),

@@ -7,15 +7,11 @@ import Wrapper from "@/components/pages/product/wrapper/wrapper";
 interface props {
 
 }
-export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
+
+type Props = {};
 
 
-    return {
-        props: {
-            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
-        },
-    };
-};
+
 
 
 const Index = (props: props) => {
@@ -34,5 +30,24 @@ const Index = (props: props) => {
 
 export default Index;
 
-type Props = {};
 
+// export const getStaticPaths: GetStaticPaths<Props> = async ({locales}) => {
+//     const posts = [1, 2, 3, 4, 5, 6]
+//
+//     const paths = posts.map((item) => ({
+//         params: {
+//             id: item.toString()
+//         }
+//     }))
+//
+//     return {paths, fallback: false }
+// }
+
+
+export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
+        },
+    };
+};
