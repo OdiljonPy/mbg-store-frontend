@@ -7,12 +7,13 @@ import {useTranslation} from "next-i18next";
 interface props {
     rate: number
     count: number
+    noMargin?: boolean
 }
 
-const Rate = ({rate, count}: props) => {
+export const Rate = ({rate, count, noMargin}: props) => {
     const {t} = useTranslation()
     return (
-        <div className={css.rate}>
+        <div className={`${css.rate} ${noMargin ? css.noMargin : ''}`}>
             <div className={css.img}>
                 <ResponsiveImage src={star} alt={'rating'}/>
             </div>
@@ -26,4 +27,3 @@ const Rate = ({rate, count}: props) => {
     );
 };
 
-export default Rate;

@@ -1,0 +1,16 @@
+.list {
+   flex-grow: 1;
+}
+
+
+@media (max-width: 1199px) {
+   .list{
+      flex: 0 0 67%;
+   }
+}
+
+@media (max-width: 767px) {
+   .list{
+      flex-basis: 100%;
+   }
+}

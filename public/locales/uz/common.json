@@ -116,6 +116,9 @@
     "comparison": "Сравнение схожих товаров",
     "title": "Продукт",
     "price": "Цена",
-    "feedback": "Отзывы о товаре"
+    "feedback": "Отзывы о товаре",
+    "showOnFeedback": "Показать по рейтингу",
+    "allFeedbacks": "Все отзывы",
+    "sendFeedback": "Оставить отзыв"
   }
 }

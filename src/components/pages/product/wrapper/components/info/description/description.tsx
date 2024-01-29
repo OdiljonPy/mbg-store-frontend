@@ -4,7 +4,7 @@ import {useTranslation} from "next-i18next";
 import Badge from "@/components/shared/badge/badge";
 import Title from "@/components/pages/product/wrapper/components/info/description/title/title";
 import Seller from "@/components/pages/product/wrapper/components/info/description/seller/seller";
-import Rate from "@/components/pages/product/wrapper/components/info/description/rate/rate";
+import {Rate} from "@/components/pages/product/wrapper/components/info/description/rate/rate";
 import Price from "@/components/pages/product/wrapper/components/info/description/price/price";
 import Deliveries from "@/components/pages/product/wrapper/components/info/description/deliveries/deliveries";
 import Actions from "@/components/pages/product/wrapper/components/info/description/actions/actions";

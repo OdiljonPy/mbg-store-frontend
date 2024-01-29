@@ -3,6 +3,20 @@
 }
 
 .wrapper{
+    margin-top: 26px;
+    gap: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
+
+
+
+
+@media (max-width: 1199px) {
+    .wrapper{
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+}
+

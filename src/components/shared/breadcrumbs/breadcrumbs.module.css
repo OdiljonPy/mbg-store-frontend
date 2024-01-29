@@ -7,6 +7,7 @@
 .arrow {
     transform: rotate(-180deg);
     margin-right: 3px;
+    flex-basis: 15px;
 
 }
 
@@ -42,19 +43,20 @@
     }
 }
 
-@media screen and (max-width: 767px) {
 
-}
-
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
     .breadcrumbs {
         font-size: 12px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .current{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
-
 
 
 
