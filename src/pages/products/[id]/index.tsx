@@ -7,6 +7,16 @@ import Wrapper from "@/components/pages/product/wrapper/wrapper";
 interface props {
 
 }
+export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
+
+
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
+        },
+    };
+};
+
 
 const Index = (props: props) => {
 
@@ -25,13 +35,4 @@ const Index = (props: props) => {
 export default Index;
 
 type Props = {};
-export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
-
-
-    return {
-        props: {
-            ...(await serverSideTranslations(locale ?? "uz", ["common"])),
-        },
-    };
-};
 
