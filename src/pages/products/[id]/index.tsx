@@ -8,7 +8,7 @@ interface props {
 
 }
 
-const Id = (props: props) => {
+const Index = (props: props) => {
 
     return (
         <>
@@ -22,7 +22,7 @@ const Id = (props: props) => {
     );
 };
 
-export default Id;
+export default Index;
 
 type Props = {};
 export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {
