@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import css from './feedback-form.module.css'
 import {Controller, useFieldArray, useForm} from "react-hook-form";
 import {IFeedbackForm} from "@/components/pages/feedback/data-types/feedback";
@@ -22,7 +22,7 @@ interface props {
 
 const FeedbackForm = (props: props) => {
     const t = useTranslations()
-    const {handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
+    const {resetField, clearErrors, handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
         mode: 'all'
     })
 
@@ -69,6 +69,11 @@ const FeedbackForm = (props: props) => {
                     required: {
                         value: true,
                         message: t('errors.required')
+                    },
+                    onChange: (e: {target: {value: boolean}}) => {
+                        setValue('anonymus', e.target.value)
+                        resetField('name')
+                        clearErrors('name')
                     }
                 }} render={({field: {onChange, value}}) => (
                     <div className={css.switch}>

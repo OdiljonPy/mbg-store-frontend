@@ -1,10 +1,11 @@
-.wrapper, .img{
+.wrapper, .img {
     height: 150px;
 }
 
-.img, .delete{
+.img, .delete {
     border-radius: 20px;
 }
+
 .wrapper {
     flex-basis: 150px;
     position: relative;
@@ -16,7 +17,7 @@
     object-fit: cover;
 }
 
-.delete{
+.delete {
     position: absolute;
     top: 0;
     left: 0;
@@ -39,8 +40,45 @@
     z-index: 1;
 }
 
-.btn{
+.btn {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.close {
+    display: none;
+}
+
+@media (max-width: 575px) {
+    .delete {
+        display: none;
+    }
+
+    .wrapper, .img {
+        height: 76px;
+    }
+
+    .wrapper {
+        flex-basis: 76px;
+    }
+
+    .img {
+        width: 76px;
+        border-radius: 12px;
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0 11px 0 8px;
+        background: rgba(255, 255, 255, .8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 24px;
+        width: 24px;
+        border: none;
+    }
 }

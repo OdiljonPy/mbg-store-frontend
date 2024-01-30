@@ -8,7 +8,7 @@
 }
 
 .title {
-
+    align-items: flex-start;
     gap: 12px;
     margin-bottom: 20px;
 }
@@ -43,7 +43,6 @@
 
 
 .flex {
-
     justify-content: space-between;
 }
 
@@ -78,11 +77,12 @@
 }
 
 
-.actions{
+.actions {
     justify-content: flex-end;
 }
 
-.btn{
+.btn {
+    margin-top: 40px;
     font-size: 17px;
     font-weight: 600;
     padding: 14px 0;
@@ -95,6 +95,54 @@
     cursor: pointer;
 }
 
-.btn:hover{
+.btn:hover {
     background: var(--text-green);
+}
+
+
+@media (max-width: 991px) {
+    .weight {
+        font-size: 24px;
+    }
+    .btn{
+        flex-basis: 60%;
+        margin-top: 20px;
+    }
+    .switch{
+        font-size: 14px;
+    }
+    .title{
+        margin-bottom: 15px;
+    }
+    .wrapper, .textarea{
+        margin: 16px 0;
+    }
+}
+
+
+@media (max-width: 767px) {
+.form{
+    flex-basis: 100%;
+}
+
+}
+
+@media (max-width: 575px) {
+    .weight{
+        font-size: 16px;
+    }
+
+    .flex{
+        flex-wrap: wrap;
+    }
+
+    .field{
+        flex-basis: 100%;
+    }
+    .switch{
+        margin: 10px 0 22px;
+    }
+    .btn{
+        flex-basis: 100%;
+    }
 }

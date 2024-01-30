@@ -11,3 +11,11 @@
 .active{
     fill: var(--orange);
 }
+
+
+@media (max-width: 767px) {
+    .icon{
+        width: 36px;
+        height: 36px;
+    }
+}

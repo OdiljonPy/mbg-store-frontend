@@ -1,4 +1,4 @@
-.label{
+.label {
     font-size: 22px;
     font-weight: 700;
     display: flex;
@@ -8,17 +8,17 @@
     margin-bottom: 14px;
 }
 
-.text{
-font-size: 20px;
+.text {
+    font-size: 20px;
     font-weight: 500;
     color: var(--icon-gray);
 }
 
-.dropzone, .description, .path{
+.dropzone, .description, .path {
     transition: all .2s linear;
 }
 
-.dropzone{
+.dropzone {
     border: 2px dashed #DADADA;
     height: 150px;
     flex-basis: 150px;
@@ -31,33 +31,54 @@ font-size: 20px;
     cursor: pointer;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.dropzone:hover{
+.dropzone:hover {
     border-color: var(--light-green);
 }
 
 
-
-
-.dropzone:hover .path{
+.dropzone:hover .path {
     fill: var(--light-green);
 }
 
-.input{
+.input {
     display: none;
 }
 
 
-.description{
+.description {
     font-size: 14px;
     font-weight: 500;
     color: var(--icon-gray);
     text-align: center;
 }
 
-.dropzone:hover .description{
+.dropzone:hover .description {
     color: var(--light-green);
+}
+
+
+@media (max-width: 991px) {
+    .label, .text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .dropzone {
+        flex-basis: 76px;
+        height: 76px;
+    }
+
+    .description {
+        display: none;
+    }
 }
