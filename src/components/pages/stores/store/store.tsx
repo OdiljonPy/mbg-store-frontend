@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './store.module.css'
 import {IStore} from "@/components/pages/stores/data-types/store";
+import Link from "next/link";
 
 interface props {
     store: IStore
@@ -9,9 +10,9 @@ interface props {
 const Store = ({store}: props) => {
     const { title} = store
     return (
-        <div className={css.store}>
+        <Link href={'/stores/1'} className={css.store}>
             {title}
-        </div>
+        </Link>
     );
 };
 
