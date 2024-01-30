@@ -1,0 +1,31 @@
+.input {
+    border: 1.6px solid var(--input-gray);
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black);
+    border-radius: var(--default-radius);
+    width: 100%;
+    transition: all .2s linear;
+}
+
+.input::placeholder {
+    vertical-align: top;
+    color: var(--icon-gray);
+}
+
+
+.error {
+    outline: inherit;
+    border-color: var(--red);
+}
+
+
+.textarea{
+    min-height: 130px;
+    resize: none;
+}
+
+.disabled{
+    opacity: .5;
+}

@@ -1,0 +1,13 @@
+.preview{
+    flex-basis: 40%;
+    background: var(--light-gray);
+    border-radius: var(--medium-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 540px;
+}
+
+.preview img{
+    max-width: 360px;
+}

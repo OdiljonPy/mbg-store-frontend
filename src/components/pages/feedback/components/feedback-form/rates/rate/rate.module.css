@@ -1,0 +1,13 @@
+
+.input {
+    display: none;
+}
+
+.path{
+    transition: all .2s linear;
+}
+
+
+.active{
+    fill: var(--orange);
+}

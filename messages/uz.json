@@ -122,5 +122,18 @@
     "allFeedbacks": "Все отзывы",
     "sendFeedback": "Оставить отзыв",
     "writeFeedback": "Написать отзыв"
+  },
+  "feedback": {
+    "bad": "Плохо",
+    "excellent": "Отлично",
+    "name": "Ваше имя",
+    "namePlaceholder": "Введите имя",
+    "anonymus": "Анонимный отзыв",
+    "message": "Ваш отзыв",
+    "messagePlaceholder": "Ваше мнение о товаре",
+    "photo": "Фото",
+    "photoDetails": "максимум 4",
+    "photoPlaceholder": "или перетащите файл сюда",
+    "send": "Отправить отзыв"
   }
 }
