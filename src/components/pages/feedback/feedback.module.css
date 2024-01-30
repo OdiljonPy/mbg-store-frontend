@@ -1,0 +1,16 @@
+.page{
+    margin: 150px 0 100px;
+}
+
+.title{
+    margin: 20px 0;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}

@@ -1,25 +1,30 @@
 import React from 'react';
 import {GetServerSideProps} from "next";
+import Head from "next/head";
+import {useTranslations} from "next-intl";
+import Feedback from "@/components/pages/feedback/feedback";
 
 interface props {
 
 }
 
-const Feedback = (props: props) => {
+const FeedbackPage = (props: props) => {
+    const t = useTranslations()
     return (
         <>
-            Feedback
+            <Head>
+                <title>
+                    {t('product.sendFeedback')}
+                </title>
+            </Head>
+            <Feedback/>
         </>
     );
 };
 
-export default Feedback;
+export default FeedbackPage;
 
-type Props  = {
-
-}
-
-
+type Props = {}
 
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) => {

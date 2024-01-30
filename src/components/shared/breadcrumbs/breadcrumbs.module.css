@@ -47,15 +47,9 @@
 @media screen and (max-width: 576px) {
     .breadcrumbs {
         font-size: 12px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        flex-wrap: wrap;
     }
-    .current{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+
 }
 
 

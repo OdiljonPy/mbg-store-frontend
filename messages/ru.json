@@ -120,6 +120,7 @@
     "feedback": "Отзывы о товаре",
     "showOnFeedback": "Показать по рейтингу",
     "allFeedbacks": "Все отзывы",
-    "sendFeedback": "Оставить отзыв"
+    "sendFeedback": "Оставить отзыв",
+    "writeFeedback": "Написать отзыв"
   }
 }
