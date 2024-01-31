@@ -5,6 +5,7 @@ import Header from "@/components/pages/products/wrapper/header/header";
 import css from "@/components/pages/products/wrapper/wrapper.module.css";
 import Filters from "@/components/pages/products/filters/filters";
 import ProductList from "@/components/pages/products/product-list/product-list";
+import Intro from "@/components/pages/store/intro/intro";
 
 interface props {
 
@@ -29,6 +30,7 @@ const Store = (props: props) => {
                         label: 'Деревенская лавка'
                     }
                 ]}/>
+                <Intro/>
                 <Header/>
                 <div className={`${css.wrapper}`}>
                     <Filters/>

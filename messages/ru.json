@@ -121,7 +121,8 @@
     "showOnFeedback": "Показать по рейтингу",
     "allFeedbacks": "Все отзывы",
     "sendFeedback": "Оставить отзыв",
-    "writeFeedback": "Написать отзыв"
+    "writeFeedback": "Написать отзыв",
+    "orders": "Заказов"
   },
   "feedback": {
     "bad": "Плохо",

@@ -5,16 +5,17 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 
 interface props {
 delivery: IDelivery
+    isWhite?: boolean
 }
 
-const Delivery = ({delivery}: props) => {
+const Delivery = ({delivery, isWhite}: props) => {
     const {
         icon,
         title,
         text
     } = delivery
     return (
-        <div className={css.delivery}>
+        <div className={`${css.delivery} ${isWhite ? css.white : ''}`}>
             <div className={css.img}>
                 <ResponsiveImage src={icon} alt={title}/>
             </div>

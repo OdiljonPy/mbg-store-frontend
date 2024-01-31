@@ -10,7 +10,7 @@ export const contacts: IContact[] = [
         path: 'tel:+998 (71) 234-56-78'
     },
     {
-        title: 'info.mbgstore@gmail.com',
+        title: 'intro.mbgstore@gmail.com',
         icon: email,
         label: 'footer.email',
         path: 'mailto:info.mbgstore@gmail.com'

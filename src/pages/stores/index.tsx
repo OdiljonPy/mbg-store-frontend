@@ -18,7 +18,6 @@ const Index = (props: props) => {
                 </title>
             </Head>
             <Wrapper/>
-
         </>
     );
 };

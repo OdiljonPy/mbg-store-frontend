@@ -1,0 +1,23 @@
+.info {
+    padding: 20px 24px;
+    background: #F1FAF4;
+    margin: 12px 0 22px;
+    border-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 991px) {
+    .info{
+        padding: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .info{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

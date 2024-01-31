@@ -10,7 +10,7 @@ interface props {
 const Store = ({store}: props) => {
     const { title} = store
     return (
-        <Link href={'/stores/1'} className={css.store}>
+        <Link href={'/stores/1?sort=popular'} className={css.store}>
             {title}
         </Link>
     );
