@@ -1,0 +1,18 @@
+.info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.name{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.weight{
+    margin: 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--icon-gray);
+}

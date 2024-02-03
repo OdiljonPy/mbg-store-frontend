@@ -48,6 +48,9 @@
     transition: all .2s linear;
 }
 
+.large{
+    border-radius: 20px!important;
+}
 .show {
     visibility: visible;
     opacity: 1;

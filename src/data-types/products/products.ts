@@ -5,6 +5,7 @@ export interface IProduct{
     img: StaticImageData | string
     title: string
     rating: number
+    weight: string
     total_rate_count: number
     discount_percentage?: number
     price: number

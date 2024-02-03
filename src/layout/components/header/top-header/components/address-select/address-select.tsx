@@ -2,8 +2,12 @@ import React from 'react';
 import css from './address-select.module.css'
 import {raleway} from '@/constants/fonts/fonts'
 import {ConfigProvider, Dropdown, MenuProps} from "antd";
-import AddressFormModal from "@/layout/components/header/top-header/components/address-form-modal/address-form-modal";
+import dynamic from "next/dynamic";
 
+
+const AddressFormModal = dynamic(() => import("@/layout/components/header/top-header/components/address-form-modal/address-form-modal"), {
+    ssr: false
+})
 interface props {
 
 }

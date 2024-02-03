@@ -5,6 +5,7 @@ import NextNProgress from 'nextjs-progressbar';
 import Layout from "@/layout/layout";
 import {NextIntlClientProvider, IntlProvider} from 'next-intl';
 import {useRouter} from "next/router";
+import {YMaps} from "@pbe/react-yandex-maps";
 
 
 function App({Component, pageProps}: AppProps) {
@@ -13,16 +14,21 @@ function App({Component, pageProps}: AppProps) {
         <IntlProvider
             locale={locale!}
             messages={pageProps.messages}
-            onError={() => {}}
+            onError={() => {
+            }}
             timeZone={'Asia/Tashkent'}
         >
-            <Layout>
-                <NextNProgress color={`#39B969`}
-                               startPosition={0.3}
-                               stopDelayMs={200}
-                               height={8}
-                               showOnShallow={true}/>
-                <Component {...pageProps} /></Layout>
+            <YMaps enterprise query={{lang: 'ru_RU', apikey: process.env.NEXT_PUBLIC_YANDEX_KEY, mode: 'debug', suggest_apikey: process.env.NEXT_PUBLIC_SUGGEST_KEY}}>
+                <Layout>
+                    <NextNProgress color={`#39B969`}
+                                   startPosition={0.3}
+                                   stopDelayMs={200}
+                                   height={8}
+                                   showOnShallow={true}/>
+                    <Component {...pageProps} />
+                </Layout>
+            </YMaps>
+
         </IntlProvider>
     )
 
