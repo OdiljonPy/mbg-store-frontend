@@ -1,0 +1,23 @@
+.cart{
+    margin: 150px 0 100px;
+}
+
+
+.wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media (max-width: 992px){
+    .wrapper{
+        flex-direction: column;
+    };
+}
+
+@media (max-width: 575px){
+    .wrapper{
+        align-items: stretch;
+    }
+}

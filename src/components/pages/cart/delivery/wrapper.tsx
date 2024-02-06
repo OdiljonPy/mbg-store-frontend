@@ -3,8 +3,9 @@ import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from "next-intl";
 import {Badge} from "antd";
 import Favourites from "@/components/pages/cart/favourites/favourites";
-import Contents from "@/components/pages/cart/contents/contents";
 import Total from "@/components/pages/cart/total/total";
+import Content from "@/components/pages/cart/delivery/content/content";
+import TotalSum from "@/components/pages/cart/delivery/content/totalSum/totalSum";
 
 interface props {
 
@@ -24,15 +25,18 @@ const Wrapper = (props: props) => {
                         path: '/cart',
                         label: t('header.basket')
                     },
+                    {
+                        path: '/cart/delivery',
+                        label: t('header.delivery')
+                    }
                 ]}/>
-                <h1 className={css.title}>
-                    {t('header.basket')} <Badge count={2} color={'#39B969'}/>
-                </h1>
                 <div className={css.wrapper}>
-                    <Contents/>
-                    <Total/>
+                    {/*<Contents/>*/}
+                    <Content/>
+                    {/*<Total/>*/}
+                    <TotalSum/>
                 </div>
-                <Favourites/>
+                {/*<Favourites/>*/}
             </div>
         </section>
     );

@@ -1,0 +1,29 @@
+.totalDelete {
+    padding: 22px 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1.6px dashed var(--input-gray);
+}
+.green_text{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21px;
+    color: var(--text-green);
+}
+.black_text{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    color: var(--black);
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.deleteIcon{
+    cursor: pointer;
+}

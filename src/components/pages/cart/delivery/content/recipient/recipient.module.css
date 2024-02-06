@@ -1,0 +1,33 @@
+.title{
+    color: #232323;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 31px;
+}
+
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+
+.field {
+    width: 100%;
+    color: var(--black);
+}
+
+.label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.required{
+    color: #FF6C6C;
+    font-size: 22px;
+    font-weight: 600;
+;
+}

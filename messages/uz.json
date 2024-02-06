@@ -8,7 +8,8 @@
     "searchProducts": "Поиск продуктов",
     "favourites": "Избранное",
     "login": "Войти",
-    "basket": "Корзина"
+    "basket": "Корзина",
+    "delivery": "Yetkazib Berish"
   },
   "categories": {
     "title": "Категории",
@@ -145,7 +146,16 @@
     "actualPrice": "Предварительная стоимость",
     "order": "Оформить заказ",
     "promo_code": "Промокод",
-    "accept": "Применить"
+    "accept": "Применить",
+    "type": "Доставка/самовывоз",
+    "type_value" : "уточняется",
+    "checkout": "Перейти к оплате",
+    "delivery": {
+      "title_one" : "Получатель заказа",
+      "name_label": "Имя и фамилия",
+      "phone_label": "Номер телефона",
+      "name_placeholder":"Введите ваше имя"
+    }
   },
   "remove": "Удалить"
 }
