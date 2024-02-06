@@ -6,7 +6,7 @@ interface props {
 
 }
 
-const Copyright = (props: props) => {
+const  Copyright = (props: props) => {
 const t = useTranslations()
     const year = new Date().getFullYear()
 
