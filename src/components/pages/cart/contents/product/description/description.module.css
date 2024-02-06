@@ -16,3 +16,22 @@
     font-weight: 600;
     color: var(--icon-gray);
 }
+.price_desctop{
+    display: block;
+}
+@media (max-width: 575px) {
+    .price_desctop{
+        display: none;
+    }
+    .info{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .name{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .weight{
+        font-size: 13px;
+    }
+}

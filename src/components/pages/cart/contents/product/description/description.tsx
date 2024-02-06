@@ -21,7 +21,9 @@ const Description = ({product, count}: props) => {
                 </p>
                 <Seller seller={seller}/>
             </div>
-            <Price discount_price={discount_price} price={price} count={count}/>
+            <div className={css.price_desctop}>
+                <Price discount_price={discount_price} price={price} count={count}/>
+            </div>
         </div>
     );
 };

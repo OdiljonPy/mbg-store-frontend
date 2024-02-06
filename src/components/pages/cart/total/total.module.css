@@ -51,3 +51,14 @@
 .btn:active{
     background: var(--green);
 }
+
+@media (max-width: 575px) {
+    .title{
+        font-size: 15px;
+    }
+
+    .total{
+        border:none;
+        flex-basis: 100%;
+    }
+}

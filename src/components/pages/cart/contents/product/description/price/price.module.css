@@ -25,6 +25,13 @@
     display: none;
 }
 
+@media(max-width: 575px){
+    .price,.discount,.actualPrice{
+        font-size: 15px;
+        text-align: left;
+    }
+}
+
 
 
 

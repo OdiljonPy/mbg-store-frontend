@@ -27,3 +27,38 @@
     justify-content: space-between;
     flex-grow: 1;
 }
+
+.desktop_action{
+    display: block;
+}
+.mobile_action{
+    display: none;
+}
+.price_mobile{
+    display: none;
+}
+
+@media(max-width: 575px){
+    .price_mobile{
+        display: block;
+    }
+    .img{
+        width: 100px;
+        flex-shrink: 0;
+    }
+    .product{
+        border-bottom: none;
+        margin-bottom: 12px;
+        gap: 10px;
+        padding-bottom: 0;
+    }
+    .desktop_action{
+        display: none;
+    }
+    .mobile_action{
+        display: block;
+        padding-bottom:12px ;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--light-gray);
+    }
+}
