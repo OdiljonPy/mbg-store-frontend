@@ -1,0 +1,40 @@
+.prices{
+    text-align: right;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+
+.discount{
+    color: var(--orange);
+}
+
+.actualPrice, .pricePerItem{
+    font-size: 14px;
+}
+
+.actualPrice{
+    margin: 4px 0 8px;
+    font-weight: 500;
+    color: var(--icon-gray);
+    text-decoration: line-through;
+    display: none;
+}
+
+
+
+
+.pricePerItem{
+    font-weight: 600;
+    color: var(--icon-gray);
+    display: none;
+}
+
+
+.show{
+    display: block;
+}

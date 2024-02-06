@@ -4,17 +4,26 @@ import {useTranslations} from 'next-intl';
 import {Modal} from "antd";
 import {useForm} from "react-hook-form";
 import {IAddressForm} from "@/layout/components/header/top-header/data-types/address-form";
-import AddressForm from "@/layout/components/header/top-header/components/address-form/address-form";
-import AddressMap from "@/layout/components/header/top-header/components/address-map/address-map";
 import CloseModal from "@/components/shared/close-modal/close-modal";
+import dynamic from "next/dynamic";
 
+
+const AddressInner = dynamic(() => import('@/layout/components/header/top-header/components/address-inner/address-inner'),{
+    ssr: false
+})
 interface props {
 
 }
 
+
 const AddressFormModal = (props: props) => {
     const t = useTranslations()
+
+
     const [open, setOpen] = useState<boolean>(false)
+
+
+
 
     const methods = useForm<IAddressForm>()
 
@@ -33,6 +42,7 @@ const AddressFormModal = (props: props) => {
     const onSubmit = (values: IAddressForm) => {
 
     }
+
 
     return (
         <>
@@ -57,11 +67,7 @@ const AddressFormModal = (props: props) => {
             >
                 <form onSubmit={methods.handleSubmit(onSubmit)} className={css.wrapper}>
                     <CloseModal onClick={onClose}/>
-                    <AddressForm methods={methods}/>
-                    <AddressMap coordinates={{
-                        lat: 25,
-                        lng: 25
-                    }}/>
+                    <AddressInner methods={methods}/>
                 </form>
             </Modal>
         </>

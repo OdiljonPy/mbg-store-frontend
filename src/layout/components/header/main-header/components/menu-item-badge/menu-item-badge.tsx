@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 import Link from "next/link";
 import {raleway} from "@/constants/fonts/fonts";
 import {Badge} from "antd";
+import {usePathname} from "next/navigation";
 
 interface props {
     badge: IBadge
@@ -13,8 +14,12 @@ interface props {
 const MenuItemBadge = ({badge}: props) => {
     const t = useTranslations()
     const {icon, title, count, path} = badge
+
+    const pathname = usePathname()
+
+
     return (
-        <Link href={path} className={`${css.menuItem}  ${raleway.className}`}>
+        <Link href={path} className={`${css.menuItem} ${pathname === path ? css.active :''}  ${raleway.className}`}>
             <Badge count={count} style={{backgroundColor: '#39B969', borderColor: 'transparent'}}>
             <span className={css.icon}>
             {icon}

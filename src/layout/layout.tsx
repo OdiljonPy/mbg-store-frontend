@@ -4,8 +4,6 @@ import Header from "@/layout/components/header/header";
 import css from './layout.module.css'
 import Footer from "@/layout/components/footer/footer";
 import {raleway} from "@/constants/fonts/fonts";
-import Loader from "@/components/shared/loader/loader";
-
 
 
 const Layout = ({children}: PropsWithChildren) => {

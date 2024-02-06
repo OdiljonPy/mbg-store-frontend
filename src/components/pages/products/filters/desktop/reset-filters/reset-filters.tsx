@@ -33,7 +33,7 @@ const ResetFilters = (props: props) => {
         <button onClick={onReset} type={'button'}
                 className={`${css.btn} ${activeFilters.length ? css.active : ''}`}>
             {t('filters.reset')} <span
-            className={`${css.info} ${activeFilters.length ? css.show : ''}`}>{activeFilters.length}</span>
+            className={`${css.info} ${activeFilters.length >= 10 ? css.large : ''} ${activeFilters.length ? css.show : ''}`}>{activeFilters.length}</span>
         </button>
     );
 };

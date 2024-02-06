@@ -59,6 +59,7 @@
 .decrement:hover svg path {
     fill: var(--green);
 }
+
 .show{
     margin-left: 0;
     opacity: 1;

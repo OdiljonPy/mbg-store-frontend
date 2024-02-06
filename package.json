@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.2",
+    "@pbe/react-yandex-maps": "^1.2.5",
     "antd": "^5.12.8",
     "axios": "^1.6.5",
     "keen-slider": "^6.8.6",
