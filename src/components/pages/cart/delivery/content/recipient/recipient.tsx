@@ -6,6 +6,7 @@ import { useForm} from "react-hook-form";
 import React, {useState} from "react";
 import {useTranslations} from "next-intl";
 import {IFeedbackForm} from "@/components/pages/feedback/data-types/feedback";
+import Heading from "@/components/pages/cart/delivery/content/heading/heading";
 interface props{
 
 }
@@ -25,13 +26,13 @@ function getUserData(data:any):void {
 }
     return(
         <div>
-            <h2 className={`${css.title} ${raleway.className}`}>1. Получатель заказа</h2>
-            <form onSubmit={handleSubmit(getUserData)}>
+            <Heading title='Получатель заказа' index={1} />
+            <form onSubmit={handleSubmit(getUserData)} className={css.form}>
                 <div className={css.flex}>
                     <div className={css.field}>
                         <label className={css.label}>
                             {t('cart.delivery.name_label')}
-                            <span><sup className={css.required}>*</sup></span>
+                            <span className={css.required}>*</span>
                         </label>
                         <input {...register('name', {
                             required: {
@@ -44,7 +45,7 @@ function getUserData(data:any):void {
                     </div>
                     <div className={css.field}>
                         <label className={css.label}>
-                            {t('cart.delivery.phone_label')} <span><sup className={css.required}>*</sup></span>
+                            {t('cart.delivery.phone_label')}   <span className={css.required}>*</span>
                         </label>
                         <input {...register('phone', {
                             required: {

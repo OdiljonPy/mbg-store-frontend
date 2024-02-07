@@ -3,9 +3,8 @@ import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from "next-intl";
 import {Badge} from "antd";
 import Favourites from "@/components/pages/cart/favourites/favourites";
-import Total from "@/components/pages/cart/total/total";
 import Content from "@/components/pages/cart/delivery/content/content";
-import TotalSum from "@/components/pages/cart/delivery/content/totalSum/totalSum";
+import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 
 interface props {
 
@@ -31,9 +30,7 @@ const Wrapper = (props: props) => {
                     }
                 ]}/>
                 <div className={css.wrapper}>
-                    {/*<Contents/>*/}
                     <Content/>
-                    {/*<Total/>*/}
                     <TotalSum/>
                 </div>
                 {/*<Favourites/>*/}

@@ -20,4 +20,7 @@
     .wrapper{
         align-items: stretch;
     }
+    .cart{
+        margin-bottom: 30px;
+    }
 }

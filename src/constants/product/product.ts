@@ -12,7 +12,8 @@ export const product: IProduct = {
     discount_percentage: 50,
     discount_price: 15000,
     img: img,
-    seller: 'Продавец'
+    seller: 'Продавец',
+    count:2
 }
 
 export const productWithoutDiscount: IProduct = {
@@ -23,8 +24,11 @@ export const productWithoutDiscount: IProduct = {
     total_rate_count: 12358,
     price: 30000,
     img: img,
-    seller: 'Продавец'
+    seller: 'Продавец',
+    count:2
 }
+
+
 
 
 export const sortingOptions:ISortingOption[] = [

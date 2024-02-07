@@ -1,0 +1,56 @@
+
+.prices{
+    text-align: right;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+
+.discount{
+    color: var(--orange);
+}
+
+.actualPrice, .pricePerItem{
+    font-size: 14px;
+}
+
+.actualPrice{
+    margin: 4px 0 8px;
+    font-weight: 500;
+    color: var(--icon-gray);
+    text-decoration: line-through;
+    display: none;
+}
+
+@media(max-width: 575px){
+    .price,.discount{
+        font-size: 15px;
+        text-align: left;
+    }
+    .actualPrice{
+        font-size: 10px;
+        text-align: left;
+        margin:2px 0
+    }
+    .pricePerItem{
+        font-size: 12px;
+    }
+}
+
+
+
+
+.pricePerItem{
+    font-weight: 600;
+    color: var(--icon-gray);
+    display: none;
+}
+
+
+.show{
+    display: block;
+}

@@ -1,16 +1,12 @@
-.title{
-    color: #232323;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 31px;
-}
-
 
 .flex{
     display: flex;
     justify-content: space-between;
     gap: 30px;
     width: 100%;
+}
+.form{
+    margin-top: 12px;
 }
 
 .field {
@@ -29,5 +25,14 @@
     color: #FF6C6C;
     font-size: 22px;
     font-weight: 600;
-;
+}
+
+@media (max-width: 575px){
+    .flex{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .form{
+        margin-top: 8px;
+    }
 }

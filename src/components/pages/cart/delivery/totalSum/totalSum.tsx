@@ -4,7 +4,7 @@ import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import Link from "next/link";
 import Promocode from "@/components/pages/cart/total/promocode/promocode";
-import TotalDelete from "@/components/pages/cart/delivery/content/totalSum/totalDelete";
+import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 
 interface props{
 

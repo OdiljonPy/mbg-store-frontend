@@ -1,0 +1,10 @@
+.edit_icon{
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+}
+
+@media (max-width: 575px){
+    width: 17px;
+    height: 17px;
+}

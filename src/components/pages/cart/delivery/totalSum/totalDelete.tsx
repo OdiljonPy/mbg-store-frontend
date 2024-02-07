@@ -1,6 +1,6 @@
 import css from "./totalDelete.module.css"
-import DoneSVG from "@/components/pages/cart/delivery/content/totalSum/doneSVG";
-import DeleteSVG from "@/components/pages/cart/delivery/content/totalSum/deleteSVG";
+import DoneSVG from "@/components/pages/cart/delivery/totalSum/doneSVG";
+import DeleteSVG from "@/components/pages/cart/delivery/totalSum/deleteSVG";
 
 interface props{
 
