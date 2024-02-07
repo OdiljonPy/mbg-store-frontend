@@ -28,18 +28,7 @@ const Sales = (props: props) => {
                             )
                         })
                     }
-                    {/*<div className={`keen-slider__slide`}>*/}
-                    {/*    <Product product={product}/>*/}
-                    {/*</div>*/}
-                    {/*<div className={`keen-slider__slide`}>*/}
-                    {/*    <Product product={productWithoutDiscount}/>*/}
-                    {/*</div>*/}
-                    {/*<div className={`keen-slider__slide`}>*/}
-                    {/*    <Product product={product}/>*/}
-                    {/*</div>*/}
-                    {/*<div className={`keen-slider__slide`}>*/}
-                    {/*    <Product product={productWithoutDiscount}/>*/}
-                    {/*</div>*/}
+
                 </div>
             </div>
         </section>
