@@ -185,7 +185,7 @@ export const productTop:IProduct[] = [
         price: 21000,
         discount_percentage: 21,
         discount_price: 16000,
-        img: img2,
+        img: img10,
         seller: 'Продавец',
     }
 ]
