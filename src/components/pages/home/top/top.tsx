@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import css from "@/components/pages/home/sales/sales.module.css";
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Product from "@/components/shared/product/product";
-import {product, productWithoutDiscount} from "@/constants/product/product";
+import {product, productTop, productWithoutDiscount} from "@/constants/product/product";
 import {useKeenSlider} from "keen-slider/react";
 import {useSlider} from "@/hooks/use-slider";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
+import {IProduct} from "@/data-types/products/products";
 
 interface props {
 
@@ -25,30 +26,19 @@ const Top = (props: props) => {
                     <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
                     <ProductSwiperArrow onClick={onNext} isNext/>
                     <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
+                        {
+                            productTop.map((product) =>{
+                                return(
+                                    <div className={`keen-slider__slide`}>
+                                        <Product product={product}/>
+                                    </div>
+                                )
+                            })
+                        }
                         <div className={`keen-slider__slide`}>
                             <Product product={product}/>
                         </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={productWithoutDiscount}/>
-                        </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={product}/>
-                        </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={productWithoutDiscount}/>
-                        </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={product}/>
-                        </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={productWithoutDiscount}/>
-                        </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={product}/>
-                        </div>
-                        <div className={`keen-slider__slide`}>
-                            <Product product={productWithoutDiscount}/>
-                        </div>
+
                     </div>
                 </div>
             </div>
