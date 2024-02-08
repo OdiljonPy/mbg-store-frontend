@@ -23,7 +23,7 @@ const Sales = (props: props) => {
                         productSales.map((product)=>{
                             return(
                                 <div className={`keen-slider__slide`}>
-                                    <Product product={product}/>
+                                    <Product product={product} key={product.id}/>
                                 </div>
                             )
                         })

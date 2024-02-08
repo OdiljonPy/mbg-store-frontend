@@ -28,8 +28,8 @@ const Top = (props: props) => {
                         {
                             productTop.map((product) =>{
                                 return(
-                                    <div className={`keen-slider__slide`}>
-                                        <Product product={product}/>
+                                    <div className={`keen-slider__slide`} >
+                                        <Product product={product} key={product.id} />
                                     </div>
                                 )
                             })
