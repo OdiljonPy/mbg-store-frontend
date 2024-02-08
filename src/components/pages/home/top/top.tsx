@@ -29,8 +29,8 @@ const Top = (props: props) => {
                         {
                             productTop.map((product) =>{
                                 return(
-                                    <div className={`keen-slider__slide`} >
-                                        <Product product={product} key={product.id} />
+                                    <div className={`keen-slider__slide`} key={product.id} >
+                                        <Product product={product}  />
                                     </div>
                                 )
                             })
