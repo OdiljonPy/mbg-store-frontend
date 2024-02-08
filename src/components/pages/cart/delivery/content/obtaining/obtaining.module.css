@@ -1,0 +1,9 @@
+.obtaining{
+    margin-top: 50px;
+}
+
+@media (max-width: 575px){
+    .obtaining{
+        margin-top: 12px;
+    }
+}

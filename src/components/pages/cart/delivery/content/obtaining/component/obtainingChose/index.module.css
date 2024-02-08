@@ -1,0 +1,60 @@
+.obtaining_btn{
+    position: relative;
+    margin-top: 28px;
+}
+
+.label{
+    position: absolute;
+    top: 50%;
+    transition: all 0.7s;
+    border-radius: 200px;
+    background-color: #fff;
+    width: 50%;
+    height: 90%;
+    z-index: 1;
+}
+.label_right{
+    left: -4px;
+    transform:translateY(-50%) translateX(100%);
+}
+.label_left{
+    left: 4px;
+    transform: translateY(-50%) translateX(0%);
+}
+
+.choose_btn{
+    padding: 4px;
+    background-color: var(--light-gray);
+    border-radius: 200px;
+    display: flex;
+}
+
+.choose_btn div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-grow: 1;
+    padding: 16px 0;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn_text{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #A4A4A4;
+    transition: all 0.7s;
+}
+
+.active{
+    color:var(--black)
+}
+
+@media (max-width: 575px){
+    .obtaining_btn{
+        margin-top: 12px;
+    }
+}

@@ -3,7 +3,7 @@ import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import Link from "next/link";
 import OrderCart from "@/components/pages/cart/delivery/content/order/orderCart";
 import css from "./order.module.css"
-import {product, productWithoutDiscount} from "@/constants/product/product";
+import { productWithoutCount} from "@/constants/product/product";
 const Order = () =>{
     return(
         <div className={css.order}>
@@ -13,11 +13,11 @@ const Order = () =>{
                 </Link>
             </Heading>
             <div className={css.order_cart}>
-                <OrderCart product={product}/>
-                <OrderCart product={product}/>
-                <OrderCart product={productWithoutDiscount}/>
-                <OrderCart product={product}/>
-                <OrderCart product={product}/>
+                <OrderCart product={productWithoutCount}/>
+                <OrderCart product={productWithoutCount}/>
+                <OrderCart product={productWithoutCount}/>
+                <OrderCart product={productWithoutCount}/>
+                <OrderCart product={productWithoutCount}/>
             </div>
         </div>
     )
