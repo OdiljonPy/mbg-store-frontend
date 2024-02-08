@@ -19,7 +19,14 @@
     "add": "Добавить адрес",
     "typeAddress": "Укажите свой адрес",
     "title": "Адрес",
-    "placeholder": "Город, улица, дом"
+    "placeholder": "Город, улица, дом",
+    "add_delivery" : "Адрес доставки",
+    "name" : "Название",
+    "enter_name" : "Введите название",
+    "entrance": "Подъезд",
+    "floor" : "Этаж",
+    "apartment": "Квартира",
+    "make_address" : "Сделать адрес основным"
   },
   "search": {
     "placeholder": "Поиск товаров",

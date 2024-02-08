@@ -1,9 +1,19 @@
 .obtaining{
     margin-top: 50px;
 }
+.change_container{
+    margin-top: 20px;
+    height: min-content;
+    transition: all 0.7s;
+    overflow: hidden;
+}
 
 @media (max-width: 575px){
     .obtaining{
         margin-top: 12px;
     }
+    .change_container{
+        margin-top: 14px;
+    }
 }
+

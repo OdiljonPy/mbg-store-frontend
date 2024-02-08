@@ -5,6 +5,7 @@
     background: var(--icon-gray);
     border-radius: 50%;
     position: absolute;
+    z-index: 4;
     cursor: pointer;
     height: 24px;
     border: none;

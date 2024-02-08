@@ -57,4 +57,10 @@
     .obtaining_btn{
         margin-top: 12px;
     }
+    .choose_btn div{
+        padding: 10px 0;
+    }
+    .btn_text{
+        font-size: 14px;
+    }
 }

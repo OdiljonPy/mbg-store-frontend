@@ -1,8 +1,17 @@
 import css from "./index.module.css"
+import {useEffect, useRef} from "react";
 
-const ObtainingCome = () =>{
+interface props{
+    changeContainerHeight : (e:number)=>void
+}
+
+const ObtainingCome = ({changeContainerHeight}:props) =>{
+    const cardRef = useRef<any>(null)
+    useEffect(()=>{
+        changeContainerHeight(cardRef?.current?.scrollHeight)
+    },[])
     return(
-        <div>
+        <div ref={cardRef}>
             Store
         </div>
     )
