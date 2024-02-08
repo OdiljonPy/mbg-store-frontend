@@ -23,7 +23,6 @@ export const product: IProduct = {
     discount_price: 15000,
     img: img,
     seller: 'Продавец',
-    count:2
 }
 
 export const productWithoutDiscount: IProduct = {
@@ -35,7 +34,6 @@ export const productWithoutDiscount: IProduct = {
     price: 30000,
     img: img,
     seller: 'Продавец',
-    count:2
 }
 
 export const productSales:IProduct[] = [
