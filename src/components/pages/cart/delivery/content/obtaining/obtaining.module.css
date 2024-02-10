@@ -8,12 +8,23 @@
     overflow: hidden;
 }
 
+.status_cart{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
 @media (max-width: 575px){
     .obtaining{
         margin-top: 12px;
     }
     .change_container{
         margin-top: 14px;
+    }
+    .status_cart{
+        margin-top: 14px;
+        gap: 10px;
     }
 }
 

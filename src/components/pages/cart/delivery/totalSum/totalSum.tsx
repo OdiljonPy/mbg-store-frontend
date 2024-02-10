@@ -21,7 +21,7 @@ const TotalSum = (props:props) =>{
                 <TotalItem label={t('cart.price')} value={priceFormatter(174000, true)}/>
                 <TotalItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-45000, true)}/>
                 <TotalItem className={css.paddingTop} label={t('cart.promo_code')} value={priceFormatter(-14800, true)}/>
-                <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
+                <TotalItem className={css.bordered} label={t('cart.type')} value={t('card.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(174000 - 26000, true)}/>
                     <button type={'button'} className={`${css.btn} ${css.checkout_btn}`}>

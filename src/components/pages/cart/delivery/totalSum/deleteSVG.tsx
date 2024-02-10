@@ -1,6 +1,6 @@
 import css from "./totalDelete.module.css"
 interface props{
-    onClick:() => void
+    onClick?:() => void
 }
 const deleteSVG = ({onClick}:props) =>{
     return(
