@@ -37,3 +37,21 @@
 .send_btn:active{
     background: var(--green);
 }
+
+.btn_outline{
+    background: transparent;
+    border: 2px solid var(--green) ;
+    border-color: var(--green) ;
+    color: var(--green);
+}
+.btn_outline:hover{
+    color: white;
+    background-color: var(--light-green);
+    border-color:var(--light-green) ;
+}
+
+@media (max-width: 575px){
+    .btn{
+        font-size: 16px;
+    }
+}
