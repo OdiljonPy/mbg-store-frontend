@@ -13,7 +13,6 @@ const Obtaining = (props:props) =>{
     const [tab,setTab] = useState('left')
     const [containerHeight,setContainerHeight] = useState(20)
     function changeContainerHeight(e:number){
-        console.log(e)
         setContainerHeight((prevState)=> e)
     }
     function changeTab(e:string){

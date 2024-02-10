@@ -26,7 +26,7 @@ const OrderCart = ({product}:props) =>{
                     </p>
                 </div>
                 <div className={css.info_right}>
-                        <Price price={price} discount_price={discount_price} count={count}/>
+                        <Price price={price} discount_price={discount_price} count={2}/>
                     <p className={css.count}>кол-во: <span className={css.count_value}>{count}</span></p>
                 </div>
             </div>

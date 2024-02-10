@@ -24,7 +24,9 @@
 }
 
 
-
+.map_container{
+    width: 100%;
+}
 .map {
     flex: 0 0 48%;
     height: 490px;
@@ -86,30 +88,6 @@
 }
 
 
-.submitBtn {
-    background: var(--pale-green);
-    border-radius: var(--default-radius);
-    border: none;
-    font-weight: 600;
-    padding: var(--default-padding);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-    width: 100%;
-    cursor: pointer;
-    transition: all .2s linear;
-    outline: none;
-}
-
-
-.submitBtn:hover {
-    background: #ECF8F6;
-}
-
-.submitBtn:active {
-    transform: scale(0.8);
-}
 .btn_send{
     background: var(--light-gray);
     border-radius: var(--default-radius);
@@ -162,6 +140,7 @@
     margin-top: 20px;
 }
 
+
 @media (max-width: 575px){
     .wrapper{
         flex-direction: column;
@@ -174,5 +153,7 @@
     }
     .map{
         height: 80vh;
+        width: 100%;
     }
+
 }

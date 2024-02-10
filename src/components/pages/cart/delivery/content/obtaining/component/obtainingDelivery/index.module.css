@@ -1,1 +1,22 @@
-/* write code */
+
+.carts{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.action_btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 200px;
+    margin-top:30px;
+}
+
+
+@media (max-width: 575px){
+    .action_btn{
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 14px;
+    }
+}

@@ -10,7 +10,7 @@ interface props{
 
 }
 
-const totalSum = (props:props) =>{
+const TotalSum = (props:props) =>{
     const t = useTranslations()
     return(
         <div className={css.total}>
@@ -34,4 +34,4 @@ const totalSum = (props:props) =>{
     )
 }
 
-export default totalSum
+export default TotalSum
