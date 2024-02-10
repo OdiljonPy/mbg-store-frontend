@@ -12,6 +12,7 @@ interface props{
 const Obtaining = (props:props) =>{
     const [tab,setTab] = useState('left')
     const [containerHeight,setContainerHeight] = useState(20)
+
     function changeContainerHeight(e:number){
         setContainerHeight((prevState)=> e)
     }
@@ -19,17 +20,23 @@ const Obtaining = (props:props) =>{
         setTab((prevState)=> prevState = e)
     }
     const containerStyle = {
-        // minHeight: `${containerHeight}px`,
         height : `${containerHeight}px`,
         transition : 'all 0.7s '
     }
+
+    // active address obtaining delivery
+        const activeAddress = (id:number) =>{
+        console.log(id,"active address id")
+        }
+    // end active address
+
     return(
         <div className={css.obtaining}>
             <Heading title="Товары в заказе" index={2} />
             <div>
                 <ObtainingChose tab={tab} changeTab={changeTab}  />
                 <div className={css.change_container} style={containerStyle} >
-                    {tab == 'left' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}/> : <ObtainingCome changeContainerHeight={changeContainerHeight}/>}
+                    {tab == 'left' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight} activeAddress={activeAddress} /> : <ObtainingCome changeContainerHeight={changeContainerHeight}/>}
                 </div>
             </div>
         </div>

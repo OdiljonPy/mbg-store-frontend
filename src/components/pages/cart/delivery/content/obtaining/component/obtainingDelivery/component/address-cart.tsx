@@ -11,6 +11,7 @@ interface props{
     fetchActive: (e:number) => void,
     active?:number
     openDelModal:(id:number,title:string)=>void
+    openEditModal:() => void
     data:{
         id:number,
         value:number,
@@ -20,7 +21,7 @@ interface props{
     }
 }
 
-const AddressCart = ({fetchActive,active,openDelModal,data}:props) =>{
+const AddressCart = ({fetchActive,active,openDelModal,data,openEditModal}:props) =>{
     const [checked,setChecked] = useState(false)
 
 
@@ -43,8 +44,8 @@ const AddressCart = ({fetchActive,active,openDelModal,data}:props) =>{
                    </div>
                </div>
                 <div className={css.action}>
-                    <EditIcon/>
-                    <DeleteSVG openDelModal={() => openDelModal(data.id,data.title)}/>
+                    <EditIcon onClick={openEditModal} />
+                    <DeleteSVG onClick={() => openDelModal(data.id,data.title)}/>
                 </div>
             </div>
             <div className={`${css.status} ${active === data.value ? css.active : css.block}`}>

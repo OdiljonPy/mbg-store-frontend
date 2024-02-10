@@ -13,10 +13,11 @@ import DeleteModal
 
 interface props{
     changeContainerHeight : (e:number)=> void
+    activeAddress : (e:number) => void
 }
 
 
-const ObtainingDelivery = ({changeContainerHeight}:props) =>{
+const ObtainingDelivery = ({changeContainerHeight,activeAddress}:props) =>{
     const cardRef = useRef<any>(null)
     const [open, setOpen] = useState<boolean>(false)
     const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
@@ -71,21 +72,21 @@ const ObtainingDelivery = ({changeContainerHeight}:props) =>{
         setOpenDeleteModal(false)
     }
     const deleteAddress =  (id:number) =>{
-        console.log(id)
+        console.log(id,"delete id")
     }
     return(
         <div ref={cardRef}>
             <div className={css.carts}>
                 {
                     addressList.map((item) =>{
-                        return <AddressCart key={item.id} data={item} fetchActive={fetchActive} active={activeAddressCart} openDelModal={onOpenDeleteModal}/>
+                        return <AddressCart key={item.id} data={item} fetchActive={fetchActive} active={activeAddressCart} openDelModal={onOpenDeleteModal} openEditModal={onOpen}/>
                     })
                 }
             </div>
             <div className={css.action_btn}>
                 <AddAddress onOpen={onOpen}/>
                 {
-                    addressList.length && <SendButton title={'approve'}/>
+                    addressList.length && <SendButton title={'approve'} onClick={() => activeAddress(activeAddressCart)}/>
                 }
             </div>
             <FormModal open={open} onClose={onClose} />
