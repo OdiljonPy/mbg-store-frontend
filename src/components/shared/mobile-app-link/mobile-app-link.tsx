@@ -3,12 +3,13 @@ import css from './mobile-app-link.module.css'
 
 interface props {
     icon: ReactElement
-    path: string
+    path: string,
+    isBanner?:boolean
 }
 
-const MobileAppLink = ({icon, path}: props) => {
+const MobileAppLink = ({icon, path,isBanner}: props) => {
     return (
-        <a href={path} target={'_blank'} rel={'noreferrer'} className={css.mobileApp}>
+        <a href={path} target={'_blank'} rel={'noreferrer'} className={`${css.mobileApp} ${isBanner && css.mobileBanner}` }>
             {icon}
         </a>
     );
