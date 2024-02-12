@@ -20,7 +20,7 @@ const HeroSwiper = (props: props) => {
             "(min-width: 320px)": {
                 slides: {
                     origin: "center",
-                    perView: 1.2,
+                    perView: 1.12,
                     spacing: 15
                 },
             },
