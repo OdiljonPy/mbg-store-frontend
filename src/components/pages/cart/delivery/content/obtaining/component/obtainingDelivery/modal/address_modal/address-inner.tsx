@@ -10,6 +10,7 @@ import {IAddressForm} from "@/layout/components/header/top-header/data-types/add
 import FormError from "@/components/shared/form-error/form-error";
 import Loader from "@/components/shared/loader/loader";
 import {ConfigProvider, Spin ,Checkbox} from "antd";
+import FormInput from "@/components/pages/cart/delivery/content/obtaining/component/form-input/form-input";
 
 const mapOptions: any = {
     modules: ["geocode", "geolocation", "SuggestView", "suggest"],
@@ -42,6 +43,7 @@ const AddressInner = ({methods}: props) => {
     const [mapConstructor, setMapConstructor] = useState<any>(null);
     const debouncedValue = useDebounce(state, 500)
     const [confirmLoading, setConfirmLoading] = useState<boolean>(false)
+
 
     useEffect(() => {
         setValue('address', state.title)
@@ -93,11 +95,12 @@ const AddressInner = ({methods}: props) => {
         onChange(e)
     }
 
-    function handleClick(e:any){
-        console.log(state,"click ")
-    }
 
 
+
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <>
             <div className={`${css.form} ${raleway.className}`}>
@@ -106,15 +109,16 @@ const AddressInner = ({methods}: props) => {
                         {t('address.add_delivery')}
                     </h3>
                     <div className={css.item}>
-                        <div>
-                            <label className={css.label}>
-                                {t('address.name')}
-                            </label>
-                            <input
-                                   placeholder={t('address.enter_name')} className={`${css.input} `}/>
-                            {/*<FormError error={errors.name?.message}/>*/}
-                        </div>
+                        {/*<div>*/}
+                        {/*    <label className={css.label}>*/}
+                        {/*        {t('address.name')}*/}
+                        {/*    </label>*/}
+                        {/*    <input*/}
+                        {/*           placeholder={t('address.enter_name')} className={`${css.input} `}/>*/}
+                        {/*    <FormError error={errors.address?.message}/>*/}
+                        {/*</div>*/}
 
+                        <FormInput  methods={methods} field='title' label={'address.name'} placeholder={'address.enter_name'}/>
                         <div className={css.itemInner}>
                             <label className={css.label}>
                                 {t('address.title')}
@@ -124,6 +128,15 @@ const AddressInner = ({methods}: props) => {
                         <input ref={ref} onBlur={onBlur} onChange={onChangeHandler} name={name}
                                placeholder={t('address.placeholder')} className={`${css.input} `}/>
                         <FormError error={errors.address?.message}/>
+                        <div className={css.loader}>
+                            <ConfigProvider theme={{
+                                token: {
+                                    colorPrimary: '#39B969'
+                                }
+                            }}>
+                                <Spin spinning={confirmLoading}/>
+                            </ConfigProvider>
+                        </div>
 
                     {/*    form input */}
                         <div className={css.input_group}>
@@ -164,17 +177,9 @@ const AddressInner = ({methods}: props) => {
                             </ConfigProvider>
                         </div>
                     </div>
-                    <div className={css.loader}>
-                        <ConfigProvider theme={{
-                            token: {
-                                colorPrimary: '#39B969'
-                            }
-                        }}>
-                            <Spin spinning={confirmLoading}/>
-                        </ConfigProvider>
-                    </div>
+
                 </div>
-                <button  onClick={handleClick} className={`${css.btn_send} ${raleway.className}`}>
+                <button type={"submit"}  className={`${css.btn_send} ${raleway.className}`}>
                     {t('approve')}
                 </button>
             </div>

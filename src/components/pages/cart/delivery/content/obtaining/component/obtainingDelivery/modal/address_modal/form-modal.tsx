@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import css from './form-modal.module.css';
 import {useTranslations} from 'next-intl';
 import {Modal} from "antd";
-import {useForm} from "react-hook-form";
+import {useFieldArray, useForm} from "react-hook-form";
 import {IAddressForm} from "@/layout/components/header/top-header/data-types/address-form";
 import CloseModal from "@/components/shared/close-modal/close-modal";
 import dynamic from "next/dynamic";
@@ -25,6 +25,9 @@ const AddressFormModal = ({open,onClose}: props) => {
     const t = useTranslations()
     const methods = useForm<IAddressForm>()
 
+
+
+
     const close = () => {
         onClose()
         methods.reset()
@@ -32,7 +35,7 @@ const AddressFormModal = ({open,onClose}: props) => {
 
 
     const onSubmit = (values: IAddressForm) => {
-
+        console.log(values,"submit fomr")
     }
 
 

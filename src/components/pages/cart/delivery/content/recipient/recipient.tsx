@@ -31,7 +31,7 @@ function getUserData(data:any):void {
                 <div className={css.flex}>
                     <div className={css.field}>
                         <label className={css.label}>
-                            {t('card.delivery.name_label')}
+                            {t('cart.delivery.name_label')}
                             <span className={css.required}>*</span>
                         </label>
                         <input {...register('name', {

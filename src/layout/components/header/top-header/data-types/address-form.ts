@@ -1,3 +1,4 @@
 export interface IAddressForm {
-    address: string
+    address: string,
+    title:string
 }

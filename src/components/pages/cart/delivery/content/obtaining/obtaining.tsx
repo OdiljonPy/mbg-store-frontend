@@ -13,7 +13,6 @@ interface props{
 }
 
 const Obtaining = (props:props) =>{
-    const cart = useRef<any>(null)
     const [tab,setTab] = useState('left')
     const [containerHeight,setContainerHeight] = useState(20)
     const [type,setType] = useState('')
@@ -49,7 +48,7 @@ const Obtaining = (props:props) =>{
             <Heading title="Товары в заказе" index={2}>
                 {isChoose && <EditSVG onClick={backAddress}/>}
             </Heading>
-            <div ref={cart}>
+            <div>
                 {!isChoose && <div>
                     <ObtainingChose tab={tab} changeTab={changeTab}  />
                     <div className={css.change_container} style={containerStyle} >
