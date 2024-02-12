@@ -13,7 +13,7 @@ type Props = {};
 
 
 
-const Index = (props: props) => {
+const Id = (props: props) => {
 
     return (
         <>
@@ -27,7 +27,7 @@ const Index = (props: props) => {
     );
 };
 
-export default Index;
+export default Id;
 
 
 
