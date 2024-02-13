@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.2",
     "@pbe/react-yandex-maps": "^1.2.5",
+    "@talkjs/react": "^0.1.6",
     "antd": "^5.12.8",
     "axios": "^1.6.5",
     "keen-slider": "^6.8.6",
@@ -22,7 +23,8 @@
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.49.3",
     "react-i18next": "^14.0.0",
-    "sharp": "^0.33.1"
+    "sharp": "^0.33.1",
+    "talkjs": "^0.18.0"
   },
   "devDependencies": {
     "@types/node": "^20",
