@@ -4,14 +4,13 @@ import ScrollTop from "@/components/pages/chat/scroll_top";
 import {useEffect, useState} from "react";
 
 const Chat = () =>{
-   const [isBrowser,setIsBrowser] = useState(false)
-    useEffect(() => {
-        setIsBrowser(true)
-    }, []);
+  const scrollTop = () =>{
+      window.scrollTo({top:0,behavior:'smooth'})
+  }
 
    return(
        <div className={css.actions}>
-           <ScrollTop/>
+           <ScrollTop onClick={scrollTop} />
        </div>
    )
 

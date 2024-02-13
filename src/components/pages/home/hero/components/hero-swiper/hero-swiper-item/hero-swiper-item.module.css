@@ -47,13 +47,32 @@
 @media (max-width: 575px) {
     .swiperItem{
         border-radius: 14px;
+        height: 190px;
     }
     .info{
+        height: 100%;
         flex: 0 0 100%;
         padding: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     .swiperItem::before{
-        background-position: -50px 0;
+        background-position: -80px 20px;
+        background-repeat: no-repeat;
     }
 }
 
+@media (max-width: 480px){
+    .swiperItem::before{
+        background-position: -120px 20px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 430px){
+    .swiperItem::before{
+        background-position: -140px 20px;
+        background-repeat: no-repeat;
+    }
+}

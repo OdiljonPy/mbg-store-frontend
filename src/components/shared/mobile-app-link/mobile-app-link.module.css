@@ -32,6 +32,7 @@
    .mobileBanner{
         flex: 0 0 10% !important;
         border-radius: 5px;
+       flex-basis: 0% !important;
    }
    .mobileBanner svg{
        height: 15px ;
