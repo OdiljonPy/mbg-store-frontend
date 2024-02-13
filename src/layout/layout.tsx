@@ -4,6 +4,7 @@ import Header from "@/layout/components/header/header";
 import css from './layout.module.css'
 import Footer from "@/layout/components/footer/footer";
 import {raleway} from "@/constants/fonts/fonts";
+import Chat from "@/components/pages/chat/chat";
 
 
 const Layout = ({children}: PropsWithChildren) => {
@@ -25,8 +26,12 @@ const Layout = ({children}: PropsWithChildren) => {
                 <main className={css.main}>
                     {children}
                 </main>
+                    <div className={css.chat_container}>
+                      <Chat/>
+                    </div>
                 <Footer/>
             </div>
+
         </>
     );
 };

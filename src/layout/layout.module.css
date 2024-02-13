@@ -8,3 +8,15 @@
     flex: 1 0 auto;
     min-height: 75vh;
 }
+.chat_container{
+    position: sticky;
+    width: 100%;
+    bottom: 100px;
+    z-index: 99999;
+}
+
+@media (max-width: 575px){
+    .chat_container{
+        bottom: 26px;
+    }
+}

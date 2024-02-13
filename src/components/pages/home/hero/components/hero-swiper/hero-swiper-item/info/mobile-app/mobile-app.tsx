@@ -9,7 +9,7 @@ interface props {
 const MobileApp = (props: props) => {
     return (
         <div className={css.apps}>
-            <MobileAppLink
+            <MobileAppLink isBanner={true}
                 path={'https://www.apple.com/app-store'}
                 icon={<svg width="170" height="44" viewBox="0 0 170 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -81,7 +81,7 @@ const MobileApp = (props: props) => {
                         fill="white"/>
                 </svg>
                 }/>
-            <MobileAppLink
+            <MobileAppLink isBanner={true}
                 path={'https://play.google.com/store/games?hl=ru&gl=US'}
                 icon={<svg width="180" height="42" viewBox="0 0 180 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
