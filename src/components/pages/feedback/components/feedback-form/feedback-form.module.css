@@ -1,0 +1,148 @@
+.form {
+    flex-basis: 58%;
+}
+
+.switch, .title, .flex, .images, .actions {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.weight {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--icon-gray);
+}
+
+.rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 6px;
+}
+
+.labels {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--icon-gray);
+}
+
+
+.flex {
+    justify-content: space-between;
+}
+
+.field {
+    flex-basis: 48%;
+    color: var(--black);
+}
+
+.label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+.switch {
+    font-size: 18px;
+    font-weight: 500;
+    gap: 12px;
+    color: var(--black);
+}
+
+
+.textarea {
+    margin: 20px 0;
+}
+
+.images {
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+
+.actions {
+    justify-content: flex-end;
+}
+
+.btn {
+    margin-top: 40px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 14px 0;
+    background: var(--green);
+    transition: all .2s linear;
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--default-radius);
+    flex-basis: 40%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--text-green);
+}
+
+
+@media (max-width: 991px) {
+    .weight {
+        font-size: 24px;
+    }
+    .btn{
+        flex-basis: 60%;
+        margin-top: 20px;
+    }
+    .switch{
+        font-size: 14px;
+    }
+    .title{
+        margin-bottom: 15px;
+    }
+    .wrapper, .textarea{
+        margin: 16px 0;
+    }
+}
+
+
+@media (max-width: 767px) {
+.form{
+    flex-basis: 100%;
+}
+
+}
+
+@media (max-width: 575px) {
+    .weight{
+        font-size: 16px;
+    }
+
+    .flex{
+        flex-wrap: wrap;
+    }
+
+    .field{
+        flex-basis: 100%;
+    }
+    .switch{
+        margin: 10px 0 22px;
+    }
+    .btn{
+        flex-basis: 100%;
+    }
+}

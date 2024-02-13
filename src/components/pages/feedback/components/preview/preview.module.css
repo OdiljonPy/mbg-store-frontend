@@ -1,0 +1,35 @@
+.preview{
+    flex-basis: 40%;
+    background: var(--light-gray);
+    border-radius: var(--medium-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 540px;
+    position: sticky;
+    top: 150px;
+}
+
+.preview img{
+    max-width: 360px;
+}
+
+@media (max-width: 991px) {
+    .preview{
+        min-height: 350px;
+    }
+    .preview img{
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+    .preview{
+        position: static;
+        flex-basis: 100%;
+        min-height: 250px;
+    }
+    .preview img{
+        max-width: 180px;
+    }
+}

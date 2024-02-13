@@ -1,0 +1,36 @@
+.hide {
+    display: none;
+}
+
+.discountPrice {
+    color: var(--orange);
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+
+.price {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.lineThrough {
+    text-decoration: line-through;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--icon-gray);
+
+}
+
+
+@media (max-width: 575px) {
+    .lineThrough{
+        font-size: 12px;
+    }
+
+    .discountPrice, .price{
+        font-size: 16px;
+    }
+}

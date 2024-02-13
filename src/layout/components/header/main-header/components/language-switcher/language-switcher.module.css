@@ -1,0 +1,15 @@
+.language {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+.language:hover{
+    color: var(--green);
+}
+

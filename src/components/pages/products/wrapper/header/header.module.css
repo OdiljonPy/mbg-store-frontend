@@ -1,0 +1,25 @@
+.wrapper{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+@media (max-width: 767px) {
+    .wrapper{
+        flex-wrap: wrap;
+    }
+    .info{
+        flex-basis: 100%;
+    }
+    .actions{
+        flex-basis: 100%;
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,40 @@
+.mobileApp{
+    background: #000000;
+    border: 2px solid #000000;
+    border-radius: 18px;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px){
+    .mobileBanner{
+        flex: 0 0 10% !important;
+        border-radius: 10px;
+        padding: 8px 16px;
+    }
+    .mobileBanner svg{
+        height: 20px ;
+        width: 80px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .mobileApp{
+        padding: 4px 7px;
+        flex: 0 0 45%;
+        display: flex;
+        align-items: center;
+    }
+
+   .mobileApp svg{
+       width: 100px!important;
+   }
+   .mobileBanner{
+        flex: 0 0 10% !important;
+        border-radius: 5px;
+   }
+   .mobileBanner svg{
+       height: 15px ;
+       width: 60px !important;
+   }
+}

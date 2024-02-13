@@ -1,0 +1,30 @@
+.list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+}
+
+.item {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black);
+    margin-right: 40px;
+    transition: all .2s linear;
+}
+
+.item:hover {
+    color: var(--green);
+}
+
+.active{
+    text-decoration: underline!important;
+    font-weight: 600;
+}
+
+
+@media (max-width: 1199px) {
+    .nav {
+        display: none;
+    }
+}

@@ -1,0 +1,57 @@
+.btn {
+    border-radius: 14px;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 17px 0;
+    width: 100%;
+    color: var(--icon-gray);
+    font-size: 17px;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+.active {
+    background: var(--super-light-green);
+    color: var(--text-green);
+}
+
+.btn:hover {
+    color: var(--text-green);
+    background: var(--super-light-green);
+}
+
+
+.btn:active {
+   opacity: .8;
+}
+
+
+.info {
+    margin-left: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    padding: 3px 7px;
+    transition: all .2s linear;
+}
+
+.large{
+    border-radius: 20px!important;
+}
+.show {
+    visibility: visible;
+    opacity: 1;
+}

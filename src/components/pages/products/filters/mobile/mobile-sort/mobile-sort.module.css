@@ -1,0 +1,45 @@
+.btn{
+    display: none;
+}
+@media (max-width: 767px) {
+    .btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--black);
+    }
+
+    .wrapper{
+        overflow: auto;
+        flex: 1 0 auto;
+        max-height: calc(100% - 49px);
+        padding: 0 16px;
+        background: #FFFFFF;
+    }
+
+    .header{
+        margin-bottom: 16px;
+    }
+
+    .icon {
+        transition: all .2s linear;
+        transform: rotate(-90deg);
+    }
+    .opened{
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 575px) {
+    .btn {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+
+}

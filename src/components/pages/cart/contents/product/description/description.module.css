@@ -1,0 +1,37 @@
+.info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.name{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.weight{
+    margin: 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--icon-gray);
+}
+.price_desctop{
+    display: block;
+}
+@media (max-width: 575px) {
+    .price_desctop{
+        display: none;
+    }
+    .info{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .name{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .weight{
+        font-size: 13px;
+    }
+}

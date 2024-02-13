@@ -1,0 +1,24 @@
+.product {
+    flex-basis:24%;
+    transition: all .2s linear;
+}
+
+.short{
+    flex-basis: 32%;
+}
+
+@media (max-width: 1199px) {
+    .notSwiper {
+        flex-basis: 32%;
+    }
+    .short{
+        flex-basis: 48%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .notSwiper {
+        flex-basis: 48%;
+    }
+}

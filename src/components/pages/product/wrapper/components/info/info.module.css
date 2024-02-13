@@ -1,0 +1,13 @@
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 20px 0 50px;
+}
+
+
+@media (max-width: 767px) {
+    .info{
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,11 @@
+.deliveries{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+@media (max-width: 767px) {
+.deliveries{
+    flex-basis: 100%;
+}
+}

@@ -1,0 +1,88 @@
+.action, .actions, .cardAdder {
+    display: flex;
+}
+
+.actions {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.action{
+    align-items: center;
+    gap: 28px;
+}
+
+.remove {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--icon-gray);
+}
+
+
+.path, .text{
+    transition: all .2s linear;
+}
+
+.remove:hover .text{
+    color: var(--green);
+}
+
+.remove:hover .path{
+    fill: var(--green);
+}
+
+.heart{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.heart:hover .path{
+   fill: var(--green);
+}
+
+
+.cardAdder{
+    align-items: center;
+    gap: 20px;
+}
+
+.increment {
+    background: var(--green);
+    border-color: transparent;
+}
+
+.increment:hover {
+    background: var(--light-green);
+}
+
+.increment:active {
+    background: var(--green);
+}
+
+
+.decrement {
+    background: #FFFFFF;
+    border-color: var(--input-gray)!important;
+}
+
+.decrement svg path{
+    transition: all .2s linear;
+}
+.decrement:hover{
+    border-color: var(--green)!important;
+}
+.decrement:hover svg path {
+    fill: var(--green);
+}
+
+

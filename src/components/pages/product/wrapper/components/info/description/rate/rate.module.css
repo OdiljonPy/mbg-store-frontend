@@ -1,0 +1,52 @@
+.rate {
+    display: flex;
+    align-items: center;
+    margin: 16px 0 24px;
+}
+
+
+.img{
+    flex-basis: 20px;
+    height: 20px;
+}
+.text, .count{
+    font-size: 20px;
+}
+.text {
+    margin: 0 6px 0 4px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.count{
+font-weight: 500;
+    color: var(--icon-gray);
+}
+
+
+@media (max-width: 991px) {
+    .rate{
+        margin: 12px 0;
+    }
+    .text, .count{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .text, .count{
+        font-size: 12px;
+    }
+    .rate{
+        margin: 9px 0 12px;
+    }
+    .img{
+        flex-basis: 16px;
+        height: 16px;
+    }
+}
+
+.noMargin{
+    margin: 0;
+}

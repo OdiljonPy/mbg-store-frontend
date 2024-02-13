@@ -1,0 +1,35 @@
+.menuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    text-decoration: none;
+}
+
+.badge{
+    background: var(--green);
+    border-color: transparent;
+}
+
+.icon{
+    position: relative;
+}
+
+.icon svg path{
+    transition: all .2s linear;
+}
+
+.active svg path,.menuItem:hover svg path{
+    fill: var(--green);
+}
+
+.text {
+    color: var(--black);
+    font-weight: 500;
+    transition: all .2s linear;
+    font-size: 16px;
+}
+
+.active .text, .menuItem:hover .text{
+    color: var(--green);
+}

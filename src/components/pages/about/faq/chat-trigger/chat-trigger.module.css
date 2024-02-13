@@ -1,0 +1,42 @@
+.chat {
+    box-shadow: 0px 0px 10px 0px #0000001A;
+    background: #FFFFFF;
+    border-radius: 26px;
+    flex-basis: 32%;
+    padding: 24px;
+}
+
+.text {
+    margin: 14px 0 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 24px;
+}
+
+.icon path{
+    transition: all .2s linear;
+}
+
+.icon:hover path{
+    fill: var(--green);
+}
+
+
+@media (max-width: 991px) {
+    .chat{
+        flex-basis: 35%;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .chat{
+        flex-basis: 100%;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 575px) {
+
+}

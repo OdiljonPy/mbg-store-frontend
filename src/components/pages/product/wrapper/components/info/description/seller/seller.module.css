@@ -1,0 +1,21 @@
+.seller{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    gap: 6px;
+}
+.label{
+    color: var(--icon-gray);
+}
+.value{
+    color: var(--text-green);
+}
+
+
+
+@media (max-width: 575px) {
+    .seller{
+        font-size: 14px;
+    }
+}

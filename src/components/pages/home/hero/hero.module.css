@@ -1,0 +1,17 @@
+.hero {
+    margin: 148px 0 30px;
+}
+
+
+@media (max-width: 991px) {
+    .hero{
+        margin: 160px 0 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero{
+        margin: 150px 0 20px;
+    }
+}
+

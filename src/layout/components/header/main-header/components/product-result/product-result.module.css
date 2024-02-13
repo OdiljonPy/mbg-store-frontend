@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+
+.img {
+    flex: 0 0 18px;
+    margin-right: 6px;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+}

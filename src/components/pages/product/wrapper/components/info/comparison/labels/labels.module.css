@@ -1,0 +1,61 @@
+.fields{
+    flex-basis: 158px;
+    min-width: 158px;
+    position: sticky;
+    left: 0;
+    background: #FFFFFF;
+    z-index: 1;
+}
+
+.icon{
+    min-height: 288px;
+    margin-top: 10px;
+}
+
+.field{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    padding: 14px 0;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.last{
+    border-bottom: none;
+}
+.fieldSmall{
+    padding: 0;
+    height: 84px;
+    overflow: hidden;
+    margin-top: 14px;
+}
+
+@media (max-width: 991px) {
+    .fields{
+        flex-basis: 100px;
+        min-width: 100px;
+    }
+    .field{
+        font-size: 17px;
+        padding: 10px 0;
+    }
+    .icon{
+        min-height: 180px;
+    }
+    .fieldSmall{
+        height: 60px;
+    }
+}
+
+@media (max-width: 575px) {
+    .fields{
+        flex-basis: 90px;
+        min-width: 90px;
+    }
+    .field{
+        font-size: 14px;
+    }
+    .fieldSmall{
+        height: 52px;
+    }
+}

@@ -1,0 +1,25 @@
+.rate {
+    display: flex;
+    align-items: center;
+}
+
+.rating {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    margin-left: 2px;
+    margin-right: 4px;
+}
+
+.ratingCount{
+    color: var(--icon-gray);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+@media (max-width: 575px) {
+    .rate, .ratingCount{
+        font-size: 12px;
+    }
+}

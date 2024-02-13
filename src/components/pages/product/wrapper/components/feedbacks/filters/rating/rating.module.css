@@ -1,0 +1,37 @@
+.ratingInner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.icon {
+    flex-basis: auto;
+    width: 18px;
+    height: 18px;
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.title, .count{
+    font-size: 18px;
+}
+
+.title {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.count{
+    font-weight: 500;
+    color: var(--icon-gray);
+}
+
+@media (max-width: 991px) {
+    .title, .count{
+        font-size: 14px;
+    }
+
+}

@@ -1,0 +1,28 @@
+.filters {
+    transition: all .4s ease-in-out;
+    overflow: hidden;
+    flex-basis: 0;
+    position: sticky;
+    top: 150px;
+}
+
+.show {
+   flex-basis: 23%;
+}
+
+.hide{
+ opacity: 0;
+}
+
+
+@media (max-width: 1199px) {
+    .show{
+        flex-basis: 33%;
+    }
+}
+
+@media (max-width: 767px) {
+    .filters{
+        display: none;
+    }
+}

@@ -1,0 +1,39 @@
+.delivery {
+    border: 2px solid #DADADA;
+    padding: 10px 12px 12px;
+    border-radius: var(--default-radius);
+}
+
+.white{
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.12);
+}
+.title, .text {
+    font-weight: 500;
+}
+
+.title {
+    font-size: 16px;
+    color: var(--black);
+    margin: 6px 0 2px;
+}
+
+.text {
+    font-size: 14px;
+    color: var(--icon-gray);
+}
+
+.img{
+    width: 22px;
+    height: 15px;
+}
+
+
+@media (max-width: 575px) {
+    .title{
+        font-size: 14px;
+    }
+    .text{
+        font-size: 12px;
+    }
+}

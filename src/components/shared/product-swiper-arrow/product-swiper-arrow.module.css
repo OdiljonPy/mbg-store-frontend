@@ -1,0 +1,62 @@
+.btnWrapper{
+    width: 64px;
+    height: 64px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 36%;
+    transform: translateY(-50%);
+    left: -27px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    background: #FFFFFF;
+    border-radius: 50%;
+    height: 54px;
+    width: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--input-gray);
+    cursor: pointer;
+    transition: all .2s linear;
+
+}
+
+.btnNext{
+    right: -27px;
+    left: unset;
+}
+
+.btn:hover{
+    border-color: var(--green);
+}
+
+
+
+.path{
+    transition: all .2s linear;
+}
+
+.btn:hover .path{
+    fill: var(--green);
+}
+
+
+.iconNext{
+    transform: rotate(180deg);
+}
+
+.hide{
+    display: none;
+}
+
+@media (max-width: 575px) {
+    .btnWrapper{
+        display: none;
+    }
+}

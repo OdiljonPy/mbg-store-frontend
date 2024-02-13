@@ -1,0 +1,21 @@
+
+.input {
+    display: none;
+}
+
+.path{
+    transition: all .2s linear;
+}
+
+
+.active{
+    fill: var(--orange);
+}
+
+
+@media (max-width: 767px) {
+    .icon{
+        width: 36px;
+        height: 36px;
+    }
+}

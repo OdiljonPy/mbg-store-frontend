@@ -1,0 +1,23 @@
+:root {
+    --black: #232323;
+    --light-gray: #F2F2F2;
+    --text-green: #2E9D58;
+    --input-gray: #E9E9E9;
+    --default-radius: 16px;
+    --medium-radius: 30px;
+    --default-padding: 15px 20px;
+    --red: #FF6C6C;
+    --green: #39B969;
+    --icon-gray: #999;
+    --orange: #EF9545;
+    --gray: #EDEDED;
+    --middle-gray: #C2C2C2;
+    --violet: #767BF9;
+    --light-green: #60C787;
+    --pale-green: #ECF8F1;
+    --dark-gray: #DDDDDD;
+    --default-margin: 30px;
+    --mobile-margin: 10px;
+    --input-grey: #E9E9E9;
+    --super-light-green: #CFEEDB;
+}

@@ -1,0 +1,25 @@
+.btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    justify-content: center;
+    margin-top: 30px;
+    background: var(--super-light-green);
+    border-radius: var(--default-radius);
+    padding: 14px 0;
+    text-decoration: none;
+    color: var(--text-green);
+    font-weight: 600;
+    font-size: 17px;
+    transition: all .2s linear;
+}
+
+
+.btn:hover{
+    background-color: var(--green);
+    color: #FFFFFF;
+}
+
+.btn:active{
+    background-color: var(--light-green);
+}

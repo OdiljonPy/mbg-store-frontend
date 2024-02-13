@@ -1,0 +1,34 @@
+.bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.btn {
+    display: block;
+    border: none;
+    background: none;
+}
+
+.icon {
+    transform: rotate(180deg);
+    display: block;
+}
+
+.hide {
+    display: none;
+    pointer-events: none;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

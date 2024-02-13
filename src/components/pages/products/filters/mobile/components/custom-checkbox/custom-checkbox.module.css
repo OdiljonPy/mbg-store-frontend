@@ -1,0 +1,46 @@
+.item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--input-gray);
+    transition: all .2s linear;
+    border-radius: 100px;
+    padding: 10px 12px;
+    flex: 0 0 auto;
+    gap: 6px;
+    background: none;
+}
+
+
+.disabled{
+    pointer-events: none;
+    opacity: .7;
+}
+.input{
+    display: none;
+    border: none;
+}
+.active{
+    border-color: var(--green);
+    background: var(--pale-green);
+}
+
+.icon {
+    flex-basis: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.count, .title{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.title{
+
+    color: var(--black);
+}
+
+.count{
+    color: var(--icon-gray);
+}

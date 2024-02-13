@@ -1,0 +1,83 @@
+.actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 38px 0 0 0;
+    background: #FFFFFF;
+    padding: 10px 0 0 10px;
+    transition: all .2s linear;
+    width: 66px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.decrement,.count{
+    margin-left: -75px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s linear;
+}
+
+.count{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+
+.wide {
+    width: 180px;
+}
+
+.increment {
+    background: var(--green);
+    border-color: transparent;
+}
+
+.increment:hover {
+    background: var(--light-green);
+}
+
+.increment:active {
+    background: var(--green);
+}
+
+
+.decrement {
+    background: #FFFFFF;
+    border-color: var(--input-gray)!important;
+}
+
+.decrement svg path{
+    transition: all .2s linear;
+}
+.decrement:hover{
+    border-color: var(--green)!important;
+}
+.decrement:hover svg path {
+    fill: var(--green);
+}
+
+.show{
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+@media (max-width: 767px) {
+    .actions{
+        width: 45px;
+        border-radius: 30px 0 0 0;
+        padding: 6px 0 0 6px;
+    }
+    .wide{
+        width: 120px;
+    }
+    .count{
+        font-size: 14px;
+    }
+}

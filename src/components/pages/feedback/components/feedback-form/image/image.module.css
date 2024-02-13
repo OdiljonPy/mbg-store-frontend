@@ -1,0 +1,84 @@
+.wrapper, .img {
+    height: 150px;
+}
+
+.img, .delete {
+    border-radius: 20px;
+}
+
+.wrapper {
+    flex-basis: 150px;
+    position: relative;
+}
+
+.img {
+    display: block;
+    width: 150px;
+    object-fit: cover;
+}
+
+.delete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #00000066;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    transition: all .2s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper:hover .delete {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close {
+    display: none;
+}
+
+@media (max-width: 575px) {
+    .delete {
+        display: none;
+    }
+
+    .wrapper, .img {
+        height: 76px;
+    }
+
+    .wrapper {
+        flex-basis: 76px;
+    }
+
+    .img {
+        width: 76px;
+        border-radius: 12px;
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0 11px 0 8px;
+        background: rgba(255, 255, 255, .8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 24px;
+        width: 24px;
+        border: none;
+    }
+}
