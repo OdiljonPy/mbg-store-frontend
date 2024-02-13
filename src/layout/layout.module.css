@@ -11,6 +11,5 @@
 .chat_container{
     position: sticky;
     width: 100%;
-    bottom: 20px;
-
+    bottom: 100px;
 }
