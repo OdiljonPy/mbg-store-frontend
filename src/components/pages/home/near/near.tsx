@@ -26,7 +26,7 @@ const Near = (props: props) => {
                     <ProductSwiperArrow onClick={onNext} isNext/>
                     <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
                         {
-                            productClose.map((product)=>{
+                            productClose.map((product) => {
                                 return(
                                     <div className={`keen-slider__slide`} key={product.id}>
                                         <Product product={product} />
@@ -34,9 +34,8 @@ const Near = (props: props) => {
                                 )
                             })
                         }
-
                         <div className={`keen-slider__slide`}>
-                            <Product product={productWithoutDiscount}/>
+                            <Product product={product}/>
                         </div>
 
                     </div>

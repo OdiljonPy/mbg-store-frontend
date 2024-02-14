@@ -1,0 +1,57 @@
+.btn {
+    border: none;
+    border-radius: var(--default-radius);
+    font-weight: 600;
+    font-size: 17px;
+    padding: var(--default-padding);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    transition: all .2s linear;
+    outline: none;
+}
+
+.address_btn{
+    background: var(--pale-green);
+    color: var(--text-green);
+}
+.address_btn:hover {
+    background: #ECF8F6;
+}
+
+.address_btn:active {
+    transform: scale(0.9);
+}
+
+.send_btn{
+    background: var(--green);
+    color: white;
+}
+.send_btn:hover{
+    background: var(--text-green);
+}
+
+.send_btn:active{
+    background: var(--green);
+}
+
+.btn_outline{
+    background: transparent;
+    border: 2px solid var(--green) ;
+    border-color: var(--green) ;
+    color: var(--green);
+}
+.btn_outline:hover{
+    color: white;
+    background-color: var(--light-green);
+    border-color:var(--light-green) ;
+}
+
+@media (max-width: 575px){
+    .btn{
+        font-size: 16px;
+    }
+}

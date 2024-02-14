@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex_badge{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.badge{
+    width: 32px;
+}
+.title{
+    color: #232323;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 31px;
+}
+
+@media (max-width: 575px) {
+    .title{
+        font-size: 16px;
+    }
+}

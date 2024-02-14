@@ -1,0 +1,38 @@
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+.form{
+    margin-top: 12px;
+}
+
+.field {
+    width: 100%;
+    color: var(--black);
+}
+
+.label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.required{
+    color: #FF6C6C;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+@media (max-width: 575px){
+    .flex{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .form{
+        margin-top: 8px;
+    }
+}

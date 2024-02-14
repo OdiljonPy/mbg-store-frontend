@@ -35,6 +35,17 @@ export const productWithoutDiscount: IProduct = {
     img: img,
     seller: 'Продавец',
 }
+export const productWithoutCount: IProduct = {
+    id: 2,
+    title: 'Ананасы Mikado ломтики 580мл',
+    rating: 4.9,
+    weight: '350г',
+    total_rate_count: 12358,
+    price: 30000,
+    img: img,
+    seller: 'Продавец',
+    count:2
+}
 
 export const productSales:IProduct[] = [
     {

@@ -23,7 +23,7 @@ const Wrapper = (props: props) => {
                     {
                         path: '/cart',
                         label: t('header.basket')
-                    }
+                    },
                 ]}/>
                 <h1 className={css.title}>
                     {t('header.basket')} <Badge count={2} color={'#39B969'}/>

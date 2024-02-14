@@ -6,6 +6,7 @@ import {product, productTop, productWithoutDiscount} from "@/constants/product/p
 import {useKeenSlider} from "keen-slider/react";
 import {useSlider} from "@/hooks/use-slider";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
+import {IProduct} from "@/data-types/products/products";
 
 interface props {
 
@@ -34,9 +35,8 @@ const Top = (props: props) => {
                                 )
                             })
                         }
-
                         <div className={`keen-slider__slide`}>
-                            <Product product={productWithoutDiscount}/>
+                            <Product product={product}/>
                         </div>
 
                     </div>
