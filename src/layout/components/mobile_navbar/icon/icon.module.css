@@ -15,24 +15,12 @@
     position: relative;
 }
 
-.mobile_icon svg path{
-    fill: var(--middle-gray) !important;
-    width: 28px;
-    height: 28px;
-}
-
-.mobile_icon svg path{
-    fill: var(--middle-gray) !important;
-    width: 28px;
-    height: 28px;
-}
-
 .icon svg path{
     transition: all .2s linear;
 }
 
 .active svg path,.menuItem:hover svg path{
-    fill: var(--green) !important;
+    fill: var(--green);
 }
 
 .text {

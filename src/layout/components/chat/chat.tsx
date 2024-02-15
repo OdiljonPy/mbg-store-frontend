@@ -1,6 +1,6 @@
 import css from "./index.module.css"
 import {createPortal} from "react-dom";
-import ScrollTop from "@/components/pages/chat/scroll_top";
+import ScrollTop from "@/layout/components/chat/scroll_top";
 import {useEffect, useRef, useState} from "react";
 
 const Chat = () =>{

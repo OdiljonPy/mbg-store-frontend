@@ -1,0 +1,11 @@
+.mobile{
+    max-height: 72px;
+    height: 100%;
+    background: #fff;
+    z-index: 99999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 28px;
+    padding-bottom: 27px;
+}
