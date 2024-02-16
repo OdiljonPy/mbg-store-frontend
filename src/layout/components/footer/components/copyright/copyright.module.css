@@ -1,8 +1,32 @@
-.copyright{
+.copyright_container{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--dark-gray);
     padding-top: 26px;
-    text-align: center;
-    font-size: 18px;
+}
+
+.copyright{
+    font-size: 16px;
     font-weight: 600;
     color: var(--icon-gray);
-    border-top: 1px solid var(--dark-gray);
 }
+.copyright_link{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--icon-gray);
+    text-decoration: none;
+    transition: all .3s;
+}
+.copyright_link:hover{
+    color: var(--black);
+}
+
+@media(max-width: 748px){
+    .copyright_container{
+        flex-direction: column;
+    }
+    .copyright_link{
+        margin-top: 2px;
+    }
+}
+

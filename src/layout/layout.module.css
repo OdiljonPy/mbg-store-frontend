@@ -14,9 +14,18 @@
     bottom: 100px;
     z-index: 99999;
 }
+.mobile_navbar{
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+    display: none;
+}
 
 @media (max-width: 575px){
     .chat_container{
-        bottom: 26px;
+        bottom: 98px;
+    }
+    .mobile_navbar{
+        display: block;
     }
 }

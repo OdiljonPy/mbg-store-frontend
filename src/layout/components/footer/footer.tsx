@@ -18,8 +18,8 @@ const Footer = (props: props) => {
                     <Information/>
                     <MobileAppQr/>
                 </div>
-            </div>
             <Copyright/>
+            </div>
         </footer>
     );
 };

@@ -4,7 +4,8 @@ import Header from "@/layout/components/header/header";
 import css from './layout.module.css'
 import Footer from "@/layout/components/footer/footer";
 import {raleway} from "@/constants/fonts/fonts";
-import Chat from "@/components/pages/chat/chat";
+import Chat from "@/layout/components/chat/chat";
+import MobileNavbar from "@/layout/components/mobile_navbar/mobile_navbar";
 
 
 const Layout = ({children}: PropsWithChildren) => {
@@ -29,7 +30,11 @@ const Layout = ({children}: PropsWithChildren) => {
                     <div className={css.chat_container}>
                       <Chat/>
                     </div>
+
                 <Footer/>
+                <div className={css.mobile_navbar}>
+                    <MobileNavbar/>
+                </div>
             </div>
 
         </>

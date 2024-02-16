@@ -11,9 +11,14 @@ const t = useTranslations()
     const year = new Date().getFullYear()
 
     return (
-        <p className={css.copyright}>
-            ©{year}. MBGstore - {t('footer.copyright')}
-        </p>
+       <div className={css.copyright_container}>
+           <p className={css.copyright}>
+               ©{year}. MBGstore - {t('footer.copyright')}
+           </p>
+           <a href="tel:+998900969699" className={css.copyright_link}>
+               Powered by : ZERODEV LLC
+           </a>
+       </div>
     );
 };
 
