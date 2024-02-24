@@ -11,6 +11,9 @@ import Filters from "@/components/pages/products/filters/filters";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
+import Skeleton from 'react-loading-skeleton'
+
+
 
 interface props {
 
@@ -66,19 +69,10 @@ const Wrapper = (props: props) => {
                     searchParams.get('search')
                 }
                 <Header/>
-                {
-                    !loading ? <h1>...Loading</h1>: <div>{loading}</div>
-                }
+
                 <div className={`${css.wrapper}`}>
-                    {/*{*/}
-                    {/*    loading && entities.map((product:ICommon)=>{*/}
-                    {/*        product.result.content.map((item:IProducts) =>{*/}
-                    {/*            console.log(item)*/}
-                    {/*        })*/}
-                    {/*    })*/}
-                    {/*}*/}
                     <Filters/>
-                    <ProductList products={entities}/>
+                    <ProductList products={entities} loading={loading}/>
                 </div>
             </div>
         </section>

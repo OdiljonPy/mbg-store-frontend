@@ -4,12 +4,15 @@ import Product from "@/components/shared/product/product";
 import {useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
 import {ICommon, IProduct} from "@/data-types/products/products";
+import Skeleton from "react-loading-skeleton";
+import {autoBatchEnhancer} from "@reduxjs/toolkit";
 
 interface props {
     products:any
+    loading:boolean
 }
 
-const ProductList = ({products}: props) => {
+const ProductList = ({products,loading}: props) => {
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
     const {isReady} = useRouter()
@@ -20,36 +23,15 @@ const ProductList = ({products}: props) => {
             <div className={`${css.list} ${isOpened ? css.short: ''}`}>
 
                 {
+                    !loading ? <Skeleton  containerClassName={`${css.list} ${isOpened ? css.short: ''}`}  className={`${css.skeleton} ${isOpened ? css.skeleton_short :''}`} count={isOpened ? 6 : 8} /> :
                     products.map((product:ICommon)=>{
                        return product.result.content.map((item:IProduct) =>{
                             return (
-                                <Product product={item} isNotSwiper key={item.id}/>
+                                <Product product={item} isNotSwiper key={item.id} />
                             )
                         })
                     })
                 }
-                {/*{*/}
-                {/*    productSales.map((product)=>{*/}
-                {/*        return(*/}
-                {/*            <Product product={product} isNotSwiper key={product.id}/>*/}
-                {/*        )*/}
-                {/*    })*/}
-                {/*}*/}
-                {/*{*/}
-                {/*    productClose.map((product)=>{*/}
-                {/*        return(*/}
-                {/*            <Product product={product} isNotSwiper key={product.id} />*/}
-                {/*        )*/}
-                {/*    })*/}
-                {/*}*/}
-                {/*{*/}
-                {/*    productTop.map((product) =>{*/}
-                {/*        return(*/}
-                {/*            <Product product={product} isNotSwiper key={product.id}/>*/}
-                {/*        )*/}
-                {/*    })*/}
-                {/*}*/}
-
             </div>
         </>
     );
