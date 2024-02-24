@@ -3,7 +3,7 @@ import css from './product-list.module.css'
 import Product from "@/components/shared/product/product";
 import {useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
-import {ICommon, IProducts} from "@/data-types/products/products";
+import {ICommon, IProduct} from "@/data-types/products/products";
 
 interface props {
     products:any
@@ -21,7 +21,7 @@ const ProductList = ({products}: props) => {
 
                 {
                     products.map((product:ICommon)=>{
-                       return product.result.content.map((item:IProducts) =>{
+                       return product.result.content.map((item:IProduct) =>{
                             return (
                                 <Product product={item} isNotSwiper key={item.id}/>
                             )

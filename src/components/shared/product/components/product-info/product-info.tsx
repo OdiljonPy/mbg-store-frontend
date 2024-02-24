@@ -6,7 +6,7 @@ import ProductPrice from "@/components/shared/product/components/product-info/pr
 import Link from "next/link";
 
 interface props {
-    product: IProducts
+    product: IProduct
 }
 
 const ProductInfo = ({product}: props) => {

@@ -7,7 +7,7 @@ import ProductActions from "@/components/shared/product/components/product-top/p
 import Link from "next/link";
 
 interface props {
-    product: IProducts
+    product: IProduct
 }
 
 const ProductTop = ({product}: props) => {

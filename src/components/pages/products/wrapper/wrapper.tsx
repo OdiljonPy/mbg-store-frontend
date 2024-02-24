@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from 'next-intl';
@@ -10,8 +10,7 @@ import Header from "@/components/pages/products/wrapper/header/header";
 import Filters from "@/components/pages/products/filters/filters";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
-import {fetchProduct} from "@/slices/product/productSlices";
-import {ICommon, IProducts} from "@/data-types/products/products";
+import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
 
 interface props {
 
@@ -26,18 +25,30 @@ const Wrapper = (props: props) => {
     const {entities, loading} =  useSelector((state:RootState) => state.product)
     const dispatch = useDispatch<AppDispatch>()
 
-    // console.log(loading,"loading")
+
+    const fetchProductList = useCallback(() =>{
+        dispatch(fetchProduct(searchParams.get('search')))
+        const filterParams = {
+            q:searchParams.get('search'),
+            category:Number(searchParams.get('category')),
+            min_price:Number(searchParams.get('prices')?.split(',')[0]),
+            max_price:Number(searchParams.get('prices')?.split(',')[1]),
+            rating:Number(searchParams.get('rating')),
+            discount:Number(searchParams.get('sales')),
+            pickup:searchParams.get('hasDelivery'),
+            store: searchParams.get('stores')
+            // around_the_clock:any,
+            // free_shipping:boolean,
+        }
+        dispatch(filterProduct(filterParams))
+        console.log(filterParams,"parasm")
+    },[searchParams])
 
     useEffect(() => {
-        // if(productRef.current === false){
-            dispatch(fetchProduct(searchParams.get('search')))
-              console.log(searchParams.get('search'))
-        // }
+        fetchProductList()
+    }, [fetchProductList]);
 
-        // return() =>{
-        //     productRef.current = true
-        // }
-    }, [searchParams]);
+
     return (
         <section className={css.results}>
             <div className={'container'}>

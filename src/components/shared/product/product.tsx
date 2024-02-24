@@ -6,7 +6,7 @@ import ProductTop from "@/components/shared/product/components/product-top/produ
 import {useSearchParams} from "next/navigation";
 
 interface props {
-    product: IProducts
+    product: IProduct
     isNotSwiper?: boolean
 }
 

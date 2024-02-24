@@ -1,4 +1,4 @@
-import {IProduct} from "@/data-types/products/products";
+import {IProduct, IProducts} from "@/data-types/products/products";
 import img from '@/../public/images/products/mikado.png'
 import img1 from '@/../public/images/products/fruct.png'
 import img2 from '@/../public/images/products/tanho.png'
@@ -20,6 +20,7 @@ export const product: IProduct = {
     price: 30000,
     weight: '170г',
     discount: 50,
+    view_count:0,
     discount_price: 15000,
     images: [
         {
@@ -38,6 +39,7 @@ export const productWithoutDiscount: IProduct = {
     weight: '350г',
     rating_count: 12358,
     price: 30000,
+    view_count:0,
     images: [
         {
             id:1,
@@ -55,6 +57,7 @@ export const productWithoutCount: IProduct = {
     rating_count: 12358,
     price_with_discount:1200,
     price: 30000,
+    view_count:0,
     images: [
         {
             id:1,
@@ -76,6 +79,7 @@ export const productSales:IProduct[] = [
         price: 30000,
         discount: 50,
         discount_price: 15000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -96,6 +100,7 @@ export const productSales:IProduct[] = [
         price: 15000,
         discount: 15,
         discount_price: 12700,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -115,6 +120,7 @@ export const productSales:IProduct[] = [
         price: 12000,
         discount: 40,
         discount_price: 7200,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -134,6 +140,7 @@ export const productSales:IProduct[] = [
         price: 14000,
         discount: 10,
         discount_price: 12000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -152,6 +159,7 @@ export const productClose:IProduct[] = [
         weight: '580г',
         rating_count: 12358,
         price: 14700,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -168,6 +176,7 @@ export const productClose:IProduct[] = [
         weight: '800г',
         rating_count: 12358,
         price: 15000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -186,6 +195,7 @@ export const productClose:IProduct[] = [
         price: 20000,
         discount: 10,
         discount_price: 18000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -202,6 +212,7 @@ export const productClose:IProduct[] = [
         weight: '300г',
         rating_count: 12358,
         price: 5400,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -222,6 +233,7 @@ export const productTop:IProduct[] = [
         price: 30000,
         discount: 50,
         discount_price: 15000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -239,6 +251,7 @@ export const productTop:IProduct[] = [
         weight: '300г',
         rating_count: 12358,
         price: 15000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -259,6 +272,7 @@ export const productTop:IProduct[] = [
         price: 52000,
         discount: 13,
         discount_price: 45000,
+        view_count:0,
         images: [
             {
                 id:1,
@@ -279,6 +293,7 @@ export const productTop:IProduct[] = [
         price: 21000,
         discount: 21,
         discount_price: 16000,
+        view_count:0,
         images: [
             {
                 id:1,
