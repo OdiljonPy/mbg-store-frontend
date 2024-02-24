@@ -1,25 +1,30 @@
 import {StaticImageData} from "next/image";
 
-export interface IProduct{
+export interface IProduct {
     id: number
-    img: StaticImageData | string
-    title: string
-    rating: number
-    weight: string
-    total_rate_count: number
-    discount_percentage?: number
+    name: string
     price: number
     discount_price?: number
+    discount?: number
+    price_with_discount?: number
+    rating: number
+    rating_count:number
+    weight: string
     count?: number
     seller: string
+    images: {
+        id: number,
+        product: number,
+        image: StaticImageData | string
+    }[]
 }
 
 export interface IProducts{
     id:number
     name:string
     price:number
-    discount_price:number
-    discount:number
+    discount_price?:number
+    discount?:number
     price_with_discount:number
     description:string
     available: number

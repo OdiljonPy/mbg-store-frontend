@@ -22,7 +22,6 @@ const ProductList = ({products}: props) => {
                 {
                     products.map((product:ICommon)=>{
                        return product.result.content.map((item:IProducts) =>{
-                            console.log(item)
                             return (
                                 <Product product={item} isNotSwiper key={item.id}/>
                             )

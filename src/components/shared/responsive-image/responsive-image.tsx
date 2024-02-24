@@ -17,7 +17,6 @@ const ResponsiveImage= ({src, alt = "", width, height, isStretch}:props) => {
             : src;
 
     return (
-
         <Image
             src={url ? url :''}
             alt={alt}

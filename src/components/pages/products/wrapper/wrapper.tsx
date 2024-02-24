@@ -30,7 +30,8 @@ const Wrapper = (props: props) => {
 
     useEffect(() => {
         // if(productRef.current === false){
-            dispatch(fetchProduct())
+            dispatch(fetchProduct(searchParams.get('search')))
+              console.log(searchParams.get('search'))
         // }
 
         // return() =>{
