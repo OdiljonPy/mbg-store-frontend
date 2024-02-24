@@ -6,11 +6,13 @@ import Layout from "@/layout/layout";
 import {NextIntlClientProvider, IntlProvider} from 'next-intl';
 import {useRouter} from "next/router";
 import {YMaps} from "@pbe/react-yandex-maps";
+import {Providers} from "@/provider";
 
 
 function App({Component, pageProps}: AppProps) {
     const {locale} = useRouter()
     return (
+        <Providers>
         <IntlProvider
             locale={locale!}
             messages={pageProps.messages}
@@ -30,6 +32,7 @@ function App({Component, pageProps}: AppProps) {
             </YMaps>
 
         </IntlProvider>
+        </Providers>
     )
 
 }

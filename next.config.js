@@ -6,6 +6,17 @@ const nextConfig = {
         defaultLocale: "uz",
         locales: ["uz", "ru"]
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+                port: '',
+                pathname: '**',
+            },
+        ],
+        minimumCacheTTL:1500000
+    },
     output: "standalone"
 }
 

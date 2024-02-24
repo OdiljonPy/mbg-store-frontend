@@ -3,27 +3,23 @@ import Image, { StaticImageData } from "next/image";
 
 interface props {
     src: string | StaticImageData;
+    // src:string
     alt?: string;
     width?: number;
     height?: number;
     isStretch?: boolean;
 }
 
-const ResponsiveImage: React.FC<props> = ({
-                                              src,
-                                              alt = "",
-                                              width,
-                                              height,
-                                              isStretch,
-                                          }) => {
+const ResponsiveImage= ({src, alt = "", width, height, isStretch}:props) => {
     const url =
         typeof src === "string"
-            ? `${process.env.NEXT_PUBLIC_BASE_URL}${src}`
+            ?  `${src ? src : ''}`
             : src;
 
     return (
+
         <Image
-            src={url}
+            src={url ? url :''}
             alt={alt}
             sizes="100vw"
             style={{
@@ -34,6 +30,7 @@ const ResponsiveImage: React.FC<props> = ({
             width={width ? width : 500}
             height={height ? height : 300}
         />
+
     );
 };
 

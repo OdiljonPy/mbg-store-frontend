@@ -1,12 +1,12 @@
 import React from 'react';
 import css from './product.module.css'
-import {IProduct} from "@/data-types/products/products";
+import {IProduct, IProducts} from "@/data-types/products/products";
 import ProductInfo from "@/components/shared/product/components/product-info/product-info";
 import ProductTop from "@/components/shared/product/components/product-top/product-top";
 import {useSearchParams} from "next/navigation";
 
 interface props {
-    product: IProduct
+    product: IProducts
     isNotSwiper?: boolean
 }
 
