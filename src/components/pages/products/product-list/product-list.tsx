@@ -16,6 +16,7 @@ const ProductList = ({products,loading}: props) => {
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
     const {isReady} = useRouter()
+    // console.log(products,"product")
 
     if (!isReady) return
     return (
@@ -25,7 +26,7 @@ const ProductList = ({products,loading}: props) => {
                 {
                     !loading ? <Skeleton  containerClassName={`${css.list} ${isOpened ? css.short: ''}`}  className={`${css.skeleton} ${isOpened ? css.skeleton_short :''}`} count={isOpened ? 6 : 8} /> :
                     products.map((product:ICommon)=>{
-                       return product.result.content.map((item:IProduct) =>{
+                       return product?.result.content.map((item:IProduct) =>{
                             return (
                                 <Product product={item} isNotSwiper key={item.id} />
                             )

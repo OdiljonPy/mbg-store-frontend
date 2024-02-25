@@ -18,7 +18,7 @@ interface IFilterParams  {
     around_the_clock?:boolean | string,
     store?: [any] | any
 }
-export const filterProduct = createAsyncThunk('filterProduct', async (params:IFilterParams) =>{
+export const filterProduct = createAsyncThunk('product', async (params:IFilterParams) =>{
     const data:IFilterParams = {}
     if(params.max_price) data.max_price = params.max_price
     if(params.min_price) data.min_price = params.min_price
@@ -40,6 +40,8 @@ export const filterProduct = createAsyncThunk('filterProduct', async (params:IFi
         },
         body: JSON.stringify(data)
     })
+    return response.json()
+
 })
 
 const initialState = {
@@ -56,19 +58,27 @@ const productSlices = createSlice({
         },
     },
     extraReducers : (builder) =>{
+
+        //filter data
+        builder.addCase(filterProduct.fulfilled,(state,action) =>{
+            state.loading = true
+            state.entities = [action.payload]
+            console.log(action.payload,"payload filter")
+        })
+            .addCase(filterProduct.pending, (state,action) =>{
+                state.loading = false
+            })
+
+        // search data
         builder.addCase(fetchProduct.fulfilled, (state,action) =>{
             state.loading = true
-            // state.entities.push(...action.payload)
             state.entities = [action.payload]
+            console.log(action.payload,"payload search")
         })
             .addCase(fetchProduct.pending, (state,action) =>{
             state.loading = false
         })
-//filter data
-        builder.addCase(filterProduct.fulfilled,(state,action) =>{
-            // state.entities = [action.payload]
-            console.log(action,"filter sloces")
-        })
+
     }
 })
 

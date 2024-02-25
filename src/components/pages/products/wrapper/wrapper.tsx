@@ -11,7 +11,6 @@ import Filters from "@/components/pages/products/filters/filters";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
-import Skeleton from 'react-loading-skeleton'
 import {useRouter} from "next/router";
 
 
@@ -35,8 +34,9 @@ const Wrapper = (props: props) => {
 
     // search product
     useEffect(() => {
-        dispatch(fetchProduct(searchParams.get('search')))
-        console.log(entities,"data")
+        if(searchParams.get('search') || searchParams.get('search') === ''){
+            dispatch(fetchProduct(searchParams.get('search')))
+        }
     }, [searchParams.get('search')]);
 
 
@@ -60,6 +60,7 @@ const Wrapper = (props: props) => {
     }
     useEffect(() => {
         fetchProductFilter()
+        console.log(entities,"filter data")
     }, [activeFilters.length]);
 
     return (
