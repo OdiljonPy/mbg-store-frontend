@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from './reset-filters.module.css'
 import {useTranslations} from 'next-intl';
 import {useRouter} from "next/router";
@@ -8,7 +8,7 @@ interface props {
 
 }
 
-const diffFilters: string[] = ['filters', 'search', 'sort']
+const diffFilters: string[] = ['filters', 'search', 'sort','category_id','clear_filter']
 
 const ResetFilters = (props: props) => {
     const t = useTranslations()
@@ -19,12 +19,22 @@ const ResetFilters = (props: props) => {
 
 
     const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
-
-
+    useEffect(() => {
+        if(activeFilters.length){
+            push({
+                pathname,
+                query:{
+                    ...query,
+                    clear_filter:false
+                }
+            })
+        }
+    }, [activeFilters.length]);
     const onReset = () => push({
         pathname, query: {
             filters: filters,
-            sort: 'popular'
+            sort: 'popular',
+            clear_filter:true
         }
     }, undefined, {
         scroll: false

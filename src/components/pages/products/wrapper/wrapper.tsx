@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
 import Skeleton from 'react-loading-skeleton'
+import {useRouter} from "next/router";
 
 
 
@@ -22,35 +23,44 @@ interface props {
 const Wrapper = (props: props) => {
     const t = useTranslations()
     const searchParams = useSearchParams()
+    const {push, query} = useRouter()
     const category: string | null = searchParams.get('category')
 
     const productRef = useRef(false)
     const {entities, loading} =  useSelector((state:RootState) => state.product)
     const dispatch = useDispatch<AppDispatch>()
 
+    const diffFilters: string[] = ['filters', 'search', 'sort','category_id',"clear_filter"]
+    const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
 
-    const fetchProductList = useCallback(() =>{
+    // search product
+    useEffect(() => {
         dispatch(fetchProduct(searchParams.get('search')))
+        console.log(entities,"data")
+    }, [searchParams.get('search')]);
+
+
+    // filter product
+    const fetchProductFilter = () =>{
         const filterParams = {
             q:searchParams.get('search'),
-            category:Number(searchParams.get('category')),
+            category:Number(searchParams.get('category_id')),
             min_price:Number(searchParams.get('prices')?.split(',')[0]),
             max_price:Number(searchParams.get('prices')?.split(',')[1]),
             rating:Number(searchParams.get('rating')),
             discount:Number(searchParams.get('sales')),
             pickup:searchParams.get('hasDelivery'),
-            store: searchParams.get('stores')
-            // around_the_clock:any,
-            // free_shipping:boolean,
+            store: searchParams.get('stores'),
+            free_shipping:searchParams.get('delivery')?.split(',')[0],
+            around_the_clock:searchParams.get('accessibility')?.split(',')[0],
         }
-        dispatch(filterProduct(filterParams))
-        console.log(filterParams,"parasm")
-    },[searchParams])
-
+        if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
+            dispatch(filterProduct(filterParams))
+        }
+    }
     useEffect(() => {
-        fetchProductList()
-    }, [fetchProductList]);
-
+        fetchProductFilter()
+    }, [activeFilters.length]);
 
     return (
         <section className={css.results}>

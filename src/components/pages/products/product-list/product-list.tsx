@@ -5,7 +5,7 @@ import {useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
 import {ICommon, IProduct} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
-import {autoBatchEnhancer} from "@reduxjs/toolkit";
+
 
 interface props {
     products:any

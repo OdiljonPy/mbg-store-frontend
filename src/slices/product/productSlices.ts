@@ -9,29 +9,31 @@ export const fetchProduct = createAsyncThunk('products',async (search:string | n
 interface IFilterParams  {
     q?:string | null,
     category?:number ,
-    min_price?:number,
-    max_price?:number,
+    min_price?:number|string,
+    max_price?:number | string,
     rating?:number,
     discount?:number ,
-    free_shipping?:boolean | null,
+    free_shipping?:boolean | string,
     pickup?:any | null,
-    around_the_clock?:any | null,
+    around_the_clock?:boolean | string,
     store?: [any] | any
 }
 export const filterProduct = createAsyncThunk('filterProduct', async (params:IFilterParams) =>{
-    const data:IFilterParams = {
-        q : params.q,
-        category:params.category,
-        min_price:params.min_price,
-        max_price:params.max_price,
-        rating:params.rating,
-        discount:params.discount,
-        free_shipping:params.free_shipping,
-        pickup:params.pickup,
-        around_the_clock:params.around_the_clock,
-        store:[params.store]
-    }
-    const response = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/filter',{
+    const data:IFilterParams = {}
+    if(params.max_price) data.max_price = params.max_price
+    if(params.min_price) data.min_price = params.min_price
+    if(params.q) data.q = params.q
+    if(params.category) data.category = params.category
+    if(params.rating) data.rating = params.rating
+    if(params.discount) data.discount = params.discount
+    if(params.free_shipping) data.free_shipping = params.free_shipping
+    if(params.pickup) data.pickup = params.pickup
+    if(params.around_the_clock) data.around_the_clock = params.around_the_clock
+    if(params.store) data.store = [params.store]
+    if(params.free_shipping) data.free_shipping = true
+    if(params.around_the_clock) data.around_the_clock = true
+
+    const response = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/products/filter/',{
         method : 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -62,9 +64,9 @@ const productSlices = createSlice({
             .addCase(fetchProduct.pending, (state,action) =>{
             state.loading = false
         })
-
+//filter data
         builder.addCase(filterProduct.fulfilled,(state,action) =>{
-            // state.entities = [...state.entities,action.payload]
+            // state.entities = [action.payload]
             console.log(action,"filter sloces")
         })
     }

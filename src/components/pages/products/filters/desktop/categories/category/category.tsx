@@ -26,7 +26,8 @@ const Category = ({category}: props) => {
             pathname,
             query: {
                 ...query,
-                category: id
+                category: name,
+                category_id:id
             },
         }, undefined, {
             scroll: false
