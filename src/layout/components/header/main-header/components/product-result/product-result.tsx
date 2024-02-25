@@ -4,21 +4,22 @@ import Link from "next/link";
 import {ICategoryItemGeneral} from "@/layout/components/header/main-header/data-types/category";
 import {useSearchParams} from "next/navigation";
 import {ParsedUrlQueryInput} from "querystring";
+import Skeleton from "react-loading-skeleton";
 
 interface props {
-    item: ICategoryItemGeneral
+    // item: ICategoryItemGeneral
+    item:string
+    loading:boolean
 }
 
-const ProductResult = ({item}: props) => {
-    const {
-        title
-    } = item
+const ProductResult = ({item,loading}: props) => {
+
     const searchParams = useSearchParams()
     const filters: string | null = searchParams.get('filters')
 
-
+    console.log(item,"item chikd")
     const queries: ParsedUrlQueryInput = {
-        search: title,
+        search: item,
         sort: 'popular',
         filters: filters
     }
@@ -32,7 +33,7 @@ const ProductResult = ({item}: props) => {
             query: queries
         }} shallow={true} className={css.item}>
             <span className={css.text}>
-                {title}
+                { loading ?  item : <Skeleton count={1} height={'12px'} width={'150px'}/> }
             </span>
         </Link>
     );

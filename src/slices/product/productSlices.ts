@@ -1,11 +1,20 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 
+// search product value
 export const fetchProduct = createAsyncThunk('products',async (search:string | null) =>{
     const response  = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/products/' + `?q=${search ?search :''}`)
     const data = response.json()
     return data
 })
 
+// search product title for searchbar
+export const fetchSearchKey = createAsyncThunk('search_key',async (key:string)=>{
+    const response = await fetch(`https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/products/chace_name/?q=${key}`)
+    const data = response.json()
+    return data
+})
+
+// filter product
 interface IFilterParams  {
     q?:string | null,
     category?:number ,
@@ -18,7 +27,7 @@ interface IFilterParams  {
     around_the_clock?:boolean | string,
     store?: [any] | any
 }
-export const filterProduct = createAsyncThunk('product', async (params:IFilterParams) =>{
+export const filterProduct = createAsyncThunk('product_filter', async (params:IFilterParams) =>{
     const data:IFilterParams = {}
     if(params.max_price) data.max_price = params.max_price
     if(params.min_price) data.min_price = params.min_price
@@ -46,6 +55,7 @@ export const filterProduct = createAsyncThunk('product', async (params:IFilterPa
 
 const initialState = {
     entities : [],
+    product_search:[] as any,
     loading : true
 } as any
 
@@ -63,7 +73,6 @@ const productSlices = createSlice({
         builder.addCase(filterProduct.fulfilled,(state,action) =>{
             state.loading = true
             state.entities = [action.payload]
-            console.log(action.payload,"payload filter")
         })
             .addCase(filterProduct.pending, (state,action) =>{
                 state.loading = false
@@ -73,11 +82,20 @@ const productSlices = createSlice({
         builder.addCase(fetchProduct.fulfilled, (state,action) =>{
             state.loading = true
             state.entities = [action.payload]
-            console.log(action.payload,"payload search")
         })
             .addCase(fetchProduct.pending, (state,action) =>{
             state.loading = false
         })
+
+        //search key
+        builder.addCase(fetchSearchKey.fulfilled,(state,action) =>{
+            state.loading = true
+            state.product_search = [action.payload]
+            // console.log(action.payload.result)
+        })
+            .addCase(fetchSearchKey.pending,(state,action)=>{
+                state.loading = false
+            })
 
     }
 })
