@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from './index.module.css'
 import {useTranslations} from 'next-intl';
 import Head from "next/head";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import CatalogList from "@/components/pages/catalog/catalog-list/catalog-list";
 import {GetStaticProps} from "next";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {fetchCategory} from "@/slices/category/categorySlices";
 
 interface props {
 
@@ -12,6 +15,14 @@ interface props {
 
 const Index = (props: props) => {
     const t = useTranslations()
+    const {category,loading} = useSelector((state:RootState)=> state.category)
+    const dispatch = useDispatch<AppDispatch>()
+
+    useEffect(() => {
+        dispatch(fetchCategory({q:'',size:200}))
+    }, []);
+
+    console.log(category,"category")
     return (
         <>
             <Head>
@@ -34,7 +45,7 @@ const Index = (props: props) => {
                     <h1 className={css.title}>
                         {t('header.catalog')} {t('products.plural').toLowerCase()}
                     </h1>
-                    <CatalogList/>
+                    <CatalogList data={category}/>
                 </div>
             </section>
         </>

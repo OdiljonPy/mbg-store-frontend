@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import css from "@/components/pages/home/sales/sales.module.css";
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Product from "@/components/shared/product/product";
@@ -17,14 +17,21 @@ interface props {
 }
 
 const Top = (props: props) => {
+    const isRef = useRef(false)
     const {sliderRef, loaded, onNext, onPrev, currentSlide} = useSlider()
     const {data,loading} = useSelector((state:RootState) => state.product_bestseller)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
-        dispatch(fetchProductBestSeller())
+        if(!isRef.current){
+            dispatch(fetchProductBestSeller())
+        }
+
+        return () =>{
+            isRef.current = true
+        }
     }, []);
-    console.log(data,"data")
+
     return (
         <section className={css.sales}>
             <div className={'container'}>

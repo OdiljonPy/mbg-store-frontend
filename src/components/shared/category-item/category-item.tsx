@@ -11,27 +11,47 @@ interface props {
 const CategoryItem = ({category, classNames}: props) => {
 
     const {
-        title,
-        img,
+        id,
+        name,
+        image,
+        icone,
         color
     } = category
+
     return (
+        // <Link
+        //     style={{
+        //         backgroundColor: color ? color : '#fff'
+        //     }}
+        //     href={{
+        //     pathname: '/products',
+        //     query: {
+        //         category: name,
+        //         sort: 'popular'
+        //     }
+        // }} className={`${css.item} ${classNames ?? ''}`}>
+        //     <span className={css.background} style={{
+        //         backgroundImage: `url(${image})`
+        //     }}/>
+        //     <span className={css.title}>
+        //         {name}
+        //     </span>
+        // </Link>
         <Link
             style={{
-                backgroundColor: color
+                backgroundImage: `url(${icone})`,
+                objectFit:'cover'
             }}
             href={{
-            pathname: '/products',
-            query: {
-                category: title,
-                sort: 'popular'
-            }
-        }} className={`${css.item} ${classNames ?? ''}`}>
-            <span className={css.background} style={{
-                backgroundImage: `url(${img.src})`
-            }}/>
+                pathname: '/products',
+                query: {
+                    category: name,
+                    category_id:id,
+                    sort: 'popular'
+                }
+            }} className={`${css.item} ${classNames ?? ''}`}>
             <span className={css.title}>
-                {title}
+                {name}
             </span>
         </Link>
     );
