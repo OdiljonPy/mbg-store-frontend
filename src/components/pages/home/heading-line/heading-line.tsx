@@ -3,13 +3,15 @@ import css from './heading-line.module.css'
 import {useTranslations} from 'next-intl';
 import {IHeadingLine} from "@/components/pages/home/heading-line/data-types/heading-line";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
 
 interface props {
     heading: IHeadingLine
     small?: boolean
+    loading?:boolean
 }
 
-const HeadingLine = ({heading, small}: props) => {
+const HeadingLine = ({heading, small , loading}: props) => {
     const t = useTranslations()
     const {
         title,

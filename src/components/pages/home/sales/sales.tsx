@@ -4,7 +4,6 @@ import React, {useEffect} from 'react';
 import css from './sales.module.css'
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Product from "@/components/shared/product/product";
-import { productSales} from "@/constants/product/product";
 import {useSlider} from "@/hooks/use-slider";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
@@ -25,7 +24,7 @@ const Sales = (props: props) => {
     useEffect(() => {
         dispatch(fetchProductDiscount())
     }, []);
-    console.log(data,"data")
+
     return (
         <section className={css.sales}>
             <div className={'container'}>
