@@ -55,7 +55,7 @@ export const filterProduct = createAsyncThunk('product_filter', async (params:IF
 
 const initialState = {
     entities : [],
-    product_search:[] as any,
+    product_search:[] ,
     loading : true
 } as any
 
