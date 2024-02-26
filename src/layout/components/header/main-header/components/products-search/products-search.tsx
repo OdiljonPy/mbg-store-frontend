@@ -28,36 +28,52 @@ const ProductsSearch = (props: props) => {
 
     const {focused, onFocused, searchText, onChange, onBlur, onClearValue} = useProductSearch()
 
-    const products: ICategoryItemGeneral[] = [{
-        title: 'бумажное полотенце',
-        id: 2
-    }, {
-        title: 'шампунь',
-        id: 3
-    }, {
-        title: 'пена для бритья',
-        id: 4
-    }, {
-        title: 'шоколад',
-        id: 5
-    },]
+    // const products: ICategoryItemGeneral[] = [{
+    //     title: 'бумажное полотенце',
+    //     id: 2
+    // }, {
+    //     title: 'шампунь',
+    //     id: 3
+    // }, {
+    //     title: 'пена для бритья',
+    //     id: 4
+    // }, {
+    //     title: 'шоколад',
+    //     id: 5
+    // },]
+    const [products,setProducts] = useState<ICategoryItemGeneral[]>(
+        [{
+            title: 'бумажное полотенце',
+            id: 2
+        }, {
+            title: 'шампунь',
+            id: 3
+        }, {
+            title: 'пена для бритья',
+            id: 4
+        }, {
+            title: 'шоколад',
+            id: 5
+        },]
+    )
 
-    const [searchKey,setSearchKey] = useState([{
-        result:['бумажное полотенце','шоколад']
-    }])
 
     const debouncedValue = useDebounce(searchText, 500)
 
     useEffect(() => {
         if (debouncedValue) {
-            // console.log( product_search[0].result,"search text")
             dispatch(fetchSearchKey(searchText))
         }
     }, [debouncedValue])
 
     useEffect(() => {
-        setSearchKey(product_search)
-        // console.log(searchKey,"search key static")
+        const searchKey:ICategoryItemGeneral[] = []
+        product_search.map((item:any) =>{
+            return item?.result.map((el:string,idx:number) =>{
+               searchKey.push({ title: el,id:idx+1})
+            })
+        })
+        setProducts((prevState) => prevState = searchKey)
     }, [product_search]);
 
     const onSearch = () => {

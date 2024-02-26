@@ -27,7 +27,6 @@ const Categories = (props: props) => {
         dispatch(fetchCategory(query))
     }, []);
 
-    console.log(category,"popular category")
 
     return (
         <div className={css.wrapper}>

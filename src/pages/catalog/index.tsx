@@ -22,7 +22,7 @@ const Index = (props: props) => {
         dispatch(fetchCategory({q:'',size:200}))
     }, []);
 
-    console.log(category,"category")
+
     return (
         <>
             <Head>

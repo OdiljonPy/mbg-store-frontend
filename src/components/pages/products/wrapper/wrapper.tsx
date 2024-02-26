@@ -60,7 +60,6 @@ const Wrapper = (props: props) => {
     }
     useEffect(() => {
         fetchProductFilter()
-        console.log(entities,"filter data")
     }, [activeFilters.length]);
 
     return (
