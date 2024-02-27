@@ -19,7 +19,7 @@ const CatalogList = ({data}: props) => {
             {/*))}*/}
             {
                 data?.map((categories) =>{
-                    return categories.result.map((category:ICategory) =>{
+                    return categories?.result?.map((category:ICategory) =>{
                         return <CategoryItem category={category}  key={category.id}/>
                     })
                 })

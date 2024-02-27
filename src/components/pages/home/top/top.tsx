@@ -47,7 +47,7 @@ const Top = (props: props) => {
                     <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
                         {
                             data.map((product:ICommon) =>{
-                                return product?.result.content.map((item:IProduct) =>{
+                                return product?.result?.content.map((item:IProduct) =>{
                                     return (
                                         <div className={`keen-slider__slide`} key={item.id}>
                                             <Product product={item} />

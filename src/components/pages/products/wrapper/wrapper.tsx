@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useCallback, useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from 'next-intl';
@@ -25,12 +25,13 @@ const Wrapper = (props: props) => {
     const {push, query} = useRouter()
     const category: string | null = searchParams.get('category')
 
-    const productRef = useRef(false)
     const {entities, loading} =  useSelector((state:RootState) => state.product)
     const dispatch = useDispatch<AppDispatch>()
 
     const diffFilters: string[] = ['filters', 'search', 'sort','category_id',"clear_filter"]
     const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
+
+
 
     // search product
     useEffect(() => {
@@ -58,9 +59,12 @@ const Wrapper = (props: props) => {
             dispatch(filterProduct(filterParams))
         }
     }
+
     useEffect(() => {
         fetchProductFilter()
     }, [activeFilters.length]);
+
+
 
     return (
         <section className={css.results}>
