@@ -8,7 +8,7 @@ import Skeleton from "react-loading-skeleton";
 
 
 interface props {
-    products:any
+    products:ICommon[]
     loading:boolean
 }
 

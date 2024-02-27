@@ -62,6 +62,7 @@ const Wrapper = (props: props) => {
         fetchProductFilter()
     }, [activeFilters.length]);
 
+    console.log(entities,"entities")
     return (
         <section className={css.results}>
             <div className={'container'}>
@@ -78,7 +79,7 @@ const Wrapper = (props: props) => {
                 {
                     searchParams.get('search')
                 }
-                <Header/>
+                <Header data={entities} />
 
                 <div className={`${css.wrapper}`}>
                     <Filters/>
