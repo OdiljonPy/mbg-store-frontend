@@ -14,16 +14,16 @@ const ProductInfo = ({product}: props) => {
     const {
         id,
         rating,
-        total_rate_count,
-        title,
+        rating_count,
+        name,
         price,
         discount_price
     } = product
     return (
         <div className={css.info}>
-            <ProductRate rating={rating} total_rate_count={total_rate_count}/>
+            <ProductRate rating={rating} total_rate_count={rating_count}/>
             <Link href={`/products/${id}`} className={css.title}>
-                {title}
+                {name}
             </Link>
             <ProductPrice price={price} discount_price={discount_price}/>
         </div>

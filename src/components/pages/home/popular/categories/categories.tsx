@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from './categories.module.css'
 import CategoryItem from "@/components/shared/category-item/category-item";
 import {category} from "@/constants/categories/categories";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
 import {raleway} from "@/constants/fonts/fonts";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {fetchCategory} from "@/slices/category/categorySlices";
+import {ICommonCategory} from "@/data-types/categories/categories";
 
 interface props {
 
@@ -12,11 +16,29 @@ interface props {
 
 const Categories = (props: props) => {
     const t = useTranslations()
+    const {category,loading} = useSelector((state:RootState) => state.category)
+    const dispatch = useDispatch<AppDispatch>()
+
+    useEffect(() => {
+        const query = {
+            q : '',
+            size:6
+        }
+        dispatch(fetchCategory(query))
+    }, []);
+
+
     return (
         <div className={css.wrapper}>
-            {category.slice(0,6).map((category, index) => (
-                <CategoryItem category={category} key={category.id} classNames={css[`item${index + 1}`]}/>
-            ))}
+            {
+                category?.map((categories:ICommonCategory) =>{
+                    return categories?.result.slice(0,6).map((category,index) =>{
+                        return (
+                                <CategoryItem category={category} key={category.id} classNames={css[`item${index + 1}`]}/>
+                            )
+                    })
+                })
+            }
             <Link href={'/catalog'} className={`${css.link} ${raleway.className}`}>
                 {t('header.catalog')}
                 <svg width="28" height="23" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">

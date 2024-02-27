@@ -1,21 +1,31 @@
 import React, {ForwardedRef, forwardRef} from 'react';
 import css from './thumbnail.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import img from '../../../../../../../../../public/images/products/mikado.png'
+import { IProductSingle} from "@/data-types/products/products";
 
 interface props {
     currentSlide: number
+    gallery: IProductSingle,
+    loading:boolean
 }
 
-const Thumbnail = forwardRef(({currentSlide}: props, ref: ForwardedRef<HTMLDivElement>) => {
+const Thumbnail = forwardRef(({currentSlide,loading,gallery}: props, ref: ForwardedRef<HTMLDivElement>) => {
     return (
-        <div ref={ref} className={`keen-slider thumbnail ${css.thumbnail}`}>
-            {Array.from(Array(5), (_, i) => i+1).map((item, index) => (
-                <div key={item} className={`${css.item} ${currentSlide === index ? css.active : ''} keen-slider__slide`}>
-                    <ResponsiveImage src={img} alt={'Кукуруза Bonduelle Classique сладкая'}/>
-                </div>
-            ))}
-        </div>
+        <>
+            { !loading ? '' :  <div ref={ref} className={`keen-slider thumbnail ${css.thumbnail}`}>
+
+                {
+                    gallery?.result?.images.map((item,index) =>{
+                        return (
+                            <div key={item.id} className={`${css.item} ${currentSlide === index ? css.active : ''} keen-slider__slide`}>
+                                <ResponsiveImage src={item.image} alt={'Кукуруза Bonduelle Classique сладкая'}/>
+                            </div>
+                        )
+                    })
+                }
+            </div>}
+        </>
+
     );
 })
 

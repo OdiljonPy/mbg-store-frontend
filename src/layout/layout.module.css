@@ -9,10 +9,11 @@
     min-height: 75vh;
 }
 .chat_container{
-    position: sticky;
+    position: sticky ;
     width: 100%;
     bottom: 100px;
     z-index: 99999;
+    display: inline ;
 }
 .mobile_navbar{
     position: sticky;

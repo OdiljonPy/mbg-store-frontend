@@ -13,18 +13,19 @@ interface props {
 const ProductTop = ({product}: props) => {
     const {
         id,
-        img,
-        title,
-        discount_percentage,
+        images,
+        name,
+        discount,
         count
     } = product
+
     return (
         <div className={css.actions}>
-            {discount_percentage && <div className={css.discount}>
-                <DiscountBadge discount_percentage={discount_percentage}/>
+            {discount && <div className={css.discount}>
+                <DiscountBadge discount_percentage={discount}/>
             </div>}
             <Link href={`/products/${id}`} className={css.img}>
-                <ResponsiveImage src={img} alt={title}/>
+                <ResponsiveImage src={images[0].image} alt={name}/>
             </Link>
             <ProductActions count={count}/>
         </div>

@@ -8,51 +8,59 @@ import {ICategory} from "@/data-types/categories/categories";
 export const category: ICategory[] = [
     {
         id: 1,
-        img: img,
-        title: "Готовая еда",
-        color : '#DFCF76'
+        image: img,
+        name: "Готовая еда",
+        color : '#DFCF76',
+        icone:''
     },
     {
         id: 2,
-        img: sweets,
-        title: "Конфеты и десерты",
-        color: '#F09A54'
+        image: sweets,
+        name: "Конфеты и десерты",
+        color: '#F09A54',
+        icone:''
     },
     {
         id: 3,
-        img: vegs,
-        title: "Овощи и фрукты",
-        color: '#C7B4FF'
+        image: vegs,
+        name: "Овощи и фрукты",
+        color: '#C7B4FF',
+        icone:''
     },
     {
         id: 4,
-        img: bread,
-        title: "Хлеб и выпечка",
-        color: '#DFB28F'
+        image: bread,
+        name: "Хлеб и выпечка",
+        color: '#DFB28F',
+        icone:''
     },
     {
         id: 5,
-        img: meat,
-        title: "Мясо и птица",
-        color: '#FFB4D4'
+        image: meat,
+        name: "Мясо и птица",
+        color: '#FFB4D4',
+        icone:''
     },
     {
         id: 6,
-        img: milk,
-        title: "Молочный прилавок",
-        color: '#97D9E7'
+        image: milk,
+        name: "Молочный прилавок",
+        color: '#97D9E7',
+        icone:''
     },
     {
         id: 7,
-        img: img,
-        title: "Готовая еда",
-        color : '#DFCF76'
+        image: img,
+        name: "Готовая еда",
+        color : '#DFCF76',
+        icone:''
     },
     {
         id: 9,
-        img: sweets,
-        title: "Конфеты и десерты",
-        color: '#F09A54'
+        image: sweets,
+        name: "Конфеты и десерты",
+        color: '#F09A54',
+        icone:''
     },
 ]
 

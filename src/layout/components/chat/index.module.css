@@ -1,7 +1,8 @@
 .actions{
     width: 60px;
-    margin-left: auto;
     margin-right: 60px;
+    position: absolute;
+    right: 0;
 }
 
 .scroll{

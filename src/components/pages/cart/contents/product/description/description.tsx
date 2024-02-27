@@ -9,12 +9,12 @@ interface props {
 }
 
 const Description = ({product, count}: props) => {
-    const {title, weight, seller, discount_price, price} = product
+    const {name, weight, seller, discount_price, price} = product
     return (
         <div className={css.info}>
             <div className={css.mainInfo}>
                 <h3 className={css.name}>
-                    {title}
+                    {name}
                 </h3>
                 <p className={css.weight}>
                     {weight}

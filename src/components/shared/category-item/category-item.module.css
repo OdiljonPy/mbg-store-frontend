@@ -1,5 +1,6 @@
 .item, .background{
     border-radius: var(--medium-radius);
+    object-fit: cover;
 }
 
 .item {

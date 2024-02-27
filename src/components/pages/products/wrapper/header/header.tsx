@@ -6,17 +6,18 @@ import FiltersToggler from "@/components/pages/products/wrapper/header/filters-t
 import SortDropdown from "@/components/pages/products/filters/desktop/sort-dropdown/sort-dropdown";
 import MobileFilters from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters";
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
+import {ICommon} from "@/data-types/products/products";
 
 interface props {
-
+    data?:ICommon[]
 }
 
-const Header = (props: props) => {
+const Header = ({data}: props) => {
     return (
         <div className={css.wrapper}>
             <div className={css.info}>
                 <Title/>
-                <ProductsCount/>
+                <ProductsCount count={data ? data[0]?.result?.size : 12}/>
             </div>
             <div className={css.actions}>
                 <MobileFilters/>

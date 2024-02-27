@@ -2,7 +2,7 @@ import React from 'react';
 import css from './discount-badge.module.css'
 
 interface props {
-discount_percentage: number
+discount_percentage?: number
     className?: string
 
 }

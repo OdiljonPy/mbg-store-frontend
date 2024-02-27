@@ -15,11 +15,13 @@ const CatalogItem = ({item}: props) => {
     const filters: string | null = searchParams.get('filters')
 
     const {
-        title
+        title,
+        id
     } = item
 
     const queries: ParsedUrlQueryInput = {
         category: title,
+        category_id:id,
         sort: 'popular',
         filters: filters
     }

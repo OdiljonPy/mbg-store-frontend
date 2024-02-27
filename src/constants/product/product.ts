@@ -14,35 +14,60 @@ import {ISortingOption} from "@/components/pages/products/filters/desktop/data-t
 
 export const product: IProduct = {
     id: 1,
-    title: 'Ананасы Mikado ломтики 580мл',
+    name: 'Ананасы Mikado ломтики 580мл',
     rating: 4.9,
-    total_rate_count: 12358,
+    rating_count: 12358,
     price: 30000,
     weight: '170г',
-    discount_percentage: 50,
+    available:170,
+    discount: 50,
+    view_count:0,
     discount_price: 15000,
-    img: img,
+    images: [
+        {
+            id:1,
+            product:1,
+            image:img
+        }
+    ],
     seller: 'Продавец',
 }
 
 export const productWithoutDiscount: IProduct = {
     id: 2,
-    title: 'Ананасы Mikado ломтики 580мл',
+    name: 'Ананасы Mikado ломтики 580мл',
     rating: 4.9,
     weight: '350г',
-    total_rate_count: 12358,
+    available:170,
+    rating_count: 12358,
     price: 30000,
-    img: img,
+    view_count:0,
+    images: [
+        {
+            id:1,
+            product:1,
+            image:img
+        }
+    ],
     seller: 'Продавец',
 }
 export const productWithoutCount: IProduct = {
     id: 2,
-    title: 'Ананасы Mikado ломтики 580мл',
+    name: 'Ананасы Mikado ломтики 580мл',
     rating: 4.9,
     weight: '350г',
-    total_rate_count: 12358,
+    available:170,
+    rating_count: 12358,
+    price_with_discount:1200,
     price: 30000,
-    img: img,
+    view_count:0,
+    images: [
+        {
+            id:1,
+            product:1,
+            image:img
+        }
+    ],
     seller: 'Продавец',
     count:2
 }
@@ -50,151 +75,247 @@ export const productWithoutCount: IProduct = {
 export const productSales:IProduct[] = [
     {
         id: 1,
-        title: 'Ананасы Mikado ломтики 580мл',
+        name: 'Ананасы Mikado ломтики 580мл',
         rating: 4.9,
         weight: '580г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 30000,
-        discount_percentage: 50,
+        discount: 50,
         discount_price: 15000,
-        img: img,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img
+            }
+        ],
         seller: 'Продавец',
 
     },
     {
         id: 2,
-        title: 'Фруктовые капли без сахара\n' +
+        name: 'Фруктовые капли без сахара\n' +
             '300 г',
         rating: 4.9,
         weight: '300г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 15000,
-        discount_percentage: 15,
+        discount: 15,
         discount_price: 12700,
-        img: img1,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img1
+            }
+        ],
         seller: 'Продавец',
 
     },
     {
         id: 3,
-        title: 'Avokado 1 штук',
+        name: 'Avokado 1 штук',
         rating: 4.9,
         weight: '300г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 12000,
-        discount_percentage: 40,
+        discount: 40,
         discount_price: 7200,
-        img: img3,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img3
+            }
+        ],
         seller: 'Продавец',
 
     },
     {
         id: 4,
-        title: 'Кетчуп Tanho острый 910 г',
+        name: 'Кетчуп Tanho острый 910 г',
         rating: 4.9,
         weight: '300г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 14000,
-        discount_percentage: 10,
+        discount: 10,
         discount_price: 12000,
-        img: img2,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img2
+            }
+        ],
         seller: 'Продавец',
     }
 ]
 export const productClose:IProduct[] = [
     {
         id: 1,
-        title: 'Помидор 1 кг',
+        name: 'Помидор 1 кг',
         rating: 4.9,
         weight: '580г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 14700,
-        img: img4,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img4
+            }
+        ],
         seller: 'Продавец',
     },
     {
         id: 2,
-        title: 'Гречневая MAKFA 800 г',
+        name: 'Гречневая MAKFA 800 г',
         rating: 4.9,
         weight: '800г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 15000,
-        img: img5,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img5
+            }
+        ],
         seller: 'Продавец',
     },
     {
         id: 3,
-        title: 'Mountain dew 1500 мл\n',
+        name: 'Mountain dew 1500 мл\n',
         rating: 4.9,
         weight: '1500г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 20000,
-        discount_percentage: 10,
+        discount: 10,
         discount_price: 18000,
-        img: img6,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img6
+            }
+        ],
         seller: 'Продавец',
     },
     {
         id: 4,
-        title: 'Лук красный 1 кг\n',
+        name: 'Лук красный 1 кг\n',
         rating: 4.9,
         weight: '300г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 5400,
-        img: img7,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img7
+            }
+        ],
         seller: 'Продавец',
     }
 ]
 export const productTop:IProduct[] = [
     {
         id: 1,
-        title: 'Ананасы Mikado ломтики 580мл',
+        name: 'Ананасы Mikado ломтики 580мл',
         rating: 4.9,
         weight: '580г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 30000,
-        discount_percentage: 50,
+        discount: 50,
         discount_price: 15000,
-        img: img,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img
+            }
+        ],
         seller: 'Продавец',
 
     },
     {
         id: 2,
-        title: 'Хлеб бородинский',
+        name: 'Хлеб бородинский',
         rating: 4.9,
         weight: '300г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 15000,
-        img: img8,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img8
+            }
+        ],
         seller: 'Продавец',
 
     },
     {
         id: 3,
-        title: 'Готовый завтрак MIX Nesquik\n' +
+        name: 'Готовый завтрак MIX Nesquik\n' +
             '460 г',
         rating: 4.9,
         weight: '460г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 52000,
-        discount_percentage: 13,
+        discount: 13,
         discount_price: 45000,
-        img: img9,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img9
+            }
+        ],
         seller: 'Продавец',
 
     },
     {
         id: 4,
-        title: 'Масло подсолнечное\n' +
+        name: 'Масло подсолнечное\n' +
             '800 г',
         rating: 4.9,
         weight: '800г',
-        total_rate_count: 12358,
+        available:170,
+        rating_count: 12358,
         price: 21000,
-        discount_percentage: 21,
+        discount: 21,
         discount_price: 16000,
-        img: img10,
+        view_count:0,
+        images: [
+            {
+                id:1,
+                product:1,
+                image:img10
+            }
+        ],
         seller: 'Продавец',
     }
 ]

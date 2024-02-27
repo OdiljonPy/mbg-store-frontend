@@ -18,10 +18,25 @@
     opacity: 1;
     visibility: visible;
 }
+.skeleton_cointainer{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+}
 
+.skeleton{
+    height: 350px;
+    min-width: 160px;
+    max-width: 400px;
+    width: 100%;
+}
 
 @media (max-width: 575px) {
     .sales{
         margin-bottom: 40px;
+    }
+    .skeleton{
+        height: 200px;
     }
 }

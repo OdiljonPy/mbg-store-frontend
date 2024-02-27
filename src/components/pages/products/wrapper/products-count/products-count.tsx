@@ -4,10 +4,10 @@ import {useTranslations} from 'next-intl';
 import {useSearchParams} from "next/navigation";
 
 interface props {
-
+    count: number
 }
 
-const ProductsCount = (props: props) => {
+const ProductsCount = ({count}: props) => {
     const t = useTranslations()
     const searchParams = useSearchParams()
     const search: string | null = searchParams.get('search')
@@ -21,7 +21,7 @@ const ProductsCount = (props: props) => {
 
     return (
         <p className={css.text}>
-            {t(searchText(), {products: "1256", categories: "4"})}
+            {t(searchText(), {products: count, categories: "4"})}
         </p>
     );
 };

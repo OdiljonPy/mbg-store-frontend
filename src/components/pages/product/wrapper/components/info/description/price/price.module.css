@@ -8,6 +8,10 @@
     background: #FFFFFF;
 }
 
+.skeleton_position{
+    margin: 10px 0 ;
+}
+
 .discountPrice {
     font-size: 24px;
     font-weight: 800;

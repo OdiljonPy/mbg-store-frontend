@@ -14,21 +14,39 @@
     flex-basis: 75%;
 }
 
+.skeleton{
+    flex-basis: 24%;
+    height: 350px;
+    min-width: 160px;
+    max-width: 400px;
+    width: 100%;
+}
+.skeleton_short{
+    flex-basis: 32%;
+}
+
+
 @media (max-width: 1199px) {
-    .short{
+    .short,.skeleton_short{
         flex-basis: 62%;
     }
 }
 
 @media (max-width: 767px) {
-    .short{
+    .short,.skeleton_short{
         flex-basis: 100%;
+    }
+    .skeleton{
+        height: 300px;
     }
 }
 
 @media (max-width: 575px) {
     .list{
         row-gap: 10px;
+    }
+    .skeleton{
+        height: 200px;
     }
 }
 

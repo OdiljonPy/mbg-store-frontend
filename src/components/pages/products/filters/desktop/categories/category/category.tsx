@@ -15,6 +15,7 @@ const Category = ({category}: props) => {
     const searchParams = useSearchParams()
     const currentCategory: string  | null  = searchParams.get('category')
     const {
+        id,
         img,
         name,
         count
@@ -25,7 +26,8 @@ const Category = ({category}: props) => {
             pathname,
             query: {
                 ...query,
-                category: name
+                category: name,
+                category_id:id
             },
         }, undefined, {
             scroll: false
