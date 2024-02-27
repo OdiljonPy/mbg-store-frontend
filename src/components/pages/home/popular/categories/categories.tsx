@@ -39,9 +39,6 @@ const Categories = (props: props) => {
                     })
                 })
             }
-            {/*{category.slice(0,6).map((category, index) => (*/}
-            {/*    <CategoryItem category={category} key={category.id} classNames={css[`item${index + 1}`]}/>*/}
-            {/*))}*/}
             <Link href={'/catalog'} className={`${css.link} ${raleway.className}`}>
                 {t('header.catalog')}
                 <svg width="28" height="23" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">

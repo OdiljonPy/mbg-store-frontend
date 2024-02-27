@@ -39,7 +39,7 @@ const CategoryItem = ({category, classNames}: props) => {
         // </Link>
         <Link
             style={{
-                backgroundImage: `url(${icone})`,
+                backgroundImage: `url(${image})`,
                 objectFit:'cover'
             }}
             href={{
