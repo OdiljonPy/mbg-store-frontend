@@ -19,15 +19,14 @@ interface props {
 const Wrapper = (props: props) => {
     const t = useTranslations()
     const router = useRouter()
-    // const [info,setInfo] = useState<IProduct>()
-    // const [loading,setLoading] = useState(false)
+
     const {info,loading} = useSelector((state:RootState) => state.product_single)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
     }, [router.query.id]);
-
+    console.log(info,"info")
     return (
         <section className={css.wrapper}>
             <div className={'container'}>
@@ -42,7 +41,7 @@ const Wrapper = (props: props) => {
                     },
                     {
                         path: '/products/:id',
-                        label: t('Кукуруза Bonduelle Classique сладкая')
+                        label: info?.result?.name
                     }
                 ]}/>
                 {
