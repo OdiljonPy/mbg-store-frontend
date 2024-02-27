@@ -8,16 +8,16 @@ interface props{
 }
 const OrderCart = ({product}:props) =>{
     const t = useTranslations()
-    const { img, title,weight,seller,price,discount_price,count} = product
+    const { images, name,weight,seller,price,discount_price,count} = product
     return(
         <div className={css.product}>
             <div className={css.img}>
-                <ResponsiveImage src={img} alt={title}/>
+                <ResponsiveImage src={images[0]?.image} alt={name}/>
             </div>
             <div className={css.info}>
                 <div className={css.info_left}>
                     <div>
-                        <p className={css.title}>{title}</p>
+                        <p className={css.title}>{name}</p>
                         <p className={css.weigh}>{weight}</p>
                     </div>
                     <p className={css.seller}>

@@ -12,7 +12,7 @@ interface props {
 }
 
 const Product = ({product}: props) => {
-    const {title, price, discount_price, rating, total_rate_count, seller} = product
+    const {name, price, discount_price, rating, rating_count, seller} = product
     return (
         <div className={css.product}>
             <div className={css.img}>
@@ -20,7 +20,7 @@ const Product = ({product}: props) => {
             </div>
             <div className={css.wrapper}>
                 <p className={css.title}>
-                    {title}
+                    {name}
                 </p>
             </div>
             <div className={css.wrapper}>
@@ -32,7 +32,7 @@ const Product = ({product}: props) => {
                 </p>
             </div>
             <div className={css.wrapper}>
-                <Rate count={total_rate_count} rate={rating}/>
+                <Rate count={rating_count} rate={rating}/>
             </div>
             <p className={css.seller}>
                 {seller}

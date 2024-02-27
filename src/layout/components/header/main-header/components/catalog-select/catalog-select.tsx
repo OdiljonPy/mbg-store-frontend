@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {ConfigProvider, Dropdown, MenuProps} from "antd";
 import css from './catalog-select.module.css'
@@ -12,45 +12,91 @@ import {ICategoryItem} from "@/layout/components/header/main-header/data-types/c
 import CatalogItem from "@/layout/components/header/main-header/components/catalog-item/catalog-item";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import CatalogIcon from "@/components/shared/catalog-icon/catalog-icon";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {fetchCategory} from "@/slices/category/categorySlices";
+import {ICategory, ICommonCategory} from "@/data-types/categories/categories";
 
 interface props {
 
 }
 
 
-const catalogItem: ICategoryItem[] = [
-    {
-        id: 2,
-        title: 'Готовая еда',
-        img: <CatalogIcon><ResponsiveImage src={food} alt={''}/></CatalogIcon>
-    },
-    {
-        id: 3,
-        title: 'Овощи и фрукты',
-        img: <CatalogIcon><ResponsiveImage src={veg} alt={''}/></CatalogIcon>
-    },
-    {
-        id: 4,
-        title: 'Молочный прилавок',
-        img: <CatalogIcon><ResponsiveImage src={milk} alt={''}/></CatalogIcon>
-    },
-    {
-        id: 5,
-        title: 'Мясо и птица',
-        img: <CatalogIcon><ResponsiveImage src={meat} alt={''}/></CatalogIcon>
-    }
-]
+// const catalogItem: ICategoryItem[] = [
+//     {
+//         id: 2,
+//         title: 'Готовая еда',
+//         img: <CatalogIcon><ResponsiveImage src={food} alt={''}/></CatalogIcon>
+//     },
+//     {
+//         id: 3,
+//         title: 'Овощи и фрукты',
+//         img: <CatalogIcon><ResponsiveImage src={veg} alt={''}/></CatalogIcon>
+//     },
+//     {
+//         id: 4,
+//         title: 'Молочный прилавок',
+//         img: <CatalogIcon><ResponsiveImage src={milk} alt={''}/></CatalogIcon>
+//     },
+//     {
+//         id: 5,
+//         title: 'Мясо и птица',
+//         img: <CatalogIcon><ResponsiveImage src={meat} alt={''}/></CatalogIcon>
+//     }
+// ]
+
 
 
 const CatalogSelect = (props: props) => {
     const t = useTranslations()
+    const {category,loading} = useSelector((state:RootState) => state.category)
+    const dispatch = useDispatch<AppDispatch>()
+    const [categorySelect,setCategorySelect] = useState<ICategoryItem[]>([
+        {
+            id: 2,
+            title: 'Готовая еда',
+            img: <CatalogIcon><ResponsiveImage src={food} alt={''}/></CatalogIcon>
+        },
+        {
+            id: 3,
+            title: 'Овощи и фрукты',
+            img: <CatalogIcon><ResponsiveImage src={veg} alt={''}/></CatalogIcon>
+        },
+        {
+            id: 4,
+            title: 'Молочный прилавок',
+            img: <CatalogIcon><ResponsiveImage src={milk} alt={''}/></CatalogIcon>
+        },
+        {
+            id: 5,
+            title: 'Мясо и птица',
+            img: <CatalogIcon><ResponsiveImage src={meat} alt={''}/></CatalogIcon>
+        }
+    ])
+
+    useEffect(() => {
+        const fetchCategoryData:ICategoryItem[] = []
+        dispatch(fetchCategory({q:' ',size:'30'})).then((response:any) =>{
+            response.payload.result.map((categories:any) =>{
+                fetchCategoryData.push({
+                    id: categories.id,
+                    title: categories.name,
+                    img: categories.icone && <CatalogIcon><ResponsiveImage src={categories.icone} alt={''} key={categories.id}/></CatalogIcon>
+                })
+            })
+            setCategorySelect(prevState => prevState = fetchCategoryData)
+        })
+
+        console.log(categorySelect,"new category")
+    }, []);
+
 
     const items: MenuProps['items'] = [
         {
             label: <CatalogTop item={{title: 'Все категории', id: 1}}/>,
-            key: '1',
+            key: '0',
         },
-        ...catalogItem.map((item) => (
+        ...categorySelect.map((item) => (
             {
                 label: <CatalogItem item={item} key={item.id}/>,
                 key: item.id,

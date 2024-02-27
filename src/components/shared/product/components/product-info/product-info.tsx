@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './product-info.module.css'
 import ProductRate from "@/components/shared/product/components/product-info/product-rate/product-rate";
-import {IProduct, IProducts} from "@/data-types/products/products";
+import {IProduct} from "@/data-types/products/products";
 import ProductPrice from "@/components/shared/product/components/product-info/product-price/product-price";
 import Link from "next/link";
 

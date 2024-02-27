@@ -11,8 +11,7 @@ interface props {
 }
 
 const Product = ({product}: props) => {
-    const { img, title} = product
-
+    const { images, name} = product
     const [count, setCount] = useState<number>(0)
 
 
@@ -21,7 +20,7 @@ const Product = ({product}: props) => {
        <div>
            <div className={css.product}>
                <div className={css.img}>
-                   <ResponsiveImage src={img} alt={title}/>
+                   <ResponsiveImage src={images[0]?.image} alt={name}/>
                </div>
                <div className={css.info}>
                    <Description count={count} product={product}/>
