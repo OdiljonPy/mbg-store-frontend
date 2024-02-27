@@ -87,7 +87,6 @@ const CatalogSelect = (props: props) => {
             setCategorySelect(prevState => prevState = fetchCategoryData)
         })
 
-        console.log(categorySelect,"new category")
     }, []);
 
 

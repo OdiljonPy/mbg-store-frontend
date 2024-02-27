@@ -13,6 +13,7 @@ export interface IProduct {
     free_shipping?:boolean
     pickup?:boolean
     weight: string
+    available:number
     count?: number
     seller: string
     images: {
@@ -21,32 +22,6 @@ export interface IProduct {
         image: StaticImageData | string
     }[]
 }
-
-
-// export interface IProducts{
-//     id:number
-//     name:string
-//     price:number
-//     discount_price?:number
-//     discount?:number
-//     price_with_discount:number
-//     description:string
-//     available: number
-//     rating: number
-//     rating_count: number
-//     view_count: number
-//     free_shipping:boolean
-//     pickup:boolean
-//     store:number
-//     weight:string|number
-//     count?: number
-//     seller?: string
-//     images:{
-//         id:number
-//         product:number
-//         image:string | StaticImageData
-//     }[]
-// }
 
 export interface ICommon{
    result:{
@@ -60,4 +35,8 @@ export interface ICommon{
     empty:boolean
     content:IProduct[]
     }
+}
+
+export interface IProductSingle{
+    result:IProduct
 }

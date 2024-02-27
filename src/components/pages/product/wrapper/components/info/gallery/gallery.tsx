@@ -7,9 +7,14 @@ import Preview from "@/components/pages/product/wrapper/components/info/gallery/
 import "keen-slider/keen-slider.min.css"
 import NavigationBtn from "@/components/pages/product/wrapper/components/info/gallery/navigation-btn/navigation-btn";
 import Dots from "@/components/pages/product/wrapper/components/info/gallery/dots/dots";
+import { IProductSingle} from "@/data-types/products/products";
+import Skeleton from "react-loading-skeleton";
 
-
-const Gallery = () => {
+interface props {
+    gallery : IProductSingle,
+    loading:boolean
+}
+const Gallery = ({gallery,loading} : props) => {
     const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [loaded, setLoaded] = useState<boolean>(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -44,15 +49,22 @@ const Gallery = () => {
     const onChangeSlide = (i: number) => instanceRef.current?.moveToIdx(i)
 
     return (
-        <div className={`${css.wrapper} ${loaded ? css.show : ''}`}>
-            <Preview ref={sliderRef}/>
-            <div className={css.thumbnail}>
-                <NavigationBtn onClick={onPrev}/>
-                <Thumbnail currentSlide={currentSlide} ref={thumbnailRef}/>
-                <NavigationBtn onClick={onNext} isNext/>
-            </div>
-            <Dots onChangeSlide={onChangeSlide} currentSlide={currentSlide} items={[]}/>
-        </div>
+        <>
+            {
+                !loading ? <Skeleton className={css.skeleton} count={1}/>: <div className={`${css.wrapper} ${loaded ? css.show : ''}`}>
+                    <Preview ref={sliderRef} gallery={gallery} loading={loading}/>
+                    {
+                        <div className={css.thumbnail}>
+                            <NavigationBtn onClick={onPrev}/>
+                            <Thumbnail currentSlide={currentSlide} ref={thumbnailRef} gallery={gallery} loading={loading}/>
+                            <NavigationBtn onClick={onNext} isNext/>
+                        </div>
+                    }
+                    <Dots onChangeSlide={onChangeSlide} currentSlide={currentSlide} items={[]}/>
+                </div>
+            }
+        </>
+
     );
 };
 

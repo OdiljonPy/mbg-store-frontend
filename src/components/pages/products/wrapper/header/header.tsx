@@ -17,7 +17,7 @@ const Header = ({data}: props) => {
         <div className={css.wrapper}>
             <div className={css.info}>
                 <Title/>
-                <ProductsCount count={data ? data[0].result.size : 12}/>
+                <ProductsCount count={data ? data[0]?.result.size : 12}/>
             </div>
             <div className={css.actions}>
                 <MobileFilters/>

@@ -12,7 +12,7 @@ const initialState = {
     loading : true
 } as any
 
-const productBestSeller = createSlice({
+ const productBestSeller = createSlice({
     name: 'product_bestseller',
     initialState,
     reducers:{},

@@ -62,7 +62,6 @@ const Wrapper = (props: props) => {
         fetchProductFilter()
     }, [activeFilters.length]);
 
-    console.log(entities,"entities")
     return (
         <section className={css.results}>
             <div className={'container'}>
