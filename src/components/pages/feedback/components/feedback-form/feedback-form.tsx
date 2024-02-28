@@ -42,28 +42,26 @@ const FeedbackForm = ({info,loading}: props) => {
     }
     const onSendFeedback = async (values: IFeedbackForm) => {
         const formImages = values.images.map((images)=> images.file)
-        console.log(values,"send feddback")
-        console.log(formImages,"send form image")
         const data:any = new FormData()
         data.append('product_id', info?.result?.id )
         data.append('rating',values.rate)
         data.append('comment',values.message)
-        data.append('images',formImages)
+        for(let i = 0 ; i < formImages.length ; i++){
+            data.append('images',formImages[i])
+        }
         // data.append('name',values.name)
 
-
-
-        console.log(data,"form data")
 
         try{
             const res = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/comment/',{
                 method : 'POST',
+                // body : JSON.stringify(Object.fromEntries(data))
+                body:data,
                 headers:{
                     // 'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5NzI0Nzc2LCJpYXQiOjE3MDkxMTk5NzYsImp0aSI6IjhkMjA0MmU0NjZkYzRmMzBhNzE3NmFmMmIyNGQ0ZjA4IiwidXNlcl9pZCI6MX0.NMepH6I__w8HIt3TuyQ8sQoUI2Fcic291b1syLRPsvE`
                 },
-                body : JSON.stringify(Object.fromEntries(data))
-                // body:data
             })
 
             const response = await res.json()

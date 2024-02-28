@@ -27,7 +27,8 @@ const Category = ({category}: props) => {
             query: {
                 ...query,
                 category: name,
-                category_id:id
+                category_id:id,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
             },
         }, undefined, {
             scroll: false

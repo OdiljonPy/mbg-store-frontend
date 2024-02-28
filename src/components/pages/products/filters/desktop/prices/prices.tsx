@@ -33,7 +33,8 @@ const Prices = (props: props) => {
             pathname,
             query: {
                 ...query,
-                prices: `${start},${end}`
+                prices: `${start},${end}`,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
             }
         }, undefined, {
             scroll: false
