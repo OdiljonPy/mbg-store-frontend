@@ -4,13 +4,15 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 import mikado from '@/../public/images/products/mikado.png'
 
 interface props {
-
+    img?:string
 }
 
-const Preview = (props: props) => {
+const Preview = ({img}: props) => {
     return (
         <div className={css.preview}>
-            <ResponsiveImage src={mikado} alt={''}/>
+            {
+                img && <ResponsiveImage src={img} alt={''}/>
+            }
         </div>
     );
 };

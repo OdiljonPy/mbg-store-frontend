@@ -13,14 +13,18 @@ import {raleway} from "@/constants/fonts/fonts";
 import ImageUploader from "@/components/pages/feedback/components/feedback-form/image-uploader/image-uploader";
 import uploaderCss from './image-uploader/image-uploader.module.css'
 import Image from "@/components/pages/feedback/components/feedback-form/image/image";
+import {IProductSingle} from "@/data-types/products/products";
+import Skeleton from "react-loading-skeleton";
 
 
 interface props {
-
+    info : IProductSingle
+    loading:boolean
 }
 
 
-const FeedbackForm = (props: props) => {
+const FeedbackForm = ({info,loading}: props) => {
+    // const {name} = info.result
     const t = useTranslations()
     const {resetField, clearErrors, handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
         mode: 'all'
@@ -43,10 +47,10 @@ const FeedbackForm = (props: props) => {
     return (
         <form onSubmit={handleSubmit(onSendFeedback)} className={css.form}>
             <div className={css.title}>
-                <Title title={'Кукуруза Bonduelle Classique сладкая'}/>
-                <p className={css.weight}>
-                    170г
-                </p>
+                {!loading ? <Skeleton count={1} height={'30px'} width={'350px'} /> : <><Title title={info?.result?.name} loading={loading}/>
+                    <p className={css.weight}>
+                        {info?.result?.available}г
+                    </p></>}
             </div>
             <Seller seller={'Зеленая лавка'}/>
             <Rates register={register} watch={watch}/>
