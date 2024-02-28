@@ -21,7 +21,6 @@ const Feedback = (props: props) => {
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
     }, []);
-    console.log(info,"info feedback")
     return (
         <section className={css.page}>
             <div className={'container'}>

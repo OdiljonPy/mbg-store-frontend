@@ -40,8 +40,38 @@ const FeedbackForm = ({info,loading}: props) => {
     const onUploadImage = (image: File) => {
         append({file: image})
     }
-    const onSendFeedback = (values: IFeedbackForm) => {
+    const onSendFeedback = async (values: IFeedbackForm) => {
+        const formImages = values.images.map((images)=> images.file)
+        console.log(values,"send feddback")
+        console.log(formImages,"send form image")
+        const data:any = new FormData()
+        data.append('product_id', info?.result?.id )
+        data.append('rating',values.rate)
+        data.append('comment',values.message)
+        data.append('images',formImages)
+        // data.append('name',values.name)
 
+
+
+        console.log(data,"form data")
+
+        try{
+            const res = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/comment/',{
+                method : 'POST',
+                headers:{
+                    // 'Content-Type': 'application/json',
+                    Authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5NzI0Nzc2LCJpYXQiOjE3MDkxMTk5NzYsImp0aSI6IjhkMjA0MmU0NjZkYzRmMzBhNzE3NmFmMmIyNGQ0ZjA4IiwidXNlcl9pZCI6MX0.NMepH6I__w8HIt3TuyQ8sQoUI2Fcic291b1syLRPsvE`
+                },
+                body : JSON.stringify(Object.fromEntries(data))
+                // body:data
+            })
+
+            const response = await res.json()
+            console.log(response,"response")
+        }
+        catch(err){
+            console.log(err,"err")
+        }
     }
 
     return (
@@ -71,7 +101,7 @@ const FeedbackForm = ({info,loading}: props) => {
 
                 <Controller control={control} rules={{
                     required: {
-                        value: true,
+                        value: false,
                         message: t('errors.required')
                     },
                     onChange: (e: {target: {value: boolean}}) => {
