@@ -55,13 +55,6 @@ const Top = (props: props) => {
                                     )
                                 })
                             })
-                            // productTop.map((product) =>{
-                            //     return(
-                            //         <div className={`keen-slider__slide`} key={product.id} >
-                            //             <Product product={product}  />
-                            //         </div>
-                            //     )
-                            // })
                         }
 
                     </div>
