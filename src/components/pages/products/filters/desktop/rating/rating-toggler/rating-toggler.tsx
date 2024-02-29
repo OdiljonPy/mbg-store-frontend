@@ -29,7 +29,10 @@ const RatingToggler = (props: props) => {
         }
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            }
         }, undefined, {
             scroll: false
         })

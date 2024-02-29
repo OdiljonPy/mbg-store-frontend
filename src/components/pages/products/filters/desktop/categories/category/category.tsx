@@ -38,7 +38,7 @@ const Category = ({category}: props) => {
         <button onClick={onChangeCategory} className={`${css.item} `}>
             <span className={css.info}>
                 <span className={css.img}>
-                    <ResponsiveImage src={img} alt={name}/>
+                    <ResponsiveImage src={img} alt={name} />
                 </span>
                 <span className={`${css.text} ${currentCategory === name ? css.active : ''}`}>
                     {name}

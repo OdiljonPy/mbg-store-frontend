@@ -62,7 +62,7 @@ const Wrapper = (props: props) => {
 
     useEffect(() => {
         fetchProductFilter()
-    }, [activeFilters.length]);
+    }, [searchParams.get('changeFilter')]);
 
 
 
@@ -79,9 +79,7 @@ const Wrapper = (props: props) => {
                         label: category ?? t('categories.all')
                     }
                 ]}/>
-                {
-                    searchParams.get('search')
-                }
+
                 <Header data={entities} />
 
                 <div className={`${css.wrapper}`}>
