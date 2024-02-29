@@ -18,7 +18,7 @@ const Category = ({category}: props) => {
         id,
         img,
         name,
-        count
+        count_product
     } = category
 
     const onChangeCategory = () => {
@@ -46,7 +46,7 @@ const Category = ({category}: props) => {
             </span>
             <span className={css.count}>
                 <span>
-                    {count}
+                    {count_product}
                 </span>
             </span>
         </button>

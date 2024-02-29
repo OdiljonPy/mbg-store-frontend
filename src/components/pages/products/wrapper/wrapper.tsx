@@ -65,7 +65,6 @@ const Wrapper = (props: props) => {
         }
         else filterParams.discount = Number(searchParams.get('sale'))
 
-        console.log(searchParams.get('delivery')?.split(',').includes('1'),"delivery")
 
         if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
             dispatch(filterProduct(filterParams))
