@@ -45,7 +45,6 @@ const Stores = (props: props) => {
         })
     }, []);
 
-    // console.log(stories)
     return (
         <FilterCollapse title={t('header.stores')}>
             <div className={css.stores}>
