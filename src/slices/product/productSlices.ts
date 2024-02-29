@@ -38,7 +38,7 @@ export const filterProduct = createAsyncThunk('product_filter', async (params:IF
     if(params.free_shipping) data.free_shipping = params.free_shipping
     if(params.pickup) data.pickup = params.pickup
     if(params.around_the_clock) data.around_the_clock = params.around_the_clock
-    if(params.store) data.store = [params.store]
+    if(params.store) data.store = params.store
     if(params.free_shipping) data.free_shipping = true
     if(params.around_the_clock) data.around_the_clock = true
 

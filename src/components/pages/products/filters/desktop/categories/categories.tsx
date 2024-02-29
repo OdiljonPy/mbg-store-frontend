@@ -42,7 +42,6 @@ const Categories = (props: props) => {
     useEffect(() => {
 
         dispatch(fetchCategory({q:'',size:'40'})).then((response)=>{
-            console.log(response,"response")
             const newCategories:ICategoryFilter[] = []
             if(response.payload.ok)
                 response?.payload?.result?.map((categories:any) =>{
