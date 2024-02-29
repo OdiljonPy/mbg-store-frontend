@@ -34,7 +34,10 @@ const Rate = ({rate}: props) => {
 
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            }
         }, undefined, {scroll: false})
     }
     return (

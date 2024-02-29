@@ -25,7 +25,8 @@ interface IFilterParams  {
     free_shipping?:boolean | string,
     pickup?:any | null,
     around_the_clock?:boolean | string,
-    store?: [any] | any
+    store?: [any] | any,
+    comments?: string | null | boolean
 }
 export const filterProduct = createAsyncThunk('product_filter', async (params:IFilterParams) =>{
     const data:IFilterParams = {}
@@ -41,6 +42,7 @@ export const filterProduct = createAsyncThunk('product_filter', async (params:IF
     if(params.store) data.store = params.store
     if(params.free_shipping) data.free_shipping = true
     if(params.around_the_clock) data.around_the_clock = true
+    if(params.comments) data.comments = true
 
     const response = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/products/filter/',{
         method : 'POST',

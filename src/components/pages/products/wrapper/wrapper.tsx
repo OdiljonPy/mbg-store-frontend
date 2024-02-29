@@ -55,6 +55,7 @@ const Wrapper = (props: props) => {
             store: searchParams.get('stores')?.split(',').map((el) => Number(el)),
             free_shipping:searchParams.get('delivery')?.split(',')[0],
             around_the_clock:searchParams.get('accessibility')?.split(',')[0],
+            comments:searchParams.get('withFeedback'),
         }
         if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
             dispatch(filterProduct(filterParams))
@@ -62,7 +63,7 @@ const Wrapper = (props: props) => {
 
     }
 
-    // console.log(searchParams.get('stores').split(','))
+    // console.log(searchParams.get('withFeedback'),"withFeedbakc")
 
 
     useEffect(() => {
