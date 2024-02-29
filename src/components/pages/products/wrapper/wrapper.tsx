@@ -53,8 +53,9 @@ const Wrapper = (props: props) => {
             store: searchParams.get('stores')?.split(',').map((el) => Number(el)),
             free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
             pickup:searchParams.get('delivery')?.split(',').includes('2'),
-            around_the_clock:searchParams.get('accessibility')?.split(',')[0],
             comments:searchParams.get('withFeedback'),
+            available:searchParams.get('accessibility')?.split(',').includes('1'),
+            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
         }
         if(searchParams.get('onSales') === 'true' && !searchParams.get('sale')){
             filterParams.discount = 0
