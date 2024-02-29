@@ -13,14 +13,18 @@ import {raleway} from "@/constants/fonts/fonts";
 import ImageUploader from "@/components/pages/feedback/components/feedback-form/image-uploader/image-uploader";
 import uploaderCss from './image-uploader/image-uploader.module.css'
 import Image from "@/components/pages/feedback/components/feedback-form/image/image";
+import {IProductSingle} from "@/data-types/products/products";
+import Skeleton from "react-loading-skeleton";
 
 
 interface props {
-
+    info : IProductSingle
+    loading:boolean
 }
 
 
-const FeedbackForm = (props: props) => {
+const FeedbackForm = ({info,loading}: props) => {
+    // const {name} = info.result
     const t = useTranslations()
     const {resetField, clearErrors, handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
         mode: 'all'
@@ -36,17 +40,45 @@ const FeedbackForm = (props: props) => {
     const onUploadImage = (image: File) => {
         append({file: image})
     }
-    const onSendFeedback = (values: IFeedbackForm) => {
+    const onSendFeedback = async (values: IFeedbackForm) => {
+        const formImages = values.images.map((images)=> images.file)
+        const data:any = new FormData()
+        data.append('product_id', info?.result?.id )
+        data.append('rating',values.rate)
+        data.append('comment',values.message)
+        for(let i = 0 ; i < formImages.length ; i++){
+            data.append('images',formImages[i])
+        }
+        if(!values.name){
+            data.append('name',null)
+        }
+        else
+        data.append('name',values.name)
 
+
+        try{
+            const res = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/comment/',{
+                method : 'POST',
+                body:data,
+                headers:{
+                    Authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5NzI0Nzc2LCJpYXQiOjE3MDkxMTk5NzYsImp0aSI6IjhkMjA0MmU0NjZkYzRmMzBhNzE3NmFmMmIyNGQ0ZjA4IiwidXNlcl9pZCI6MX0.NMepH6I__w8HIt3TuyQ8sQoUI2Fcic291b1syLRPsvE`
+                },
+            })
+
+            const response = await res.json()
+        }
+        catch(err){
+            console.log(err,"err")
+        }
     }
 
     return (
         <form onSubmit={handleSubmit(onSendFeedback)} className={css.form}>
             <div className={css.title}>
-                <Title title={'Кукуруза Bonduelle Classique сладкая'}/>
-                <p className={css.weight}>
-                    170г
-                </p>
+                {!loading ? <Skeleton count={1} height={'30px'} width={'350px'} /> : <><Title title={info?.result?.name} loading={loading}/>
+                    <p className={css.weight}>
+                        {info?.result?.available}г
+                    </p></>}
             </div>
             <Seller seller={'Зеленая лавка'}/>
             <Rates register={register} watch={watch}/>
@@ -67,7 +99,7 @@ const FeedbackForm = (props: props) => {
 
                 <Controller control={control} rules={{
                     required: {
-                        value: true,
+                        value: false,
                         message: t('errors.required')
                     },
                     onChange: (e: {target: {value: boolean}}) => {

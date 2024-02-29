@@ -26,7 +26,7 @@ const Wrapper = (props: props) => {
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
     }, [router.query.id]);
-    console.log(info,"info")
+    // console.log(info,"info")
     return (
         <section className={css.wrapper}>
             <div className={'container'}>

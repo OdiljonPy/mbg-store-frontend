@@ -31,36 +31,47 @@ const Sales = (props: props) => {
             queries.onSales = 'true'
         } else {
             delete queries.onSales
-            delete queries.sales
+            delete queries.sale
         }
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            }
         }, undefined, {
             scroll: false
         })
     }
 
-    const storesList: ICustomCheckbox[] = [
+    const storesList = [
         {
             id: 1,
             title: t('sales.more', {count: 80}),
-            count: 120
+            count: 120,
+            name:"sale",
+            key:'80'
         },
         {
             id: 2,
             title: t('sales.more', {count: 70}),
-            count: 856
+            count: 856,
+            name:"sale",
+            key:'70'
         },
         {
             id: 3,
             title: t('sales.more', {count: 60}),
-            count: 123
+            count: 123,
+            name:"sale",
+            key:'60'
         },
         {
             id: 4,
             title: t('sales.more', {count: 50}),
-            count: 345
+            count: 345,
+            name:"sale",
+            key:'50'
         }
     ]
 

@@ -50,19 +50,33 @@ const Wrapper = (props: props) => {
             max_price:Number(searchParams.get('prices')?.split(',')[1]),
             rating:Number(searchParams.get('rating')),
             discount:Number(searchParams.get('sales')),
-            pickup:searchParams.get('hasDelivery'),
-            store: searchParams.get('stores'),
-            free_shipping:searchParams.get('delivery')?.split(',')[0],
-            around_the_clock:searchParams.get('accessibility')?.split(',')[0],
+            store: searchParams.get('stores')?.split(',').map((el) => Number(el)),
+            free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
+            pickup:searchParams.get('delivery')?.split(',').includes('2'),
+            comments:searchParams.get('withFeedback'),
+            available:searchParams.get('accessibility')?.split(',').includes('1'),
+            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
         }
+        if(searchParams.get('onSales') === 'true' && !searchParams.get('sale')){
+            filterParams.discount = 0
+        }
+        else if(!searchParams.get('onSales')){
+            filterParams.discount = -1
+        }
+        else filterParams.discount = Number(searchParams.get('sale'))
+
+
         if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
             dispatch(filterProduct(filterParams))
         }
+
     }
+
+
 
     useEffect(() => {
         fetchProductFilter()
-    }, [activeFilters.length]);
+    }, [searchParams.get('changeFilter')]);
 
 
 
@@ -79,9 +93,7 @@ const Wrapper = (props: props) => {
                         label: category ?? t('categories.all')
                     }
                 ]}/>
-                {
-                    searchParams.get('search')
-                }
+
                 <Header data={entities} />
 
                 <div className={`${css.wrapper}`}>

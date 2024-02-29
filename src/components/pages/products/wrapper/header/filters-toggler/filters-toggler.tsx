@@ -24,6 +24,7 @@ const FiltersToggler = (props: props) => {
 
         if (!isOpened) {
             queries.filters = 'true'
+            queries.changeFilter = 'true'
         } else {
             delete queries.filters
         }

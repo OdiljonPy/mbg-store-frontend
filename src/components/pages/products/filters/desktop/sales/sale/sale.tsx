@@ -1,54 +1,57 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {usePathname, useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
-import {CheckboxChangeEvent} from "antd/lib/checkbox";
-import CustomCheckbox from "@/components/shared/custom-checkbox/custom-checkbox";
-import {ICustomCheckbox, ISlideOptions} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
+import CustomRadio from "@/components/shared/custom-radio/custom-radio";
+
 
 interface props {
-    item: ICustomCheckbox
+    item:{
+        id:number,
+        count:number,
+        key:string,
+        name:string,
+        title:string
+    }
 }
 
 const Sale = ({item}: props) => {
     const searchParams = useSearchParams()
     const {push, query} = useRouter()
     const pathname = usePathname()
-    const onSales: string | null = searchParams.get('onSales')
-    const sales: string[] | undefined = searchParams.get('sales')?.split(',')
+    const sale = searchParams.get('sale')
     const {id} = item
 
-    const onChange = (e: CheckboxChangeEvent) => {
-        const value = e.target.value
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+
         const queries = {
             ...query
         }
 
-
         if (e.target.checked) {
-            queries.sales = sales ? sales + ',' + value : value
+            queries.sale = item.key
             queries.onSales = 'true'
         } else {
-            if (sales?.length === 1) {
-                delete queries.sales
-            } else {
-                queries.sales = sales?.filter((item) => item !== value.toString()).join(',')
-            }
+            delete queries.sale
+            delete queries.onSales
         }
-
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            }
         }, undefined, {scroll: false})
     }
 
-    const options: ISlideOptions = {
-        disabled: false,
-        checked: !!sales?.includes(id.toString()),
-        onChange: onChange
-    }
 
     return (
-        <CustomCheckbox options={options} item={item}/>
+        // <CustomCheckbox options={options} item={item}/>
+        <CustomRadio radio={item} options={{
+            onChange: onChange,
+            disabled: false,
+            checked: sale === item.key
+        }}>
+        </CustomRadio>
     );
 };
 

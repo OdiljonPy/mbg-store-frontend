@@ -4,6 +4,7 @@ import productDiscount from "../slices/product/productDiscountSlices"
 import productBestSeller from "../slices/product/productBestSellerSlices"
 import categorySlices from "@/slices/category/categorySlices";
 import productSingleSlices from "@/slices/product/productSingleSlices";
+import storiesSlices from "@/slices/all_store/StoriesSlices";
 
 export const makeStore = () => {
     return configureStore({
@@ -12,7 +13,8 @@ export const makeStore = () => {
             product_discount : productDiscount,
             product_bestseller : productBestSeller,
             category : categorySlices,
-            product_single : productSingleSlices
+            product_single : productSingleSlices,
+            all_stories : storiesSlices
         },
     })
 }

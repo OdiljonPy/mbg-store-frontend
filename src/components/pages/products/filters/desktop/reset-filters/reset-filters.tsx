@@ -8,7 +8,7 @@ interface props {
 
 }
 
-const diffFilters: string[] = ['filters', 'search', 'sort','category_id','clear_filter']
+const diffFilters: string[] = ['filters', 'changeFilter', 'search', 'sort','category_id','clear_filter','hasDelivery']
 
 const ResetFilters = (props: props) => {
     const t = useTranslations()

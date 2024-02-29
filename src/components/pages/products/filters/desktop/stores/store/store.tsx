@@ -20,8 +20,9 @@ const Store = ({item}: props) => {
     const onChange = (e: CheckboxChangeEvent) => {
         const value = e.target.value
         const queries = {
-            ...query
+            ...query,
         }
+        console.log(queries,"store query")
 
         if (e.target.checked) {
             queries.stores = stores ? stores + ',' + value : value
@@ -35,7 +36,10 @@ const Store = ({item}: props) => {
 
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            },
         }, undefined, {scroll: false})
     }
 

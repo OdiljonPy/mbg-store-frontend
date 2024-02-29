@@ -16,11 +16,12 @@ const DeliverySwitch = (props: props) => {
     const {push, query} = useRouter()
     const searchParams = useSearchParams()
     const hasDelivery: string | null = searchParams.get('hasDelivery')
-
+    const changeFilter = searchParams.get('changeFilter')
     const onChange = (checked: boolean) => {
         const queries: ParsedUrlQuery = {
             ...query
         }
+
         if (checked) {
             queries.hasDelivery = 'true'
         } else {
@@ -29,7 +30,10 @@ const DeliverySwitch = (props: props) => {
         }
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                // changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            }
         }, undefined, {
             scroll: false
         })

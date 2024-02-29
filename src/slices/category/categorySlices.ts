@@ -14,7 +14,8 @@ export const fetchCategory = createAsyncThunk('category', async (query:IQuery) =
 
 const initialState = {
     category : [],
-    loading : false
+    loading : false,
+    error:false
 } as any
 
 
@@ -26,7 +27,12 @@ const initialState = {
 
         builder.addCase(fetchCategory.fulfilled,(state,action) =>{
             state.loading = true
-            state.category = [action.payload]
+            if(action.payload.ok){
+                state.category = [action.payload]
+            }
+            else{
+                state.error = true
+            }
         })
             .addCase(fetchCategory.pending, (state,action) =>{
                 state.loading = false

@@ -21,13 +21,16 @@ const Price = ({
         <>
             {
                 !loading ? <Skeleton className={css.skeleton_position} count={1} width={'100%'} height={'25px'} /> :     <div className={`${css.price}`}>
-                    <DiscountBadge className={css.discount} discount_percentage={discount_percentage}/>
+                    {
+                        discount_percentage !== 0 ?  <DiscountBadge className={css.discount} discount_percentage={discount_percentage}/> : null
+                    }
                     <p className={css.discountPrice}>
                         {discount_price && priceFormatter(discount_price, true)}
                     </p>
-                    <p className={css.actualPrice}>
+                    { discount_percentage !==0 ? <p className={css.actualPrice}>
                         {priceFormatter(price, true)}
-                    </p>
+                    </p> : null
+                    }
                 </div>
             }
         </>

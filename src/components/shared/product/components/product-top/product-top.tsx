@@ -21,9 +21,9 @@ const ProductTop = ({product}: props) => {
 
     return (
         <div className={css.actions}>
-            {discount && <div className={css.discount}>
+            {discount !==0 ? <div className={css.discount}>
                 <DiscountBadge discount_percentage={discount}/>
-            </div>}
+            </div> : null}
             <Link href={`/products/${id}`} className={css.img}>
                 <ResponsiveImage src={images[0].image} alt={name}/>
             </Link>

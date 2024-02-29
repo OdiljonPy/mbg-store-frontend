@@ -18,7 +18,7 @@ const Category = ({category}: props) => {
         id,
         img,
         name,
-        count
+        count_product
     } = category
 
     const onChangeCategory = () => {
@@ -27,7 +27,8 @@ const Category = ({category}: props) => {
             query: {
                 ...query,
                 category: name,
-                category_id:id
+                category_id:id,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
             },
         }, undefined, {
             scroll: false
@@ -37,7 +38,7 @@ const Category = ({category}: props) => {
         <button onClick={onChangeCategory} className={`${css.item} `}>
             <span className={css.info}>
                 <span className={css.img}>
-                    <ResponsiveImage src={img} alt={name}/>
+                    <ResponsiveImage src={img} alt={name} />
                 </span>
                 <span className={`${css.text} ${currentCategory === name ? css.active : ''}`}>
                     {name}
@@ -45,7 +46,7 @@ const Category = ({category}: props) => {
             </span>
             <span className={css.count}>
                 <span>
-                    {count}
+                    {count_product}
                 </span>
             </span>
         </button>
