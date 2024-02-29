@@ -43,7 +43,6 @@ const Wrapper = (props: props) => {
 
     // filter product
     const fetchProductFilter = () =>{
-        console.log(searchParams.get('stores')?.split(',').map((el) => Number(el)),"stories")
         const filterParams = {
             q:searchParams.get('search'),
             category:Number(searchParams.get('category_id')),
@@ -57,13 +56,22 @@ const Wrapper = (props: props) => {
             around_the_clock:searchParams.get('accessibility')?.split(',')[0],
             comments:searchParams.get('withFeedback'),
         }
+        if(searchParams.get('onSales') === 'true' && !searchParams.get('sale')){
+            filterParams.discount = 0
+        }
+        else if(!searchParams.get('onSales')){
+            filterParams.discount = -1
+        }
+        else filterParams.discount = Number(searchParams.get('sale'))
+
+        console.log(filterParams.discount,"discount")
+
         if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
             dispatch(filterProduct(filterParams))
         }
 
     }
 
-    // console.log(searchParams.get('withFeedback'),"withFeedbakc")
 
 
     useEffect(() => {

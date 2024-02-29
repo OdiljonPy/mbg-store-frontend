@@ -18,8 +18,6 @@ const Sale = ({item}: props) => {
     const searchParams = useSearchParams()
     const {push, query} = useRouter()
     const pathname = usePathname()
-    const onSales: string | null = searchParams.get('onSales')
-    const sales: string[] | undefined = searchParams.get('sales')?.split(',')
     const sale = searchParams.get('sale')
     const {id} = item
 
@@ -38,7 +36,10 @@ const Sale = ({item}: props) => {
         }
         push({
             pathname,
-            query: queries
+            query: {
+                ...queries,
+                changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
+            }
         }, undefined, {scroll: false})
     }
 

@@ -21,7 +21,7 @@ interface IFilterParams  {
     min_price?:number|string,
     max_price?:number | string,
     rating?:number,
-    discount?:number ,
+    discount?:any,
     free_shipping?:boolean | string,
     pickup?:any | null,
     around_the_clock?:boolean | string,
@@ -35,7 +35,7 @@ export const filterProduct = createAsyncThunk('product_filter', async (params:IF
     if(params.q) data.q = params.q
     if(params.category) data.category = params.category
     if(params.rating) data.rating = params.rating
-    if(params.discount) data.discount = params.discount
+    if(params.discount && params.discount >= 0) data.discount = params.discount
     if(params.free_shipping) data.free_shipping = params.free_shipping
     if(params.pickup) data.pickup = params.pickup
     if(params.around_the_clock) data.around_the_clock = params.around_the_clock

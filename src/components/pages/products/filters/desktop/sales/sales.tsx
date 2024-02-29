@@ -50,28 +50,28 @@ const Sales = (props: props) => {
             title: t('sales.more', {count: 80}),
             count: 120,
             name:"sale",
-            key:'1'
+            key:'80'
         },
         {
             id: 2,
             title: t('sales.more', {count: 70}),
             count: 856,
             name:"sale",
-            key:'2'
+            key:'70'
         },
         {
             id: 3,
             title: t('sales.more', {count: 60}),
             count: 123,
             name:"sale",
-            key:'3'
+            key:'60'
         },
         {
             id: 4,
             title: t('sales.more', {count: 50}),
             count: 345,
             name:"sale",
-            key:'4'
+            key:'50'
         }
     ]
 
