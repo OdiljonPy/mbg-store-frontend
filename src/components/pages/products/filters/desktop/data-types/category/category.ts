@@ -4,5 +4,5 @@ export interface ICategoryFilter {
     name: string
     id: number
     img: StaticImageData
-    count: number
+    count_product: number
 }

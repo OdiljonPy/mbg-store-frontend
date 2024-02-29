@@ -49,23 +49,23 @@ const FeedbackForm = ({info,loading}: props) => {
         for(let i = 0 ; i < formImages.length ; i++){
             data.append('images',formImages[i])
         }
-        // data.append('name',values.name)
+        if(!values.name){
+            data.append('name',null)
+        }
+        else
+        data.append('name',values.name)
 
 
         try{
             const res = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/comment/',{
                 method : 'POST',
-                // body : JSON.stringify(Object.fromEntries(data))
                 body:data,
                 headers:{
-                    // 'Content-Type': 'application/json',
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5NzI0Nzc2LCJpYXQiOjE3MDkxMTk5NzYsImp0aSI6IjhkMjA0MmU0NjZkYzRmMzBhNzE3NmFmMmIyNGQ0ZjA4IiwidXNlcl9pZCI6MX0.NMepH6I__w8HIt3TuyQ8sQoUI2Fcic291b1syLRPsvE`
                 },
             })
 
             const response = await res.json()
-            console.log(response,"response")
         }
         catch(err){
             console.log(err,"err")

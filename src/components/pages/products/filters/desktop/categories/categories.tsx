@@ -18,34 +18,6 @@ interface props {
 }
 
 
-// const categoriesList: ICategoryFilter[] = [
-//     {
-//         id: 1,
-//         img: food,
-//         name: 'Готовая еда',
-//         count: 80
-//     },
-//     {
-//         id: 2,
-//         img: veg,
-//         name: 'Овощи и фрукты',
-//         count: 50
-//     },
-//     {
-//         id: 3,
-//         img: milk,
-//         name: 'Молочный прилавок',
-//         count: 15
-//     },
-//     {
-//         id: 4,
-//         img: meat,
-//         name: 'Мясо и птица',
-//         count: 22
-//     }
-// ]
-
-
 const Categories = (props: props) => {
     const [categoriesList,setCategoriesList] = useState<ICategoryFilter[]>(
         [
@@ -53,25 +25,13 @@ const Categories = (props: props) => {
                 id: 1,
                 img: food,
                 name: 'Готовая еда',
-                count: 80
+                count_product: 80
             },
             {
                 id: 2,
                 img: veg,
                 name: 'Овощи и фрукты',
-                count: 50
-            },
-            {
-                id: 3,
-                img: milk,
-                name: 'Молочный прилавок',
-                count: 15
-            },
-            {
-                id: 4,
-                img: meat,
-                name: 'Мясо и птица',
-                count: 22
+                count_product: 50
             }
         ]
     )
@@ -82,6 +42,7 @@ const Categories = (props: props) => {
     useEffect(() => {
 
         dispatch(fetchCategory({q:'',size:'40'})).then((response)=>{
+            console.log(response,"response")
             const newCategories:ICategoryFilter[] = []
             if(response.payload.ok)
                 response?.payload?.result?.map((categories:any) =>{
@@ -89,8 +50,7 @@ const Categories = (props: props) => {
                         id: categories.id,
                         name: categories.name,
                         img: categories.icone && categories.icone,
-                        // img:milk,
-                        count : 10 * categories.id
+                        count_product : categories.count_product
                     })
                 })
             setCategoriesList(newCategories)
