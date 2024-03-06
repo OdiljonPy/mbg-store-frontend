@@ -4,12 +4,12 @@ import {raleway} from "@/constants/fonts/fonts";
 import loginCss from './login.module.css'
 import {useTranslations} from 'next-intl';
 
-interface props {
+interface Props {
     mobile?: boolean,
     setLoginModalOpen: (value: boolean) => void
 }
 
-const Login = ({mobile, setLoginModalOpen}: props) => {
+const Login = ({mobile, setLoginModalOpen}: Props) => {
     const t = useTranslations()
 
     const handleOpen = () => {

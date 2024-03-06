@@ -8,6 +8,7 @@ interface Props {
     placeholder?: string,
     setValue: (value: string) => void,
     id?: string,
+    name?: string
 }
 
 

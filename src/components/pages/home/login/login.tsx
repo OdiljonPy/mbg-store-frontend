@@ -15,27 +15,6 @@ interface Props {
     setSignUpOpen: (value: boolean) => void
 }
 
-interface PasswordValidationResult {
-    isValid: boolean;
-    errors: string[];
-}
-
-
-interface AuthState {
-    isLoggedIn: boolean;
-}
-
-interface MessageState {
-    message: string; // Adjust the type according to your actual message type
-}
-
-// Root state combining different slices
-interface RootState {
-    auth: AuthState;
-    message: MessageState;
-}
-
-
 const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [password, setPassword] = useState<string>('');
