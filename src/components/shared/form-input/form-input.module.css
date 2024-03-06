@@ -1,0 +1,68 @@
+.formInputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.formInputBox:not(:last-child) {
+    margin-bottom: 18px;
+}
+
+.formLabel {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18.78px;
+}
+
+.formPassword {
+    position: relative;
+    width: 100%;
+}
+
+.formInputTop {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.formInputTop a {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-green);
+    line-height: 18.78px;
+}
+
+.formInput {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1.6px solid var(--input-gray);
+}
+
+.phoneInput {
+    width: 100%;
+}
+
+.phoneCountry {
+    display: none;
+}
+
+.formInput::placeholder {
+    color: var(--icon-gray);
+}
+
+.endIcon {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    z-index: 888;
+    cursor: pointer;
+}
+
+.endIcon:hover path {
+    fill: var(--text-green);
+}

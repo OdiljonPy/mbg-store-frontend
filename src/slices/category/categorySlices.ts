@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import API from "@/utils/axios/axios";
 
 interface IQuery {
     q:string,
@@ -6,9 +7,8 @@ interface IQuery {
 }
 export const fetchCategory = createAsyncThunk('category', async (query:IQuery) =>{
     const {q,size} = query
-    const response = await fetch(`https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/category/?size=${size}&q=${q}`)
-    const data = response.json()
-    return data
+    const response = await API.get(`/category/?size=${size}&q=${q}`)
+    return response.data
 })
 
 

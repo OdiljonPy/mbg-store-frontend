@@ -12,7 +12,7 @@
     position: sticky ;
     width: 100%;
     bottom: 100px;
-    z-index: 99999;
+    z-index: 2;
     display: inline ;
 }
 .mobile_navbar{

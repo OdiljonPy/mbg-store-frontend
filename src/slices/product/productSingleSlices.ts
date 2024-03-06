@@ -1,10 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import API from "@/utils/axios/axios";
 
-export const  fetchProductSingle = createAsyncThunk('product_single',async (id:string[] |string|undefined) =>{
-  const response = await  fetch(`https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/products/${id}/`)
-    const data = response.json()
-    return data
-})
+export const fetchProductSingle = createAsyncThunk('product_single', async (id: string[] | string | undefined) => {
+    const response = await API.get(`/store/products/${id}/`)
+    return response.data
+});
 
 const initialState = {
     info : {},
