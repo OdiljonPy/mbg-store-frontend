@@ -2,7 +2,7 @@ import React from 'react';
 import css from "./addressItem.module.css"
 
 interface Props {
-    title: string,
+    readonly title: string,
     openModal: (value: string) => void
 }
 

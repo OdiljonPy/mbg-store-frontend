@@ -3,7 +3,7 @@ import API from "@/utils/axios/axios";
 
 // search product value
 export const fetchProduct = createAsyncThunk('products', async (search: string | null) => {
-    const response = await API.get(`/store/products/' + \`?q=${search ? search : ''}`)
+    const response = await API.get(`/store/products/' + \`?q=${search}`)
     return response.data
 })
 

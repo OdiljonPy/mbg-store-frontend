@@ -7,10 +7,9 @@ import ModalTitle from "@/components/pages/home/login/components/modal-title/mod
 import {loginUser} from "@/slices/auth/auth";
 import {clearMessage} from "@/slices/message/message";
 import {useDispatch, useSelector} from "react-redux";
-import {redirect, useRouter} from "next/navigation";
 import {AppDispatch} from "@/store";
 
-interface props {
+interface Props {
     open: boolean,
     setOpen: (value: boolean) => void,
     setSignUpOpen: (value: boolean) => void
@@ -37,10 +36,9 @@ interface RootState {
 }
 
 
-const LoginModal = ({open, setOpen, setSignUpOpen}: props) => {
+const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [loading, setLoading] = useState(false)
     const [passwordValidations, setPasswordValidations] = useState([
         {
             title: "не менее 8 символов",
@@ -56,11 +54,8 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: props) => {
         }
 
     ])
-    // const router = useRouter()
 
     const dispatch = useDispatch<AppDispatch>()
-    const {isLoggedIn} = useSelector((state: RootState) => state.auth);
-    const {message} = useSelector((state: RootState) => state.message);
 
     useEffect(() => {
         dispatch(clearMessage());
@@ -84,7 +79,6 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: props) => {
                 setOpen(false)
             })
             .catch(() => {
-                setLoading(false);
             })
     }
 
@@ -93,34 +87,6 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: props) => {
         setSignUpOpen(true)
     }
 
-    const validatePassword = (password: string): PasswordValidationResult => {
-        const errors: string[] = [];
-
-        // Minimum length requirement
-        if (password.length < 8) {
-            errors.push('Password must be at least 8 characters long');
-        }
-
-        // Include both uppercase and lowercase letters
-        if (!/[a-z]/.test(password) || !/[A-Z]/.test(password)) {
-            errors.push('Password must include both uppercase and lowercase letters');
-        }
-
-        // Include at least one digit
-        if (!/\d/.test(password)) {
-            errors.push('Password must include at least one digit');
-        }
-
-        // // Include at least one special character
-        // if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
-        //     errors.push('Password must include at least one special character');
-        // }
-
-        return {
-            isValid: errors.length === 0,
-            errors,
-        };
-    };
 
     const handleSetPassword = (value: string) => {
         if (value.length > 8) {
@@ -152,7 +118,7 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: props) => {
                            id="password"/>
 
                 <button disabled={!(phoneNumber && password)} className={css.btn} type={"submit"}>Войти</button>
-                <p className={css.signup}>Нет аккаунта? <span onClick={handleNavigate}>Создать аккаунт</span></p>
+                <p className={css.signup}>Нет аккаунта? <button onClick={handleNavigate}>Создать аккаунт</button></p>
             </form>
         </Modal>
     );

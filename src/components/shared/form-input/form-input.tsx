@@ -1,15 +1,13 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, { useState} from 'react';
 import css from "./form-input.module.css"
 import {PhoneInput} from "react-international-phone";
 
 interface Props {
     label: string,
-    type: string,
+    readonly type: string,
     placeholder?: string,
-    value?: string,
     setValue: (value: string) => void,
     id?: string,
-    name?: string
 }
 
 

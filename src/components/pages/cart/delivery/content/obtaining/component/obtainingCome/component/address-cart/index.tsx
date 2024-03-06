@@ -7,7 +7,7 @@ import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import ClockSVG from "@/components/pages/cart/delivery/content/obtaining/component/card/icon/ClockSVG";
 
 interface Props {
-    data: {
+    readonly data: {
         id: number,
         value: number,
         title: string,

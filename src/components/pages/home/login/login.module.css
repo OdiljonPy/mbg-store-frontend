@@ -48,7 +48,11 @@
     font-weight: 500;
 }
 
-.signup span {
+.signup button {
+    background-color: transparent;
+    border: none;
     color: var(--text-green);
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
 }

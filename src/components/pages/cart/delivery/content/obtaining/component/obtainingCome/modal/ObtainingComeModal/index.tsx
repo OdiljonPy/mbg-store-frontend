@@ -10,15 +10,15 @@ const AddressInner = dynamic(() => import('./address-inner'), {
     ssr: false
 })
 
-interface props {
-    open: boolean,
+interface Props {
+    readonly open: boolean,
     onClose: () => void,
     nameMarket: string,
     openAddress: () => void,
 }
 
 
-function ObtainingComeModal({open, onClose, nameMarket, openAddress}: props) {
+function ObtainingComeModal({open, onClose, nameMarket, openAddress}: Props) {
     const methods = useForm<IAddressFormObtaining>()
 
     const onSubmit = (values: IAddressFormObtaining) => {

@@ -10,8 +10,6 @@ import Login from "@/layout/components/header/main-header/components/login/login
 import dynamic from "next/dynamic";
 import LogoMobile from "@/components/shared/logo-mobile/logo-mobile";
 import MobileNav from "@/layout/components/header/main-header/components/mobile-nav/mobile-nav";
-import {useSelector} from "react-redux";
-import Profile from "@/layout/components/header/main-header/components/profile/profile";
 
 const ProductsSearch = dynamic(() => import('@/layout/components/header/main-header/components/products-search/products-search'), {
     ssr: false

@@ -9,18 +9,17 @@ import {useDispatch} from "react-redux";
 import {signUpUser} from "@/slices/auth/auth";
 import {AppDispatch} from "@/store";
 
-interface props {
-    open: boolean,
+interface Props {
+    readonly open: boolean,
     setOpen: (value: boolean) => void,
     setLoginOpen: (value: boolean) => void
 }
 
 
-const SignUpModal = ({open, setOpen, setLoginOpen}: props) => {
+const SignUpModal = ({open, setOpen, setLoginOpen}: Props) => {
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const dispatch = useDispatch<AppDispatch>()
-    const [loading, setLoading] = useState<boolean>(false)
 
     const [offer, setOffer] = useState(false)
     const handleClose = () => {
@@ -42,7 +41,6 @@ const SignUpModal = ({open, setOpen, setLoginOpen}: props) => {
                 setOpen(false)
             })
             .catch(() => {
-                setLoading(false);
             })
 
     }
@@ -76,7 +74,7 @@ const SignUpModal = ({open, setOpen, setLoginOpen}: props) => {
                 <button disabled={(!(offer && phoneNumber && password))} className={css.btn}
                         type={"submit"}>Создать аккаунт
                 </button>
-                <p className={css.signup}>Есть аккаунт? <span onClick={handleNavigate}>Войти в аккаунт</span></p>
+                <p className={css.signup}>Есть аккаунт? <button onClick={handleNavigate}>Войти в аккаунт</button></p>
             </form>
         </Modal>
     );

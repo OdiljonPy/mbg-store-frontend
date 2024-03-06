@@ -7,7 +7,7 @@ const defaultOptions = {
     },
 };
 
-let API = axios.create(defaultOptions);
+const API = axios.create(defaultOptions);
 
 API.interceptors.request.use(function (config) {
     const token = localStorage.getItem('access_token');

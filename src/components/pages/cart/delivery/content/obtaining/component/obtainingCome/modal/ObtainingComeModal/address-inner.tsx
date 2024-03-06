@@ -27,18 +27,16 @@ const initialState: any = {
     center: [41.373433, 69.268657],
     zoom: 12,
 };
-// interface IMethods{
-//     address:string,
-//     name:string,
-// }
-interface props {
+
+
+interface Props {
     methods: UseFormReturn<IAddressFormObtaining>,
     nameMarket: string,
     onClose: () => void,
     openAddress: () => void,
 }
 
-const AddressInner = ({methods, nameMarket, onClose, openAddress}: props) => {
+const AddressInner = ({methods, nameMarket, onClose, openAddress}: Props) => {
     const {setValue, formState: {errors}, register} = methods
     const [tab, setTab] = useState('left')
     const t = useTranslations()
@@ -90,16 +88,12 @@ const AddressInner = ({methods, nameMarket, onClose, openAddress}: props) => {
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        // mapConstructor.suggest(e.target.value).then(function (items:any[]) {
-        //     console.log(items)
-        // }).catch((e: any) => {
-        //     console.log(e)
-        // });
+
         onChange(e)
     }
 
     function changeTab(e: string) {
-        setTab((prevState) => prevState = e)
+        setTab(e)
     }
 
     const handleSubmit = () => {
