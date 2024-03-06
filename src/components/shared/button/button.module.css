@@ -1,0 +1,28 @@
+.outline {
+    background-color: transparent;
+    padding: 15px;
+    border: 1.6px solid var(--green);
+    border-radius: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--green);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: var(--green);
+    padding: 15px;
+    border: 1.6px solid var(--green);
+    border-radius: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+.primary:disabled {
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+    border-color: transparent;
+}

@@ -25,21 +25,6 @@ interface IState {
 const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [passwordValidations, setPasswordValidations] = useState([
-        {
-            title: "не менее 8 символов",
-            fullFilled: false
-        },
-        {
-            title: "минимум 1 буква",
-            fullFilled: false
-        },
-        {
-            title: "минимум 1 цифра",
-            fullFilled: false
-        }
-
-    ])
     const message = useSelector((state: IState) => state.message);
 
     const dispatch = useDispatch<AppDispatch>()
@@ -78,16 +63,6 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
     }
 
 
-    const handleSetPassword = (value: string) => {
-        if (value.length > 8) {
-            const fakeData = [...passwordValidations]
-            fakeData[0].fullFilled = true
-            setPasswordValidations(fakeData)
-        }
-        setPassword(value)
-    }
-
-
     return (
         <Modal
             centered
@@ -104,11 +79,12 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
             <form onSubmit={onSubmit} className={css.form}>
                 <FormInput setValue={setPhoneNumber} name={"phone"} label={"Номер телефона"} type={"phone"}
                            id={"phone"}/>
-                <FormInput setValue={handleSetPassword} name={"password"} label={"Пароль"} type={"password"}
+                <FormInput setValue={setPassword} name={"password"} label={"Пароль"} type={"password"}
                            placeholder="Введите пароль"
                            id="password"/>
                 <FormError error={message !== "" ? "Пользователь не найден!" : ""}/>
-                <button disabled={!(phoneNumber && password)} className={css.btn} type={"submit"}>Войти</button>
+                <button disabled={!(phoneNumber.length === 13 && password)} className={css.btn} type={"submit"}>Войти
+                </button>
                 <p className={css.signup}>Нет аккаунта? <a onClick={handleNavigate}>Создать аккаунт</a></p>
             </form>
         </Modal>

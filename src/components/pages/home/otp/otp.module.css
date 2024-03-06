@@ -1,0 +1,38 @@
+.modal {
+    width: 400px !important;
+    height: 430px !important;
+}
+
+
+.modalContent {
+    padding: 24px !important;
+    border-radius: 26px !important;
+    box-shadow: 0 0 10px #0000001A;
+    height: 430px !important;
+}
+
+.number {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.number span {
+    color: var(--green);
+}
+
+.buttons {
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.buttons button:first-child {
+    width: 138px;
+}
+
+.buttons button:last-child {
+    width: 200px;
+}
+

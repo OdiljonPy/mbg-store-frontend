@@ -6,6 +6,7 @@ import {clearMessage} from "@/slices/message/message";
 import {AppDispatch} from "@/store";
 import CheckCircle from "../../../../public/images/icons/check-circle.svg"
 import Image from "next/image";
+import {setPhoneNumber} from "@/slices/phone_numer/phoneNumber";
 
 interface Props {
     label: string,
@@ -32,7 +33,8 @@ function FormInput({type, setValue, label, placeholder, id, path, passwordRequir
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value ?? '');
         dispatch(clearMessage())
-        handleInputChange(e.target.value)
+        if (handleInputChange)
+            handleInputChange(e.target.value)
     };
 
 
@@ -45,7 +47,11 @@ function FormInput({type, setValue, label, placeholder, id, path, passwordRequir
                     className={css.phoneInput}
                     inputClassName={css.formInput}
                     defaultCountry="uz"
+                    inputProps={{
+                        placeholder: "+998"
+                    }}
                     onChange={(phone) => {
+                        dispatch(setPhoneNumber(phone))
                         setValue(phone)
                     }}
                 />

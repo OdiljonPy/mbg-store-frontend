@@ -7,6 +7,7 @@ import productSingleSlices from "@/slices/product/productSingleSlices";
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import authSlice from "@/slices/auth/auth";
 import messageSlice from "@/slices/message/message";
+import phoneNumber from "@/slices/phone_numer/phoneNumber";
 
 export const makeStore = () => {
     return configureStore({
@@ -18,7 +19,8 @@ export const makeStore = () => {
             product_single : productSingleSlices,
             all_stories : storiesSlices,
             auth: authSlice,
-            message: messageSlice
+            message: messageSlice,
+            phoneNumber: phoneNumber
         },
     })
 }
