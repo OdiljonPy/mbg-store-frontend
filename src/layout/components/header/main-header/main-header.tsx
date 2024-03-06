@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import css from './main-header.module.css'
 import Logo from "@/components/shared/logo/logo";
@@ -9,16 +10,26 @@ import Login from "@/layout/components/header/main-header/components/login/login
 import dynamic from "next/dynamic";
 import LogoMobile from "@/components/shared/logo-mobile/logo-mobile";
 import MobileNav from "@/layout/components/header/main-header/components/mobile-nav/mobile-nav";
+import {useSelector} from "react-redux";
+import Profile from "@/layout/components/header/main-header/components/profile/profile";
 
 const ProductsSearch = dynamic(() => import('@/layout/components/header/main-header/components/products-search/products-search'), {
     ssr: false
 })
 
 interface props {
-
+    setLoginModalOpen: (value: boolean) => void
 }
 
-const MainHeader = (props: props) => {
+interface RootState {
+    auth: {
+        isLoggedIn: boolean
+    };
+}
+
+
+const MainHeader = ({setLoginModalOpen}: props) => {
+
     return (
         <div className={css.header}>
             <div className={'container'}>
@@ -37,7 +48,7 @@ const MainHeader = (props: props) => {
                     <div className={css.nav}>
                         <LanguageSwitcher/>
                         <MenuItemBadge badge={favouritesBadge}/>
-                        <Login/>
+                        <Login setLoginModalOpen={setLoginModalOpen}/>
                         <MenuItemBadge badge={cartBadge}/>
                     </div>
                 </div>

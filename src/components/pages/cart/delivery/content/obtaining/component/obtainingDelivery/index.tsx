@@ -1,6 +1,5 @@
 import css from "./index.module.css"
 import React, {useEffect, useRef, useState} from "react";
-import PlusSVG from "@/components/pages/cart/delivery/content/obtaining/component/icon/plusSVG";
 import FormModal from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/modal/address_modal/form-modal";
 import AddressCart
     from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/address-cart";

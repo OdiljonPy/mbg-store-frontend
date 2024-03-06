@@ -1,0 +1,54 @@
+.modal {
+    width: 400px !important;
+    height: 430px !important;
+}
+
+.rootModal {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.modalContent {
+    padding: 24px !important;
+    border-radius: 26px !important;
+    box-shadow: 0 0 10px #0000001A;
+}
+
+.wrapper {
+    background-color: #00000033;
+}
+
+.form {
+    margin-top: 30px;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px 0;
+    cursor: pointer;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+    margin-top: 82px;
+    background-color: var(--green);
+    color: white;
+}
+
+.btn:disabled{
+    background-color:var(--light-gray);
+    color: var(--icon-gray);
+    cursor: not-allowed;
+}
+
+.signup {
+    text-align: center;
+    margin-top: 12px;
+    color: var(--icon-gray);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.signup span {
+    color: var(--text-green);
+    cursor: pointer;
+}

@@ -77,3 +77,7 @@ input[type="search"]::-webkit-search-results-decoration {
         padding: 0 16px;
     }
 }
+
+.react-international-phone-country-selector {
+    display: none;
+}

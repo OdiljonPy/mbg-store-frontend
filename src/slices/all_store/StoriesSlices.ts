@@ -1,9 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import API from "@/utils/axios/axios";
 
 export const fetchStories = createAsyncThunk('stories',(async () =>{
-    const response = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/');
-    const data = response.json()
-    return data
+    const response = await API.get("/store/")
+    return response.data
 }))
 
 const initialState = {

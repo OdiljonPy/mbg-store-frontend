@@ -1,18 +1,73 @@
-import css from "./index.module.css"
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
+import AddressItem
+    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome/component/AddressItem/AddressItem";
 
-interface props{
-    changeContainerHeight : (e:number)=>void
+import css from "./index.module.css"
+import ObtainingComeModal
+    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome/modal/ObtainingComeModal";
+import AddressCart
+    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome/component/address-cart";
+
+interface props {
+    changeContainerHeight: (e: number) => void
 }
 
-const ObtainingCome = ({changeContainerHeight}:props) =>{
+const ObtainingCome = ({changeContainerHeight}: props) => {
     const cardRef = useRef<any>(null)
-    useEffect(()=>{
+    const [open, setOpen] = useState<boolean>(false)
+    const [chooseMarket, setChooseMarket] = useState<string>("")
+    const [openAddress, setOpenAddress] = useState<boolean>(false)
+
+    const addressList = [
+        {
+            id: 1,
+            value: 1,
+            title: "Мой дом",
+            address: "г. Ташкент, проспект Навои, д-27",
+            status: "",
+            date: "8:00-23:00"
+        },
+        {
+            id: 2,
+            value: 2,
+            title: "Мама",
+            address: "г. Ташкент, проспект Навои, д-27",
+            status: "",
+            date: "8:00-23:00"
+        }
+    ]
+
+    useEffect(() => {
         changeContainerHeight(cardRef?.current?.scrollHeight)
-    },[])
-    return(
+    }, [openAddress])
+
+    const onClose = () => {
+        setOpen(false)
+    }
+
+    const openFormModal = (name: string) => {
+        setOpen(true)
+        setChooseMarket(name)
+    }
+
+    const handleOpenAddress = () => {
+        setOpenAddress(true)
+    }
+
+    return (
         <div ref={cardRef}>
-            Store
+            {
+                openAddress ? <div className={css.carts}>
+                    {addressList.map((item) => <AddressCart  key={item.id} data={item}/>)}
+                </div> : <div className={css.obtainingCome}>
+                    <AddressItem openModal={openFormModal} title={"Зеленая лавка"}/>
+                    <AddressItem openModal={openFormModal} title={"Фермерская базарка"}/>
+                </div>
+            }
+
+
+            <ObtainingComeModal  openAddress={handleOpenAddress} nameMarket={chooseMarket} open={open}
+                                onClose={onClose}/>
         </div>
     )
 }
