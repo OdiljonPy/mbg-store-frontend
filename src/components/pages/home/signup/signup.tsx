@@ -19,13 +19,28 @@ interface Props {
 const SignUpModal = ({open, setOpen, setLoginOpen}: Props) => {
     const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [offer, setOffer] = useState(false)
+    const [passwordRequirement, setPasswordRequirement] = useState([
+        {
+            title: "не менее 8 символов",
+            isValid: false
+        },
+        {
+            title: "минимум 1 буква",
+            isValid: true
+        },
+        {
+            title: "минимум 1 цифра",
+            isValid: false
+        },
+    ])
+
+
     const dispatch = useDispatch<AppDispatch>()
 
-    const [offer, setOffer] = useState(false)
     const handleClose = () => {
         setOpen(false)
     }
-
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -49,6 +64,10 @@ const SignUpModal = ({open, setOpen, setLoginOpen}: Props) => {
         setLoginOpen(true)
     }
 
+    const handleInputChange = (value: string) => {
+
+    }
+
     return (
         <Modal
             centered
@@ -65,7 +84,7 @@ const SignUpModal = ({open, setOpen, setLoginOpen}: Props) => {
             <form onSubmit={onSubmit} className={css.form}>
                 <FormInput setValue={setPhoneNumber} name={"phone"} label={"Номер телефона"} type={"phone"}
                            id={"phone-input"}/>
-                <FormInput setValue={setPassword} name={"password"} label={"Пароль"} type={"password"}
+                <FormInput handleInputChange={handleInputChange} passwordRequirement={passwordRequirement} path={"signup"} setValue={setPassword} name={"password"} label={"Пароль"} type={"password"}
                            placeholder="Введите пароль"
                            id="password"/>
 
@@ -74,7 +93,7 @@ const SignUpModal = ({open, setOpen, setLoginOpen}: Props) => {
                 <button disabled={(!(offer && phoneNumber && password))} className={css.btn}
                         type={"submit"}>Создать аккаунт
                 </button>
-                <p className={css.signup}>Есть аккаунт? <button onClick={handleNavigate}>Войти в аккаунт</button></p>
+                <p className={css.signup}>Есть аккаунт? <a onClick={handleNavigate}>Войти в аккаунт</a></p>
             </form>
         </Modal>
     );

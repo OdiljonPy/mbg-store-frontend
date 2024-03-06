@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {};
 
@@ -7,15 +7,15 @@ const messageSlice = createSlice({
     initialState,
     reducers: {
         setMessage: (state, action) => {
-            return { message: action.payload };
+            return action.payload;
         },
         clearMessage: () => {
-            return { message: "" };
+            return "";
         },
     },
 });
 
-const { reducer, actions } = messageSlice;
+const {reducer, actions} = messageSlice;
 
-export const { setMessage, clearMessage } = actions
+export const {setMessage, clearMessage} = actions
 export default reducer;

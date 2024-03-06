@@ -1,13 +1,11 @@
 .error {
     color: var(--red);
     font-size: 16px;
-    margin-top: 6px;
     opacity: 0;
-    visibility: hidden;
     transition: all .2s linear;
+    text-align: center;
 }
 
 .show {
     opacity: 1;
-    visibility: visible;
 }

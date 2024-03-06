@@ -41,9 +41,15 @@ export const signUpUser = createAsyncThunk('auth/signup', async (body: IBody, th
     }
 })
 
-const initialState = (accessToken)
-    ? {isLoggedIn: true}
-    : {isLoggedIn: false};
+interface AuthState {
+    isLoggedIn: boolean,
+    error: string | null | undefined;
+}
+
+
+const initialState: AuthState = (accessToken)
+    ? {isLoggedIn: true, error: null}
+    : {isLoggedIn: false, error: null};
 
 
 const authSlice = createSlice({
@@ -53,8 +59,10 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(loginUser.fulfilled, (state, action) => {
             state.isLoggedIn = true;
+            state.error = null;
         }).addCase(loginUser.rejected, (state, action) => {
             state.isLoggedIn = false
+            state.error = action.error.message;
         })
 
         builder.addCase(signUpUser.fulfilled, (state, action) => {

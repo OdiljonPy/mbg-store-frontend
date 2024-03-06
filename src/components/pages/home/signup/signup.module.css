@@ -48,11 +48,15 @@
     font-weight: 500;
 }
 
-.signup button {
+.signup a {
     background-color: transparent;
     border: none;
     cursor: pointer;
     color: var(--green);
     font-size: 16px;
     font-weight: 500;
+}
+
+.signup a:hover {
+    color: var(--light-green);
 }

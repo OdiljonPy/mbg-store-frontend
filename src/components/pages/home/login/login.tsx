@@ -8,11 +8,18 @@ import {loginUser} from "@/slices/auth/auth";
 import {clearMessage} from "@/slices/message/message";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch} from "@/store";
+import {Simulate} from "react-dom/test-utils";
+import FormError from "@/components/shared/form-error/form-error";
+import error = Simulate.error;
 
 interface Props {
     open: boolean,
     setOpen: (value: boolean) => void,
     setSignUpOpen: (value: boolean) => void
+}
+
+interface IState {
+    message: string
 }
 
 const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
@@ -33,6 +40,7 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
         }
 
     ])
+    const message = useSelector((state: IState) => state.message);
 
     const dispatch = useDispatch<AppDispatch>()
 
@@ -54,10 +62,13 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
 
         dispatch(loginUser(payload))
             .unwrap()
-            .then(() => {
-                setOpen(false)
+            .then((res) => {
+                if (res?.ok) {
+                    setOpen(false)
+                }
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(error)
             })
     }
 
@@ -75,6 +86,7 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
         }
         setPassword(value)
     }
+
 
     return (
         <Modal
@@ -95,9 +107,9 @@ const LoginModal = ({open, setOpen, setSignUpOpen}: Props) => {
                 <FormInput setValue={handleSetPassword} name={"password"} label={"Пароль"} type={"password"}
                            placeholder="Введите пароль"
                            id="password"/>
-
+                <FormError error={message !== "" ? "Пользователь не найден!" : ""}/>
                 <button disabled={!(phoneNumber && password)} className={css.btn} type={"submit"}>Войти</button>
-                <p className={css.signup}>Нет аккаунта? <button onClick={handleNavigate}>Создать аккаунт</button></p>
+                <p className={css.signup}>Нет аккаунта? <a onClick={handleNavigate}>Создать аккаунт</a></p>
             </form>
         </Modal>
     );
