@@ -3,11 +3,11 @@ import css from './information.module.css'
 import InformationList from "@/components/pages/about/information/information-list/information-list";
 import HeadingLine from "@/components/pages/about/heading-line/heading-line";
 
-interface props {
+interface Props {
 
 }
 
-const Information = (props: props) => {
+const Information = (props: Props) => {
     return (
         <section className={css.info}>
           <div className={'container'}>

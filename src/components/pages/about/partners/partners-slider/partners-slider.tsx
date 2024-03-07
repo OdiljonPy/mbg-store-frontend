@@ -4,11 +4,11 @@ import "keen-slider/keen-slider.min.css"
 import {usePartnersSlider} from "@/components/pages/about/partners/hooks/use-partners-slider/use-partners-slider";
 import SliderItem from "@/components/pages/about/partners/partners-slider/slider-item/slider-item";
 
-interface props {
+interface Props {
 
 }
 
-const PartnersSlider = (props: props) => {
+const PartnersSlider = (props: Props) => {
 
     const sliderRef = usePartnersSlider()
 

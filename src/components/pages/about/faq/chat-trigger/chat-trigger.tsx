@@ -3,11 +3,11 @@ import css from './chat-trigger.module.css'
 import {useTranslations} from 'next-intl';
 import ChatBtn from "@/components/pages/about/faq/chat-trigger/chat-btn/chat-btn";
 
-interface props {
+interface Props {
 
 }
 
-const ChatTrigger = (props: props) => {
+const ChatTrigger = (props: Props) => {
     const t = useTranslations()
     return (
         <div className={css.chat}>

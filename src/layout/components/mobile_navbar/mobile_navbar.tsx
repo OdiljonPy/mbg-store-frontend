@@ -6,10 +6,21 @@ import React, {useState} from "react";
 import BookOpen from "@/layout/components/mobile_navbar/icon/book_open";
 import LoginModal from "@/components/pages/home/login/login";
 import SignUpModal from "@/components/pages/home/signup/signup";
+import Otp from "@/components/pages/home/otp/otp";
+import {useSelector} from "react-redux";
+
+interface IState {
+    phoneNumber: string
+}
+
 
 const MobileNavbar = () => {
     const [loginModalOpen, setLoginModalOpen] = useState<boolean>(false)
     const [signUpModalOpen, setSignUpModalOpen] = useState<boolean>(false)
+    const [otpModalOpen, setOtpModalOpen] = useState<boolean>(false)
+
+    const phoneNumber = useSelector((state:IState) => state.phoneNumber)
+
     return (
         <div className={css.mobile}>
             <BookOpen path='/catalog'/>
@@ -17,7 +28,9 @@ const MobileNavbar = () => {
             <MenuItemBadge badge={cartBadge} mobile={true}/>
             <Login setLoginModalOpen={setLoginModalOpen} mobile={true}/>
             <LoginModal open={loginModalOpen} setOpen={setLoginModalOpen} setSignUpOpen={setSignUpModalOpen}/>
-            <SignUpModal open={signUpModalOpen} setOpen={setSignUpModalOpen} setLoginOpen={setLoginModalOpen}/>
+            <SignUpModal setOtpModalOpen={setOtpModalOpen} open={signUpModalOpen} setOpen={setSignUpModalOpen}
+                         setLoginOpen={setLoginModalOpen}/>
+            <Otp phoneNumber={phoneNumber} open={otpModalOpen} setOpen={setOtpModalOpen} />
         </div>
     )
 }
