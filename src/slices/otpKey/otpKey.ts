@@ -2,20 +2,20 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {};
 
-const messageSlice = createSlice({
-    name: "message",
+const OtpKeySlice = createSlice({
+    name: "otpKey",
     initialState,
     reducers: {
-        setMessage: (state, action) => {
+        setOtpKey: (state, action) => {
             return action.payload;
         },
-        clearMessage: () => { 
+        clearOtpKey: () => {
             return "";
         },
     },
 });
 
-const {reducer, actions} = messageSlice;
+const {reducer, actions} = OtpKeySlice;
 
-export const {setMessage, clearMessage} = actions
+export const {setOtpKey, clearOtpKey} = actions
 export default reducer;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import css from "./form-input.module.css"
 import {PhoneInput} from "react-international-phone";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {clearMessage} from "@/slices/message/message";
 import {AppDispatch} from "@/store";
 import CheckCircle from "../../../../public/images/icons/check-circle.svg"
@@ -25,10 +25,14 @@ interface IPasswordReq {
     isValid: boolean
 }
 
+interface IState {
+    message: string
+}
 
 function FormInput({type, setValue, label, placeholder, id, path, passwordRequirement, handleInputChange}: Props) {
     const [showPassword, setShowPassword] = useState(false)
     const dispatch = useDispatch<AppDispatch>()
+    const message = useSelector((state: IState) => state.message)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value ?? '');
@@ -59,6 +63,7 @@ function FormInput({type, setValue, label, placeholder, id, path, passwordRequir
         )
     }
     if (type === "password") {
+        const isValid = !passwordRequirement?.map(item => item.isValid).includes(false)
         return (
             <div className={css.formInputBox}>
                 <div className={css.formInputTop}>
@@ -66,12 +71,15 @@ function FormInput({type, setValue, label, placeholder, id, path, passwordRequir
                     <a href="">Забыли пароль?</a>
                 </div>
                 <div className={css.formPassword}>
-                    <input className={css.formInput} onChange={handleChange} autoComplete="current-password" id={id}
-                           type={showPassword ? "text" : type}
-                           placeholder={placeholder}/>
+                    <input
+                        className={`${css.formInput}`}
+                        onChange={handleChange} autoComplete="current-password" id={id}
+                        type={showPassword ? "text" : type}
+                        placeholder={placeholder}/>
                     {path === "signup" ?
-                        <ul className={css.validationBox}>
-                            {passwordRequirement?.map(item => <li className={css.validation} key={item.title}>
+                        <ul className={css.validationBox} style={{display: isValid ? "none" : ""}}>
+                            {passwordRequirement?.map(item => <li
+                                className={css.validation} key={item.title}>
                                 <p>{item.title}</p>
                                 {item.isValid ? <Image src={CheckCircle} alt={""}/> : ""}
                             </li>)}

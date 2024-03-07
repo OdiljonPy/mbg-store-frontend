@@ -7,6 +7,15 @@ interface IBody {
     password: string
 }
 
+interface IOtpKey {
+    otp_key: string,
+    otp_code: string
+}
+
+interface IOtpKeyResend {
+    otp_key: string,
+}
+
 
 export const getItem = (key: string): string | null => {
     if (typeof window !== 'undefined') {
@@ -34,12 +43,30 @@ export const loginUser = createAsyncThunk('auth/login', async (body: IBody, thun
 export const signUpUser = createAsyncThunk('auth/signup', async (body: IBody, thunkAPI) => {
     try {
         const response = await API.post("/auth/register/", body)
-        thunkAPI.dispatch(setMessage(response.data.message));
         return response.data
     } catch (err) {
-        thunkAPI.dispatch(setMessage(err))
+        thunkAPI.dispatch(setMessage("Ошибка регистрации!"))
     }
 })
+
+export const verify = createAsyncThunk('auth/verify', async (body: IOtpKey, thunkAPI) => {
+    try {
+        const response = await API.post("/auth/verify/", body)
+        return response.data
+    } catch (err) {
+        thunkAPI.dispatch(setMessage("Ошибка при проверке!"))
+    }
+})
+
+export const verifyResend = createAsyncThunk('auth/verify', async (body: IOtpKeyResend, thunkAPI) => {
+    try {
+        const response = await API.post("/auth/resend/", body)
+        return response.data
+    } catch (err) {
+        thunkAPI.dispatch(setMessage("Ошибка при проверке!"))
+    }
+})
+
 
 interface AuthState {
     isLoggedIn: boolean,
@@ -65,13 +92,14 @@ const authSlice = createSlice({
             state.error = action.error.message;
         })
 
-        builder.addCase(signUpUser.fulfilled, (state, action) => {
+        builder.addCase(verify.fulfilled, (state, action) => {
             state.isLoggedIn = true;
-        }).addCase(signUpUser.rejected, (state, action) => {
+        }).addCase(verify.rejected, (state, action) => {
             state.isLoggedIn = false
         })
     },
 });
+
 
 const {reducer} = authSlice;
 export default reducer;

@@ -8,6 +8,7 @@ import storiesSlices from "@/slices/all_store/StoriesSlices";
 import authSlice from "@/slices/auth/auth";
 import messageSlice from "@/slices/message/message";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
+import otpKey from "@/slices/otpKey/otpKey";
 
 export const makeStore = () => {
     return configureStore({
@@ -20,7 +21,8 @@ export const makeStore = () => {
             all_stories : storiesSlices,
             auth: authSlice,
             message: messageSlice,
-            phoneNumber: phoneNumber
+            phoneNumber: phoneNumber,
+            otpKey: otpKey
         },
     })
 }

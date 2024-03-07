@@ -8,6 +8,8 @@ import Offer from "@/components/pages/home/signup/components/offer/offer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch} from "@/store";
 import {setPhoneNumber} from "@/slices/phone_numer/phoneNumber";
+import {signUpUser} from "@/slices/auth/auth";
+import {setOtpKey} from "@/slices/otpKey/otpKey";
 
 interface Props {
     readonly open: boolean,
@@ -17,14 +19,14 @@ interface Props {
 }
 
 interface IState {
-    phoneNumber: string
+    phoneNumber: string,
 }
 
 const SignUpModal = ({open, setOpen, setLoginOpen, setOtpModalOpen}: Props) => {
     const phoneNumber = useSelector((state: IState) => state.phoneNumber)
-    // const [phoneNumber, setPhoneNumber] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [offer, setOffer] = useState(false)
+    const dispatch = useDispatch<AppDispatch>()
     const [passwordRequirement, setPasswordRequirement] = useState([
         {
             title: "не менее 8 символов",
@@ -37,11 +39,8 @@ const SignUpModal = ({open, setOpen, setLoginOpen, setOtpModalOpen}: Props) => {
         {
             title: "минимум 1 цифра",
             isValid: false,
-        },
+        }
     ])
-
-
-    // const dispatch = useDispatch<AppDispatch>()
 
     const handleClose = () => {
         setOpen(false)
@@ -49,23 +48,21 @@ const SignUpModal = ({open, setOpen, setLoginOpen, setOtpModalOpen}: Props) => {
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        setOpen(false)
-        setOtpModalOpen(true)
 
-        // const payload = {
-        //     phone_number: phoneNumber,
-        //     password: password
-        // }
-        //
-        // dispatch(signUpUser(payload))
-        //     .unwrap()
-        //     .then((res) => {
-        //         if (res.ok) {
-        //             setOpen(false)
-        //         }
-        //     })
-        //     .catch(() => {
-        //     })
+        const payload = {
+            phone_number: phoneNumber,
+            password: password
+        }
+
+        dispatch(signUpUser(payload))
+            .unwrap()
+            .then((res) => {
+                dispatch(setOtpKey(res.result.otp_key))
+                setOpen(false)
+                setOtpModalOpen(true)
+            })
+            .catch(() => {
+            })
 
     }
     const handleNavigate = () => {
@@ -105,12 +102,12 @@ const SignUpModal = ({open, setOpen, setLoginOpen, setOtpModalOpen}: Props) => {
             <form onSubmit={onSubmit} className={css.form}>
                 <FormInput setValue={setPhoneNumber} name={"phone"} label={"Номер телефона"} type={"phone"}
                            id={"phone-input"}/>
-                <FormInput handleInputChange={validatePassword} passwordRequirement={passwordRequirement}
+                <FormInput handleInputChange={validatePassword}
+                           passwordRequirement={passwordRequirement}
                            path={"signup"} setValue={setPassword} name={"password"} label={"Пароль"}
                            type={"password"}
                            placeholder="Введите пароль"
                            id="password"/>
-
                 <Offer offer={offer} setOffer={setOffer}/>
 
                 <button disabled={(!(offer && phoneNumber.length === 13 && password))} className={css.btn}

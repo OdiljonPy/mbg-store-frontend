@@ -21,7 +21,7 @@ const Header = () => {
     return (
         <header className={css.header}>
             <TopHeader/>
-            <MainHeader setLoginModalOpen={setLoginModalOpen}/>
+            <MainHeader setLoginModalOpen={setSignUpModalOpen}/>
             <Signup setOtpModalOpen={setOtpModalOpen}  setLoginOpen={setLoginModalOpen} open={signUpModalOpen} setOpen={setSignUpModalOpen} />
             <Login setSignUpOpen={setSignUpModalOpen} open={loginModalOpen} setOpen={setLoginModalOpen}/>
             <Otp phoneNumber={phoneNumber} open={otpModalOpen} setOpen={setOtpModalOpen} />

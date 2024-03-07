@@ -5,6 +5,7 @@
     border-radius: 16px;
     font-size: 17px;
     font-weight: 600;
+    line-height: 19.96px;
     color: var(--green);
     transition: all 0.2s ease;
     cursor: pointer;
@@ -17,8 +18,10 @@
     border-radius: 16px;
     font-size: 17px;
     font-weight: 600;
+    line-height: 19.96px;
     color: #fff;
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .primary:disabled {

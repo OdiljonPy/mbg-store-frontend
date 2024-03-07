@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {CSSProperties} from 'react';
 import css from './form-error.module.css'
 import {raleway} from "@/constants/fonts/fonts";
 
 interface props {
-    error?: string
+    error?: string,
+    style?: CSSProperties
 }
 
-const FormError = ({error}: props) => {
+const FormError = ({error, style}: props) => {
     return (
-        <p className={`${css.error} ${error !== "" ? css.show : ''} ${raleway.className}`}>
-            {error}
+        <p style={style} className={`${css.error} ${raleway.className}`}>
+            {error ? error : ""}
         </p>
     );
 };
