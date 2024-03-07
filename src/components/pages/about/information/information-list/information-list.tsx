@@ -3,12 +3,12 @@ import css from './information-list.module.css'
 import {informationItems} from "@/constants/about/information";
 import InformationItem from "@/components/pages/about/information/information-item/information-item";
 
-interface props {
+interface Props {
 
 }
 
 
-const InformationList = (props: props) => {
+const InformationList = (props: Props) => {
     return (
         <div className={css.list}>
             {informationItems.map((item) => (

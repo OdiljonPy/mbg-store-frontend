@@ -5,11 +5,11 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 import {useTranslations} from 'next-intl';
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 
-interface props {
+interface Props {
     item: IInformation
 }
 
-const InformationItem = ({item}: props) => {
+const InformationItem = ({item}: Props) => {
     const t = useTranslations()
     const {
         img,

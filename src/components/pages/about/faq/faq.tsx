@@ -1,17 +1,15 @@
 import React from 'react';
 import css from './faq.module.css'
 import HeadingLine from "@/components/pages/about/heading-line/heading-line";
-import {useTranslations} from 'next-intl';
 import CustomCollapse from "@/components/pages/about/faq/custom-collapse/custom-collapse";
 import {faqs} from "@/constants/faq/faq";
 import ChatTrigger from "@/components/pages/about/faq/chat-trigger/chat-trigger";
 
-interface props {
+interface Props {
 
 }
 
-const Faq = (props: props) => {
-    const t = useTranslations()
+const Faq = (props: Props) => {
     return (
         <section className={css.faq}>
             <div className={'container'}>
