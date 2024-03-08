@@ -1,0 +1,41 @@
+.sidebar {
+	width: 275px;
+}
+
+@media (max-width: 992px) {
+	.sidebar {
+		display: none;
+	}
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	height: 58px;
+	color: var(--black);
+	font-size: 18px;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 0 20px;
+	border-bottom: 2px solid var(--light-gray);
+	transition: all 0.2s linear;
+}
+
+.link svg path {
+	transition: all 0.2s linear;
+}
+
+.link.active svg path {
+	fill: var(--green);
+}
+
+.link:last-child {
+	border-bottom: none;
+}
+
+.link:hover,
+.link:hover svg path {
+	fill: var(--green);
+	color: var(--green);
+}

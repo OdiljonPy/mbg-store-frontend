@@ -1,0 +1,12 @@
+.layout {
+	margin: 150px 0 100px;
+}
+
+.wrapper {
+	display: flex;
+	gap: 40px;
+}
+
+.main {
+	flex: 1 1 0%;
+}
