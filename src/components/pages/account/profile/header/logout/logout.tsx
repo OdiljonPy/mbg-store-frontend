@@ -24,6 +24,7 @@ const Logout = () => {
 				footer={false}
 				width={400}
 				centered
+				zIndex={100001}
 			>
 				<div className={css.modal}>
 					<div className={css.modal_header}>
