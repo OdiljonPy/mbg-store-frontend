@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import css from "./header.module.css";
 import Logout from "./logout/logout";
 
@@ -8,7 +9,7 @@ function Header() {
 	return (
 		<div className={css.header}>
 			<h1 className={css.title}>
-				<span>
+				<Link href='/account'>
 					<svg
 						className={css.icon_back}
 						width='24'
@@ -22,7 +23,7 @@ function Header() {
 							fill='#232323'
 						/>
 					</svg>
-				</span>
+				</Link>
 				{t("header.profile")}
 			</h1>
 			<Logout />
