@@ -31,10 +31,11 @@ function NewPassword() {
 				open={open}
 				onCancel={onClose}
 				closeIcon={false}
-				footer={false}
+				footer={null}
 				width={400}
 				centered
 				zIndex={100001}
+				style={{ borderRadius: "26px", overflow: "auto" }}
 			>
 				<div className={css.modal}>
 					<div className={css.modal_header}>
