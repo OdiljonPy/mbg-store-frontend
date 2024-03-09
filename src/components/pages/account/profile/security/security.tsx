@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import NewPassword from "../new-password/new-password";
 import css from "./security.module.css";
 
 function Security() {
@@ -12,17 +13,13 @@ function Security() {
 			<div className={css.body}>
 				<div>
 					<div className={css.input_wrapper}>
-						<label
-							className={css.label}
-							htmlFor='phone-number'
-						>
+						<label className={css.label}>
 							{t("profile.security.phone_number")}
 						</label>
 						<input
-							id='phone-number'
 							className={css.input}
-							type='text'
 							placeholder={t("profile.security.phone_number")}
+							disabled
 						/>
 						<span className={css.icon}>
 							<svg
@@ -42,37 +39,20 @@ function Security() {
 				</div>
 				<div>
 					<div className={css.input_wrapper}>
-						<label
-							className={css.label}
-							htmlFor='password'
-						>
+						<label className={css.label}>
 							{t("profile.security.current_password")}
 						</label>
 						<input
-							id='password'
-							className={css.input}
-							type='text'
-							placeholder={t("profile.security.current_password")}
+							className={`${css.input} ${css.password}`}
+							type='password'
+							value={"password"}
+							disabled
 						/>
-						<span className={css.icon}>
-							<svg
-								width='19'
-								height='20'
-								viewBox='0 0 19 20'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M18.3103 5.37866L14.1216 1.18897C13.9823 1.04965 13.8169 0.939129 13.6349 0.863725C13.4529 0.788322 13.2578 0.749512 13.0608 0.749512C12.8638 0.749512 12.6687 0.788322 12.4867 0.863725C12.3047 0.939129 12.1393 1.04965 12 1.18897L0.439695 12.7502C0.299801 12.889 0.188889 13.0542 0.113407 13.2362C0.0379245 13.4183 -0.000621974 13.6135 7.58902e-06 13.8105V18.0002C7.58902e-06 18.398 0.158043 18.7796 0.439347 19.0609C0.720652 19.3422 1.10218 19.5002 1.50001 19.5002H5.6897C5.88675 19.5009 6.08197 19.4623 6.26399 19.3868C6.44602 19.3113 6.61122 19.2004 6.75001 19.0605L18.3103 7.50022C18.4496 7.36093 18.5602 7.19556 18.6356 7.01355C18.711 6.83154 18.7498 6.63645 18.7498 6.43944C18.7498 6.24243 18.711 6.04735 18.6356 5.86534C18.5602 5.68333 18.4496 5.51795 18.3103 5.37866ZM1.81032 13.5002L9.75001 5.56054L11.3147 7.12522L3.37501 15.064L1.81032 13.5002ZM1.50001 15.3105L4.1897 18.0002H1.50001V15.3105ZM6.00001 17.6899L4.43532 16.1252L12.375 8.18554L13.9397 9.75022L6.00001 17.6899ZM15 8.68991L10.8103 4.50022L13.0603 2.25022L17.25 6.43897L15 8.68991Z'
-									fill='#999999'
-								/>
-							</svg>
-						</span>
+						<div className={css.icon}>
+							<NewPassword />
+						</div>
 					</div>
 				</div>
-			</div>
-			<div className={css.footer}>
-				<button className={css.btn}>{t("profile.save")}</button>
 			</div>
 		</div>
 	);
