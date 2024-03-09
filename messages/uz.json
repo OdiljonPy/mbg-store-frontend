@@ -194,6 +194,13 @@
 			"phone_number": "Telefon raqami",
 			"current_password": "Xozirgi parol"
 		},
+		"reset_password": {
+			"modal_title": "Parolni tiklash",
+			"modal_description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
+			"phone_number": "Telefon raqami",
+			"current_password": "Xozirgi parol",
+			"get_code": "Kodni olish"
+		},
 		"save": "Saqlash"
 	},
 	"orders": {

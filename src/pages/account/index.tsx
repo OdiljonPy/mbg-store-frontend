@@ -12,7 +12,7 @@ const Account = (props: props) => {
 			<Head>
 				<title>{t("header.account")}</title>
 			</Head>
-			<AccountLayout>something</AccountLayout>
+			something
 		</>
 	);
 };
