@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import AccountSidebar from "./sidebar/sidebar";
+import AccountNavigation from "../nav/navigation";
 import css from "./account-layout.module.css";
 
 function AccountLayout({ children }: PropsWithChildren) {
@@ -7,7 +7,9 @@ function AccountLayout({ children }: PropsWithChildren) {
 		<div className={css.layout}>
 			<div className={"container"}>
 				<div className={css.wrapper}>
-					<AccountSidebar />
+					<aside className={css.sidebar}>
+						<AccountNavigation />
+					</aside>
 					<main className={css.main}>{children}</main>
 				</div>
 			</div>
