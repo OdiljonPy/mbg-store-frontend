@@ -1,7 +1,7 @@
 .link {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	justify-content: space-between;
 	height: 58px;
 	color: var(--black);
 	font-size: 18px;
@@ -10,6 +10,12 @@
 	padding: 0 20px;
 	border-bottom: 2px solid var(--light-gray);
 	transition: all 0.2s linear;
+}
+
+.link > div {
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .link svg path {
@@ -28,4 +34,15 @@
 .link:hover svg path {
 	fill: var(--green);
 	color: var(--green);
+}
+
+.arrow_right {
+	display: none;
+	justify-self: end;
+}
+
+@media (max-width: 991px) {
+	.arrow_right {
+		display: block;
+	}
 }
