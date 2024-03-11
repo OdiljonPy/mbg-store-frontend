@@ -71,7 +71,7 @@
 .gender {
 	display: flex;
 	gap: 10px;
-	align-items: end;
+	align-items: flex-end;
 }
 
 .gender > div {
@@ -83,7 +83,7 @@
 	align-items: center;
 }
 
-.btn {
+.save_btn {
 	border-radius: 14px;
 	color: var(--text-green);
 	background: var(--super-light-green);
@@ -100,16 +100,16 @@
 }
 
 @media (max-width: 575px) {
-	.btn {
+	.save_btn {
 		width: 100%;
 	}
 }
 
-.btn:hover {
+.save_btn:hover {
 	color: var(--text-green);
 	background: var(--super-light-green);
 }
 
-.btn:active {
+.save_btn:active {
 	opacity: 0.8;
 }
