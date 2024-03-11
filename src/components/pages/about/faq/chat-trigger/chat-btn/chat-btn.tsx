@@ -2,11 +2,11 @@ import React from 'react';
 import css from './chat-btn.module.css'
 import {useTranslations} from 'next-intl';
 
-interface props {
+interface Props {
 
 }
 
-const ChatBtn = (props: props) => {
+const ChatBtn = (props: Props) => {
     const t = useTranslations()
     return (
         <button className={css.btn}>

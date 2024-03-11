@@ -35,7 +35,7 @@ const AddressCart = ({fetchActive,active,openDelModal,data,openEditModal}:props)
             <div className={css.cart_header}>
                <div className={css.info}>
                    <label className={`${css.custom_radio} ${data.value == active ? css.active :''}`}>
-                       <input type="radio" checked={checked} onClick={() => fetchActive(data.value)} value={data.value} name='radio' />
+                       <input type="radio" defaultChecked={checked} onClick={() => fetchActive(data.value)} value={data.value} name='radio' />
                        <span className={css.custom_radio_button}></span>
                    </label>
                    <div>

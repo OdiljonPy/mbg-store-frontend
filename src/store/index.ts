@@ -5,6 +5,10 @@ import productBestSeller from "../slices/product/productBestSellerSlices"
 import categorySlices from "@/slices/category/categorySlices";
 import productSingleSlices from "@/slices/product/productSingleSlices";
 import storiesSlices from "@/slices/all_store/StoriesSlices";
+import authSlice from "@/slices/auth/auth";
+import messageSlice from "@/slices/message/message";
+import phoneNumber from "@/slices/phone_numer/phoneNumber";
+import otpKey from "@/slices/otpKey/otpKey";
 
 export const makeStore = () => {
     return configureStore({
@@ -14,7 +18,11 @@ export const makeStore = () => {
             product_bestseller : productBestSeller,
             category : categorySlices,
             product_single : productSingleSlices,
-            all_stories : storiesSlices
+            all_stories : storiesSlices,
+            auth: authSlice,
+            message: messageSlice,
+            phoneNumber: phoneNumber,
+            otpKey: otpKey
         },
     })
 }

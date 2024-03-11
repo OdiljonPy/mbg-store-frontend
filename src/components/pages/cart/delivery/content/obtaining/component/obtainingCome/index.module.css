@@ -1,0 +1,11 @@
+.obtainingCome {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.carts {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}

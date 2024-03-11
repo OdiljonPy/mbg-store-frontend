@@ -21,7 +21,7 @@ const ProductTop = ({product}: props) => {
 
     return (
         <div className={css.actions}>
-            {discount !==0 ? <div className={css.discount}>
+            {discount ? <div className={css.discount}>
                 <DiscountBadge discount_percentage={discount}/>
             </div> : null}
             <Link href={`/products/${id}`} className={css.img}>

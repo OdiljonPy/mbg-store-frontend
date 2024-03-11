@@ -4,11 +4,11 @@ import {IQuestion} from "@/components/pages/about/faq/data-types/faq";
 import Header from "@/components/pages/about/faq/custom-collapse/header/header";
 import Body from "@/components/pages/about/faq/custom-collapse/body/body";
 
-interface props {
+interface Props {
     item: IQuestion
 }
 
-const CustomCollapse = ({item}: props) => {
+const CustomCollapse = ({item}: Props) => {
     const {open, onToggle} = useCustomCollapse()
     return (
         <>

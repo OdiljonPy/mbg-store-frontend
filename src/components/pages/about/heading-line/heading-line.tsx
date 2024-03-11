@@ -2,11 +2,11 @@ import React from 'react';
 import css from './heading-line.module.css'
 import {useTranslations} from 'next-intl';
 
-interface props {
+interface Props {
 title: string
 }
 
-const HeadingLine = ({title}: props) => {
+const HeadingLine = ({title}: Props) => {
     const t = useTranslations()
     return (
         <h1 className={css.title}>

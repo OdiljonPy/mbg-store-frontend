@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import css from './main-header.module.css'
 import Logo from "@/components/shared/logo/logo";
@@ -15,10 +16,18 @@ const ProductsSearch = dynamic(() => import('@/layout/components/header/main-hea
 })
 
 interface props {
-
+    setLoginModalOpen: (value: boolean) => void
 }
 
-const MainHeader = (props: props) => {
+interface RootState {
+    auth: {
+        isLoggedIn: boolean
+    };
+}
+
+
+const MainHeader = ({setLoginModalOpen}: props) => {
+
     return (
         <div className={css.header}>
             <div className={'container'}>
@@ -37,7 +46,7 @@ const MainHeader = (props: props) => {
                     <div className={css.nav}>
                         <LanguageSwitcher/>
                         <MenuItemBadge badge={favouritesBadge}/>
-                        <Login/>
+                        <Login setLoginModalOpen={setLoginModalOpen}/>
                         <MenuItemBadge badge={cartBadge}/>
                     </div>
                 </div>

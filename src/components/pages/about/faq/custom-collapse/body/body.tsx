@@ -1,12 +1,12 @@
 import React from 'react';
 import css from './body.module.css'
 
-interface props {
+interface Props {
     answer: string
     open: boolean
 }
 
-const Body = ({answer, open}: props) => {
+const Body = ({answer, open}: Props) => {
     return (
         <div className={`${css.body} ${open ? css.open : ''}`}>
             <p>

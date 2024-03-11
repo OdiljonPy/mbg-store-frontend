@@ -1,0 +1,18 @@
+.offer {
+    display: flex;
+    gap: 6px;
+}
+
+.text{
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--black);
+}
+.text a {
+    color: var(--text-green);
+    text-decoration: underline;
+}
+
+.text a:hover {
+    color: var(--light-green);
+}
