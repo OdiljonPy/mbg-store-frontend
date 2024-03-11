@@ -25,7 +25,6 @@ const Logout = ({ children, ...props }: Props) => {
 				footer={null}
 				width={400}
 				centered
-				zIndex={100001}
 				style={{ borderRadius: "26px", overflow: "auto" }}
 			>
 				<div className={css.modal}>
