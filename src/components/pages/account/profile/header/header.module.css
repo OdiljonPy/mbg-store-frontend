@@ -15,12 +15,30 @@
 	display: none;
 }
 
+.logout_btn {
+	background-color: #ffeaea;
+	color: var(--red);
+	font-weight: 600;
+	font-size: 17px;
+	display: flex;
+	align-items: center;
+	border: none;
+	border-radius: var(--default-radius);
+	padding: 15px 75px;
+	transition: all 0.2s linear;
+	cursor: pointer;
+}
+
 @media (max-width: 991px) {
 	.header {
 		justify-content: center;
 		margin-bottom: 0;
 		height: 48px;
 		position: relative;
+	}
+
+	.logout_btn {
+		display: none;
 	}
 
 	.icon_back {

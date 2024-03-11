@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import AccountNavigation from "../nav/navigation";
+import AccountNavigation from "../components/nav/navigation";
 import css from "./account-layout.module.css";
 
 function AccountLayout({ children }: PropsWithChildren) {

@@ -1,4 +1,4 @@
-import AccountNavigation from "@/components/pages/account/nav/navigation";
+import AccountNavigation from "@/components/pages/account/components/nav/navigation";
 import AccountWrapper from "@/components/pages/account/wrapper";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";

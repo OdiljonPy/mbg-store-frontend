@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Logout from "../../components/logout/logout";
 import css from "./header.module.css";
-import Logout from "./logout/logout";
 
 function Header() {
 	const t = useTranslations();
@@ -26,7 +26,9 @@ function Header() {
 				</Link>
 				{t("header.profile")}
 			</h1>
-			<Logout />
+			<Logout className={css.logout_btn}>
+				{t("profile.logout.title")}
+			</Logout>
 		</div>
 	);
 }

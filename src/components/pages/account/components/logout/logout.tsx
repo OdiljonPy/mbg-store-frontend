@@ -3,18 +3,19 @@ import { Modal } from "antd";
 import { useTranslations } from "next-intl";
 import css from "./logout.module.css";
 
-const Logout = () => {
+interface Props extends React.HTMLAttributes<HTMLButtonElement> {}
+
+const Logout = ({ children, ...props }: Props) => {
 	const { open, onClose, onOpen } = useModal();
 	const t = useTranslations();
 
 	return (
 		<>
 			<button
-				type={"button"}
-				className={css.modal_trigger}
+				{...props}
 				onClick={onOpen}
 			>
-				{t("profile.logout.title")}
+				{children}
 			</button>
 			<Modal
 				destroyOnClose={true}

@@ -52,30 +52,10 @@
 	width: 100%;
 }
 
-.modal_trigger {
-	background-color: #ffeaea;
-	color: var(--red);
-	font-weight: 600;
-	font-size: 17px;
-	display: flex;
-	align-items: center;
-	border: none;
-	border-radius: var(--default-radius);
-	padding: 15px 75px;
-	transition: all 0.2s linear;
-	cursor: pointer;
-}
-
 .btn_logout:hover {
 	background: #ffdede;
 }
 
 .btn_logout:active {
 	background: #ffdede;
-}
-
-@media (max-width: 991px) {
-	.modal_trigger {
-		display: none;
-	}
 }
