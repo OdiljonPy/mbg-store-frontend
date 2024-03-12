@@ -13,7 +13,7 @@ const Account = (props: props) => {
 	const { push } = useRouter();
 
 	useEffect(() => {
-		if (screen.width > 991) {
+		if (window.innerWidth > 991) {
 			push("/account/profile");
 		}
 	}, [push]);
