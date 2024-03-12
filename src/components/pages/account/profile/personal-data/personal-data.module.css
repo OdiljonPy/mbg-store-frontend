@@ -39,6 +39,7 @@
 .edit_btn {
 	background-color: transparent;
 	border: none;
+	cursor: pointer;
 }
 
 .label {
@@ -54,6 +55,7 @@
 	border-radius: 16px;
 	transition: all 0.2s linear;
 	font-size: 16px;
+	background-color: transparent;
 }
 
 .extraData {
@@ -66,21 +68,6 @@
 	.extraData {
 		flex-direction: column;
 	}
-}
-
-.gender {
-	display: flex;
-	gap: 10px;
-	align-items: flex-end;
-}
-
-.gender > div {
-	border: 2px solid var(--input-gray);
-	border-radius: 16px;
-	padding: 0 8px;
-	height: 50px;
-	display: flex;
-	align-items: center;
 }
 
 .save_btn {
