@@ -13,9 +13,9 @@ export const fetchUser = createAsyncThunk("user", async () => {
 });
 
 export interface IUpdateUserRequest {
-	full_name?: string;
+	full_name: string;
 	gender?: EnumGender;
-	birth_date?: string;
+	birth_date: string | null;
 }
 
 export const updateUserData = createAsyncThunk(
@@ -71,6 +71,7 @@ const userSlice = createSlice({
 			})
 			.addCase(updateUserData.rejected, (state) => {
 				state.error = true;
+				state.loading = false;
 			});
 	},
 });

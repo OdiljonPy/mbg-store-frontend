@@ -25,15 +25,21 @@
 	}
 }
 
-.header > div {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+.header .info {
+	flex: 1 1 0%;
 }
 
-.header .phone_number {
+.header .title {
+	font-size: 16px;
 	font-weight: 600;
 	font-variant-numeric: lining-nums proportional-nums;
+}
+
+.header .sub_title {
+	font-size: 12px;
+	font-variant-numeric: lining-nums proportional-nums;
+	color: var(--icon-gray);
+	font-weight: 500;
 }
 
 .logout_btn {

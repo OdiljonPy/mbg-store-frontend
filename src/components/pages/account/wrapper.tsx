@@ -1,30 +1,72 @@
-import { PropsWithChildren } from "react";
+import { fetchUser } from "@/slices/auth/user";
+import { AppDispatch, RootState } from "@/store";
+import { Skeleton } from "antd";
+import { PropsWithChildren, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { formatPhoneNumber } from "../../../utils/phone-format/phone-format";
 import Logout from "./components/logout/logout";
 import css from "./wrapper.module.css";
 
 function AccountWrapper({ children }: PropsWithChildren) {
+	const { user, loading, error } = useSelector(
+		(state: RootState) => state.user
+	);
+
+	const dispatch = useDispatch<AppDispatch>();
+
+	useEffect(() => {
+		dispatch(fetchUser());
+	}, [dispatch]);
+
 	return (
 		<div className={css.wrapper}>
 			<div className={["container", css.container].join(" ")}>
 				<div className={css.header}>
-					<div>
-						<span className={css.icon}>
-							<svg
-								width='20'
-								height='19'
-								viewBox='0 0 20 19'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M19.6499 18.6251C19.5841 18.7391 19.4894 18.8338 19.3753 18.8997C19.2613 18.9655 19.1319 19.0001 19.0002 19.0001H1.00021C0.86862 19 0.739385 18.9652 0.625477 18.8993C0.51157 18.8335 0.417001 18.7388 0.351265 18.6248C0.28553 18.5108 0.250943 18.3815 0.250977 18.2499C0.25101 18.1183 0.285664 17.9891 0.351458 17.8751C1.77927 15.4067 3.97958 13.6367 6.54739 12.7976C5.27724 12.0415 4.29041 10.8893 3.73845 9.51804C3.18648 8.14678 3.09991 6.63224 3.49203 5.20701C3.88414 3.78178 4.73326 2.52467 5.90898 1.62873C7.0847 0.732786 8.52202 0.247559 10.0002 0.247559C11.4784 0.247559 12.9157 0.732786 14.0914 1.62873C15.2672 2.52467 16.1163 3.78178 16.5084 5.20701C16.9005 6.63224 16.8139 8.14678 16.262 9.51804C15.71 10.8893 14.7232 12.0415 13.453 12.7976C16.0208 13.6367 18.2211 15.4067 19.649 17.8751C19.7149 17.989 19.7497 18.1183 19.7499 18.25C19.7501 18.3816 19.7156 18.511 19.6499 18.6251Z'
-									fill='#39B969'
+					<span className={css.icon}>
+						<svg
+							width='20'
+							height='19'
+							viewBox='0 0 20 19'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M19.6499 18.6251C19.5841 18.7391 19.4894 18.8338 19.3753 18.8997C19.2613 18.9655 19.1319 19.0001 19.0002 19.0001H1.00021C0.86862 19 0.739385 18.9652 0.625477 18.8993C0.51157 18.8335 0.417001 18.7388 0.351265 18.6248C0.28553 18.5108 0.250943 18.3815 0.250977 18.2499C0.25101 18.1183 0.285664 17.9891 0.351458 17.8751C1.77927 15.4067 3.97958 13.6367 6.54739 12.7976C5.27724 12.0415 4.29041 10.8893 3.73845 9.51804C3.18648 8.14678 3.09991 6.63224 3.49203 5.20701C3.88414 3.78178 4.73326 2.52467 5.90898 1.62873C7.0847 0.732786 8.52202 0.247559 10.0002 0.247559C11.4784 0.247559 12.9157 0.732786 14.0914 1.62873C15.2672 2.52467 16.1163 3.78178 16.5084 5.20701C16.9005 6.63224 16.8139 8.14678 16.262 9.51804C15.71 10.8893 14.7232 12.0415 13.453 12.7976C16.0208 13.6367 18.2211 15.4067 19.649 17.8751C19.7149 17.989 19.7497 18.1183 19.7499 18.25C19.7501 18.3816 19.7156 18.511 19.6499 18.6251Z'
+								fill='#39B969'
+							/>
+						</svg>
+					</span>
+					<div className={css.info}>
+						{loading ? (
+							<div>
+								<Skeleton
+									active
+									paragraph={{
+										style: { marginTop: 4 },
+										rows: 1,
+									}}
 								/>
-							</svg>
-						</span>
-						<span className={css.phone_number}>
-							+998 90 005 43 32
-						</span>
+							</div>
+						) : (
+							<>
+								{user.full_name ? (
+									<>
+										<h3 className={css.title}>
+											{user.full_name}
+										</h3>
+										<span className={css.sub_title}>
+											{formatPhoneNumber(
+												user.phone_number
+											)}
+										</span>
+									</>
+								) : (
+									<span className={css.title}>
+										{formatPhoneNumber(user.phone_number)}
+									</span>
+								)}
+							</>
+						)}
 					</div>
 					<Logout className={css.logout_btn}>
 						<svg

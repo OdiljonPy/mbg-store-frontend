@@ -23,9 +23,9 @@ export const usePersonalData = (user: IUser) => {
 		e.preventDefault();
 
 		const payload: IUpdateUserRequest = {
-			full_name: fullName,
+			full_name: fullName || "",
 			gender: gender,
-			birth_date: birthDate,
+			birth_date: birthDate || null,
 		};
 
 		dispatch(updateUserData(payload))
