@@ -1,6 +1,8 @@
 import { IUser } from "@/data-types/auth/user";
 import { Skeleton } from "antd";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { PhoneInput } from "react-international-phone";
 import NewPassword from "../new-password/new-password";
 import css from "./security.module.css";
 
@@ -12,6 +14,13 @@ interface Props {
 
 function Security({ user, loading, error }: Props) {
 	const t = useTranslations();
+	const [phoneNumber, setPhoneNumber] = useState("");
+
+	useEffect(() => {
+		if (user && !error) {
+			setPhoneNumber(user.phone_number);
+		}
+	}, [user, error]);
 
 	return (
 		<div className={css.card}>
@@ -31,8 +40,14 @@ function Security({ user, loading, error }: Props) {
 								<label className={css.label}>
 									{t("profile.security.phone_number")}
 								</label>
-								<input
-									className={css.input}
+								<PhoneInput
+									hideDropdown={true}
+									inputClassName={css.input}
+									defaultCountry='uz'
+									inputProps={{
+										placeholder: "+998",
+									}}
+									value={phoneNumber}
 									placeholder={t(
 										"profile.security.phone_number"
 									)}

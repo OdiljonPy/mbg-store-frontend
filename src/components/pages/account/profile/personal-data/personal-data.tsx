@@ -14,8 +14,8 @@ interface Props {
 
 function PersonalData({ user, loading, error }: Props) {
 	const {
-		edit,
-		setEdit,
+		isEdit: edit,
+		setIsEdit: setEdit,
 		fullName,
 		setFullName,
 		gender,

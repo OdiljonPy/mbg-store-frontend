@@ -51,7 +51,7 @@ function BirthdayInput({ edit, birthDate, setBirthDate }: Props) {
 					id='birthday'
 					disabled={!edit}
 					placeholder='дд.мм.гггг'
-					value={dayjs(birthDate)}
+					value={birthDate ? dayjs(birthDate) : undefined}
 					onChange={(date, dateString) => {
 						setBirthDate(dateString);
 					}}

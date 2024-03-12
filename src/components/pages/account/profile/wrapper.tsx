@@ -18,7 +18,7 @@ const Wrapper = (props: props) => {
 
 	useEffect(() => {
 		dispatch(fetchUser());
-	}, [dispatch, user]);
+	}, [dispatch]);
 
 	return (
 		<section className={css.profile}>
