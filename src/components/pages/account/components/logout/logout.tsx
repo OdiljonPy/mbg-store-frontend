@@ -1,6 +1,7 @@
 import { useModal } from "@/hooks/use-modal";
 import { Modal } from "antd";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import css from "./logout.module.css";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -8,6 +9,13 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 const Logout = ({ children, ...props }: Props) => {
 	const { open, onClose, onOpen } = useModal();
 	const t = useTranslations();
+	const { push } = useRouter();
+
+	const handleLogout = () => {
+		localStorage.removeItem("access_token");
+		localStorage.removeItem("refresh_token");
+		push("/");
+	};
 
 	return (
 		<>
@@ -43,7 +51,10 @@ const Logout = ({ children, ...props }: Props) => {
 						>
 							{t("profile.logout.modal_cancel")}
 						</button>
-						<button className={[css.btn, css.logout_btn].join(" ")}>
+						<button
+							onClick={handleLogout}
+							className={[css.btn, css.logout_btn].join(" ")}
+						>
 							{t("profile.logout.modal_logout")}
 						</button>
 					</div>
