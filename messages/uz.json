@@ -194,12 +194,27 @@
 			"phone_number": "Telefon raqami",
 			"current_password": "Xozirgi parol"
 		},
-		"reset_password": {
+		"drop_password": {
 			"modal_title": "Parolni tiklash",
 			"modal_description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
-			"phone_number": "Telefon raqami",
+			"label": "Telefon raqami",
+			"placeholder": "Telefon raqamingizni kiriting",
 			"current_password": "Xozirgi parol",
 			"get_code": "Kodni olish"
+		},
+		"enter_code": {
+			"modal_title": "Kodni kiriting",
+			"modal_description": "Код отправлен на номер",
+			"back": "Orqaga",
+			"confirm": "Tasdiqlash",
+			"new_code_after": "Новый код через"
+		},
+		"new_password": {
+			"modal_title": "Yangi parol",
+			"modal_description": "Yangi parol o'ylab toping",
+			"label": "Пароль",
+			"placeholder": "Введите пароль",
+			"change_password": "Изменить пароль"
 		},
 		"save": "Saqlash"
 	},

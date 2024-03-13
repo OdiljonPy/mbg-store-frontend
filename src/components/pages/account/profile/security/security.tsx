@@ -3,7 +3,7 @@ import { Skeleton } from "antd";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { PhoneInput } from "react-international-phone";
-import NewPassword from "../new-password/new-password";
+import ResetPassword from "./reset-password/reset-password";
 import css from "./security.module.css";
 
 interface Props {
@@ -81,7 +81,7 @@ function Security({ user, loading, error }: Props) {
 									disabled
 								/>
 								<div className={css.icon}>
-									<NewPassword />
+									<ResetPassword />
 								</div>
 							</div>
 						</div>

@@ -194,12 +194,27 @@
 			"phone_number": "Номер телефона",
 			"current_password": "Текущий пароль"
 		},
-		"reset_password": {
+		"drop_password": {
 			"modal_title": "Сброс пароля",
 			"modal_description": "Код для сброса пароля будет отправлен на ваш номер телефона",
-			"phone_number": "Номер телефона",
+			"label": "Номер телефона",
+			"placeholder": "Введите номер телефона",
 			"current_password": "Текущий пароль",
 			"get_code": "Получить код"
+		},
+		"enter_code": {
+			"modal_title": "Введите код",
+			"modal_description": "Код отправлен на номер",
+			"back": "Назад",
+			"confirm": "Подтвердить",
+			"new_code_after": "Новый код через"
+		},
+		"new_password": {
+			"modal_title": "Новый пароль",
+			"modal_description": "Придумайте новый пароль",
+			"label": "Пароль",
+			"placeholder": "Введите пароль",
+			"change_password": "Изменить пароль"
 		},
 		"save": "Сохранить"
 	},

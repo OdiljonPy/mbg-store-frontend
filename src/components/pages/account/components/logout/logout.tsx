@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import { useTranslations } from "next-intl";
 import css from "./logout.module.css";
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {}
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Logout = ({ children, ...props }: Props) => {
 	const { open, onClose, onOpen } = useModal();
