@@ -32,7 +32,6 @@ const MainHeader = ({ setLoginModalOpen }: props) => {
 	const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 	const [mounted, setMounted] = useState(false);
 
-	console.log(isLoggedIn);
 	useEffect(() => {
 		setMounted(true);
 	}, []);
