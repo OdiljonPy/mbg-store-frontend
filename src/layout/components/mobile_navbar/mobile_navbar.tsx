@@ -40,9 +40,12 @@ const MobileNavbar = () => {
 				mobile={true}
 			/>
 			{isLoggedIn && mounted ? (
-				<Account />
+				<Account mobile />
 			) : (
-				<Login setLoginModalOpen={setLoginModalOpen} />
+				<Login
+					mobile
+					setLoginModalOpen={setLoginModalOpen}
+				/>
 			)}
 			<LoginModal
 				open={loginModalOpen}
