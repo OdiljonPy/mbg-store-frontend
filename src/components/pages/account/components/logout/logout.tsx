@@ -1,7 +1,10 @@
 import { useModal } from "@/hooks/use-modal";
+import { logoutUser } from "@/slices/auth/auth";
+import { AppDispatch } from "@/store";
 import { Modal } from "antd";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 import css from "./logout.module.css";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -10,10 +13,10 @@ const Logout = ({ children, ...props }: Props) => {
 	const { open, onClose, onOpen } = useModal();
 	const t = useTranslations();
 	const { push } = useRouter();
+	const dispatch = useDispatch<AppDispatch>();
 
 	const handleLogout = () => {
-		localStorage.removeItem("access_token");
-		localStorage.removeItem("refresh_token");
+		dispatch(logoutUser());
 		push("/");
 	};
 
