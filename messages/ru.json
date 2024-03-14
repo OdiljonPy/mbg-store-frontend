@@ -1,174 +1,233 @@
 {
-  "header": {
-    "home": "Главная",
-    "catalog": "Каталог",
-    "about": "О нас",
-    "stores": "Магазины",
-    "faq": "FAQ",
-    "searchProducts": "Поиск продуктов",
-    "favourites": "Избранное",
-    "login": "Войти",
-    "basket": "Корзина",
-    "delivery": "Доставка"
-  },
-  "categories": {
-    "title": "Категории",
-    "all": "Все категории"
-  },
-  "address": {
-    "add": "Добавить адрес",
-    "typeAddress": "Укажите свой адрес",
-    "title": "Адрес",
-    "placeholder": "Город, улица, дом",
-    "add_delivery" : "Адрес доставки",
-    "name" : "Название",
-    "enter_name" : "Введите название",
-    "entrance": "Подъезд",
-    "floor" : "Этаж",
-    "apartment": "Квартира",
-    "make_address" : "Сделать адрес основным"
-  },
-  "search": {
-    "placeholder": "Поиск товаров",
-    "often": "Часто ищут",
-    "title": "Поиск",
-    "found": "Найдено {products} товаров в {categories} категориях",
-    "categories": "{products} товаров",
-    "byName": "Поиск по названию"
-  },
-  "errors": {
-    "required": "Это поле обязательно"
-  },
-  "detect": "Определить",
-  "approve": "Подтвердить",
-  "catalog": "Каталог",
-  "footer": {
-    "phone": "Телефон",
-    "email": "Почта",
-    "address": "Адрес",
-    "information": "Информация",
-    "offert": "Офферта",
-    "copyright": "Все права защищены.",
-    "qr": "Отсканируйте QR-код, чтобы скачать приложение",
-    "mgbStore": "Приложение MBG store"
-  },
-  "account": {
-    "orders": "Заказы",
-    "title": "Аккаунт"
-  },
-  "sales": {
-    "sale": "Скидки",
-    "title": "На скидке",
-    "more": "{count}% и более"
-  },
-  "products": {
-    "title": "Товары",
-    "plural": "Товаров",
-    "rates": "Оценок",
-    "near": "Товары поблизости",
-    "top": "Хиты продаж",
-    "popular": "Популярное",
-    "withFeedbacks": "Товары с отзывами"
-  },
-  "about": {
-    "title": "Кратко о MBG store",
-    "products": "различных товаров",
-    "stores": "магазинов на сайте",
-    "orders": "заказов в день",
-    "partners": "Наши партнеры",
-    "faq": "Частые вопросы",
-    "chat": "Не смогли найти ответ на свой вопрос? Напишите в чат:",
-    "writeToChat": "Написать в чат"
-  },
-  "show": "Показать",
-  "hide": "Скрыть",
-  "filters": {
-    "title": "Фильтры",
-    "sorting": {
-      "title": "Сортировка",
-      "popular": "Популярные",
-      "cheap": "Подешевле",
-      "expensive": "Подороже",
-      "highRate": "Высокий рейтинг",
-      "null": "Популярные"
-    },
-    "delivery": {
-      "title": "Доставка",
-      "free": "Бесплатная доставка",
-      "self": "Самовывоз",
-      "has": "Есть доставка"
-    },
-    "accessibility": {
-      "title": "Доступность"
-    },
-    "reset": "Сбросить фильтры"
-  },
-  "from": "От",
-  "to": "До",
-  "fromBeginning": "Сначала",
-  "rating": {
-    "title": "Рейтинг",
-    "rate": "{count} и более"
-  },
-  "reset": "Сбросить",
-  "price": {
-    "title": "Цена, UZS"
-  },
-  "product": {
-    "similar": "Покупают вместе",
-    "onSale": "Распродажа",
-    "has": "В наличии",
-    "seller": "Продавец",
-    "rates": "Оценок",
-    "addToCart": "Добавить в корзину",
-    "about": "О товаре",
-    "comparison": "Сравнение схожих товаров",
-    "title": "Продукт",
-    "price": "Цена",
-    "feedback": "Отзывы о товаре",
-    "showOnFeedback": "Показать по рейтингу",
-    "allFeedbacks": "Все отзывы",
-    "sendFeedback": "Оставить отзыв",
-    "writeFeedback": "Написать отзыв",
-    "orders": "Заказов"
-  },
-  "feedback": {
-    "bad": "Плохо",
-    "excellent": "Отлично",
-    "name": "Ваше имя",
-    "namePlaceholder": "Введите имя",
-    "anonymus": "Анонимный отзыв",
-    "message": "Ваш отзыв",
-    "messagePlaceholder": "Ваше мнение о товаре",
-    "photo": "Фото",
-    "photoDetails": "максимум 4",
-    "photoPlaceholder": "или перетащите файл сюда",
-    "send": "Отправить отзыв"
-  },
-  "cart": {
-    "title": "",
-    "yourOrder": "Ваш заказ",
-    "price": "Стоимость товаров",
-    "sales": "Скидки",
-    "actualPrice": "Предварительная стоимость",
-    "order": "Оформить заказ",
-    "promo_code": "Промокод",
-    "accept": "Применить",
-    "type": "Доставка/самовывоз",
-    "type_value" : "уточняется",
-    "checkout": "Перейти к оплате",
-    "delivery": {
-      "title_one" : "Получатель заказа",
-      "name_label": "Имя и фамилия",
-      "phone_label": "Номер телефона",
-      "name_placeholder":"Введите ваше имя"
-    }
-  },
-  "modal": {
-    "no": "Нет",
-    "yes": "Да, удалить",
-    "delete_address": "Удаление адреса",
-    "delete_desc": "Вы уверены что хотите удалить адрес"
-  },
-  "remove": "Удалить"
+	"header": {
+		"home": "Главная",
+		"catalog": "Каталог",
+		"about": "О нас",
+		"stores": "Магазины",
+		"faq": "FAQ",
+		"searchProducts": "Поиск продуктов",
+		"favourites": "Избранное",
+		"login": "Войти",
+		"basket": "Корзина",
+		"delivery": "Доставка",
+		"account": "Аккаунт",
+		"profile": "Профиль"
+	},
+	"categories": {
+		"title": "Категории",
+		"all": "Все категории"
+	},
+	"address": {
+		"add": "Добавить адрес",
+		"typeAddress": "Укажите свой адрес",
+		"title": "Адрес",
+		"placeholder": "Город, улица, дом",
+		"add_delivery": "Адрес доставки",
+		"name": "Название",
+		"enter_name": "Введите название",
+		"entrance": "Подъезд",
+		"floor": "Этаж",
+		"apartment": "Квартира",
+		"make_address": "Сделать адрес основным"
+	},
+	"search": {
+		"placeholder": "Поиск товаров",
+		"often": "Часто ищут",
+		"title": "Поиск",
+		"found": "Найдено {products} товаров в {categories} категориях",
+		"categories": "{products} товаров",
+		"byName": "Поиск по названию"
+	},
+	"errors": {
+		"required": "Это поле обязательно"
+	},
+	"detect": "Определить",
+	"approve": "Подтвердить",
+	"catalog": "Каталог",
+	"footer": {
+		"phone": "Телефон",
+		"email": "Почта",
+		"address": "Адрес",
+		"information": "Информация",
+		"offert": "Офферта",
+		"copyright": "Все права защищены.",
+		"qr": "Отсканируйте QR-код, чтобы скачать приложение",
+		"mgbStore": "Приложение MBG store"
+	},
+	"account": {
+		"orders": "Заказы",
+		"title": "Аккаунт"
+	},
+	"sales": {
+		"sale": "Скидки",
+		"title": "На скидке",
+		"more": "{count}% и более"
+	},
+	"products": {
+		"title": "Товары",
+		"plural": "Товаров",
+		"rates": "Оценок",
+		"near": "Товары поблизости",
+		"top": "Хиты продаж",
+		"popular": "Популярное",
+		"withFeedbacks": "Товары с отзывами"
+	},
+	"about": {
+		"title": "Кратко о MBG store",
+		"products": "различных товаров",
+		"stores": "магазинов на сайте",
+		"orders": "заказов в день",
+		"partners": "Наши партнеры",
+		"faq": "Частые вопросы",
+		"chat": "Не смогли найти ответ на свой вопрос? Напишите в чат:",
+		"writeToChat": "Написать в чат"
+	},
+	"show": "Показать",
+	"hide": "Скрыть",
+	"filters": {
+		"title": "Фильтры",
+		"sorting": {
+			"title": "Сортировка",
+			"popular": "Популярные",
+			"cheap": "Подешевле",
+			"expensive": "Подороже",
+			"highRate": "Высокий рейтинг",
+			"null": "Популярные"
+		},
+		"delivery": {
+			"title": "Доставка",
+			"free": "Бесплатная доставка",
+			"self": "Самовывоз",
+			"has": "Есть доставка"
+		},
+		"accessibility": {
+			"title": "Доступность"
+		},
+		"reset": "Сбросить фильтры"
+	},
+	"from": "От",
+	"to": "До",
+	"fromBeginning": "Сначала",
+	"rating": {
+		"title": "Рейтинг",
+		"rate": "{count} и более"
+	},
+	"reset": "Сбросить",
+	"price": {
+		"title": "Цена, UZS"
+	},
+	"product": {
+		"similar": "Покупают вместе",
+		"onSale": "Распродажа",
+		"has": "В наличии",
+		"seller": "Продавец",
+		"rates": "Оценок",
+		"addToCart": "Добавить в корзину",
+		"about": "О товаре",
+		"comparison": "Сравнение схожих товаров",
+		"title": "Продукт",
+		"price": "Цена",
+		"feedback": "Отзывы о товаре",
+		"showOnFeedback": "Показать по рейтингу",
+		"allFeedbacks": "Все отзывы",
+		"sendFeedback": "Оставить отзыв",
+		"writeFeedback": "Написать отзыв",
+		"orders": "Заказов"
+	},
+	"feedback": {
+		"bad": "Плохо",
+		"excellent": "Отлично",
+		"name": "Ваше имя",
+		"namePlaceholder": "Введите имя",
+		"anonymus": "Анонимный отзыв",
+		"message": "Ваш отзыв",
+		"messagePlaceholder": "Ваше мнение о товаре",
+		"photo": "Фото",
+		"photoDetails": "максимум 4",
+		"photoPlaceholder": "или перетащите файл сюда",
+		"send": "Отправить отзыв"
+	},
+	"cart": {
+		"title": "",
+		"yourOrder": "Ваш заказ",
+		"price": "Стоимость товаров",
+		"sales": "Скидки",
+		"actualPrice": "Предварительная стоимость",
+		"order": "Оформить заказ",
+		"promo_code": "Промокод",
+		"accept": "Применить",
+		"type": "Доставка/самовывоз",
+		"type_value": "уточняется",
+		"checkout": "Перейти к оплате",
+		"delivery": {
+			"title_one": "Получатель заказа",
+			"name_label": "Имя и фамилия",
+			"phone_label": "Номер телефона",
+			"name_placeholder": "Введите ваше имя"
+		}
+	},
+	"modal": {
+		"no": "Нет",
+		"yes": "Да, удалить",
+		"delete_address": "Удаление адреса",
+		"delete_desc": "Вы уверены что хотите удалить адрес"
+	},
+	"remove": "Удалить",
+	"profile": {
+		"title": "Профиль",
+		"logout": {
+			"title": "Выход",
+			"modal_title": "Выход c аккаунта",
+			"modal_description": "Вы уверены что хотите выйти со своего аккаунта?",
+			"modal_cancel": "Отмена",
+			"modal_logout": "Выход"
+		},
+		"personal_data": {
+			"title": "Личные данные",
+			"name_and_surname": "Имя и фамилия",
+			"birthday": "Дата рождения",
+			"male": "Муж",
+			"female": "Жен"
+		},
+		"security": {
+			"title": "Безопасность",
+			"phone_number": "Номер телефона",
+			"current_password": "Текущий пароль"
+		},
+		"drop_password": {
+			"modal_title": "Сброс пароля",
+			"modal_description": "Код для сброса пароля будет отправлен на ваш номер телефона",
+			"label": "Номер телефона",
+			"placeholder": "Введите номер телефона",
+			"current_password": "Текущий пароль",
+			"get_code": "Получить код"
+		},
+		"enter_code": {
+			"modal_title": "Введите код",
+			"modal_description": "Код отправлен на номер",
+			"back": "Назад",
+			"confirm": "Подтвердить",
+			"new_code_after": "Новый код через"
+		},
+		"new_password": {
+			"modal_title": "Новый пароль",
+			"modal_description": "Придумайте новый пароль",
+			"label": "Пароль",
+			"placeholder": "Введите пароль",
+			"change_password": "Изменить пароль"
+		},
+		"save": "Сохранить"
+	},
+	"orders": {
+		"title": "Заказы"
+	},
+	"favorites": {
+		"title": "Избранное"
+	},
+	"address_book": {
+		"title": "Адресная книга"
+	},
+	"support": {
+		"title": "Поддержка"
+	}
 }
