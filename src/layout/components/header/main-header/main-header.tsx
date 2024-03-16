@@ -1,4 +1,5 @@
 "use client";
+import Auth from "@/components/pages/home/auth/auth";
 import LogoMobile from "@/components/shared/logo-mobile/logo-mobile";
 import Logo from "@/components/shared/logo/logo";
 import { cartBadge, favouritesBadge } from "@/constants/badges/badges";
@@ -24,12 +25,10 @@ const ProductsSearch = dynamic(
 	}
 );
 
-interface props {
-	setLoginModalOpen: (value: boolean) => void;
-}
+interface props {}
 
-const MainHeader = ({ setLoginModalOpen }: props) => {
-	const { isLoggedIn } = useSelector((state: RootState) => state.auth);
+const MainHeader = () => {
+	const { isLoggedIn } = useSelector((state: RootState) => state.login);
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
@@ -57,7 +56,9 @@ const MainHeader = ({ setLoginModalOpen }: props) => {
 						{isLoggedIn && mounted ? (
 							<Account />
 						) : (
-							<Login setLoginModalOpen={setLoginModalOpen} />
+							<Auth>
+								<Login />
+							</Auth>
 						)}
 						<MenuItemBadge badge={cartBadge} />
 					</div>

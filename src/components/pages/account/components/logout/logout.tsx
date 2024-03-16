@@ -1,5 +1,5 @@
 import { useModal } from "@/hooks/use-modal";
-import { logoutUser } from "@/slices/auth/auth";
+import { logoutUser } from "@/slices/auth/login";
 import { AppDispatch } from "@/store";
 import { Modal } from "antd";
 import { useTranslations } from "next-intl";
