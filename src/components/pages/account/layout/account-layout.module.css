@@ -2,6 +2,13 @@
 	margin: 150px 0 100px;
 }
 
+@media (max-width: 575px) {
+	.container {
+		padding: 0;
+		max-width: 100vw;
+	}
+}
+
 .wrapper {
 	display: flex;
 	gap: 40px;
@@ -19,4 +26,10 @@
 
 .main {
 	flex: 1 1 0%;
+}
+
+@media (max-width: 575px) {
+	.main {
+		max-width: 100vw;
+	}
 }

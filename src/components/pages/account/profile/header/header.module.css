@@ -44,7 +44,7 @@
 	.icon_back {
 		position: absolute;
 		display: block;
-		left: 0;
+		left: 16px;
 		top: 50%;
 		transform: translateY(-50%);
 	}
