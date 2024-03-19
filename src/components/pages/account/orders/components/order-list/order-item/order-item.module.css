@@ -1,0 +1,154 @@
+.card {
+	border-radius: 24px;
+	padding: 20px;
+	border: 2px solid var(--input-gray);
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 14px;
+}
+
+.footer {
+	margin-top: 14px;
+	padding: 0 16px;
+}
+
+@media (max-width: 575px) {
+	.card {
+		padding: 16px 0;
+		border: none;
+		border-radius: 14px;
+		box-shadow: 0 0 12px var(--input-gray);
+	}
+
+	.header {
+		padding: 0 16px;
+	}
+}
+
+.title_link {
+	color: #000;
+	text-decoration: none;
+}
+
+.title_link:hover {
+	text-decoration: underline;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+.date {
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--icon-gray);
+}
+
+@media (max-width: 767px) {
+	.title {
+		font-size: 15px;
+		margin-bottom: 2px;
+	}
+
+	.date {
+		font-size: 12px;
+	}
+}
+
+.status_box {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.receiving_method {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.badge {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 4px 10px;
+	border-radius: 8px;
+	color: white;
+}
+
+.RECEIVED {
+	background-color: #60c787;
+}
+
+.PROGRESSING {
+	background-color: #efb754;
+}
+
+.ON_THE_WAY,
+.READY_FOR_PICKUP {
+	background-color: #767bf9;
+}
+
+.DELIVERED,
+.PICKED_UP {
+	background-color: #60c787;
+}
+
+.CANCELLED {
+	background-color: #ff6c6c;
+}
+
+@media (max-width: 767px) {
+	.status_box {
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 2px;
+	}
+
+	.receiving_method {
+		font-size: 12px;
+	}
+
+	.receiving_method svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	.badge {
+		font-size: 10px;
+		padding: 1px 5px;
+		border-radius: 4px;
+	}
+}
+
+.btn {
+	display: none;
+}
+
+@media (max-width: 575px) {
+	.btn {
+		width: 100%;
+		color: var(--green);
+		background-color: var(--super-light-green);
+		font-weight: 600;
+		font-size: 17px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		border-radius: var(--default-radius);
+		padding: 15px 20px;
+		transition: all 0.2s linear;
+		cursor: pointer;
+		text-wrap: nowrap;
+	}
+}

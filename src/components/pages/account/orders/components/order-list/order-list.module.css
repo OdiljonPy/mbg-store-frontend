@@ -1,0 +1,20 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	list-style: none;
+}
+
+@media (max-width: 575px) {
+	.list {
+		gap: 4px;
+	}
+
+	.list > li:first-child > div {
+		box-shadow: 0 2px 4px var(--input-gray);
+	}
+
+	.list > li:last-child > div {
+		box-shadow: 0 -2px 4px var(--input-gray);
+	}
+}
