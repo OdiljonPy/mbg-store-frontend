@@ -15,6 +15,10 @@
 	display: none;
 }
 
+.search_box {
+	width: 350px;
+}
+
 @media (max-width: 991px) {
 	.header {
 		justify-content: center;
