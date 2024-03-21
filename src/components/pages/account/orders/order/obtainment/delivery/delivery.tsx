@@ -89,6 +89,7 @@ function Delivery({ order }: Props) {
 							defaultOptions={{ suppressMapOpenBlock: true }}
 							controls={["zoomControl", "fullscreenControl"]}
 							height={"266px"}
+							width={"100%"}
 						/>
 					</YMaps>
 				</div>

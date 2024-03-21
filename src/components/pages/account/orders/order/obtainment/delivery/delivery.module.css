@@ -106,12 +106,14 @@
 	text-align: right;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
 	.delivery_card {
 		flex-direction: column;
 		gap: 20px;
 	}
+}
 
+@media (max-width: 575px) {
 	.list li {
 		font-size: 14px;
 	}
