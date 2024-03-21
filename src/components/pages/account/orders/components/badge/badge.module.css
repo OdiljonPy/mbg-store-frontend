@@ -1,0 +1,40 @@
+.badge {
+	display: inline-flex;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 4px 10px;
+	border-radius: 8px;
+	color: white;
+	background-color: var(--light-green);
+}
+
+@media (max-width: 767px) {
+	.badge {
+		font-size: 10px;
+		padding: 1px 5px;
+		border-radius: 4px;
+	}
+}
+
+.RECEIVED {
+	background-color: #60c787;
+}
+
+.PROGRESSING {
+	background-color: #efb754;
+}
+
+.ON_THE_WAY,
+.READY_FOR_PICKUP {
+	background-color: #767bf9;
+}
+
+.DELIVERED,
+.PICKED_UP {
+	background-color: #60c787;
+}
+
+.CANCELLED {
+	background-color: #ff6c6c;
+}

@@ -12,6 +12,7 @@
 }
 
 .footer {
+	display: none;
 	margin-top: 14px;
 	padding: 0 16px;
 }
@@ -26,6 +27,10 @@
 
 	.header {
 		padding: 0 16px;
+	}
+
+	.footer {
+		display: block;
 	}
 }
 
@@ -42,6 +47,7 @@
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 4px;
+	font-variant-numeric: lining-nums proportional-nums;
 }
 
 .date {
@@ -75,38 +81,6 @@
 	font-weight: 500;
 }
 
-.badge {
-	display: flex;
-	align-items: center;
-	font-size: 16px;
-	font-weight: 600;
-	padding: 4px 10px;
-	border-radius: 8px;
-	color: white;
-}
-
-.RECEIVED {
-	background-color: #60c787;
-}
-
-.PROGRESSING {
-	background-color: #efb754;
-}
-
-.ON_THE_WAY,
-.READY_FOR_PICKUP {
-	background-color: #767bf9;
-}
-
-.DELIVERED,
-.PICKED_UP {
-	background-color: #60c787;
-}
-
-.CANCELLED {
-	background-color: #ff6c6c;
-}
-
 @media (max-width: 767px) {
 	.status_box {
 		flex-direction: column;
@@ -122,16 +96,6 @@
 		width: 20px;
 		height: 20px;
 	}
-
-	.badge {
-		font-size: 10px;
-		padding: 1px 5px;
-		border-radius: 4px;
-	}
-}
-
-.btn {
-	display: none;
 }
 
 @media (max-width: 575px) {

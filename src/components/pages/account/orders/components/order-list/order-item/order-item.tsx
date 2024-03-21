@@ -1,12 +1,10 @@
 import {
-	EnumDeliveryMethod,
-	EnumOrderStatusDelivery,
+	EnumDeliveryType,
 	EnumOrderStatusPickup,
+	IOrder,
 } from "@/data-types/order/order";
 
 import dayjs from "dayjs";
-
-import { data } from "../order-list";
 
 import "keen-slider/keen-slider.min.css";
 
@@ -16,13 +14,15 @@ import {
 	receivingMethodMap,
 } from "@/constants/account/orders/status-map";
 
+import { EnumOrderStatusDelivery } from "@/data-types/order/order";
 import Link from "next/link";
+import Badge from "../../badge/badge";
 import css from "./order-item.module.css";
 import ProductsSlider from "./products-slider/products-slider";
 import Products from "./products/products";
 
 interface Props {
-	order: (typeof data)[0];
+	order: IOrder;
 }
 
 function OrderItem({ order }: Props) {
@@ -34,17 +34,15 @@ function OrderItem({ order }: Props) {
 						className={css.title_link}
 						href={`/account/orders/${order.id}`}
 					>
-						<h2 className={css.title}>{order.title}</h2>
+						<h2 className={css.title}>№ {order.id}</h2>
 					</Link>
 					<p className={css.date}>
-						{dayjs(order.date).format("D MMMM YYYY").toLowerCase()}{" "}
-						г. ({order.time})
+						{dayjs(order.created_at).format("D MMMM YYYY г. H:mm")}
 					</p>
 				</div>
 				<div className={css.status_box}>
 					<div className={css.receiving_method}>
-						{order.receiving_method ===
-						EnumDeliveryMethod.DELIVERY ? (
+						{order.type === EnumDeliveryType.DELIVERY ? (
 							<svg
 								width='24'
 								height='24'
@@ -71,35 +69,25 @@ function OrderItem({ order }: Props) {
 								/>
 							</svg>
 						)}
-						{receivingMethodMap[order.receiving_method]}
+						{receivingMethodMap[order.type]}
 					</div>
-					{order.receiving_method === EnumDeliveryMethod.DELIVERY ? (
-						<span
-							className={[
-								css.badge,
-								css[EnumOrderStatusDelivery[order.status]],
-							].join(" ")}
-						>
+					{order.type === EnumDeliveryType.DELIVERY ? (
+						<Badge status={EnumOrderStatusDelivery[order.status]}>
 							{deliveryStatusMap[order.status]}
-						</span>
+						</Badge>
 					) : (
-						<span
-							className={[
-								css.badge,
-								css[EnumOrderStatusPickup[order.status]],
-							].join(" ")}
-						>
+						<Badge status={EnumOrderStatusPickup[order.status]}>
 							{pickupStatusMap[order.status]}
-						</span>
+						</Badge>
 					)}
 				</div>
 			</div>
 			<div className={css.body}>
 				<Products />
 				<ProductsSlider />
-				<div className={css.footer}>
-					<button className={css.btn}>Повторить заказ</button>
-				</div>
+			</div>
+			<div className={css.footer}>
+				<button className={css.btn}>Повторить заказ</button>
 			</div>
 		</div>
 	);

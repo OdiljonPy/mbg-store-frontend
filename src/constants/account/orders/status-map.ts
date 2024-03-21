@@ -1,12 +1,12 @@
 import {
-	EnumDeliveryMethod,
+	EnumDeliveryType,
 	EnumOrderStatusDelivery,
 	EnumOrderStatusPickup,
 } from "@/data-types/order/order";
 
-export const receivingMethodMap: Record<EnumDeliveryMethod, string> = {
-	[EnumDeliveryMethod.DELIVERY]: "Доставка",
-	[EnumDeliveryMethod.PICKUP]: "Самовывоз",
+export const receivingMethodMap: Record<EnumDeliveryType, string> = {
+	[EnumDeliveryType.DELIVERY]: "Доставка",
+	[EnumDeliveryType.PICKUP]: "Самовывоз",
 };
 
 export const deliveryStatusMap: Record<EnumOrderStatusDelivery, string> = {

@@ -12,7 +12,7 @@ const Order = (props: props) => {
 			<Head>
 				<title>{router.query.id}</title>
 			</Head>
-			<Wrapper />
+			<Wrapper orderId={Number(router.query.id)} />
 		</>
 	);
 };

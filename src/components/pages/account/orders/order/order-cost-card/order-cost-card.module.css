@@ -1,0 +1,103 @@
+.card {
+	padding: 16px;
+	border: 2px solid var(--input-gray);
+	border-radius: 24px;
+	width: 400px;
+}
+
+.card_header {
+	margin-bottom: 10px;
+}
+
+.card_footer {
+	margin-top: 24px;
+}
+
+.card_footer > *:not(:last-child) {
+	margin-bottom: 18px;
+}
+
+.card_title {
+	font-size: 24px;
+	margin-bottom: 18px;
+}
+
+.list {
+	list-style: none;
+}
+
+.list li {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 18px;
+	font-weight: 600;
+	font-variant-numeric: lining-nums proportional-nums;
+}
+
+.list li:not(:last-child) {
+	margin-bottom: 14px;
+}
+
+.list li span:first-child {
+	color: var(--icon-gray);
+}
+
+.list li span .promoname {
+	color: var(--green);
+}
+
+.list .total {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.list .total span:first-child {
+	color: var(--black);
+}
+
+.list .total span:last-child {
+	color: var(--green);
+	font-weight: 700;
+}
+
+.info {
+	display: flex;
+	gap: 5px;
+	font-weight: 500;
+	font-size: 16px;
+	background-color: #fff9e7;
+	color: #d38037;
+	padding: 6px 10px;
+	border-radius: 10px;
+}
+
+.info span {
+	font-weight: 600;
+}
+
+.info span svg {
+	fill: #d38037;
+}
+
+.btn {
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+	font-weight: 600;
+	font-size: 17px;
+	color: var(--green);
+	background-color: white;
+	border: 2px solid var(--green);
+	border-radius: var(--default-radius);
+	transition: all 0.2s linear;
+	cursor: pointer;
+	text-wrap: nowrap;
+}
+
+.btn:hover {
+	background-color: var(--super-light-green);
+}
