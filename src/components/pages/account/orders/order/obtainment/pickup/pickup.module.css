@@ -18,6 +18,8 @@
 }
 
 .card_title {
+	font-size: 18px;
+	font-weight: 600;
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -41,6 +43,35 @@
 	align-items: center;
 	gap: 4px;
 	font-size: 14px;
+}
+
+@media (max-width: 575px) {
+	.title {
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.card {
+		padding: 10px;
+		border: 1.2px solid var(--light-green);
+		border-radius: 12px;
+	}
+
+	.card:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	.card_title {
+		font-size: 14px;
+		gap: 4px;
+	}
+
+	.card_subtitle {
+		font-size: 14px;
+		font-weight: 400;
+		color: var(--icon-gray);
+		margin-bottom: 10px;
+	}
 }
 
 .info {

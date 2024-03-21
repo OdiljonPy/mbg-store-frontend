@@ -1,7 +1,9 @@
 import { EnumDeliveryType } from "@/data-types/order/order";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import { data } from "../data";
 import Header from "./header/header";
+import MobileHeader from "./mobile-header/mobile-header";
 import Delivery from "./obtainment/delivery/delivery";
 import Pickup from "./obtainment/pickup/pickup";
 import OrderCostCard from "./order-cost-card/order-cost-card";
@@ -24,11 +26,12 @@ const Wrapper = ({ orderId }: Props) => {
 
 	return (
 		<div className={css.wrapper}>
-			<div className='container'>
+			<div className={cn(css.container, "container")}>
 				<Header order={order} />
+				<MobileHeader orderId={order.id} />
 				<div className={css.content}>
-					<main>
-						<section>
+					<main className={css.main}>
+						<section className={css.section}>
 							<h2 className={css.title}>Способ получения</h2>
 							{order.type === EnumDeliveryType.DELIVERY ? (
 								<Delivery order={order} />
@@ -36,7 +39,7 @@ const Wrapper = ({ orderId }: Props) => {
 								<Pickup order={order} />
 							)}
 						</section>
-						<section>
+						<section className={css.section}>
 							<h2 className={css.title}>
 								Товары в заказе{" "}
 								<span className={css.badge}>

@@ -2,6 +2,12 @@
 	margin-bottom: 30px;
 }
 
+@media (max-width: 991px) {
+	.header {
+		display: none;
+	}
+}
+
 .header_main {
 	margin-top: 14px;
 	display: flex;

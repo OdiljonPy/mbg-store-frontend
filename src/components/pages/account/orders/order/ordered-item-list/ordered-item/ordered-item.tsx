@@ -40,7 +40,7 @@ function OrderedItem({ orderedItem }: Props) {
 						</span>
 					</p>
 				</div>
-				<div className={css.info_left}>
+				<div className={css.info_right}>
 					<Price
 						price={orderedItem.product.price}
 						discount_price={orderedItem.product.discount_price}

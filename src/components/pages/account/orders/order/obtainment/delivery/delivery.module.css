@@ -8,6 +8,9 @@
 	padding: 16px;
 	border: 2px solid var(--input-gray);
 	border-radius: 24px;
+}
+
+.card:not(:last-child) {
 	margin-bottom: 24px;
 }
 
@@ -16,10 +19,13 @@
 }
 
 .card_title {
+	font-size: 18px;
+	font-weight: 600;
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 4px;
+	font-variant-numeric: lining-nums proportional-nums;
 }
 
 .card_subtitle {
@@ -29,23 +35,33 @@
 	margin-bottom: 10px;
 }
 
-.info {
-	display: flex;
-	gap: 5px;
-	font-weight: 500;
-	font-size: 16px;
-	background-color: #fff9e7;
-	color: #d38037;
-	padding: 6px 10px;
-	border-radius: 10px;
-}
+@media (max-width: 575px) {
+	.title {
+		font-size: 14px;
+		font-weight: 500;
+	}
 
-.info span {
-	font-weight: 600;
-}
+	.card {
+		padding: 10px;
+		border: 1.2px solid var(--light-green);
+		border-radius: 12px;
+	}
 
-.info span svg {
-	fill: #d38037;
+	.card:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	.card_title {
+		font-size: 14px;
+		gap: 4px;
+	}
+
+	.card_subtitle {
+		font-size: 14px;
+		font-weight: 400;
+		color: var(--icon-gray);
+		margin-bottom: 10px;
+	}
 }
 
 .delivery_card {
@@ -88,6 +104,25 @@
 
 .list li span:last-child {
 	text-align: right;
+}
+
+@media (max-width: 575px) {
+	.delivery_card {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.list li {
+		font-size: 14px;
+	}
+
+	.list li:not(:last-child) {
+		margin-bottom: 6px;
+	}
+
+	.list li span:last-child {
+		font-weight: 600;
+	}
 }
 
 .map {

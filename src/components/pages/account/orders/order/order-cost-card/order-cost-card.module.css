@@ -2,7 +2,6 @@
 	padding: 16px;
 	border: 2px solid var(--input-gray);
 	border-radius: 24px;
-	width: 400px;
 }
 
 .card_header {
@@ -22,6 +21,26 @@
 	margin-bottom: 18px;
 }
 
+@media (max-width: 575px) {
+	.card {
+		border: none;
+		border-radius: 14px;
+		box-shadow: 0 0 12px var(--input-gray);
+	}
+
+	.card:first-child {
+		box-shadow: 0 2px 4px var(--input-gray);
+	}
+
+	.card_footer {
+		margin-top: 10px;
+	}
+
+	.card_footer > *:not(:last-child) {
+		margin-bottom: 14px;
+	}
+}
+
 .list {
 	list-style: none;
 }
@@ -35,16 +54,21 @@
 	font-variant-numeric: lining-nums proportional-nums;
 }
 
-.list li:not(:last-child) {
+.list > li:not(:last-child) {
 	margin-bottom: 14px;
 }
 
-.list li span:first-child {
+.list > li > span:first-child {
 	color: var(--icon-gray);
 }
 
-.list li span .promoname {
+.list > li > span .promoname {
 	color: var(--green);
+}
+
+.divider {
+	margin: 18px 0;
+	border-bottom: 1.2px solid var(--input-gray);
 }
 
 .list .total {
@@ -59,25 +83,6 @@
 .list .total span:last-child {
 	color: var(--green);
 	font-weight: 700;
-}
-
-.info {
-	display: flex;
-	gap: 5px;
-	font-weight: 500;
-	font-size: 16px;
-	background-color: #fff9e7;
-	color: #d38037;
-	padding: 6px 10px;
-	border-radius: 10px;
-}
-
-.info span {
-	font-weight: 600;
-}
-
-.info span svg {
-	fill: #d38037;
 }
 
 .btn {
@@ -100,4 +105,31 @@
 
 .btn:hover {
 	background-color: var(--super-light-green);
+}
+
+@media (max-width: 575px) {
+	.card_title {
+		font-size: 15px;
+		margin-bottom: 12px;
+	}
+
+	.list > li {
+		font-size: 14px;
+	}
+
+	.list > li > span:first-child {
+		font-weight: 500;
+	}
+
+	.list > li:not(:last-child) {
+		margin-bottom: 6px;
+	}
+
+	.divider {
+		margin: 10px 0;
+	}
+
+	.list .total {
+		font-size: 15px;
+	}
 }

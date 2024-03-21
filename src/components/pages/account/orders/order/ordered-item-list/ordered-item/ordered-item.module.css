@@ -52,6 +52,7 @@
 	line-height: 16px;
 	color: var(--icon-gray);
 }
+
 .seller_value {
 	color: var(--text-green);
 }
@@ -62,12 +63,50 @@
 	justify-content: space-between;
 	align-items: end;
 }
+
 .count {
 	color: var(--icon-gray);
 	font-size: 14px;
 	font-weight: 600;
 	text-align: end;
 }
+
 .count_value {
 	color: var(--black);
+}
+
+@media (max-width: 575px) {
+	.image_box {
+		height: 112px;
+		width: 100px;
+	}
+
+	.image {
+		width: 80px;
+		height: 80px;
+	}
+
+	.info {
+		flex-direction: column;
+	}
+
+	.info_left {
+		justify-content: start;
+	}
+
+	.title {
+		font-size: 14px;
+	}
+
+	.weight {
+		font-size: 13px;
+	}
+
+	.seller {
+		font-size: 12px;
+	}
+
+	.info_right {
+		flex-direction: row;
+	}
 }

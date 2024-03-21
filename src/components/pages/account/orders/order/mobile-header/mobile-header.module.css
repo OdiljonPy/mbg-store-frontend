@@ -1,0 +1,32 @@
+.header {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	height: 48px;
+	position: relative;
+}
+
+.icon_back {
+	position: absolute;
+	display: block;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+@media (max-width: 991px) {
+	.header {
+		display: flex;
+	}
+}
+
+@media (max-width: 575px) {
+	.title {
+		font-size: 16px;
+	}
+}
