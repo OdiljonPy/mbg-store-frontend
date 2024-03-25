@@ -10,3 +10,7 @@
 	font-weight: 600;
 	color: var(--black);
 }
+
+.mobile_icon.active path {
+	fill: var(--green);
+}

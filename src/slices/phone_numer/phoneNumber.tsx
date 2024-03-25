@@ -1,21 +1,21 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = "";
 
 const phoneNumber = createSlice({
-    name: "phone-number",
-    initialState,
-    reducers: {
-        setPhoneNumber: (state, action) => {
-            return action.payload;
-        },
-        clearPhoneNumber: () => {
-            return "";
-        },
-    },
+	name: "phone-number",
+	initialState,
+	reducers: {
+		setPhoneNumber: (state, action) => {
+			return action.payload;
+		},
+		clearPhoneNumber: () => {
+			return "";
+		},
+	},
 });
 
-const {reducer, actions} = phoneNumber;
+const { reducer, actions } = phoneNumber;
 
-export const {setPhoneNumber, clearPhoneNumber} = actions
+export const { setPhoneNumber, clearPhoneNumber } = actions;
 export default reducer;

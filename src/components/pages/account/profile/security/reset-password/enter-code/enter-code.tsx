@@ -1,7 +1,6 @@
-import Attempts from "@/components/pages/home/otp/component/attempts/attempts";
-import Timer from "@/components/pages/home/otp/component/timer/timer";
+import Attempts from "@/components/pages/home/auth/otp/attempts/attempts";
 import FormError from "@/components/shared/form-error/form-error";
-import { verify, verifyResend } from "@/slices/auth/auth";
+import { resendOtpKey, verify } from "@/slices/auth/verify";
 import { clearMessage } from "@/slices/message/message";
 import { setOtpKey } from "@/slices/otpKey/otpKey";
 import { AppDispatch, RootState } from "@/store";
@@ -59,7 +58,7 @@ function EnterCode({ onPrev, onNext }: Props) {
 			otp_code: otp,
 		};
 
-		dispatch(verifyResend(payload))
+		dispatch(resendOtpKey(payload))
 			.unwrap()
 			.then((res) => {
 				setAttemptCount((prevState) => prevState - 1);
@@ -130,11 +129,10 @@ function EnterCode({ onPrev, onNext }: Props) {
 						onClick={handleResend}
 					/>
 				) : (
-					<Timer
-						setResendTime={setResendTime}
-						resendTime={resendTime}
-						onStart={timerStarted}
-					/>
+					<p className={css.timer}>
+						Новый код через 00:
+						{resendTime < 10 ? `0${resendTime}` : resendTime}
+					</p>
 				)}
 			</div>
 		</>
