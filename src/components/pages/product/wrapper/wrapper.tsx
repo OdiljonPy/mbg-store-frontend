@@ -14,11 +14,9 @@ import {GetServerSideProps} from "next";
 import {IProductInner} from "@/data-types/products/product-inner";
 
 interface props {
-    info : IProductInner
 }
 
 const Wrapper = (props: props) => {
-    console.log(props,"props")
     const t = useTranslations()
     const router = useRouter()
 
@@ -50,7 +48,7 @@ const Wrapper = (props: props) => {
                 }
 
                 <Comparison comparison={info.comparison_products} loading={loading}/>
-                <Similar/>
+                <Similar similar={info.related_products} loading={loading} />
                 <Feedbacks/>
             </div>
         </section>
@@ -59,18 +57,3 @@ const Wrapper = (props: props) => {
 
 export default Wrapper;
 
-export const getServerSideProps:GetServerSideProps = async () =>{
-    const router = useRouter()
-    const {info,loading} =  useSelector((state:RootState) => state.product_single)
-    const dispatch = useDispatch<AppDispatch>()
-
-    useEffect(() => {
-        dispatch(fetchProductSingle(router.query.id))
-    }, [router.query.id]);
-
-    return{
-        props:{
-            info
-        }
-    }
-}

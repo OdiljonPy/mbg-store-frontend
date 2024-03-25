@@ -1,10 +1,11 @@
 import React from 'react';
 import css from './product-top.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {IProduct} from "@/data-types/products/products";
 import DiscountBadge from "@/components/shared/discount-badge/discount-badge";
 import ProductActions from "@/components/shared/product/components/product-top/product-actions/product-actions";
 import Link from "next/link";
+import {IProduct} from "@/data-types/products/common";
+
 
 interface props {
     product: IProduct

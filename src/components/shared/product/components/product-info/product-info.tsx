@@ -1,9 +1,9 @@
 import React from 'react';
 import css from './product-info.module.css'
 import ProductRate from "@/components/shared/product/components/product-info/product-rate/product-rate";
-import {IProduct} from "@/data-types/products/products";
 import ProductPrice from "@/components/shared/product/components/product-info/product-price/product-price";
 import Link from "next/link";
+import {IProduct} from "@/data-types/products/common";
 
 interface props {
     product: IProduct

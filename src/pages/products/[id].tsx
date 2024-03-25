@@ -40,3 +40,19 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({locale}) =>
         },
     };
 };
+
+// export const getServerSideProps:GetServerSideProps = async () =>{
+//     const router = useRouter()
+//     const {info,loading} =  useSelector((state:RootState) => state.product_single)
+//     const dispatch = useDispatch<AppDispatch>()
+//
+//     useEffect(() => {
+//         dispatch(fetchProductSingle(router.query.id))
+//     }, [router.query.id]);
+//
+//     return{
+//         props:{
+//             info
+//         }
+//     }
+// }

@@ -29,5 +29,6 @@ export interface IProduct{
     pickup:boolean
     store:IStore
     images:IImages[]
+    count?:number
 }
 
