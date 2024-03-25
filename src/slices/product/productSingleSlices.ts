@@ -30,6 +30,7 @@ const productSingleInfo = createSlice({
             state.loading = false
         }).addCase(fetchProductSingle.rejected, (state)=>{
             state.error = true
+            state.loading = false
         })
 
     }

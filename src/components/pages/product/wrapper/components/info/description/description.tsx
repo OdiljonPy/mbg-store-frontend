@@ -25,7 +25,7 @@ const Description = ({info,loading}: props) => {
         <div className={css.description}>
             <Title title={info?.name} loading={loading}/>
             {
-                !loading ? <Skeleton className={css.skeleton_position} count={1} height={'30px'} width={'160px'}  /> : <div className={css.text}>
+                loading ? <Skeleton className={css.skeleton_position} count={1} height={'30px'} width={'160px'}  /> : <div className={css.text}>
                     <p className={css.weight}>
                         {
                             `${info?.available}г`

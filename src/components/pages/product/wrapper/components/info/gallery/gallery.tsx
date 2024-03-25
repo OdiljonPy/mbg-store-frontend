@@ -52,7 +52,7 @@ const Gallery = ({gallery,loading} : props) => {
     return (
         <>
             {
-                !loading ? <Skeleton className={css.skeleton} count={1}/>: <div className={`${css.wrapper} ${loaded ? css.show : ''}`}>
+                loading ? <Skeleton className={css.skeleton} count={1}/>: <div className={`${css.wrapper} ${loaded ? css.show : ''}`}>
                     <Preview ref={sliderRef} gallery={gallery} loading={loading}/>
                     {
                         <div className={css.thumbnail}>

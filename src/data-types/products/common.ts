@@ -4,6 +4,15 @@ export interface IImages{
     image:string
 }
 
+export interface IStore{
+    id:number
+    brand_name:string
+    logo:string
+    latitude:number
+    longitude:number
+    store_location_name:string
+    working_time:string
+}
 export interface IProduct{
     id:number
     name:string
@@ -18,7 +27,7 @@ export interface IProduct{
     view_count:number
     free_shipping:boolean
     pickup:boolean
-    store:number
+    store:IStore
     images:IImages[]
 }
 

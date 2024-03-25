@@ -13,10 +13,10 @@ interface props {
 const Thumbnail = forwardRef(({currentSlide,loading,gallery}: props, ref: ForwardedRef<HTMLDivElement>) => {
     return (
         <>
-            { !loading ? '' :  <div ref={ref} className={`keen-slider thumbnail ${css.thumbnail}`}>
+            { loading ? '' :  <div ref={ref} className={`keen-slider thumbnail ${css.thumbnail}`}>
 
                 {
-                    gallery?.images.map((item,index) =>{
+                    gallery?.images?.map((item,index) =>{
                         return (
                             <div key={item.id} className={`${css.item} ${currentSlide === index ? css.active : ''} keen-slider__slide`}>
                                 <ResponsiveImage src={item.image} alt={'Кукуруза Bonduelle Classique сладкая'}/>

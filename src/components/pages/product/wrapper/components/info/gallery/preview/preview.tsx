@@ -19,7 +19,7 @@ const Preview = forwardRef(({loading,gallery}: props, ref: ForwardedRef<HTMLDivE
         <div ref={ref} className={`keen-slider ${mainCss.wrapper}`}>
 
             {
-                !loading ? '' : gallery?.images.map((item) =>{
+                loading ? '' : gallery?.images?.map((item) =>{
                     return (
                       <div key={item.id} className={`${css.item} ${mainCss.img} keen-slider__slide`}>
                            <div className={css.badge}>
