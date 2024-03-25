@@ -5,7 +5,7 @@ import mainCss from './preview.module.css'
 import Badge from "@/components/shared/badge/badge";
 import {useTranslations} from 'next-intl';
 import { IProductSingle} from "@/data-types/products/products";
-import {IProductInner} from "@/data-types/products/product-inner";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
     gallery: IProductInner,

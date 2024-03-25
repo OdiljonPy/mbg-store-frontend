@@ -11,7 +11,7 @@ import Actions from "@/components/pages/product/wrapper/components/info/descript
 import AboutProduct from "@/components/pages/product/wrapper/components/info/description/about-product/about-product";
 import { IProductSingle} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
-import {IProductInner} from "@/data-types/products/product-inner";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
     info: IProductInner,

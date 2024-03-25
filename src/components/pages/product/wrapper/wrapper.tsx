@@ -11,7 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProductSingle} from "@/slices/product/productSingleSlices";
 import {GetServerSideProps} from "next";
-import {IProductInner} from "@/data-types/products/product-inner";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
 }

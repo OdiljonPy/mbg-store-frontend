@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import API from "@/utils/axios/axios";
-import {ICommonProduct, IProductInner} from "@/data-types/products/product-inner";
+import {ICommonProduct, IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 export const fetchProductSingle = createAsyncThunk('product_single', async (id: string[] | string | undefined) => {
     const response = await API.get<ICommonProduct>(`/store/products/${id}/`)

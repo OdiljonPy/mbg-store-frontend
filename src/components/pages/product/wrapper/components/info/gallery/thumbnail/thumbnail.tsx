@@ -2,7 +2,7 @@ import React, {ForwardedRef, forwardRef} from 'react';
 import css from './thumbnail.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import { IProductSingle} from "@/data-types/products/products";
-import {IProductInner} from "@/data-types/products/product-inner";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
     currentSlide: number

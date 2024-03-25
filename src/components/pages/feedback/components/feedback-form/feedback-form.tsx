@@ -15,7 +15,7 @@ import uploaderCss from './image-uploader/image-uploader.module.css'
 import Image from "@/components/pages/feedback/components/feedback-form/image/image";
 import {IProductSingle} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
-import {IProductInner} from "@/data-types/products/product-inner";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 
 interface props {
