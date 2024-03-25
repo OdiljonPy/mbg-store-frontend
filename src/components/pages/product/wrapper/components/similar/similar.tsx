@@ -6,6 +6,7 @@ import Product from "@/components/shared/product/product";
 import {useSlider} from "@/hooks/use-slider";
 import {IProduct} from "@/data-types/products/common";
 import Skeleton from "react-loading-skeleton";
+import {product} from "@/constants/product/product";
 
 interface props {
     similar:IProduct[]
@@ -21,14 +22,13 @@ const Similar = ({similar,loading}: props) => {
                     count: similar?.length
                 }}/>
                 <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
-                    {similar?.map((product)=>{
-                        return <div className={`keen-slider__slide`} key={product.id}>
-                            <Product product={product} />
-                        </div>
-                    })}
                     {
                         loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
-                        </div> :''
+                        </div> :similar?.map((product)=>{
+                            return <div className={`keen-slider__slide`} key={product.id}>
+                                <Product product={product} />
+                            </div>
+                        })
                     }
                 </div>
         </section>
