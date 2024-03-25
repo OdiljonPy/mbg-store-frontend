@@ -2,13 +2,12 @@ import React from 'react';
 import css from './product.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import mikado from '@/../public/images/products/mikado.png'
-import {IProduct} from "@/data-types/products/products";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import Rate from "../rate/rate";
-import {IProduct as IProduct2} from "@/data-types/products/common";
+import {IProduct} from "@/data-types/products/common";
 
 interface props {
-    product:  IProduct2
+    product:  IProduct
 }
 
 const Product = ({product}: props) => {

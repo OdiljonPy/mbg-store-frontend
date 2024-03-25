@@ -28,12 +28,6 @@ const Comparison = ({comparison,loading}: props) => {
                         loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
                            </div> :''
                     }
-                    {/*<Product product={product}/>*/}
-                    {/*<Product product={productWithoutDiscount}/>*/}
-                    {/*<Product product={product}/>*/}
-                    {/*<Product product={productWithoutDiscount}/>*/}
-                    {/*<Product product={product}/>*/}
-                    {/*<Product product={productWithoutDiscount}/>*/}
                 </div>
         </section>
     );
