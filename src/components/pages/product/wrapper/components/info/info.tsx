@@ -2,10 +2,10 @@ import React from 'react';
 import css from './info.module.css'
 import Gallery from "@/components/pages/product/wrapper/components/info/gallery/gallery";
 import Description from "@/components/pages/product/wrapper/components/info/description/description";
-import { IProductSingle} from "@/data-types/products/products";
+import {IProductInner} from "@/data-types/products/product-inner";
 
 interface props {
-    info:IProductSingle ,
+    info:IProductInner ,
     loading:boolean
 }
 

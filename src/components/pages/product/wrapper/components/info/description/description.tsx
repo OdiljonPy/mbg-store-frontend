@@ -11,9 +11,10 @@ import Actions from "@/components/pages/product/wrapper/components/info/descript
 import AboutProduct from "@/components/pages/product/wrapper/components/info/description/about-product/about-product";
 import { IProductSingle} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
+import {IProductInner} from "@/data-types/products/product-inner";
 
 interface props {
-    info: IProductSingle,
+    info: IProductInner,
     loading:boolean
 }
 
@@ -22,12 +23,12 @@ const Description = ({info,loading}: props) => {
     const t = useTranslations()
     return (
         <div className={css.description}>
-            <Title title={info?.result?.name} loading={loading}/>
+            <Title title={info?.name} loading={loading}/>
             {
                 !loading ? <Skeleton className={css.skeleton_position} count={1} height={'30px'} width={'160px'}  /> : <div className={css.text}>
                     <p className={css.weight}>
                         {
-                            `${info?.result?.available}г`
+                            `${info?.available}г`
                         }
                     </p>
                     <Badge text={t('product.has')} color={'#60C787'}/>
@@ -35,8 +36,8 @@ const Description = ({info,loading}: props) => {
             }
 
             <Seller seller={'Зеленая лавка'}/>
-            <Rate rate={info?.result?.rating} count={info?.result?.rating_count} loading={loading}/>
-            <Price price={info?.result?.price} discount_percentage={info?.result?.discount} discount_price={info?.result?.discount_price} loading={loading}/>
+            <Rate rate={info?.rating} count={info?.rating_count} loading={loading}/>
+            <Price price={info?.price} discount_percentage={info?.discount} discount_price={info?.discount_price} loading={loading}/>
             <Deliveries/>
             <Actions/>
             <AboutProduct/>

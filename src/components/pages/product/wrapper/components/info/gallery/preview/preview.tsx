@@ -5,9 +5,10 @@ import mainCss from './preview.module.css'
 import Badge from "@/components/shared/badge/badge";
 import {useTranslations} from 'next-intl';
 import { IProductSingle} from "@/data-types/products/products";
+import {IProductInner} from "@/data-types/products/product-inner";
 
 interface props {
-    gallery: IProductSingle,
+    gallery: IProductInner,
     loading:boolean
 }
 
@@ -18,11 +19,11 @@ const Preview = forwardRef(({loading,gallery}: props, ref: ForwardedRef<HTMLDivE
         <div ref={ref} className={`keen-slider ${mainCss.wrapper}`}>
 
             {
-                !loading ? '' : gallery?.result?.images.map((item) =>{
+                !loading ? '' : gallery?.images.map((item) =>{
                     return (
                       <div key={item.id} className={`${css.item} ${mainCss.img} keen-slider__slide`}>
                            <div className={css.badge}>
-                               <Badge text={t('poduct.onSale')} color={'#767BF9'}/>
+                               <Badge text={t('product.onSale')} color={'#767BF9'}/>
                           </div>
                            <ResponsiveImage src={item.image} alt={'Кукуруза Bonduelle Classique сладкая'}/>
                        </div>

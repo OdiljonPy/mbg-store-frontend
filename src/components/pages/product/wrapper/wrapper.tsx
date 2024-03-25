@@ -26,7 +26,6 @@ const Wrapper = (props: props) => {
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
     }, [router.query.id]);
-    // console.log(info,"info")
     return (
         <section className={css.wrapper}>
             <div className={'container'}>
@@ -41,7 +40,7 @@ const Wrapper = (props: props) => {
                     },
                     {
                         path: '/products/:id',
-                        label: info?.result?.name
+                        label: info?.name
                     }
                 ]}/>
                 {
