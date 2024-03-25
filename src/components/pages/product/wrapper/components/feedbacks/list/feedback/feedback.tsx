@@ -4,15 +4,16 @@ import {IFeedback} from "@/data-types/feedback/feedback";
 import star from '@/../public/images/icons/star.svg'
 import img from '@/../public/images/products/mikado.png'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
+import {IComments} from "@/data-types/products/common";
 
 interface props {
-    feedback: IFeedback
+    feedback: IComments
 }
 
 const Feedback = ({feedback}: props) => {
 
 
-    const {name, date, rate, message, images} = feedback
+    const {name, rating, comment, images} = feedback
 
     return (
         <div className={css.feedback}>
@@ -22,26 +23,26 @@ const Feedback = ({feedback}: props) => {
                 </h3>
                 <div className={css.info}>
                     <p className={css.date}>
-                        {date}
+                         12.04.2024
                     </p>
                     <p className={css.point}>
                         <span className={css.star}>
                             <ResponsiveImage src={star} alt={name}/>
                         </span>
                         <span className={css.count}>
-                            {rate}
+                            {rating}
                         </span>
                     </p>
                 </div>
             </div>
             <div className={css.body}>
                 <p className={css.message}>
-                    {message}
+                    {comment}
                 </p>
             </div>
             <div className={css.images}>
-                {images.map((item) => (
-                    <div key={item} className={css.img}>
+                {images?.map((item) => (
+                    <div key={item?.id} className={css.img}>
                         <ResponsiveImage src={img} alt={''}/>
                     </div>
                 ))}

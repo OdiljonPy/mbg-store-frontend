@@ -13,6 +13,16 @@ export interface IStore{
     store_location_name:string
     working_time:string
 }
+
+export interface IComments{
+    id:number
+    user:number
+    name:string
+    product:number
+    rating:number
+    comment:string
+    images:IImages[]
+}
 export interface IProduct{
     id:number
     name:string

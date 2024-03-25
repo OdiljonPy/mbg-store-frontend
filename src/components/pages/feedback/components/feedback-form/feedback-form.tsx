@@ -15,10 +15,11 @@ import uploaderCss from './image-uploader/image-uploader.module.css'
 import Image from "@/components/pages/feedback/components/feedback-form/image/image";
 import {IProductSingle} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
+import {IProductInner} from "@/data-types/products/product-inner";
 
 
 interface props {
-    info : IProductSingle
+    info : IProductInner
     loading:boolean
 }
 
@@ -43,7 +44,7 @@ const FeedbackForm = ({info,loading}: props) => {
     const onSendFeedback = async (values: IFeedbackForm) => {
         const formImages = values.images.map((images)=> images.file)
         const data:any = new FormData()
-        data.append('product_id', info?.result?.id )
+        data.append('product_id', info?.id )
         data.append('rating',values.rate)
         data.append('comment',values.message)
         for(let i = 0 ; i < formImages.length ; i++){
@@ -75,9 +76,9 @@ const FeedbackForm = ({info,loading}: props) => {
     return (
         <form onSubmit={handleSubmit(onSendFeedback)} className={css.form}>
             <div className={css.title}>
-                {!loading ? <Skeleton count={1} height={'30px'} width={'350px'} /> : <><Title title={info?.result?.name} loading={loading}/>
+                {loading ? <Skeleton count={1} height={'30px'} width={'350px'} /> : <><Title title={info?.name} loading={loading}/>
                     <p className={css.weight}>
-                        {info?.result?.available}г
+                        {info?.available}г
                     </p></>}
             </div>
             <Seller seller={'Зеленая лавка'}/>

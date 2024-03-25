@@ -49,7 +49,7 @@ const Wrapper = (props: props) => {
 
                 <Comparison comparison={info.comparison_products} loading={loading}/>
                 <Similar similar={info.related_products} loading={loading} />
-                <Feedbacks/>
+                <Feedbacks comments={info.comments} loading={loading}/>
             </div>
         </section>
     );

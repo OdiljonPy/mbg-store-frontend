@@ -34,8 +34,8 @@ const Feedback = (props: props) => {
                         label: t('products.title')
                     },
                     {
-                        path: `/products/${info?.result?.id}`,
-                        label: `${info?.result?.name}`
+                        path: `/products/${info?.id}`,
+                        label: `${info?.name}`
                     },
                     {
                         path: '/products/1/feedback',
@@ -46,7 +46,7 @@ const Feedback = (props: props) => {
                     {t('product.writeFeedback')}
                 </h1>
                 <div className={css.wrapper}>
-                    <Preview img={info?.result?.images[0].image} />
+                    { info?.images?.length ? <Preview img={info?.images[0].image} /> : <div></div>}
                     <FeedbackForm info={info} loading={loading}/>
                 </div>
             </div>
