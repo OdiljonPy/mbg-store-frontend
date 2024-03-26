@@ -8,7 +8,7 @@ import {raleway} from "@/constants/fonts/fonts";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchCategory} from "@/slices/category/categorySlices";
-import {ICommonCategory} from "@/data-types/categories/categories";
+
 
 interface props {
 
@@ -16,7 +16,7 @@ interface props {
 
 const Categories = (props: props) => {
     const t = useTranslations()
-    const {category,loading} = useSelector((state:RootState) => state.category)
+    const {categories,loading} = useSelector((state:RootState) => state.category)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
@@ -31,12 +31,10 @@ const Categories = (props: props) => {
     return (
         <div className={css.wrapper}>
             {
-                category?.map((categories:ICommonCategory) =>{
-                    return categories?.result.slice(0,6).map((category,index) =>{
-                        return (
-                                <CategoryItem category={category} key={category.id} classNames={css[`item${index + 1}`]}/>
-                            )
-                    })
+                categories?.slice(0,6)?.map((category,index) =>{
+                    return (
+                        <CategoryItem category={category} key={category.id} classNames={css[`item${index + 1}`]}/>
+                    )
                 })
             }
             <Link href={'/catalog'} className={`${css.link} ${raleway.className}`}>

@@ -3,10 +3,10 @@ import css from './catalog-list.module.css'
 import {useTranslations} from 'next-intl';
 import CategoryItem from "@/components/shared/category-item/category-item";
 import {category} from "@/constants/categories/categories";
-import {ICategory, ICommonCategory} from "@/data-types/categories/categories";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
-    data?:ICommonCategory[]
+    data?:ICategory[]
 }
 
 const CatalogList = ({data}: props) => {
@@ -14,14 +14,10 @@ const CatalogList = ({data}: props) => {
     return (
 
         <div className={css.list}>
-            {/*{category.map((category) => (*/}
-            {/*    <CategoryItem category={category}  key={category.id}/>*/}
-            {/*))}*/}
+
             {
-                data?.map((categories) =>{
-                    return categories?.result?.map((category:ICategory) =>{
-                        return <CategoryItem category={category}  key={category.id}/>
-                    })
+                data?.map((category) =>{
+                    return <CategoryItem category={category}  key={category.id}/>
                 })
             }
         </div>
