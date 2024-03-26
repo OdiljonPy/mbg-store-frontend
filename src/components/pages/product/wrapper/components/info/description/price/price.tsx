@@ -20,7 +20,7 @@ const Price = ({
     return (
         <>
             {
-                !loading ? <Skeleton className={css.skeleton_position} count={1} width={'100%'} height={'25px'} /> :     <div className={`${css.price}`}>
+                loading ? <Skeleton className={css.skeleton_position} count={1} width={'100%'} height={'25px'} /> :     <div className={`${css.price}`}>
                     {
                         discount_percentage !== 0 ?  <DiscountBadge className={css.discount} discount_percentage={discount_percentage}/> : null
                     }

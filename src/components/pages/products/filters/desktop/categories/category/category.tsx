@@ -4,9 +4,10 @@ import {ICategoryFilter} from "@/components/pages/products/filters/desktop/data-
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {usePathname, useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
-    category: ICategoryFilter
+    category: ICategory
 }
 
 const Category = ({category}: props) => {
@@ -16,7 +17,7 @@ const Category = ({category}: props) => {
     const currentCategory: string  | null  = searchParams.get('category')
     const {
         id,
-        img,
+        icone:img,
         name,
         count_product
     } = category

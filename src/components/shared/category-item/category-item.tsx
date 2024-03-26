@@ -14,8 +14,6 @@ const CategoryItem = ({category, classNames}: props) => {
         id,
         name,
         image,
-        icone,
-        color
     } = category
 
     return (

@@ -2,17 +2,16 @@ import React from 'react';
 import css from './product.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import mikado from '@/../public/images/products/mikado.png'
-import {IProduct} from "@/data-types/products/products";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import Rate from "../rate/rate";
-import seller from "@/components/pages/product/wrapper/components/info/description/seller/seller";
+import {IProduct} from "@/data-types/products/common";
 
 interface props {
-    product: IProduct
+    product:  IProduct
 }
 
 const Product = ({product}: props) => {
-    const {name, price, discount_price, rating, rating_count, seller} = product
+    const {name, price, discount_price, rating, rating_count, store} = product
     return (
         <div className={css.product}>
             <div className={css.img}>
@@ -35,7 +34,7 @@ const Product = ({product}: props) => {
                 <Rate count={rating_count} rate={rating}/>
             </div>
             <p className={css.seller}>
-                {seller}
+                {store?.brand_name}
             </p>
         </div>
     );

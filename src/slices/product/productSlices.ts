@@ -95,7 +95,6 @@ const productSlices = createSlice({
         builder.addCase(fetchSearchKey.fulfilled, (state, action) => {
             state.loading = true
             state.product_search = [action.payload]
-            // console.log(action.payload.result)
         })
             .addCase(fetchSearchKey.pending, (state, action) => {
                 state.loading = false

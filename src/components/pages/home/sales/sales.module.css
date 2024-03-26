@@ -32,11 +32,25 @@
     width: 100%;
 }
 
+.container_skeleton{
+    display: flex;
+    gap: 6px;
+}
+.skeleton_position{
+    height: 400px;
+    width: 350px;
+    border-radius: 10px;
+}
+
 @media (max-width: 575px) {
     .sales{
         margin-bottom: 40px;
     }
     .skeleton{
         height: 200px;
+    }
+    .skeleton_position{
+        height: 260px;
+        width: 200px;
     }
 }

@@ -9,9 +9,10 @@ import NavigationBtn from "@/components/pages/product/wrapper/components/info/ga
 import Dots from "@/components/pages/product/wrapper/components/info/gallery/dots/dots";
 import { IProductSingle} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
-    gallery : IProductSingle,
+    gallery : IProductInner,
     loading:boolean
 }
 const Gallery = ({gallery,loading} : props) => {
@@ -51,7 +52,7 @@ const Gallery = ({gallery,loading} : props) => {
     return (
         <>
             {
-                !loading ? <Skeleton className={css.skeleton} count={1}/>: <div className={`${css.wrapper} ${loaded ? css.show : ''}`}>
+                loading ? <Skeleton className={css.skeleton} count={1}/>: <div className={`${css.wrapper} ${loaded ? css.show : ''}`}>
                     <Preview ref={sliderRef} gallery={gallery} loading={loading}/>
                     {
                         <div className={css.thumbnail}>

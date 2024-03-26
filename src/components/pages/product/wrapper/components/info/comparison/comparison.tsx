@@ -3,13 +3,15 @@ import css from './comparison.module.css'
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Labels from "@/components/pages/product/wrapper/components/info/comparison/labels/labels";
 import Product from "@/components/pages/product/wrapper/components/info/comparison/product/product";
-import {product, productWithoutDiscount} from "@/constants/product/product";
+import {IProduct} from "@/data-types/products/common";
+import Skeleton from "react-loading-skeleton";
 
 interface props {
-
+    comparison:IProduct[],
+    loading:boolean
 }
 
-const Comparison = (props: props) => {
+const Comparison = ({comparison,loading}: props) => {
 
     return (
         <section className={css.comparison}>
@@ -18,12 +20,14 @@ const Comparison = (props: props) => {
                 }}/>
                 <div className={css.wrapper}>
                     <Labels/>
-                    <Product product={product}/>
-                    <Product product={productWithoutDiscount}/>
-                    <Product product={product}/>
-                    <Product product={productWithoutDiscount}/>
-                    <Product product={product}/>
-                    <Product product={productWithoutDiscount}/>
+
+                    { comparison?.map((product:IProduct)=>{
+                        return <Product product={product}  key={product.id}/>
+                    }) }
+                    {
+                        loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
+                           </div> :''
+                    }
                 </div>
         </section>
     );

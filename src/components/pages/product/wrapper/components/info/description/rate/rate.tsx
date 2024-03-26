@@ -17,7 +17,7 @@ export const Rate = ({rate, count, noMargin,loading}: props) => {
     return (
        <>
            {
-               !loading ? <Skeleton className={css.skeleton_position} count={1} width={'80%'} height={'20px'}/> :  <div className={`${css.rate} ${noMargin ? css.noMargin : ''}`}>
+               loading ? <Skeleton className={css.skeleton_position} count={1} width={'80%'} height={'20px'}/> :  <div className={`${css.rate} ${noMargin ? css.noMargin : ''}`}>
                    <div className={css.img}>
                        <ResponsiveImage src={star} alt={'rating'}/>
                    </div>

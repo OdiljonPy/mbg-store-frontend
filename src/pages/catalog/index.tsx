@@ -15,7 +15,7 @@ interface props {
 
 const Index = (props: props) => {
     const t = useTranslations()
-    const {category,loading} = useSelector((state:RootState)=> state.category)
+    const {categories,loading} = useSelector((state:RootState)=> state.category)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const Index = (props: props) => {
                     <h1 className={css.title}>
                         {t('header.catalog')} {t('products.plural').toLowerCase()}
                     </h1>
-                    <CatalogList data={category}/>
+                    <CatalogList data={categories}/>
                 </div>
             </section>
         </>

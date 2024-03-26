@@ -15,41 +15,14 @@ import CatalogIcon from "@/components/shared/catalog-icon/catalog-icon";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchCategory} from "@/slices/category/categorySlices";
-import {ICategory, ICommonCategory} from "@/data-types/categories/categories";
 
 interface props {
 
 }
 
-
-// const catalogItem: ICategoryItem[] = [
-//     {
-//         id: 2,
-//         title: 'Готовая еда',
-//         img: <CatalogIcon><ResponsiveImage src={food} alt={''}/></CatalogIcon>
-//     },
-//     {
-//         id: 3,
-//         title: 'Овощи и фрукты',
-//         img: <CatalogIcon><ResponsiveImage src={veg} alt={''}/></CatalogIcon>
-//     },
-//     {
-//         id: 4,
-//         title: 'Молочный прилавок',
-//         img: <CatalogIcon><ResponsiveImage src={milk} alt={''}/></CatalogIcon>
-//     },
-//     {
-//         id: 5,
-//         title: 'Мясо и птица',
-//         img: <CatalogIcon><ResponsiveImage src={meat} alt={''}/></CatalogIcon>
-//     }
-// ]
-
-
-
 const CatalogSelect = (props: props) => {
     const t = useTranslations()
-    const {category,loading} = useSelector((state:RootState) => state.category)
+    const {categories,loading} = useSelector((state:RootState) => state.category)
     const dispatch = useDispatch<AppDispatch>()
     const [categorySelect,setCategorySelect] = useState<ICategoryItem[]>([
         {

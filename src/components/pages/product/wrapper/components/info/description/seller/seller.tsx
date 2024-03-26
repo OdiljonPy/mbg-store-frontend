@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './seller.module.css'
 import {useTranslations} from 'next-intl';
+import {IStore} from "@/data-types/products/common";
 
 interface props {
     seller: string

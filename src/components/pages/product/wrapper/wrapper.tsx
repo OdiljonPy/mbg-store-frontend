@@ -7,13 +7,13 @@ import Info from "@/components/pages/product/wrapper/components/info/info";
 import Comparison from "@/components/pages/product/wrapper/components/info/comparison/comparison";
 import Feedbacks from "@/components/pages/product/wrapper/components/feedbacks/feedbacks";
 import {useRouter} from "next/router";
-import {IProduct, IProductSingle} from "@/data-types/products/products";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProductSingle} from "@/slices/product/productSingleSlices";
+import {GetServerSideProps} from "next";
+import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
-
 }
 
 const Wrapper = (props: props) => {
@@ -26,7 +26,6 @@ const Wrapper = (props: props) => {
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
     }, [router.query.id]);
-    // console.log(info,"info")
     return (
         <section className={css.wrapper}>
             <div className={'container'}>
@@ -41,19 +40,20 @@ const Wrapper = (props: props) => {
                     },
                     {
                         path: '/products/:id',
-                        label: info?.result?.name
+                        label: info?.name
                     }
                 ]}/>
                 {
                     info && <Info info={info} loading={loading}/>
                 }
 
-                <Comparison/>
-                <Similar/>
-                <Feedbacks/>
+                <Comparison comparison={info.comparison_products} loading={loading}/>
+                <Similar similar={info.related_products} loading={loading} />
+                <Feedbacks comments={info.comments} loading={loading}/>
             </div>
         </section>
     );
 };
 
 export default Wrapper;
+

@@ -9,7 +9,7 @@ interface props {
 }
 
 const Description = ({product, count}: props) => {
-    const {name, weight, seller, discount_price, price} = product
+    const {name, weight, store, discount_price, price} = product
     return (
         <div className={css.info}>
             <div className={css.mainInfo}>
@@ -19,7 +19,7 @@ const Description = ({product, count}: props) => {
                 <p className={css.weight}>
                     {weight}
                 </p>
-                <Seller seller={seller}/>
+                <Seller seller={store?.brand_name}/>
             </div>
             <div className={css.price_desctop}>
                 <Price discount_price={discount_price} price={price} count={count}/>

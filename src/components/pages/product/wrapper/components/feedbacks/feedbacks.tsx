@@ -3,12 +3,14 @@ import css from './feedbacks.module.css'
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Filters from "@/components/pages/product/wrapper/components/feedbacks/filters/filters";
 import List from "@/components/pages/product/wrapper/components/feedbacks/list/list";
+import {IComments} from "@/data-types/products/common";
 
 interface props {
-
+    comments:IComments[]
+    loading:boolean
 }
 
-const Feedbacks = (props: props) => {
+const Feedbacks = ({comments,loading}: props) => {
     return (
         <section className={css.feedback}>
             <HeadingLine small heading={{
@@ -16,7 +18,7 @@ const Feedbacks = (props: props) => {
             }}/>
             <div className={css.wrapper}>
                 <Filters/>
-                <List/>
+                <List comments={comments} loading={loading}/>
             </div>
         </section>
     );

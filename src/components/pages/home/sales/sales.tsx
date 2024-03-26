@@ -30,21 +30,19 @@ const Sales = (props: props) => {
             <div className={'container'}>
                 <HeadingLine heading={{
                     title: 'sales.title',
-                    count: data[0]?.result?.totalElements
+                    count: data?.totalElements
                 }}/>
 
                 {
-                    !loading ? <Skeleton  containerClassName={css.skeleton_cointainer}  className={css.skeleton} count={4} /> :
+                    loading ? <Skeleton  containerClassName={css.skeleton_cointainer}  className={css.skeleton} count={4} /> :
                         <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
                             {
-                                data.map((product:ICommon) =>{
-                                    return product?.result?.content.map((item:IProduct) =>{
-                                        return (
-                                            <div className={`keen-slider__slide`} key={item.id}>
-                                                <Product product={item} />
-                                            </div>
-                                        )
-                                    })
+                                data?.content?.map((product) =>{
+                                    return (
+                                        <div className={`keen-slider__slide`} key={product.id}>
+                                            <Product product={product} />
+                                        </div>
+                                    )
                                 })
                             }
                         </div>
