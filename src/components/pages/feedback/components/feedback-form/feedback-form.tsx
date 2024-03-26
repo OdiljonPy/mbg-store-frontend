@@ -13,12 +13,12 @@ import {raleway} from "@/constants/fonts/fonts";
 import ImageUploader from "@/components/pages/feedback/components/feedback-form/image-uploader/image-uploader";
 import uploaderCss from './image-uploader/image-uploader.module.css'
 import Image from "@/components/pages/feedback/components/feedback-form/image/image";
+import {IProductInner} from '@/data-types/products/product-inner/product-inner';
+import SuccessfulModal from '@/components/pages/feedback/components/successful-modal/successful-modal';
 
 import Skeleton from "react-loading-skeleton";
-import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 import {toNumber} from "@vue/shared";
 import API from "@/utils/axios/axios";
-import SuccessfulModal from "@/components/pages/feedback/components/successful-modal/successful-modal";
 
 
 interface props {

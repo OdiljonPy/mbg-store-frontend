@@ -1,7 +1,7 @@
-import {Modal} from "antd";
 import css from "./successful-modal.module.css"
 import CloseModal from "@/components/shared/close-modal/close-modal";
 import ModalInfo from "@/components/pages/feedback/components/successful-modal/components/modal-info";
+import {Modal} from "antd";
 
 
 interface props {
