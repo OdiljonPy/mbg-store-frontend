@@ -31,17 +31,15 @@ export const product: IProduct = {
         }
     ],
     seller: 'Продавец',
-    store:[
-        {
-            id:1,
-            brand_name:"Фермерская базарка",
-            longitude:0,
-            latitude:0,
-            working_time:"",
-            store_location_name:"",
-            logo:""
-        }
-    ]
+    store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
 }
 
 export const productWithoutDiscount: IProduct = {
@@ -61,17 +59,15 @@ export const productWithoutDiscount: IProduct = {
         }
     ],
     seller: 'Продавец',
-    store:[
-        {
-            id:1,
-            brand_name:"Фермерская базарка",
-            longitude:0,
-            latitude:0,
-            working_time:"",
-            store_location_name:"",
-            logo:""
-        }
-    ]
+     store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
 }
 export const productWithoutCount: IProduct = {
     id: 2,
@@ -91,17 +87,15 @@ export const productWithoutCount: IProduct = {
         }
     ],
     seller: 'Продавец',
-    store:[
-        {
-            id:1,
-            brand_name:"Фермерская базарка",
-            longitude:0,
-            latitude:0,
-            working_time:"",
-            store_location_name:"",
-            logo:""
-        }
-    ],
+     store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    },
     count:2
 }
 
@@ -125,17 +119,15 @@ export const productSales:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 2,
@@ -157,17 +149,15 @@ export const productSales:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 3,
@@ -188,17 +178,15 @@ export const productSales:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 4,
@@ -219,17 +207,15 @@ export const productSales:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     }
 ]
 export const productClose:IProduct[] = [
@@ -250,17 +236,15 @@ export const productClose:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 2,
@@ -279,17 +263,15 @@ export const productClose:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 3,
@@ -310,17 +292,15 @@ export const productClose:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 4,
@@ -339,17 +319,15 @@ export const productClose:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     }
 ]
 export const productTop:IProduct[] = [
@@ -372,17 +350,15 @@ export const productTop:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 2,
@@ -401,17 +377,15 @@ export const productTop:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 3,
@@ -433,17 +407,15 @@ export const productTop:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     },
     {
         id: 4,
@@ -465,17 +437,15 @@ export const productTop:IProduct[] = [
             }
         ],
         seller: 'Продавец',
-        store:[
-            {
-                id:1,
-                brand_name:"Фермерская базарка",
-                longitude:0,
-                latitude:0,
-                working_time:"",
-                store_location_name:"",
-                logo:""
-            }
-        ]
+        store:{
+        id:1,
+        brand_name:"Фермерская базарка",
+        longitude:0,
+        latitude:0,
+        working_time:"",
+        store_location_name:"",
+        logo:""
+    }
     }
 ]
 
