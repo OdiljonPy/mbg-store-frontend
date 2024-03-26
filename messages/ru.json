@@ -14,7 +14,8 @@
 		"profile": "Профиль",
 		"orders": "Заказы",
 		"order": "Заказ",
-		"address_book": "Адресная книжка"
+		"address_book": "Адресная книжка",
+		"favorites": "Избранные"
 	},
 	"categories": {
 		"title": "Категории",
