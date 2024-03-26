@@ -13,9 +13,11 @@ import {raleway} from "@/constants/fonts/fonts";
 import ImageUploader from "@/components/pages/feedback/components/feedback-form/image-uploader/image-uploader";
 import uploaderCss from './image-uploader/image-uploader.module.css'
 import Image from "@/components/pages/feedback/components/feedback-form/image/image";
-import {IProductSingle} from "@/data-types/products/products";
+
 import Skeleton from "react-loading-skeleton";
 import {IProductInner} from "@/data-types/products/product-inner/product-inner";
+import {toNumber} from "@vue/shared";
+import API from "@/utils/axios/axios";
 
 
 interface props {
@@ -25,8 +27,8 @@ interface props {
 
 
 const FeedbackForm = ({info,loading}: props) => {
-    // const {name} = info.result
     const t = useTranslations()
+
     const {resetField, clearErrors, handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
         mode: 'all'
     })
@@ -45,7 +47,7 @@ const FeedbackForm = ({info,loading}: props) => {
         const formImages = values.images.map((images)=> images.file)
         const data:any = new FormData()
         data.append('product_id', info?.id )
-        data.append('rating',values.rate)
+        data.append('rating',toNumber(values.rate))
         data.append('comment',values.message)
         for(let i = 0 ; i < formImages.length ; i++){
             data.append('images',formImages[i])
@@ -53,23 +55,24 @@ const FeedbackForm = ({info,loading}: props) => {
         if(!values.name){
             data.append('name',null)
         }
-        else
-        data.append('name',values.name)
-
+        else{
+            data.append('name',values.name)
+        }
 
         try{
-            const res = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/comment/',{
-                method : 'POST',
-                body:data,
-                headers:{
-                    Authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5NzI0Nzc2LCJpYXQiOjE3MDkxMTk5NzYsImp0aSI6IjhkMjA0MmU0NjZkYzRmMzBhNzE3NmFmMmIyNGQ0ZjA4IiwidXNlcl9pZCI6MX0.NMepH6I__w8HIt3TuyQ8sQoUI2Fcic291b1syLRPsvE`
-                },
-            })
-
-            const response = await res.json()
+            const res = await API.post('/store/comment/',data)
+            console.log(res)
+            if(res.data.ok){
+                resetField('name')
+                resetField('message')
+               formImages && formImages.forEach((image,idx)=>{
+                    remove(idx+1)
+                })
+            }
         }
         catch(err){
             console.log(err,"err")
+            alert(err)
         }
     }
 
@@ -81,7 +84,7 @@ const FeedbackForm = ({info,loading}: props) => {
                         {info?.available}г
                     </p></>}
             </div>
-            <Seller seller={'Зеленая лавка'}/>
+            <Seller seller={info?.store?.brand_name}/>
             <Rates register={register} watch={watch}/>
             <div className={css.flex}>
                 <div className={css.field}>
@@ -121,11 +124,12 @@ const FeedbackForm = ({info,loading}: props) => {
                 <label className={css.label}>
                     {t('feedback.message')}
                 </label>
-                <textarea {...register('message', {
+                <textarea maxLength={300} {...register('message', {
                     required: {
                         value: true,
-                        message: t('errors.required')
-                    }
+                        message: t('errors.required'),
+                    },
+                    maxLength:300
                 })} placeholder={t('feedback.messagePlaceholder')}
                           className={`${inputCss.input} ${raleway.className} ${inputCss.textarea} ${errors.name?.message ? inputCss.error : ''} `}/>
                 <FormError error={errors.name?.message}/>

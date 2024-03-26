@@ -40,7 +40,7 @@ const Description = ({info,loading}: props) => {
             <Price price={info?.price} discount_percentage={info?.discount} discount_price={info?.discount_price} loading={loading}/>
             <Deliveries/>
             <Actions/>
-            <AboutProduct/>
+            <AboutProduct description={info?.description}/>
         </div>
     );
 };

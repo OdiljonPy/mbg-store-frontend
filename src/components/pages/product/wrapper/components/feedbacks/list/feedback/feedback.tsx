@@ -5,6 +5,7 @@ import star from '@/../public/images/icons/star.svg'
 import img from '@/../public/images/products/mikado.png'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {IComments} from "@/data-types/products/common";
+import {formatDate} from "@/utils/format-date/format-date";
 
 interface props {
     feedback: IComments
@@ -13,7 +14,7 @@ interface props {
 const Feedback = ({feedback}: props) => {
 
 
-    const {name, rating, comment, images} = feedback
+    const {name, rating, comment, images,created_at} = feedback
 
     return (
         <div className={css.feedback}>
@@ -23,7 +24,7 @@ const Feedback = ({feedback}: props) => {
                 </h3>
                 <div className={css.info}>
                     <p className={css.date}>
-                         12.04.2024
+                        {formatDate(created_at)}
                     </p>
                     <p className={css.point}>
                         <span className={css.star}>
@@ -43,7 +44,7 @@ const Feedback = ({feedback}: props) => {
             <div className={css.images}>
                 {images?.map((item) => (
                     <div key={item?.id} className={css.img}>
-                        <ResponsiveImage src={img} alt={''}/>
+                        <ResponsiveImage src={item?.image} alt={''}/>
                     </div>
                 ))}
             </div>

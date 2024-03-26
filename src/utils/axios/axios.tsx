@@ -2,9 +2,9 @@ import axios from "axios";
 
 const defaultOptions = {
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    },
+    // headers: {
+    //     'Content-Type': 'application/json',
+    // },
 };
 
 const API = axios.create(defaultOptions);

@@ -23,6 +23,7 @@ export interface IComments{
     product:number
     rating:number
     comment:string
+    created_at:string
     images:IImages[]
 }
 export interface IProduct{
