@@ -1,0 +1,34 @@
+
+.mobile_products {
+	display: none;
+}
+
+@media (max-width: 575px) {
+	.products {
+		display: none;
+	}
+
+	.mobile_products {
+		display: block;
+	}
+
+	.mobile_products > div {
+		padding: 0 16px;
+	}
+}
+
+.product {
+	height: 116px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 6px;
+	border-radius: 14px;
+	background-color: var(--light-gray);
+}
+
+.product_image {
+	width: 64px;
+	height: 64px;
+	object-fit: contain;
+}

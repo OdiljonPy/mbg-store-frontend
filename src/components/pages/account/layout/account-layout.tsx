@@ -5,7 +5,7 @@ import css from "./account-layout.module.css";
 function AccountLayout({ children }: PropsWithChildren) {
 	return (
 		<div className={css.layout}>
-			<div className={"container"}>
+			<div className={["container", css.container].join(" ")}>
 				<div className={css.wrapper}>
 					<aside className={css.sidebar}>
 						<AccountNavigation />

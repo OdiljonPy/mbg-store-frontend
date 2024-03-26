@@ -11,7 +11,9 @@
 		"basket": "Корзина",
 		"delivery": "Доставка",
 		"account": "Аккаунт",
-		"profile": "Профиль"
+		"profile": "Профиль",
+		"orders": "Заказы",
+		"order": "Заказ"
 	},
 	"categories": {
 		"title": "Категории",
@@ -219,7 +221,8 @@
 		"save": "Сохранить"
 	},
 	"orders": {
-		"title": "Заказы"
+		"title": "Заказы",
+		"search": "Поиск"
 	},
 	"favorites": {
 		"title": "Избранное"

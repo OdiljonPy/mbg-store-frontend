@@ -1,0 +1,135 @@
+.card {
+	padding: 16px;
+	border: 2px solid var(--input-gray);
+	border-radius: 24px;
+}
+
+.card_header {
+	margin-bottom: 10px;
+}
+
+.card_footer {
+	margin-top: 24px;
+}
+
+.card_footer > *:not(:last-child) {
+	margin-bottom: 18px;
+}
+
+.card_title {
+	font-size: 24px;
+	margin-bottom: 18px;
+}
+
+@media (max-width: 575px) {
+	.card {
+		border: none;
+		border-radius: 14px;
+		box-shadow: 0 0 12px var(--input-gray);
+	}
+
+	.card:first-child {
+		box-shadow: 0 2px 4px var(--input-gray);
+	}
+
+	.card_footer {
+		margin-top: 10px;
+	}
+
+	.card_footer > *:not(:last-child) {
+		margin-bottom: 14px;
+	}
+}
+
+.list {
+	list-style: none;
+}
+
+.list li {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 18px;
+	font-weight: 600;
+	font-variant-numeric: lining-nums proportional-nums;
+}
+
+.list > li:not(:last-child) {
+	margin-bottom: 14px;
+}
+
+.list > li > span:first-child {
+	color: var(--icon-gray);
+}
+
+.list > li > span .promoname {
+	color: var(--green);
+}
+
+.divider {
+	margin: 18px 0;
+	border-bottom: 1.2px solid var(--input-gray);
+}
+
+.list .total {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+.list .total span:first-child {
+	color: var(--black);
+}
+
+.list .total span:last-child {
+	color: var(--green);
+	font-weight: 700;
+}
+
+.btn {
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+	font-weight: 600;
+	font-size: 17px;
+	color: var(--green);
+	background-color: white;
+	border: 2px solid var(--green);
+	border-radius: var(--default-radius);
+	transition: all 0.2s linear;
+	cursor: pointer;
+	text-wrap: nowrap;
+}
+
+.btn:hover {
+	background-color: var(--super-light-green);
+}
+
+@media (max-width: 575px) {
+	.card_title {
+		font-size: 15px;
+		margin-bottom: 12px;
+	}
+
+	.list > li {
+		font-size: 14px;
+	}
+
+	.list > li > span:first-child {
+		font-weight: 500;
+	}
+
+	.list > li:not(:last-child) {
+		margin-bottom: 6px;
+	}
+
+	.divider {
+		margin: 10px 0;
+	}
+
+	.list .total {
+		font-size: 15px;
+	}
+}

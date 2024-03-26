@@ -11,7 +11,9 @@
 		"basket": "Корзина",
 		"delivery": "Yetkazib Berish",
 		"account": "Akkaunt",
-		"profile": "Profil"
+		"profile": "Profil",
+		"orders": "Buyurtmalar",
+		"order": "Buyurtma"
 	},
 	"categories": {
 		"title": "Категории",
@@ -219,7 +221,8 @@
 		"save": "Saqlash"
 	},
 	"orders": {
-		"title": "Zakazlar"
+		"title": "Zakazlar",
+		"search": "Qidirish"
 	},
 	"favorites": {
 		"title": "Saralangan"

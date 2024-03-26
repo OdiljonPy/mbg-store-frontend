@@ -15,18 +15,8 @@
 	display: none;
 }
 
-.logout_btn {
-	background-color: #ffeaea;
-	color: var(--red);
-	font-weight: 600;
-	font-size: 17px;
-	display: flex;
-	align-items: center;
-	border: none;
-	border-radius: var(--default-radius);
-	padding: 15px 75px;
-	transition: all 0.2s linear;
-	cursor: pointer;
+.search_box {
+	width: 350px;
 }
 
 @media (max-width: 991px) {
@@ -35,10 +25,6 @@
 		margin-bottom: 0;
 		height: 48px;
 		position: relative;
-	}
-
-	.logout_btn {
-		display: none;
 	}
 
 	.icon_back {
@@ -51,6 +37,10 @@
 
 	.title {
 		font-size: 20px;
+	}
+
+	.search_box {
+		display: none;
 	}
 }
 
