@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import css from './feedback-form.module.css'
 import {Controller, useFieldArray, useForm} from "react-hook-form";
 import {IFeedbackForm} from "@/components/pages/feedback/data-types/feedback";
@@ -18,6 +18,7 @@ import Skeleton from "react-loading-skeleton";
 import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 import {toNumber} from "@vue/shared";
 import API from "@/utils/axios/axios";
+import SuccessfulModal from "@/components/pages/feedback/components/successful-modal/successful-modal";
 
 
 interface props {
@@ -28,6 +29,7 @@ interface props {
 
 const FeedbackForm = ({info,loading}: props) => {
     const t = useTranslations()
+    const [open, setOpen] = useState<boolean>(false)
 
     const {resetField, clearErrors, handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
         mode: 'all'
@@ -63,11 +65,11 @@ const FeedbackForm = ({info,loading}: props) => {
             const res = await API.post('/store/comment/',data)
             console.log(res)
             if(res.data.ok){
+                setOpen(true)
                 resetField('name')
                 resetField('message')
-               formImages && formImages.forEach((image,idx)=>{
-                    remove(idx+1)
-                })
+                resetField('rate')
+                remove([...formImages.map((img,idx)=> idx)])
             }
         }
         catch(err){
@@ -76,81 +78,91 @@ const FeedbackForm = ({info,loading}: props) => {
         }
     }
 
-    return (
-        <form onSubmit={handleSubmit(onSendFeedback)} className={css.form}>
-            <div className={css.title}>
-                {loading ? <Skeleton count={1} height={'30px'} width={'350px'} /> : <><Title title={info?.name} loading={loading}/>
-                    <p className={css.weight}>
-                        {info?.available}г
-                    </p></>}
-            </div>
-            <Seller seller={info?.store?.brand_name}/>
-            <Rates register={register} watch={watch}/>
-            <div className={css.flex}>
-                <div className={css.field}>
-                    <label className={css.label}>
-                        {t('feedback.name')}
-                    </label>
-                    <input {...register('name', {
-                        required: {
-                            value: !anonymus,
-                            message: t('errors.required')
-                        }
-                    })} disabled={anonymus} placeholder={t('feedback.namePlaceholder')}
-                           className={`${inputCss.input} ${anonymus ? inputCss.disabled : ''} ${raleway.className} ${errors.name?.message ? inputCss.error : ''} `}/>
-                    <FormError error={errors.name?.message}/>
-                </div>
+    // for modal
 
-                <Controller control={control} rules={{
-                    required: {
-                        value: false,
-                        message: t('errors.required')
-                    },
-                    onChange: (e: {target: {value: boolean}}) => {
-                        setValue('anonymus', e.target.value)
-                        resetField('name')
-                        clearErrors('name')
-                    }
-                }} render={({field: {onChange, value}}) => (
-                    <div className={css.switch}>
-                        <label className={css.text}>
-                            {t('feedback.anonymus')}
-                        </label>
-                        <CustomSwitch onChange={onChange} checked={value}/>
-                    </div>
-                )} name={'anonymus'}/>
-            </div>
-            <div className={css.textarea}>
-                <label className={css.label}>
-                    {t('feedback.message')}
-                </label>
-                <textarea maxLength={300} {...register('message', {
-                    required: {
-                        value: true,
-                        message: t('errors.required'),
-                    },
-                    maxLength:300
-                })} placeholder={t('feedback.messagePlaceholder')}
-                          className={`${inputCss.input} ${raleway.className} ${inputCss.textarea} ${errors.name?.message ? inputCss.error : ''} `}/>
-                <FormError error={errors.name?.message}/>
-            </div>
-            <label className={` ${uploaderCss.label}`}>
-                {t('feedback.photo')} <span className={uploaderCss.text}>({t('feedback.photoDetails')})</span>
-            </label>
-            <div className={css.images}>
-                <ImageUploader isHide={fields.length >= 4} onUploadImage={onUploadImage}/>
-                {fields?.map((image, i) => (
-                    <Image index={i} remove={remove} image={image.file} key={image.id}/>
-                ))}
-            </div>
-            <div className={css.actions}>
-                <button type={'submit'} className={css.btn}>
-                    {t('feedback.send')}
-                </button>
-            </div>
-        </form>
+    const closeModal = () =>{
+        setOpen(false)
+    }
+
+    return (
+
+       <div className={css.form}>
+           <form onSubmit={handleSubmit(onSendFeedback)} >
+               <div className={css.title}>
+                   {loading ? <Skeleton count={1} height={'30px'} width={'350px'} /> : <><Title title={info?.name} loading={loading}/>
+                       <p className={css.weight}>
+                           {info?.available}г
+                       </p></>}
+               </div>
+               <Seller seller={info?.store?.brand_name}/>
+               <Rates register={register} watch={watch}/>
+               <div className={css.flex}>
+                   <div className={css.field}>
+                       <label className={css.label}>
+                           {t('feedback.name')}
+                       </label>
+                       <input {...register('name', {
+                           required: {
+                               value: !anonymus,
+                               message: t('errors.required')
+                           }
+                       })} disabled={anonymus} placeholder={t('feedback.namePlaceholder')}
+                              className={`${inputCss.input} ${anonymus ? inputCss.disabled : ''} ${raleway.className} ${errors.name?.message ? inputCss.error : ''} `}/>
+                       <FormError error={errors.name?.message}/>
+                   </div>
+
+                   <Controller control={control} rules={{
+                       required: {
+                           value: false,
+                           message: t('errors.required')
+                       },
+                       onChange: (e: {target: {value: boolean}}) => {
+                           setValue('anonymus', e.target.value)
+                           resetField('name')
+                           clearErrors('name')
+                       }
+                   }} render={({field: {onChange, value}}) => (
+                       <div className={css.switch}>
+                           <label className={css.text}>
+                               {t('feedback.anonymus')}
+                           </label>
+                           <CustomSwitch onChange={onChange} checked={value}/>
+                       </div>
+                   )} name={'anonymus'}/>
+               </div>
+               <div className={css.textarea}>
+                   <label className={css.label}>
+                       {t('feedback.message')}
+                   </label>
+                   <textarea maxLength={300} {...register('message', {
+                       required: {
+                           value: true,
+                           message: t('errors.required'),
+                       },
+                       maxLength:300
+                   })} placeholder={t('feedback.messagePlaceholder')}
+                             className={`${inputCss.input} ${raleway.className} ${inputCss.textarea} ${errors.name?.message ? inputCss.error : ''} `}/>
+                   <FormError error={errors.name?.message}/>
+               </div>
+               <label className={` ${uploaderCss.label}`}>
+                   {t('feedback.photo')} <span className={uploaderCss.text}>({t('feedback.photoDetails')})</span>
+               </label>
+               <div className={css.images}>
+                   <ImageUploader isHide={fields.length >= 4} onUploadImage={onUploadImage}/>
+                   {fields?.map((image, i) => (
+                       <Image index={i} remove={remove} image={image.file} key={image.id}/>
+                   ))}
+               </div>
+               <div className={css.actions}>
+                   <button type={'submit'} className={css.btn}>
+                       {t('feedback.send')}
+                   </button>
+               </div>
+           </form>
+           <SuccessfulModal open={open} onClose={closeModal}/>
+       </div>
     )
-        ;
+
 };
 
 export default FeedbackForm;
