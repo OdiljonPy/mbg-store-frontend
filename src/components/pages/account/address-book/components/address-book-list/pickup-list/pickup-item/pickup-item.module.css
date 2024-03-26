@@ -1,23 +1,17 @@
-.title {
-	font-size: 20px;
-	font-weight: 600;
-	margin-bottom: 14px;
-}
-
 .card {
+	display: flex;
+	gap: 10px;
 	padding: 16px;
 	border: 2px solid var(--input-gray);
 	border-radius: 24px;
-	margin-bottom: 24px;
 }
 
-.card_header {
-	display: flex;
+.header {
+	flex: 1 1 0%;
 	gap: 10px;
-	margin-bottom: 10px;
 }
 
-.card_title {
+.title {
 	font-size: 18px;
 	font-weight: 600;
 	display: flex;
@@ -27,18 +21,18 @@
 	font-variant-numeric: lining-nums proportional-nums;
 }
 
-.card_subtitle {
+.subtitle {
 	font-size: 16px;
 	font-weight: 500;
 	color: var(--icon-gray);
 	font-variant-numeric: lining-nums proportional-nums;
 }
 
-.card_subtitle:not(:last-child) {
+.subtitle:not(:last-child) {
 	margin-bottom: 5px;
 }
 
-.card_subtitle.time {
+.subtitle.time {
 	display: flex;
 	align-items: center;
 	gap: 4px;
@@ -53,23 +47,29 @@
 
 	.card {
 		padding: 10px;
-		border: 1.2px solid var(--light-green);
 		border-radius: 12px;
 	}
 
-	.card:not(:last-child) {
-		margin-bottom: 20px;
-	}
-
-	.card_title {
+	.title {
 		font-size: 14px;
 		gap: 4px;
 	}
 
-	.card_subtitle {
+	.subtitle {
 		font-size: 14px;
 		font-weight: 400;
 		color: var(--icon-gray);
 		margin-bottom: 10px;
 	}
+}
+
+.control {
+	display: flex;
+	align-items: start;
+	gap: 16px;
+}
+
+.btn {
+	background-color: transparent;
+	border: none;
 }

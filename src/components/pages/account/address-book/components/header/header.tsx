@@ -4,7 +4,7 @@ import Search from "../search/search";
 import css from "./header.module.css";
 
 function Header() {
-	const t = useTranslations("orders");
+	const t = useTranslations("address_book");
 
 	return (
 		<div className={css.header}>
