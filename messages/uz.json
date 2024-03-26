@@ -13,7 +13,9 @@
 		"account": "Akkaunt",
 		"profile": "Profil",
 		"orders": "Buyurtmalar",
-		"order": "Buyurtma"
+		"order": "Buyurtma",
+		"address_book": "Адресная книжка",
+		"favorites": "Saralangan"
 	},
 	"categories": {
 		"title": "Категории",
