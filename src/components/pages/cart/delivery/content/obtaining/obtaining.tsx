@@ -52,6 +52,7 @@ const Obtaining = (props: props) => {
             <div>
                 {!isChoose && <div>
                     <ObtainingChose tab={tab} changeTab={changeTab}/>
+
                     <div className={css.change_container} style={containerStyle}>
                         {tab == 'left' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}
                                                             activeAddress={activeAddress}/> :

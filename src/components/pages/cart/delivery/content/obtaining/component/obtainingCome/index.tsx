@@ -22,7 +22,7 @@ const ObtainingCome = ({changeContainerHeight}: props) => {
         {
             id: 1,
             value: 1,
-            title: "Мой дом",
+            title: "Зеленая лавка “Сквер”",
             address: "г. Ташкент, проспект Навои, д-27",
             status: "",
             date: "8:00-23:00"
@@ -30,7 +30,7 @@ const ObtainingCome = ({changeContainerHeight}: props) => {
         {
             id: 2,
             value: 2,
-            title: "Мама",
+            title: "Фермерская базарка “Сквер”",
             address: "г. Ташкент, проспект Навои, д-27",
             status: "",
             date: "8:00-23:00"
@@ -57,19 +57,26 @@ const ObtainingCome = ({changeContainerHeight}: props) => {
     return (
         <div ref={cardRef}>
             {
-                openAddress ? <div className={css.carts}>
+                <div className={css.carts}>
                     {addressList.map((item) => <AddressCart  key={item.id} data={item}/>)}
-                </div> : <div className={css.obtainingCome}>
-                    <AddressItem openModal={openFormModal} title={"Зеленая лавка"}/>
-                    <AddressItem openModal={openFormModal} title={"Фермерская базарка"}/>
                 </div>
             }
-
-
-            <ObtainingComeModal  openAddress={handleOpenAddress} nameMarket={chooseMarket} open={open}
-                                onClose={onClose}/>
         </div>
     )
 }
+
+
+// addressni kiritidagan holi uchun
+
+// {
+//     !openAddress ? <div className={css.carts}>
+//         {addressList.map((item) => <AddressCart  key={item.id} data={item}/>)}
+//     </div> : <div className={css.obtainingCome}>
+//         <AddressItem openModal={openFormModal} title={"Зеленая лавка"}/>
+//         <AddressItem openModal={openFormModal} title={"Фермерская базарка"}/>
+//     </div>
+// }
+// <ObtainingComeModal  openAddress={handleOpenAddress} nameMarket={chooseMarket} open={open}
+//                      onClose={onClose}/>
 
 export default ObtainingCome

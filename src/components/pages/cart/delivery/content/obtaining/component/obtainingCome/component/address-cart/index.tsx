@@ -33,7 +33,7 @@ function AddressCart({data}: Props) {
                     </div>
                 </div>
                 <div className={css.action}>
-                    <EditSVG/>
+                    {/*<EditSVG/>*/}
                 </div>
             </div>
             <div className={css.status}>
