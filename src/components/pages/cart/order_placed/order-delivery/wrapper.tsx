@@ -1,9 +1,9 @@
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from "next-intl";
-import Content from "@/components/pages/cart/order_placed/content/content";
+import Content from "@/components/pages/cart/order_placed/order-delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
-import Status from "@/components/pages/cart/order_placed/status/status";
+import Status from "@/components/pages/cart/order_placed/common/order-status/status";
 
 interface props {
 
@@ -29,7 +29,7 @@ const Wrapper = (props: props) => {
                     }
                 ]}/>
                 <div className={css.status}>
-                    <Status status={"Ожидает оплаты"}/>
+                    <Status status_text={"Оплачено"} status='done'/>
                 </div>
                 <div className={css.wrapper}>
                     <Content/>

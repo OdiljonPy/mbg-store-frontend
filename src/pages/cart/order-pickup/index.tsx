@@ -1,7 +1,7 @@
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
-import Wrapper from "@/components/pages/cart/order_placed/wrapper";
+import Wrapper from "@/components/pages/cart/order_placed/order-pickup/wrapper";
 
 interface props {
 

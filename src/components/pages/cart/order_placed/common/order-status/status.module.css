@@ -24,8 +24,12 @@
     font-weight: bold;
 }
 
-.status_text > p > span{
+.warning{
     color: #EF9545;
+}
+.done{
+    color: #2E9D58;
+;
 }
 
 @media (max-width: 992px){
