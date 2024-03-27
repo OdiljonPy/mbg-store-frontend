@@ -8,7 +8,7 @@ interface props{
     title:string
     index?:string | number
     isBadge?:boolean
-    children?:ReactElement
+    children?:any
     badeCount?:number
 }
 

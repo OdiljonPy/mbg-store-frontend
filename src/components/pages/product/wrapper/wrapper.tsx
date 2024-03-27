@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from 'next-intl';
@@ -10,8 +10,6 @@ import {useRouter} from "next/router";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProductSingle} from "@/slices/product/productSingleSlices";
-import {GetServerSideProps} from "next";
-import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 
 interface props {
 }

@@ -58,7 +58,7 @@ const ObtainingCome = ({changeContainerHeight}: props) => {
         <div ref={cardRef}>
             {
                 <div className={css.carts}>
-                    {addressList.map((item) => <AddressCard type={'pick_up'}/>)}
+                    {addressList.map((item) => <AddressCard type={'pick_up'} key={item.id}/>)}
                 </div>
             }
         </div>
