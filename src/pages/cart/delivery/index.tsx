@@ -13,7 +13,7 @@ const Index = (props: props) => {
         <>
             <Head>
                 <title>
-                    {t('header.order-delivery')}
+                    {t('header.delivery')}
                 </title>
             </Head>
             <Wrapper/>
