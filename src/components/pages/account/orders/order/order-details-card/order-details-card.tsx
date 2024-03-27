@@ -1,8 +1,4 @@
 import {
-	deliveryStatusMap,
-	pickupStatusMap,
-} from "@/constants/account/orders/status-map";
-import {
 	EnumDeliveryType,
 	EnumOrderStatusDelivery,
 	EnumOrderStatusPickup,
@@ -11,6 +7,10 @@ import {
 import { formatPhoneNumber } from "@/utils/phone-format/phone-format";
 import dayjs from "dayjs";
 import Badge from "../../components/badge/badge";
+import {
+	deliveryStatusMap,
+	pickupStatusMap,
+} from "../../constants/orders/status-map";
 import css from "./order-details-card.module.css";
 
 interface Props {

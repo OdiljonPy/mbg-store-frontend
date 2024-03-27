@@ -11,11 +11,11 @@ import {
 import dayjs from "dayjs";
 import css from "./header.module.css";
 
+import Badge from "../../components/badge/badge";
 import {
 	deliveryStatusMap,
 	pickupStatusMap,
-} from "@/constants/account/orders/status-map";
-import Badge from "../../components/badge/badge";
+} from "../../constants/orders/status-map";
 
 interface Props {
 	order: IOrder;

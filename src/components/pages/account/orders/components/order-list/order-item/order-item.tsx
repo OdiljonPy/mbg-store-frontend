@@ -12,7 +12,7 @@ import {
 	deliveryStatusMap,
 	pickupStatusMap,
 	receivingMethodMap,
-} from "@/constants/account/orders/status-map";
+} from "../../../constants/orders/status-map";
 
 import { EnumOrderStatusDelivery } from "@/data-types/order/order";
 import Link from "next/link";
