@@ -1,5 +1,5 @@
 import css from "./obtaining.module.css"
-import Heading from "@/components/pages/cart/delivery/content/heading/heading";
+import Heading from "@/components/pages/cart/common/heading/heading";
 import ObtainingChose from "@/components/pages/cart/delivery/content/obtaining/component/obtainingChose";
 import {useState} from "react";
 import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery";

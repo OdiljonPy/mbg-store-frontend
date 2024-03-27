@@ -6,7 +6,7 @@ import FormError from "@/components/shared/form-error/form-error";
 import { useForm} from "react-hook-form";
 import {useTranslations} from "next-intl";
 
-import Heading from "@/components/pages/cart/delivery/content/heading/heading";
+import Heading from "@/components/pages/cart/common/heading/heading";
 import {PhoneInput} from "react-international-phone";
 interface props{
 
