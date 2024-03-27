@@ -13,7 +13,8 @@
 		"account": "Аккаунт",
 		"profile": "Профиль",
 		"orders": "Заказы",
-		"order": "Заказ"
+		"order": "Заказ",
+		"order_placed": "Заказ размещен"
 	},
 	"categories": {
 		"title": "Категории",
