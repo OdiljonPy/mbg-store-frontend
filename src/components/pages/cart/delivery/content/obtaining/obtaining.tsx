@@ -4,10 +4,10 @@ import ObtainingChose from "@/components/pages/cart/delivery/content/obtaining/c
 import {useState} from "react";
 import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery";
 import ObtainingCome from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome";
-import StatusCard from "@/components/pages/cart/delivery/content/obtaining/component/card/status_card";
 import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import {useRouter} from "next/router";
 import {usePathname} from "next/navigation";
+import AddressCard from "@/components/pages/cart/common/address-card/address-card";
 
 interface props {
 
@@ -83,8 +83,8 @@ const Obtaining = (props: props) => {
                     </div>
                 </div>}
                 {type && <div className={css.status_cart}>
-                    <StatusCard type='delivery'/>
-                    <StatusCard type='pick_up'/>
+                    <AddressCard type={"delivery"}/>
+                    <AddressCard type={"pick_up"}/>
                 </div>}
             </div>
 

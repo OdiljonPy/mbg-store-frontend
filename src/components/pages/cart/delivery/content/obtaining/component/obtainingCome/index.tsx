@@ -5,8 +5,8 @@ import AddressItem
 import css from "./index.module.css"
 import ObtainingComeModal
     from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome/modal/ObtainingComeModal";
-import AddressCart
-    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome/component/address-cart";
+
+import AddressCard from "@/components/pages/cart/common/address-card/address-card";
 
 interface props {
     changeContainerHeight: (e: number) => void
@@ -58,7 +58,7 @@ const ObtainingCome = ({changeContainerHeight}: props) => {
         <div ref={cardRef}>
             {
                 <div className={css.carts}>
-                    {addressList.map((item) => <AddressCart  key={item.id} data={item}/>)}
+                    {addressList.map((item) => <AddressCard type={'pick_up'}/>)}
                 </div>
             }
         </div>
