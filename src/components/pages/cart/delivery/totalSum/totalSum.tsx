@@ -4,6 +4,7 @@ import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 import {useRouter} from "next/router";
+import {useParams, useSearchParams} from "next/navigation";
 
 interface props{
 
@@ -11,7 +12,21 @@ interface props{
 
 const TotalSum = (props:props) =>{
     const t = useTranslations()
-    const {push} = useRouter()
+
+    const router = useRouter()
+    const throwOrder = () =>{
+        if(router.query?.type){
+            if(router.query.type === 'delivery'){
+                router.push("/cart/order-delivery")
+            }
+            else {
+                router.push("/cart/order-pickup")
+            }
+        }
+        else{
+            router.push("/cart/order-delivery")
+        }
+    }
     return(
         <div className={css.total}>
             <h3 className={css.title}>
@@ -24,7 +39,7 @@ const TotalSum = (props:props) =>{
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(174000 - 26000, true)}/>
-                    <button type={'button'} className={`${css.btn} ${css.checkout_btn}`} onClick={()=> push("/cart/order")}>
+                    <button type={'button'} className={`${css.btn} ${css.checkout_btn}`} onClick={throwOrder}>
                         {t('cart.checkout')}
                     </button>
 

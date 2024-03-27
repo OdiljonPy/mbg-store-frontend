@@ -1,7 +1,7 @@
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
-import Wrapper from "@/components/pages/cart/delivery/wrapper";
+import Wrapper from "@/components/pages/cart/order_placed/wrapper";
 
 interface props {
 
@@ -13,7 +13,7 @@ const Index = (props: props) => {
         <>
             <Head>
                 <title>
-                    {t('header.order-delivery')}
+                    {t('header.order_placed')}
                 </title>
             </Head>
             <Wrapper/>

@@ -6,12 +6,16 @@ import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtainin
 import ObtainingCome from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome";
 import StatusCard from "@/components/pages/cart/delivery/content/obtaining/component/card/status_card";
 import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
+import {useRouter} from "next/router";
+import {usePathname} from "next/navigation";
 
 interface props {
 
 }
 
 const Obtaining = (props: props) => {
+    const {push,query} = useRouter()
+    const pathname: string = usePathname()
     const [tab, setTab] = useState('left')
     const [containerHeight, setContainerHeight] = useState(20)
     const [type, setType] = useState('')
@@ -24,6 +28,25 @@ const Obtaining = (props: props) => {
 
     function changeTab(e: string) {
         setTab((prevState) => prevState = e)
+
+        if(tab === 'right'){
+            push({
+                pathname,
+                query:{
+                    ...query,
+                    type:'delivery'
+                },
+            })
+        }
+        else{
+            push({
+                pathname,
+                query:{
+                    ...query,
+                    type:'pickup'
+                }
+            })
+        }
     }
 
     const containerStyle = {
