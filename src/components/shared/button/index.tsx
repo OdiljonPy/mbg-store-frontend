@@ -13,6 +13,7 @@ function Button({
 	children,
 	className,
 	full,
+	disabled,
 	loading,
 	variant = "primary",
 	...props
@@ -21,6 +22,7 @@ function Button({
 		<button
 			{...props}
 			className={cn(css.btn, full && css.full, css[variant], className)}
+			disabled={loading || disabled}
 		>
 			<span className={css.spin_wrapper}>
 				{loading && (
