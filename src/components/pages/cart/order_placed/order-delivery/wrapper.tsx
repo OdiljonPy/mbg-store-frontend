@@ -36,7 +36,7 @@ const Wrapper = (props: props) => {
                     <Content/>
                    <div className={css.detail}>
                        <DetailCart/>
-                       <DetailPrice/>
+                       <DetailPrice />
                    </div>
                 </div>
             </div>

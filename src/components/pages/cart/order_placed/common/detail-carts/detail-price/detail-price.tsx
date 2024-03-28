@@ -32,8 +32,7 @@ const DetailCart = ({isDeleteAction}:props) =>{
 
                     <DetailItem className={css.all_price} label={t('order_placed.order_all')}
                            value={priceFormatter(174000 - 26000, true)}/>
-
-                {isDeleteAction &&    <div className={css.action}>
+                {isDeleteAction &&  <div className={css.action}>
                     <WarningText><p>{t('order_placed.warning_text')}</p></WarningText>
                     <SendButton title={'cart.checkout'} outline={true} onClick={onSubmit}/>
                 </div>}
