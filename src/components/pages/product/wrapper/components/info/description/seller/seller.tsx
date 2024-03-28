@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 import {IStore} from "@/data-types/products/common";
 
 interface props {
-    seller: string
+    seller?: string
 }
 
 const Seller = ({seller}: props) => {

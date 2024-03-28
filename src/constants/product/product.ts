@@ -1,4 +1,4 @@
-import {IProduct} from "@/data-types/products/products";
+import {IProduct} from "@/data-types/products/common";
 import img from '@/../public/images/products/mikado.png'
 import img1 from '@/../public/images/products/fruct.png'
 import img2 from '@/../public/images/products/tanho.png'

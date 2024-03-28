@@ -1,6 +1,6 @@
 import css from './product.module.css'
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {IProduct} from "@/data-types/products/products";
+import {IProduct} from "@/data-types/products/common";
 import Description from "@/components/pages/cart/contents/product/description/description";
 import {useState} from "react";
 import Actions from "@/components/pages/cart/contents/product/actions/actions";
