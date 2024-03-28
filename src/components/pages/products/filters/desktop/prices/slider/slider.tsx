@@ -24,7 +24,7 @@ const PriceSlider = ({onChangeComplete, onChange, priceRange}: props) => {
                 }
             }
         }}>
-            <Slider min={1000} max={100000000} defaultValue={priceRange} tooltip={{
+            <Slider min={1000} max={10000000} defaultValue={priceRange} tooltip={{
                 open: false
             }} value={priceRange} onChange={onChange} onChangeComplete={onChangeComplete} range/>
         </ConfigProvider>

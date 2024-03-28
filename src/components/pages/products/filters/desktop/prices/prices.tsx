@@ -19,7 +19,7 @@ const Prices = (props: props) => {
     const {push, query, isReady} = useRouter()
     const searchParams = useSearchParams()
     const prices: string | null = searchParams.get('prices')
-    const pricesRange = prices ? prices.split(',').map((item) => Number(item)) : [1000, 100000000]
+    const pricesRange = prices ? prices.split(',').map((item) => Number(item)) : [1000, 10000000]
     const [priceRange, setPriceRange] = useState<number[]>(pricesRange)
 
     const onChange = (value: number[]) => {
