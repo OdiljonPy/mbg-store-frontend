@@ -43,7 +43,8 @@ export interface IProduct {
 	is_favorite?: boolean;
 	description?: string;
 	number_of_sales?: number;
-	store: IStore;
+	store?: IStore;
+	seller?: string;
 	images: IImages[];
 	count?: number;
 }

@@ -1,5 +1,5 @@
 import css from './description.module.css'
-import {IProduct} from "@/data-types/products/products";
+import {IProduct} from "@/data-types/products/common";
 import Seller from "@/components/pages/product/wrapper/components/info/description/seller/seller";
 import Price from "@/components/pages/cart/contents/product/description/price/price";
 

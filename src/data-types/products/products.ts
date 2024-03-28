@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import {IStore} from "@/data-types/products/common";
 
 export interface IProduct {
 	id: number;
@@ -12,11 +13,12 @@ export interface IProduct {
 	view_count: number;
 	free_shipping?: boolean;
 	pickup?: boolean;
-	weight: string;
+	weight?: string;
 	available: number;
 	count?: number;
-	seller: string;
+	seller?: string;
 	is_favorite?: boolean;
+	store?: IStore;
 	images: {
 		id: number;
 		product: number;
