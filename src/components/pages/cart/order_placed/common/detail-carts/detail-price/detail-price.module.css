@@ -11,7 +11,6 @@
     color: var(--black);
 }
 
-
 .info {
     margin-top: 18px ;
 }
@@ -24,6 +23,22 @@
 
 .finalPrice p {
     color: var(--text-green);
+}
+
+.all_price p {
+    font-weight: bold;
+    color: var(--text-green);
+}
+
+.all_price  h5{
+    font-weight: bold;
+    color: var(--black);
+}
+
+.promo_code{
+    color: var(--text-green);
+    font-weight: 600;
+    padding-left: 6px;
 }
 
 
@@ -40,8 +55,8 @@
     border: none;
     border-radius: var(--default-radius);
     cursor: pointer;
-    margin: 18px auto 20px;
     transition: all .2s linear;
+    margin: 0 auto;
 }
 
 .btn:hover {
@@ -53,6 +68,13 @@
 }
 .link{
     text-decoration: none;
+}
+
+.action{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 @media (max-width: 575px) {
@@ -72,8 +94,8 @@
     padding: 14px 0 0 0;
 }
 .checkout_btn{
-    background-color: var( --light-gray);
-    color:var(--icon-gray)
+    /*background-color: var( --light-gray);*/
+    /*color:var(--icon-gray)*/
 }
 .checkout_btn:hover{
     color: #fff;

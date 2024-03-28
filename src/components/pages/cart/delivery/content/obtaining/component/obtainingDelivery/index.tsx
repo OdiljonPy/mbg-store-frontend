@@ -4,9 +4,9 @@ import FormModal from "@/components/pages/cart/delivery/content/obtaining/compon
 import AddressCart
     from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/address-cart";
 import AddAddress
-    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/button/add_address";
+    from "@/components/pages/cart/common/button/add_address";
 import SendButton
-    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/button/send_button";
+    from "@/components/pages/cart/common/button/send_button";
 import DeleteModal
     from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/modal/delete_modal/delete_modal";
 

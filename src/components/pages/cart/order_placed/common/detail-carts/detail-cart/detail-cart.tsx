@@ -20,7 +20,7 @@ const DetailCart = (props:props) =>{
                 {t('order_placed.order_detail')}
             </h3>
             <div className={css.info}>
-                <DetailItem label={t('order_placed.number_order')} value={'MBG12345'}/>
+                <DetailItem className={css.finalPrice} label={t('order_placed.number_order')} value={'MBG12345'}/>
                 <DetailItem className={css.paddingTop} label={t('order_placed.date_order')} value={'20 декабря 2023 г. (13:34)'}/>
                 <DetailItem className={css.paddingTop} label={t('order_placed.recipient')} value={'Малика Кадирова'}/>
                 <DetailItem className={css.paddingTop} label={t('cart.delivery.phone_label')} value={formatPhoneNumber('+998901234567')}/>

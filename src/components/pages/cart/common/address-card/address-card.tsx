@@ -3,6 +3,7 @@ import css from "@/components/pages/cart/common/address-card/address-card.module
 import InfoSVG from "@/components/pages/cart/common/address-card/components/icon/InfoSVG";
 import StoreSVG from "@/components/pages/cart/common/address-card/components/icon/StoreSVG";
 import ClockSVG from "@/components/pages/cart/common/address-card/components/icon/ClockSVG";
+import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 interface props{
     type : 'delivery' | 'pick_up'
 }
@@ -17,10 +18,7 @@ const AddressCard = ({type}:props) =>{
                     {type == 'pick_up' ? <div className={css.time}><ClockSVG/> 8:00-23:00</div> : ''}
                 </div>
             </div>
-            <div className={css.status}>
-                <InfoSVG/>
-                <p className={css.status_text}>Примерная дата доставки: <span>18 декабря 2023 г.</span> </p>
-            </div>
+           <WarningText><p>Примерная дата доставки: <span>18 декабря 2023 г.</span> </p></WarningText>
         </div>
     )
 }

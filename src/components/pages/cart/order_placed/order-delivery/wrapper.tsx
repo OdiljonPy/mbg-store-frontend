@@ -4,6 +4,7 @@ import {useTranslations} from "next-intl";
 import Content from "@/components/pages/cart/order_placed/order-delivery/content/content";
 import Status from "@/components/pages/cart/order_placed/common/order-status/status";
 import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart";
+import DetailPrice from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price";
 
 interface props {
 
@@ -33,8 +34,10 @@ const Wrapper = (props: props) => {
                 </div>
                 <div className={css.wrapper}>
                     <Content/>
-                    {/*<TotalSum/>*/}
-                    <DetailCart/>
+                   <div className={css.detail}>
+                       <DetailCart/>
+                       <DetailPrice/>
+                   </div>
                 </div>
             </div>
         </section>

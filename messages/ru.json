@@ -176,7 +176,8 @@
 		"recipient": "Получатель",
 		"order_cost_title": "Стоимость заказа",
 		"order_cost": "Стоимость товаров",
-		"order_all": "Всего"
+		"order_all": "Всего",
+		"warning_text": "Оплата при получении товара"
 	},
 	"modal": {
 		"no": "Нет",
