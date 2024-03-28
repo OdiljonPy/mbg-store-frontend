@@ -26,6 +26,17 @@ export interface IComments{
     created_at:string
     images:IImages[]
 }
+
+export interface IPagination{
+    totalElements:number
+    totalPages:number
+    size:number
+    number:number
+    numberOfElements:number
+    first:boolean
+    last:boolean
+    empty:boolean
+}
 export interface IProduct{
     id:number
     name:string

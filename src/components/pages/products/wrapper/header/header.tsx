@@ -7,9 +7,10 @@ import SortDropdown from "@/components/pages/products/filters/desktop/sort-dropd
 import MobileFilters from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters";
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
 import {ICommon} from "@/data-types/products/products";
+import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
 
 interface props {
-    data?:ICommon[]
+    data?:IProductFilter
 }
 
 const Header = ({data}: props) => {
@@ -17,7 +18,7 @@ const Header = ({data}: props) => {
         <div className={css.wrapper}>
             <div className={css.info}>
                 <Title/>
-                <ProductsCount count={data ? data[0]?.result?.size : 12}/>
+                <ProductsCount count={data ? data?.size : 12}/>
             </div>
             <div className={css.actions}>
                 <MobileFilters/>
