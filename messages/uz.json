@@ -169,6 +169,15 @@
 			"name_placeholder": "Введите ваше имя"
 		}
 	},
+	"order_placed": {
+		"order_detail": "Детали заказа",
+		"number_order": "Номер заказа",
+		"date_order": "Время заказа",
+		"recipient": "Получатель",
+		"order_cost_title": "Стоимость заказа",
+		"order_cost": "Стоимость товаров",
+		"order_all": "Всего"
+	},
 	"modal": {
 		"no": "Нет",
 		"yes": "Да, удалить",

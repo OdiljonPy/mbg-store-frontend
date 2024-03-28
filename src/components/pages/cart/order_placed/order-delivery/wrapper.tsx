@@ -2,8 +2,8 @@ import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from "next-intl";
 import Content from "@/components/pages/cart/order_placed/order-delivery/content/content";
-import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import Status from "@/components/pages/cart/order_placed/common/order-status/status";
+import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart";
 
 interface props {
 
@@ -33,7 +33,8 @@ const Wrapper = (props: props) => {
                 </div>
                 <div className={css.wrapper}>
                     <Content/>
-                    <TotalSum/>
+                    {/*<TotalSum/>*/}
+                    <DetailCart/>
                 </div>
             </div>
         </section>
