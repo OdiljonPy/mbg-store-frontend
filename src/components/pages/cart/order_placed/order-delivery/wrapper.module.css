@@ -8,6 +8,7 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-top: 46px;
+    gap: 10px;
 }
 
 .status{
@@ -39,5 +40,9 @@
 
     .status{
         margin-top: 20px;
+    }
+
+    .detail{
+        gap: 0;
     }
 }
