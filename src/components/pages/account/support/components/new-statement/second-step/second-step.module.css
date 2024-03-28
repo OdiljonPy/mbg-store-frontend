@@ -1,0 +1,47 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.steps {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	color: var(--text-green);
+	font-size: 20px;
+}
+
+.steps > span:not(.current_step) {
+	opacity: 30%;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.body {
+	flex: 1 1 0%;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.max_count_text {
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--icon-gray);
+}
+
+.images {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 8px;
+}
+
+.footer {
+	display: flex;
+	gap: 14px;
+}

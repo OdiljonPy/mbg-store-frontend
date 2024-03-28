@@ -2,12 +2,6 @@
 	margin: 150px 0 100px;
 }
 
-@media (max-width: 991px) {
-	.container {
-		padding: 0;
-	}
-}
-
 .header {
 	display: flex;
 	justify-content: space-between;

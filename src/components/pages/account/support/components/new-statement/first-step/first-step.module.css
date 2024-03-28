@@ -1,0 +1,103 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.body {
+	flex: 1 1 0%;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.steps {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	color: var(--text-green);
+	font-size: 20px;
+}
+
+.steps > span:not(.current_step) {
+	opacity: 30%;
+}
+
+.desc_label {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.counter {
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--icon-gray);
+	padding: 0 8px;
+}
+
+.description {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.formInputTop {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.formInputTop a {
+	font-weight: 500;
+	font-size: 16px;
+	color: var(--text-green);
+	line-height: 18.78px;
+}
+
+.formInputTop {
+	display: flex;
+	justify-content: space-between;
+}
+
+.endIcon {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	z-index: 888;
+	cursor: pointer;
+}
+
+.endIcon:hover path {
+	fill: var(--text-green);
+}
+
+.validationBox {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 99;
+	list-style: none;
+	background-color: white;
+	border: 1.6px solid var(--light-gray);
+	box-shadow: 0 3px 6px #d2d2d21a;
+	border-radius: 16px;
+	transition: all 0.2s ease;
+}
+
+.validation {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+}
+
+.validation:not(:last-child) {
+	border-bottom: 1.6px solid var(--light-gray);
+}

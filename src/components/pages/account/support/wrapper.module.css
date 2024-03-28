@@ -1,0 +1,22 @@
+.btn_wrapper {
+	display: none;
+}
+
+@media (max-width: 991px) {
+	.btn_wrapper {
+		display: flex;
+		padding-block: 6px;
+		margin-bottom: 12px;
+	}
+}
+
+@media (max-width: 575px) {
+	.btn_wrapper {
+		padding-inline: 16px;
+		margin-bottom: 0;
+	}
+
+	.btn {
+		width: 100%;
+	}
+}
