@@ -3,8 +3,9 @@ import css from "@/components/pages/cart/order_placed/common/detail-carts/detail
 import DetailItem from "@/components/pages/cart/order_placed/common/detail-carts/components/detail-items/detail-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import SendButton from "@/components/pages/cart/common/button/send_button";
-import React from "react";
+import React, {useState} from "react";
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
+import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
 
 
 
@@ -14,9 +15,17 @@ interface props{
 
 const DetailCart = ({isDeleteAction}:props) =>{
     const t = useTranslations()
+    const [onOpen,setOnOpen] = useState(false)
 
-    const onSubmit = () =>{
 
+    const openModal = () =>{
+        setOnOpen(true)
+    }
+    const onClose = (status:'cancel'|'close') =>{
+        if(status === 'cancel'){
+            //  write cancel function
+        }
+        setOnOpen(false)
     }
 
     return(
@@ -34,10 +43,11 @@ const DetailCart = ({isDeleteAction}:props) =>{
                            value={priceFormatter(174000 - 26000, true)}/>
                 {isDeleteAction &&  <div className={css.action}>
                     <WarningText><p>{t('order_placed.warning_text')}</p></WarningText>
-                    <SendButton title={'cart.checkout'} outline={true} onClick={onSubmit}/>
+                    <SendButton title={'cart.checkout'} outline={true} onClick={openModal}/>
                 </div>}
 
             </div>
+            <CancelModal open={onOpen} onClose={onClose} title={"MBG12345"} />
         </div>
     )
 }
