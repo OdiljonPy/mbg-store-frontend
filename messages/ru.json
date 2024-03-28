@@ -13,8 +13,11 @@
 		"account": "Аккаунт",
 		"profile": "Профиль",
 		"orders": "Заказы",
+
+		"order_placed": "Заказ размещен",
 		"order": "Заказ",
-		"order_placed": "Заказ размещен"
+		"address_book": "Адресная книжка",
+		"favorites": "Избранные"
 	},
 	"categories": {
 		"title": "Категории",
