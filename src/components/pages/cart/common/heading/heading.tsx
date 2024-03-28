@@ -6,17 +6,18 @@ import {Badge} from "antd";
 
 interface props{
     title:string
-    index:string | number
+    index?:string | number
     isBadge?:boolean
     children?:any
+    badeCount?:number
 }
 
-const Heading = ({title,index,isBadge,children}:props) =>{
+const Heading = ({title,index,isBadge,children,badeCount}:props) =>{
     const t = useTranslations()
     return(
        <div className={css.header}>
            <div className={css.flex_badge}>
-               <h2 className={`${css.title} ${raleway.className}`}>{index}. {t(title)}</h2> {isBadge &&  <Badge count={2} color={'#39B969'} />}
+               <h2 className={`${css.title} ${raleway.className}`}>{index && `${index}.`} {t(title)}</h2> {isBadge &&  <Badge count={badeCount} color={'#39B969'} />}
            </div>
            {children}
        </div>

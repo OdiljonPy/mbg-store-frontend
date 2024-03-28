@@ -1,17 +1,21 @@
 import css from "./obtaining.module.css"
-import Heading from "@/components/pages/cart/delivery/content/heading/heading";
+import Heading from "@/components/pages/cart/common/heading/heading";
 import ObtainingChose from "@/components/pages/cart/delivery/content/obtaining/component/obtainingChose";
 import {useState} from "react";
 import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery";
 import ObtainingCome from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome";
-import StatusCard from "@/components/pages/cart/delivery/content/obtaining/component/card/status_card";
 import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
+import {useRouter} from "next/router";
+import {usePathname} from "next/navigation";
+import AddressCard from "@/components/pages/cart/common/address-card/address-card";
 
 interface props {
 
 }
 
 const Obtaining = (props: props) => {
+    const {push,query} = useRouter()
+    const pathname: string = usePathname()
     const [tab, setTab] = useState('left')
     const [containerHeight, setContainerHeight] = useState(20)
     const [type, setType] = useState('')
@@ -24,6 +28,25 @@ const Obtaining = (props: props) => {
 
     function changeTab(e: string) {
         setTab((prevState) => prevState = e)
+
+        if(tab === 'right'){
+            push({
+                pathname,
+                query:{
+                    ...query,
+                    type:'delivery'
+                },
+            })
+        }
+        else{
+            push({
+                pathname,
+                query:{
+                    ...query,
+                    type:'pickup'
+                }
+            })
+        }
     }
 
     const containerStyle = {
@@ -52,6 +75,7 @@ const Obtaining = (props: props) => {
             <div>
                 {!isChoose && <div>
                     <ObtainingChose tab={tab} changeTab={changeTab}/>
+
                     <div className={css.change_container} style={containerStyle}>
                         {tab == 'left' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}
                                                             activeAddress={activeAddress}/> :
@@ -59,8 +83,8 @@ const Obtaining = (props: props) => {
                     </div>
                 </div>}
                 {type && <div className={css.status_cart}>
-                    <StatusCard type='delivery'/>
-                    <StatusCard type='pick_up'/>
+                    <AddressCard type={"delivery"}/>
+                    <AddressCard type={"pick_up"}/>
                 </div>}
             </div>
 

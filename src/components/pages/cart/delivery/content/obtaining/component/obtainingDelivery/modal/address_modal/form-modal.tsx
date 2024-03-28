@@ -8,7 +8,7 @@ import CloseModal from "@/components/shared/close-modal/close-modal";
 import dynamic from "next/dynamic";
 
 import AddAddress
-    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/button/add_address";
+    from "@/components/pages/cart/common/button/add_address";
 // import AddressInner from "./address-inner"
 
 const AddressInner = dynamic(() => import('./address-inner'),{

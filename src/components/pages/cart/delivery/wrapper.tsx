@@ -33,7 +33,6 @@ const Wrapper = (props: props) => {
                     <Content/>
                     <TotalSum/>
                 </div>
-                {/*<Favourites/>*/}
             </div>
         </section>
     );

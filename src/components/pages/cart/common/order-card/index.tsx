@@ -2,7 +2,7 @@ import {IProduct} from "@/data-types/products/products";
 import css from "./cart.module.css"
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {useTranslations} from "next-intl";
-import Price from "@/components/pages/cart/delivery/content/order/orderCart/components/price";
+import Price from "@/components/pages/cart/common/order-card/components/price/index";
 interface props{
     product:IProduct
 }

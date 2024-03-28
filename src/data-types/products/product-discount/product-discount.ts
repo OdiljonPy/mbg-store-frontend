@@ -1,25 +1,9 @@
 import {IProductInner} from "@/data-types/products/product-inner/product-inner";
+import {IPagination} from "@/data-types/products/common";
 
-export interface IPagination{
-    totalElements:number
-    totalPages:number
-    size:number
-    number:number
-    numberOfElements:number
-    first:boolean
-    last:boolean
-    empty:boolean
-}
 
-export interface IProductDiscount{
-    totalElements:number
-    totalPages:number
-    size:number
-    number:number
-    numberOfElements:number
-    first:boolean
-    last:boolean
-    empty:boolean
+
+export interface IProductDiscount extends IPagination{
     content : IProductInner[]
 }
 

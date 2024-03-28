@@ -55,11 +55,10 @@ const ProductsSearch = (props: props) => {
 
     useEffect(() => {
         const searchKey:ICategoryItemGeneral[] = []
-        product_search.map((item:any) =>{
-            return item?.result?.map((el:string,idx:number) =>{
-               searchKey.push({ title: el,id:idx+1})
+
+             product_search?.map((el:string,idx:number) =>{
+              return  searchKey.push({ title: el,id:idx+1})
             })
-        })
         setProducts((prevState) => prevState = searchKey)
     }, [product_search]);
 

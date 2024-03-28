@@ -1,15 +1,20 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import API from "@/utils/axios/axios";
+import {
+    ICommonProductFilter,
+    IProductFilter,
+    IProductSearchKey
+} from "@/data-types/products/product-filter/product-filter";
 
 // search product value
 export const fetchProduct = createAsyncThunk('products', async (search: string | null) => {
-    const response = await API.get(`/store/products/' + \`?q=${search}`)
+    const response = await API.get<ICommonProductFilter>(`/store/products/?q=${search}`)
     return response.data
 })
 
 // search product title for searchbar
 export const fetchSearchKey = createAsyncThunk('search_key', async (key: string) => {
-    const response = await API.get(`/store/products/chace_name/?q=${key}`)
+    const response = await API.get<IProductSearchKey>(`/store/products/chace_name/?q=${key}`)
     return response.data
 })
 
@@ -46,22 +51,17 @@ export const filterProduct = createAsyncThunk('product_filter', async (params: I
     if (params.available) data.available = true
     if (params.around_the_clock) data.around_the_clock = true
 
-    const response = await fetch('https://mbgstore-backend-t5jmi.ondigitalocean.app/api/v1/store/products/filter/', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-    return response.json()
+    const response = await API.post<ICommonProductFilter>('/store/products/filter/', data)
+    return response.data
 
 })
 
 const initialState = {
-    entities: [],
-    product_search: [],
-    loading: true
-} as any
+    entities: {} as IProductFilter,
+    product_search: [] as string[],
+    loading: true,
+    error: false
+}
 
 const productSlices = createSlice({
     name: 'product',
@@ -74,29 +74,52 @@ const productSlices = createSlice({
     extraReducers: (builder) => {
 
         //filter data
-        builder.addCase(filterProduct.fulfilled, (state, action) => {
-            state.loading = true
-            state.entities = [action.payload]
-        })
+        builder
             .addCase(filterProduct.pending, (state, action) => {
-                state.loading = false
+                state.loading = true
             })
+            .addCase(filterProduct.fulfilled, (state, {payload}) => {
+            if(payload.ok){
+                state.entities = payload.result
+            }
+            state.loading = false
+            })
+            .addCase(filterProduct.rejected,(state)=>{
+                state.loading = false
+                state.error = true
+            })
+
 
         // search data
-        builder.addCase(fetchProduct.fulfilled, (state, action) => {
-            state.loading = true
-            state.entities = [action.payload]
-        })
+        builder
             .addCase(fetchProduct.pending, (state, action) => {
-                state.loading = false
+                state.loading = true
+            })
+            .addCase(fetchProduct.fulfilled, (state, {payload}) => {
+            if(payload.ok){
+                state.entities = payload.result
+            }
+            state.loading = false
+        })
+            .addCase(fetchProduct.rejected, (state)=>{
+                state.error = true
             })
 
+
         //search key
-        builder.addCase(fetchSearchKey.fulfilled, (state, action) => {
-            state.loading = true
-            state.product_search = [action.payload]
-        })
+        builder
             .addCase(fetchSearchKey.pending, (state, action) => {
+                state.loading = true
+            })
+            .addCase(fetchSearchKey.fulfilled, (state, {payload}) => {
+            if(payload.ok){
+                state.product_search = payload.result
+            }
+            state.loading = false
+        })
+
+            .addCase(fetchSearchKey.rejected,(state)=>{
+                state.error = true
                 state.loading = false
             })
 
