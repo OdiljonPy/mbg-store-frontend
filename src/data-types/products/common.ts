@@ -56,5 +56,7 @@ export interface IProduct{
     store:IStore
     images:IImages[]
     count?:number
+    is_favorite?:boolean
+    seller?:string
 }
 

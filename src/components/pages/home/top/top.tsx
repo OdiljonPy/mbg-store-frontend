@@ -1,12 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import css from "@/components/pages/home/sales/sales.module.css";
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Product from "@/components/shared/product/product";
-import {product, productTop, productWithoutDiscount} from "@/constants/product/product";
-import {useKeenSlider} from "keen-slider/react";
 import {useSlider} from "@/hooks/use-slider";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
-import {ICommon, IProduct} from "@/data-types/products/products";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import Skeleton from "react-loading-skeleton";
@@ -37,7 +34,7 @@ const Top = (props: props) => {
             <div className={'container'}>
                 <HeadingLine heading={{
                     title: 'products.top',
-                    count: data[0]?.result?.totalElements
+                    count: data?.totalElements
                 }}/>
                 {
                     !loading ? <Skeleton count={4} containerClassName={css.skeleton_cointainer}  className={css.skeleton} /> :
@@ -46,14 +43,12 @@ const Top = (props: props) => {
                     <ProductSwiperArrow onClick={onNext} isNext/>
                     <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
                         {
-                            data.map((product:ICommon) =>{
-                                return product?.result?.content.map((item:IProduct) =>{
-                                    return (
-                                        <div className={`keen-slider__slide`} key={item.id}>
-                                            <Product product={item} />
-                                        </div>
-                                    )
-                                })
+                            data?.content?.map((product:any) =>{
+                                return (
+                                    <div className={`keen-slider__slide`} key={product.id}>
+                                        <Product product={product} />
+                                    </div>
+                                )
                             })
                         }
 
