@@ -1,0 +1,34 @@
+.textarea {
+	margin-top: 4px;
+	padding: 16px 20px;
+	width: 100%;
+	border-radius: 16px;
+	font-size: 16px;
+	background-color: transparent;
+	transition: all 0.2s linear;
+	border: 1.6px solid var(--input-gray);
+}
+
+.textarea::placeholder {
+	color: var(--icon-gray);
+}
+
+.textarea:focus {
+	border: 1.6px solid var(--green);
+}
+
+.none {
+	resize: none;
+}
+
+.both {
+	resize: both;
+}
+
+.horizontal {
+	resize: horizontal;
+}
+
+.vertical {
+	resize: vertical;
+}

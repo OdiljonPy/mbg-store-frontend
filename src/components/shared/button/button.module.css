@@ -1,31 +1,79 @@
-.outline {
-    background-color: transparent;
-    padding: 15px;
-    border: 1.6px solid var(--green);
-    border-radius: 16px;
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 19.96px;
-    color: var(--green);
-    transition: all 0.2s ease;
-    cursor: pointer;
+.btn {
+	height: 50px;
+	padding: 0 20px;
+	border-radius: 16px;
+	font-weight: 600;
+	font-size: 17px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	border: 1.6px solid transparent;
+}
+
+.btn:disabled {
+	background-color: var(--dark-gray);
+	color: var(--light-gray);
+	border-color: transparent;
+}
+
+.btn:active {
+	box-shadow: 0px 0px 0px 4px #60c78724;
 }
 
 .primary {
-    background-color: var(--green);
-    padding: 15px;
-    border: 1.6px solid var(--green);
-    border-radius: 16px;
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 19.96px;
-    color: #fff;
-    transition: all 0.2s ease;
-    cursor: pointer;
+	background-color: var(--green);
+	color: #fff;
 }
 
-.primary:disabled {
-    background-color: var(--dark-gray);
-    color: var(--light-gray);
-    border-color: transparent;
+.primary:hover {
+	background-color: var(--light-green);
+}
+
+.secondary {
+	background-color: transparent;
+	border: 1.6px solid var(--green);
+	color: var(--text-green);
+}
+
+.secondary:hover {
+	background-color: var(--super-light-green);
+}
+
+.tertiary {
+	background-color: var(--super-light-green);
+	color: var(--green);
+}
+
+.tertiary:hover {
+	border: 1.6px solid var(--green);
+}
+
+.tertiary:active {
+	background-color: var(--green);
+	color: #fff;
+}
+
+.danger {
+	background-color: #ffdede;
+	color: var(--red);
+}
+
+.full {
+	width: 100%;
+}
+
+.spin_wrapper {
+	margin-right: 4px;
+}
+
+.spin {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
