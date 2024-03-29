@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export enum EnumSupportType {
 	QUESTION,
 	FEEDBACK,
@@ -19,6 +21,6 @@ export interface ISupport {
 	files?: {
 		id: number;
 		supportId: number;
-		file: string;
+		file: string | StaticImageData;
 	}[];
 }

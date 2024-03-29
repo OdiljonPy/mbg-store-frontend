@@ -4,6 +4,8 @@ import {
 	ISupport,
 } from "@/data-types/support";
 
+import img6 from "@/../public/images/products/mountain.png";
+
 export const data: ISupport[] = [
 	{
 		id: 1,
@@ -14,6 +16,28 @@ export const data: ISupport[] = [
 
 		type: EnumSupportType.QUESTION,
 		status: EnumSupportStatus.PROCESSING,
+		files: [
+			{
+				id: 1,
+				file: img6,
+				supportId: 1,
+			},
+			{
+				id: 1,
+				file: img6,
+				supportId: 1,
+			},
+			{
+				id: 1,
+				file: img6,
+				supportId: 1,
+			},
+			{
+				id: 1,
+				file: img6,
+				supportId: 1,
+			},
+		],
 	},
 	{
 		id: 2,

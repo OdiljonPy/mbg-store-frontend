@@ -1,8 +1,7 @@
-.modal_trigger {
-	background: transparent;
-	border: none;
-	cursor: pointer;
-	width: 100%;
+@media (max-width: 575px) {
+	.modal_trigger {
+		width: 100%;
+	}
 }
 .modal {
 	display: flex;
