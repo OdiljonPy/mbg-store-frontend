@@ -17,7 +17,7 @@ interface props {
 const CustomCheckbox = ({item, name, boolName}: props) => {
     const {watch, register, setValue} = useFormContext<IFilters>()
     const {id, title, count} = item
-    const value: string[] | undefined = watch(name)
+    const value: any= watch(name)
 
     const {ref, onBlur, onChange} = register(name)
 

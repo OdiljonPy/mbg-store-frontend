@@ -7,22 +7,22 @@ export function useSalesList () {
 
     const salesList: ICustomCheckbox[] = [
         {
-            id: 1,
+            id: 80,
             title: t('sales.more', {count: 80}),
             count: 120
         },
         {
-            id: 2,
+            id: 70,
             title: t('sales.more', {count: 70}),
             count: 856
         },
         {
-            id: 3,
+            id: 60,
             title: t('sales.more', {count: 60}),
             count: 123
         },
         {
-            id: 4,
+            id: 50,
             title: t('sales.more', {count: 50}),
             count: 345
         }

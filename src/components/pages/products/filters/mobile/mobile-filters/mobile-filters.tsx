@@ -50,8 +50,8 @@ const MobileFilters = ({data}: props) => {
             min_price:Number(values.prices?.split(',')[0]),
             max_price:Number(values.prices?.split(',')[1]),
             rating:Number(values.rating),
-            store: values.stores?.map((store)=> Number(store)),
-            discount:Number(searchParams.get('sales')),
+            store: values.stores?.length ? values.stores.map((store)=> Number(store)):'',
+            discount:Number(values.sales),
             free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
             pickup:searchParams.get('delivery')?.split(',').includes('2'),
             comments:searchParams.get('withFeedback'),
@@ -82,7 +82,7 @@ const MobileFilters = ({data}: props) => {
                </span>
             </button>
             <Drawer classNames={{
-                body: 'custom-body'
+                body: 'custom-body',
             }} closeIcon={false} onClose={onClose} placement={'bottom'} height={'100%'} open={open}>
                 <DrawerHeader options={{
                     title: t('filters.title'),

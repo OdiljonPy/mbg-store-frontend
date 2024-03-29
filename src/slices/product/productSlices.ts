@@ -26,7 +26,7 @@ interface IFilterParams {
     min_price?: number | string,
     max_price?: number | string,
     rating?: number,
-    discount?:  number,
+    discount?: number,
     free_shipping?: boolean | string,
     pickup?: any | null,
     around_the_clock?: boolean | string,

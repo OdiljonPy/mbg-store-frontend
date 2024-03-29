@@ -14,15 +14,15 @@ const Option = ({item}: props) => {
 
     const {watch, setValue} = useFormContext<IFilters>()
 
-    const sales: string[] | undefined = watch('sales')
+    const sales: string | undefined = watch('sales')
 
 
     const onChange = (e: CheckboxChangeEvent) => {
         const value = e.target.value.toString()
         const checked = e.target.checked
-        const salesArr: string[] = sales ? sales : []
-        const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
-        setValue('sales', newStores)
+        // const salesArr: string[] = sales ? sales : []
+        // const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
+        setValue('sales', value)
         setValue('onSales', true)
     }
 

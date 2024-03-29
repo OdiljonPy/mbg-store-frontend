@@ -7,6 +7,11 @@ export interface ICustomRadio{
     count?: number
 }
 
+export interface ICRadio{
+    count: number
+    name: string
+    key:string
+}
 
 export interface IOptions {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
