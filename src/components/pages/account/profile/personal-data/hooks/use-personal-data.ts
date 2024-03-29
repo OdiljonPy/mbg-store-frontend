@@ -23,7 +23,7 @@ export const usePersonalData = (user: IUser) => {
 		setFullName(user.full_name || "");
 		setGender(user.gender);
 		setBirthDate(user.birth_date || "");
-		if (Object.keys(user).length && !fullName) {
+		if (Object.keys(user).length && !user.full_name) {
 			setIsEdit(true);
 		} else {
 			setIsEdit(false);
