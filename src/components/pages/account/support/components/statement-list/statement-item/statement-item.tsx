@@ -69,15 +69,15 @@ function StatementItem({ statementItem }: Props) {
 						statementItem.files.map((file) => (
 							<div
 								key={file.id}
-								className={css.file}
+								className={css.file_wrapper}
 							>
 								<Image
+									className={css.file}
 									src={file.file}
-									alt={file.file}
+									alt={file.file.toString()}
 									width={100}
 									height={100}
 								/>
-								<button className={css.btn}>Скачать</button>
 							</div>
 						))}
 				</div>

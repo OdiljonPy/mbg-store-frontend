@@ -69,6 +69,7 @@ function FirstStep({ form, setStep }: Props) {
 							},
 						})}
 						rows={2}
+						placeholder='Ваш вопрос'
 					/>
 					<ErrorMessage>
 						{form.formState.errors.description?.message}

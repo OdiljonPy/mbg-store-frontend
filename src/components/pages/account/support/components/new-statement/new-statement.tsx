@@ -54,6 +54,7 @@ function NewStatement({ className, ...props }: Props) {
 				variant='tertiary'
 				{...props}
 				onClick={onOpen}
+				className={css.modal_trigger}
 			>
 				Написать в поддержку
 			</Button>
