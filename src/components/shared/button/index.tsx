@@ -7,6 +7,9 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: "primary" | "secondary" | "tertiary" | "danger";
 	full?: boolean;
 	loading?: boolean;
+	leftIcon?: React.ReactNode;
+	rightIcon?: React.ReactNode;
+	width?: string;
 }
 
 function Button({
@@ -15,6 +18,9 @@ function Button({
 	full,
 	disabled,
 	loading,
+	leftIcon,
+	rightIcon,
+	width,
 	variant = "primary",
 	...props
 }: Props) {
@@ -23,6 +29,7 @@ function Button({
 			{...props}
 			className={cn(css.btn, full && css.full, css[variant], className)}
 			disabled={loading || disabled}
+			style={{ width }}
 		>
 			<span className={css.spin_wrapper}>
 				{loading && (
@@ -42,7 +49,9 @@ function Button({
 					</svg>
 				)}
 			</span>
+			{leftIcon && <span className={css.left_icon}>{leftIcon}</span>}
 			{children}
+			{rightIcon && <span className={css.right_icon}>{rightIcon}</span>}
 		</button>
 	);
 }

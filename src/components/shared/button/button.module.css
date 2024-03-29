@@ -1,4 +1,7 @@
 .btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	height: 50px;
 	padding: 0 20px;
 	border-radius: 16px;
@@ -62,11 +65,25 @@
 }
 
 .spin_wrapper {
-	margin-right: 4px;
+	margin-right: 8px;
+	display: flex;
+	align-items: center;
 }
 
 .spin {
 	animation: spin 1s linear infinite;
+}
+
+.left_icon {
+	margin-right: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.right_icon {
+	margin-left: 8px;
+	display: flex;
+	align-items: center;
 }
 
 @keyframes spin {
