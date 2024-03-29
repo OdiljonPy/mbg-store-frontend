@@ -1,33 +1,44 @@
 .btn {
-    display: flex;
-    align-items: center;
-    background: none;
-    border: none;
-    flex: 0 0 25%;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: none;
+	border: none;
+	flex: 0 0 25%;
+	cursor: pointer;
 }
 
 .text {
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--black);
-    border-bottom: 1px solid var(--black);
+	font-weight: 600;
+	font-size: 16px;
+	color: var(--black);
+	border-bottom: 1px solid var(--black);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .svg {
-    margin-right: 4px;
+	margin-right: 4px;
 }
-
 
 @media (max-width: 1199px) {
-    .btn{
-        flex: 0 0 35%;
-    }
+	.btn {
+		flex: 0 0 35%;
+	}
 }
 
-
 @media (max-width: 767px) {
-    .btn{
-        flex: 0 0 100%;
-    }
+	.btn {
+		flex: 0 0 100%;
+	}
+
+	.text {
+		width: 450px;
+	}
+}
+
+@media (max-width: 575px) {
+	.text {
+		width: 320px;
+	}
 }
