@@ -1,8 +1,7 @@
 import { IHeadingLine } from "@/components/pages/home/heading-line/data-types/heading-line";
-import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import css from "./heading-line.module.css";
 
 interface props {
@@ -12,9 +11,13 @@ interface props {
 }
 
 const HeadingLine = ({ heading, small, loading }: props) => {
-	const address = useSelector((state: RootState) => state.address);
 	const t = useTranslations();
 	const { title, count } = heading;
+	const [address, setAddress] = useState<string | null>("");
+
+	useEffect(() => {
+		setAddress(localStorage.getItem("address") || null);
+	}, []);
 
 	return (
 		<div className={`${css.heading} ${small ? css.small : ""}`}>
