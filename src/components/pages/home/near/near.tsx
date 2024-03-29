@@ -1,22 +1,23 @@
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import css from "@/components/pages/home/sales/sales.module.css";
-import nearCss from "./near.module.css";
 import Button from "@/components/shared/button";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
 import Product from "@/components/shared/product/product";
 import { productClose } from "@/constants/product/product";
 import { useSlider } from "@/hooks/use-slider";
-import { RootState } from "@/store";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { cn } from "../../../../utils/cn";
+import nearCss from "./near.module.css";
 
 interface props {}
 
 const Near = (props: props) => {
 	const { sliderRef, loaded, onNext, onPrev, currentSlide } = useSlider();
-	const address = useSelector((state: RootState) => state.address);
+	const [address, setAddress] = useState<string | null>("");
 
-	console.log(address);
+	useEffect(() => {
+		setAddress(localStorage.getItem("address") || null);
+	}, []);
 
 	return (
 		<section className={css.sales}>

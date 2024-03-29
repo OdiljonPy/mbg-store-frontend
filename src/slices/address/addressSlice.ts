@@ -1,29 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from "@reduxjs/toolkit";
 
-const getItem = (): string | null => {
-	if (typeof window !== "undefined") {
-		return localStorage.getItem("address");
-	}
-	return null;
-};
+// interface InitialState {
+// 	title: string | null;
+// }
 
-const address = getItem();
+// const item =
+// 	typeof window !== "undefined" ? localStorage.getItem("address") : null;
 
-const initialState: string | null = address;
+// const initialState: InitialState = {
+// 	title: item,
+// };
 
-const addressSlice = createSlice({
-	name: "address",
-	initialState,
-	reducers: {
-		setAddress: (state, action) => {
-			state = action.payload;
-		},
+// const addressSlice = createSlice({
+// 	name: "address",
+// 	initialState,
+// 	reducers: {
+// 		getAddress: (state) => {
+// 			state.title = localStorage.getItem("address");
+// 		},
+// 		setAddress: (state, action) => {
+// 			state = action.payload;
+// 			localStorage.setItem("address", action.payload);
+// 		},
 
-		removeAddress: (state) => {
-			state = null;
-		},
-	},
-});
+// 		removeAddress: (state) => {
+// 			state.title = null;
+// 			localStorage.removeItem("address");
+// 		},
+// 	},
+// });
 
-export const { setAddress, removeAddress } = addressSlice.actions;
-export default addressSlice.reducer;
+// export const { getAddress, setAddress, removeAddress } = addressSlice.actions;
+// export default addressSlice.reducer;

@@ -1,4 +1,3 @@
-import addressSlice from "@/slices/address/addressSlice";
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
 import categorySlices from "@/slices/category/categorySlices";
@@ -30,7 +29,7 @@ export const makeStore = () => {
 			verify: verifyUserSlice,
 			signup: signUpUserSlice,
 			login: loginSlice,
-			address: addressSlice,
+			// address: addressSlice,
 		},
 	});
 };
