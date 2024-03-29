@@ -40,7 +40,7 @@ const ProductTop = ({ product }: props) => {
 				className={css.img}
 			>
 				<ResponsiveImage
-					src={images[0].image}
+					src={images[0]?.image}
 					alt={name}
 				/>
 			</Link>

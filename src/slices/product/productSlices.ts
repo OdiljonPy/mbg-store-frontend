@@ -5,6 +5,7 @@ import {
     IProductFilter,
     IProductSearchKey
 } from "@/data-types/products/product-filter/product-filter";
+import {ISortingValue} from "@/components/pages/products/filters/desktop/data-types/sorting/sorting";
 
 // search product value
 export const fetchProduct = createAsyncThunk('products', async (search: string | null) => {
@@ -25,13 +26,14 @@ interface IFilterParams {
     min_price?: number | string,
     max_price?: number | string,
     rating?: number,
-    discount?: any,
+    discount?:  number,
     free_shipping?: boolean | string,
     pickup?: any | null,
     around_the_clock?: boolean | string,
     store?: [any] | any,
     comments?: string | null | boolean,
     available?: boolean
+    sort?:string | null
 }
 
 export const filterProduct = createAsyncThunk('product_filter', async (params: IFilterParams) => {
@@ -50,7 +52,7 @@ export const filterProduct = createAsyncThunk('product_filter', async (params: I
     if (params.comments) data.comments = true
     if (params.available) data.available = true
     if (params.around_the_clock) data.around_the_clock = true
-
+    params.sort ? data.sort = params.sort : 'popular'
     const response = await API.post<ICommonProductFilter>('/store/products/filter/', data)
     return response.data
 
