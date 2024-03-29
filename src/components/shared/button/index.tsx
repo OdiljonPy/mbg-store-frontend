@@ -5,31 +5,53 @@ import css from "./button.module.css";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: "primary" | "secondary" | "tertiary" | "danger";
+	iconOnly?: boolean;
+	rounded?: "default" | "full" | string;
 	full?: boolean;
 	loading?: boolean;
 	leftIcon?: React.ReactNode;
 	rightIcon?: React.ReactNode;
-	width?: string;
+	width?: string | number;
+	height?: string | number;
 }
 
 function Button({
-	children,
-	className,
+	variant = "primary",
+	iconOnly,
+	rounded = "default",
 	full,
-	disabled,
 	loading,
 	leftIcon,
 	rightIcon,
 	width,
-	variant = "primary",
+	height,
+	disabled,
+	children,
+	className,
 	...props
 }: Props) {
 	return (
 		<button
 			{...props}
-			className={cn(css.btn, full && css.full, css[variant], className)}
+			className={cn(
+				css.btn,
+				full && css.full,
+				css[rounded],
+				css[variant],
+				iconOnly && css.icon_only,
+				className
+			)}
 			disabled={loading || disabled}
-			style={{ width }}
+			style={{
+				width,
+				height,
+				borderRadius:
+					rounded === "full"
+						? "50%"
+						: rounded === "default"
+						? "16px"
+						: rounded,
+			}}
 		>
 			<span className={css.spin_wrapper}>
 				{loading && (
