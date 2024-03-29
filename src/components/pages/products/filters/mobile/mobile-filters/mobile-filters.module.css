@@ -2,6 +2,13 @@
     display: none;
 }
 
+.fixed_btn{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 30px 16px;
+}
+
 @media (max-width: 767px) {
     .btn {
         display: flex;

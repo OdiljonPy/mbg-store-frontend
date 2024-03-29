@@ -11,7 +11,7 @@ const SliderPrices = (props: props) => {
 
     const {watch, setValue} = useFormContext<IFilters>()
     const prices = watch('prices')
-    const parsedPrice = prices ? prices.split(',')?.map((item) => Number(item)) : [1000, 50000]
+    const parsedPrice = prices ? prices.split(',')?.map((item) => Number(item)) : [1000, 10000000]
 
     const onChange = (value: number[]) => {
         const [start, end] = value
@@ -36,7 +36,7 @@ const SliderPrices = (props: props) => {
                 }
             }
         }}>
-            <Slider min={1000} max={100000000} defaultValue={parsedPrice} tooltip={{
+            <Slider min={1000} max={10000000} defaultValue={parsedPrice} tooltip={{
                 open: false
             }} value={parsedPrice} onChange={onChange}  range/>
         </ConfigProvider>

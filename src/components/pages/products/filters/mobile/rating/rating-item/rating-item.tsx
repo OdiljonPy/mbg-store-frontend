@@ -41,9 +41,9 @@ const RatingItem = ({item}: props) => {
             <span className={css.title}>
                 {title}
              </span>
-            <span className={css.count}>
-                {count}
-             </span>
+            {/*<span className={css.count}>*/}
+            {/*    {count}*/}
+            {/* </span>*/}
         </label>
     );
 };

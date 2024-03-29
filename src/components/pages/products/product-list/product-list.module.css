@@ -4,7 +4,6 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
-
     row-gap: 30px;
     transition: flex-basis .4s ease-in-out;
     flex-basis: 100%;
@@ -46,7 +45,7 @@
         row-gap: 10px;
     }
     .skeleton{
-        height: 200px;
+        height: 180px;
     }
 }
 

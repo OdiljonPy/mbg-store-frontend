@@ -4,7 +4,12 @@ import {ICustomRadio} from "@/components/shared/custom-radio/data-types/custom-r
 export function useRatingList () {
     const t = useTranslations()
     const items: ICustomRadio[] = [
-
+        {
+            name: 'rating',
+            key: '5',
+            title: t('rating.rate', {count: 5}),
+            count: 15
+        },
         {
             name: 'rating',
             key: '4',

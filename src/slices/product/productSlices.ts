@@ -22,7 +22,7 @@ export const fetchSearchKey = createAsyncThunk('search_key', async (key: string)
 // filter product
 interface IFilterParams {
     q?: string | null,
-    category?: number,
+    category?: number | string,
     min_price?: number | string,
     max_price?: number | string,
     rating?: number,
