@@ -117,7 +117,6 @@ const productSlices = createSlice({
             }
             state.loading = false
         })
-
             .addCase(fetchSearchKey.rejected,(state)=>{
                 state.error = true
                 state.loading = false
