@@ -1,3 +1,4 @@
+import Button from "@/components/shared/button";
 import { IUser } from "@/data-types/auth/user";
 import { Skeleton } from "antd";
 import { useTranslations } from "next-intl";
@@ -23,11 +24,22 @@ function PersonalData({ user, loading, error }: Props) {
 		birthDate,
 		setBirthDate,
 		onSubmit,
+		fullNameRef,
 	} = usePersonalData(user);
 
 	const t = useTranslations();
 
-	// if (error) return <div>Что-то пошло не так</div>;
+	const isSubmitButtonVisible =
+		!loading &&
+		!(
+			user.birth_date === birthDate &&
+			user.gender === gender &&
+			user.full_name === fullName
+		) &&
+		edit &&
+		fullName &&
+		gender &&
+		birthDate;
 
 	return (
 		<div className={css.card}>
@@ -85,6 +97,7 @@ function PersonalData({ user, loading, error }: Props) {
 									placeholder={t(
 										"profile.personal_data.name_and_surname"
 									)}
+									ref={fullNameRef}
 								/>
 							</div>
 							<div className={css.extraData}>
@@ -102,11 +115,14 @@ function PersonalData({ user, loading, error }: Props) {
 						</>
 					)}
 				</div>
-				{edit && (
+				{isSubmitButtonVisible && (
 					<div className={css.footer}>
-						<button className={css.save_btn}>
+						<Button
+							className={css.save_btn}
+							variant='tertiary'
+						>
 							{t("profile.save")}
-						</button>
+						</Button>
 					</div>
 				)}
 			</form>

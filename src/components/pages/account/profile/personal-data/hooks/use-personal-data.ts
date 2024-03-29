@@ -1,27 +1,37 @@
-import { EnumGender, IUser } from "@/data-types/auth/user";
+import { IUser } from "@/data-types/auth/user";
 import { IUpdateUserRequest, updateUserData } from "@/slices/auth/user";
 import { AppDispatch } from "@/store";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 export const usePersonalData = (user: IUser) => {
 	const [isEdit, setIsEdit] = useState<boolean>(false);
-
-	const [fullName, setFullName] = useState<IUser["full_name"]>("");
-	const [gender, setGender] = useState<EnumGender>();
+	const [fullName, setFullName] = useState<IUser["full_name"]>();
+	const [gender, setGender] = useState<IUser["gender"]>();
 	const [birthDate, setBirthDate] = useState<IUser["birth_date"]>();
+	const fullNameRef = useRef<HTMLInputElement>(null);
 
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
+		if (isEdit) {
+			fullNameRef.current?.focus();
+		}
+	}, [isEdit]);
+
+	useEffect(() => {
 		setFullName(user.full_name || "");
 		setGender(user.gender);
-		setBirthDate(user.birth_date || undefined);
+		setBirthDate(user.birth_date || "");
+		if (Object.keys(user).length && !fullName) {
+			setIsEdit(true);
+		} else {
+			setIsEdit(false);
+		}
 	}, [user]);
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
 		const payload: IUpdateUserRequest = {
 			full_name: fullName || "",
 			gender: gender,
@@ -44,6 +54,7 @@ export const usePersonalData = (user: IUser) => {
 		setGender,
 		birthDate,
 		setBirthDate,
+		fullNameRef,
 		onSubmit,
 	};
 };
