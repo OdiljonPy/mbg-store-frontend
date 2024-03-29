@@ -37,7 +37,7 @@ function Button({
 				css.btn,
 				full && css.full,
 				css[rounded],
-				css[variant],
+				!disabled && css[variant],
 				iconOnly && css.icon_only,
 				className
 			)}
