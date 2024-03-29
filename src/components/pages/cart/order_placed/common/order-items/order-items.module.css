@@ -1,0 +1,23 @@
+.order{
+    margin-top: 50px;
+}
+
+.order_cart{
+    margin-top: 24px;
+    max-height: 498px;
+    overflow-y: scroll;
+}
+
+@media (max-width: 575px) {
+    .order_cart{
+        max-height: 376px;
+        margin-top: 12px;
+    }
+    .order{
+        margin-top: 12px;
+    }
+}
+
+.order_cart::-webkit-scrollbar {
+    display: none;
+}

@@ -4,7 +4,7 @@ import {Modal} from "antd";
 import CloseModal from "@/components/shared/close-modal/close-modal";
 import React from "react";
 import SendButton
-    from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/button/send_button";
+    from "@/components/pages/cart/common/button/send_button";
 import {useTranslations} from "next-intl";
 
 interface props{

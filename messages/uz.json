@@ -16,7 +16,8 @@
 		"order": "Buyurtma",
 		"address_book": "Адресная книжка",
 		"favorites": "Saralangan",
-		"support": "Yordam"
+		"support": "Yordam",
+		"order_placed": "Buyurtma berilgan"
 	},
 	"categories": {
 		"title": "Категории",
@@ -170,6 +171,18 @@
 			"phone_label": "Номер телефона",
 			"name_placeholder": "Введите ваше имя"
 		}
+	},
+	"order_placed": {
+		"order_detail": "Детали заказа",
+		"number_order": "Номер заказа",
+		"date_order": "Время заказа",
+		"recipient": "Получатель",
+		"order_cost_title": "Стоимость заказа",
+		"order_cost": "Стоимость товаров",
+		"order_all": "Всего",
+		"warning_text": "Оплата при получении товара",
+		"cancel_order": "Отмена заказа",
+		"agree_cancel_text": "Вы уверены что хотите отменить заказ на самовынос"
 	},
 	"modal": {
 		"no": "Нет",
