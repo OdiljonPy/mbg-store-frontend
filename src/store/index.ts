@@ -11,12 +11,12 @@ import signUpUserSlice from "../slices/auth/signup";
 import verifyUserSlice from "../slices/auth/verify";
 import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
-import productReducer from "../slices/product/productSlices";
+import productSlices from "../slices/product/productSlices";
 
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
-			product: productReducer,
+			product: productSlices,
 			product_discount: productDiscount,
 			product_bestseller: productBestSeller,
 			category: categorySlices,

@@ -5,7 +5,6 @@ import {
     IProductFilter,
     IProductSearchKey
 } from "@/data-types/products/product-filter/product-filter";
-import {ISortingValue} from "@/components/pages/products/filters/desktop/data-types/sorting/sorting";
 
 // search product value
 export const fetchProduct = createAsyncThunk('products', async (search: string | null) => {
