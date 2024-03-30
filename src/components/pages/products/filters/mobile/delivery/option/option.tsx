@@ -33,7 +33,7 @@ const Option = ({item}: props) => {
             onChange,
             disabled: false,
             checked:!!delivery && !!delivery?.includes(id.toString())
-        }} item={item}/>
+        }} item={item} hasCount={false}/>
     );
 };
 

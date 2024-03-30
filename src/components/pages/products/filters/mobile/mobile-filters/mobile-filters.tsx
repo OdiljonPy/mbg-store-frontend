@@ -59,9 +59,8 @@ const MobileFilters = ({}: props) => {
             comments:values.withFeedback,
             free_shipping:values.delivery?.includes('1'),
             pickup:values.delivery?.includes('2'),
-
-            available:searchParams.get('accessibility')?.split(',').includes('1'),
-            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2')
+            available:values.accessibility?.includes('1'),
+            around_the_clock:values.accessibility?.includes('2')
         }
         dispatch(filterProduct(filterData))
     }
