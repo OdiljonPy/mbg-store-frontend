@@ -23,13 +23,15 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
 import {useSearchParams} from "next/navigation";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
  data:IProductFilter
+
 }
 
 
-const MobileFilters = ({data}: props) => {
+const MobileFilters = ({}: props) => {
     const t = useTranslations()
     const {query} = useRouter()
     const searchParams = useSearchParams()
@@ -39,6 +41,7 @@ const MobileFilters = ({data}: props) => {
     const methods = useForm<IFilters>({
         defaultValues: query
     })
+
 
 
     const valuesCount: number = Object.entries(methods.getValues()).filter(([key, value]) => !!value && !hideArr.includes(key) && value?.length).length
@@ -92,7 +95,7 @@ const MobileFilters = ({data}: props) => {
                 }}/>
                 <FormProvider {...methods}>
                     <form className={css.wrapper} onSubmit={methods.handleSubmit(onFilter)}>
-                        <Categories/>
+                        <Categories />
                         <Prices/>
                         <Stores/>
                         <Sales/>
