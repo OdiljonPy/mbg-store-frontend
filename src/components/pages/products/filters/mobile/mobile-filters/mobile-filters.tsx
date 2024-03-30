@@ -46,7 +46,6 @@ const MobileFilters = ({}: props) => {
 
     const valuesCount: number = Object.entries(methods.getValues()).filter(([key, value]) => !!value && !hideArr.includes(key) && value?.length).length
     const onFilter = (values: IFilters) => {
-        console.log(values,"filter value to adaptive")
         const filterData = {
             q:searchParams.get('search'),
             category:values.category,

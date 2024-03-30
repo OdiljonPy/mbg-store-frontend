@@ -51,7 +51,7 @@ const Store = ({item}: props) => {
     }
 
     return (
-        <CustomCheckbox options={options} item={item}/>
+        <CustomCheckbox options={options} item={item} hasCount={false}/>
 
     );
 };
