@@ -21,7 +21,7 @@ const Sales = (props: props) => {
     const {open, onOpen, onClose} = useModal(true)
     const salesList = useSalesList()
     const {watch, setValue} = useFormContext<IFilters>()
-    const sales: string[] | undefined = watch('sales')
+    const sales: string | undefined = watch('sales')
     const onSales: boolean | undefined = watch('onSales')
 
 
@@ -29,7 +29,7 @@ const Sales = (props: props) => {
         setValue('onSales', checked)
     }
     const onReset = () => {
-        setValue('stores', undefined)
+        setValue('sales', undefined)
         setValue('onSales', false)
     }
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, { useEffect} from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from 'next-intl';
@@ -56,6 +56,7 @@ const Wrapper = (props: props) => {
             comments:searchParams.get('withFeedback'),
             available:searchParams.get('accessibility')?.split(',').includes('1'),
             around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
+            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
         }
         if(searchParams.get('onSales') === 'true' && !searchParams.get('sale')){
             filterParams.discount = 0
@@ -69,14 +70,16 @@ const Wrapper = (props: props) => {
         if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
             dispatch(filterProduct(filterParams))
         }
-
+        if(!activeFilters.length && !searchParams.get('clear_filter') && searchParams.get('sort')){
+            dispatch(filterProduct(filterParams))
+        }
     }
 
 
 
     useEffect(() => {
         fetchProductFilter()
-    }, [searchParams.get('changeFilter')]);
+    }, [searchParams.get('changeFilter'),searchParams.get('sort')]);
 
 
 

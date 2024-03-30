@@ -20,7 +20,7 @@ const CustomLabel = ({title, count}: props) => {
                     {title}
                </span>
                 <span className={css.count}>
-                    {count}
+                    {/*{count}*/}
                 </span>
             </p>
         </div>

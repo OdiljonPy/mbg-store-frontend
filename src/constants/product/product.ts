@@ -450,7 +450,6 @@ export const productTop:IProduct[] = [
 ]
 
 
-
 export const sortingOptions:ISortingOption[] = [
     {
         title: 'filters.sorting.popular',

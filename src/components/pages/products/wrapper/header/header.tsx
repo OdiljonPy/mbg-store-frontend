@@ -10,7 +10,7 @@ import {ICommon} from "@/data-types/products/products";
 import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
 
 interface props {
-    data?:IProductFilter
+    data:IProductFilter
 }
 
 const Header = ({data}: props) => {
@@ -21,7 +21,7 @@ const Header = ({data}: props) => {
                 <ProductsCount count={data ? data?.size : 12}/>
             </div>
             <div className={css.actions}>
-                <MobileFilters/>
+                <MobileFilters data={data}/>
                 <FiltersToggler/>
                 <SortDropdown/>
                 <MobileSort/>

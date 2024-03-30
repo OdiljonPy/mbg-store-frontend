@@ -8,7 +8,6 @@ import Skeleton from "react-loading-skeleton";
 
 interface props {
     item: ICategoryItemGeneral
-    // item:string
     loading:boolean
 }
 
@@ -32,7 +31,7 @@ const ProductResult = ({item,loading}: props) => {
             query: queries
         }} shallow={true} className={css.item}>
             <span className={css.text}>
-                { loading ?  item.title : <Skeleton count={1} height={'12px'} width={'170px'}/> }
+                { loading ? <Skeleton count={1} height={'12px'} width={'170px'}/> :  item.title }
             </span>
         </Link>
     );

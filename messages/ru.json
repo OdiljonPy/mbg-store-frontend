@@ -90,6 +90,7 @@
 		"writeToChat": "Написать в чат"
 	},
 	"show": "Показать",
+	"show_count": "Показать {count} товаров",
 	"hide": "Скрыть",
 	"filters": {
 		"title": "Фильтры",

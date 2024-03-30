@@ -41,7 +41,7 @@ const Store = (props: props) => {
                     }
                 ]}/>
                 <Intro/>
-                <Header/>
+                <Header data={entities}/>
                 <div className={`${css.wrapper}`}>
                     <Filters/>
                     <ProductList products={entities} loading={loading}/>

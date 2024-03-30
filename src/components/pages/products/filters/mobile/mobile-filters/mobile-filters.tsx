@@ -16,16 +16,24 @@ import Sales from "@/components/pages/products/filters/mobile/sales/sales";
 import Rating from "@/components/pages/products/filters/mobile/rating/rating";
 import Delivery from "@/components/pages/products/filters/mobile/delivery/delivery";
 import Accessibility from "@/components/pages/products/filters/mobile/accessibility/accessibility";
+import Button from "@/components/shared/button";
+import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
+import {priceFormatter} from "@/utils/price-formatter/price-formatter";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
+import {useSearchParams} from "next/navigation";
 
 interface props {
-
+ data:IProductFilter
 }
 
 
-const MobileFilters = ({}: props) => {
-
+const MobileFilters = ({data}: props) => {
     const t = useTranslations()
     const {query} = useRouter()
+    const searchParams = useSearchParams()
+    const dispatch = useDispatch<AppDispatch>()
 
     const {open, onClose, onOpen} = useModal()
     const methods = useForm<IFilters>({
@@ -35,8 +43,25 @@ const MobileFilters = ({}: props) => {
 
     const valuesCount: number = Object.entries(methods.getValues()).filter(([key, value]) => !!value && !hideArr.includes(key) && value?.length).length
     const onFilter = (values: IFilters) => {
-
+        console.log(values,"filter value to adaptive")
+        const filterData = {
+            q:searchParams.get('search'),
+            category:values.category,
+            min_price:Number(values.prices?.split(',')[0]),
+            max_price:Number(values.prices?.split(',')[1]),
+            rating:Number(values.rating),
+            store: values.stores?.length ? values.stores.map((store)=> Number(store)):'',
+            discount:Number(values.sales),
+            free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
+            pickup:searchParams.get('delivery')?.split(',').includes('2'),
+            comments:searchParams.get('withFeedback'),
+            available:searchParams.get('accessibility')?.split(',').includes('1'),
+            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
+            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
+        }
+        dispatch(filterProduct(filterData))
     }
+
 
     const onReset = () => {
         methods.reset(undefined)
@@ -57,7 +82,7 @@ const MobileFilters = ({}: props) => {
                </span>
             </button>
             <Drawer classNames={{
-                body: 'custom-body'
+                body: 'custom-body',
             }} closeIcon={false} onClose={onClose} placement={'bottom'} height={'100%'} open={open}>
                 <DrawerHeader options={{
                     title: t('filters.title'),
@@ -74,6 +99,10 @@ const MobileFilters = ({}: props) => {
                         <Rating/>
                         <Delivery/>
                         <Accessibility/>
+                        <div className={css.fixed_btn}>
+                            <Button full>{t('show',{count:priceFormatter(1520)})}</Button>
+                            {/*<Button full>{t('show_count',{count:priceFormatter(1520)})}</Button>*/}
+                        </div>
                     </form>
                 </FormProvider>
             </Drawer>

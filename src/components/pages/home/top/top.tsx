@@ -37,7 +37,7 @@ const Top = (props: props) => {
                     count: data?.totalElements
                 }}/>
                 {
-                    !loading ? <Skeleton count={4} containerClassName={css.skeleton_cointainer}  className={css.skeleton} /> :
+                    loading ? <Skeleton count={4} containerClassName={css.skeleton_cointainer}  className={css.skeleton} /> :
                 <div className={css.wrapperOuter}>
                     <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
                     <ProductSwiperArrow onClick={onNext} isNext/>

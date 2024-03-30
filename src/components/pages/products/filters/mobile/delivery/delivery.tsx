@@ -5,7 +5,7 @@ import Switch from "@/components/shared/switch/switch";
 import Body from "@/components/pages/products/filters/mobile/delivery/body/body";
 import {useTranslations} from 'next-intl';
 import {useModal} from "@/hooks/use-modal";
-import {useSalesList} from "@/components/pages/products/filters/mobile/hooks/sales-list";
+
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import {useDeliveryOptions} from "@/components/pages/products/filters/mobile/hooks/use-delivery-options";

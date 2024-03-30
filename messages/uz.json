@@ -89,6 +89,7 @@
 		"writeToChat": "Написать в чат"
 	},
 	"show": "Показать",
+	"show_count": "{count} ta mahsulotni ko'rsatish",
 	"hide": "Скрыть",
 	"filters": {
 		"title": "Фильтры",
