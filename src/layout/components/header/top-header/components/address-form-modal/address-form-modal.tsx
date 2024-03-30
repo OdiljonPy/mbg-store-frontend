@@ -70,6 +70,7 @@ const AddressFormModal = (props: props) => {
 				closeIcon={false}
 				footer={false}
 				width={898}
+				centered
 			>
 				<form
 					onSubmit={methods.handleSubmit(onSubmit)}
