@@ -28,6 +28,14 @@
 	box-shadow: 0px 0px 0px 4px #60c78724;
 }
 
+.rounded {
+	border-radius: 9999px;
+}
+
+.full {
+	width: 100%;
+}
+
 .primary {
 	background-color: var(--green);
 	color: #fff;
@@ -64,10 +72,6 @@
 .danger {
 	background-color: #ffdede;
 	color: var(--red);
-}
-
-.full {
-	width: 100%;
 }
 
 .spin_wrapper {

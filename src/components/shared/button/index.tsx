@@ -6,7 +6,7 @@ import css from "./button.module.css";
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: "primary" | "secondary" | "tertiary" | "danger";
 	iconOnly?: boolean;
-	rounded?: "default" | "full" | string;
+	rounded?: boolean;
 	full?: boolean;
 	loading?: boolean;
 	leftIcon?: React.ReactNode;
@@ -18,7 +18,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 function Button({
 	variant = "primary",
 	iconOnly,
-	rounded = "default",
+	rounded,
 	full,
 	loading,
 	leftIcon,
@@ -36,7 +36,7 @@ function Button({
 			className={cn(
 				css.btn,
 				full && css.full,
-				css[rounded],
+				rounded && css.rounded,
 				!disabled && css[variant],
 				iconOnly && css.icon_only,
 				className
@@ -45,16 +45,10 @@ function Button({
 			style={{
 				width,
 				height,
-				borderRadius:
-					rounded === "full"
-						? "50%"
-						: rounded === "default"
-						? "16px"
-						: rounded,
 			}}
 		>
-			<span className={css.spin_wrapper}>
-				{loading && (
+			{loading && (
+				<span className={css.spin_wrapper}>
 					<svg
 						className={css.spin}
 						xmlns='http://www.w3.org/2000/svg'
@@ -69,8 +63,8 @@ function Button({
 					>
 						<path d='M21 12a9 9 0 1 1-6.219-8.56' />
 					</svg>
-				)}
-			</span>
+				</span>
+			)}
 			{leftIcon && <span className={css.left_icon}>{leftIcon}</span>}
 			{children}
 			{rightIcon && <span className={css.right_icon}>{rightIcon}</span>}
