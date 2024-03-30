@@ -7,7 +7,7 @@ const SkeletonWrapper = () =>{
         <div className={css.wrapper}>
 
             {skeletonArr.map((el)=>{
-                return <Skeleton count={4} containerClassName={css.wrapper} className={css.skeleton_item}/>
+                return <Skeleton count={4} key={el} containerClassName={css.wrapper} className={css.skeleton_item}/>
             })}
         </div>
     )
