@@ -52,7 +52,7 @@ const Sales = (props: props) => {
                 <div className={css.inner}>
                     <Switch title={t('sales.title')} checked={!!onSales} onChange={onEnableSales}/>
                     {salesList.map((item) => (
-                        <Option item={item} key={item.id}/>
+                        <Option onClose={onClose} item={item} key={item.id}/>
                     ))}
                 </div>
             </Drawer>

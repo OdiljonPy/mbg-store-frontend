@@ -14,6 +14,7 @@ import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/cu
 import {fetchStories} from "@/slices/all_store/StoriesSlices";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
+import Button from "@/components/shared/button";
 
 
 interface props {
@@ -75,6 +76,9 @@ const Stores = (props: props) => {
                     {loading ? '...loading' : storeList.map((store) => (
                         <Option item={store} key={store.id}/>
                     ))}
+                </div>
+                <div className={css.fixed_btn}>
+                    <Button full onClick={onClose}>{t('show')}</Button>
                 </div>
             </Drawer>
         </>

@@ -103,7 +103,7 @@ const MobileFilters = ({}: props) => {
                         <Delivery/>
                         <Accessibility/>
                         <div className={css.fixed_btn}>
-                            <Button full>{t('show',{count:priceFormatter(1520)})}</Button>
+                            <Button full>{t('show')}</Button>
                             {/*<Button full>{t('show_count',{count:priceFormatter(1520)})}</Button>*/}
                         </div>
                     </form>
