@@ -41,7 +41,7 @@
 		font-weight: 500;
 	}
 
-	.card {
+	.card:not(.delivery_card) {
 		padding: 10px;
 		border: 1.2px solid var(--light-green);
 		border-radius: 12px;

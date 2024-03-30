@@ -11,6 +11,8 @@ import {
 import dayjs from "dayjs";
 import css from "./header.module.css";
 
+import Button from "@/components/shared/button";
+import Skeleton from "react-loading-skeleton";
 import Badge from "../../components/badge/badge";
 import {
 	deliveryStatusMap,
@@ -19,58 +21,101 @@ import {
 
 interface Props {
 	order: IOrder;
+	loading: boolean;
 }
 
-function Header({ order }: Props) {
+function Header({ order, loading }: Props) {
 	const t = useTranslations();
 
 	return (
 		<div className={css.header}>
-			<Breadcrumbs
-				items={[
-					{
-						path: "/",
-						label: t("header.home"),
-					},
-					{
-						path: "/account",
-						label: t("header.account"),
-					},
-					{
-						path: "/account/orders",
-						label: t("header.orders"),
-					},
-					{
-						path: "/cart/delivery",
-						label: t("header.order") + " " + order.id,
-					},
-				]}
-			/>
+			{loading ? (
+				<>
+					<Skeleton
+						width={350}
+						height={15}
+					/>
+				</>
+			) : (
+				<Breadcrumbs
+					items={[
+						{
+							path: "/",
+							label: t("header.home"),
+						},
+						{
+							path: "/account",
+							label: t("header.account"),
+						},
+						{
+							path: "/account/orders",
+							label: t("header.orders"),
+						},
+						{
+							path: "/cart/delivery",
+							label: t("header.order") + " " + order.id,
+						},
+					]}
+				/>
+			)}
 			<div className={css.header_main}>
 				<div className={css.header_left}>
 					<div className={css.header_title_badge}>
-						<h1 className={css.title}>Заказ № {order.id}</h1>
-						{order.type === EnumDeliveryType.DELIVERY ? (
-							<Badge
-								status={EnumOrderStatusDelivery[order.status]}
-							>
-								{deliveryStatusMap[order.status]}
-							</Badge>
+						{loading ? (
+							<>
+								<Skeleton
+									width={400}
+									height={30}
+								/>
+							</>
 						) : (
-							<Badge status={EnumOrderStatusPickup[order.status]}>
-								{pickupStatusMap[order.status]}
-							</Badge>
+							<>
+								<h1 className={css.title}>
+									Заказ № {order.id}
+								</h1>
+								{order.type === EnumDeliveryType.DELIVERY ? (
+									<Badge
+										status={
+											EnumOrderStatusDelivery[
+												order.status
+											]
+										}
+									>
+										{deliveryStatusMap[order.status]}
+									</Badge>
+								) : (
+									<Badge
+										status={
+											EnumOrderStatusPickup[order.status]
+										}
+									>
+										{pickupStatusMap[order.status]}
+									</Badge>
+								)}
+							</>
 						)}
 					</div>
-					<p className={css.date}>
-						Размещен{" "}
-						{dayjs(order.created_at)
-							.format("D MMMM YYYY г. (H:mm)")
-							.toLowerCase()}
-					</p>
+					{loading ? (
+						<Skeleton
+							width={250}
+							height={20}
+						/>
+					) : (
+						<p className={css.date}>
+							Размещен{" "}
+							{dayjs(order.created_at)
+								.format("D MMMM YYYY г. (H:mm)")
+								.toLowerCase()}
+						</p>
+					)}
 				</div>
 				<div className={css.header_right}>
-					<button className={css.btn}>Повторить заказ</button>
+					<Button
+						variant='tertiary'
+						className={css.btn}
+					>
+						Повторить заказ
+					</Button>
 				</div>
 			</div>
 		</div>

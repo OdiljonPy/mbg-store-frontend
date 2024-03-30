@@ -1,12 +1,14 @@
 import Link from "next/link";
 
+import Skeleton from "react-loading-skeleton";
 import css from "./mobile-header.module.css";
 
 interface Props {
 	orderId: number;
+	loading: boolean;
 }
 
-function MobileHeader({ orderId }: Props) {
+function MobileHeader({ orderId, loading }: Props) {
 	return (
 		<header className={css.header}>
 			<h1 className={css.title}>
@@ -25,7 +27,16 @@ function MobileHeader({ orderId }: Props) {
 						/>
 					</svg>
 				</Link>
-				№ MBG{orderId}
+				{loading ? (
+					<>
+						<Skeleton
+							width={200}
+							height={20}
+						/>
+					</>
+				) : (
+					<>№ MBG{orderId}</>
+				)}
 			</h1>
 		</header>
 	);

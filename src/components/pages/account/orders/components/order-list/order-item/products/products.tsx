@@ -1,22 +1,28 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React, { useEffect } from "react";
 
-import { images } from "../data";
+import Button from "@/components/shared/button";
+import { IOrderItem } from "@/data-types/order/order";
+import Link from "next/link";
 import css from "./products.module.css";
 
-function Products() {
-	const [products, setProducts] = React.useState<StaticImageData[]>([]);
+interface Props {
+	orderItems: IOrderItem[];
+}
+
+function Products({ orderItems }: Props) {
+	const [products, setProducts] = React.useState<IOrderItem[]>([]);
 
 	useEffect(() => {
 		const updateProducts = () => {
 			if (window.innerWidth < 575) {
-				setProducts(images);
+				setProducts(orderItems);
 			} else if (window.innerWidth < 767) {
-				setProducts(images.slice(0, 3));
+				setProducts(orderItems.slice(0, 3));
 			} else if (window.innerWidth < 1199) {
-				setProducts(images.slice(0, 4));
+				setProducts(orderItems.slice(0, 4));
 			} else {
-				setProducts(images.slice(0, 6));
+				setProducts(orderItems.slice(0, 6));
 			}
 		};
 
@@ -25,33 +31,39 @@ function Products() {
 		window.addEventListener("resize", updateProducts);
 
 		return () => window.removeEventListener("resize", updateProducts);
-	}, []);
+	}, [orderItems]);
 
 	return (
 		<div className={css.grid_wrapper}>
 			<div className={css.products}>
-				{products.map((item, index) => (
-					<div
-						key={index}
+				{products.map((item) => (
+					<Link
+						href={`/product/${item.product.id}`}
+						key={item.id}
 						className={css.product}
 					>
 						<Image
 							className={css.product_image}
-							src={item}
+							width={100}
+							height={100}
+							src={item.product.images?.[0].image}
 							alt='product'
 						/>
-					</div>
+					</Link>
 				))}
 			</div>
 			<div>
-				{images.length > products.length && (
+				{products.length > products.length && (
 					<div className={css.more}>
-						<span>+{images.length - products.length}</span>
+						<span>+{products.length - products.length}</span>
 					</div>
 				)}
 			</div>
 			<div className={css.btn_wrapper}>
-				<button className={css.btn_icon}>
+				<Button
+					iconOnly
+					rounded
+				>
 					<svg
 						width='28'
 						height='28'
@@ -64,7 +76,7 @@ function Products() {
 							fill='white'
 						/>
 					</svg>
-				</button>
+				</Button>
 			</div>
 		</div>
 	);

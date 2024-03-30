@@ -1,3 +1,4 @@
+import Input from "@/components/shared/input";
 import { useTranslations } from "next-intl";
 import css from "./search.module.css";
 
@@ -6,8 +7,7 @@ function Search() {
 
 	return (
 		<div className={css.search_box}>
-			<input
-				className={css.search}
+			<Input
 				type='search'
 				placeholder={t("search")}
 			/>

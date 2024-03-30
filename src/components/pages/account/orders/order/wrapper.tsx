@@ -1,7 +1,10 @@
 import { EnumDeliveryType } from "@/data-types/order/order";
+import { fetchOrderById } from "@/slices/order/orderItemSlice";
+import { AppDispatch, RootState } from "@/store";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
-import { data } from "../data";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "./header/header";
 import MobileHeader from "./mobile-header/mobile-header";
 import Delivery from "./obtainment/delivery/delivery";
@@ -18,40 +21,65 @@ interface Props {
 const Wrapper = ({ orderId }: Props) => {
 	const t = useTranslations();
 
-	const order = data.find((item) => item.id === orderId);
+	const { order, loading, error } = useSelector(
+		(state: RootState) => state.order_item
+	);
 
-	if (!order) {
-		return <div className={css.wrapper}>not found</div>;
-	}
+	const dispatch = useDispatch<AppDispatch>();
+
+	useEffect(() => {
+		dispatch(fetchOrderById(orderId));
+	}, [dispatch, orderId]);
 
 	return (
 		<div className={css.wrapper}>
 			<div className={cn(css.container, "container")}>
-				<Header order={order} />
-				<MobileHeader orderId={order.id} />
+				<Header
+					order={order}
+					loading={loading}
+				/>
+				<MobileHeader
+					orderId={order.id}
+					loading={loading}
+				/>
 				<div className={css.content}>
 					<main className={css.main}>
 						<section className={css.section}>
 							<h2 className={css.title}>Способ получения</h2>
-							{order.type === EnumDeliveryType.DELIVERY ? (
-								<Delivery order={order} />
+							{order.type === EnumDeliveryType.PICKUP ? (
+								<Pickup
+									order={order}
+									loading={loading}
+								/>
 							) : (
-								<Pickup order={order} />
+								<Delivery
+									order={order}
+									loading={loading}
+								/>
 							)}
 						</section>
 						<section className={css.section}>
 							<h2 className={css.title}>
 								Товары в заказе{" "}
 								<span className={css.badge}>
-									{order.order_items.length}
+									{order.order_items?.length}
 								</span>
 							</h2>
-							<OrderedItemList orderedItems={order.order_items} />
+							<OrderedItemList
+								orderedItems={order.order_items}
+								loading={loading}
+							/>
 						</section>
 					</main>
 					<aside className={css.side}>
-						<OrderDetailsCard order={order} />
-						<OrderCostCard order={order} />
+						<OrderDetailsCard
+							loading={loading}
+							order={order}
+						/>
+						<OrderCostCard
+							loading={loading}
+							order={order}
+						/>
 					</aside>
 				</div>
 			</div>

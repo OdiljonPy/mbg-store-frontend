@@ -14,6 +14,7 @@ import {
 	receivingMethodMap,
 } from "../../../constants/orders/status-map";
 
+import Button from "@/components/shared/button";
 import { EnumOrderStatusDelivery } from "@/data-types/order/order";
 import Link from "next/link";
 import Badge from "../../badge/badge";
@@ -83,11 +84,17 @@ function OrderItem({ order }: Props) {
 				</div>
 			</div>
 			<div className={css.body}>
-				<Products />
-				<ProductsSlider />
+				<Products orderItems={order.order_items} />
+				<ProductsSlider orderItems={order.order_items} />
 			</div>
 			<div className={css.footer}>
-				<button className={css.btn}>Повторить заказ</button>
+				<Button
+					full
+					variant='tertiary'
+					className={css.btn}
+				>
+					Повторить заказ
+				</Button>
 			</div>
 		</div>
 	);

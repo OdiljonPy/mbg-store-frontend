@@ -3,42 +3,67 @@ import { Map, YMaps } from "@pbe/react-yandex-maps";
 import dayjs from "dayjs";
 import Badge from "../../../components/badge/badge";
 
+import Info from "@/components/shared/info/info";
 import { EnumOrderStatusDelivery, IOrder } from "@/data-types/order/order";
 import { cn } from "@/utils/cn";
-import Info from "@/components/shared/info/info";
+import Skeleton from "react-loading-skeleton";
 import css from "./delivery.module.css";
 
 interface Props {
 	order: IOrder;
+	loading: boolean;
 }
 
-function Delivery({ order }: Props) {
+function Delivery({ order, loading }: Props) {
 	return (
 		<>
 			<p className={css.title}>Доставка по адресу:</p>
 			<div className={css.card}>
 				<header className={css.card_header}>
-					<h3 className={css.card_title}>
-						{order.delivery_address?.address_name}{" "}
-						{order.delivery_address?.main_address && (
-							<Badge>основной</Badge>
-						)}
-					</h3>
-					<p className={css.card_subtitle}>
-						{order.delivery_address?.address}
-					</p>
+					{loading ? (
+						<>
+							<Skeleton
+								width={200}
+								height={20}
+								style={{ marginBottom: 5 }}
+							/>
+							<Skeleton
+								width={"70%"}
+								height={15}
+							/>
+						</>
+					) : (
+						<>
+							<h3 className={css.card_title}>
+								{order.delivery_address?.address_name}{" "}
+								{order.delivery_address?.main_address && (
+									<Badge>основной</Badge>
+								)}
+							</h3>
+							<p className={css.card_subtitle}>
+								{order.delivery_address?.address}
+							</p>
+						</>
+					)}
 				</header>
 				{/* // TODO */}
 				{order.status === EnumOrderStatusDelivery.ON_THE_WAY && (
 					<div className={css.card_body}>
-						<Info>
-							Примерная дата доставки:{" "}
-							<strong>
-								{dayjs(order.created_at).format(
-									"D MMMM YYYY г."
-								)}
-							</strong>
-						</Info>
+						{loading ? (
+							<Skeleton
+								width={"100%"}
+								height={25}
+							/>
+						) : (
+							<Info>
+								Примерная дата доставки:{" "}
+								<strong>
+									{dayjs(order.created_at).format(
+										"D MMMM YYYY г."
+									)}
+								</strong>
+							</Info>
+						)}
 					</div>
 				)}
 			</div>
@@ -52,46 +77,71 @@ function Delivery({ order }: Props) {
 						<ul className={css.list}>
 							<li>
 								<span>Курьер</span>
-								<span>Талипов Мурод</span>
+								{loading ? (
+									<Skeleton width={100} />
+								) : (
+									<span>Талипов Мурод</span>
+								)}
 							</li>
 							<li>
 								<span>Номер телефона</span>
-								<span>
-									{formatPhoneNumber("+998 (91) 234-56-78 ")}
-								</span>
+								{loading ? (
+									<Skeleton width={150} />
+								) : (
+									<span>
+										{formatPhoneNumber(
+											"+998 (91) 234-56-78 "
+										)}
+									</span>
+								)}
 							</li>
 							<li>
 								<span>Транспорт</span>
-								<span>белый Chevrolet Matiz 01M173XB</span>
+								{loading ? (
+									<Skeleton width={150} />
+								) : (
+									<span>белый Chevrolet Matiz 01M173XB</span>
+								)}
 							</li>
 							<li>
 								<span>Время прибытия</span>
-								<span>~ 18:20 - 19:00</span>
+								{loading ? (
+									<Skeleton width={120} />
+								) : (
+									<span>~ 18:20 - 19:00</span>
+								)}
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div className={css.map}>
-					<YMaps>
-						<Map
-							defaultState={{
-								center: [41.311158, 69.279737],
-								zoom: 12,
-							}}
-							modules={[
-								"geocode",
-								"geolocation",
-								"SuggestView",
-								"suggest",
-								"control.ZoomControl",
-								"control.FullscreenControl",
-							]}
-							defaultOptions={{ suppressMapOpenBlock: true }}
-							controls={["zoomControl", "fullscreenControl"]}
-							height={"266px"}
+					{loading ? (
+						<Skeleton
 							width={"100%"}
+							height={266}
 						/>
-					</YMaps>
+					) : (
+						<YMaps>
+							<Map
+								defaultState={{
+									center: [41.311158, 69.279737],
+									zoom: 12,
+								}}
+								modules={[
+									"geocode",
+									"geolocation",
+									"SuggestView",
+									"suggest",
+									"control.ZoomControl",
+									"control.FullscreenControl",
+								]}
+								defaultOptions={{ suppressMapOpenBlock: true }}
+								controls={["zoomControl", "fullscreenControl"]}
+								height={"266px"}
+								width={"100%"}
+							/>
+						</YMaps>
+					)}
 				</div>
 			</div>
 		</>

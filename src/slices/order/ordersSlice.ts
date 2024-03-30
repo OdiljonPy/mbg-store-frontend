@@ -2,30 +2,29 @@ import { IOrder } from "@/data-types/order/order";
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+interface OrdersResponse {
+	response: IOrder[];
+	ok: boolean;
+}
+
 export const fetchOrders = createAsyncThunk("order", async () => {
-	const response = await API.get<IOrder[]>("/orders/");
+	const response = await API.get<OrdersResponse>("/store/orders/");
 	return response.data;
 });
 
 interface InitialState {
-	result: {
-		orders: IOrder[];
-		ok: boolean;
-	};
+	orders: IOrder[];
 	loading: boolean;
 	error: boolean;
 }
 
 const initialState: InitialState = {
-	result: {
-		orders: {} as IOrder[],
-		ok: false,
-	},
-	loading: false,
+	orders: {} as IOrder[],
+	loading: true,
 	error: false,
 };
 
-const orderSlice = createSlice({
+const ordersSlice = createSlice({
 	name: "orders",
 	initialState,
 	reducers: {},
@@ -36,7 +35,9 @@ const orderSlice = createSlice({
 			})
 			.addCase(fetchOrders.fulfilled, (state, action) => {
 				state.loading = false;
-				state.result.orders = action.payload;
+				if (action.payload.ok) {
+					state.orders = action.payload.response;
+				}
 			})
 			.addCase(fetchOrders.rejected, (state) => {
 				state.loading = false;
@@ -45,4 +46,4 @@ const orderSlice = createSlice({
 	},
 });
 
-export default orderSlice.reducer;
+export default ordersSlice.reducer;

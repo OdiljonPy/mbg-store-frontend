@@ -17,6 +17,10 @@
 	flex: 1 1 0;
 }
 
+.section:not(:last-child) {
+	margin-bottom: 30px;
+}
+
 .title {
 	font-size: 26px;
 	margin-bottom: 24px;

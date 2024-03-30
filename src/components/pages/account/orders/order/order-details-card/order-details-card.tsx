@@ -6,6 +6,7 @@ import {
 } from "@/data-types/order/order";
 import { formatPhoneNumber } from "@/utils/phone-format/phone-format";
 import dayjs from "dayjs";
+import Skeleton from "react-loading-skeleton";
 import Badge from "../../components/badge/badge";
 import {
 	deliveryStatusMap,
@@ -15,9 +16,10 @@ import css from "./order-details-card.module.css";
 
 interface Props {
 	order: IOrder;
+	loading: boolean;
 }
 
-function OrderDetailsCard({ order }: Props) {
+function OrderDetailsCard({ order, loading }: Props) {
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
@@ -28,38 +30,69 @@ function OrderDetailsCard({ order }: Props) {
 					<li className={css.mobile}>
 						<span>Статус</span>
 						<span>
-							{order.type === EnumDeliveryType.DELIVERY ? (
-								<Badge
-									status={
-										EnumOrderStatusDelivery[order.status]
-									}
-								>
-									{deliveryStatusMap[order.status]}
-								</Badge>
+							{loading ? (
+								<Skeleton width={100} />
 							) : (
-								<Badge
-									status={EnumOrderStatusPickup[order.status]}
-								>
-									{pickupStatusMap[order.status]}
-								</Badge>
+								<>
+									{order.type ===
+									EnumDeliveryType.DELIVERY ? (
+										<Badge
+											status={
+												EnumOrderStatusDelivery[
+													order.status
+												]
+											}
+										>
+											{deliveryStatusMap[order.status]}
+										</Badge>
+									) : (
+										<Badge
+											status={
+												EnumOrderStatusPickup[
+													order.status
+												]
+											}
+										>
+											{pickupStatusMap[order.status]}
+										</Badge>
+									)}
+								</>
 							)}
 						</span>
 					</li>
 					<li className={css.mobile}>
 						<span>Время заказа</span>
 						<span>
-							{dayjs(order.created_at)
-								.format("D MMMM YYYY г. (H:mm)")
-								.toLowerCase()}
+							{loading ? (
+								<Skeleton width={150} />
+							) : (
+								<>
+									{dayjs(order.created_at)
+										.format("D MMMM YYYY г. (H:mm)")
+										.toLowerCase()}
+								</>
+							)}
 						</span>
 					</li>
 					<li>
 						<span>Получатель</span>
-						<span>Малика Кадирова</span>
+						<span>
+							{loading ? (
+								<Skeleton width={150} />
+							) : (
+								<>Малика Кадирова</>
+							)}
+						</span>
 					</li>
 					<li>
 						<span>Номер телефона</span>
-						<span>{formatPhoneNumber("+998901234567")}</span>
+						<span>
+							{loading ? (
+								<Skeleton width={120} />
+							) : (
+								<>{formatPhoneNumber("+998901234567")}</>
+							)}
+						</span>
 					</li>
 				</ul>
 			</div>

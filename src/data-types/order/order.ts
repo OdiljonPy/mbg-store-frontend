@@ -1,6 +1,6 @@
 import { IDeliveryAddress } from "../address/delivery-address";
 import { IUser } from "../auth/user";
-import { IProduct } from "../products/products";
+import { IProduct } from "../products/common";
 
 export interface IOrder {
 	id: number;
@@ -11,6 +11,8 @@ export interface IOrder {
 	delivery_address: IDeliveryAddress | null;
 	created_at: string;
 	promo_code: IPromoCode | null;
+	delivery_price: number;
+	sale_price: number;
 	order_items: IOrderItem[];
 }
 

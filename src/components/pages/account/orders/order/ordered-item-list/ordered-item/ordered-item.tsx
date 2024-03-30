@@ -20,6 +20,8 @@ function OrderedItem({ orderedItem }: Props) {
 						className={css.image}
 						src={orderedItem.product.images[0].image}
 						alt={orderedItem.product.name}
+						width={90}
+						height={100}
 					/>
 				)}
 			</div>
@@ -30,13 +32,13 @@ function OrderedItem({ orderedItem }: Props) {
 							{orderedItem.product.name}
 						</h4>
 						<p className={css.weight}>
-							{orderedItem.product.weight}
+							{orderedItem.product.amount_type}
 						</p>
 					</div>
 					<p className={css.seller}>
-						<span>{t("seller")}:</span>
+						<span>{t("seller")}: </span>
 						<span className={css.seller_value}>
-							{orderedItem.product.seller}
+							{orderedItem.product.store?.brand_name}
 						</span>
 					</p>
 				</div>

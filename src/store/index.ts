@@ -2,6 +2,8 @@ import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
 import categorySlices from "@/slices/category/categorySlices";
 import messageSlice from "@/slices/message/message";
+import orderItemSlice from "@/slices/order/orderItemSlice";
+import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productSingleSlices from "@/slices/product/productSingleSlices";
@@ -29,6 +31,8 @@ export const makeStore = () => {
 			verify: verifyUserSlice,
 			signup: signUpUserSlice,
 			login: loginSlice,
+			orders: ordersSlice,
+			order_item: orderItemSlice,
 			// address: addressSlice,
 		},
 	});
