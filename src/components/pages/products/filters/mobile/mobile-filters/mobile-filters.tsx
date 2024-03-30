@@ -55,12 +55,13 @@ const MobileFilters = ({}: props) => {
             rating:Number(values.rating),
             store: values.stores?.length ? values.stores.map((store)=> Number(store)):'',
             discount:Number(values.sales),
-            free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
-            pickup:searchParams.get('delivery')?.split(',').includes('2'),
-            comments:searchParams.get('withFeedback'),
+            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular',
+            comments:values.withFeedback,
+            free_shipping:values.delivery?.includes('1'),
+            pickup:values.delivery?.includes('2'),
+
             available:searchParams.get('accessibility')?.split(',').includes('1'),
-            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
-            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
+            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2')
         }
         dispatch(filterProduct(filterData))
     }
