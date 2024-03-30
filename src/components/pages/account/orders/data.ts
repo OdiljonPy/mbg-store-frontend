@@ -28,6 +28,8 @@ export const data: IOrder[] = [
 			discount: 10,
 			promocode: "MBG10",
 		},
+		delivery_price: 1000000,
+		sale_price: 1000000,
 		total_price: 1000000,
 		user: {
 			id: 1,
@@ -78,6 +80,8 @@ export const data: IOrder[] = [
 			phone_number: "+998901234567",
 			main_address: false,
 		},
+		delivery_price: 1000000,
+		sale_price: 1000000,
 		promo_code: null,
 		total_price: 111000,
 		user: {
@@ -116,6 +120,8 @@ export const data: IOrder[] = [
 		created_at: "2022-02-01 12:50",
 		type: EnumDeliveryType.DELIVERY,
 		status: EnumOrderStatusPickup.PROGRESSING,
+		delivery_price: 1000000,
+		sale_price: 1000000,
 		delivery_address: {
 			id: 2,
 			address_name: "Второй адрес",
