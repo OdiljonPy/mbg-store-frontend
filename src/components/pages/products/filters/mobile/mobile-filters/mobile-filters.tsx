@@ -57,12 +57,13 @@ const MobileFilters = ({}: props) => {
             discount:Number(values.sales),
             sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular',
             comments:values.withFeedback,
-            free_shipping:values.delivery?.includes('1'),
-            pickup:values.delivery?.includes('2'),
-            available:values.accessibility?.includes('1'),
-            around_the_clock:values.accessibility?.includes('2')
+            free_shipping:values.delivery?.length ? values.delivery?.includes('1') : false,
+            pickup:values.delivery?.length ? values.delivery?.includes('2') : false,
+            available:values.accessibility?.length ? values.accessibility?.includes('1'):false,
+            around_the_clock:values.accessibility?.length ? values.accessibility?.includes('2'):false,
         }
         dispatch(filterProduct(filterData))
+        onClose()
     }
 
 
