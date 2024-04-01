@@ -1,21 +1,21 @@
 import Product from "@/components/shared/product/product";
-import { data } from "../../data";
 
-import css from "./favorites-list.module.css";
+import { RootState } from "@/store";
+import { useSelector } from "react-redux";
 import ProductsEmpty from "./favorites-empty/favorites-empty";
+import css from "./favorites-list.module.css";
 
 function ProductList() {
-	if (!data.length) {
+	const favorites = useSelector((state: RootState) => state.favorites);
+
+	if (!favorites.length) {
 		return <ProductsEmpty />;
 	}
 
 	return (
 		<div className={css.list}>
-			{data.map((product) => (
-				<Product
-					product={product}
-					key={product.id}
-				/>
+			{favorites.map((product) => (
+				<Product product={product} key={product.id} />
 			))}
 		</div>
 	);

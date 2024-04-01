@@ -1,6 +1,7 @@
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
 import categorySlices from "@/slices/category/categorySlices";
+import favoritesSlice from "@/slices/favorites/favoritesSlice";
 import messageSlice from "@/slices/message/message";
 import orderItemSlice from "@/slices/order/orderItemSlice";
 import ordersSlice from "@/slices/order/ordersSlice";
@@ -33,6 +34,7 @@ export const makeStore = () => {
 			login: loginSlice,
 			orders: ordersSlice,
 			order_item: orderItemSlice,
+			favorites: favoritesSlice,
 			// address: addressSlice,
 		},
 	});
