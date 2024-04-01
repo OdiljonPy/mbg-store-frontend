@@ -1,6 +1,6 @@
 import Image from "next/image";
-import React from "react";
 
+import Button from "@/components/shared/button";
 import css from "./orders-empty.module.css";
 
 function OrdersEmpty() {
@@ -16,7 +16,7 @@ function OrdersEmpty() {
 				/>
 			</div>
 			<p className={css.text}>У вас пока нет заказов</p>
-			<button className={css.button}>Товары на скидке</button>
+			<Button className={css.btn}>Товары на скидке</Button>
 		</div>
 	);
 }

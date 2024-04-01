@@ -15,26 +15,6 @@
 	margin-bottom: 14px;
 }
 
-.button {
-	color: white;
-	background-color: var(--green);
-	font-weight: 600;
-	font-size: 17px;
-	display: flex;
-	border: none;
-	align-items: center;
-	justify-content: center;
-	border-radius: var(--default-radius);
-	padding: 15px 56px;
-	transition: all 0.2s linear;
-	cursor: pointer;
-	text-wrap: nowrap;
-}
-
-.button:hover {
-	opacity: 0.8;
-}
-
 @media (max-width: 991px) {
 	.image_wrapper {
 		margin-top: 40px;
@@ -43,6 +23,10 @@
 	.text {
 		font-size: 20px;
 	}
+}
+
+.btn {
+	width: 260px;
 }
 
 @media (max-width: 575px) {
@@ -55,7 +39,7 @@
 		height: 140px;
 	}
 
-	.button {
+	.btn {
 		width: 100%;
 	}
 }

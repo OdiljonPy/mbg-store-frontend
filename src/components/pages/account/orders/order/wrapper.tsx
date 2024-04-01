@@ -1,3 +1,4 @@
+import FormError from "@/components/shared/form-error/form-error";
 import { EnumDeliveryType } from "@/data-types/order/order";
 import { fetchOrderById } from "@/slices/order/orderItemSlice";
 import { AppDispatch, RootState } from "@/store";
@@ -30,6 +31,13 @@ const Wrapper = ({ orderId }: Props) => {
 	useEffect(() => {
 		dispatch(fetchOrderById(orderId));
 	}, [dispatch, orderId]);
+
+	if (error)
+		return (
+			<div className={css.wrapper}>
+				<FormError error={"Что-то пошло не так"} />
+			</div>
+		);
 
 	return (
 		<div className={css.wrapper}>
