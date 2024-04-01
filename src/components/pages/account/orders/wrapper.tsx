@@ -18,8 +18,6 @@ const Wrapper = () => {
 		dispatch(fetchOrders());
 	}, [dispatch]);
 
-	console.log(orders);
-
 	return (
 		<section className={css.orders}>
 			<Header />
