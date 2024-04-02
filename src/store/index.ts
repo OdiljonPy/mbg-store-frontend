@@ -5,17 +5,20 @@ import messageSlice from "@/slices/message/message";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productSingleSlices from "@/slices/product/productSingleSlices";
-import { configureStore } from "@reduxjs/toolkit";
+import {Action, configureStore, ThunkAction} from "@reduxjs/toolkit";
 import loginSlice from "../slices/auth/login";
 import signUpUserSlice from "../slices/auth/signup";
 import verifyUserSlice from "../slices/auth/verify";
 import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
+import basketSlice from "@/slices/basket/basketSlice";
 
 export const makeStore = () => {
+
 	return configureStore({
 		reducer: {
+			basket: basketSlice,
 			product: productSlices,
 			product_discount: productDiscount,
 			product_bestseller: productBestSeller,
@@ -31,10 +34,22 @@ export const makeStore = () => {
 			login: loginSlice,
 			// address: addressSlice,
 		},
-	});
+
+	})
 };
 
-export const store = makeStore();
 
+
+export const store = makeStore();
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppState = ReturnType<AppStore['getState']>;
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppDispatch = AppStore['dispatch'];
+
+export type AppThunk<ReturnType = void> = ThunkAction<
+	ReturnType,
+	AppState,
+	unknown,
+	Action<string>
+>;

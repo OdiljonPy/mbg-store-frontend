@@ -44,7 +44,7 @@ const ProductTop = ({ product }: props) => {
 					alt={name}
 				/>
 			</Link>
-			<ProductActions count={count} />
+			<ProductActions count={count} product={product} />
 		</div>
 	);
 };
