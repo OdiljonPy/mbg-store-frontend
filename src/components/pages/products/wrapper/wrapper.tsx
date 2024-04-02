@@ -29,7 +29,7 @@ const Wrapper = (props: props) => {
     const dispatch = useDispatch<AppDispatch>()
     const {entities, loading} =  useSelector((state:RootState) => state.product)
 
-    const diffFilters: string[] = ['filters', 'search', 'sort','category_id',"clear_filter"]
+    const diffFilters: string[] = ['filters', 'search', 'sort','category',"clear_filter"]
     const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
 
 

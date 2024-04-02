@@ -13,6 +13,7 @@ interface props {
 const CatalogItem = ({item}: props) => {
     const searchParams = useSearchParams()
     const filters: string | null = searchParams.get('filters')
+    const currentCategory: string  | null  = searchParams.get('category')
 
     const {
         title,
@@ -35,7 +36,7 @@ const CatalogItem = ({item}: props) => {
             pathname: `/products`,
             query: queries
         }} className={css.item}>
-            <span className={css.text}>
+            <span className={`${css.text} ${currentCategory === title ? css.active : ''}`}>
                 {title}
            </span>
             <svg className={css.icon} width="16" height="14" viewBox="0 0 16 14" fill="none"

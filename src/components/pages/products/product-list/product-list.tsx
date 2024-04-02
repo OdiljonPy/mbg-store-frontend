@@ -33,6 +33,8 @@ const ProductList = ({products,loading}: props) => {
                         )
                     })
                 }
+
+                {!products.content?.length && <div className={css.no_data}>No Data</div>}
             </div>
         </>
     );
