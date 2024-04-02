@@ -7,7 +7,7 @@ import Contents from "@/components/pages/cart/contents/contents";
 import Total from "@/components/pages/cart/total/total";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
-import {countTotalProduct} from "@/slices/basket/basketSlice"
+import {calcPrices} from "@/slices/basket/basketSlice"
 interface props {
 
 }
@@ -17,7 +17,7 @@ const Wrapper = (props: props) => {
     const dispatch = useDispatch<AppDispatch>()
     const t = useTranslations()
 
-    dispatch(countTotalProduct())
+    dispatch(calcPrices())
     return (
         <section className={css.cart}>
             <div className={'container'}>
@@ -35,8 +35,8 @@ const Wrapper = (props: props) => {
                     {t('header.basket')} <Badge count={basketSlices.totalCountProduct ? basketSlices.totalCountProduct : 0} color={'#39B969'}/>
                 </h1>
                 <div className={css.wrapper}>
-                    <Contents products={basketSlices.products} totalCount={basketSlices.totalCountProduct}/>
-                    <Total/>
+                    <Contents basketSlices={basketSlices}/>
+                    <Total basketSlice={basketSlices} />
                 </div>
                 <Favourites/>
             </div>

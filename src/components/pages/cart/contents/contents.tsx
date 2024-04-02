@@ -2,18 +2,18 @@ import css from './contents.module.css'
 import Product from "@/components/pages/cart/contents/product/product";
 import CartEmpty from "@/components/pages/cart/common/cart-empty/cart-empty";
 import {IProduct} from "@/data-types/products/common";
+import {IBasketSlices} from "@/data-types/slices/basket";
 
 interface props {
-    products:IProduct[]
-    totalCount : number
+    basketSlices: IBasketSlices
 }
 
-const Contents = ({products,totalCount}: props) => {
-
+const Contents = ({basketSlices}: props) => {
+const {products,totalCountProduct} = basketSlices
     return (
         <div className={css.contents}>
-            {!totalCount ? <CartEmpty/> :
-                products.map((product)=> <Product product={product} key={product.id}/>)
+            {!totalCountProduct ? <CartEmpty/> :
+                products.map((product)=> <Product basket={basketSlices} product={product} key={product.id}/>)
             }
 
         </div>

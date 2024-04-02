@@ -5,9 +5,11 @@ import Description from "@/components/pages/cart/contents/product/description/de
 import {useState} from "react";
 import Actions from "@/components/pages/cart/contents/product/actions/actions";
 import Price from "@/components/pages/cart/contents/product/description/price/price";
+import {IBasketSlices} from "@/data-types/slices/basket";
 
 interface props {
     product: IProduct
+    basket:IBasketSlices
 }
 
 const Product = ({product}: props) => {
@@ -26,7 +28,7 @@ const Product = ({product}: props) => {
                     <Actions count={count} setCount={setCount}  product={product}/>
                    </div>
                    <div className={css.price_mobile}>
-                       <Price discount_price={product.discount_price} price={product.price} count={count}/>
+                       <Price discount={product.discount} discount_price={product.discount_price} price={product.price} count={count}/>
                    </div>
                </div>
            </div>
