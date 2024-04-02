@@ -24,7 +24,6 @@
 .btn {
 	background-color: transparent;
 	border: none;
-	cursor: pointer;
 }
 
 .header:not(:last-child) {
@@ -33,12 +32,7 @@
 
 .title {
 	font-size: 18px;
-	font-weight: 600;
-	display: flex;
-	align-items: center;
-	gap: 8px;
 	margin-bottom: 4px;
-	font-variant-numeric: lining-nums proportional-nums;
 }
 
 .badge {
@@ -54,8 +48,6 @@
 
 .subtitle {
 	font-size: 18px;
-	font-weight: 500;
-	color: var(--icon-gray);
 	margin-bottom: 10px;
 }
 
@@ -71,13 +63,10 @@
 
 	.title {
 		font-size: 14px;
-		gap: 4px;
 	}
 
 	.subtitle {
 		font-size: 14px;
-		font-weight: 400;
-		color: var(--icon-gray);
 		margin-bottom: 10px;
 	}
 }

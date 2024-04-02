@@ -8,6 +8,7 @@ import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productSingleSlices from "@/slices/product/productSingleSlices";
+import shippingListSlice from "@/slices/shipping/shippingSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import loginSlice from "../slices/auth/login";
 import signUpUserSlice from "../slices/auth/signup";
@@ -35,6 +36,7 @@ export const makeStore = () => {
 			orders: ordersSlice,
 			order_item: orderItemSlice,
 			favorites: favoritesSlice,
+			shippingList: shippingListSlice,
 			// address: addressSlice,
 		},
 	});
