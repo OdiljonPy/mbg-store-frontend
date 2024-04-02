@@ -13,6 +13,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	rightIcon?: React.ReactNode;
 	width?: string | number;
 	height?: string | number;
+	onClick?:()=> void
 }
 
 function Button({

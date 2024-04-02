@@ -1,4 +1,4 @@
-import { persistReducer } from 'redux-persist';
+import {persistReducer, persistStore} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {Action, configureStore, combineReducers, ThunkAction} from "@reduxjs/toolkit";
 
@@ -60,6 +60,7 @@ export const makeStore = () => {
 
 
 export const store = makeStore();
+persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppState = ReturnType<typeof store.getState>;

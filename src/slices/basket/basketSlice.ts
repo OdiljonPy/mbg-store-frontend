@@ -1,4 +1,3 @@
-
 import {IProduct} from "@/data-types/products/common";
 import {createSlice} from "@reduxjs/toolkit";
 
