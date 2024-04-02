@@ -1,14 +1,15 @@
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import {
 	Action,
-	configureStore,
-	combineReducers,
 	ThunkAction,
+	combineReducers,
+	configureStore,
 } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
+import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
 import messageSlice from "@/slices/message/message";
@@ -23,7 +24,7 @@ import verifyUserSlice from "../slices/auth/verify";
 import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
-import basketSlice from "@/slices/basket/basketSlice";
+import shippingListSlice from "../slices/shipping/shippingSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -49,6 +50,7 @@ const rootReducers = combineReducers({
 	orders: ordersSlice,
 	order_item: orderItemSlice,
 	favorites: favoritesSlice,
+	shippingList: shippingListSlice,
 	// address: addressSlice,
 });
 
