@@ -14,7 +14,7 @@ const Contents = (props: props) => {
     return (
         <div className={css.contents}>
             {
-                basketItems.map((product)=> <Product product={product}/>)
+                basketItems.map((product)=> <Product product={product} key={product.id}/>)
             }
 
         </div>
