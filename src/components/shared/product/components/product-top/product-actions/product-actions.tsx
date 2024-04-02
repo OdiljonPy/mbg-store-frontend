@@ -16,13 +16,13 @@ const ProductActions = ({count,product}: props) => {
     const [intermediateValue, setIntermediate] = useState<number>(count ?? 0)
     const onIncrement = () => {
         setIntermediate((prev) => prev + 1)
-        dispatch(addProduct(product))
+        dispatch(addProduct({count : 1 ,...product}))
     }
 
     const onDecrement = () => {
         if (intermediateValue > 0) {
             setIntermediate((prev) => prev - 1)
-            dispatch(removeProduct(product))
+            dispatch(addProduct({count : -1,...product}))
         }
     }
 
