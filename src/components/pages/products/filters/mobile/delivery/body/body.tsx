@@ -12,7 +12,7 @@ const Body = (props: props) => {
     return (
         <div className={css.wrapper}>
             {deliveryOptions.map((item) => (
-                <CustomCheckbox boolName={'hasDelivery'} name={'delivery'} item={item} key={item.id}/>
+                <CustomCheckbox boolName={'hasDelivery'} name={'delivery'} item={item} key={item.id} hasCount={false} />
             ))}
         </div>
     );

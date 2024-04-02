@@ -1,9 +1,9 @@
 import React from 'react';
 import css from './category-item.module.css'
-import {ICategory} from "@/components/pages/products/filters/mobile/categories/data-types/categories";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
     item: ICategory
@@ -18,9 +18,9 @@ const CategoryItem = ({item}: props) => {
     const category: string | undefined = watch('category')
 
     const {
-        icon,
-        title,
-        count,
+        icone,
+        name,
+        count_product,
         id
     } = item
 
@@ -33,13 +33,13 @@ const CategoryItem = ({item}: props) => {
         <label onClick={onSetCategory} className={`${css.item} ${category === id.toString() ? css.active : ''}`}>
             <input className={css.input} value={id}  type={'radio'}/>
             <span className={css.icon}>
-                <ResponsiveImage src={icon} alt={title}/>
+                <ResponsiveImage src={icone} alt={name}/>
              </span>
             <span className={css.title}>
-                {title}
+                {name}
              </span>
             <span className={css.count}>
-                {count}
+                {count_product}
              </span>
         </label>
     );

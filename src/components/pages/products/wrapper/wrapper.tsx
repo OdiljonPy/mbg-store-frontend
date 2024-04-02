@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
 import {useRouter} from "next/router";
+import {fetchCategory} from "@/slices/category/categorySlices";
 
 
 
@@ -25,8 +26,8 @@ const Wrapper = (props: props) => {
     const {push, query} = useRouter()
     const category: string | null = searchParams.get('category')
 
-    const {entities, loading} =  useSelector((state:RootState) => state.product)
     const dispatch = useDispatch<AppDispatch>()
+    const {entities, loading} =  useSelector((state:RootState) => state.product)
 
     const diffFilters: string[] = ['filters', 'search', 'sort','category_id',"clear_filter"]
     const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
@@ -80,8 +81,10 @@ const Wrapper = (props: props) => {
     useEffect(() => {
         fetchProductFilter()
     }, [searchParams.get('changeFilter'),searchParams.get('sort')]);
-
-
+    // fetch category
+    useEffect(() => {
+        dispatch(fetchCategory({q:'',size:'40'}))
+    }, []);
 
     return (
         <section className={css.results}>
@@ -100,7 +103,7 @@ const Wrapper = (props: props) => {
                 <Header data={entities} />
 
                 <div className={`${css.wrapper}`}>
-                    <Filters/>
+                    <Filters />
                     <ProductList products={entities} loading={loading}/>
                 </div>
             </div>

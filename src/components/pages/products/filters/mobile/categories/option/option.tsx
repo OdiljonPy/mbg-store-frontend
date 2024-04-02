@@ -1,9 +1,9 @@
 import React from 'react';
 import css from './option.module.css'
-import {ICategory} from "@/components/pages/products/filters/mobile/categories/data-types/categories";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
     item: ICategory
@@ -11,7 +11,7 @@ interface props {
 }
 
 const Option = ({item, onClose}: props) => {
-    const {id, title, count, icon} = item
+    const {id, name, count_product, icone} = item
     const {
         watch,
         setValue
@@ -29,14 +29,14 @@ const Option = ({item, onClose}: props) => {
             <input type={'radio'} className={css.input} value={id}/>
             <span className={css.info}>
                <span className={css.icon}>
-                    <ResponsiveImage src={icon} alt={title}/>
+                    <ResponsiveImage src={icone} alt={name}/>
                </span>
                 <span className={`${css.label} text-mobile-size ${category === id.toString() ? css.active: ''}`}>
-                 {title}
+                 {name}
                 </span>
             </span>
             <span className={`${css.count} text-mobile-size`}>
-                {count}
+                {count_product}
             </span>
         </label>
     );

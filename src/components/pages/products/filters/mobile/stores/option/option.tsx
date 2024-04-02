@@ -31,7 +31,7 @@ const Option = ({item}: props) => {
            onChange,
            disabled: false,
            checked: !!stores && !!stores?.includes(id.toString())
-       }} item={item}/>
+       }} item={item} hasCount={false}/>
     );
 };
 
