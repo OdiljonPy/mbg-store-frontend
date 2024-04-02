@@ -2,6 +2,10 @@
     display: none;
 }
 
+.priceWrapper{
+    margin-top: 6px;
+}
+
 .discountPrice {
     color: var(--orange);
     font-size: 20px;
@@ -25,6 +29,7 @@
     color: var(--icon-gray);
 
 }
+
 
 
 @media (max-width: 575px) {

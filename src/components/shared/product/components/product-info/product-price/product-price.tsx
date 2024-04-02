@@ -5,15 +5,16 @@ import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 interface props {
     price: number
     discount_price?: number
+    discount:number | undefined
 }
 
-const ProductPrice = ({price, discount_price}: props) => {
+const ProductPrice = ({price, discount_price,discount}: props) => {
     return (
         <div className={css.priceWrapper}>
-            <p className={`${css.discountPrice} ${!discount_price ? css.hide : ''}`}>
+            <p className={`${css.discountPrice} ${!discount ? css.hide : ''}`}>
                 {discount_price ? priceFormatter(discount_price, true) : null}
             </p>
-            <p className={`${css.price} ${discount_price ? css.lineThrough : ''}`}>
+            <p className={`${css.price}  ${discount ? css.lineThrough : ''}`}>
                 {priceFormatter(price, true)}
             </p>
         </div>
