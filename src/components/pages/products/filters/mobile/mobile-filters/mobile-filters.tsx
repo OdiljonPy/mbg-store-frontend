@@ -23,13 +23,15 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
 import {useSearchParams} from "next/navigation";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
  data:IProductFilter
+
 }
 
 
-const MobileFilters = ({data}: props) => {
+const MobileFilters = ({}: props) => {
     const t = useTranslations()
     const {query} = useRouter()
     const searchParams = useSearchParams()
@@ -41,9 +43,9 @@ const MobileFilters = ({data}: props) => {
     })
 
 
+
     const valuesCount: number = Object.entries(methods.getValues()).filter(([key, value]) => !!value && !hideArr.includes(key) && value?.length).length
     const onFilter = (values: IFilters) => {
-        console.log(values,"filter value to adaptive")
         const filterData = {
             q:searchParams.get('search'),
             category:values.category,
@@ -52,14 +54,15 @@ const MobileFilters = ({data}: props) => {
             rating:Number(values.rating),
             store: values.stores?.length ? values.stores.map((store)=> Number(store)):'',
             discount:Number(values.sales),
-            free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
-            pickup:searchParams.get('delivery')?.split(',').includes('2'),
-            comments:searchParams.get('withFeedback'),
-            available:searchParams.get('accessibility')?.split(',').includes('1'),
-            around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
-            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
+            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular',
+            comments:values.withFeedback,
+            free_shipping:values.delivery?.length ? values.delivery?.includes('1') : false,
+            pickup:values.delivery?.length ? values.delivery?.includes('2') : false,
+            available:values.accessibility?.length ? values.accessibility?.includes('1'):false,
+            around_the_clock:values.accessibility?.length ? values.accessibility?.includes('2'):false,
         }
         dispatch(filterProduct(filterData))
+        onClose()
     }
 
 
@@ -92,7 +95,7 @@ const MobileFilters = ({data}: props) => {
                 }}/>
                 <FormProvider {...methods}>
                     <form className={css.wrapper} onSubmit={methods.handleSubmit(onFilter)}>
-                        <Categories/>
+                        <Categories />
                         <Prices/>
                         <Stores/>
                         <Sales/>
@@ -100,7 +103,7 @@ const MobileFilters = ({data}: props) => {
                         <Delivery/>
                         <Accessibility/>
                         <div className={css.fixed_btn}>
-                            <Button full>{t('show',{count:priceFormatter(1520)})}</Button>
+                            <Button full>{t('show')}</Button>
                             {/*<Button full>{t('show_count',{count:priceFormatter(1520)})}</Button>*/}
                         </div>
                     </form>

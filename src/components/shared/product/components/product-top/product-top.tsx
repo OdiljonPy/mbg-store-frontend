@@ -38,7 +38,7 @@ const ProductTop = ({ product }: props) => {
 			<Link href={`/products/${id}`} className={css.img}>
 				<ResponsiveImage src={images[0]?.image} alt={name} />
 			</Link>
-			<ProductActions count={count} />
+			<ProductActions count={count} product={product} />
 		</div>
 	);
 };

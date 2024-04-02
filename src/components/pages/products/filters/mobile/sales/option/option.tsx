@@ -7,9 +7,10 @@ import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/cu
 
 interface props {
     item: ICustomCheckbox
+    onClose : () => void
 }
 
-const Option = ({item}: props) => {
+const Option = ({item,onClose}: props) => {
     const {id} = item
 
     const {watch, setValue} = useFormContext<IFilters>()
@@ -24,6 +25,7 @@ const Option = ({item}: props) => {
         // const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
         setValue('sales', value)
         setValue('onSales', true)
+        onClose()
     }
 
 

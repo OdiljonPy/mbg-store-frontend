@@ -10,9 +10,16 @@ import {useModal} from "@/hooks/use-modal";
 import {useFormContext} from "react-hook-form";
 import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import css from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters.module.css";
+import {ICategory} from "@/data-types/categories/categories";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 
+interface props{
 
-const Categories = () => {
+}
+
+const Categories = ({}:props) => {
+    const {categories,loading,error} = useSelector((state:RootState) => state.category)
     const t = useTranslations()
     const {open, onClose, onOpen} = useModal(true)
     const {unregister, watch} = useFormContext<IFilters>()
@@ -26,7 +33,7 @@ const Categories = () => {
         <>
             <div className={css.item}>
                 <TopBar onReset={category ? onReset : undefined} title={t('categories.title')} onOpen={onOpen}/>
-                <Body/>
+                <Body categories={categories} loading={loading}/>
             </div>
             <Drawer classNames={{
                 body: 'custom-body'
@@ -38,7 +45,7 @@ const Categories = () => {
                     count: category ? 1 : undefined
                 }}/>
                 <div className={css.inner}>
-                    {categoriesItems.map((category) => (
+                    {loading ? '...loading' : categories.map((category) => (
                         <Option onClose={onClose} item={category} key={category.id}/>
                     ))}
                 </div>

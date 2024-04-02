@@ -11,7 +11,7 @@ const Body = (props: props) => {
     return (
         <div className={css.wrapper}>
             {accessibilityList.map((item) => (
-                <CustomCheckbox name={'accessibility'} item={item} key={item.id}/>
+                <CustomCheckbox name={'accessibility'} item={item} key={item.id} hasCount={false}/>
             ))}
         </div>
     );

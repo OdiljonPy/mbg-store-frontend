@@ -24,3 +24,7 @@
 .item:hover .icon path {
     fill: #232323;
 }
+
+.active{
+    color: #2E9D58;
+}

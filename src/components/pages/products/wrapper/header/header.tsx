@@ -8,9 +8,11 @@ import MobileFilters from "@/components/pages/products/filters/mobile/mobile-fil
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
 import {ICommon} from "@/data-types/products/products";
 import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
     data:IProductFilter
+
 }
 
 const Header = ({data}: props) => {

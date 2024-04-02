@@ -6,6 +6,7 @@ import {useRouter} from "next/router";
 import {ICommon, IProduct} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
 import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
+import SkeletonWrapper from "@/components/pages/products/wrapper/skeleton-wrapper/skeleton-wrapper";
 
 
 interface props {
@@ -25,13 +26,15 @@ const ProductList = ({products,loading}: props) => {
             <div className={`${css.list} ${isOpened ? css.short: ''}`}>
 
                 {
-                    loading ? <Skeleton  containerClassName={`${css.list} ${isOpened ? css.short: ''}`}  className={`${css.skeleton} ${isOpened ? css.skeleton_short :''}`} count={isOpened ? 6 : 8} /> :
+                    loading ? <SkeletonWrapper/> :
                     products?.content?.map((product)=>{
                         return (
                             <Product product={product} isNotSwiper key={product.id} />
                         )
                     })
                 }
+
+                {!products.content?.length && <div className={css.no_data}>No Data</div>}
             </div>
         </>
     );

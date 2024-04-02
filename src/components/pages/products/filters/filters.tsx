@@ -10,21 +10,21 @@ import Sales from "@/components/pages/products/filters/desktop/sales/sales";
 import Rating from "@/components/pages/products/filters/desktop/rating/rating";
 import Delivery from "@/components/pages/products/filters/desktop/delivery/delivery";
 import Accessibility from "@/components/pages/products/filters/desktop/accessibility/accessibility";
+import {ICategory} from "@/data-types/categories/categories";
 
 interface props {
 
 }
 
-const Filters = (props: props) => {
+const Filters = ({}: props) => {
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
     const {isReady} = useRouter()
 
-
     return (
         <div className={`${css.filters} ${!isReady ? css.hide : ''} ${isOpened ? css.show : ''}`}>
             <ResetFilters/>
-            <Categories/>
+            <Categories />
             <Prices/>
             <Stores/>
             <Sales/>

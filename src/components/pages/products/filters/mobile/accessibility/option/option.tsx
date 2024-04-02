@@ -32,7 +32,7 @@ const Option = ({item}: props) => {
             onChange,
             disabled: false,
             checked:!!accessibility && !!accessibility?.includes(id.toString())
-        }} item={item}/>
+        }} item={item} hasCount={false}/>
     );
 };
 
