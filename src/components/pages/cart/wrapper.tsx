@@ -5,18 +5,19 @@ import {Badge} from "antd";
 import Favourites from "@/components/pages/cart/favourites/favourites";
 import Contents from "@/components/pages/cart/contents/contents";
 import Total from "@/components/pages/cart/total/total";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store";
-import {useEffect} from "react";
-
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {countTotalProduct} from "@/slices/basket/basketSlice"
 interface props {
 
 }
 
 const Wrapper = (props: props) => {
-    const products = useSelector((state:RootState) => state.basket)
+    const basketSlices = useSelector((state:RootState)=>state.basket)
+    const dispatch = useDispatch<AppDispatch>()
     const t = useTranslations()
-    console.log(products,"products")
+
+    dispatch(countTotalProduct())
     return (
         <section className={css.cart}>
             <div className={'container'}>
@@ -31,10 +32,10 @@ const Wrapper = (props: props) => {
                     },
                 ]}/>
                 <h1 className={css.title}>
-                    {t('header.basket')} <Badge count={2} color={'#39B969'}/>
+                    {t('header.basket')} <Badge count={basketSlices.totalCountProduct ? basketSlices.totalCountProduct : 0} color={'#39B969'}/>
                 </h1>
                 <div className={css.wrapper}>
-                    <Contents/>
+                    <Contents products={basketSlices.products} totalCount={basketSlices.totalCountProduct}/>
                     <Total/>
                 </div>
                 <Favourites/>

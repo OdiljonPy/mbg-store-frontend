@@ -1,20 +1,19 @@
 import css from './contents.module.css'
 import Product from "@/components/pages/cart/contents/product/product";
-import {product, productWithoutDiscount} from "@/constants/product/product";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store";
+import CartEmpty from "@/components/pages/cart/common/cart-empty/cart-empty";
+import {IProduct} from "@/data-types/products/common";
 
 interface props {
-
+    products:IProduct[]
+    totalCount : number
 }
 
-const Contents = (props: props) => {
-    const basketItems = useSelector((state:RootState)=>state.basket.products)
-    console.log(basketItems,"basket")
+const Contents = ({products,totalCount}: props) => {
+
     return (
         <div className={css.contents}>
-            {
-                basketItems.map((product)=> <Product product={product} key={product.id}/>)
+            {!totalCount ? <CartEmpty/> :
+                products.map((product)=> <Product product={product} key={product.id}/>)
             }
 
         </div>

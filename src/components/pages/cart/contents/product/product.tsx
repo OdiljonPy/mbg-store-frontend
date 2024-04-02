@@ -11,10 +11,8 @@ interface props {
 }
 
 const Product = ({product}: props) => {
-    const { images, name} = product
-    const [count, setCount] = useState<number>(0)
-
-
+    const { images, name,id} = product
+    const [count, setCount] = useState<number>(product.count ? product.count : 0)
 
     return (
        <div>
@@ -25,7 +23,7 @@ const Product = ({product}: props) => {
                <div className={css.info}>
                    <Description count={count} product={product}/>
                    <div className={css.desktop_action}>
-                    <Actions count={count} setCount={setCount}/>
+                    <Actions count={count} setCount={setCount}  product={product}/>
                    </div>
                    <div className={css.price_mobile}>
                        <Price discount_price={product.discount_price} price={product.price} count={count}/>
@@ -33,7 +31,7 @@ const Product = ({product}: props) => {
                </div>
            </div>
            <div className={css.mobile_action}>
-               <Actions count={count} setCount={setCount}/>
+               <Actions count={count} setCount={setCount}  product={product}/>
            </div>
        </div>
     );
