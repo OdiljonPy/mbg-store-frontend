@@ -3,12 +3,32 @@ import { Modal } from "antd";
 import { useModal } from "@/hooks/use-modal";
 
 import Button from "@/components/shared/button";
+import { deleteShipping } from "@/slices/shipping/shippingSlice";
+import { AppDispatch, RootState } from "@/store";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./delete-address-modal.module.css";
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	shippingId: number;
+}
 
-function DeleteAddressModal({ children, className, ...props }: Props) {
+function DeleteAddressModal({
+	children,
+	className,
+	shippingId,
+	...props
+}: Props) {
 	const { onClose, onOpen, open } = useModal();
+
+	const { deleteLoading } = useSelector(
+		(state: RootState) => state.shippingList
+	);
+
+	const dispatch = useDispatch<AppDispatch>();
+
+	const onDelete = () => {
+		dispatch(deleteShipping(shippingId)).then(() => onClose());
+	};
 
 	return (
 		<>
@@ -42,10 +62,16 @@ function DeleteAddressModal({ children, className, ...props }: Props) {
 					</p>
 				</div>
 				<div className={css.footer}>
-					<Button variant='secondary' style={{ minWidth: "120px" }}>
+					<Button
+						onClick={onClose}
+						variant='secondary'
+						style={{ minWidth: "120px" }}
+					>
 						Нет
 					</Button>
-					<Button full>Да, удалить</Button>
+					<Button onClick={onDelete} full loading={deleteLoading}>
+						Да, удалить
+					</Button>
 				</div>
 			</Modal>
 		</>

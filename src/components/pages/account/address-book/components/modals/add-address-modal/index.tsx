@@ -47,7 +47,7 @@ function AddNewAddressModal({ children, className, ...props }: Props) {
 				}}
 				centered
 			>
-				<Form />
+				<Form onClose={onClose} />
 				<button className={css.modal_close} onClick={onClose}>
 					<svg
 						width='30'

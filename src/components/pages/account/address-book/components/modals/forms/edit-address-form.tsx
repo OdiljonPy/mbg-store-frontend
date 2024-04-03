@@ -2,8 +2,11 @@ import Button from "@/components/shared/button";
 import { useForm } from "react-hook-form";
 
 import { IShipping } from "@/data-types/shipping";
+import { patchShipping } from "@/slices/shipping/shippingSlice";
+import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AddressFields from "./address-fields";
 import { IAddressForm } from "./address-form.interface";
 import AddressMap from "./address-map/address-map";
@@ -19,18 +22,38 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 		defaultValues: {
 			address_name: defaultValues.address_name,
 			address: defaultValues.address,
-			apartment: defaultValues.apartment,
-			entrance: defaultValues.entrance,
-			floor: defaultValues.floor,
-			latitude: defaultValues.latitude,
-			longitude: defaultValues.longitude,
+			apartment: String(defaultValues.apartment),
+			entrance: String(defaultValues.entrance),
+			floor: String(defaultValues.floor),
+			latitude: Number(defaultValues.latitude),
+			longitude: Number(defaultValues.longitude),
 			main_address: defaultValues.main_address,
 		},
 	});
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
+	const { patchLoading } = useSelector(
+		(state: RootState) => state.shippingList
+	);
+	const dispatch = useDispatch<AppDispatch>();
+
 	const onSubmit = (data: IAddressForm) => {
-		console.log(data);
+		const { apartment, entrance, floor, latitude, longitude, ...rest } =
+			data;
+
+		dispatch(
+			patchShipping({
+				body: {
+					apartment: Number(apartment),
+					entrance: Number(entrance),
+					floor: Number(floor),
+					latitude: String(latitude),
+					longitude: String(longitude),
+					...rest,
+				},
+				shippingId: defaultValues.id,
+			})
+		).then(() => onClose());
 	};
 	return (
 		<form className={css.form} onSubmit={form.handleSubmit(onSubmit)}>
@@ -45,6 +68,7 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 						full
 						type='submit'
 						disabled={!form.formState.isValid}
+						loading={patchLoading}
 					>
 						Изменить
 					</Button>
