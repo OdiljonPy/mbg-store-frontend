@@ -7,7 +7,7 @@ export const favouritesBadge: IBadge = {
             fill="#232323"/>
     </svg>
     ,
-    path: '/cabinet/favourites',
+    path: '/favourites',
     title: 'header.favourites',
     count: 30
 }
