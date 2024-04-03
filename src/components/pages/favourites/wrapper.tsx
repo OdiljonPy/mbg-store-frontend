@@ -5,9 +5,12 @@ import {useTranslations} from "next-intl";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
 import Product from "@/components/shared/product/product";
+import ProductsEmpty
+    from "@/components/pages/account/favorites/components/favorites-list/favorites-empty/favorites-empty";
 const Wrapper = () =>{
     const t = useTranslations()
-    const {favourites} = useSelector((state:RootState) => state.favorites)
+    const {favourites,total_count} = useSelector((state:RootState) => state.favorites)
+
     return(
         <section className={css.favourite}>
             <div className="container">
@@ -22,9 +25,12 @@ const Wrapper = () =>{
                     }
                 ]}/>
                 <h2 className={css.title}>{t('header.favorites')}</h2>
-                <div className={css.wrapper}>
-                    {favourites.map((product)=> <Product product={product} isNotSwiper key={product.id} />)}
-                </div>
+                {
+                    total_count ? <div className={css.wrapper}>
+                        { favourites.map((product)=> <Product product={product} isNotSwiper key={product.id} />)}
+                    </div> : <ProductsEmpty/>
+                }
+
             </div>
         </section>
     )
