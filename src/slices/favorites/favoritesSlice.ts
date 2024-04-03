@@ -1,24 +1,26 @@
-import { IProductInner } from "@/data-types/products/product-inner/product-inner";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {IProduct} from "@/data-types/products/common";
 
-type InitialState = IProductInner[];
+type InitialState = IProduct[];
 
-const initialState: InitialState = [];
+const initialState={
+	favourites : [] as IProduct[]
+};
 
 const favoritesSlice = createSlice({
 	name: "favorites",
 	initialState,
 	reducers: {
-		toggleFavorite: (state, { payload }: PayloadAction<IProductInner>) => {
-			const isExist = state.some((item) => item.id === payload.id);
+		toggleFavorite: (state, { payload }: PayloadAction<IProduct>) => {
+			const isExist = state.favourites.some((item) => item.id === payload.id);
 
 			if (isExist) {
-				const index = state.findIndex((item) => item.id === payload.id);
+				const index = state.favourites.findIndex((item) => item.id === payload.id);
 				if (index > -1) {
-					state.splice(index, 1);
+					state.favourites.splice(index, 1);
 				}
 			} else {
-				state.push(payload);
+				state.favourites.push(payload);
 			}
 		},
 	},
