@@ -5,6 +5,7 @@ import { AppDispatch } from "@/store";
 import { cn } from "@/utils/cn";
 import { useDispatch } from "react-redux";
 import css from "./delivery-item.module.css";
+import EditAddressModal from "../../modals/edit-address-modal";
 
 interface Props {
 	deliveryItem: IShipping;
@@ -36,7 +37,7 @@ function DeliveryItem({ deliveryItem }: Props) {
 					)}
 				</h3>
 				<div className={css.control}>
-					<button className={css.btn}>
+					<EditAddressModal deliveryItem={deliveryItem}>
 						<svg
 							width='24'
 							height='24'
@@ -49,7 +50,8 @@ function DeliveryItem({ deliveryItem }: Props) {
 								fill='#999999'
 							/>
 						</svg>
-					</button>
+					</EditAddressModal>
+
 					<button onClick={handleDelete} className={css.btn}>
 						<svg
 							width='24'

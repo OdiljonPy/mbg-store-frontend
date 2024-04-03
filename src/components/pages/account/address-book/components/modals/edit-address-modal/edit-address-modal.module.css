@@ -1,0 +1,42 @@
+.modal_body {
+	display: flex;
+	position: relative;
+}
+
+.modal_close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_wrapper {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 30px;
+}
+
+.modal_trigger {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 575px) {
+	.btn_wrapper {
+		display: block;
+		padding: 0 16px;
+	}
+
+	.modal_trigger {
+		width: 100%;
+	}
+}
+
+.modal_content {
+	padding: 0px !important;
+	border-radius: 26px !important;
+	overflow: hidden;
+}

@@ -2,10 +2,32 @@ import { IShipping } from "@/data-types/shipping";
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+interface IShippingRequest {
+	address_name: string;
+	address: string;
+	entrance: number;
+	floor: number;
+	apartment: number;
+	latitude: string;
+	longitude: string;
+	main_address: boolean;
+}
+
 interface IShippingResponse {
 	ok: boolean;
 	result: IShipping[];
 }
+
+export const postShipping = createAsyncThunk(
+	"shipping/post",
+	async (body: IShippingRequest) => {
+		const response = await API.post<IShippingResponse>(
+			"/store/shipping/",
+			body
+		);
+		return response.data;
+	}
+);
 
 export const fetchShippingList = createAsyncThunk("shipping", async () => {
 	const response = await API.get<IShippingResponse>("/store/shipping/list/");
