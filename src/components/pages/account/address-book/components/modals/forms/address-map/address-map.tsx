@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { UseFormReturn } from "react-hook-form";
-import { IAddressForm } from "../add-address-form";
+import { IAddressForm } from "../address-form.interface";
 import css from "./address-map.module.css";
 
 interface Props {
@@ -14,7 +14,10 @@ interface Props {
 
 function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 	const state: ymaps.IMapState = {
-		center: [form.watch("latitude"), form.watch("longitude")],
+		center: [
+			Number(form.watch("latitude")),
+			Number(form.watch("longitude")),
+		],
 		zoom: 12,
 	};
 
@@ -22,7 +25,6 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 		const newCoords = e.originalEvent.newCenter;
 		mapConstructor?.geocode(newCoords).then((res: any) => {
 			const nearest = res.geoObjects.get(0);
-			console.log(nearest);
 			const [x, y] = nearest.geometry.getCoordinates();
 			const address = nearest.properties.get("text");
 			form.setValue("latitude", x);

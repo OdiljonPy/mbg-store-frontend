@@ -1,9 +1,9 @@
 import { useModal } from "@/hooks/use-modal";
 import { Modal } from "antd";
 
-import { IShipping } from "@/data-types/shipping";
-import Form from "../forms/edit-address-form";
 import css from "./edit-address-modal.module.css";
+import Form from "../forms/edit-address-form";
+import { IShipping } from "@/data-types/shipping";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	deliveryItem: IShipping;

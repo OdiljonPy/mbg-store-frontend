@@ -11,13 +11,6 @@
 	padding: 24px;
 }
 
-.form_row {
-	display: flex;
-	gap: 14px;
-	justify-content: space-between;
-	flex: 1 1 0;
-}
-
 .title {
 	font-weight: 700;
 	font-size: 20px;
@@ -30,7 +23,7 @@
 	flex: 1 1 0%;
 }
 
-.make_main {
+.footer {
 	display: flex;
-	align-items: center;
+	gap: 14px;
 }

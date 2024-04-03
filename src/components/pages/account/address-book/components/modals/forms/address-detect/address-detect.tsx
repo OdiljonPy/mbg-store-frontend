@@ -20,7 +20,6 @@ const AddressDetect = ({ mapConstructor, form }: Props) => {
 			})
 			.then((res: any) => {
 				const [x, y] = res.geoObjects.position;
-				console.log(x, y);
 				form.setValue("latitude", x);
 				form.setValue("longitude", y);
 			});
