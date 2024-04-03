@@ -14,6 +14,7 @@ interface props {
 
 const Wrapper = (props: props) => {
     const basketSlices = useSelector((state:RootState)=>state.basket)
+    const {favourites,total_count} = useSelector((state:RootState)=> state.favorites)
     const dispatch = useDispatch<AppDispatch>()
     const t = useTranslations()
 
@@ -38,7 +39,7 @@ const Wrapper = (props: props) => {
                     <Contents basketSlices={basketSlices}/>
                     <Total basketSlice={basketSlices} />
                 </div>
-                <Favourites/>
+                {total_count && <Favourites favourites={favourites}/>}
             </div>
         </section>
     );
