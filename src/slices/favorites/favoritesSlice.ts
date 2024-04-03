@@ -1,10 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {IProduct} from "@/data-types/products/common";
 
-type InitialState = IProduct[];
-
 const initialState={
-	favourites : [] as IProduct[]
+	favourites : [] as IProduct[],
+	total_count : 0
 };
 
 const favoritesSlice = createSlice({
@@ -22,6 +21,7 @@ const favoritesSlice = createSlice({
 			} else {
 				state.favourites.push(payload);
 			}
+			state.total_count = state.favourites.length
 		},
 	},
 });

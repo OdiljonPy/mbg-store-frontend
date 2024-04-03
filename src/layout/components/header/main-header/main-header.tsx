@@ -8,10 +8,10 @@ import LanguageSwitcher from "@/layout/components/header/main-header/components/
 import Login from "@/layout/components/header/main-header/components/login/login";
 import MenuItemBadge from "@/layout/components/header/main-header/components/menu-item-badge/menu-item-badge";
 import MobileNav from "@/layout/components/header/main-header/components/mobile-nav/mobile-nav";
-import {AppDispatch, RootState} from "@/store";
+import { RootState} from "@/store";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import Account from "./components/account/account";
 import css from "./main-header.module.css";
 
@@ -32,9 +32,10 @@ interface props {}
 const MainHeader = () => {
 	const { isLoggedIn } = useSelector((state: RootState) => state.login);
 	const totalCountCart = useSelector((state:RootState)=> state.basket.totalCountProduct)
+	const totalCountFavourite = useSelector((state:RootState)=> state.favorites.total_count)
 	const [mounted, setMounted] = useState(false);
 	cartBadge.count = totalCountCart ? totalCountCart : 0
-
+	favouritesBadge.count = totalCountFavourite ? totalCountFavourite : 0
 	useEffect(() => {
 		setMounted(true);
 
