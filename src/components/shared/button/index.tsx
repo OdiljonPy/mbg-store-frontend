@@ -28,6 +28,7 @@ function Button({
 	disabled,
 	children,
 	className,
+	style,
 	...props
 }: Props) {
 	return (
@@ -45,6 +46,7 @@ function Button({
 			style={{
 				width,
 				height,
+				...style,
 			}}
 		>
 			{loading && (
