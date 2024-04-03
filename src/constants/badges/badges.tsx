@@ -1,6 +1,5 @@
 import {IBadge} from "@/layout/components/header/main-header/data-types/badge";
 
-
 export const favouritesBadge: IBadge = {
     icon: <svg width="32" height="32" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -8,7 +7,7 @@ export const favouritesBadge: IBadge = {
             fill="#232323"/>
     </svg>
     ,
-    path: '/cabinet/favourites',
+    path: '/favourites',
     title: 'header.favourites',
     count: 30
 }

@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import Button from "@/components/shared/button";
 import css from "./cart-empty.module.css";
-import {router} from "next/client";
+import {useRouter} from "next/navigation";
 
 function CartEmpty() {
-
+	const { push } = useRouter();
 	return (
 		<div className={css.wrapper}>
 			<div className={css.image_wrapper}>
@@ -18,7 +18,7 @@ function CartEmpty() {
 				/>
 			</div>
 			<p className={css.text}>Корзина пуста</p>
-			<Button className={css.btn} onClick={() => router.push('/')}>Товары на скидке</Button>
+			<Button className={css.btn} onClick={() => push('/')}>Товары на скидке</Button>
 		</div>
 	);
 }

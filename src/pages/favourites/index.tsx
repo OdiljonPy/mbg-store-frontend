@@ -1,24 +1,19 @@
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
-
-interface props {
-
-}
-
 import dynamic from 'next/dynamic';
 
-const ClientSideWrapper = dynamic(() => import('@/components/pages/cart/wrapper'), {
+const ClientSideWrapper = dynamic(() => import('@/components/pages/favourites/wrapper'), {
     ssr: false,
 });
 
-const Index = (props: props) => {
+const Index = () => {
     const t = useTranslations()
     return (
         <>
             <Head>
                 <title>
-                    {t('header.basket')}
+                    {t('header.favourites')}
                 </title>
             </Head>
             <ClientSideWrapper/>
@@ -30,8 +25,6 @@ export default Index;
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({locale}) => {
-
-
     return {
         props: {
             messages: require(`@/../messages/${locale}.json`)

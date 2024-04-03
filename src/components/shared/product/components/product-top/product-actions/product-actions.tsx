@@ -12,17 +12,22 @@ interface props {
 }
 
 const ProductActions = ({count,product}: props) => {
+    const {id} = product
     const dispatch = useDispatch<AppDispatch>()
     const [intermediateValue, setIntermediate] = useState<number>(count ?? 0)
     const onIncrement = () => {
         setIntermediate((prev) => prev + 1)
-        dispatch(addProduct({count : 1 ,...product}))
+        dispatch(addProduct({quantity : 1 ,...product}))
     }
 
     const onDecrement = () => {
-        if (intermediateValue > 0) {
+        if(intermediateValue === 1){
             setIntermediate((prev) => prev - 1)
-            dispatch(addProduct({count : -1,...product}))
+            dispatch(removeProduct(id))
+        }
+        else if (intermediateValue > 0) {
+            setIntermediate((prev) => prev - 1)
+            dispatch(addProduct({quantity : -1,...product}))
         }
     }
 

@@ -32,8 +32,14 @@ const basketPersistConfig = {
 	// whitelist: ['basket']
 };
 
+const favoritesPersistConfig = {
+	key: "favorites",
+	storage,
+};
+
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
+	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,
@@ -49,7 +55,6 @@ const rootReducers = combineReducers({
 	login: loginSlice,
 	orders: ordersSlice,
 	order_item: orderItemSlice,
-	favorites: favoritesSlice,
 	shippingList: shippingListSlice,
 	// address: addressSlice,
 });

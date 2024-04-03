@@ -11,7 +11,7 @@ interface props {
 }
 
 const Product = ({product}: props) => {
-    const {name, price, discount_price, rating, rating_count, store} = product
+    const {name, price,discount, discount_price, rating, rating_count, store} = product
     return (
         <div className={css.product}>
             <div className={css.img}>
@@ -25,9 +25,9 @@ const Product = ({product}: props) => {
             <div className={css.wrapper}>
                 <p className={css.price}>
                 <span
-                    className={discount_price ? css.actualPrice : ''}> {priceFormatter(discount_price || price, true)}</span>
+                    className={discount ? css.actualPrice : ''}> {priceFormatter(discount_price || price, true)}</span>
                     <span
-                        className={`${css.oldPrice} ${discount_price ? css.show : ''}`}>{priceFormatter(price, true)}</span>
+                        className={`${css.oldPrice} ${discount ? css.show : ''}`}>{priceFormatter(price, true)}</span>
                 </p>
             </div>
             <div className={css.wrapper}>

@@ -1,8 +1,13 @@
 import {IProduct} from "@/data-types/products/common";
 import {createSlice} from "@reduxjs/toolkit";
+import {IBasketSlices} from "@/data-types/slices/basket";
 
-const initialState = {
-    products : [] as IProduct[]
+const initialState:IBasketSlices = {
+    products : [] as IProduct[],
+    totalCountProduct : 0,
+    all_prices:0,
+    discount_price:0,
+    cost_price:0
 }
 
 const basketSlices = createSlice({
@@ -12,17 +17,26 @@ const basketSlices = createSlice({
         addProduct : (state, {payload}) =>{
             const index = state.products.findIndex(product => product.id === payload.id);
             if (index !== -1) {
-                state.products[index].count += payload.count;
+                state.products[index].count += payload.quantity;
             } else {
-                state.products.push(payload);
+                state.products.push({count:payload.quantity,...payload});
             }
+            state.totalCountProduct = state.products.length
+        },
+        removeProduct : (state, {payload}:{payload:number}) =>{
+            state.products = state.products.filter(product => product.id !== payload);
+            state.totalCountProduct = state.products.length
         },
 
-        removeProduct : (state, {payload}) =>{
-            state.products = state.products.filter(product => product.id !== payload.id);
-        }
+        calcPrices:((state)=>{
+            state.all_prices = state.products.reduce((acc,product)=> acc + product.price*(product.count?product.count:1),0)
+
+            state.discount_price = state.products.reduce((acc,product)=> acc + (product.discount ? product.discount_price?product.discount_price : 0 : 0)*(product.count?product.count:1) ,0)
+
+            state.cost_price = state.all_prices - state.discount_price
+        })
     }
 })
 
-export const {addProduct , removeProduct} = basketSlices.actions
+export const {addProduct , removeProduct,calcPrices} = basketSlices.actions
 export default basketSlices.reducer
