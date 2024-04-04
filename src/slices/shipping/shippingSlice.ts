@@ -94,6 +94,7 @@ const shippingListSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchShippingList.pending, (state, action) => {
+				state.error = false;
 				state.loading = true;
 			})
 			.addCase(fetchShippingList.fulfilled, (state, { payload }) => {
@@ -111,6 +112,7 @@ const shippingListSlice = createSlice({
 
 		builder
 			.addCase(postShipping.pending, (state, action) => {
+				state.error = false;
 				state.postLoading = true;
 			})
 			.addCase(postShipping.fulfilled, (state, { payload }) => {
@@ -128,6 +130,7 @@ const shippingListSlice = createSlice({
 
 		builder
 			.addCase(patchShipping.pending, (state, action) => {
+				state.error = false;
 				state.patchLoading = true;
 			})
 			.addCase(patchShipping.fulfilled, (state, { payload }) => {
@@ -150,6 +153,7 @@ const shippingListSlice = createSlice({
 
 		builder
 			.addCase(deleteShipping.pending, (state, action) => {
+				state.error = false;
 				state.deleteLoading = true;
 			})
 			.addCase(deleteShipping.fulfilled, (state, { payload }) => {
