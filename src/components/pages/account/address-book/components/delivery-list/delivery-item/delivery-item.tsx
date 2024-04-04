@@ -1,11 +1,11 @@
+import DeleteAddressModal from "@/components/shared/address/delete-address-modal";
+import EditAddressModal from "@/components/shared/address/edit-address-modal";
 import Badge from "@/components/shared/badge/badge";
 import { IShipping } from "@/data-types/shipping";
 import { deleteShipping } from "@/slices/shipping/shippingSlice";
 import { AppDispatch } from "@/store";
 import { cn } from "@/utils/cn";
 import { useDispatch } from "react-redux";
-import DeleteAddressModal from "../../modals/delete-address-modal";
-import EditAddressModal from "../../modals/edit-address-modal";
 import css from "./delivery-item.module.css";
 
 interface Props {

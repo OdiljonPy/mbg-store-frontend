@@ -30,4 +30,8 @@
 		display: block;
 		padding: 0 16px;
 	}
+
+	.btn {
+		min-width: 100%;
+	}
 }

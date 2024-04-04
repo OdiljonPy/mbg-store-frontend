@@ -8,7 +8,7 @@ import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./delete-address-modal.module.css";
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	shippingId: number;
 	shippingName: string;
 }
@@ -34,13 +34,13 @@ function DeleteAddressModal({
 
 	return (
 		<>
-			<button
+			<div
 				{...props}
 				className={[css.modal_trigger, className].join(" ")}
 				onClick={onOpen}
 			>
 				{children}
-			</button>
+			</div>
 			<Modal
 				destroyOnClose={true}
 				open={open}

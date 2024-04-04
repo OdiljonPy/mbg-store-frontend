@@ -1,11 +1,11 @@
 import { useModal } from "@/hooks/use-modal";
 import { Modal } from "antd";
 
-import css from "./edit-address-modal.module.css";
-import Form from "../forms/edit-address-form";
 import { IShipping } from "@/data-types/shipping";
+import Form from "../forms/edit-address-form";
+import css from "./edit-address-modal.module.css";
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	deliveryItem: IShipping;
 }
 
@@ -18,13 +18,13 @@ function EditAddressModal({
 	const { onClose, onOpen, open } = useModal();
 	return (
 		<>
-			<button
+			<div
 				{...props}
 				className={[css.modal_trigger, className].join(" ")}
 				onClick={onOpen}
 			>
 				{children}
-			</button>
+			</div>
 			<Modal
 				destroyOnClose={true}
 				open={open}
