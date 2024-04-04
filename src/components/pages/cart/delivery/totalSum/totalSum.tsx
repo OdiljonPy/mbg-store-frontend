@@ -7,6 +7,7 @@ import {useRouter} from "next/router";
 import {useParams, useSearchParams} from "next/navigation";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
+import React from "react";
 
 interface props{
 
@@ -17,18 +18,19 @@ const TotalSum = (props:props) =>{
     const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
 
     const router = useRouter()
-    const throwOrder = () =>{
-        if(router.query?.type){
-            if(router.query.type === 'delivery'){
-                router.push("/cart/order-delivery")
-            }
-            else {
-                router.push("/cart/order-pickup")
-            }
-        }
-        else{
-            router.push("/cart/order-delivery")
-        }
+    const throwOrder = (e: React.FormEvent) =>{
+        e.preventDefault()
+        // if(router.query?.type){
+        //     if(router.query.type === 'delivery'){
+        //         router.push("/cart/order-delivery")
+        //     }
+        //     else {
+        //         router.push("/cart/order-pickup")
+        //     }
+        // }
+        // else{
+        //     router.push("/cart/order-delivery")
+        // }
     }
     return(
         <div className={css.total}>
@@ -42,9 +44,10 @@ const TotalSum = (props:props) =>{
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
-                    <button type={'button'} className={`${css.btn} ${css.checkout_btn}`} onClick={throwOrder}>
+                    <button className={`${css.btn} ${css.checkout_btn}`} onSubmit={throwOrder}>
                         {t('cart.checkout')}
                     </button>
+
 
                 <TotalDelete/>
             </div>

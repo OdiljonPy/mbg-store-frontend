@@ -14,6 +14,8 @@ export interface IOrder {
 	delivery_price: number;
 	sale_price: number;
 	order_items: IOrderItem[];
+	full_name?:string;
+	phone_number?:string
 }
 
 export enum EnumDeliveryType {

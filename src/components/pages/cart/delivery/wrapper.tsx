@@ -5,6 +5,8 @@ import {Badge} from "antd";
 import Favourites from "@/components/pages/cart/favourites/favourites";
 import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
+import {FormProvider, useForm} from "react-hook-form";
+import {IOrder} from "@/data-types/order/order";
 
 interface props {
 
@@ -12,6 +14,11 @@ interface props {
 
 const Wrapper = (props: props) => {
     const t = useTranslations()
+    const methods = useForm<IOrder>()
+
+    const createOrder = (values:IOrder)=>{
+        console.log(values,"submit")
+    }
     return (
         <section className={css.cart}>
             <div className={'container'}>
@@ -29,10 +36,13 @@ const Wrapper = (props: props) => {
                         label: t('header.delivery')
                     }
                 ]}/>
-                <div className={css.wrapper}>
-                    <Content/>
-                    <TotalSum/>
-                </div>
+                <FormProvider {...methods}>
+                    <form className={css.wrapper} onSubmit={methods.handleSubmit(createOrder)}>
+                        <Content/>
+                        <TotalSum/>
+                    </form>
+                </FormProvider>
+
             </div>
         </section>
     );
