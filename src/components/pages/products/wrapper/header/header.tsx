@@ -6,11 +6,11 @@ import FiltersToggler from "@/components/pages/products/wrapper/header/filters-t
 import SortDropdown from "@/components/pages/products/filters/desktop/sort-dropdown/sort-dropdown";
 import MobileFilters from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters";
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
-import {ICommon} from "@/data-types/products/products";
 import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
 
 interface props {
     data:IProductFilter
+
 }
 
 const Header = ({data}: props) => {

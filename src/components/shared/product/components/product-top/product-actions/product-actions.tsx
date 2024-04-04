@@ -1,19 +1,33 @@
 import React, {useState} from 'react';
 import css from './product-actions.module.css'
 import ProductActionBtn from "@/components/shared/product-action-btn/product-action-btn";
+import {IProduct} from "@/data-types/products/common";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {addProduct, removeProduct} from "@/slices/basket/basketSlice";
 
 interface props {
     count?: number
+    product:IProduct
 }
 
-const ProductActions = ({count}: props) => {
+const ProductActions = ({count,product}: props) => {
+    const {id} = product
+    const dispatch = useDispatch<AppDispatch>()
     const [intermediateValue, setIntermediate] = useState<number>(count ?? 0)
-
-    const onIncrement = () => setIntermediate((prev) => prev + 1)
+    const onIncrement = () => {
+        setIntermediate((prev) => prev + 1)
+        dispatch(addProduct({quantity : 1 ,...product}))
+    }
 
     const onDecrement = () => {
-        if (intermediateValue > 0) {
+        if(intermediateValue === 1){
             setIntermediate((prev) => prev - 1)
+            dispatch(removeProduct(id))
+        }
+        else if (intermediateValue > 0) {
+            setIntermediate((prev) => prev - 1)
+            dispatch(addProduct({quantity : -1,...product}))
         }
     }
 

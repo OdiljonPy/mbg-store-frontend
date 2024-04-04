@@ -1,0 +1,47 @@
+.modal_trigger {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.modal_content {
+	border-radius: 26px !important;
+	padding: 24px !important;
+	overflow: hidden;
+}
+
+.modal_body {
+	display: flex;
+	flex-direction: column;
+	height: 280px;
+}
+
+.header {
+	margin-bottom: 20px;
+}
+
+.title {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.body {
+	flex-grow: 1;
+}
+
+.text {
+	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.address_name {
+	color: var(--text-green);
+	font-weight: 600;
+}
+
+.footer {
+	display: flex;
+	gap: 14px;
+}

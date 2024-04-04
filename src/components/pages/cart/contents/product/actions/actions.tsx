@@ -1,24 +1,42 @@
+"use client"
+
 import css from './actions.module.css'
 import {useTranslations} from "next-intl";
 import {raleway} from "@/constants/fonts/fonts";
 import React, {Dispatch, SetStateAction} from "react";
 import ProductActionBtn from "@/components/shared/product-action-btn/product-action-btn";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {addProduct, removeProduct} from "@/slices/basket/basketSlice";
+import {IProduct} from "@/data-types/products/common";
+import AddToFav from "@/components/shared/add-to-fav/add-to-fav";
 
 interface props {
+    product:IProduct
     count: number
     setCount: Dispatch<SetStateAction<number>>
 }
 
-const Actions = ({setCount, count}: props) => {
+const  Actions = ({setCount, count,product}: props) => {
+    const {id} = product
+    const dispatch = useDispatch<AppDispatch>()
+
     const t = useTranslations()
 
-
     const onDecrement = () => {
-        if (count > 0) {
+        if(count == 1){
             setCount((prev) => prev - 1)
+            dispatch(removeProduct(id))
+        }
+        else if (count > 0) {
+            setCount((prev) => prev - 1)
+            dispatch(addProduct({quantity:-1,...product}))
         }
     }
-    const onIncrement = () => setCount((prev) => prev + 1)
+    const onIncrement = () => {
+        setCount((prev) => prev + 1)
+        dispatch(addProduct({quantity:1,...product}))
+    }
 
     return (
         <div className={css.actions}>
@@ -57,15 +75,9 @@ const Actions = ({setCount, count}: props) => {
                         }
                         onClick={onIncrement}/>
                 </div>
-                <button className={css.heart}>
-                    <svg width="32" height="32" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path className={css.path}
-                              d="M21.3594 3.75C18.9395 3.75 16.8207 4.79062 15.5 6.54961C14.1793 4.79062 12.0605 3.75 9.64062 3.75C7.71433 3.75217 5.86755 4.51835 4.50545 5.88045C3.14335 7.24255 2.37717 9.08933 2.375 11.0156C2.375 19.2187 14.5379 25.8586 15.0559 26.1328C15.1924 26.2063 15.345 26.2447 15.5 26.2447C15.655 26.2447 15.8076 26.2063 15.9441 26.1328C16.4621 25.8586 28.625 19.2187 28.625 11.0156C28.6228 9.08933 27.8566 7.24255 26.4946 5.88045C25.1325 4.51835 23.2857 3.75217 21.3594 3.75ZM15.5 24.2344C13.3602 22.9875 4.25 17.3074 4.25 11.0156C4.25186 9.58651 4.8204 8.21647 5.83093 7.20593C6.84147 6.1954 8.21151 5.62686 9.64062 5.625C11.9199 5.625 13.8336 6.83906 14.6328 8.78906C14.7034 8.96101 14.8236 9.10808 14.978 9.21158C15.1324 9.31508 15.3141 9.37034 15.5 9.37034C15.6859 9.37034 15.8676 9.31508 16.022 9.21158C16.1764 9.10808 16.2966 8.96101 16.3672 8.78906C17.1664 6.83555 19.0801 5.625 21.3594 5.625C22.7885 5.62686 24.1585 6.1954 25.1691 7.20593C26.1796 8.21647 26.7481 9.58651 26.75 11.0156C26.75 17.298 17.6375 22.9863 15.5 24.2344Z"
-                              fill="#C2C2C2"/>
-                    </svg>
-                </button>
+               <AddToFav product={product}/>
             </div>
-            <button type={'button'} className={css.remove}>
+            <button type={'button'} className={css.remove} onClick={() => dispatch(removeProduct(id))}>
                 <svg width="24" height="24" viewBox="0 0 46 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path className={css.path}
                           d="M43.625 8.25H34.25V6.375C34.25 4.88316 33.6574 3.45242 32.6025 2.39752C31.5476 1.34263 30.1168 0.75 28.625 0.75H17.375C15.8832 0.75 14.4524 1.34263 13.3975 2.39752C12.3426 3.45242 11.75 4.88316 11.75 6.375V8.25H2.375C1.87772 8.25 1.40081 8.44754 1.04918 8.79918C0.697544 9.15081 0.5 9.62772 0.5 10.125C0.5 10.6223 0.697544 11.0992 1.04918 11.4508C1.40081 11.8025 1.87772 12 2.375 12H4.25V45.75C4.25 46.7446 4.64509 47.6984 5.34835 48.4016C6.05161 49.1049 7.00544 49.5 8 49.5H38C38.9946 49.5 39.9484 49.1049 40.6516 48.4016C41.3549 47.6984 41.75 46.7446 41.75 45.75V12H43.625C44.1223 12 44.5992 11.8025 44.9508 11.4508C45.3025 11.0992 45.5 10.6223 45.5 10.125C45.5 9.62772 45.3025 9.15081 44.9508 8.79918C44.5992 8.44754 44.1223 8.25 43.625 8.25ZM15.5 6.375C15.5 5.87772 15.6975 5.40081 16.0492 5.04918C16.4008 4.69754 16.8777 4.5 17.375 4.5H28.625C29.1223 4.5 29.5992 4.69754 29.9508 5.04918C30.3025 5.40081 30.5 5.87772 30.5 6.375V8.25H15.5V6.375ZM38 45.75H8V12H38V45.75ZM19.25 21.375V36.375C19.25 36.8723 19.0525 37.3492 18.7008 37.7008C18.3492 38.0525 17.8723 38.25 17.375 38.25C16.8777 38.25 16.4008 38.0525 16.0492 37.7008C15.6975 37.3492 15.5 36.8723 15.5 36.375V21.375C15.5 20.8777 15.6975 20.4008 16.0492 20.0492C16.4008 19.6975 16.8777 19.5 17.375 19.5C17.8723 19.5 18.3492 19.6975 18.7008 20.0492C19.0525 20.4008 19.25 20.8777 19.25 21.375ZM30.5 21.375V36.375C30.5 36.8723 30.3025 37.3492 29.9508 37.7008C29.5992 38.0525 29.1223 38.25 28.625 38.25C28.1277 38.25 27.6508 38.0525 27.2992 37.7008C26.9475 37.3492 26.75 36.8723 26.75 36.375V21.375C26.75 20.8777 26.9475 20.4008 27.2992 20.0492C27.6508 19.6975 28.1277 19.5 28.625 19.5C29.1223 19.5 29.5992 19.6975 29.9508 20.0492C30.3025 20.4008 30.5 20.8777 30.5 21.375Z"

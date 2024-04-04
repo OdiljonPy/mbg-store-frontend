@@ -2,20 +2,17 @@ import React from "react";
 import css from "./actions.module.css";
 import AddToCard from "@/components/pages/product/wrapper/components/info/description/actions/add-to-card/add-to-card";
 import AddToFav from "@/components/shared/add-to-fav/add-to-fav";
-import { IProductInner } from "@/data-types/products/product-inner/product-inner";
+import {IProduct} from "@/data-types/products/common";
 
 interface props {
-	info: IProductInner;
+	product : IProduct
 }
 
-const Actions = (props: props) => {
+const Actions = ({product}: props) => {
 	return (
 		<div className={css.actions}>
 			<AddToCard />
-			<AddToFav
-				info={props.info}
-				id={1}
-			/>
+			<AddToFav product={product}/>
 		</div>
 	);
 };

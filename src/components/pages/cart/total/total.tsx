@@ -4,12 +4,15 @@ import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import Promocode from "@/components/pages/cart/total/promocode/promocode";
 import {useRouter} from "next/navigation";
+import {IBasketSlices} from "@/data-types/slices/basket";
 
 interface props {
+    basketSlice : IBasketSlices
 
 }
 
-const Total = (props: props) => {
+const Total = ({basketSlice}: props) => {
+    const {all_prices,discount_price,cost_price} = basketSlice
     const t = useTranslations()
     const { push } = useRouter();
     return (
@@ -18,10 +21,10 @@ const Total = (props: props) => {
                 {t('cart.yourOrder')}
             </h3>
             <div className={css.info}>
-                <TotalItem label={t('cart.price')} value={priceFormatter(174000, true)}/>
-                <TotalItem className={css.bordered} label={t('cart.sales')} value={priceFormatter(-26000, true)}/>
+                <TotalItem label={t('cart.price')} value={priceFormatter(all_prices, true)}/>
+                <TotalItem className={css.bordered} label={t('cart.sales')} value={priceFormatter(-discount_price, true)}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
-                           value={priceFormatter(174000 - 26000, true)}/>
+                           value={priceFormatter(cost_price, true)}/>
                 <button type={'button'} onClick={() => push('/cart/delivery')} className={css.btn}>
                     {t('cart.order')}
                 </button>

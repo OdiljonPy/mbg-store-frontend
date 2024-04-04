@@ -17,7 +17,7 @@ interface props {
 }
 
 const Description = ({ info, loading }: props) => {
-	// const { available, rating,rating_count, price,discount_price,discount } = info
+	const {comments,related_products,comparison_products,...product} = info
 	const t = useTranslations();
 	return (
 		<div className={css.description}>
@@ -35,7 +35,7 @@ const Description = ({ info, loading }: props) => {
 			<Rate rate={info?.rating} count={info?.rating_count} loading={loading} />
 			<Price price={info?.price} discount_percentage={info?.discount} discount_price={info?.discount_price} loading={loading} />
 			<Deliveries />
-			<Actions info={info} />
+			<Actions  product={product} />
 			<AboutProduct description={info?.description} />
 		</div>
 	);

@@ -1,31 +1,12 @@
-import { IDeliveryAddress } from "@/data-types/address/delivery-address";
+import Skeleton from "react-loading-skeleton";
+import css from "./skeleton.module.css";
 
-import Badge from "@/components/shared/badge/badge";
-import { cn } from "@/utils/cn";
-import css from "./delivery-item.module.css";
-
-interface Props {
-	deliveryItem: IDeliveryAddress;
-}
-
-function DeliveryItem({ deliveryItem }: Props) {
+function AddressBookSkeleton() {
 	return (
-		<div
-			className={cn(
-				css.card,
-				deliveryItem.main_address && css.main_address
-			)}
-		>
+		<div className={css.card}>
 			<header className={css.header}>
 				<h3 className={css.title}>
-					{deliveryItem.address_name}
-					{deliveryItem.main_address && (
-						<Badge
-							className={css.badge}
-							color='var(--green)'
-							text='Основное'
-						/>
-					)}
+					<Skeleton width={200} />
 				</h3>
 				<div className={css.control}>
 					<button className={css.btn}>
@@ -59,10 +40,12 @@ function DeliveryItem({ deliveryItem }: Props) {
 				</div>
 			</header>
 			<div className={css.body}>
-				<p className={css.subtitle}>{deliveryItem.address}</p>
+				<p className={css.subtitle}>
+					<Skeleton width={300} />
+				</p>
 			</div>
 		</div>
 	);
 }
 
-export default DeliveryItem;
+export default AddressBookSkeleton;

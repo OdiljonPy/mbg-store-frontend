@@ -23,7 +23,7 @@ const Wrapper = () => {
 	return (
 		<section className={css.wrapper}>
 			<Header />
-			{favorites.length ? (
+			{favourites.length ? (
 				<div className={css.search_box}>
 					<Search />
 				</div>

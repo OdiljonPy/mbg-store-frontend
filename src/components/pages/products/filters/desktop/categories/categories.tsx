@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchCategory} from "@/slices/category/categorySlices";
+import {ICategory} from "@/data-types/categories/categories";
 
 
 interface props {
@@ -13,15 +14,10 @@ interface props {
 }
 
 
-const Categories = (props: props) => {
-
-    const t = useTranslations()
+const Categories = ({}: props) => {
     const {categories,loading,error} = useSelector((state:RootState) => state.category)
-    const dispatch = useDispatch<AppDispatch>()
+    const t = useTranslations()
 
-    useEffect(() => {
-        dispatch(fetchCategory({q:'',size:'40'}))
-    }, []);
     return (
         <FilterCollapse title={t('categories.title')}>
             {loading ? '...loading' :categories.map((category) => (

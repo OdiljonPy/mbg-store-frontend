@@ -24,6 +24,7 @@
 .btn {
 	background-color: transparent;
 	border: none;
+	cursor: pointer;
 }
 
 .header:not(:last-child) {
@@ -79,72 +80,4 @@
 		color: var(--icon-gray);
 		margin-bottom: 10px;
 	}
-}
-
-.delivery_card {
-	display: flex;
-	gap: 30px;
-}
-
-.delivery_card .header {
-	margin-bottom: 20px;
-}
-
-.delivery_card > div {
-	flex: 1 1 0;
-}
-
-.list {
-	list-style: none;
-}
-
-.list li {
-	display: flex;
-	justify-content: space-between;
-	gap: 8px;
-	font-size: 16px;
-	font-weight: 500;
-	font-variant-numeric: lining-nums proportional-nums;
-}
-
-.list li:not(:last-child) {
-	margin-bottom: 14px;
-}
-
-.list li span {
-	flex: 1 1 0;
-}
-
-.list li span:first-child {
-	color: var(--icon-gray);
-}
-
-.list li span:last-child {
-	text-align: right;
-}
-
-@media (max-width: 767px) {
-	.delivery_card {
-		flex-direction: column;
-		gap: 20px;
-	}
-}
-
-@media (max-width: 575px) {
-	.list li {
-		font-size: 14px;
-	}
-
-	.list li:not(:last-child) {
-		margin-bottom: 6px;
-	}
-
-	.list li span:last-child {
-		font-weight: 600;
-	}
-}
-
-.map {
-	border-radius: 14px;
-	overflow: hidden;
 }

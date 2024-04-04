@@ -1,14 +1,15 @@
-import {IProduct} from "@/data-types/products/products";
+
 import css from "./cart.module.css"
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {useTranslations} from "next-intl";
 import Price from "@/components/pages/cart/common/order-card/components/price/index";
+import {IProduct} from "@/data-types/products/common";
 interface props{
     product:IProduct
 }
 const OrderCart = ({product}:props) =>{
     const t = useTranslations()
-    const { images, name,weight,seller,price,discount_price,count} = product
+    const { images, name,amount_type,store,price,discount_price,discount,count} = product
     return(
         <div className={css.product}>
             <div className={css.img}>
@@ -18,15 +19,15 @@ const OrderCart = ({product}:props) =>{
                 <div className={css.info_left}>
                     <div>
                         <p className={css.title}>{name}</p>
-                        <p className={css.weigh}>{weight}</p>
+                        <p className={css.weigh}>{amount_type}</p>
                     </div>
                     <p className={css.seller}>
                         <span>{t('product.seller')}:</span>
-                        <span className={css.seller_value}>{seller}</span>
+                        <span className={css.seller_value}>{store?.brand_name}</span>
                     </p>
                 </div>
                 <div className={css.info_right}>
-                        <Price price={price} discount_price={discount_price} count={2}/>
+                        <Price discount={discount} price={price} discount_price={discount_price} count={2}/>
                     <p className={css.count}>кол-во: <span className={css.count_value}>{count}</span></p>
                 </div>
             </div>

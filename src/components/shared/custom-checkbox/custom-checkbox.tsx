@@ -7,9 +7,10 @@ import {raleway} from "@/constants/fonts/fonts";
 interface props {
     options: ISlideOptions
     item: ICustomCheckbox
+    hasCount?:boolean
 }
 
-const CustomCheckbox = ({options, item}: props) => {
+const CustomCheckbox = ({options, item,hasCount=true}: props) => {
     const {id, title, count} = item
     const {checked, disabled, onChange} = options
     return (
@@ -25,9 +26,9 @@ const CustomCheckbox = ({options, item}: props) => {
                  <span className={css.title}>
                         {title}
                  </span>
-                    <span className={css.text}>
-                    {count}
-                </span>
+                    {hasCount &&  <span className={css.text}>
+                        {count}
+                    </span>}
                 </span>
             </Checkbox>
         </ConfigProvider>

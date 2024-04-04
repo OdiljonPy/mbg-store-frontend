@@ -1,0 +1,72 @@
+.card {
+	padding: 16px;
+	border: 2px solid var(--input-gray);
+	border-radius: 24px;
+}
+
+.card:not(:last-child) {
+	margin-bottom: 24px;
+}
+
+.header {
+	display: flex;
+}
+
+.header .title {
+	flex: 1 1 0;
+}
+
+.control {
+	display: flex;
+	gap: 16px;
+}
+
+.btn {
+	background-color: transparent;
+	border: none;
+}
+
+.header:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.title {
+	font-size: 18px;
+	margin-bottom: 4px;
+}
+
+.badge {
+	font-size: 14px;
+}
+
+@media (max-width: 575px) {
+	.badge {
+		font-size: 10px;
+		border-radius: 3px;
+	}
+}
+
+.subtitle {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 575px) {
+	.card {
+		padding: 10px;
+		border-radius: 12px;
+	}
+
+	.main_address {
+		border: 1.2px solid var(--light-green);
+	}
+
+	.title {
+		font-size: 14px;
+	}
+
+	.subtitle {
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+}

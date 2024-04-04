@@ -1,7 +1,11 @@
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
-import Wrapper from "@/components/pages/cart/delivery/wrapper";
+import dynamic from "next/dynamic";
+
+const ClientSideWrapper = dynamic(() => import('@/components/pages/cart/delivery/wrapper'),{
+    ssr:false
+})
 
 interface props {
 
@@ -16,7 +20,7 @@ const Index = (props: props) => {
                     {t('header.delivery')}
                 </title>
             </Head>
-            <Wrapper/>
+            <ClientSideWrapper/>
         </>
     );
 };

@@ -1,7 +1,7 @@
-import { dataDelivery, dataPickup } from "../../../data";
+import { dataDelivery, dataPickup } from "../../data";
 import AddressBookEmpty from "../address-book-empty/address-book-empty";
-import css from "./pickup-list.module.css";
 import PickupItem from "./pickup-item/pickup-item";
+import css from "./pickup-list.module.css";
 
 function PickupList() {
 	if (!dataDelivery.length) {

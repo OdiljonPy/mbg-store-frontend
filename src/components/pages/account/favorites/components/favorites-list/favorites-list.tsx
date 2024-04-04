@@ -6,15 +6,15 @@ import ProductsEmpty from "./favorites-empty/favorites-empty";
 import css from "./favorites-list.module.css";
 
 function ProductList() {
-	const favorites = useSelector((state: RootState) => state.favorites);
+	const {favourites} = useSelector((state: RootState) => state.favorites);
 
-	if (!favorites.length) {
+	if (!favourites.length) {
 		return <ProductsEmpty />;
 	}
 
 	return (
 		<div className={css.list}>
-			{favorites.map((product) => (
+			{favourites.map((product) => (
 				<Product product={product} key={product.id} />
 			))}
 		</div>

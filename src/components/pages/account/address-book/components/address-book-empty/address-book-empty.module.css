@@ -18,20 +18,8 @@
 	text-align: center;
 }
 
-.button {
-	color: white;
-	background-color: var(--green);
-	font-weight: 600;
-	font-size: 17px;
-	display: flex;
-	border: none;
-	align-items: center;
-	justify-content: center;
-	border-radius: var(--default-radius);
-	padding: 15px 56px;
-	transition: all 0.2s linear;
-	cursor: pointer;
-	text-wrap: nowrap;
+.btn {
+	width: 300px;
 }
 
 .button:hover {
@@ -58,7 +46,7 @@
 		height: 140px;
 	}
 
-	.button {
+	.btn {
 		width: 100%;
 	}
 }

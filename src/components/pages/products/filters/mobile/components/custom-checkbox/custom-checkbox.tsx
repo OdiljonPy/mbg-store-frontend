@@ -12,9 +12,10 @@ interface props {
     name: CheckboxFields
     boolName?: BoolFields
     item: ICustomCheckbox
+    hasCount?:boolean
 }
 
-const CustomCheckbox = ({item, name, boolName}: props) => {
+const CustomCheckbox = ({item, name, boolName,hasCount = true}: props) => {
     const {watch, register, setValue} = useFormContext<IFilters>()
     const {id, title, count} = item
     const value: any= watch(name)
@@ -36,9 +37,9 @@ const CustomCheckbox = ({item, name, boolName}: props) => {
             <span className={css.title}>
                 {title}
              </span>
-            <span className={css.count}>
+            {hasCount &&  <span className={css.count}>
                 {count}
-             </span>
+             </span>}
         </label>
     );
 };

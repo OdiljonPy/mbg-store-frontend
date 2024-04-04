@@ -28,6 +28,7 @@ function Button({
 	disabled,
 	children,
 	className,
+	style,
 	...props
 }: Props) {
 	return (
@@ -37,7 +38,7 @@ function Button({
 				css.btn,
 				full && css.full,
 				rounded && css.rounded,
-				!disabled && css[variant],
+				!loading && !disabled && css[variant],
 				iconOnly && css.icon_only,
 				className
 			)}
@@ -45,6 +46,7 @@ function Button({
 			style={{
 				width,
 				height,
+				...style,
 			}}
 		>
 			{loading && (

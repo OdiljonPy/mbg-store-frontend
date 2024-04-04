@@ -7,7 +7,6 @@ import Preview from "@/components/pages/product/wrapper/components/info/gallery/
 import "keen-slider/keen-slider.min.css"
 import NavigationBtn from "@/components/pages/product/wrapper/components/info/gallery/navigation-btn/navigation-btn";
 import Dots from "@/components/pages/product/wrapper/components/info/gallery/dots/dots";
-import { IProductSingle} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
 import {IProductInner} from "@/data-types/products/product-inner/product-inner";
 

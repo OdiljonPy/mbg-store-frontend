@@ -1,11 +1,16 @@
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
-import Wrapper from "@/components/pages/cart/wrapper";
 
 interface props {
 
 }
+
+import dynamic from 'next/dynamic';
+
+const ClientSideWrapper = dynamic(() => import('@/components/pages/cart/wrapper'), {
+    ssr: false,
+});
 
 const Index = (props: props) => {
     const t = useTranslations()
@@ -16,7 +21,7 @@ const Index = (props: props) => {
                     {t('header.basket')}
                 </title>
             </Head>
-            <Wrapper/>
+            <ClientSideWrapper/>
         </>
     );
 };
