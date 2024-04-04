@@ -5,7 +5,7 @@ export interface IProduct {
 	id: number;
 	name: string;
 	price: number;
-	discount_price: number;
+	discount_price?: number;
 	discount?: number;
 	price_with_discount?: number;
 	rating: number;
