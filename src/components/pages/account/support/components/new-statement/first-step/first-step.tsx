@@ -15,7 +15,7 @@ interface Props {
 
 function FirstStep({ form, setStep }: Props) {
 	const desc = form.watch("description") || "";
-	const isTypeSelected = !!form.watch("type");
+	const isTypeSelected = !!form.watch("topic");
 
 	return (
 		<>
@@ -53,12 +53,12 @@ function FirstStep({ form, setStep }: Props) {
 					<Label required>Тема обращения</Label>
 					<StatementTypeSelect form={form} />
 					<ErrorMessage>
-						{form.formState.errors.type?.message}
+						{form.formState.errors.topic?.message}
 					</ErrorMessage>
 				</div>
 				<div>
 					<div className={css.desc_label}>
-						<Label required>Обращение</Label>
+						<Label required>Описание</Label>
 						<div className={css.counter}>{desc.length}/200</div>
 					</div>
 					<TextArea

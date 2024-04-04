@@ -1,6 +1,8 @@
 import Button from "@/components/shared/button";
 import Label from "@/components/shared/label";
+import { RootState } from "@/store";
 import { UseFormReturn } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { NewStatementForm } from "../new-statement";
 import ImageUploader from "./image-uploader/image-uploader";
 import StatementImage from "./image/image";
@@ -12,7 +14,8 @@ interface Props {
 }
 
 function SecondStep({ form, setStep }: Props) {
-	const files = form.watch("files") || [];
+	const files = form.watch("files");
+	const { postLoading } = useSelector((state: RootState) => state.supports);
 
 	return (
 		<>
@@ -35,12 +38,8 @@ function SecondStep({ form, setStep }: Props) {
 					<ImageUploader form={form} />
 				</div>
 				<div className={css.images}>
-					{files?.map((_, index) => (
-						<StatementImage
-							key={index}
-							form={form}
-							index={index}
-						/>
+					{files.map((_, index) => (
+						<StatementImage key={index} form={form} index={index} />
 					))}
 				</div>
 			</div>
@@ -55,6 +54,7 @@ function SecondStep({ form, setStep }: Props) {
 				<Button
 					type='submit'
 					style={{ width: "100%" }}
+					loading={postLoading}
 				>
 					Отправить
 				</Button>

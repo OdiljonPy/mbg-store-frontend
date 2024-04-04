@@ -1,11 +1,13 @@
+import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { data } from "../../data";
+import { useSelector } from "react-redux";
 import NewStatement from "../new-statement/new-statement";
 import css from "./header.module.css";
 
 function Header() {
 	const t = useTranslations("support");
+	const { supports } = useSelector((state: RootState) => state.supports);
 
 	return (
 		<div className={css.header}>
@@ -27,7 +29,9 @@ function Header() {
 				</Link>
 				{t("title")}
 			</h1>
-			<div className={css.btn}>{!!data.length && <NewStatement />}</div>
+			<div className={css.btn}>
+				{!!supports.length && <NewStatement />}
+			</div>
 		</div>
 	);
 }
