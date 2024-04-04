@@ -15,11 +15,12 @@ const basketSlices = createSlice({
     initialState,
     reducers:{
         addProduct : (state, {payload}) =>{
-            const index = state.products.findIndex(product => product.id === payload.id);
+            const index = state.products.findIndex(product => product.id === payload.product.id);
+            console.log(payload.quantity,"quantity")
             if (index !== -1) {
                 state.products[index].count += payload.quantity;
             } else {
-                state.products.push({count:payload.quantity,...payload});
+                state.products.push({count:payload.quantity,...payload.product});
             }
             state.totalCountProduct = state.products.length
         },
@@ -29,9 +30,9 @@ const basketSlices = createSlice({
         },
 
         calcPrices:((state)=>{
-            state.all_prices = state.products.reduce((acc,product)=> acc + product.price*(product.count?product.count:1),0)
+            state.all_prices = state.products.reduce((acc,product)=> acc + product.price*(product.count ? product.count : 1),0)
 
-            state.discount_price = state.products.reduce((acc,product)=> acc + (product.discount ? product.discount_price?product.discount_price : 0 : 0)*(product.count?product.count:1) ,0)
+            state.discount_price = state.products.reduce((acc,product)=> acc + (product.discount ? product.discount_price ? product.discount_price : 0 : 0)*(product.count ? product.count : 1) ,0)
 
             state.cost_price = state.all_prices - state.discount_price
         })
