@@ -4,6 +4,12 @@
 	cursor: pointer;
 }
 
+.modal_content {
+	border-radius: 26px !important;
+	padding: 24px !important;
+	overflow: hidden;
+}
+
 .modal_body {
 	display: flex;
 	flex-direction: column;
@@ -11,7 +17,7 @@
 }
 
 .header {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .title {
