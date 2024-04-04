@@ -3,9 +3,6 @@ import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import Link from "next/link";
 import OrderCart from "@/components/pages/cart/common/order-card";
 import css from "./order.module.css"
-import { productWithoutCount} from "@/constants/product/product";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store";
 import {IProduct} from "@/data-types/products/common";
 interface props{
     products : IProduct[]
