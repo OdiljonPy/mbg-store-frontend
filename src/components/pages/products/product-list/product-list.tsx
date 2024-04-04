@@ -3,8 +3,6 @@ import css from './product-list.module.css'
 import Product from "@/components/shared/product/product";
 import {useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
-import {ICommon, IProduct} from "@/data-types/products/products";
-import Skeleton from "react-loading-skeleton";
 import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
 import SkeletonWrapper from "@/components/pages/products/wrapper/skeleton-wrapper/skeleton-wrapper";
 

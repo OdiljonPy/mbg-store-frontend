@@ -8,7 +8,6 @@ import {useSlider} from "@/hooks/use-slider";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchProductDiscount} from "@/slices/product/productDiscountSlices";
-import {ICommon, IProduct} from "@/data-types/products/products";
 import Skeleton from "react-loading-skeleton";
 
 interface props {

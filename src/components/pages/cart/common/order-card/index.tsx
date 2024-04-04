@@ -1,8 +1,9 @@
-import {IProduct} from "@/data-types/products/products";
+
 import css from "./cart.module.css"
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import {useTranslations} from "next-intl";
 import Price from "@/components/pages/cart/common/order-card/components/price/index";
+import {IProduct} from "@/data-types/products/common";
 interface props{
     product:IProduct
 }

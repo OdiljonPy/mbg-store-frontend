@@ -12,10 +12,10 @@ const Price = ({price, discount_price,discount, count}: props) =>{
     return(
         <div className={css.prices}>
             <p className={`${css.price} ${discount ? css.discount: ''}`}>
-                {priceFormatter(currentPrice, true)}
+                {priceFormatter(currentPrice * count, true)}
             </p>
             <p className={`${css.actualPrice} ${discount ? css.show : ''}`}>
-                {priceFormatter(discount_price, true)}
+                {priceFormatter(price * count, true)}
             </p>
             <p className={`${css.pricePerItem} ${count > 1 ? css.show: ''}`}>
                 {priceFormatter(price, true)}/ед
