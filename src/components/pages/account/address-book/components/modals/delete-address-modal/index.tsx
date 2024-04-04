@@ -10,12 +10,14 @@ import css from "./delete-address-modal.module.css";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	shippingId: number;
+	shippingName: string;
 }
 
 function DeleteAddressModal({
 	children,
 	className,
 	shippingId,
+	shippingName,
 	...props
 }: Props) {
 	const { onClose, onOpen, open } = useModal();
@@ -58,7 +60,8 @@ function DeleteAddressModal({
 				<div className={css.body}>
 					<p className={css.text}>
 						Вы уверены что хотите удалить адрес{" "}
-						<span className={css.address_name}>Мой дом</span>?
+						<span className={css.address_name}>{shippingName}</span>
+						?
 					</p>
 				</div>
 				<div className={css.footer}>
