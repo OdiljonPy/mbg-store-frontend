@@ -5,6 +5,8 @@ import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 import {useRouter} from "next/router";
 import {useParams, useSearchParams} from "next/navigation";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 
 interface props{
 
@@ -12,6 +14,7 @@ interface props{
 
 const TotalSum = (props:props) =>{
     const t = useTranslations()
+    const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
 
     const router = useRouter()
     const throwOrder = () =>{
@@ -33,12 +36,12 @@ const TotalSum = (props:props) =>{
                 {t('cart.yourOrder')}
             </h3>
             <div className={css.info}>
-                <TotalItem label={t('cart.price')} value={priceFormatter(174000, true)}/>
-                <TotalItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-45000, true)}/>
+                <TotalItem label={t('cart.price')} value={priceFormatter(all_prices, true)}/>
+                <TotalItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-discount_price, true)}/>
                 <TotalItem className={css.paddingTop} label={t('cart.promo_code')} value={priceFormatter(-14800, true)}/>
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
-                           value={priceFormatter(174000 - 26000, true)}/>
+                           value={priceFormatter(cost_price, true)}/>
                     <button type={'button'} className={`${css.btn} ${css.checkout_btn}`} onClick={throwOrder}>
                         {t('cart.checkout')}
                     </button>

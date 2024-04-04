@@ -5,7 +5,7 @@ export interface IProduct {
 	id: number;
 	name: string;
 	price: number;
-	discount_price?: number;
+	discount_price: number;
 	discount?: number;
 	price_with_discount?: number;
 	rating: number;
@@ -14,6 +14,7 @@ export interface IProduct {
 	free_shipping?: boolean;
 	pickup?: boolean;
 	weight?: string;
+	amount_type?:string,
 	available: number;
 	count?: number;
 	seller?: string;
