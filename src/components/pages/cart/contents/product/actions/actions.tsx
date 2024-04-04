@@ -28,14 +28,15 @@ const  Actions = ({setCount, count,product}: props) => {
             setCount((prev) => prev - 1)
             dispatch(removeProduct(id))
         }
-        else if (count > 0) {
+        else if (count > 1) {
+            console.log(count,"inner count")
             setCount((prev) => prev - 1)
-            dispatch(addProduct({quantity:-1,...product}))
+            dispatch(addProduct({quantity : -1,product}))
         }
     }
     const onIncrement = () => {
         setCount((prev) => prev + 1)
-        dispatch(addProduct({quantity:1,...product}))
+        dispatch(addProduct({quantity: 1,product}))
     }
 
     return (
