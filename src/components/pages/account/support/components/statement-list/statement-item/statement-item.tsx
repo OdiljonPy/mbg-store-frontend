@@ -1,7 +1,6 @@
 import { EnumSupportStatus, ISupport } from "@/data-types/support";
 
 import { supportStatusMap } from "@/components/pages/account/support/constants/support/support-status-map";
-import { supportTypeMap } from "@/components/pages/account/support/constants/support/support-type-map";
 import dayjs from "dayjs";
 import Image from "next/image";
 import React from "react";
@@ -20,9 +19,7 @@ function StatementItem({ statementItem }: Props) {
 			<header className={css.header}>
 				<div className={css.header_left}>
 					<h3 className={css.title}>Заявка № {statementItem.id}</h3>
-					<p className={css.subtitle}>
-						{supportTypeMap[statementItem.type]}
-					</p>
+					<p className={css.subtitle}>{statementItem.topic}</p>
 				</div>
 				<div className={css.header_right}>
 					<p className={css.date}>
@@ -65,21 +62,17 @@ function StatementItem({ statementItem }: Props) {
 					)}
 				</div>
 				<div className={css.files}>
-					{statementItem.files &&
-						statementItem.files.map((file) => (
-							<div
-								key={file.id}
-								className={css.file_wrapper}
-							>
-								<Image
-									className={css.file}
-									src={file.file}
-									alt={file.file.toString()}
-									width={100}
-									height={100}
-								/>
-							</div>
-						))}
+					{statementItem.files.map((file) => (
+						<div key={file.id} className={css.file_wrapper}>
+							<Image
+								className={css.file}
+								src={file.file}
+								alt={file.file.toString()}
+								width={100}
+								height={100}
+							/>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>

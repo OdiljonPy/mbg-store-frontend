@@ -9,7 +9,7 @@ interface Props {
 }
 
 const StatementImage = ({ index, form }: Props) => {
-	const files = form.watch("files") || [];
+	const files = form.watch("files");
 
 	const onRemove = () => {
 		if (!files) return;
@@ -21,11 +21,7 @@ const StatementImage = ({ index, form }: Props) => {
 
 	return (
 		<div className={css.wrapper}>
-			<button
-				onClick={onRemove}
-				className={css.close}
-				type={"button"}
-			>
+			<button onClick={onRemove} className={css.close} type={"button"}>
 				<svg
 					width='12'
 					height='12'
@@ -40,11 +36,7 @@ const StatementImage = ({ index, form }: Props) => {
 				</svg>
 			</button>
 			<div className={css.delete}>
-				<button
-					onClick={onRemove}
-					type={"button"}
-					className={css.btn}
-				>
+				<button onClick={onRemove} type={"button"} className={css.btn}>
 					<svg
 						width='46'
 						height='50'

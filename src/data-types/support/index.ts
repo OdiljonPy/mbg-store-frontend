@@ -15,10 +15,10 @@ export interface ISupport {
 	id: number;
 	email: string;
 	date: string;
-	type: EnumSupportType;
+	topic: string;
 	status: EnumSupportStatus;
 	description: string;
-	files?: {
+	files: {
 		id: number;
 		supportId: number;
 		file: string | StaticImageData;
