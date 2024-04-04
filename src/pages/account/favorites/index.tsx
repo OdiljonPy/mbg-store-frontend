@@ -1,10 +1,17 @@
-import Wrapper from "@/components/pages/account/favorites/wrapper";
 import AccountLayout from "@/components/pages/account/layout/account-layout";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
 interface props {}
+
+const Wrapper = dynamic(
+	() => import("@/components/pages/account/favorites/wrapper"),
+	{
+		ssr: false,
+	}
+);
 
 const Favorites = (props: props) => {
 	const t = useTranslations();
