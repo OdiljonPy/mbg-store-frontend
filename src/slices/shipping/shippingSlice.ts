@@ -47,7 +47,7 @@ export const patchShipping = createAsyncThunk(
 		shippingId: number;
 	}) => {
 		const response = await API.patch<IPatchShippingResponse>(
-			`/store/shipping/update/${shippingId}`,
+			`/store/shipping/update/${shippingId}/`,
 			body
 		);
 		return response.data;
@@ -63,7 +63,7 @@ export const deleteShipping = createAsyncThunk(
 	"shipping/delete",
 	async (id: number) => {
 		const response = await API.delete<IDeleteShippingResponse>(
-			`/store/shipping/delete/${id}`
+			`/store/shipping/delete/${id}/`
 		);
 		return response.data;
 	}

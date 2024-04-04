@@ -53,7 +53,10 @@ function DeliveryItem({ deliveryItem }: Props) {
 						</svg>
 					</EditAddressModal>
 
-					<DeleteAddressModal shippingId={deliveryItem.id}>
+					<DeleteAddressModal
+						shippingId={deliveryItem.id}
+						shippingName={deliveryItem.address_name}
+					>
 						<svg
 							width='24'
 							height='24'
