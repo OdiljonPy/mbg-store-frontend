@@ -69,6 +69,7 @@ function FirstStep({ form, setStep }: Props) {
 							},
 						})}
 						rows={2}
+						maxLength={200}
 						placeholder='Ваш вопрос'
 					/>
 					<ErrorMessage>

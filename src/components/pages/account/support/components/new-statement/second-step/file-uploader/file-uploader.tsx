@@ -2,32 +2,33 @@ import { useTranslations } from "next-intl";
 import { useDropzone } from "react-dropzone";
 import { UseFormReturn } from "react-hook-form";
 import { NewStatementForm } from "../../new-statement";
-import css from "./image-uploader.module.css";
+import css from "./file-uploader.module.css";
 
 interface props {
 	form: UseFormReturn<NewStatementForm>;
 }
 
-const ImageUploader = ({ form }: props) => {
+const FileUploader = ({ form }: props) => {
 	const t = useTranslations();
 	const files = form.watch("files") || [];
 
 	const onDrop = (acceptedFiles: File[]) => {
 		const file = acceptedFiles[0];
-		if (files.length >= 4) return;
+		if (!file || files.length >= 4) return;
 		form.setValue("files", [...files, file]);
 	};
 
 	const { getRootProps, getInputProps } = useDropzone({
 		onDrop: onDrop,
 		multiple: true,
+		accept: {
+			"image/*": [".png", ".jpg", ".jpeg"],
+			"application/pdf": [".pdf"],
+		},
 	});
 
 	return (
-		<div
-			className={css.dropzone}
-			{...getRootProps()}
-		>
+		<div className={css.dropzone} {...getRootProps()}>
 			<input
 				className={css.input}
 				{...getInputProps()}
@@ -51,4 +52,4 @@ const ImageUploader = ({ form }: props) => {
 	);
 };
 
-export default ImageUploader;
+export default FileUploader;

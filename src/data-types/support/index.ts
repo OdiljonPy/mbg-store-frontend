@@ -1,14 +1,7 @@
-import { StaticImageData } from "next/image";
-
 export enum EnumSupportType {
 	QUESTION,
 	FEEDBACK,
 	COMPLAINT,
-}
-
-export enum EnumSupportStatus {
-	PROCESSING,
-	CLOSED,
 }
 
 export interface ISupport {
@@ -16,11 +9,11 @@ export interface ISupport {
 	email: string;
 	date: string;
 	topic: string;
-	status: EnumSupportStatus;
+	is_closed: boolean;
 	description: string;
 	files: {
 		id: number;
 		supportId: number;
-		file: string | StaticImageData;
+		file: string;
 	}[];
 }
