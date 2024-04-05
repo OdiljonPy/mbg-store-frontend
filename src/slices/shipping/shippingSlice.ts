@@ -56,7 +56,7 @@ export const patchShipping = createAsyncThunk(
 
 interface IDeleteShippingResponse {
 	ok: boolean;
-	result: number;
+	result: string;
 }
 
 export const deleteShipping = createAsyncThunk(
@@ -152,18 +152,11 @@ const shippingListSlice = createSlice({
 			});
 
 		builder
-			.addCase(deleteShipping.pending, (state, action) => {
+			.addCase(deleteShipping.pending, (state) => {
 				state.error = false;
 				state.deleteLoading = true;
 			})
-			.addCase(deleteShipping.fulfilled, (state, { payload }) => {
-				if (payload.ok) {
-					state.shippingList = state.shippingList.filter(
-						(shipping) => shipping.id !== payload.result
-					);
-				} else {
-					state.error = true;
-				}
+			.addCase(deleteShipping.fulfilled, (state) => {
 				state.deleteLoading = false;
 			})
 			.addCase(deleteShipping.rejected, (state) => {
