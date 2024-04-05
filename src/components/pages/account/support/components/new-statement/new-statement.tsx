@@ -3,8 +3,12 @@ import { ButtonHTMLAttributes, useState } from "react";
 import Button from "@/components/shared/button";
 import { EnumSupportType } from "@/data-types/support";
 import { useModal } from "@/hooks/use-modal";
+import { postSupport } from "@/slices/support/supportSlice";
+import { AppDispatch } from "@/store";
 import { Modal } from "antd";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { supportTypeMap } from "../../constants/support/support-type-map";
 import FirstStep from "./first-step/first-step";
 import css from "./new-statement.module.css";
 import SecondStep from "./second-step/second-step";
@@ -12,9 +16,9 @@ import SecondStep from "./second-step/second-step";
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 export interface NewStatementForm {
 	email: string;
-	type: EnumSupportType;
+	topic: EnumSupportType;
 	description: string;
-	files?: File[];
+	files: File[];
 }
 
 function NewStatement({ className, ...props }: Props) {
@@ -23,28 +27,29 @@ function NewStatement({ className, ...props }: Props) {
 
 	const form = useForm<NewStatementForm>({
 		mode: "onTouched",
+		defaultValues: {
+			files: [],
+		},
 	});
 
+	const dispatch = useDispatch<AppDispatch>();
+
 	const onSubmit = (data: NewStatementForm) => {
-		console.log(data);
+		const fd = new FormData();
+		fd.append("email", data.email);
+		fd.append("topic", supportTypeMap[data.topic]);
+		fd.append("description", data.description);
+		data.files.map((f) => fd.append("files", f));
+
+		dispatch(postSupport(fd));
 	};
 
 	const steps = [
 		{
-			content: (
-				<FirstStep
-					form={form}
-					setStep={setCurrent}
-				/>
-			),
+			content: <FirstStep form={form} setStep={setCurrent} />,
 		},
 		{
-			content: (
-				<SecondStep
-					form={form}
-					setStep={setCurrent}
-				/>
-			),
+			content: <SecondStep form={form} setStep={setCurrent} />,
 		},
 	];
 
@@ -73,10 +78,7 @@ function NewStatement({ className, ...props }: Props) {
 					className={css.modal}
 				>
 					{steps[current].content}
-					<button
-						className={css.modal_close}
-						onClick={onClose}
-					>
+					<button className={css.modal_close} onClick={onClose}>
 						<svg
 							width='30'
 							height='30'

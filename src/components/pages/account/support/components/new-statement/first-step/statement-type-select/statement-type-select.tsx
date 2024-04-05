@@ -1,5 +1,4 @@
 import CheckCircle from "@/../public/images/icons/check-circle.svg";
-import Label from "@/components/shared/label";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -16,14 +15,11 @@ interface Props {
 
 function StatementTypeSelect({ form }: Props) {
 	const [open, setOpen] = useState(false);
-	const supportType = form.watch("type");
+	const supportType = form.watch("topic");
 
 	return (
 		<div className={css.input_wrapper}>
-			<div
-				className={css.select}
-				onClick={() => setOpen(!open)}
-			>
+			<div className={css.select} onClick={() => setOpen(!open)}>
 				<p>
 					{supportType
 						? supportTypeMap[supportType]
@@ -50,16 +46,13 @@ function StatementTypeSelect({ form }: Props) {
 						className={css.option}
 						key={item[0]}
 						onClick={() => {
-							form.setValue("type", item[0]);
+							form.setValue("topic", item[0]);
 							setOpen(false);
 						}}
 					>
 						<p>{item[1]}</p>
 						{supportTypeMap[supportType] === item[1] && (
-							<Image
-								src={CheckCircle}
-								alt={""}
-							/>
+							<Image src={CheckCircle} alt={""} />
 						)}
 					</li>
 				))}
