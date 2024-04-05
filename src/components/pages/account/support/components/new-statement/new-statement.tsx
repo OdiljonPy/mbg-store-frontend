@@ -41,7 +41,11 @@ function NewStatement({ className, ...props }: Props) {
 		fd.append("description", data.description);
 		data.files.map((f) => fd.append("files", f));
 
-		dispatch(postSupport(fd));
+		dispatch(postSupport(fd)).then(() => {
+			onClose();
+			setCurrent(0);
+			form.reset();
+		});
 	};
 
 	const steps = [
@@ -78,7 +82,11 @@ function NewStatement({ className, ...props }: Props) {
 					className={css.modal}
 				>
 					{steps[current].content}
-					<button className={css.modal_close} onClick={onClose}>
+					<button
+						className={css.modal_close}
+						onClick={onClose}
+						type='button'
+					>
 						<svg
 							width='30'
 							height='30'

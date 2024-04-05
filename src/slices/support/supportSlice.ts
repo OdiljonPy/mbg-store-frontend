@@ -8,7 +8,7 @@ interface IGetSupportsResponse {
 }
 
 export const fetchSupports = createAsyncThunk("supports", async () => {
-	const response = await API.get<IGetSupportsResponse>("/store/support/");
+	const response = await API.get<IGetSupportsResponse>("/support/");
 	return response.data;
 });
 
@@ -21,7 +21,7 @@ export const postSupport = createAsyncThunk(
 	"supports/post",
 	async (body: FormData) => {
 		const response = await API.post<IPostSupportsResponse>(
-			"/store/support/",
+			"/support/",
 			body
 		);
 		return response.data;

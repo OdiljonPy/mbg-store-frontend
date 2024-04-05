@@ -4,8 +4,8 @@ import { RootState } from "@/store";
 import { UseFormReturn } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { NewStatementForm } from "../new-statement";
-import ImageUploader from "./image-uploader/image-uploader";
-import StatementImage from "./image/image";
+import FileUploader from "./file-uploader/file-uploader";
+import PeekedFile from "./peeked-file/peeked-file";
 import css from "./second-step.module.css";
 
 interface Props {
@@ -35,11 +35,11 @@ function SecondStep({ form, setStep }: Props) {
 						Приложения{" "}
 						<span className={css.max_count_text}>(максимум 4)</span>
 					</Label>
-					<ImageUploader form={form} />
+					<FileUploader form={form} />
 				</div>
 				<div className={css.images}>
 					{files.map((_, index) => (
-						<StatementImage key={index} form={form} index={index} />
+						<PeekedFile key={index} form={form} index={index} />
 					))}
 				</div>
 			</div>

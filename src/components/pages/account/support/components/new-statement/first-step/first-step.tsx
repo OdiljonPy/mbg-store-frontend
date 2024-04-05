@@ -3,7 +3,8 @@ import ErrorMessage from "@/components/shared/error-message";
 import Input from "@/components/shared/input";
 import Label from "@/components/shared/label";
 import TextArea from "@/components/shared/text-area";
-import { UseFormReturn } from "react-hook-form";
+import React from "react";
+import { Controller, UseFormReturn } from "react-hook-form";
 import { NewStatementForm } from "../new-statement";
 import css from "./first-step.module.css";
 import StatementTypeSelect from "./statement-type-select/statement-type-select";
@@ -16,6 +17,24 @@ interface Props {
 function FirstStep({ form, setStep }: Props) {
 	const desc = form.watch("description") || "";
 	const isTypeSelected = !!form.watch("topic");
+
+	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+
+	const textareaValue = form.watch("description");
+
+	React.useEffect(() => {
+		if (!textareaRef.current) return;
+
+		textareaRef.current.style.height = "inherit";
+
+		if (textareaRef.current.scrollHeight < 150) {
+			textareaRef.current.style.height = `${
+				Math.max(textareaRef.current.scrollHeight, 50) + 2
+			}px`;
+		} else {
+			textareaRef.current.style.height = "150px";
+		}
+	}, [textareaValue]);
 
 	return (
 		<>
@@ -59,17 +78,27 @@ function FirstStep({ form, setStep }: Props) {
 				<div>
 					<div className={css.desc_label}>
 						<Label required>Описание</Label>
-						<div className={css.counter}>{desc.length}/200</div>
+						<div className={css.counter}>{desc.length}/400</div>
 					</div>
-					<TextArea
-						{...form.register("description", {
+					<Controller
+						control={form.control}
+						name='description'
+						rules={{
 							required: {
 								value: true,
 								message: "Это поле обязательно",
 							},
-						})}
-						rows={2}
-						placeholder='Ваш вопрос'
+						}}
+						render={({ field: { onChange, value } }) => (
+							<TextArea
+								ref={textareaRef}
+								value={value}
+								onChange={onChange}
+								resize='vertical'
+								maxLength={400}
+								placeholder='Ваш вопрос'
+							/>
+						)}
 					/>
 					<ErrorMessage>
 						{form.formState.errors.description?.message}
