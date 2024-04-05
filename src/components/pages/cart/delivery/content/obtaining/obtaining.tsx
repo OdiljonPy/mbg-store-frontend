@@ -1,13 +1,16 @@
 import css from "./obtaining.module.css"
 import Heading from "@/components/pages/cart/common/heading/heading";
 import ObtainingChose from "@/components/pages/cart/delivery/content/obtaining/component/obtainingChose";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery";
 import ObtainingCome from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome";
 import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import {useRouter} from "next/router";
 import {usePathname} from "next/navigation";
 import AddressCard from "@/components/pages/cart/common/address-card/address-card";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {fetchStories} from "@/slices/all_store/StoriesSlices";
 
 interface props {
 
@@ -56,7 +59,6 @@ const Obtaining = (props: props) => {
 
     // active address obtaining delivery
     const activeAddress = (id: number) => {
-        console.log(id, "active address id")
         setDeliveryId(id)
         setType('delivery')
         setIsChoose(true)
@@ -66,6 +68,7 @@ const Obtaining = (props: props) => {
     const backAddress = () => {
         setIsChoose(false)
     }
+
 
     return (
         <div className={css.obtaining}>
@@ -82,10 +85,10 @@ const Obtaining = (props: props) => {
                             <ObtainingCome changeContainerHeight={changeContainerHeight}/>}
                     </div>
                 </div>}
-                {type && <div className={css.status_cart}>
-                    <AddressCard type={"delivery"}/>
-                    <AddressCard type={"pick_up"}/>
-                </div>}
+                {/*{type && <div className={css.status_cart}>*/}
+                {/*    <AddressCard type={"delivery"}/>*/}
+                {/*    <AddressCard type={"pick_up"}/>*/}
+                {/*</div>}*/}
             </div>
 
         </div>

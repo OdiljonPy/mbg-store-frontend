@@ -8,15 +8,16 @@ import {useParams, useSearchParams} from "next/navigation";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
 import React from "react";
+import {useFormContext, UseFormReturn} from "react-hook-form";
+import {IOrder} from "@/data-types/order/order";
 
 interface props{
 
 }
 
-const TotalSum = (props:props) =>{
+const TotalSum = ({}:props) =>{
     const t = useTranslations()
     const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
-
     const router = useRouter()
     const throwOrder = (e: React.FormEvent) =>{
         e.preventDefault()
@@ -44,7 +45,7 @@ const TotalSum = (props:props) =>{
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
-                    <button className={`${css.btn} ${css.checkout_btn}`} onSubmit={throwOrder}>
+                    <button className={`${css.btn} ${css.checkout_btn}`} onSubmit={throwOrder} >
                         {t('cart.checkout')}
                     </button>
 

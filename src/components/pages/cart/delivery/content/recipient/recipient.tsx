@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import css from "./recipient.module.css"
 
 import inputCss from "@/styles/input.module.css";
 import FormError from "@/components/shared/form-error/form-error";
-import { useFormContext} from "react-hook-form";
+import {useFormContext, UseFormReturn} from "react-hook-form";
 import {useTranslations} from "next-intl";
 
 import Heading from "@/components/pages/cart/common/heading/heading";
@@ -12,19 +12,27 @@ import {PhoneInput} from "react-international-phone";
 import {IOrder} from "@/data-types/order/order";
 import FormInput from "@/components/shared/form/form-input/form-input";
 import {raleway} from "@/constants/fonts/fonts";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {fetchUser} from "@/slices/auth/user";
 interface props{
-
+    form:UseFormReturn<IOrder>
 }
-const Recipient = (props:props) =>{
+const Recipient = ({form}:props) =>{
     const t = useTranslations()
-    const [userName,setUserName] = useState("")
-    const [userPhone,setUserPhone] = useState("")
-
-
+    const {full_name,phone_number} = useSelector((state:RootState)=> state.user.user)
 
     const {unregister, watch,setValue} = useFormContext<IOrder>()
     const fullName = watch('full_name')
     const phoneNumber = watch('phone_number')
+
+    const [userName,setUserName] = useState(full_name)
+
+    const changeName = (name:string) =>{
+        setUserName(name)
+        setValue('full_name',name)
+    }
+
     return(
         <div>
             <Heading title='Получатель заказа' index={1} />
@@ -36,8 +44,9 @@ const Recipient = (props:props) =>{
                             {t('cart.delivery.name_label')}
                             <span className={css.required}>*</span>
                         </label>
-                        <input  value={fullName} onChange={(e:React.ChangeEvent<HTMLInputElement>)=> setValue('full_name',e.target.value) }  placeholder={t('cart.delivery.name_placeholder')}
+                        <input  value={userName} onChange={(e:React.ChangeEvent<HTMLInputElement>)=> changeName(e.target.value) }  placeholder={t('cart.delivery.name_placeholder')}
                                className={`${inputCss.input}  ${raleway.className} `}/>
+
 
                     </div>
                     <div className={css.field}>
@@ -47,16 +56,16 @@ const Recipient = (props:props) =>{
                             </label>
                             <PhoneInput
                                 hideDropdown={true}
-                                inputClassName={inputCss.input}
+                                inputClassName={`${inputCss.input}`}
                                 defaultCountry='uz'
                                 inputProps={{
                                     placeholder: "+998",
                                 }}
                                 placeholder={"Номер телефона"}
-                                value={phoneNumber}
+                                value={phone_number}
                                 onChange={(phone) => setValue('phone_number',phone)}
                             />
-                            {/*<FormError error={errors.phone?.message}/>*/}
+                        {/*<FormError error={errors.full_name?.message}/>*/}
                         </div>
 
                     {/*<FormInput value={userName} label={t('cart.delivery.name_label')} type={'name'} changeValue={setUserName} required placeholder={t('cart.delivery.name_placeholder')}/>*/}

@@ -38,8 +38,8 @@ const Wrapper = (props: props) => {
                 ]}/>
                 <FormProvider {...methods}>
                     <form className={css.wrapper} onSubmit={methods.handleSubmit(createOrder)}>
-                        <Content/>
-                        <TotalSum/>
+                        <Content form={methods} />
+                        <TotalSum />
                     </form>
                 </FormProvider>
 
