@@ -19,15 +19,14 @@ function FirstStep({ form, setStep }: Props) {
 	const isTypeSelected = !!form.watch("topic");
 
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
-	const [value, setValue] = React.useState("");
 
-	React.useLayoutEffect(() => {
-		// Reset height - important to shrink on delete
+	const textareaValue = form.watch("description");
+
+	React.useEffect(() => {
 		if (!textareaRef.current) return;
-		let height = textareaRef.current.style.height;
-		console.log(height);
+
 		textareaRef.current.style.height = "inherit";
-		// Set height
+
 		if (textareaRef.current.scrollHeight < 150) {
 			textareaRef.current.style.height = `${
 				Math.max(textareaRef.current.scrollHeight, 50) + 2
@@ -35,7 +34,7 @@ function FirstStep({ form, setStep }: Props) {
 		} else {
 			textareaRef.current.style.height = "150px";
 		}
-	}, [value]);
+	}, [textareaValue]);
 
 	return (
 		<>
@@ -94,10 +93,7 @@ function FirstStep({ form, setStep }: Props) {
 							<TextArea
 								ref={textareaRef}
 								value={value}
-								onChange={(e) => {
-									onChange(e.target.value);
-									setValue(e.target.value);
-								}}
+								onChange={onChange}
 								resize='vertical'
 								maxLength={400}
 								placeholder='Ваш вопрос'
