@@ -3,7 +3,10 @@ import { Modal } from "antd";
 import { useModal } from "@/hooks/use-modal";
 
 import Button from "@/components/shared/button";
-import { deleteShipping } from "@/slices/shipping/shippingSlice";
+import {
+	deleteShipping,
+	fetchShippingList,
+} from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./delete-address-modal.module.css";
@@ -22,14 +25,16 @@ function DeleteAddressModal({
 }: Props) {
 	const { onClose, onOpen, open } = useModal();
 
-	const { deleteLoading } = useSelector(
+	const { deleteLoading, loading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
 
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onDelete = () => {
-		dispatch(deleteShipping(shippingId)).then(() => onClose());
+	const onDelete = async () => {
+		await dispatch(deleteShipping(shippingId));
+		await dispatch(fetchShippingList());
+		onClose();
 	};
 
 	return (
@@ -72,7 +77,11 @@ function DeleteAddressModal({
 					>
 						Нет
 					</Button>
-					<Button onClick={onDelete} full loading={deleteLoading}>
+					<Button
+						onClick={onDelete}
+						full
+						loading={deleteLoading || loading}
+					>
 						Да, удалить
 					</Button>
 				</div>
