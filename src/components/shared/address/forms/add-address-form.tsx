@@ -1,7 +1,10 @@
 import Button from "@/components/shared/button";
 import { useForm } from "react-hook-form";
 
-import { postShipping } from "@/slices/shipping/shippingSlice";
+import {
+	fetchShippingList,
+	postShipping,
+} from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useState } from "react";
@@ -32,11 +35,11 @@ function AddAddressForm({ onClose }: Props) {
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onSubmit = (data: IAddressForm) => {
+	const onSubmit = async (data: IAddressForm) => {
 		const { apartment, entrance, floor, latitude, longitude, ...rest } =
 			data;
 
-		dispatch(
+		await dispatch(
 			postShipping({
 				apartment: Number(apartment),
 				entrance: Number(entrance),
@@ -45,7 +48,9 @@ function AddAddressForm({ onClose }: Props) {
 				longitude: String(longitude),
 				...rest,
 			})
-		).then(() => onClose());
+		);
+		await dispatch(fetchShippingList());
+		onClose();
 	};
 
 	return (

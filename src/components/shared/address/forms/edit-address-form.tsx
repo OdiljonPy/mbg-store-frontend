@@ -2,7 +2,10 @@ import Button from "@/components/shared/button";
 import { useForm } from "react-hook-form";
 
 import { IShipping } from "@/data-types/shipping";
-import { patchShipping } from "@/slices/shipping/shippingSlice";
+import {
+	fetchShippingList,
+	patchShipping,
+} from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useState } from "react";
@@ -37,11 +40,11 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onSubmit = (data: IAddressForm) => {
+	const onSubmit = async (data: IAddressForm) => {
 		const { apartment, entrance, floor, latitude, longitude, ...rest } =
 			data;
 
-		dispatch(
+		await dispatch(
 			patchShipping({
 				body: {
 					apartment: Number(apartment),
@@ -53,8 +56,11 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 				},
 				shippingId: defaultValues.id,
 			})
-		).then(() => onClose());
+		);
+		await dispatch(fetchShippingList());
+		onClose();
 	};
+
 	return (
 		<form className={css.form} onSubmit={form.handleSubmit(onSubmit)}>
 			<div className={css.form_left}>

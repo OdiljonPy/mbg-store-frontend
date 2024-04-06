@@ -93,7 +93,7 @@ const shippingListSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(fetchShippingList.pending, (state, action) => {
+			.addCase(fetchShippingList.pending, (state) => {
 				state.error = false;
 				state.loading = true;
 			})
@@ -111,16 +111,12 @@ const shippingListSlice = createSlice({
 			});
 
 		builder
-			.addCase(postShipping.pending, (state, action) => {
+			.addCase(postShipping.pending, (state) => {
 				state.error = false;
 				state.postLoading = true;
 			})
 			.addCase(postShipping.fulfilled, (state, { payload }) => {
-				if (payload.ok) {
-					state.shippingList.push(payload.result);
-				} else {
-					state.error = true;
-				}
+				state.error = !payload.ok;
 				state.postLoading = false;
 			})
 			.addCase(postShipping.rejected, (state) => {
@@ -129,21 +125,12 @@ const shippingListSlice = createSlice({
 			});
 
 		builder
-			.addCase(patchShipping.pending, (state, action) => {
+			.addCase(patchShipping.pending, (state) => {
 				state.error = false;
 				state.patchLoading = true;
 			})
 			.addCase(patchShipping.fulfilled, (state, { payload }) => {
-				if (payload.ok) {
-					state.shippingList = state.shippingList.map((shipping) => {
-						if (shipping.id === payload.result.id) {
-							return payload.result;
-						}
-						return shipping;
-					});
-				} else {
-					state.error = true;
-				}
+				state.error = !payload.ok;
 				state.patchLoading = false;
 			})
 			.addCase(patchShipping.rejected, (state) => {
@@ -156,7 +143,8 @@ const shippingListSlice = createSlice({
 				state.error = false;
 				state.deleteLoading = true;
 			})
-			.addCase(deleteShipping.fulfilled, (state) => {
+			.addCase(deleteShipping.fulfilled, (state, { payload }) => {
+				state.error = !payload.ok;
 				state.deleteLoading = false;
 			})
 			.addCase(deleteShipping.rejected, (state) => {
