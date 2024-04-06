@@ -1,0 +1,13 @@
+.modal_trigger {
+	cursor: pointer;
+}
+
+.modal_content {
+	padding: 0px !important;
+	border-radius: 26px !important;
+	overflow: hidden;
+}
+
+.modal_body {
+	display: flex;
+}

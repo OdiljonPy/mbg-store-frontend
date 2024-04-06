@@ -7,9 +7,9 @@ import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import AddressMap from "../address-map/address-map";
+import { IAddressForm } from "../types";
 import AddressFields from "./address-fields";
-import { IAddressForm } from "./address-form.interface";
-import AddressMap from "./address-map/address-map";
 import css from "./form.module.css";
 
 interface Props {
@@ -61,12 +61,11 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 				<h2 className={css.title}>Адрес доставки</h2>
 				<AddressFields form={form} mapConstructor={mapConstructor} />
 				<div className={css.footer}>
-					<Button variant='secondary' onClick={onClose}>
+					<Button variant='secondary' onClick={onClose} type='button'>
 						Отмена
 					</Button>
 					<Button
 						full
-						type='submit'
 						disabled={!form.formState.isValid}
 						loading={patchLoading}
 					>

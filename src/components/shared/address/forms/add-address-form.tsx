@@ -6,9 +6,9 @@ import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import AddressMap from "../address-map/address-map";
+import { IAddressForm } from "../types";
 import AddressFields from "./address-fields";
-import { IAddressForm } from "./address-form.interface";
-import AddressMap from "./address-map/address-map";
 import css from "./form.module.css";
 
 interface Props {
@@ -27,7 +27,9 @@ function AddAddressForm({ onClose }: Props) {
 	});
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { postLoading } = useSelector((state: RootState) => state.shippingList);
+	const { postLoading } = useSelector(
+		(state: RootState) => state.shippingList
+	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = (data: IAddressForm) => {
@@ -45,6 +47,7 @@ function AddAddressForm({ onClose }: Props) {
 			})
 		).then(() => onClose());
 	};
+
 	return (
 		<form className={css.form} onSubmit={form.handleSubmit(onSubmit)}>
 			<div className={css.form_left}>

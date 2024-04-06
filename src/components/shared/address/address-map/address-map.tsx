@@ -1,9 +1,9 @@
-import { Map, SearchControl, ZoomControl } from "@pbe/react-yandex-maps";
+import { Map } from "@pbe/react-yandex-maps";
 import { Dispatch, SetStateAction } from "react";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { UseFormReturn } from "react-hook-form";
-import { IAddressForm } from "../address-form.interface";
+import { IAddressForm } from "../types";
 import css from "./address-map.module.css";
 
 interface Props {
@@ -36,7 +36,10 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 	return (
 		<Map
 			modules={["geocode", "geolocation", "SuggestView", "suggest"]}
-			defaultOptions={{ suppressMapOpenBlock: true }}
+			defaultOptions={{
+				suppressMapOpenBlock: true,
+				copyrightLogoVisible: false,
+			}}
 			state={state}
 			className={css.map}
 			onLoad={setMapConstructor}
@@ -66,8 +69,6 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 					fill='#F65751'
 				/>
 			</svg>
-			<ZoomControl />
-			<SearchControl options={{ float: "right" }} />
 		</Map>
 	);
 }

@@ -3,6 +3,11 @@
 	width: 900px;
 }
 
+@media (max-width: 767px) {
+	.form {
+		display: none;
+	}
+}
 .form_left {
 	flex: 1 1 0%;
 	display: flex;

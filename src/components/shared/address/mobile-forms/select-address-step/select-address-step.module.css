@@ -1,0 +1,24 @@
+.wrapper {
+	height: 100%;
+}
+
+.body {
+	height: 100%;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.body_top {
+	padding: 0 16px 16px 16px;
+}
+
+.body_bottom {
+	flex: 1 1 0%;
+}
+
+.label_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

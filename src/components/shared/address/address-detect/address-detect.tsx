@@ -1,7 +1,7 @@
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
-import { IAddressForm } from "../address-form.interface";
+import { IAddressForm } from "../types";
 import css from "./address-detect.module.css";
 
 interface Props {

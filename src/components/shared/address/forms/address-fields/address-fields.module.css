@@ -5,7 +5,7 @@
 	flex: 1 1 0;
 }
 
-.make_main {
+.checkbox_wrapper {
 	display: flex;
 	align-items: center;
 }

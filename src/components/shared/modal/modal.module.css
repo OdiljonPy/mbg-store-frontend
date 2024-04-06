@@ -1,0 +1,16 @@
+.modal_close {
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	cursor: pointer;
+}
+
+@media (max-width: 767px) {
+	.modal_content,
+	.modal_body {
+		height: calc(100vh - 16px);
+		margin: 0;
+	}
+}

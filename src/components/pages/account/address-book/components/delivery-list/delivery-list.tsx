@@ -1,4 +1,4 @@
-import AddNewAddressModal from "@/components/shared/address/add-address-modal";
+import AddNewAddressModal from "@/components/shared/address/modals/add-address-modal";
 import Button from "@/components/shared/button";
 import FormError from "@/components/shared/form-error/form-error";
 import { RootState } from "@/store";
