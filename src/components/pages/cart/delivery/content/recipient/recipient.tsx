@@ -33,6 +33,11 @@ const Recipient = ({form}:props) =>{
         setValue('full_name',name)
     }
 
+    useEffect(() => {
+        setValue('full_name',full_name)
+        setValue('phone_number',phone_number)
+    }, []);
+
     return(
         <div>
             <Heading title='Получатель заказа' index={1} />

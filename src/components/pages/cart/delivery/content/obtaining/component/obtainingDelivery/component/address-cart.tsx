@@ -7,51 +7,43 @@ import InfoSVG
 import {useEffect, useState} from "react";
 import InputRadio
     from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/component/input/input_radio";
+import {IShipping} from "@/data-types/shipping";
+import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 interface props{
-    fetchActive: (e:number) => void,
-    active?:number
+    fetchActive: (e:IShipping) => void,
+    active:number | undefined
     openDelModal:(id:number,title:string)=>void
     openEditModal:() => void
-    data:{
-        id:number,
-        value:number,
-        title:string,
-        address:string,
-        status:string
-    }
+    shipping:IShipping
 }
 
-const AddressCart = ({fetchActive,active,openDelModal,data,openEditModal}:props) =>{
-    const [checked,setChecked] = useState(false)
-
-
-    useEffect(()=>{
-        if(active == data.value) setChecked(true)
-        else setChecked(false)
-    },[active])
-
+const AddressCart = ({fetchActive,active,openDelModal,shipping,openEditModal}:props) =>{
     return(
-        <div className={`${css.cart} ${data.value == active ? css.active :''}`} >
+        <div className={`${css.cart} ${shipping.id == active ? css.active :''}`} >
             <div className={css.cart_header}>
                <div className={css.info}>
-                   <label className={`${css.custom_radio} ${data.value == active ? css.active :''}`}>
-                       <input type="radio" defaultChecked={checked} onClick={() => fetchActive(data.value)} value={data.value} name='radio' />
+                   <label className={`${css.custom_radio} ${shipping.id == active ? css.active :''}`}>
+                       <input type="radio" checked={active == shipping.id} onClick={() => fetchActive(shipping)} value={shipping.id} name='radio' />
                        <span className={css.custom_radio_button}></span>
                    </label>
                    <div>
-                       <p className={css.title}>{data.title} <span className={`${css.badge} ${active == data.value ? css.show : css.hidden}`}>основной</span></p>
-                       <p className={css.address}>{data.address}</p>
+                       <p className={css.title}>{shipping.address_name} <span className={`${css.badge} ${active == shipping.id ? css.show : css.hidden}`}>основной</span></p>
+                       <p className={css.address}>{shipping.address}</p>
                    </div>
                </div>
+                {/*fot action*/}
                 <div className={css.action}>
                     <EditIcon onClick={openEditModal} />
-                    <DeleteSVG onClick={() => openDelModal(data.id,data.title)}/>
+                    <DeleteSVG onClick={() => openDelModal(shipping.id,shipping.address_name)}/>
                 </div>
             </div>
-            <div className={`${css.status} ${active === data.value ? css.active : css.block}`}>
-                <InfoSVG/>
-                <p className={css.status_text}>Примерная дата доставки: <span>18 декабря 2023 г.</span> </p>
-            </div>
+
+            {/*warning test*/}
+            {/*{*/}
+            {/*    shipping.id == active &&*/}
+            {/*    <WarningText><p className={css.status_text}>Примерная дата доставки: <span>18 декабря 2023 г.</span> </p></WarningText>*/}
+            {/*}*/}
+
         </div>
     )
 }

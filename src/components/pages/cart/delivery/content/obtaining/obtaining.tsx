@@ -11,28 +11,30 @@ import AddressCard from "@/components/pages/cart/common/address-card/address-car
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchStories} from "@/slices/all_store/StoriesSlices";
+import ShippingCard from "@/components/pages/cart/common/address-card/shipping-card";
+import {IShipping} from "@/data-types/shipping";
 
 interface props {
 
 }
 
+export type ITab = 'delivery' | 'pickup'
+
 const Obtaining = (props: props) => {
     const {push,query} = useRouter()
     const pathname: string = usePathname()
-    const [tab, setTab] = useState('left')
+    const [tab, setTab] = useState<ITab>('delivery')
     const [containerHeight, setContainerHeight] = useState(20)
-    const [type, setType] = useState('')
-    const [deliveryId, setDeliveryId] = useState(0)
     const [isChoose, setIsChoose] = useState(false)
+    const [activeAdd,setActiveAdd] = useState<IShipping>()
 
     function changeContainerHeight(e: number) {
         setContainerHeight((prevState) => e)
     }
 
-    function changeTab(e: string) {
-        setTab((prevState) => prevState = e)
-
-        if(tab === 'right'){
+    function changeTab(tab: ITab) {
+        setTab(tab)
+        if(tab === 'delivery'){
             push({
                 pathname,
                 query:{
@@ -58,9 +60,8 @@ const Obtaining = (props: props) => {
     }
 
     // active address obtaining delivery
-    const activeAddress = (id: number) => {
-        setDeliveryId(id)
-        setType('delivery')
+    const saveActiveAddress = (address : IShipping) => {
+        setActiveAdd(address)
         setIsChoose(true)
     }
     // end active address
@@ -80,15 +81,14 @@ const Obtaining = (props: props) => {
                     <ObtainingChose tab={tab} changeTab={changeTab}/>
 
                     <div className={css.change_container} style={containerStyle}>
-                        {tab == 'left' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}
-                                                            activeAddress={activeAddress}/> :
+                        {tab == 'delivery' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}
+                                                            saveActiveAddress={saveActiveAddress}/> :
                             <ObtainingCome changeContainerHeight={changeContainerHeight}/>}
                     </div>
                 </div>}
-                {/*{type && <div className={css.status_cart}>*/}
-                {/*    <AddressCard type={"delivery"}/>*/}
-                {/*    <AddressCard type={"pick_up"}/>*/}
-                {/*</div>}*/}
+                {isChoose &&<div className={css.status_cart}>
+                    <ShippingCard shipping={activeAdd}/>
+                </div> }
             </div>
 
         </div>
