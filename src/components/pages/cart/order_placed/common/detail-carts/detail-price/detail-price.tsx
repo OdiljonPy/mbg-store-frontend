@@ -6,6 +6,8 @@ import SendButton from "@/components/pages/cart/common/button/send_button";
 import React, {useState} from "react";
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 
 
 
@@ -14,6 +16,7 @@ interface props{
 }
 
 const DetailCart = ({isDeleteAction}:props) =>{
+    const {cost_price,all_prices,discount_price} = useSelector((state:RootState) => state.basket)
     const t = useTranslations()
     const [onOpen,setOnOpen] = useState(false)
 
@@ -34,13 +37,13 @@ const DetailCart = ({isDeleteAction}:props) =>{
                 {t('order_placed.order_cost_title')}
             </h3>
             <div className={css.info}>
-                <DetailItem label={t('order_placed.order_cost')} value={priceFormatter(174000 , true)}/>
-                <DetailItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-26000 , true)}/>
+                <DetailItem label={t('order_placed.order_cost')} value={priceFormatter(all_prices , true)}/>
+                <DetailItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-discount_price , true)}/>
                 <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>NEW10</span>} value={priceFormatter(14000 , true)}/>
-                <DetailItem className={css.bordered} label={t('filters.delivery.title')} value={priceFormatter(10000 , true)}/>
+                <DetailItem className={css.bordered} label={t('filters.delivery.title')} value={priceFormatter(15000 , true)}/>
 
                     <DetailItem className={css.all_price} label={t('order_placed.order_all')}
-                           value={priceFormatter(174000 - 26000, true)}/>
+                           value={priceFormatter(cost_price, true)}/>
                 {isDeleteAction &&  <div className={css.action}>
                     <WarningText><p>{t('order_placed.warning_text')}</p></WarningText>
                     <SendButton title={'cart.checkout'} outline={true} onClick={openModal}/>

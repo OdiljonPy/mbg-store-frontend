@@ -4,30 +4,38 @@ import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 import {useRouter} from "next/router";
-import {useParams, useSearchParams} from "next/navigation";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
+import React from "react";
+import {useFormContext} from "react-hook-form";
+import {EnumDeliveryType, IOrder} from "@/data-types/order/order";
 
 interface props{
 
 }
 
-const TotalSum = (props:props) =>{
+const TotalSum = ({}:props) =>{
     const t = useTranslations()
+    const { watch,setValue} = useFormContext<IOrder>()
     const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
-
     const router = useRouter()
+    const fullName = watch('full_name')
+    const phoneNumber = watch('phone_number')
+    const checkPhone = phoneNumber ? phoneNumber.length : 0
     const throwOrder = () =>{
         if(router.query?.type){
             if(router.query.type === 'delivery'){
-                router.push("/cart/order-delivery")
+                setValue("type",EnumDeliveryType.DELIVERY)
+                // router.push("/cart/order-delivery")
             }
             else {
-                router.push("/cart/order-pickup")
+                setValue("type",EnumDeliveryType.PICKUP)
+                // router.push("/cart/order-pickup")
             }
         }
         else{
-            router.push("/cart/order-delivery")
+            setValue("type",EnumDeliveryType.DELIVERY)
+            // router.push("/cart/order-delivery")
         }
     }
     return(
@@ -42,12 +50,13 @@ const TotalSum = (props:props) =>{
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
-                    <button type={'button'} className={`${css.btn} ${css.checkout_btn}`} onClick={throwOrder}>
+                    <button disabled={(!(fullName && checkPhone > 12))} type={'submit'} className={`${css.btn} ${css.checkout_btn}`} onClick={()=> throwOrder()}>
                         {t('cart.checkout')}
                     </button>
 
                 <TotalDelete/>
             </div>
+
         </div>
     )
 }

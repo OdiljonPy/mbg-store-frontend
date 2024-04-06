@@ -51,6 +51,7 @@
 .btn:active{
     background: var(--green);
 }
+
 .link{
     text-decoration: none;
 }
@@ -78,4 +79,9 @@
 }
 .checkout_btn:hover{
     color: #fff;
+}
+.checkout_btn:disabled:hover {
+    background-color: var(--light-gray);
+    color:var(--icon-gray);
+    cursor: not-allowed;
 }

@@ -38,9 +38,14 @@ const favoritesPersistConfig = {
 	storage,
 };
 
+const userPersistConfig={
+	key:'user',storage
+}
+
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
+	user: persistReducer(userPersistConfig,userSlice),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,
@@ -50,7 +55,6 @@ const rootReducers = combineReducers({
 	message: messageSlice,
 	phoneNumber: phoneNumber,
 	otpKey: otpKey,
-	user: userSlice,
 	verify: verifyUserSlice,
 	signup: signUpUserSlice,
 	login: loginSlice,

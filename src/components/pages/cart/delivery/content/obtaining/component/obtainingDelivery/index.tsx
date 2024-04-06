@@ -9,40 +9,34 @@ import SendButton
     from "@/components/pages/cart/common/button/send_button";
 import DeleteModal
     from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery/modal/delete_modal/delete_modal";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {fetchShippingList} from "@/slices/shipping/shippingSlice";
+import ShippingCard from "@/components/pages/cart/common/address-card/shipping-card";
+import {IShipping} from "@/data-types/shipping";
+import {useFormContext} from "react-hook-form";
+import {IOrder, IPostOrder} from "@/data-types/order/order";
 
 interface props{
     changeContainerHeight : (e:number)=> void
-    activeAddress : (e:number) => void
+    saveActiveAddress : (e:IShipping) => void
+    activeAddress?:IShipping
 }
 
 
-const ObtainingDelivery = ({changeContainerHeight,activeAddress}:props) =>{
+const ObtainingDelivery = ({changeContainerHeight,saveActiveAddress,activeAddress}:props) =>{
+    const dispatch = useDispatch<AppDispatch>()
+    const {shippingList,loading} = useSelector((state:RootState)=> state.shippingList)
+    const {setValue} = useFormContext<IPostOrder>()
     const cardRef = useRef<any>(null)
     const [open, setOpen] = useState<boolean>(false)
     const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
-    const [activeAddressCart,setActiveAddressCart] = useState<number>(1)
-    const addressList = [
-        {
-            id:1,
-            value:1,
-            title:"Мой дом",
-            address:"г. Ташкент, проспект Амира Темура, д-23, кв-20",
-            status:""
-        },
-        {
-            id:2,
-            value:2,
-            title:"Мама",
-            address:"г. Ташкент, ул. Паркентская, д-12, кв-5",
-            status:""
-        }
-    ]
-    const fetchActive = (e:number) =>{
-        setActiveAddressCart(e)
+    const [activeAddressCart,setActiveAddressCart] = useState<IShipping>()
+
+    const fetchActive = (address:IShipping) =>{
+        setActiveAddressCart(address)
+        setValue('delivery_address',address.id)
     }
-    useEffect(()=>{
-        changeContainerHeight(cardRef?.current?.scrollHeight)
-    },[])
 
     const onOpen = () => {
         document.body.style.overflow = 'hidden'
@@ -73,20 +67,57 @@ const ObtainingDelivery = ({changeContainerHeight,activeAddress}:props) =>{
     const deleteAddress =  (id:number) =>{
         console.log(id,"delete id")
     }
+
+    const fakeShipping = {
+        id:1,
+        address_name: "Home",
+        address: "string",
+        entrance: 21,
+        floor: 10,
+        apartment: 2,
+        latitude: "string",
+        longitude: "string",
+        main_address: true
+    }
+
+    const updateAddress = () =>{
+        console.log("update add")
+    }
+
+    const saveAddress = () =>{
+        saveActiveAddress(activeAddressCart || fakeShipping)
+        setValue('delivery_address',activeAddressCart?.id)
+    }
+
+    useEffect(()=>{
+        changeContainerHeight(cardRef?.current?.scrollHeight)
+        const activeAddress = shippingList.find((add)=> add.main_address === true)
+        if(activeAddress){
+            setActiveAddressCart(activeAddress)
+            setValue('delivery_address',activeAddress.id)
+        }
+    },[shippingList])
+
+    useEffect(() => {
+        dispatch(fetchShippingList())
+    }, [dispatch]);
+
     return(
         <div ref={cardRef}>
             <div className={css.carts}>
                 {
-                    addressList.map((item) =>{
-                        return <AddressCart key={item.id} data={item} fetchActive={fetchActive} active={activeAddressCart} openDelModal={onOpenDeleteModal} openEditModal={onOpen}/>
+                    shippingList.map((shipping,index) =>{
+                        return <AddressCart key={shipping.id}  shipping={shipping} fetchActive={fetchActive} active={activeAddressCart?.id} openDelModal={onOpenDeleteModal} openEditModal={onOpen}/>
                     })
                 }
             </div>
             <div className={css.action_btn}>
                 <AddAddress onOpen={onOpen}/>
+
                 {
-                    addressList.length && <SendButton title={'approve'} onClick={() => activeAddress(activeAddressCart)}/>
+                    shippingList.length && <SendButton title={'approve'} onClick={() => saveAddress()}/>
                 }
+
             </div>
             <FormModal open={open} onClose={onClose} />
             <DeleteModal open={openDeleteModal} onClose={closeDeleteModal} deleteAddress={deleteAddress} data={deleteModalData}/>

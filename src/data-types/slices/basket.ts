@@ -1,7 +1,8 @@
-import {IProduct} from "@/data-types/products/common";
+import {IProduct, IStore} from "@/data-types/products/common";
 
 export interface IBasketSlices{
     products:IProduct[]
+    store_list:IStore[],
     totalCountProduct : number
     all_prices:number
     discount_price:number

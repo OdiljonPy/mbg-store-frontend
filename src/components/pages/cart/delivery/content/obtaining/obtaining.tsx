@@ -1,35 +1,36 @@
 import css from "./obtaining.module.css"
 import Heading from "@/components/pages/cart/common/heading/heading";
 import ObtainingChose from "@/components/pages/cart/delivery/content/obtaining/component/obtainingChose";
-import {useState} from "react";
+import { useState} from "react";
 import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery";
 import ObtainingCome from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome";
 import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import {useRouter} from "next/router";
 import {usePathname} from "next/navigation";
-import AddressCard from "@/components/pages/cart/common/address-card/address-card";
+import ShippingCard from "@/components/pages/cart/common/address-card/shipping-card";
+import {IShipping} from "@/data-types/shipping";
 
 interface props {
 
 }
 
+export type ITab = 'delivery' | 'pickup'
+
 const Obtaining = (props: props) => {
     const {push,query} = useRouter()
     const pathname: string = usePathname()
-    const [tab, setTab] = useState('left')
+    const [tab, setTab] = useState<ITab>('delivery')
     const [containerHeight, setContainerHeight] = useState(20)
-    const [type, setType] = useState('')
-    const [deliveryId, setDeliveryId] = useState(0)
     const [isChoose, setIsChoose] = useState(false)
+    const [activeAdd,setActiveAdd] = useState<IShipping>()
 
     function changeContainerHeight(e: number) {
         setContainerHeight((prevState) => e)
     }
 
-    function changeTab(e: string) {
-        setTab((prevState) => prevState = e)
-
-        if(tab === 'right'){
+    function changeTab(tab: ITab) {
+        setTab(tab)
+        if(tab === 'delivery'){
             push({
                 pathname,
                 query:{
@@ -55,10 +56,8 @@ const Obtaining = (props: props) => {
     }
 
     // active address obtaining delivery
-    const activeAddress = (id: number) => {
-        console.log(id, "active address id")
-        setDeliveryId(id)
-        setType('delivery')
+    const saveActiveAddress = (address : IShipping) => {
+        setActiveAdd(address)
         setIsChoose(true)
     }
     // end active address
@@ -66,6 +65,7 @@ const Obtaining = (props: props) => {
     const backAddress = () => {
         setIsChoose(false)
     }
+
 
     return (
         <div className={css.obtaining}>
@@ -77,15 +77,14 @@ const Obtaining = (props: props) => {
                     <ObtainingChose tab={tab} changeTab={changeTab}/>
 
                     <div className={css.change_container} style={containerStyle}>
-                        {tab == 'left' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}
-                                                            activeAddress={activeAddress}/> :
+                        {tab == 'delivery' ? <ObtainingDelivery changeContainerHeight={changeContainerHeight}
+                                                            saveActiveAddress={saveActiveAddress}/> :
                             <ObtainingCome changeContainerHeight={changeContainerHeight}/>}
                     </div>
                 </div>}
-                {type && <div className={css.status_cart}>
-                    <AddressCard type={"delivery"}/>
-                    <AddressCard type={"pick_up"}/>
-                </div>}
+                {isChoose &&<div className={css.status_cart}>
+                    <ShippingCard shipping={activeAdd}/>
+                </div> }
             </div>
 
         </div>
