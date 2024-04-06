@@ -23,15 +23,29 @@ const basketSlices = createSlice({
                 state.products.push({count:payload.quantity,...payload.product});
             }
             state.totalCountProduct = state.products.length
-        //     store list
-            const storeList = state.products.findIndex(product=> product.store.id === payload.product.store.id)
 
-            if(storeList !== -1){
+            // for  store list
+            const storeList = state.store_list.findIndex(store=> store.id === payload.product.store.id)
+            if(storeList === -1){
                 state.store_list.push(payload.product.store)
             }
         },
         removeProduct : (state, {payload}:{payload:number}) =>{
+            // for store list
+            const activeProduct = state.products.find((product)=> product.id == payload)
+            const checkInclude = state.store_list.filter((store)=> store.id === activeProduct?.store.id)
+            // console.log(state.products,"state products")
+            // console.log(payload,"payload")
+            // console.log(checkInclude,"check product")
+            // console.log(activeProduct,"active product")
+            if(checkInclude.length === 1){
+                state.store_list = state.store_list.filter((store)=> store.id !== activeProduct?.store.id)
+            }
+
+            // for products
             state.products = state.products.filter(product => product.id !== payload);
+
+            // for total product length
             state.totalCountProduct = state.products.length
         },
 
