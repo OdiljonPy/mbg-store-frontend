@@ -9,20 +9,20 @@ import {useTranslations} from "next-intl";
 import Heading from "@/components/pages/cart/common/heading/heading";
 import {PhoneInput} from "react-international-phone";
 
-import {IOrder} from "@/data-types/order/order";
+import {IOrder, IPostOrder} from "@/data-types/order/order";
 import FormInput from "@/components/shared/form/form-input/form-input";
 import {raleway} from "@/constants/fonts/fonts";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchUser} from "@/slices/auth/user";
 interface props{
-    form:UseFormReturn<IOrder>
+    form:UseFormReturn<IPostOrder>
 }
 const Recipient = ({form}:props) =>{
     const t = useTranslations()
     const {full_name,phone_number} = useSelector((state:RootState)=> state.user.user)
 
-    const {unregister, watch,setValue} = useFormContext<IOrder>()
+    const {unregister, watch,setValue} = useFormContext<IPostOrder>()
     const fullName = watch('full_name')
     const phoneNumber = watch('phone_number')
 
@@ -34,7 +34,7 @@ const Recipient = ({form}:props) =>{
     }
 
     useEffect(() => {
-        setValue('full_name',full_name)
+        setValue('full_name',full_name?full_name:fullName)
         setValue('phone_number',phone_number)
     }, []);
 

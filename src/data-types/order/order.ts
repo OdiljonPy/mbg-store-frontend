@@ -18,6 +18,16 @@ export interface IOrder {
 	phone_number?:string
 }
 
+export interface IPostOrder{
+	type: EnumDeliveryType;
+	full_name:string;
+	phone_number:string
+	products:{product:number,quantity:number}[]
+	delivery_price?:number,
+	delivery_address?:number,
+	promocode?:number
+}
+
 export enum EnumDeliveryType {
 	DELIVERY = "D",
 	PICKUP = "T",

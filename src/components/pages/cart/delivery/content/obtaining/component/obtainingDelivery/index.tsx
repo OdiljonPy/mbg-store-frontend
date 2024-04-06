@@ -14,6 +14,8 @@ import {AppDispatch, RootState} from "@/store";
 import {fetchShippingList} from "@/slices/shipping/shippingSlice";
 import ShippingCard from "@/components/pages/cart/common/address-card/shipping-card";
 import {IShipping} from "@/data-types/shipping";
+import {useFormContext} from "react-hook-form";
+import {IOrder, IPostOrder} from "@/data-types/order/order";
 
 interface props{
     changeContainerHeight : (e:number)=> void
@@ -25,7 +27,7 @@ interface props{
 const ObtainingDelivery = ({changeContainerHeight,saveActiveAddress,activeAddress}:props) =>{
     const dispatch = useDispatch<AppDispatch>()
     const {shippingList,loading} = useSelector((state:RootState)=> state.shippingList)
-    console.log(shippingList,"shipping list")
+    const {setValue} = useFormContext<IPostOrder>()
     const cardRef = useRef<any>(null)
     const [open, setOpen] = useState<boolean>(false)
     const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
@@ -33,6 +35,7 @@ const ObtainingDelivery = ({changeContainerHeight,saveActiveAddress,activeAddres
 
     const fetchActive = (address:IShipping) =>{
         setActiveAddressCart(address)
+        setValue('delivery_address',address.id)
     }
 
     const onOpen = () => {
@@ -65,20 +68,6 @@ const ObtainingDelivery = ({changeContainerHeight,saveActiveAddress,activeAddres
         console.log(id,"delete id")
     }
 
-
-
-
-    useEffect(()=>{
-        changeContainerHeight(cardRef?.current?.scrollHeight)
-        const activeAddress = shippingList.find((add)=> add.main_address === true)
-        if(activeAddress){
-            setActiveAddressCart(activeAddress)
-        }
-    },[shippingList])
-
-    useEffect(() => {
-        dispatch(fetchShippingList())
-    }, [dispatch]);
     const fakeShipping = {
         id:1,
         address_name: "Home",
@@ -90,9 +79,29 @@ const ObtainingDelivery = ({changeContainerHeight,saveActiveAddress,activeAddres
         longitude: "string",
         main_address: true
     }
+
+    const updateAddress = () =>{
+        console.log("update add")
+    }
+
     const saveAddress = () =>{
         saveActiveAddress(activeAddressCart || fakeShipping)
+        setValue('delivery_address',activeAddressCart?.id)
     }
+
+    useEffect(()=>{
+        changeContainerHeight(cardRef?.current?.scrollHeight)
+        const activeAddress = shippingList.find((add)=> add.main_address === true)
+        if(activeAddress){
+            setActiveAddressCart(activeAddress)
+            setValue('delivery_address',activeAddress.id)
+        }
+    },[shippingList])
+
+    useEffect(() => {
+        dispatch(fetchShippingList())
+    }, [dispatch]);
+
     return(
         <div ref={cardRef}>
             <div className={css.carts}>

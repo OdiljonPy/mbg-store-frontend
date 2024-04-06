@@ -1,16 +1,12 @@
 import css from "./obtaining.module.css"
 import Heading from "@/components/pages/cart/common/heading/heading";
 import ObtainingChose from "@/components/pages/cart/delivery/content/obtaining/component/obtainingChose";
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import ObtainingDelivery from "@/components/pages/cart/delivery/content/obtaining/component/obtainingDelivery";
 import ObtainingCome from "@/components/pages/cart/delivery/content/obtaining/component/obtainingCome";
 import EditSVG from "@/components/pages/cart/delivery/content/icon/editSVG";
 import {useRouter} from "next/router";
 import {usePathname} from "next/navigation";
-import AddressCard from "@/components/pages/cart/common/address-card/address-card";
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "@/store";
-import {fetchStories} from "@/slices/all_store/StoriesSlices";
 import ShippingCard from "@/components/pages/cart/common/address-card/shipping-card";
 import {IShipping} from "@/data-types/shipping";
 

@@ -6,7 +6,7 @@ import Favourites from "@/components/pages/cart/favourites/favourites";
 import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import {FormProvider, useForm} from "react-hook-form";
-import {IOrder} from "@/data-types/order/order";
+import {IOrder, IPostOrder} from "@/data-types/order/order";
 
 interface props {
 
@@ -14,9 +14,9 @@ interface props {
 
 const Wrapper = (props: props) => {
     const t = useTranslations()
-    const methods = useForm<IOrder>()
+    const methods = useForm<IPostOrder>()
 
-    const createOrder = (values:IOrder)=>{
+    const createOrder = (values:IPostOrder)=>{
         console.log(values,"submit")
     }
     return (

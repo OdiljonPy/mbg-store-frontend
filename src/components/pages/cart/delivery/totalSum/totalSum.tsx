@@ -19,7 +19,9 @@ const TotalSum = ({}:props) =>{
     const { watch,setValue} = useFormContext<IOrder>()
     const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
     const router = useRouter()
-
+    const fullName = watch('full_name')
+    const phoneNumber = watch('phone_number')
+    const checkPhone = phoneNumber ? phoneNumber.length : 0
     const throwOrder = () =>{
         if(router.query?.type){
             if(router.query.type === 'delivery'){
@@ -48,12 +50,13 @@ const TotalSum = ({}:props) =>{
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
-                    <button type={'submit'} className={`${css.btn} ${css.checkout_btn}`} onClick={()=> throwOrder()}>
+                    <button disabled={(!(fullName && checkPhone > 12))} type={'submit'} className={`${css.btn} ${css.checkout_btn}`} onClick={()=> throwOrder()}>
                         {t('cart.checkout')}
                     </button>
 
                 <TotalDelete/>
             </div>
+
         </div>
     )
 }
