@@ -19,7 +19,7 @@ const TotalSum = ({}:props) =>{
     const t = useTranslations()
     const { watch,setValue} = useFormContext<IOrder>()
     const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
-    const {loading} = useSelector((state:RootState)=>state.orders)
+    const {createLoad} = useSelector((state:RootState)=>state.orders)
     const router = useRouter()
     const fullName = watch('full_name')
     const phoneNumber = watch('phone_number')
@@ -59,7 +59,7 @@ const TotalSum = ({}:props) =>{
                                variant='primary'
                                full
                                onClick={()=>throwOrder()}
-                               loading={!loading}
+                               loading={createLoad}
                                disabled={!(fullName && checkPhone > 12)}
                                >{t('cart.checkout')}</Button>
                    </div>

@@ -22,12 +22,14 @@ export const createOrder = createAsyncThunk("order_create",async (order:IPostOrd
 interface InitialState {
 	orders: IOrder[];
 	loading: boolean;
+	createLoad:boolean
 	error: boolean;
 }
 
 const initialState: InitialState = {
 	orders: {} as IOrder[],
 	loading: true,
+	createLoad:false,
 	error: false,
 };
 
@@ -53,13 +55,13 @@ const ordersSlice = createSlice({
 
 	// 	for order create
 		builder.addCase(createOrder.pending,(state)=>{
-			state.loading = true
+			state.createLoad = true
 		})
 			.addCase(createOrder.fulfilled,(state, {payload})=>{
-				state.loading = false
+				state.createLoad = false
 		})
 			.addCase(createOrder.rejected,(state)=>{
-			state.loading = false
+			state.createLoad = false
 			state.error = true
 		})
 	},

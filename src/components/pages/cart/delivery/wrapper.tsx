@@ -6,7 +6,7 @@ import Favourites from "@/components/pages/cart/favourites/favourites";
 import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import {FormProvider, useForm} from "react-hook-form";
-import {IOrder, IPostOrder} from "@/data-types/order/order";
+import {EnumDeliveryType, IOrder, IPostOrder} from "@/data-types/order/order";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {createOrder} from "@/slices/order/ordersSlice";
@@ -27,8 +27,13 @@ const Wrapper = (props: props) => {
             .unwrap()
             .then((res)=>{
                 if(res.ok){
-                    if(router.query.type === 'delivery')  router.push("/cart/order-delivery").then(r => true)
-                    else router.push("/cart/order-pickup").then(r => true)
+                    if(router.query?.type){
+                        if(router.query.type === 'delivery')  router.push("/cart/order-delivery").then(r => true)
+                        else router.push("/cart/order-pickup").then(r => true)
+                    }
+                    else{
+                        router.push("/cart/order-delivery").then(r => true)
+                    }
                 }
                 else {
                     alert("Erorr")
