@@ -5,6 +5,7 @@ import Content from "@/components/pages/cart/order_placed/order-delivery/content
 import Status from "@/components/pages/cart/order_placed/common/order-status/status";
 import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart";
 import DetailPrice from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price";
+import dynamic from "next/dynamic";
 
 interface props {
 

@@ -1,12 +1,15 @@
 import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
-import Wrapper from "@/components/pages/cart/order_placed/order-delivery/wrapper";
+import dynamic from "next/dynamic";
 
 interface props {
 
 }
 
+const ClientSideWrapper = dynamic(() => import('@/components/pages/cart/order_placed/order-delivery/wrapper'),{
+    ssr:false
+})
 const Index = (props: props) => {
     const t = useTranslations()
     return (
@@ -16,7 +19,7 @@ const Index = (props: props) => {
                     {t('header.order_placed')}
                 </title>
             </Head>
-            <Wrapper/>
+            <ClientSideWrapper/>
         </>
     );
 };
