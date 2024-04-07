@@ -1,4 +1,4 @@
-import { IOrder } from "@/data-types/order/order";
+import {IOrder, IPostOrder} from "@/data-types/order/order";
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -11,6 +11,13 @@ export const fetchOrders = createAsyncThunk("order", async () => {
 	const response = await API.get<OrdersResponse>("/store/orders/");
 	return response.data;
 });
+
+// create order
+
+export const createOrder = createAsyncThunk("order_create",async (order:IPostOrder)=>{
+	const res = await API.post('/store/order/',order)
+	return res.data
+})
 
 interface InitialState {
 	orders: IOrder[];
@@ -43,6 +50,18 @@ const ordersSlice = createSlice({
 				state.loading = false;
 				state.error = true;
 			});
+
+	// 	for order create
+		builder.addCase(createOrder.pending,(state)=>{
+			state.loading = true
+		})
+			.addCase(createOrder.fulfilled,(state, {payload})=>{
+				state.loading = false
+		})
+			.addCase(createOrder.rejected,(state)=>{
+			state.loading = false
+			state.error = true
+		})
 	},
 });
 

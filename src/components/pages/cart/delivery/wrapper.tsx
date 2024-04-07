@@ -7,6 +7,10 @@ import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import {FormProvider, useForm} from "react-hook-form";
 import {IOrder, IPostOrder} from "@/data-types/order/order";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {createOrder} from "@/slices/order/ordersSlice";
+import {useRouter} from "next/router";
 
 interface props {
 
@@ -14,10 +18,22 @@ interface props {
 
 const Wrapper = (props: props) => {
     const t = useTranslations()
+    const dispatch = useDispatch<AppDispatch>()
     const methods = useForm<IPostOrder>()
-
-    const createOrder = (values:IPostOrder)=>{
-        console.log(values,"submit")
+    const router = useRouter()
+    const submitOrder = (values:IPostOrder)=>{
+        console.log(values,'val')
+        dispatch(createOrder(values))
+            .unwrap()
+            .then((res)=>{
+                if(res.ok){
+                    if(router.query.type === 'delivery')  router.push("/cart/order-delivery").then(r => true)
+                    else router.push("/cart/order-pickup").then(r => true)
+                }
+                else {
+                    alert("Erorr")
+                }
+            })
     }
     return (
         <section className={css.cart}>
@@ -37,7 +53,7 @@ const Wrapper = (props: props) => {
                     }
                 ]}/>
                 <FormProvider {...methods}>
-                    <form className={css.wrapper} onSubmit={methods.handleSubmit(createOrder)}>
+                    <form className={css.wrapper} onSubmit={methods.handleSubmit(submitOrder)}>
                         <Content form={methods} />
                         <TotalSum />
                     </form>

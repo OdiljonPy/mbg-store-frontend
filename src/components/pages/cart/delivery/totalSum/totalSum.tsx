@@ -4,11 +4,12 @@ import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 import {useRouter} from "next/router";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
 import React from "react";
 import {useFormContext} from "react-hook-form";
 import {EnumDeliveryType, IOrder} from "@/data-types/order/order";
+import Button from "@/components/shared/button";
 
 interface props{
 
@@ -18,11 +19,13 @@ const TotalSum = ({}:props) =>{
     const t = useTranslations()
     const { watch,setValue} = useFormContext<IOrder>()
     const {discount_price,all_prices,cost_price} = useSelector((state:RootState)=> state.basket)
+    const {loading} = useSelector((state:RootState)=>state.orders)
     const router = useRouter()
     const fullName = watch('full_name')
     const phoneNumber = watch('phone_number')
     const checkPhone = phoneNumber ? phoneNumber.length : 0
     const throwOrder = () =>{
+        console.log("run coded")
         if(router.query?.type){
             if(router.query.type === 'delivery'){
                 setValue("type",EnumDeliveryType.DELIVERY)
@@ -50,10 +53,16 @@ const TotalSum = ({}:props) =>{
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
-                    <button disabled={(!(fullName && checkPhone > 12))} type={'submit'} className={`${css.btn} ${css.checkout_btn}`} onClick={()=> throwOrder()}>
-                        {t('cart.checkout')}
-                    </button>
 
+                   <div className={css.total_btn}>
+                       <Button type='submit'
+                               variant='primary'
+                               full
+                               onClick={()=>throwOrder()}
+                               loading={!loading}
+                               disabled={!(fullName && checkPhone > 12)}
+                               >{t('cart.checkout')}</Button>
+                   </div>
                 <TotalDelete/>
             </div>
 
