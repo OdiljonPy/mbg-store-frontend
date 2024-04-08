@@ -3,7 +3,7 @@ import Button from "@/components/shared/button";
 import FormError from "@/components/shared/form-error/form-error";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
-import AddressBookEmpty from "../address-book-empty/address-book-empty";
+import DeliveryEmpty from "./delivery-empty/delivery-empty";
 import DeliveryItem from "./delivery-item/delivery-item";
 import css from "./delivery-list.module.css";
 import AddressBookSkeleton from "./skeleton/skeleton";
@@ -26,7 +26,7 @@ function DeliveryList() {
 		return <FormError error='Something went wrong! Try again later.' />;
 
 	if (!shippingList.length) {
-		return <AddressBookEmpty />;
+		return <DeliveryEmpty />;
 	}
 
 	const sortedShippingList = shippingList.slice().sort((a, b) => {

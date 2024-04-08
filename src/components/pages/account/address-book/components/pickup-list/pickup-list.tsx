@@ -1,11 +1,11 @@
-import { dataDelivery, dataPickup } from "../../data";
-import AddressBookEmpty from "../address-book-empty/address-book-empty";
+import { dataPickup } from "../../data";
+import PickupEmpty from "./pickup-empty/pickup-empty";
 import PickupItem from "./pickup-item/pickup-item";
 import css from "./pickup-list.module.css";
 
 function PickupList() {
-	if (!dataDelivery.length) {
-		return <AddressBookEmpty />;
+	if (!dataPickup.length) {
+		return <PickupEmpty />;
 	}
 
 	return (

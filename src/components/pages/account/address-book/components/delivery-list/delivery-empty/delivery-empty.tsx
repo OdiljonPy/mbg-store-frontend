@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import Button from "@/components/shared/button";
-import css from "./address-book-empty.module.css";
+import css from "./delivery-empty.module.css";
 
-function AddressBookEmpty() {
+function DeliveryEmpty() {
 	return (
 		<div className={css.wrapper}>
 			<div className={css.image_wrapper}>
@@ -28,4 +28,4 @@ function AddressBookEmpty() {
 	);
 }
 
-export default AddressBookEmpty;
+export default DeliveryEmpty;
