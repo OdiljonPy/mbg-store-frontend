@@ -1,12 +1,10 @@
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from "next-intl";
-import {Badge} from "antd";
-import Favourites from "@/components/pages/cart/favourites/favourites";
 import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import {FormProvider, useForm} from "react-hook-form";
-import {EnumDeliveryType, IOrder, IPostOrder} from "@/data-types/order/order";
+import { IPostOrder} from "@/data-types/order/order";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {createOrder} from "@/slices/order/ordersSlice";
@@ -21,6 +19,7 @@ const Wrapper = (props: props) => {
     const dispatch = useDispatch<AppDispatch>()
     const methods = useForm<IPostOrder>()
     const router = useRouter()
+
     const submitOrder = (values:IPostOrder)=>{
         console.log(values,'val')
         dispatch(createOrder(values))
@@ -36,7 +35,7 @@ const Wrapper = (props: props) => {
                     }
                 }
                 else {
-                    alert("Erorr")
+                    alert("Error")
                 }
             })
     }

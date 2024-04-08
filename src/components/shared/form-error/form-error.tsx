@@ -4,7 +4,7 @@ import {raleway} from "@/constants/fonts/fonts";
 
 interface props {
     error?: string,
-    style?: CSSProperties
+    style?: CSSProperties | undefined
 }
 
 const FormError = ({error, style}: props) => {
