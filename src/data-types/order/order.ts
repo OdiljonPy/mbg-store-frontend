@@ -34,6 +34,8 @@ export enum EnumDeliveryType {
 }
 
 export enum EnumOrderStatusDelivery {
+	WAITING_FOR_PAYMENT,
+	PAID,
 	RECEIVED,
 	PROGRESSING,
 	ON_THE_WAY,
@@ -42,6 +44,8 @@ export enum EnumOrderStatusDelivery {
 }
 
 export enum EnumOrderStatusPickup {
+	WAITING_FOR_PAYMENT,
+	PAID,
 	RECEIVED,
 	PROGRESSING,
 	READY_FOR_PICKUP,

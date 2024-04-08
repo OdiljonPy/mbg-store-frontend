@@ -10,6 +10,8 @@ export const receivingMethodMap: Record<EnumDeliveryType, string> = {
 };
 
 export const deliveryStatusMap: Record<EnumOrderStatusDelivery, string> = {
+	[EnumOrderStatusDelivery.WAITING_FOR_PAYMENT]: "Ожидает оплаты",
+	[EnumOrderStatusDelivery.PAID]: "Оплачен",
 	[EnumOrderStatusDelivery.RECEIVED]: "Получен",
 	[EnumOrderStatusDelivery.PROGRESSING]: "В процессе",
 	[EnumOrderStatusDelivery.ON_THE_WAY]: "В пути",
@@ -18,6 +20,8 @@ export const deliveryStatusMap: Record<EnumOrderStatusDelivery, string> = {
 };
 
 export const pickupStatusMap: Record<EnumOrderStatusPickup, string> = {
+	[EnumOrderStatusDelivery.WAITING_FOR_PAYMENT]: "Ожидает оплаты",
+	[EnumOrderStatusDelivery.PAID]: "Оплачен",
 	[EnumOrderStatusPickup.RECEIVED]: "Получен",
 	[EnumOrderStatusPickup.PROGRESSING]: "В процессе",
 	[EnumOrderStatusPickup.READY_FOR_PICKUP]: "Готов к выдаче",

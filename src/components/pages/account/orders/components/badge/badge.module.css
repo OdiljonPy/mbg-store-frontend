@@ -17,6 +17,11 @@
 	}
 }
 
+.WAITING_FOR_PAYMENT {
+	background-color: #EF9545;
+}
+
+.PAID,
 .RECEIVED {
 	background-color: #60c787;
 }
