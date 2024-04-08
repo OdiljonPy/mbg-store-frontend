@@ -5,6 +5,8 @@ import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import PromoCode from "@/components/pages/cart/total/promocode/promocode";
 import {useRouter} from "next/navigation";
 import {IBasketSlices} from "@/data-types/slices/basket";
+import React from "react";
+import DeletePromoCode from "@/components/pages/cart/common/delete-promocode/delete-promocode";
 
 interface props {
     basketSlice : IBasketSlices
@@ -30,7 +32,9 @@ const Total = ({basketSlice}: props) => {
                 <button type={'button'} onClick={() => push('/cart/delivery')} className={css.btn}>
                     {t('cart.order')}
                 </button>
-                <PromoCode/>
+                {promo_code.discount ? <DeletePromoCode promo_code={promo_code.promocode}/> :
+                 <PromoCode/>
+                }
             </div>
         </div>
     );

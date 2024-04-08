@@ -2,14 +2,14 @@ import {useTranslations} from "next-intl";
 import css from "@/components/pages/cart/total/total.module.css";
 import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
-import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 import {useRouter} from "next/router";
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "@/store";
+import { useSelector} from "react-redux";
+import { RootState} from "@/store";
 import React from "react";
 import {useFormContext} from "react-hook-form";
 import {EnumDeliveryType, IOrder} from "@/data-types/order/order";
 import Button from "@/components/shared/button";
+import DeletePromoCode from "@/components/pages/cart/common/delete-promocode/delete-promocode";
 
 interface props{
 
@@ -63,7 +63,7 @@ const TotalSum = ({}:props) =>{
                                disabled={!(fullName && checkPhone > 12)}
                                >{t('cart.checkout')}</Button>
                    </div>
-                <TotalDelete/>
+                <DeletePromoCode/>
             </div>
 
         </div>

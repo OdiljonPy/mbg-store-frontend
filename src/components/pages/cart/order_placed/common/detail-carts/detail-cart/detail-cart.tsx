@@ -1,7 +1,5 @@
 import {useTranslations} from "next-intl";
 import css from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart.module.css";
-import {priceFormatter} from "@/utils/price-formatter/price-formatter";
-import TotalDelete from "@/components/pages/cart/delivery/totalSum/totalDelete";
 import DetailItem from "@/components/pages/cart/order_placed/common/detail-carts/components/detail-items/detail-item";
 import {formatPhoneNumber} from "@/utils/phone-format/phone-format";
 import {useSelector} from "react-redux";
