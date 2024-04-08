@@ -10,10 +10,10 @@ interface Props {
 }
 
 function OrderCostCard({ order, loading }: Props) {
-	const productsCost = order.order_items?.reduce(
-		(acc, item) => acc + item.product.price * item.quantity,
-		0
-	);
+	const productsCost =
+		order.sale_price +
+		order.total_price +
+		(order.promo_code ? order.promo_code.discount : 0);
 
 	return (
 		<div className={css.card}>

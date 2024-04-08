@@ -1,13 +1,18 @@
 import Input from "@/components/shared/input";
 import { useTranslations } from "next-intl";
+import { useOrdersSearch } from "../../hooks/use-orders-search";
 import css from "./search.module.css";
 
 function Search() {
 	const t = useTranslations("orders");
 
+	const { onSearchValueChange, searchValue } = useOrdersSearch();
+
 	return (
 		<div className={css.search_box}>
 			<Input
+				value={searchValue}
+				onChange={onSearchValueChange}
 				type='search'
 				placeholder={t("search")}
 			/>

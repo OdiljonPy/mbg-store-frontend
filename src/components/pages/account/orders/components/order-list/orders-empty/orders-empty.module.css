@@ -25,6 +25,10 @@
 	}
 }
 
+.link {
+	text-decoration: none;
+}
+
 .btn {
 	width: 260px;
 }

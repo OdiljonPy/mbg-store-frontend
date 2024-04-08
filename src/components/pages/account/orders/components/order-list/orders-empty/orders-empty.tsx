@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Button from "@/components/shared/button";
+import Link from "next/link";
 import css from "./orders-empty.module.css";
 
 function OrdersEmpty() {
@@ -16,7 +17,14 @@ function OrdersEmpty() {
 				/>
 			</div>
 			<p className={css.text}>У вас пока нет заказов</p>
-			<Button className={css.btn}>Товары на скидке</Button>
+			<Link
+				href={
+					"/products?filters=true&changeFilter=false&clear_filter=false&onSales=true&sale=1"
+				}
+				className={css.link}
+			>
+				<Button className={css.btn}>Товары на скидке</Button>
+			</Link>
 		</div>
 	);
 }
