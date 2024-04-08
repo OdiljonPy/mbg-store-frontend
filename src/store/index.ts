@@ -26,6 +26,7 @@ import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
 import supportSlice from "@/slices/support/supportSlice";
+import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -62,6 +63,7 @@ const rootReducers = combineReducers({
 	order_item: orderItemSlice,
 	shippingList: shippingListSlice,
 	supports: supportSlice,
+	promo_code:promoCodeSlice
 	// address: addressSlice,
 });
 
