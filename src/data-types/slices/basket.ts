@@ -7,4 +7,8 @@ export interface IBasketSlices{
     all_prices:number
     discount_price:number
     cost_price:number
+    promo_code: {
+        name:string
+        code:number
+    }
 }

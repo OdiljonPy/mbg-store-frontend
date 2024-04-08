@@ -2,7 +2,7 @@ import css from './total.module.css'
 import {useTranslations} from "next-intl";
 import TotalItem from "@/components/pages/cart/total/total-item/total-item";
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
-import Promocode from "@/components/pages/cart/total/promocode/promocode";
+import PromoCode from "@/components/pages/cart/total/promocode/promocode";
 import {useRouter} from "next/navigation";
 import {IBasketSlices} from "@/data-types/slices/basket";
 
@@ -23,12 +23,13 @@ const Total = ({basketSlice}: props) => {
             <div className={css.info}>
                 <TotalItem label={t('cart.price')} value={priceFormatter(all_prices, true)}/>
                 <TotalItem className={css.bordered} label={t('cart.sales')} value={priceFormatter(-discount_price, true)}/>
+                <TotalItem className={css.pb_4} label={t('cart.promo_code')} value={priceFormatter(-discount_price, true)}/>
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
                 <button type={'button'} onClick={() => push('/cart/delivery')} className={css.btn}>
                     {t('cart.order')}
                 </button>
-                <Promocode/>
+                <PromoCode/>
             </div>
         </div>
     );

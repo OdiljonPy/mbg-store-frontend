@@ -1,6 +1,7 @@
 import {IProduct, IStore} from "@/data-types/products/common";
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IBasketSlices} from "@/data-types/slices/basket";
+import API from "@/utils/axios/axios";
 
 const initialState:IBasketSlices = {
     products : [] as IProduct[],
@@ -8,8 +9,17 @@ const initialState:IBasketSlices = {
     totalCountProduct : 0,
     all_prices:0,
     discount_price:0,
-    cost_price:0
+    cost_price:0,
+    promo_code:{
+        name:"",
+        code:0
+    }
 }
+
+export const fetchPromoCode = createAsyncThunk("promo_code",async (code:string)=>{
+    const response = await API.post('/store/check_promo_code/',{promo_code:code})
+    return response.data
+})
 
 const basketSlices = createSlice({
     name:"basket_store",
@@ -34,10 +44,6 @@ const basketSlices = createSlice({
             // for store list
             const activeProduct = state.products.find((product)=> product.id == payload)
             const checkInclude = state.store_list.filter((store)=> store.id === activeProduct?.store.id)
-            // console.log(state.products,"state products")
-            // console.log(payload,"payload")
-            // console.log(checkInclude,"check product")
-            // console.log(activeProduct,"active product")
             if(checkInclude.length === 1){
                 state.store_list = state.store_list.filter((store)=> store.id !== activeProduct?.store.id)
             }
@@ -57,7 +63,8 @@ const basketSlices = createSlice({
             state.cost_price = state.all_prices - state.discount_price
         }),
 
-    }
+    },
+
 })
 
 export const {addProduct , removeProduct,calcPrices} = basketSlices.actions
