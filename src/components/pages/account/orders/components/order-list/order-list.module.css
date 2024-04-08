@@ -10,11 +10,15 @@
 		gap: 4px;
 	}
 
-	.list > li:first-child > div {
+	.list > li:not(:only-child) > div {
+		box-shadow: 0 0 12px var(--input-gray);
+	}
+
+	.list > li:not(:only-child):first-child > div {
 		box-shadow: 0 2px 4px var(--input-gray);
 	}
 
-	.list > li:last-child > div {
+	.list > li:not(:only-child):last-child > div {
 		box-shadow: 0 -2px 4px var(--input-gray);
 	}
 }
