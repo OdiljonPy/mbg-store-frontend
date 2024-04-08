@@ -18,6 +18,7 @@ import {
 	deliveryStatusMap,
 	pickupStatusMap,
 } from "../../constants/orders/status-map";
+import { useReorderProducts } from "../../hooks/use-reorder-products";
 
 interface Props {
 	order: IOrder;
@@ -26,15 +27,14 @@ interface Props {
 
 function Header({ order, loading }: Props) {
 	const t = useTranslations();
+	
+	const { reorderItems } = useReorderProducts(order.order_items);
 
 	return (
 		<div className={css.header}>
 			{loading ? (
 				<>
-					<Skeleton
-						width={350}
-						height={15}
-					/>
+					<Skeleton width={350} height={15} />
 				</>
 			) : (
 				<Breadcrumbs
@@ -63,10 +63,7 @@ function Header({ order, loading }: Props) {
 					<div className={css.header_title_badge}>
 						{loading ? (
 							<>
-								<Skeleton
-									width={400}
-									height={30}
-								/>
+								<Skeleton width={400} height={30} />
 							</>
 						) : (
 							<>
@@ -96,10 +93,7 @@ function Header({ order, loading }: Props) {
 						)}
 					</div>
 					{loading ? (
-						<Skeleton
-							width={250}
-							height={20}
-						/>
+						<Skeleton width={250} height={20} />
 					) : (
 						<p className={css.date}>
 							Размещен{" "}
@@ -113,6 +107,7 @@ function Header({ order, loading }: Props) {
 					<Button
 						variant='tertiary'
 						className={css.btn}
+						onClick={reorderItems}
 					>
 						Повторить заказ
 					</Button>

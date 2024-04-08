@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Button from "@/components/shared/button";
 import { IOrderItem } from "@/data-types/order/order";
 import Link from "next/link";
+import { useReorderProducts } from "../../../../hooks/use-reorder-products";
 import css from "./products.module.css";
 
 interface Props {
@@ -33,6 +34,8 @@ function Products({ orderItems }: Props) {
 		return () => window.removeEventListener("resize", updateProducts);
 	}, [orderItems]);
 
+	const { reorderItems } = useReorderProducts(orderItems);
+
 	return (
 		<div className={css.grid_wrapper}>
 			<div className={css.products}>
@@ -60,10 +63,7 @@ function Products({ orderItems }: Props) {
 				)}
 			</div>
 			<div className={css.btn_wrapper}>
-				<Button
-					iconOnly
-					rounded
-				>
+				<Button iconOnly rounded onClick={reorderItems}>
 					<svg
 						width='28'
 						height='28'

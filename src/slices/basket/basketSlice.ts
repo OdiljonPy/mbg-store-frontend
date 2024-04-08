@@ -1,6 +1,6 @@
-import {IProduct, IStore} from "@/data-types/products/common";
-import {createSlice} from "@reduxjs/toolkit";
-import {IBasketSlices} from "@/data-types/slices/basket";
+import { IProduct, IStore } from "@/data-types/products/common";
+import { IBasketSlices } from "@/data-types/slices/basket";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState:IBasketSlices = {
     products : [] as IProduct[],
@@ -30,6 +30,11 @@ const basketSlices = createSlice({
                 state.store_list.push(payload.product.store)
             }
         },
+
+        setProducts: (state, { payload }: PayloadAction<IProduct[]>) =>{
+            state.products = payload
+        },
+        
         removeProduct : (state, {payload}:{payload:number}) =>{
             // for store list
             const activeProduct = state.products.find((product)=> product.id == payload)
@@ -60,5 +65,5 @@ const basketSlices = createSlice({
     }
 })
 
-export const {addProduct , removeProduct,calcPrices} = basketSlices.actions
+export const {addProduct , removeProduct,calcPrices, setProducts} = basketSlices.actions
 export default basketSlices.reducer

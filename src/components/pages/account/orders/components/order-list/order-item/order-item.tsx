@@ -17,6 +17,7 @@ import {
 import Button from "@/components/shared/button";
 import { EnumOrderStatusDelivery } from "@/data-types/order/order";
 import Link from "next/link";
+import { useReorderProducts } from "../../../hooks/use-reorder-products";
 import Badge from "../../badge/badge";
 import css from "./order-item.module.css";
 import ProductsSlider from "./products-slider/products-slider";
@@ -27,6 +28,8 @@ interface Props {
 }
 
 function OrderItem({ order }: Props) {
+	const { reorderItems } = useReorderProducts(order.order_items);
+
 	return (
 		<div className={css.card}>
 			<div className={css.header}>
@@ -92,6 +95,7 @@ function OrderItem({ order }: Props) {
 					full
 					variant='tertiary'
 					className={css.btn}
+					onClick={reorderItems}
 				>
 					Повторить заказ
 				</Button>

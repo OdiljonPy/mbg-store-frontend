@@ -1,9 +1,11 @@
 import FormError from "@/components/shared/form-error/form-error";
 import { EnumDeliveryType } from "@/data-types/order/order";
+import { setProducts } from "@/slices/basket/basketSlice";
 import { fetchOrderById } from "@/slices/order/orderItemSlice";
 import { AppDispatch, RootState } from "@/store";
 import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./header/header";
@@ -42,28 +44,16 @@ const Wrapper = ({ orderId }: Props) => {
 	return (
 		<div className={css.wrapper}>
 			<div className={cn(css.container, "container")}>
-				<Header
-					order={order}
-					loading={loading}
-				/>
-				<MobileHeader
-					orderId={order.id}
-					loading={loading}
-				/>
+				<Header order={order} loading={loading} />
+				<MobileHeader orderId={order.id} loading={loading} />
 				<div className={css.content}>
 					<main className={css.main}>
 						<section className={css.section}>
 							<h2 className={css.title}>Способ получения</h2>
 							{order.type === EnumDeliveryType.PICKUP ? (
-								<Pickup
-									order={order}
-									loading={loading}
-								/>
+								<Pickup order={order} loading={loading} />
 							) : (
-								<Delivery
-									order={order}
-									loading={loading}
-								/>
+								<Delivery order={order} loading={loading} />
 							)}
 						</section>
 						<section className={css.section}>
@@ -80,14 +70,8 @@ const Wrapper = ({ orderId }: Props) => {
 						</section>
 					</main>
 					<aside className={css.side}>
-						<OrderDetailsCard
-							loading={loading}
-							order={order}
-						/>
-						<OrderCostCard
-							loading={loading}
-							order={order}
-						/>
+						<OrderDetailsCard loading={loading} order={order} />
+						<OrderCostCard loading={loading} order={order} />
 					</aside>
 				</div>
 			</div>

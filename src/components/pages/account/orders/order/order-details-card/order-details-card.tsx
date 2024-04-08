@@ -1,3 +1,4 @@
+import Button from "@/components/shared/button";
 import {
 	EnumDeliveryType,
 	EnumOrderStatusDelivery,
@@ -12,6 +13,7 @@ import {
 	deliveryStatusMap,
 	pickupStatusMap,
 } from "../../constants/orders/status-map";
+import { useReorderProducts } from "../../hooks/use-reorder-products";
 import css from "./order-details-card.module.css";
 
 interface Props {
@@ -20,6 +22,8 @@ interface Props {
 }
 
 function OrderDetailsCard({ order, loading }: Props) {
+ const { reorderItems } = useReorderProducts(order.order_items)
+	
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
@@ -95,6 +99,9 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 				</ul>
+				<Button onClick={reorderItems} variant='tertiary' full className={css.mobile}>
+					Повторить заказ
+				</Button>
 			</div>
 		</div>
 	);
