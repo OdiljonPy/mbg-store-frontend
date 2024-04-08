@@ -26,7 +26,7 @@ const Total = ({basketSlice}: props) => {
                 <TotalItem label={t('cart.price')} value={priceFormatter(all_prices, true)}/>
                 <TotalItem className={css.bordered} label={t('cart.sales')} value={priceFormatter(-discount_price, true)}/>
 
-                {promo_code.discount &&  <TotalItem className={css.pb_4} label={t('cart.promo_code')} value={priceFormatter(-promo_code_price, true)}/>}
+                {promo_code.discount ?  <TotalItem className={css.pb_4} label={t('cart.promo_code')} value={priceFormatter(-promo_code_price, true)}/>:''}
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
                 <button type={'button'} onClick={() => push('/cart/delivery')} className={css.btn}>

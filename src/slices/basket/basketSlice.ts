@@ -69,10 +69,15 @@ const basketSlices = createSlice({
 
         promo_code:((state, {payload})=>{
             state.promo_code = payload.result
+        }),
+
+        deletePromoCode:((state)=>{
+            state.promo_code.discount = 0
+            state.promo_code.promocode = ""
         })
     },
 
 })
 
-export const {addProduct , removeProduct,calcPrices,promo_code} = basketSlices.actions
+export const {addProduct , removeProduct,calcPrices,promo_code,deletePromoCode} = basketSlices.actions
 export default basketSlices.reducer
