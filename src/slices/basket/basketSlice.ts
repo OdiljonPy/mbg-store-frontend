@@ -31,8 +31,20 @@ const basketSlices = createSlice({
             }
         },
 
-        setProducts: (state, { payload }: PayloadAction<IProduct[]>) =>{
-            state.products = payload
+        setProducts: (state, { payload }: PayloadAction<{product: IProduct; quantity: number}[]>) =>{
+            const stores = new Set()
+            
+            state.products = payload.map((product) => {
+
+                stores.add(product.product.store.id)
+            
+                return {
+                    count: product.quantity,
+                    ...product.product
+                }
+            })
+            
+            state.totalCountProduct = state.products.length
         },
         
         removeProduct : (state, {payload}:{payload:number}) =>{
