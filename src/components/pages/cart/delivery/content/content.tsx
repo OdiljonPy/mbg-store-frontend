@@ -4,7 +4,7 @@ import Order from "@/components/pages/cart/delivery/content/order/order";
 import Obtaining from "@/components/pages/cart/delivery/content/obtaining/obtaining";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
-import {IOrder, IPostOrder} from "@/data-types/order/order";
+import { IPostOrder} from "@/data-types/order/order";
 import {useFormContext, UseFormReturn} from "react-hook-form";
 import {useEffect} from "react";
 interface props{

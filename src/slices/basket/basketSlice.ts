@@ -9,7 +9,7 @@ const initialState:IBasketSlices = {
     totalCountProduct : 0,
     all_prices:0,
     discount_price:0,
-    delivery_price:15,
+    delivery_price:15000,
     cost_price:0,
     promo_code_price:0,
     promo_code:{
