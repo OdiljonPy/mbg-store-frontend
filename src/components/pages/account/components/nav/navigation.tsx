@@ -1,4 +1,5 @@
 import { accountNavigationList } from "@/constants/account/account-nav";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,19 +9,21 @@ function AccountNavigation() {
 	const pathname = usePathname();
 
 	const t = useTranslations();
+
+	const isActive = (path: string) => {
+		return pathname === path;
+	};
+
 	return (
 		<nav className={css.nav}>
 			{accountNavigationList.map((item) => (
 				<Link
 					key={item.path}
-					className={[
-						css.link,
-						pathname === item.path ? css.active : "",
-					].join(" ")}
+					className={cn(css.link, isActive(item.path) && css.active)}
 					href={item.path}
 				>
 					<div>
-						{item.icon}
+						{isActive(item.path) ? item.activeIcon : item.icon}
 						<span className={css.title}>{t(item.title)}</span>
 					</div>
 					<svg
