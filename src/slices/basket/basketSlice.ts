@@ -9,10 +9,12 @@ const initialState:IBasketSlices = {
     totalCountProduct : 0,
     all_prices:0,
     discount_price:0,
+    delivery_price:15,
     cost_price:0,
+    promo_code_price:0,
     promo_code:{
-        name:"",
-        code:0
+        discount:0,
+        promocode:""
     }
 }
 
@@ -60,12 +62,17 @@ const basketSlices = createSlice({
 
             state.discount_price = state.products.reduce((acc,product)=> acc + (product.discount ? product.discount_price ? product.discount_price : 0 : 0)*(product.count ? product.count : 1) ,0)
 
-            state.cost_price = state.all_prices - state.discount_price
+            state.cost_price = (state.all_prices - state.discount_price)
+
+            state.promo_code_price = state.cost_price * state.promo_code.discount * 0.01
         }),
 
+        promo_code:((state, {payload})=>{
+            state.promo_code = payload.result
+        })
     },
 
 })
 
-export const {addProduct , removeProduct,calcPrices} = basketSlices.actions
+export const {addProduct , removeProduct,calcPrices,promo_code} = basketSlices.actions
 export default basketSlices.reducer

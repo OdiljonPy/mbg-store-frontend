@@ -1,8 +1,8 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import API from "@/utils/axios/axios";
 
 const initialState = {
-    promo_code:'',
+    code:'',
     loading:false,
     error:false
 }
@@ -23,12 +23,13 @@ const promoCodeSlices = createSlice({
         })
             .addCase(fetchPromoCode.fulfilled,(state, {payload}) => {
                 state.loading = false
-                if(!payload.ok){
-                    throw new Error(payload.error)
+                if(payload.ok){
+                    state.code = payload.result
                 }
-                state.promo_code = payload.result
+
                 state.error = false
             })
+
             .addCase(fetchPromoCode.rejected,(state) => {
                 state.loading = false
                 state.error = true

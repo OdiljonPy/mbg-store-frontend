@@ -5,7 +5,7 @@ import {useTranslations} from "next-intl";
 import inputCss from '@/styles/input.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
-import {fetchPromoCode} from "@/slices/basket/basketSlice";
+import {fetchPromoCode, promo_code} from "@/slices/basket/basketSlice";
 import Button from "@/components/shared/button";
 import FormError from "@/components/shared/form-error/form-error";
 import {ChangeEvent, useEffect, useState} from "react";
@@ -31,7 +31,12 @@ const PromoCode = (props: props) => {
     }
 
     const onAcceptPromo = (values: IPromocodeForm) => {
-        dispatch(fetchPromoCode(code))
+        dispatch(fetchPromoCode(code)).then((res)=>{
+            if(res.payload.ok) {
+                setCode('')
+                dispatch(promo_code(res.payload))
+            }
+        })
     }
 
     useEffect(() => {
