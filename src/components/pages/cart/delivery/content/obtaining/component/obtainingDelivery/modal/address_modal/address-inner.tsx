@@ -1,14 +1,13 @@
 import css from "./form-modal.module.css"
 import {raleway} from "@/constants/fonts/fonts";
 import AddressDetect from "@/layout/components/header/top-header/components/address-detect/address-detect";
-import {GeolocationControl, Map, ZoomControl} from "@pbe/react-yandex-maps";
+import { Map, ZoomControl} from "@pbe/react-yandex-maps";
 import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 import {useTranslations} from "next-intl";
 import useDebounce from "@/hooks/use-debounce";
 import {UseFormReturn} from "react-hook-form";
 import {IAddressForm} from "@/layout/components/header/top-header/data-types/address-form";
 import FormError from "@/components/shared/form-error/form-error";
-import Loader from "@/components/shared/loader/loader";
 import {ConfigProvider, Spin ,Checkbox} from "antd";
 import FormInput from "@/components/pages/cart/delivery/content/obtaining/component/form-input/form-input";
 
@@ -28,10 +27,7 @@ const initialState: any = {
     center: [41.373433, 69.268657],
     zoom: 12,
 };
-// interface IMethods{
-//     address:string,
-//     name:string,
-// }
+
 interface props {
     methods: UseFormReturn<IAddressForm>
 }

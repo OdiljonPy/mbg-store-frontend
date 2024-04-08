@@ -26,7 +26,7 @@ const Content = ({form}:props) =>{
 
     return(
         <div className={css.content}>
-            <Recipient form={form}/>
+            <Recipient />
             <Obtaining/>
             {
                 totalCountProduct ? <Order products={products} totalCountProduct={totalCountProduct} />:''

@@ -20,7 +20,7 @@ const Feedback = (props: props) => {
     const router = useRouter()
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
-    }, []);
+    }, [dispatch]);
     return (
         <section className={css.page}>
             <div className={'container'}>

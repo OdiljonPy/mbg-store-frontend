@@ -16,15 +16,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchUser} from "@/slices/auth/user";
 interface props{
-    form:UseFormReturn<IPostOrder>
 }
-const Recipient = ({form}:props) =>{
+const Recipient = ({}:props) =>{
     const t = useTranslations()
     const {full_name,phone_number} = useSelector((state:RootState)=> state.user.user)
 
-    const {unregister, watch,setValue} = useFormContext<IPostOrder>()
+    const { watch,setValue} = useFormContext<IPostOrder>()
     const fullName = watch('full_name')
-    const phoneNumber = watch('phone_number')
 
     const [userName,setUserName] = useState(full_name)
 
