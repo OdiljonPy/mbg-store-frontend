@@ -30,7 +30,6 @@ const TotalSum = ({}:props) =>{
     const checkPhone = phoneNumber ? phoneNumber.length : 0
 
     const throwOrder = () =>{
-        console.log("run coded")
         if(router.query?.type){
             if(router.query.type === 'delivery'){
                 setValue("type",EnumDeliveryType.DELIVERY)
@@ -44,6 +43,7 @@ const TotalSum = ({}:props) =>{
         }
     }
     useEffect(() => {
+        console.log("change promo code")
         setValue('promocode',promo_code.discount)
     }, [promo_code.discount]);
     return(

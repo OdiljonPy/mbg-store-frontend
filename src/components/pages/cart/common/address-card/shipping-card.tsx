@@ -1,12 +1,12 @@
 import css from "@/components/pages/cart/common/address-card/address-card.module.css"
-import StoreSVG from "@/components/pages/cart/common/address-card/components/icon/StoreSVG";
-import ClockSVG from "@/components/pages/cart/common/address-card/components/icon/ClockSVG";
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 import {IShipping} from "@/data-types/shipping";
+import {JSX} from "react/jsx-runtime";
+import {IDeliveryAddress} from "@/data-types/address/delivery-address";
 interface props{
-    shipping?:IShipping
+    shipping:IDeliveryAddress
 }
-const AddressCard = ({shipping}:props) =>{
+const AddressCard = ({shipping}:props ) =>{
     return(
         <div className={css.cart}>
             <div className={css.info}>

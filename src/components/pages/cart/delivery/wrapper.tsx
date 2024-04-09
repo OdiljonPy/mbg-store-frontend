@@ -5,10 +5,11 @@ import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import {FormProvider, useForm} from "react-hook-form";
 import { IPostOrder} from "@/data-types/order/order";
-import {useDispatch} from "react-redux";
-import {AppDispatch} from "@/store";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
 import {createOrder} from "@/slices/order/ordersSlice";
 import {useRouter} from "next/router";
+import {useToasts} from "react-toast-notifications";
 
 interface props {
 
@@ -17,14 +18,20 @@ interface props {
 const Wrapper = (props: props) => {
     const t = useTranslations()
     const dispatch = useDispatch<AppDispatch>()
+    const {error} = useSelector((state:RootState) => state.orders)
     const methods = useForm<IPostOrder>()
     const router = useRouter()
+    const {addToast} = useToasts()
+
 
     const submitOrder = (values:IPostOrder)=>{
-        console.log(values,'val')
         dispatch(createOrder(values))
             .unwrap()
             .then((res)=>{
+                if(error) return addToast('error',{
+                    appearance: 'error',
+                    autoDismiss: true,
+                })
                 if(res.ok){
                     if(router.query?.type){
                         if(router.query.type === 'delivery')  router.push("/cart/order-delivery").then(r => true)
@@ -33,9 +40,6 @@ const Wrapper = (props: props) => {
                     else{
                         router.push("/cart/order-delivery").then(r => true)
                     }
-                }
-                else {
-                    alert("Error")
                 }
             })
     }

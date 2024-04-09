@@ -4,6 +4,8 @@ import DetailItem from "@/components/pages/cart/order_placed/common/detail-carts
 import {formatPhoneNumber} from "@/utils/phone-format/phone-format";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
+import {formatDate} from "@/utils/format-date/format-date";
+import dayjs from "dayjs";
 
 
 interface props{
@@ -13,17 +15,17 @@ interface props{
 const DetailCart = (props:props) =>{
     const t = useTranslations()
     const {user} = useSelector((state:RootState)=> state.user)
-
+    const {last_order} = useSelector((state:RootState)=> state.last_order)
     return(
         <div className={css.total}>
             <h3 className={css.title}>
                 {t('order_placed.order_detail')}
             </h3>
             <div className={css.info}>
-                <DetailItem className={css.finalPrice} label={t('order_placed.number_order')} value={'MBG12345'}/>
-                <DetailItem className={css.paddingTop} label={t('order_placed.date_order')} value={'20 декабря 2023 г. (13:34)'}/>
-                <DetailItem className={css.paddingTop} label={t('order_placed.recipient')} value={user?.full_name}/>
-                <DetailItem className={css.paddingTop} label={t('cart.delivery.phone_label')} value={formatPhoneNumber(user?.phone_number)}/>
+                <DetailItem className={css.finalPrice} label={t('order_placed.number_order')} value={last_order?.id}/>
+                <DetailItem className={css.paddingTop} label={t('order_placed.date_order')} value={dayjs(last_order.created_at).format("D MMMM YYYY г. H:mm")}/>
+                <DetailItem className={css.paddingTop} label={t('order_placed.recipient')} value={last_order?.full_name}/>
+                <DetailItem className={css.paddingTop} label={t('cart.delivery.phone_label')} value={formatPhoneNumber(last_order?.phone_number ? last_order.phone_number: '+998997777777' )}/>
             </div>
         </div>
     )
