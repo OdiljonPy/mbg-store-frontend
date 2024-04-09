@@ -6,8 +6,10 @@ import SendButton from "@/components/pages/cart/common/button/send_button";
 import React, {useState} from "react";
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
-import {useSelector} from "react-redux";
-import {RootState} from "@/store";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch, RootState} from "@/store";
+import {changeOrderStatus} from "@/slices/order/changeOrderSlice";
+import {useToasts} from "react-toast-notifications";
 
 
 
@@ -16,7 +18,14 @@ interface props{
 }
 
 const DetailCart = ({isDeleteAction}:props) =>{
-    const {cost_price,all_prices,discount_price,promo_code,promo_code_price,delivery_price} = useSelector((state:RootState) => state.basket)
+    const {addToast} = useToasts()
+    const {cost_price,all_prices,discount_price,promo_code_price,delivery_price} = useSelector((state:RootState) => state.basket)
+    const {last_order} = useSelector((state:RootState)=> state.last_order)
+    const {promo_code,sale_price_promo_code,id} = last_order
+
+    const salePromoCode = sale_price_promo_code? sale_price_promo_code : 0
+
+    const dispatch = useDispatch<AppDispatch>()
     const t = useTranslations()
     const [onOpen,setOnOpen] = useState(false)
 
@@ -26,9 +35,24 @@ const DetailCart = ({isDeleteAction}:props) =>{
     }
     const onClose = (status:'cancel'|'close') =>{
         if(status === 'cancel'){
-            //  write cancel function
+            const data = {
+                id,
+                status:8
+            }
+            dispatch(changeOrderStatus(data))
+                .then((res)=>{
+                    if(!res.payload?.ok) {
+                        addToast('Xatolik yuz berdi',{
+                            appearance: 'error',
+                            autoDismiss: true,
+                        })
+                    }
+                    setOnOpen(false)
+                })
         }
-        setOnOpen(false)
+        else{
+            setOnOpen(false)
+        }
     }
 
     return(
@@ -40,7 +64,7 @@ const DetailCart = ({isDeleteAction}:props) =>{
                 <DetailItem label={t('order_placed.order_cost')} value={priceFormatter(all_prices , true)}/>
                 <DetailItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-discount_price , true)}/>
                 {
-                    promo_code.discount ? <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>{promo_code.promocode}</span>} value={priceFormatter(promo_code_price , true)}/>:''
+                    promo_code?.discount ? <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>{promo_code?.promocode}</span>} value={priceFormatter(- salePromoCode, true)}/>:''
                 }
                 <DetailItem className={css.bordered} label={t('filters.delivery.title')} value={priceFormatter(delivery_price , true)}/>
 
@@ -52,7 +76,7 @@ const DetailCart = ({isDeleteAction}:props) =>{
                 </div>}
 
             </div>
-            <CancelModal open={onOpen} onClose={onClose} title={"MBG12345"} />
+            <CancelModal open={onOpen} onClose={onClose} title={id} />
         </div>
     )
 }

@@ -8,4 +8,5 @@ export interface IShipping {
 	latitude: string;
 	longitude: string;
 	main_address: boolean;
+	phone_number?:string | undefined
 }

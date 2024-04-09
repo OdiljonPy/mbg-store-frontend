@@ -32,8 +32,9 @@ const PromoCode = (props: props) => {
     }
 
     const onAcceptPromo = (values: IPromocodeForm) => {
-        dispatch(fetchPromoCode(code)).then((res)=>{
-            if(res.payload.ok) {
+        dispatch(fetchPromoCode(code))
+            .then((res)=>{
+            if(res.payload?.ok) {
                 setCode('')
                 dispatch(promo_code(res.payload))
             }

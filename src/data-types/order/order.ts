@@ -13,6 +13,7 @@ export interface IOrder {
 	promo_code: IPromoCode | null;
 	delivery_price: number;
 	sale_price: number;
+	sale_price_promo_code?:number,
 	order_items: IOrderItem[];
 	full_name?:string;
 	phone_number?:string
@@ -25,7 +26,7 @@ export interface IPostOrder{
 	products:{product:number,quantity:number}[]
 	delivery_price?:number,
 	delivery_address?:number,
-	promocode?:number
+	promocode?:string | number
 }
 
 export enum EnumDeliveryType {
