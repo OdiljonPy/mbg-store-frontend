@@ -15,7 +15,7 @@ interface props{
 const DetailCart = (props:props) =>{
     const t = useTranslations()
     const {user} = useSelector((state:RootState)=> state.user)
-    const {last_order} = useSelector((state:RootState)=> state.last_order)
+    const {last_order,loading} = useSelector((state:RootState)=> state.last_order)
     return(
         <div className={css.total}>
             <h3 className={css.title}>

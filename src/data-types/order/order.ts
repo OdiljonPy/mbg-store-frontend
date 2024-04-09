@@ -26,7 +26,7 @@ export interface IPostOrder{
 	products:{product:number,quantity:number}[]
 	delivery_price?:number,
 	delivery_address?:number,
-	promocode?:number
+	promocode?:string | number
 }
 
 export enum EnumDeliveryType {

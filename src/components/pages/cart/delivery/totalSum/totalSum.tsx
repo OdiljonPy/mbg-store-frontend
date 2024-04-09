@@ -44,8 +44,8 @@ const TotalSum = ({}:props) =>{
     }
     useEffect(() => {
         console.log("change promo code")
-        setValue('promocode',promo_code.discount)
-    }, [promo_code.discount]);
+        setValue('promocode',promo_code.promocode)
+    }, [promo_code.promocode]);
     return(
         <div className={css.total}>
             <h3 className={css.title}>

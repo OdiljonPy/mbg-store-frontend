@@ -79,7 +79,7 @@ const basketSlices = createSlice({
         }),
 
         promo_code:((state, {payload})=>{
-            state.promo_code = payload.result
+            state.promo_code = payload?.result
         }),
 
         deletePromoCode:((state)=>{
