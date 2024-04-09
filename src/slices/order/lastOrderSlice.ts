@@ -34,7 +34,9 @@ const lastOrderSlices = createSlice({
         })
             .addCase(fetchOrderLast.fulfilled,(state, {payload})=>{
                 console.log(payload,"payload")
-                state.last_order = payload.response
+                if(payload.ok){
+                    state.last_order = payload.response
+                }
                 state.loading = false
             })
             .addCase(fetchOrderLast.rejected,(state)=>{

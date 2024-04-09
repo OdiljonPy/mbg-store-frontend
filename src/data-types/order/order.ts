@@ -13,6 +13,7 @@ export interface IOrder {
 	promo_code: IPromoCode | null;
 	delivery_price: number;
 	sale_price: number;
+	sale_price_promo_code?:number,
 	order_items: IOrderItem[];
 	full_name?:string;
 	phone_number?:string

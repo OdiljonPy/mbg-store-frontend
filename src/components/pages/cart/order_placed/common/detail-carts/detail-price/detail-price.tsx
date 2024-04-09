@@ -40,7 +40,7 @@ const DetailCart = ({isDeleteAction}:props) =>{
                 <DetailItem label={t('order_placed.order_cost')} value={priceFormatter(all_prices , true)}/>
                 <DetailItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-discount_price , true)}/>
                 {
-                    promo_code.discount ? <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>{promo_code.promocode}</span>} value={priceFormatter(promo_code_price , true)}/>:''
+                    promo_code.discount ? <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>{promo_code.promocode}</span>} value={priceFormatter(-promo_code_price , true)}/>:''
                 }
                 <DetailItem className={css.bordered} label={t('filters.delivery.title')} value={priceFormatter(delivery_price , true)}/>
 
