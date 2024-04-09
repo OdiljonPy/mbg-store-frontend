@@ -1,10 +1,9 @@
 import css from "@/components/pages/cart/common/address-card/address-card.module.css"
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 import {IShipping} from "@/data-types/shipping";
-import {JSX} from "react/jsx-runtime";
 import {IDeliveryAddress} from "@/data-types/address/delivery-address";
 interface props{
-    shipping:IDeliveryAddress
+    shipping:IDeliveryAddress | IShipping
 }
 const AddressCard = ({shipping}:props ) =>{
     return(

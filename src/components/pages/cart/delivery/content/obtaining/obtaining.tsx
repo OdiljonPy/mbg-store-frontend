@@ -82,7 +82,7 @@ const Obtaining = (props: props) => {
                             <ObtainingCome changeContainerHeight={changeContainerHeight}/>}
                     </div>
                 </div>}
-                {isChoose &&<div className={css.status_cart}>
+                {(isChoose && activeAdd) &&<div className={css.status_cart}>
                     <ShippingCard shipping={activeAdd}/>
                 </div> }
             </div>
