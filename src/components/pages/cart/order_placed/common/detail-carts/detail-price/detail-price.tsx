@@ -16,7 +16,12 @@ interface props{
 }
 
 const DetailCart = ({isDeleteAction}:props) =>{
-    const {cost_price,all_prices,discount_price,promo_code,promo_code_price,delivery_price} = useSelector((state:RootState) => state.basket)
+    const {cost_price,all_prices,discount_price,promo_code_price,delivery_price} = useSelector((state:RootState) => state.basket)
+    const {last_order} = useSelector((state:RootState)=> state.last_order)
+    const {promo_code,sale_price_promo_code} = last_order
+
+    const salePromoCode = sale_price_promo_code? sale_price_promo_code : 0
+
     const t = useTranslations()
     const [onOpen,setOnOpen] = useState(false)
 
@@ -40,7 +45,7 @@ const DetailCart = ({isDeleteAction}:props) =>{
                 <DetailItem label={t('order_placed.order_cost')} value={priceFormatter(all_prices , true)}/>
                 <DetailItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-discount_price , true)}/>
                 {
-                    promo_code.discount ? <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>{promo_code.promocode}</span>} value={priceFormatter(-promo_code_price , true)}/>:''
+                    promo_code?.discount ? <DetailItem className={css.paddingTop} label={t('cart.promo_code')} label_prefix={<span className={css.promo_code}>{promo_code?.promocode}</span>} value={priceFormatter(- salePromoCode, true)}/>:''
                 }
                 <DetailItem className={css.bordered} label={t('filters.delivery.title')} value={priceFormatter(delivery_price , true)}/>
 
