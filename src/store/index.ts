@@ -1,14 +1,15 @@
 import {
-	Action,
-	ThunkAction,
-	combineReducers,
-	configureStore,
+    Action,
+    ThunkAction,
+    combineReducers,
+    configureStore,
 } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
+import aboutSlice from "@/slices/base/about/aboutSlice";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
@@ -18,6 +19,8 @@ import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productSingleSlices from "@/slices/product/productSingleSlices";
+import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
+import supportSlice from "@/slices/support/supportSlice";
 import loginSlice from "../slices/auth/login";
 import signUpUserSlice from "../slices/auth/signup";
 import verifyUserSlice from "../slices/auth/verify";
@@ -25,8 +28,6 @@ import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
-import supportSlice from "@/slices/support/supportSlice";
-import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -63,7 +64,8 @@ const rootReducers = combineReducers({
 	order_item: orderItemSlice,
 	shippingList: shippingListSlice,
 	supports: supportSlice,
-	promo_code:promoCodeSlice
+	promo_code:promoCodeSlice,
+	about: aboutSlice
 	// address: addressSlice,
 });
 
