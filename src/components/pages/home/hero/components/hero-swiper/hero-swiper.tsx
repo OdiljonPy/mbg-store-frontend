@@ -62,8 +62,7 @@ const HeroSwiper = (props: props) => {
                 <SwiperArrow onClick={onPrevSlide}/>
                 <SwiperArrow onClick={onNextSlide} isNext={true}/>
                 <div className={`${css.swiper} ${loaded ? css.show : ''} keen-slider`} ref={sliderRef}>
-                    <HeroSwiperItem/>
-                    <HeroSwiperItem/>
+                    {}
                     <HeroSwiperItem/>
                 </div>
             </div>

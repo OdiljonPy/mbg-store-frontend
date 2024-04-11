@@ -1,8 +1,8 @@
 import {
-    Action,
-    ThunkAction,
-    combineReducers,
-    configureStore,
+	Action,
+	ThunkAction,
+	combineReducers,
+	configureStore,
 } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -10,6 +10,7 @@ import storage from "redux-persist/lib/storage";
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
 import aboutSlice from "@/slices/base/about/aboutSlice";
+import bannerSlice from "@/slices/base/banner/bannerSlice";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
@@ -40,14 +41,15 @@ const favoritesPersistConfig = {
 	storage,
 };
 
-const userPersistConfig={
-	key:'user',storage
-}
+const userPersistConfig = {
+	key: "user",
+	storage,
+};
 
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
-	user: persistReducer(userPersistConfig,userSlice),
+	user: persistReducer(userPersistConfig, userSlice),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,
@@ -64,8 +66,9 @@ const rootReducers = combineReducers({
 	order_item: orderItemSlice,
 	shippingList: shippingListSlice,
 	supports: supportSlice,
-	promo_code:promoCodeSlice,
-	about: aboutSlice
+	promo_code: promoCodeSlice,
+	about: aboutSlice,
+	banner: bannerSlice,
 	// address: addressSlice,
 });
 

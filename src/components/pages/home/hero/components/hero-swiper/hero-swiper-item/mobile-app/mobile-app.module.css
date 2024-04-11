@@ -1,0 +1,43 @@
+.apps {
+	display: flex;
+	align-items: center;
+	gap: 2em;
+	position: relative;
+	z-index: 1;
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	background-color: black;
+	padding: 1em 1.5em;
+	border-radius: 18px;
+	border: 2px solid white;
+	text-decoration: none;
+	color: white;
+}
+
+.card svg {
+	width: 3em;
+	height: 3em;
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+}
+
+.download {
+	font-size: 1em;
+}
+
+.app {
+	font-weight: 700;
+	font-size: 2.2em;
+}
+
+@media (max-width: 991px) {
+	.card {
+		border-radius: 1.5vw; }
+}

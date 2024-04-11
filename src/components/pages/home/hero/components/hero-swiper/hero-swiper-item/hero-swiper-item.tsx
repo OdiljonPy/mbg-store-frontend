@@ -1,22 +1,26 @@
-import React from 'react';
-import css from './hero-swiper-item.module.css'
-import Info from "@/components/pages/home/hero/components/hero-swiper/hero-swiper-item/info/info";
-import MobileAppLink from "@/components/shared/mobile-app-link/mobile-app-link";
-import MobileApp from "@/components/pages/home/hero/components/hero-swiper/hero-swiper-item/info/mobile-app/mobile-app";
+import Image from "next/image";
+import css from "./hero-swiper-item.module.css";
+import Info from "./info/info";
+import MobileApp from "./mobile-app/mobile-app";
 
-interface props {
-
+interface Props {
+	
 }
 
-const HeroSwiperItem = (props: props) => {
-    return (
-        <div className={`keen-slider__slide ${css.swiperItem}`}>
-            <div className={css.info}>
-                <Info/>
-                <MobileApp/>
-            </div>
-        </div>
-    );
+const HeroSwiperItem = () => {
+	return (
+		<div className={`keen-slider__slide ${css.swiperItem}`}>
+			<Image
+				className={css.banner_image}
+				src={"/images/banner/banner_img.png"}
+				width={1200}
+				height={600}
+				alt={"banner"}
+			/>
+			<Info />
+			<MobileApp />
+		</div>
+	);
 };
 
 export default HeroSwiperItem;

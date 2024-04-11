@@ -1,10 +1,10 @@
-import MobileApp from "@/components/pages/home/hero/components/hero-swiper/hero-swiper-item/info/mobile-app/mobile-app";
 import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import css from "./mobile-app-qr.module.css";
+import MobileApp from "./mobile-app/mobile-app";
 
 const MobileAppQr = () => {
 	const { data, loading } = useSelector((state: RootState) => state.about);
