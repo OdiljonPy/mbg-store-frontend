@@ -7,7 +7,7 @@ export interface IOrder {
 	user: IUser;
 	type: EnumDeliveryType;
 	total_price: number;
-	status: EnumOrderStatusDelivery | EnumOrderStatusPickup;
+	status: OrderStatusChoices;
 	delivery_address: IDeliveryAddress | null;
 	created_at: string;
 	promo_code: IPromoCode | null;
@@ -33,22 +33,14 @@ export enum EnumDeliveryType {
 	PICKUP = "T",
 }
 
-export enum EnumOrderStatusDelivery {
+export enum OrderStatusChoices {
 	WAITING_FOR_PAYMENT,
 	PAID,
-	RECEIVED,
+	ACCEPTED,
 	PROGRESSING,
 	ON_THE_WAY,
-	DELIVERED,
-	CANCELLED,
-}
-
-export enum EnumOrderStatusPickup {
-	WAITING_FOR_PAYMENT,
-	PAID,
-	RECEIVED,
-	PROGRESSING,
 	READY_FOR_PICKUP,
+	DELIVERED,
 	PICKED_UP,
 	CANCELLED,
 }

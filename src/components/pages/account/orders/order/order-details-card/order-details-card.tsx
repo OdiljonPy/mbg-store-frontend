@@ -1,18 +1,14 @@
 import Button from "@/components/shared/button";
 import {
 	EnumDeliveryType,
-	EnumOrderStatusDelivery,
-	EnumOrderStatusPickup,
 	IOrder,
+	OrderStatusChoices,
 } from "@/data-types/order/order";
 import { formatPhoneNumber } from "@/utils/phone-format/phone-format";
 import dayjs from "dayjs";
 import Skeleton from "react-loading-skeleton";
 import Badge from "../../components/badge/badge";
-import {
-	deliveryStatusMap,
-	pickupStatusMap,
-} from "../../constants/orders/status-map";
+import { orderStatusMap } from "../../constants/orders/status-map";
 import { useReorderProducts } from "../../hooks/use-reorder-products";
 import css from "./order-details-card.module.css";
 
@@ -22,8 +18,8 @@ interface Props {
 }
 
 function OrderDetailsCard({ order, loading }: Props) {
- const { reorderItems } = useReorderProducts(order.order_items)
-	
+	const { reorderItems } = useReorderProducts(order.order_items);
+
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
@@ -42,22 +38,18 @@ function OrderDetailsCard({ order, loading }: Props) {
 									EnumDeliveryType.DELIVERY ? (
 										<Badge
 											status={
-												EnumOrderStatusDelivery[
-													order.status
-												]
+												OrderStatusChoices[order.status]
 											}
 										>
-											{deliveryStatusMap[order.status]}
+											{orderStatusMap[order.status]}
 										</Badge>
 									) : (
 										<Badge
 											status={
-												EnumOrderStatusPickup[
-													order.status
-												]
+												OrderStatusChoices[order.status]
 											}
 										>
-											{pickupStatusMap[order.status]}
+											{orderStatusMap[order.status]}
 										</Badge>
 									)}
 								</>
@@ -99,7 +91,12 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 				</ul>
-				<Button onClick={reorderItems} variant='tertiary' full className={css.mobile}>
+				<Button
+					onClick={reorderItems}
+					variant='tertiary'
+					full
+					className={css.mobile}
+				>
 					Повторить заказ
 				</Button>
 			</div>

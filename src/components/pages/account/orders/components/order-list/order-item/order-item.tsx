@@ -1,7 +1,7 @@
 import {
 	EnumDeliveryType,
-	EnumOrderStatusPickup,
 	IOrder,
+	OrderStatusChoices,
 } from "@/data-types/order/order";
 
 import dayjs from "dayjs";
@@ -9,13 +9,11 @@ import dayjs from "dayjs";
 import "keen-slider/keen-slider.min.css";
 
 import {
-	deliveryStatusMap,
-	pickupStatusMap,
-	receivingMethodMap,
+	orderStatusMap,
+	receivingMethodMap
 } from "../../../constants/orders/status-map";
 
 import Button from "@/components/shared/button";
-import { EnumOrderStatusDelivery } from "@/data-types/order/order";
 import Link from "next/link";
 import { useReorderProducts } from "../../../hooks/use-reorder-products";
 import Badge from "../../badge/badge";
@@ -76,12 +74,12 @@ function OrderItem({ order }: Props) {
 						{receivingMethodMap[order.type]}
 					</div>
 					{order.type === EnumDeliveryType.DELIVERY ? (
-						<Badge status={EnumOrderStatusDelivery[order.status]}>
-							{deliveryStatusMap[order.status]}
+						<Badge status={OrderStatusChoices[order.status]}>
+							{orderStatusMap[order.status]}
 						</Badge>
 					) : (
-						<Badge status={EnumOrderStatusPickup[order.status]}>
-							{pickupStatusMap[order.status]}
+						<Badge status={OrderStatusChoices[order.status]}>
+							{orderStatusMap[order.status]}
 						</Badge>
 					)}
 				</div>
