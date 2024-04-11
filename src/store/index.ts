@@ -26,6 +26,9 @@ import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
 import supportSlice from "@/slices/support/supportSlice";
+import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
+import lastOrderSlices from "@/slices/order/lastOrderSlice";
+import orderChangeStatus from "@/slices/order/changeOrderSlice"
 
 const basketPersistConfig = {
 	key: "basket",
@@ -60,8 +63,11 @@ const rootReducers = combineReducers({
 	login: loginSlice,
 	orders: ordersSlice,
 	order_item: orderItemSlice,
+	last_order:lastOrderSlices,
+	order_change:orderChangeStatus,
 	shippingList: shippingListSlice,
 	supports: supportSlice,
+	promo_code:promoCodeSlice,
 	// address: addressSlice,
 });
 

@@ -4,15 +4,18 @@ import React from "react";
 import SendButton
     from "@/components/pages/cart/common/button/send_button";
 import {useTranslations} from "next-intl";
+import Button from "@/components/shared/button";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 
 interface props{
     open:boolean,
     onClose:(status:'close'|'cancel')=> void
-    title:string
+    title:string|number
 }
 const CancelModal = ({open,onClose,title}:props) =>{
     const t = useTranslations()
-
+    const {loading,error} = useSelector((state:RootState)=> state.order_change)
     return(
         <div>
             <Modal
@@ -30,7 +33,8 @@ const CancelModal = ({open,onClose,title}:props) =>{
                     </div>
                     <div className={css.modal_footer}>
                         <SendButton title={'modal.no'} outline={true} onClick={() => onClose('close')}/>
-                        <SendButton title={'modal.yes'} onClick={()=>onClose('cancel')}/>
+                        {/*<SendButton title={'modal.yes'} onClick={()=>onClose('cancel')}/>*/}
+                        <Button full loading={loading} onClick={()=> onClose("cancel")}>{t('modal.yes')}</Button>
                     </div>
                 </div>
             </Modal>

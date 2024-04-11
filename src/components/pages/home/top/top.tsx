@@ -27,7 +27,7 @@ const Top = (props: props) => {
         return () =>{
             isRef.current = true
         }
-    }, []);
+    }, [dispatch]);
 
     return (
         <section className={css.sales}>

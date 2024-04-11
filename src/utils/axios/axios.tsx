@@ -1,3 +1,4 @@
+import { refreshUser } from "@/slices/auth/refresh";
 import axios from "axios";
 
 const defaultOptions = {
@@ -18,11 +19,25 @@ API.interceptors.request.use(function (config) {
 API.interceptors.response.use(
 	(config) => config,
 	async (error) => {
-		if (error.response.status === 401 && error.config) {
-			localStorage.removeItem("access_token");
-			localStorage.removeItem("refresh_token");
-			window.location.href = "/";
+		const originalRequest = error.config;
+		if (
+			error.response.status === 401 &&
+			error.config &&
+			!error.config._isRetry
+		) {
+			originalRequest._isRetry = true;
+			try {
+				await refreshUser();
+				return API.request(originalRequest);
+			} catch (e: any) {
+				if (e.response.status === 401) {
+					localStorage.removeItem("access_token");
+					localStorage.removeItem("refresh_token");
+					window.location.href = "/";
+				}
+			}
 		}
+		throw error;
 	}
 );
 

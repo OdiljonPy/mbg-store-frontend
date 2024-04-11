@@ -1,12 +1,18 @@
+import Input from "@/components/shared/input";
 import { useTranslations } from "next-intl";
+import { useFavoritesSearch } from "../../hooks/use-favorites-search";
 import css from "./search.module.css";
 
 function Search() {
 	const t = useTranslations("orders");
 
+	const { onSearchValueChange, searchValue } = useFavoritesSearch();
+
 	return (
 		<div className={css.search_box}>
-			<input
+			<Input
+				value={searchValue}
+				onChange={onSearchValueChange}
 				className={css.search}
 				type='search'
 				placeholder={t("search")}

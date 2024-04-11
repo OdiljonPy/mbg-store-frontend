@@ -5,6 +5,10 @@ import Content from "@/components/pages/cart/order_placed/order-pickup/content/c
 import Status from "@/components/pages/cart/order_placed/common/order-status/status";
 import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart";
 import DetailPrice from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {useEffect} from "react";
+import {fetchOrderLast} from "@/slices/order/lastOrderSlice";
 
 interface props {
 
@@ -12,6 +16,11 @@ interface props {
 
 const Wrapper = (props: props) => {
     const t = useTranslations()
+    const dispatch = useDispatch<AppDispatch>()
+
+    useEffect(() => {
+        dispatch(fetchOrderLast())
+    }, [dispatch]);
     return (
         <section className={css.cart}>
             <div className={'container'}>
@@ -36,7 +45,7 @@ const Wrapper = (props: props) => {
                     <Content/>
                     <div className={css.detail}>
                         <DetailCart/>
-                        <DetailPrice isDeleteAction={true}/>
+                        <DetailPrice isDeleteAction/>
                     </div>
                 </div>
             </div>
