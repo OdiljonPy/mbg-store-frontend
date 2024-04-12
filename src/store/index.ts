@@ -9,15 +9,21 @@ import storage from "redux-persist/lib/storage";
 
 import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
+import aboutSlice from "@/slices/base/about/aboutSlice";
+import bannerSlice from "@/slices/base/banner/bannerSlice";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
 import messageSlice from "@/slices/message/message";
+import orderChangeStatus from "@/slices/order/changeOrderSlice";
+import lastOrderSlices from "@/slices/order/lastOrderSlice";
 import orderItemSlice from "@/slices/order/orderItemSlice";
 import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productSingleSlices from "@/slices/product/productSingleSlices";
+import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
+import supportSlice from "@/slices/support/supportSlice";
 import loginSlice from "../slices/auth/login";
 import signUpUserSlice from "../slices/auth/signup";
 import verifyUserSlice from "../slices/auth/verify";
@@ -25,10 +31,6 @@ import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
-import supportSlice from "@/slices/support/supportSlice";
-import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
-import lastOrderSlices from "@/slices/order/lastOrderSlice";
-import orderChangeStatus from "@/slices/order/changeOrderSlice"
 
 const basketPersistConfig = {
 	key: "basket",
@@ -41,14 +43,15 @@ const favoritesPersistConfig = {
 	storage,
 };
 
-const userPersistConfig={
-	key:'user',storage
-}
+const userPersistConfig = {
+	key: "user",
+	storage,
+};
 
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
-	user: persistReducer(userPersistConfig,userSlice),
+	user: persistReducer(userPersistConfig, userSlice),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,
@@ -63,11 +66,13 @@ const rootReducers = combineReducers({
 	login: loginSlice,
 	orders: ordersSlice,
 	order_item: orderItemSlice,
-	last_order:lastOrderSlices,
-	order_change:orderChangeStatus,
+	last_order: lastOrderSlices,
+	order_change: orderChangeStatus,
 	shippingList: shippingListSlice,
 	supports: supportSlice,
-	promo_code:promoCodeSlice,
+	promo_code: promoCodeSlice,
+	about: aboutSlice,
+	banner: bannerSlice,
 	// address: addressSlice,
 });
 
