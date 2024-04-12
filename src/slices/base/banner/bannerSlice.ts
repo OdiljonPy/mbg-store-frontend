@@ -2,7 +2,7 @@ import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface IBannersResponse {
-	results: {
+	result: {
 		name: string;
 		link: string;
 		image: string;
@@ -43,7 +43,7 @@ const bannerSlice = createSlice({
 				state.loading = true;
 			})
 			.addCase(fetchBanners.fulfilled, (state, { payload }) => {
-				state.banners = payload.results;
+				state.banners = payload.result;
 				state.loading = false;
 			})
 			.addCase(fetchBanners.rejected, (state) => {
