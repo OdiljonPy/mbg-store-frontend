@@ -1,0 +1,36 @@
+.apps {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	background-color: black;
+	padding: 8px 15px;
+	border-radius: 14px;
+	border: 2px solid white;
+	text-decoration: none;
+	color: white;
+}
+
+.card svg {
+	width: 24px;
+	height: 24px;
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+}
+
+.download {
+	font-size: 10px;
+}
+
+.app {
+	font-weight: 700;
+	font-size: 18px;
+}
