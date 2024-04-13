@@ -29,6 +29,7 @@ import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
+import faqSlice from "@/slices/base/faq/faqSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -69,6 +70,7 @@ const rootReducers = combineReducers({
 	promo_code: promoCodeSlice,
 	about: aboutSlice,
 	banner: bannerSlice,
+	faq: faqSlice,
 	// address: addressSlice,
 });
 
