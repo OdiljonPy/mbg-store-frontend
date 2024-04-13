@@ -2,9 +2,9 @@ import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import { useTranslations } from "next-intl";
 
 import {
-    EnumDeliveryType,
-    IOrder,
-    OrderStatusChoices
+	EnumDeliveryType,
+	IOrder,
+	OrderStatusChoices,
 } from "@/data-types/order/order";
 
 import dayjs from "dayjs";
@@ -13,9 +13,7 @@ import css from "./header.module.css";
 import Button from "@/components/shared/button";
 import Skeleton from "react-loading-skeleton";
 import Badge from "../../components/badge/badge";
-import {
-    orderStatusMap
-} from "../../constants/orders/status-map";
+import { orderStatusMap } from "../../constants/orders/status-map";
 import { useReorderProducts } from "../../hooks/use-reorder-products";
 
 interface Props {
@@ -25,7 +23,7 @@ interface Props {
 
 function Header({ order, loading }: Props) {
 	const t = useTranslations();
-	
+
 	const { reorderItems } = useReorderProducts(order.order_items);
 
 	return (
@@ -66,17 +64,18 @@ function Header({ order, loading }: Props) {
 						) : (
 							<>
 								<h1 className={css.title}>
-									Заказ № {order.id}
+									{t("header.order")} № {order.id}
 								</h1>
 								{order.type === EnumDeliveryType.DELIVERY ? (
 									<Badge
 										status={
-											OrderStatusChoices[
-												order.status
-											]
+											OrderStatusChoices[order.status]
 										}
 									>
-										{orderStatusMap[order.status]}
+										{t(
+											"orders." +
+												orderStatusMap[order.status]
+										)}
 									</Badge>
 								) : (
 									<Badge
@@ -84,7 +83,10 @@ function Header({ order, loading }: Props) {
 											OrderStatusChoices[order.status]
 										}
 									>
-										{orderStatusMap[order.status]}
+										{t(
+											"orders." +
+												orderStatusMap[order.status]
+										)}
 									</Badge>
 								)}
 							</>
@@ -94,7 +96,7 @@ function Header({ order, loading }: Props) {
 						<Skeleton width={250} height={20} />
 					) : (
 						<p className={css.date}>
-							Размещен{" "}
+							{t("orders.posted")}{" "}
 							{dayjs(order.created_at)
 								.format("D MMMM YYYY г. (H:mm)")
 								.toLowerCase()}
@@ -107,7 +109,7 @@ function Header({ order, loading }: Props) {
 						className={css.btn}
 						onClick={reorderItems}
 					>
-						Повторить заказ
+						{t("orders.reorder")}
 					</Button>
 				</div>
 			</div>

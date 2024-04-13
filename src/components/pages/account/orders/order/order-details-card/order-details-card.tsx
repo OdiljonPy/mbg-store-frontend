@@ -6,6 +6,7 @@ import {
 } from "@/data-types/order/order";
 import { formatPhoneNumber } from "@/utils/phone-format/phone-format";
 import dayjs from "dayjs";
+import { useTranslations } from "next-intl";
 import Skeleton from "react-loading-skeleton";
 import Badge from "../../components/badge/badge";
 import { orderStatusMap } from "../../constants/orders/status-map";
@@ -20,15 +21,17 @@ interface Props {
 function OrderDetailsCard({ order, loading }: Props) {
 	const { reorderItems } = useReorderProducts(order.order_items);
 
+	const t = useTranslations("orders.order_details_card");
+
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
-				<h2 className={css.card_title}>Детали Заказа</h2>
+				<h2 className={css.card_title}>{t("title")}</h2>
 			</header>
 			<div className={css.card_body}>
 				<ul className={css.list}>
 					<li className={css.mobile}>
-						<span>Статус</span>
+						<span>{t("status")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={100} />
@@ -57,7 +60,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li className={css.mobile}>
-						<span>Время заказа</span>
+						<span>{t("order_datetime")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={150} />
@@ -71,7 +74,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li>
-						<span>Получатель</span>
+						<span>{t("receiver")}:</span>
 						<span>
 							{loading ? (
 								<Skeleton width={150} />
@@ -81,7 +84,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li>
-						<span>Номер телефона</span>
+						<span>{t("phone")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={120} />
@@ -97,7 +100,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 					full
 					className={css.mobile}
 				>
-					Повторить заказ
+					{t("reorder")}
 				</Button>
 			</div>
 		</div>

@@ -10,10 +10,11 @@ import "keen-slider/keen-slider.min.css";
 
 import {
 	orderStatusMap,
-	receivingMethodMap
+	receivingMethodMap,
 } from "../../../constants/orders/status-map";
 
 import Button from "@/components/shared/button";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useReorderProducts } from "../../../hooks/use-reorder-products";
 import Badge from "../../badge/badge";
@@ -26,6 +27,7 @@ interface Props {
 }
 
 function OrderItem({ order }: Props) {
+	const t = useTranslations("orders");
 	const { reorderItems } = useReorderProducts(order.order_items);
 
 	return (
@@ -71,15 +73,15 @@ function OrderItem({ order }: Props) {
 								/>
 							</svg>
 						)}
-						{receivingMethodMap[order.type]}
+						{t(receivingMethodMap[order.type])}
 					</div>
 					{order.type === EnumDeliveryType.DELIVERY ? (
 						<Badge status={OrderStatusChoices[order.status]}>
-							{orderStatusMap[order.status]}
+							{t(orderStatusMap[order.status])}
 						</Badge>
 					) : (
 						<Badge status={OrderStatusChoices[order.status]}>
-							{orderStatusMap[order.status]}
+							{t(orderStatusMap[order.status])}
 						</Badge>
 					)}
 				</div>
@@ -95,7 +97,7 @@ function OrderItem({ order }: Props) {
 					className={css.btn}
 					onClick={reorderItems}
 				>
-					Повторить заказ
+					{t("reorder")}
 				</Button>
 			</div>
 		</div>

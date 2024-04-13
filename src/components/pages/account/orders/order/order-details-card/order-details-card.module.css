@@ -50,14 +50,20 @@
 	display: none !important;
 }
 
+@media (max-width: 991px) {
+	.list {
+		margin-bottom: 20px;
+	}
+
+	.mobile {
+		display: flex !important;
+	}
+}
+
 @media (max-width: 575px) {
 	.card_title {
 		font-size: 15px;
 		margin-bottom: 12px;
-	}
-	
-	.list {
-		margin-bottom: 20px;
 	}
 
 	.list > li {
@@ -70,9 +76,5 @@
 
 	.list > li:not(:last-child) {
 		margin-bottom: 6px;
-	}
-
-	.mobile {
-		display: flex;
 	}
 }

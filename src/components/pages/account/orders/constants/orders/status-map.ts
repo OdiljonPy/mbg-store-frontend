@@ -1,18 +1,18 @@
 import { EnumDeliveryType, OrderStatusChoices } from "@/data-types/order/order";
 
 export const receivingMethodMap: Record<EnumDeliveryType, string> = {
-	[EnumDeliveryType.DELIVERY]: "Доставка",
-	[EnumDeliveryType.PICKUP]: "Самовывоз",
+	[EnumDeliveryType.DELIVERY]: "method.DELIVERY",
+	[EnumDeliveryType.PICKUP]: "method.PICKUP",
 };
 
 export const orderStatusMap: Record<OrderStatusChoices, string> = {
-	[OrderStatusChoices.WAITING_FOR_PAYMENT]: "Ожидает оплаты",
-	[OrderStatusChoices.PAID]: "Оплачен",
-	[OrderStatusChoices.ACCEPTED]: "Получен",
-	[OrderStatusChoices.PROGRESSING]: "В процессе",
-	[OrderStatusChoices.ON_THE_WAY]: "В пути",
-	[OrderStatusChoices.READY_FOR_PICKUP]: "Готов к выдаче",
-	[OrderStatusChoices.DELIVERED]: "Доставлен",
-	[OrderStatusChoices.PICKED_UP]: "Выдан",
-	[OrderStatusChoices.CANCELLED]: "Отменен",
+	[OrderStatusChoices.WAITING_FOR_PAYMENT]: "status.WAITING_FOR_PAYMENT",
+	[OrderStatusChoices.PAID]: "status.PAID",
+	[OrderStatusChoices.ACCEPTED]: "status.ACCEPTED",
+	[OrderStatusChoices.PROGRESSING]: "status.PROGRESSING",
+	[OrderStatusChoices.ON_THE_WAY]: "status.ON_THE_WAY",
+	[OrderStatusChoices.READY_FOR_PICKUP]: "status.READY_FOR_PICKUP",
+	[OrderStatusChoices.DELIVERED]: "status.DELIVERED",
+	[OrderStatusChoices.PICKED_UP]: "status.PICKED_UP",
+	[OrderStatusChoices.CANCELLED]: "status.CANCELLED",
 };
