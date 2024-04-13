@@ -21,17 +21,19 @@ interface Props {
 function OrderDetailsCard({ order, loading }: Props) {
 	const { reorderItems } = useReorderProducts(order.order_items);
 
-	const t = useTranslations("orders.order_details_card");
+	const t = useTranslations("orders");
 
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
-				<h2 className={css.card_title}>{t("title")}</h2>
+				<h2 className={css.card_title}>
+					{t("order_details_card.title")}
+				</h2>
 			</header>
 			<div className={css.card_body}>
 				<ul className={css.list}>
 					<li className={css.mobile}>
-						<span>{t("status")}</span>
+						<span>{t("order_details_card.status")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={100} />
@@ -44,7 +46,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 												OrderStatusChoices[order.status]
 											}
 										>
-											{orderStatusMap[order.status]}
+											{t(orderStatusMap[order.status])}
 										</Badge>
 									) : (
 										<Badge
@@ -52,7 +54,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 												OrderStatusChoices[order.status]
 											}
 										>
-											{orderStatusMap[order.status]}
+											{t(orderStatusMap[order.status])}
 										</Badge>
 									)}
 								</>
@@ -60,7 +62,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li className={css.mobile}>
-						<span>{t("order_datetime")}</span>
+						<span>{t("order_details_card.order_datetime")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={150} />
@@ -74,7 +76,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li>
-						<span>{t("receiver")}:</span>
+						<span>{t("order_details_card.receiver")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={150} />
@@ -84,7 +86,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li>
-						<span>{t("phone")}</span>
+						<span>{t("order_details_card.phone")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={120} />
