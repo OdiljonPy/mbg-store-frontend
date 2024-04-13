@@ -2,10 +2,9 @@ import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import { useTranslations } from "next-intl";
 
 import {
-	EnumDeliveryType,
-	EnumOrderStatusDelivery,
-	EnumOrderStatusPickup,
-	IOrder,
+    EnumDeliveryType,
+    IOrder,
+    OrderStatusChoices
 } from "@/data-types/order/order";
 
 import dayjs from "dayjs";
@@ -15,8 +14,7 @@ import Button from "@/components/shared/button";
 import Skeleton from "react-loading-skeleton";
 import Badge from "../../components/badge/badge";
 import {
-	deliveryStatusMap,
-	pickupStatusMap,
+    orderStatusMap
 } from "../../constants/orders/status-map";
 import { useReorderProducts } from "../../hooks/use-reorder-products";
 
@@ -73,20 +71,20 @@ function Header({ order, loading }: Props) {
 								{order.type === EnumDeliveryType.DELIVERY ? (
 									<Badge
 										status={
-											EnumOrderStatusDelivery[
+											OrderStatusChoices[
 												order.status
 											]
 										}
 									>
-										{deliveryStatusMap[order.status]}
+										{orderStatusMap[order.status]}
 									</Badge>
 								) : (
 									<Badge
 										status={
-											EnumOrderStatusPickup[order.status]
+											OrderStatusChoices[order.status]
 										}
 									>
-										{pickupStatusMap[order.status]}
+										{orderStatusMap[order.status]}
 									</Badge>
 								)}
 							</>

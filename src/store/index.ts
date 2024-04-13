@@ -15,6 +15,8 @@ import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
 import messageSlice from "@/slices/message/message";
+import orderChangeStatus from "@/slices/order/changeOrderSlice";
+import lastOrderSlices from "@/slices/order/lastOrderSlice";
 import orderItemSlice from "@/slices/order/orderItemSlice";
 import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
@@ -65,6 +67,8 @@ const rootReducers = combineReducers({
 	login: loginSlice,
 	orders: ordersSlice,
 	order_item: orderItemSlice,
+	last_order: lastOrderSlices,
+	order_change: orderChangeStatus,
 	shippingList: shippingListSlice,
 	supports: supportSlice,
 	promo_code: promoCodeSlice,

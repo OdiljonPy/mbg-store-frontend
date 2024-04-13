@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import Badge from "../../../components/badge/badge";
 
 import Info from "@/components/shared/info/info";
-import { EnumOrderStatusDelivery, IOrder } from "@/data-types/order/order";
+import { IOrder, OrderStatusChoices } from "@/data-types/order/order";
 import { cn } from "@/utils/cn";
 import Skeleton from "react-loading-skeleton";
 import css from "./delivery.module.css";
@@ -47,7 +47,7 @@ function Delivery({ order, loading }: Props) {
 					)}
 				</header>
 				{/* // TODO */}
-				{order.status === EnumOrderStatusDelivery.ON_THE_WAY && (
+				{order.status === OrderStatusChoices.ON_THE_WAY && (
 					<div className={css.card_body}>
 						{loading ? (
 							<Skeleton
