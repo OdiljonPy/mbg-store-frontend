@@ -8,8 +8,11 @@ import DeliveryEmpty from "./delivery-empty/delivery-empty";
 import DeliveryItem from "./delivery-item/delivery-item";
 import css from "./delivery-list.module.css";
 import AddressBookSkeleton from "./skeleton/skeleton";
+import { useTranslations } from "next-intl";
 
 function DeliveryList() {
+	const t = useTranslations("address_book");
+
 	const { shippingList, loading, error } = useSelector(
 		(state: RootState) => state.shippingList
 	);
@@ -73,7 +76,7 @@ function DeliveryList() {
 							</svg>
 						}
 					>
-						Добавить адрес
+						{t("add_address")}
 					</Button>
 				</AddNewAddressModal>
 			</div>

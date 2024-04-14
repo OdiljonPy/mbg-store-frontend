@@ -4,7 +4,7 @@ import { useAddressBookSearch } from "../../hooks/use-address-book-search";
 import css from "./search.module.css";
 
 function Search() {
-	const t = useTranslations("orders");
+	const t = useTranslations("address_book");
 
 	const { onSearchValueChange, searchValue } = useAddressBookSearch();
 
