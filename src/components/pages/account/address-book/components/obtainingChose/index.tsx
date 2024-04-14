@@ -1,8 +1,9 @@
-import css from "./index.module.css";
+import StoreSVG from "@/components/pages/cart/delivery/content/obtaining/component/icon/storeSVG";
 import TruckSVG from "@/components/pages/cart/delivery/content/obtaining/component/icon/truckSVG";
 import { raleway } from "@/constants/fonts/fonts";
-import StoreSVG from "@/components/pages/cart/delivery/content/obtaining/component/icon/storeSVG";
+import { useTranslations } from "next-intl";
 import { AddressBookTab } from "../../wrapper";
+import css from "./index.module.css";
 
 interface props {
 	tab: AddressBookTab;
@@ -10,6 +11,8 @@ interface props {
 }
 
 const ObtainingChose = ({ tab, changeTab }: props) => {
+	const t = useTranslations("address_book");
+
 	return (
 		<div className={css.obtaining_btn}>
 			<div
@@ -27,7 +30,7 @@ const ObtainingChose = ({ tab, changeTab }: props) => {
 							tab == "delivery" ? css.active : ""
 						}`}
 					>
-						Доставка
+						{t("delivery")}
 					</span>
 				</div>
 				<div onClick={(state) => changeTab("pickup")}>
@@ -39,7 +42,7 @@ const ObtainingChose = ({ tab, changeTab }: props) => {
 							tab == "pickup" ? css.active : ""
 						}`}
 					>
-						Самовывоз
+						{t("pickup")}
 					</span>
 				</div>
 			</div>
