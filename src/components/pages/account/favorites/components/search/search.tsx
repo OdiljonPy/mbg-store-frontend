@@ -4,7 +4,7 @@ import { useFavoritesSearch } from "../../hooks/use-favorites-search";
 import css from "./search.module.css";
 
 function Search() {
-	const t = useTranslations("orders");
+	const t = useTranslations("favorites");
 
 	const { onSearchValueChange, searchValue } = useFavoritesSearch();
 

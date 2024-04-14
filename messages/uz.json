@@ -242,7 +242,10 @@
 		"search": "Qidirish"
 	},
 	"favorites": {
-		"title": "Saralangan"
+		"title": "Saralangan",
+		"search": "Поиск",
+		"empty": "У вас пока нет избранных",
+		"products_on_sale": "Товары на скидке"
 	},
 	"address_book": {
 		"title": "Адресная книга"

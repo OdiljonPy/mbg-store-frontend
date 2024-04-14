@@ -243,7 +243,10 @@
 		"search": "Поиск"
 	},
 	"favorites": {
-		"title": "Избранное"
+		"title": "Избранное",
+		"search": "Поиск",
+		"empty": "У вас пока нет избранных",
+		"products_on_sale": "Товары на скидке"
 	},
 	"address_book": {
 		"title": "Адресная книга"
