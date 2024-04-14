@@ -316,6 +316,30 @@
 		"pickup": "Самовывоз"
 	},
 	"support": {
-		"title": "Поддержка"
+		"title": "Поддержка",
+		"write_to_support": "Написать в поддержку",
+		"statement": "Заявка",
+		"closed": "Закрыто",
+		"processing": "В обработке",
+		"show_more": "Показать больше...",
+		"show_less": "Показать меньше",
+		"first_step": {
+			"title": "Поддержка",
+			"next": "Далее",
+			"email": "E-mail",
+			"this_is_required": "Это поле обязательно",
+			"invalid_email": "Некорректная почта",
+			"topic": "Тема обращения",
+			"select_topic": "Выберите тему",
+			"description": "Описание",
+			"your_message": "Ваш вопрос"
+		},
+		"second_step": {
+			"title": "Поддержка",
+			"applications": "Приложения",
+			"max_count": "максимум 4",
+			"back": "Назад",
+			"send": "Отправить"
+		}
 	}
 }

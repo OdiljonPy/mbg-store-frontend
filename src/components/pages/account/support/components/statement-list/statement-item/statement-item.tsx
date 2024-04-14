@@ -5,12 +5,15 @@ import Image from "next/image";
 import React from "react";
 import Badge from "../../badge/badge";
 
+import { useTranslations } from "next-intl";
 import css from "./statement-item.module.css";
 
 interface Props {
 	statementItem: ISupport;
 }
 function StatementItem({ statementItem }: Props) {
+	const t = useTranslations("support");
+
 	const [showMore, setShowMore] = React.useState(false);
 
 	const getExtension = (file: string) => {
@@ -31,7 +34,9 @@ function StatementItem({ statementItem }: Props) {
 		<div className={css.card}>
 			<header className={css.header}>
 				<div className={css.header_left}>
-					<h3 className={css.title}>Заявка № {statementItem.id}</h3>
+					<h3 className={css.title}>
+						{t("statement")} № {statementItem.id}
+					</h3>
 					<p className={css.subtitle}>{statementItem.topic}</p>
 				</div>
 				<div className={css.header_right}>
@@ -39,9 +44,9 @@ function StatementItem({ statementItem }: Props) {
 						{dayjs(statementItem.date).format("D MMMM YYYY г.")}
 					</p>
 					{statementItem.is_closed ? (
-						<Badge status={"CLOSED"}>Закрыта</Badge>
+						<Badge status={"CLOSED"}>{t("closed")}</Badge>
 					) : (
-						<Badge status={"PROCESSING"}>В обработке</Badge>
+						<Badge status={"PROCESSING"}>{t("processing")}</Badge>
 					)}
 				</div>
 			</header>
@@ -62,7 +67,7 @@ function StatementItem({ statementItem }: Props) {
 									onClick={() => setShowMore(true)}
 									className={css.btn}
 								>
-									Показать больше...
+									{t("show_more")}
 								</button>
 							)}
 							{showMore && (
@@ -70,7 +75,7 @@ function StatementItem({ statementItem }: Props) {
 									onClick={() => setShowMore(false)}
 									className={css.btn}
 								>
-									Показать меньше
+									{t("show_less")}
 								</button>
 							)}
 						</>

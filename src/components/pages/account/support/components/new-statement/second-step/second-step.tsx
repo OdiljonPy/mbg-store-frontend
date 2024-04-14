@@ -3,6 +3,7 @@ import Label from "@/components/shared/label";
 import { RootState } from "@/store";
 import { UseFormReturn } from "react-hook-form";
 import { useSelector } from "react-redux";
+import { useTranslations } from "use-intl";
 import { NewStatementForm } from "../new-statement";
 import FileUploader from "./file-uploader/file-uploader";
 import PeekedFile from "./peeked-file/peeked-file";
@@ -14,6 +15,8 @@ interface Props {
 }
 
 function SecondStep({ form, setStep }: Props) {
+	const t = useTranslations("support.second_step");
+
 	const files = form.watch("files");
 	const { postLoading } = useSelector((state: RootState) => state.supports);
 
@@ -21,7 +24,7 @@ function SecondStep({ form, setStep }: Props) {
 		<>
 			<header className={css.header}>
 				<h2 className={css.title}>
-					Поддержка{" "}
+					{t("title")}{" "}
 					<span className={css.steps}>
 						<span>1</span>
 						<span>/</span>
@@ -32,8 +35,10 @@ function SecondStep({ form, setStep }: Props) {
 			<div className={css.body}>
 				<div>
 					<Label>
-						Приложения{" "}
-						<span className={css.max_count_text}>(максимум 4)</span>
+						{t("applications")}{" "}
+						<span className={css.max_count_text}>
+							({t("max_count")})
+						</span>
 					</Label>
 					<FileUploader form={form} />
 				</div>
@@ -49,14 +54,14 @@ function SecondStep({ form, setStep }: Props) {
 					variant='secondary'
 					onClick={() => setStep(0)}
 				>
-					Назад
+					{t("back")}
 				</Button>
 				<Button
 					type='submit'
 					style={{ width: "100%" }}
 					loading={postLoading}
 				>
-					Отправить
+					{t("send")}
 				</Button>
 			</footer>
 		</>

@@ -6,6 +6,7 @@ import { useModal } from "@/hooks/use-modal";
 import { postSupport } from "@/slices/support/supportSlice";
 import { AppDispatch } from "@/store";
 import { Modal } from "antd";
+import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { supportTypeMap } from "../../constants/support/support-type-map";
@@ -22,6 +23,8 @@ export interface NewStatementForm {
 }
 
 function NewStatement({ className, ...props }: Props) {
+	const t = useTranslations("support");
+
 	const { onClose, onOpen, open } = useModal();
 	const [current, setCurrent] = useState(0);
 
@@ -65,7 +68,7 @@ function NewStatement({ className, ...props }: Props) {
 				onClick={onOpen}
 				className={css.modal_trigger}
 			>
-				Написать в поддержку
+				{t("write_to_support")}
 			</Button>
 			<Modal
 				destroyOnClose={true}
