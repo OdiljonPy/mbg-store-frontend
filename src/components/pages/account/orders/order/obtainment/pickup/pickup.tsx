@@ -3,6 +3,7 @@ import { cn } from "@/utils/cn";
 import dayjs from "dayjs";
 
 import Info from "@/components/shared/info/info";
+import { useTranslations } from "next-intl";
 import Skeleton from "react-loading-skeleton";
 import css from "./pickup.module.css";
 
@@ -12,9 +13,10 @@ interface Props {
 }
 
 function Pickup({ order, loading }: Props) {
+	const t = useTranslations("orders.pickup");
 	return (
 		<>
-			<p className={css.title}>Самовывоз с магазина:</p>
+			<p className={css.title}>{t("title")}:</p>
 			<div className={css.card}>
 				{/* // TODO */}
 				<header className={css.card_header}>
@@ -40,14 +42,8 @@ function Pickup({ order, loading }: Props) {
 									height={20}
 									style={{ marginBottom: 5 }}
 								/>
-								<Skeleton
-									width={300}
-									height={15}
-								/>
-								<Skeleton
-									width={100}
-									height={15}
-								/>
+								<Skeleton width={300} height={15} />
+								<Skeleton width={100} height={15} />
 							</>
 						) : (
 							<>
@@ -78,15 +74,11 @@ function Pickup({ order, loading }: Props) {
 				</header>
 				<div className={css.card_body}>
 					{loading ? (
-						<Skeleton
-							width={"100%"}
-							height={25}
-						/>
+						<Skeleton width={"100%"} height={25} />
 					) : (
 						<Info>
-							Товар(ы) доступны для получения{" "}
+							{t("available_for_pickup")}{" "}
 							<b>
-								до{" "}
 								{dayjs("2022-01-01").format(
 									"H:mm, D MMMM YYYY г."
 								)}

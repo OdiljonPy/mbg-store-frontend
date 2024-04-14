@@ -163,6 +163,7 @@
 		"actualPrice": "Предварительная стоимость",
 		"order": "Оформить заказ",
 		"promo_code": "Промокод",
+		"invalid_code": "Этот код недействителен",
 		"accept": "Применить",
 		"type": "Доставка/самовывоз",
 		"type_value": "уточняется",
@@ -240,7 +241,65 @@
 	},
 	"orders": {
 		"title": "Заказы",
-		"search": "Поиск"
+		"search": "Поиск",
+		"method": {
+			"DELIVERY": "Доставка",
+			"PICKUP": "Самовывоз"
+		},
+		"status": {
+			"WAITING_FOR_PAYMENT": "Ожидает оплаты",
+			"PAID": "Оплачен",
+			"ACCEPTED": "Принят",
+			"PROGRESSING": "В процессе",
+			"ON_THE_WAY": "В пути",
+			"READY_FOR_PICKUP": "Готов к выдаче",
+			"DELIVERED": "Доставлен",
+			"PICKED_UP": "Выдан",
+			"CANCELLED": "Отменен"
+		},
+		"empty": "У вас пока нет заказов",
+		"discount": "Товары на скидке",
+		"posted": "Размещен",
+		"reorder": "Повторить заказ",
+		"order_method": {
+			"title": "Способ получения"
+		},
+		"delivery": {
+			"title": "Доставка по адресу",
+			"main": "основной",
+			"approximate_arrival_date": "Примерная дата доставки",
+			"delivery_details": "Детали доставки",
+			"courier": "Курьер",
+			"phone": "Номер телефона",
+			"transport": "Транспорт",
+			"arrival_date": "Время прибытия"
+		},
+		"pickup": {
+			"title": "Самовывоз с магазина",
+			"available_for_pickup": "Товар(ы) доступны для получения до"
+		},
+		"order_item_list": {
+			"title": "Товары в заказе"
+		},
+		"order_cost_card": {
+			"title": "Стоимость заказа",
+			"products_cost": "Стоимость товаров",
+			"discounts": "Скидки",
+			"promo_code": "Промокод",
+			"delivery": "Доставка",
+			"pickup": "Самовывоз",
+			"total": "Всего",
+			"payment_when_receiving": "Оплата при получении товара",
+			"cancel": "Отменить заказ"
+		},
+		"order_details_card": {
+			"title": "Детали заказа",
+			"status": "Статус",
+			"order_datetime": "Время заказа",
+			"receiver": "Получатель",
+			"phone": "Номер телефона",
+			"reorder": "Повторить заказ"
+		}
 	},
 	"favorites": {
 		"title": "Избранное"

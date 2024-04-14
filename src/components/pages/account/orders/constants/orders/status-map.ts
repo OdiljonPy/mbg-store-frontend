@@ -1,30 +1,18 @@
-import {
-	EnumDeliveryType,
-	EnumOrderStatusDelivery,
-	EnumOrderStatusPickup,
-} from "@/data-types/order/order";
+import { EnumDeliveryType, OrderStatusChoices } from "@/data-types/order/order";
 
 export const receivingMethodMap: Record<EnumDeliveryType, string> = {
-	[EnumDeliveryType.DELIVERY]: "Доставка",
-	[EnumDeliveryType.PICKUP]: "Самовывоз",
+	[EnumDeliveryType.DELIVERY]: "method.DELIVERY",
+	[EnumDeliveryType.PICKUP]: "method.PICKUP",
 };
 
-export const deliveryStatusMap: Record<EnumOrderStatusDelivery, string> = {
-	[EnumOrderStatusDelivery.WAITING_FOR_PAYMENT]: "Ожидает оплаты",
-	[EnumOrderStatusDelivery.PAID]: "Оплачен",
-	[EnumOrderStatusDelivery.RECEIVED]: "Получен",
-	[EnumOrderStatusDelivery.PROGRESSING]: "В процессе",
-	[EnumOrderStatusDelivery.ON_THE_WAY]: "В пути",
-	[EnumOrderStatusDelivery.DELIVERED]: "Доставлен",
-	[EnumOrderStatusDelivery.CANCELLED]: "Отменен",
-};
-
-export const pickupStatusMap: Record<EnumOrderStatusPickup, string> = {
-	[EnumOrderStatusDelivery.WAITING_FOR_PAYMENT]: "Ожидает оплаты",
-	[EnumOrderStatusDelivery.PAID]: "Оплачен",
-	[EnumOrderStatusPickup.RECEIVED]: "Получен",
-	[EnumOrderStatusPickup.PROGRESSING]: "В процессе",
-	[EnumOrderStatusPickup.READY_FOR_PICKUP]: "Готов к выдаче",
-	[EnumOrderStatusPickup.PICKED_UP]: "Выдан",
-	[EnumOrderStatusPickup.CANCELLED]: "Отменен",
+export const orderStatusMap: Record<OrderStatusChoices, string> = {
+	[OrderStatusChoices.WAITING_FOR_PAYMENT]: "status.WAITING_FOR_PAYMENT",
+	[OrderStatusChoices.PAID]: "status.PAID",
+	[OrderStatusChoices.ACCEPTED]: "status.ACCEPTED",
+	[OrderStatusChoices.PROGRESSING]: "status.PROGRESSING",
+	[OrderStatusChoices.ON_THE_WAY]: "status.ON_THE_WAY",
+	[OrderStatusChoices.READY_FOR_PICKUP]: "status.READY_FOR_PICKUP",
+	[OrderStatusChoices.DELIVERED]: "status.DELIVERED",
+	[OrderStatusChoices.PICKED_UP]: "status.PICKED_UP",
+	[OrderStatusChoices.CANCELLED]: "status.CANCELLED",
 };

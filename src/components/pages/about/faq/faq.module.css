@@ -1,20 +1,19 @@
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
-
-.questions{
-    flex: 0 0 60%;
+.questions {
+	flex: 0 0 60%;
 }
 
 @media (max-width: 767px) {
-    .wrapper{
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-    .questions{
-        flex-basis: 100%;
-    }
+	.wrapper {
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+	.questions {
+		flex-basis: 100%;
+	}
 }

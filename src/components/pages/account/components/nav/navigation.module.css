@@ -25,14 +25,6 @@
 	gap: 8px;
 }
 
-.link svg path {
-	transition: all 0.2s linear;
-}
-
-.link.active svg path {
-	fill: var(--green);
-}
-
 .link:last-child {
 	border-bottom: none;
 }

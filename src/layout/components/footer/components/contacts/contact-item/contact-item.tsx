@@ -1,36 +1,38 @@
-import React from 'react';
-import css from './contact-item.module.css'
-import {IContact} from "@/layout/components/footer/components/contacts/data-types/contacts";
-import {useTranslations} from 'next-intl';
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
+import { useTranslations } from "next-intl";
+import { StaticImageData } from "next/image";
+import Link from "next/link";
+
+import Skeleton from "react-loading-skeleton";
+import css from "./contact-item.module.css";
 
 interface props {
-    item: IContact
+	icon: StaticImageData;
+	label: string;
+	path: string;
+	title: string;
+	loading: boolean;
 }
 
-const ContactItem = ({item}: props) => {
-    const t = useTranslations()
-    const {
-        icon,
-        title,
-        label,
-        path
-    } = item
-    return (
-        <a href={path} className={css.item}>
-            <span className={css.top}>
-                <span className={css.icon}>
-                    <ResponsiveImage src={icon} alt={title}/>
-                </span>
-                <span className={css.label}>
-                  {t(label)}
-                </span>
-            </span>
-            <span className={css.text}>
-                {title}
-            </span>
-        </a>
-    );
+const ContactItem = ({ icon, label, path, title , loading}: props) => {
+	const t = useTranslations();
+
+	if (loading) return <div className={css.item}>
+		<Skeleton width={100} height={20} />
+		<Skeleton width={300} height={20} />
+	</div>
+	
+	return (
+			<Link href={path} className={css.item}>
+				<div className={css.top}>
+					<span className={css.icon}>
+						<ResponsiveImage src={icon} alt={title} />
+					</span>
+					<span className={css.label}>{t(label)}</span>
+				</div>
+				<div className={css.text}>{title}</div>
+			</Link>
+	);
 };
 
 export default ContactItem;
