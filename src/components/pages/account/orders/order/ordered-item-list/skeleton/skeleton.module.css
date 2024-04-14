@@ -11,8 +11,6 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 16px;
-	background-color: var(--light-gray);
-	overflow: hidden;
 }
 
 .image {
@@ -34,28 +32,18 @@
 
 .title {
 	font-size: 16px;
-	font-weight: 600;
 	line-height: 20px;
-	color: var(--black);
 }
 
 .weight {
 	font-size: 14px;
-	font-weight: 600;
 	line-height: 16px;
-	color: var(--icon-gray);
 	margin-top: 6px;
 }
 
 .seller {
 	font-size: 14px;
-	font-weight: 500;
 	line-height: 16px;
-	color: var(--icon-gray);
-}
-
-.seller_value {
-	color: var(--text-green);
 }
 
 .info_right {
@@ -66,14 +54,8 @@
 }
 
 .count {
-	color: var(--icon-gray);
 	font-size: 14px;
-	font-weight: 600;
 	text-align: end;
-}
-
-.count_value {
-	color: var(--black);
 }
 
 @media (max-width: 575px) {

@@ -1,11 +1,10 @@
 import FormError from "@/components/shared/form-error/form-error";
 import { EnumDeliveryType } from "@/data-types/order/order";
-import { setProducts } from "@/slices/basket/basketSlice";
 import { fetchOrderById } from "@/slices/order/orderItemSlice";
 import { AppDispatch, RootState } from "@/store";
 import { cn } from "@/utils/cn";
+import { Badge } from "antd";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./header/header";
@@ -22,7 +21,7 @@ interface Props {
 }
 
 const Wrapper = ({ orderId }: Props) => {
-	const t = useTranslations();
+	const t = useTranslations("orders");
 
 	const { order, loading, error } = useSelector(
 		(state: RootState) => state.order_item
@@ -49,7 +48,9 @@ const Wrapper = ({ orderId }: Props) => {
 				<div className={css.content}>
 					<main className={css.main}>
 						<section className={css.section}>
-							<h2 className={css.title}>Способ получения</h2>
+							<h2 className={css.title}>
+								{t("order_method.title")}
+							</h2>
 							{order.type === EnumDeliveryType.PICKUP ? (
 								<Pickup order={order} loading={loading} />
 							) : (
@@ -58,10 +59,11 @@ const Wrapper = ({ orderId }: Props) => {
 						</section>
 						<section className={css.section}>
 							<h2 className={css.title}>
-								Товары в заказе{" "}
-								<span className={css.badge}>
-									{order.order_items?.length}
-								</span>
+								{t("order_item_list.title")}{" "}
+								<Badge
+									count={order.order_items?.length}
+									color={"#60C787"}
+								/>
 							</h2>
 							<OrderedItemList
 								orderedItems={order.order_items}

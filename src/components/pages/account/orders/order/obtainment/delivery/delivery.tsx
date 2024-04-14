@@ -4,8 +4,9 @@ import dayjs from "dayjs";
 import Badge from "../../../components/badge/badge";
 
 import Info from "@/components/shared/info/info";
-import { EnumOrderStatusDelivery, IOrder } from "@/data-types/order/order";
+import { IOrder, OrderStatusChoices } from "@/data-types/order/order";
 import { cn } from "@/utils/cn";
+import { useTranslations } from "next-intl";
 import Skeleton from "react-loading-skeleton";
 import css from "./delivery.module.css";
 
@@ -15,9 +16,10 @@ interface Props {
 }
 
 function Delivery({ order, loading }: Props) {
+	const t = useTranslations("orders.delivery");
 	return (
 		<>
-			<p className={css.title}>Доставка по адресу:</p>
+			<p className={css.title}>{t("title")}:</p>
 			<div className={css.card}>
 				<header className={css.card_header}>
 					{loading ? (
@@ -27,17 +29,14 @@ function Delivery({ order, loading }: Props) {
 								height={20}
 								style={{ marginBottom: 5 }}
 							/>
-							<Skeleton
-								width={"70%"}
-								height={15}
-							/>
+							<Skeleton width={"70%"} height={15} />
 						</>
 					) : (
 						<>
 							<h3 className={css.card_title}>
 								{order.delivery_address?.address_name}{" "}
 								{order.delivery_address?.main_address && (
-									<Badge>основной</Badge>
+									<Badge>{t("main")}</Badge>
 								)}
 							</h3>
 							<p className={css.card_subtitle}>
@@ -47,16 +46,13 @@ function Delivery({ order, loading }: Props) {
 					)}
 				</header>
 				{/* // TODO */}
-				{order.status === EnumOrderStatusDelivery.ON_THE_WAY && (
+				{order.status === OrderStatusChoices.ON_THE_WAY && (
 					<div className={css.card_body}>
 						{loading ? (
-							<Skeleton
-								width={"100%"}
-								height={25}
-							/>
+							<Skeleton width={"100%"} height={25} />
 						) : (
 							<Info>
-								Примерная дата доставки:{" "}
+								{t("approximate_arrival_date")}:{" "}
 								<strong>
 									{dayjs(order.created_at).format(
 										"D MMMM YYYY г."
@@ -70,13 +66,15 @@ function Delivery({ order, loading }: Props) {
 			<div className={cn(css.card, css.delivery_card)}>
 				<div>
 					<header className={css.card_header}>
-						<h3 className={css.card_title}>Детали доставки</h3>
+						<h3 className={css.card_title}>
+							{t("delivery_details")}
+						</h3>
 					</header>
 					{/* // TODO */}
 					<div className={css.card_body}>
 						<ul className={css.list}>
 							<li>
-								<span>Курьер</span>
+								<span>{t("courier")}</span>
 								{loading ? (
 									<Skeleton width={100} />
 								) : (
@@ -84,7 +82,7 @@ function Delivery({ order, loading }: Props) {
 								)}
 							</li>
 							<li>
-								<span>Номер телефона</span>
+								<span>{t("phone")}</span>
 								{loading ? (
 									<Skeleton width={150} />
 								) : (
@@ -96,7 +94,7 @@ function Delivery({ order, loading }: Props) {
 								)}
 							</li>
 							<li>
-								<span>Транспорт</span>
+								<span>{t("transport")}</span>
 								{loading ? (
 									<Skeleton width={150} />
 								) : (
@@ -104,7 +102,7 @@ function Delivery({ order, loading }: Props) {
 								)}
 							</li>
 							<li>
-								<span>Время прибытия</span>
+								<span>{t("arrival_date")}</span>
 								{loading ? (
 									<Skeleton width={120} />
 								) : (
@@ -116,10 +114,7 @@ function Delivery({ order, loading }: Props) {
 				</div>
 				<div className={css.map}>
 					{loading ? (
-						<Skeleton
-							width={"100%"}
-							height={266}
-						/>
+						<Skeleton width={"100%"} height={266} />
 					) : (
 						<YMaps>
 							<Map

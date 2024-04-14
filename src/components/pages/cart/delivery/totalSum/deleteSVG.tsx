@@ -1,4 +1,4 @@
-import css from "./totalDelete.module.css"
+import css from "@/components/pages/cart/common/delete-promocode/delete-promocode.module.css"
 interface props{
     onClick?:() => void
 }

@@ -1,6 +1,7 @@
 import Info from "@/components/shared/info/info";
 import { EnumDeliveryType, IOrder } from "@/data-types/order/order";
 import { priceFormatter } from "@/utils/price-formatter/price-formatter";
+import { useTranslations } from "next-intl";
 import Skeleton from "react-loading-skeleton";
 import css from "./order-cost-card.module.css";
 
@@ -10,6 +11,8 @@ interface Props {
 }
 
 function OrderCostCard({ order, loading }: Props) {
+	const t = useTranslations("orders.order_cost_card");
+
 	const productsCost =
 		order.sale_price +
 		order.total_price +
@@ -18,12 +21,12 @@ function OrderCostCard({ order, loading }: Props) {
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
-				<h2 className={css.card_title}>Стоимость заказа</h2>
+				<h2 className={css.card_title}>{t("title")}</h2>
 			</header>
 			<div className={css.card_body}>
 				<ul className={css.list}>
 					<li>
-						<span>Стоимость товаров</span>
+						<span>{t("products_cost")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={100} />
@@ -33,7 +36,7 @@ function OrderCostCard({ order, loading }: Props) {
 						</span>
 					</li>
 					<li>
-						<span>Скидки</span>
+						<span>{t("discounts")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={90} />
@@ -44,7 +47,7 @@ function OrderCostCard({ order, loading }: Props) {
 					</li>
 					<li>
 						<span>
-							Промокод{" "}
+							{t("promo_code")}{" "}
 							<span className={css.promoname}>
 								{order.promo_code?.promocode}
 							</span>
@@ -64,7 +67,7 @@ function OrderCostCard({ order, loading }: Props) {
 					</li>
 					{order.type === EnumDeliveryType.DELIVERY && (
 						<li>
-							<span>Доставка</span>
+							<span>{t("delivery")}</span>
 							<span>
 								{loading ? (
 									<Skeleton width={90} />
@@ -81,7 +84,7 @@ function OrderCostCard({ order, loading }: Props) {
 					)}
 					{order.type === EnumDeliveryType.PICKUP && (
 						<li>
-							<span>Самовывоз</span>
+							<span>{t("pickup")}</span>
 							<span>
 								{loading ? (
 									<Skeleton width={90} />
@@ -93,7 +96,7 @@ function OrderCostCard({ order, loading }: Props) {
 					)}
 					<div className={css.divider} />
 					<li className={css.total}>
-						<span>Всего</span>
+						<span>{t("total")}</span>
 						<span>
 							{loading ? (
 								<Skeleton width={90} />
@@ -105,8 +108,8 @@ function OrderCostCard({ order, loading }: Props) {
 				</ul>
 				{order.type === EnumDeliveryType.PICKUP && (
 					<footer className={css.card_footer}>
-						<Info>Оплата при получении товара</Info>
-						<button className={css.btn}>Отменить заказ</button>
+						<Info>{t("payment_when_receiving")}</Info>
+						<button className={css.btn}>{t("cancel")}</button>
 					</footer>
 				)}
 			</div>

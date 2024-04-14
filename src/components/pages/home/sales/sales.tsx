@@ -22,7 +22,7 @@ const Sales = (props: props) => {
 
     useEffect(() => {
         dispatch(fetchProductDiscount())
-    }, []);
+    }, [dispatch]);
 
     return (
         <section className={css.sales}>

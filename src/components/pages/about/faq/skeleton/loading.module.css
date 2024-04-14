@@ -1,0 +1,113 @@
+.loading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0;
+	cursor: pointer;
+	border-bottom: 2px solid var(--light-gray);
+	gap: 20px;
+}
+
+.info {
+	display: flex;
+	flex: 1 1 0;
+	align-items: center;
+	gap: 30px;
+}
+
+.number,
+.question {
+	font-weight: 700;
+}
+
+.question {
+	font-size: 28px;
+	color: var(--black);
+	flex: 1 1 0;
+}
+
+.number {
+	font-size: 30px;
+	color: var(--icon-gray);
+	transition: all 0.2s linear;
+}
+
+.btn {
+	height: 18px;
+	flex-basis: 18px;
+	position: relative;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.btn:before {
+	content: "";
+	display: block;
+	position: absolute;
+	background: var(--black);
+	top: 0;
+	border-radius: var(--default-radius);
+	left: 50%;
+	height: 100%;
+	width: 2px;
+	transition: all 0.2s linear;
+	transform: translateX(-50%);
+}
+
+.btn:after {
+	content: "";
+	display: block;
+	position: absolute;
+	background: var(--black);
+	left: 0;
+	transition: all 0.2s linear;
+	border-radius: var(--default-radius);
+	top: 50%;
+	height: 2px;
+	width: 100%;
+	transform: translateY(-50%);
+}
+
+@media (max-width: 1199px) {
+	.question {
+		font-size: 24px;
+	}
+	.number {
+		font-size: 26px;
+	}
+}
+
+@media (max-width: 991px) {
+	.question {
+		font-size: 22px;
+	}
+	.number {
+		font-size: 24px;
+	}
+	.info {
+		gap: 15px;
+	}
+	.header {
+		padding: 12px 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.question {
+		font-size: 20px;
+	}
+	.number {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 575px) {
+	.info {
+		gap: 6px;
+	}
+	.question,
+	.number {
+		font-size: 14px;
+	}
+}

@@ -1,6 +1,6 @@
+import OrderCart from "@/components/pages/cart/common/order-card";
 import { IOrderItem } from "@/data-types/order/order";
-import OrderedItemSkeleton from "./ordered-item-skeleton";
-import OrderedItem from "./ordered-item/ordered-item";
+import OrderedItemSkeleton from "./skeleton/skeleton";
 
 interface Props {
 	orderedItems: IOrderItem[];
@@ -19,9 +19,9 @@ function OrderedItemList({ orderedItems, loading }: Props) {
 			) : (
 				<>
 					{orderedItems?.map((item) => (
-						<OrderedItem
+						<OrderCart
 							key={item.id}
-							orderedItem={item}
+							product={{ ...item.product, count: item.quantity }}
 						/>
 					))}
 				</>

@@ -18,11 +18,13 @@
 }
 
 .WAITING_FOR_PAYMENT {
-	background-color: #EF9545;
+	background-color: #ef9545;
 }
 
+.DELIVERED,
+.PICKED_UP,
 .PAID,
-.RECEIVED {
+.ACCEPTED {
 	background-color: #60c787;
 }
 
@@ -33,11 +35,6 @@
 .ON_THE_WAY,
 .READY_FOR_PICKUP {
 	background-color: #767bf9;
-}
-
-.DELIVERED,
-.PICKED_UP {
-	background-color: #60c787;
 }
 
 .CANCELLED {
