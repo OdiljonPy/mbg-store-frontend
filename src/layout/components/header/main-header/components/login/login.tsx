@@ -1,7 +1,7 @@
 import { raleway } from "@/constants/fonts/fonts";
-import css from "@/layout/components/header/main-header/components/menu-item-badge/menu-item-badge.module.css";
 import { useTranslations } from "next-intl";
-import loginCss from "./login.module.css";
+import css from "./login.module.css";
+import { cn } from "@/utils/cn";
 
 interface Props {
 	mobile?: boolean;
@@ -12,9 +12,7 @@ const Login = ({ mobile }: Props) => {
 
 	return (
 		<>
-			<div
-				className={`${css.menuItem} ${loginCss.btn} ${raleway.className}`}
-			>
+			<div className={cn(css.login, mobile && css.mobile)}>
 				<svg
 					width='30'
 					height='30'
