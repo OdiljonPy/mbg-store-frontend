@@ -7,6 +7,9 @@ import {useRouter} from "next/navigation";
 import {IBasketSlices} from "@/data-types/slices/basket";
 import React from "react";
 import DeletePromoCode from "@/components/pages/cart/common/delete-promocode/delete-promocode";
+import {openLoginModal} from "@/slices/auth/login";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
 
 interface props {
     basketSlice : IBasketSlices
@@ -14,9 +17,19 @@ interface props {
 }
 
 const Total = ({basketSlice}: props) => {
+    const dispatch = useDispatch<AppDispatch>()
     const {all_prices,discount_price,cost_price,promo_code,promo_code_price} = basketSlice
     const t = useTranslations()
     const { push } = useRouter();
+
+    const throwBasket = () =>{
+        const token = localStorage.getItem('access_token')
+        console.log(token,"token")
+        if(!token){
+            dispatch(openLoginModal())
+        }
+        else  push('/cart/delivery')
+    }
     return (
         <div className={css.total}>
             <h3 className={css.title}>
@@ -29,7 +42,7 @@ const Total = ({basketSlice}: props) => {
                 {promo_code.discount ?  <TotalItem className={css.pb_4} label={t('cart.promo_code')} value={priceFormatter(-promo_code_price, true)}/>:''}
                 <TotalItem className={css.finalPrice} label={t('cart.actualPrice')}
                            value={priceFormatter(cost_price, true)}/>
-                <button type={'button'} onClick={() => push('/cart/delivery')} className={css.btn}>
+                <button type={'button'} onClick={() => throwBasket()} className={css.btn}>
                     {t('cart.order')}
                 </button>
                 {promo_code.discount ? <DeletePromoCode promo_code={promo_code.promocode}/> :

@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import useAuthCheck from "@/hooks/use-access-page";
 
 interface props {}
 
@@ -15,6 +16,7 @@ const Wrapper = dynamic(
 
 const Favorites = (props: props) => {
 	const t = useTranslations();
+	useAuthCheck(true)
 	return (
 		<>
 			<AccountLayout>
