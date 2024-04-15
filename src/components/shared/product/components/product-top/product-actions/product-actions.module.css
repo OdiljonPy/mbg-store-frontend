@@ -66,6 +66,12 @@
     visibility: visible;
 }
 
+.add_disabled {
+    opacity: 0.85 !important;
+    cursor:not-allowed;
+    background: var(--light-green);
+}
+
 
 
 @media (max-width: 767px) {

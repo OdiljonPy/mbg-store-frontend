@@ -15,9 +15,11 @@ import {useToasts} from "react-toast-notifications";
 
 interface props{
     isDeleteAction?:boolean
+    setErr?:(val:boolean)=>void
+    setDone?:(val:boolean)=>void
 }
 
-const DetailCart = ({isDeleteAction}:props) =>{
+const DetailCart = ({isDeleteAction,setErr,setDone}:props) =>{
     const {addToast} = useToasts()
     const {cost_price,all_prices,discount_price,promo_code_price,delivery_price} = useSelector((state:RootState) => state.basket)
     const {last_order} = useSelector((state:RootState)=> state.last_order)
@@ -42,12 +44,18 @@ const DetailCart = ({isDeleteAction}:props) =>{
             dispatch(changeOrderStatus(data))
                 .then((res)=>{
                     if(!res.payload?.ok) {
+                        if (setErr) {
+                            setErr(true)
+                        }
                         addToast('Xatolik yuz berdi',{
                             appearance: 'error',
                             autoDismiss: true,
                         })
                     }
                     setOnOpen(false)
+                    if (setDone) {
+                        setDone(true)
+                    }
                 })
         }
         else{
