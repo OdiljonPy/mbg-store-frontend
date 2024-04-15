@@ -1,7 +1,10 @@
 import Button from "@/components/shared/button";
+import Input from "@/components/shared/input";
+import Label from "@/components/shared/label";
 import { IUser } from "@/data-types/auth/user";
 import { Skeleton } from "antd";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import BirthdayInput from "./birthday-input/birthday-input";
 import GenderInput from "./gender-input/gender-input";
 import { usePersonalData } from "./hooks/use-personal-data";
@@ -28,6 +31,10 @@ function PersonalData({ user, loading, error }: Props) {
 	} = usePersonalData(user);
 
 	const t = useTranslations();
+
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => setMounted(true), []);
 
 	const isSubmitButtonVisible =
 		!loading &&
@@ -67,31 +74,24 @@ function PersonalData({ user, loading, error }: Props) {
 			</div>
 			<form onSubmit={onSubmit}>
 				<div className={css.body}>
-					{loading ? (
+					{loading || !mounted ? (
 						<>
-							<Skeleton
-								active
-								paragraph={{ rows: 4 }}
-							/>
+							<Skeleton active paragraph={{ rows: 4 }} />
 						</>
 					) : (
 						<>
 							<div>
-								<label
-									className={css.label}
-									htmlFor='full_name'
-								>
+								<Label htmlFor='full_name'>
 									{t(
 										"profile.personal_data.name_and_surname"
 									)}
-								</label>
-								<input
+								</Label>
+								<Input
 									value={fullName}
 									onChange={(e) =>
 										setFullName(e.target.value)
 									}
 									id='full_name'
-									className={css.input}
 									disabled={!edit}
 									type='text'
 									placeholder={t(
@@ -117,10 +117,7 @@ function PersonalData({ user, loading, error }: Props) {
 				</div>
 				{isSubmitButtonVisible && (
 					<div className={css.footer}>
-						<Button
-							className={css.save_btn}
-							variant='tertiary'
-						>
+						<Button className={css.save_btn} variant='tertiary'>
 							{t("profile.save")}
 						</Button>
 					</div>

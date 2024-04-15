@@ -17,3 +17,7 @@
 .input:focus {
 	border: 1.6px solid var(--green);
 }
+
+.input:disabled {
+	cursor: not-allowed;
+}

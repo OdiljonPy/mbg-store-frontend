@@ -1,3 +1,4 @@
+import Label from "@/components/shared/label";
 import { IUser } from "@/data-types/auth/user";
 import { Skeleton } from "antd";
 import { useTranslations } from "next-intl";
@@ -16,11 +17,13 @@ function Security({ user, loading, error }: Props) {
 	const t = useTranslations();
 	const [phoneNumber, setPhoneNumber] = useState("");
 
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => setMounted(true), []);
+
 	useEffect(() => {
-		if (user && !error) {
-			setPhoneNumber(user.phone_number);
-		}
-	}, [user, error]);
+		setPhoneNumber(user.phone_number);
+	}, [user]);
 
 	return (
 		<div className={css.card}>
@@ -28,18 +31,15 @@ function Security({ user, loading, error }: Props) {
 				<h3 className={css.title}>{t("profile.security.title")}</h3>
 			</div>
 			<div className={css.body}>
-				{loading ? (
-					<Skeleton
-						active
-						paragraph={{ rows: 4 }}
-					/>
+				{loading || !mounted ? (
+					<Skeleton active paragraph={{ rows: 4 }} />
 				) : (
 					<>
 						<div>
 							<div className={css.input_wrapper}>
-								<label className={css.label}>
+								<Label>
 									{t("profile.security.phone_number")}
-								</label>
+								</Label>
 								<PhoneInput
 									hideDropdown={true}
 									inputClassName={css.input}
@@ -71,9 +71,9 @@ function Security({ user, loading, error }: Props) {
 						</div>
 						<div>
 							<div className={css.input_wrapper}>
-								<label className={css.label}>
+								<Label className={css.label}>
 									{t("profile.security.current_password")}
-								</label>
+								</Label>
 								<ResetPassword>
 									<input
 										className={`${css.input} ${css.password}`}
