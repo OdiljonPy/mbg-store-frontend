@@ -3,7 +3,7 @@
 import css from './actions.module.css'
 import {useTranslations} from "next-intl";
 import {raleway} from "@/constants/fonts/fonts";
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import ProductActionBtn from "@/components/shared/product-action-btn/product-action-btn";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
@@ -18,25 +18,30 @@ interface props {
 }
 
 const  Actions = ({setCount, count,product}: props) => {
+    const [disabled,setDisabled] = useState(false)
     const {id,available} = product
     const dispatch = useDispatch<AppDispatch>()
 
     const t = useTranslations()
 
     const onDecrement = () => {
-        console.log(count,"count" , available, "avialib")
         if(count == 1){
+            setDisabled(false)
             setCount((prev) => prev - 1)
             dispatch(removeProduct(id))
         }
         else if (count > 1) {
+            setDisabled(false)
             setCount((prev) => prev - 1)
             dispatch(addProduct({quantity : -1,product}))
         }
     }
     const onIncrement = () => {
-        setCount((prev) => prev + 1)
-        dispatch(addProduct({quantity: 1,product}))
+        console.log(count,"count" , available, "avialib")
+        if(count < available){
+            setCount((prev) => prev + 1)
+            dispatch(addProduct({quantity: 1,product}))
+        }else setDisabled(true)
     }
 
     return (
@@ -59,7 +64,7 @@ const  Actions = ({setCount, count,product}: props) => {
                         {count}
                     </p>
                     <ProductActionBtn
-                        classNames={css.increment}
+                        classNames={`${css.increment} ${disabled ? css.add_disabled :""}`}
                         img={count > 0 ?
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">

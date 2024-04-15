@@ -61,6 +61,12 @@
     border-color: transparent;
 }
 
+.add_disabled {
+    opacity: 0.85 !important;
+    cursor:not-allowed;
+    background: var(--light-green);
+}
+
 .increment:hover {
     background: var(--light-green);
 }

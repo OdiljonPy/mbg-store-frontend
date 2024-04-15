@@ -27,6 +27,7 @@ const ProductActions = ({count,product}: props) => {
 
     const onDecrement = () => {
         if(intermediateValue === 1){
+            setDisabled(false)
             setIntermediate((prev) => prev - 1)
             dispatch(removeProduct(id))
         }
