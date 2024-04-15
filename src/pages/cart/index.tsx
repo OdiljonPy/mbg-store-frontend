@@ -14,6 +14,7 @@ const ClientSideWrapper = dynamic(() => import('@/components/pages/cart/wrapper'
 
 const Index = (props: props) => {
     const t = useTranslations()
+
     return (
         <>
             <Head>

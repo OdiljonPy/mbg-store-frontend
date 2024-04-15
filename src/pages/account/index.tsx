@@ -5,12 +5,14 @@ import { useTranslations } from "next-intl";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import useAuthCheck from "@/hooks/use-access-page";
 
 interface props {}
 
 const Account = (props: props) => {
 	const t = useTranslations();
 	const { push } = useRouter();
+
 
 	useEffect(() => {
 		if (window.innerWidth > 991) {
