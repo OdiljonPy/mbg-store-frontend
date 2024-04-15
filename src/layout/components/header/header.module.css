@@ -1,7 +1,14 @@
 .header {
-	position: fixed;
+	position: sticky;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 10;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+	.header {
+		margin-bottom: 14px;
+	}
 }
