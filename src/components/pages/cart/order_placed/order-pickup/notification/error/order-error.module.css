@@ -1,6 +1,8 @@
 .error_order{
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin: 150px auto 100px auto;
     text-align: center;
+    scroll-behavior: smooth;
 }
 
 .error_title{
