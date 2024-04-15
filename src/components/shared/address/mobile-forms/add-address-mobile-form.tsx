@@ -8,6 +8,7 @@ import {
 import { AppDispatch, RootState } from "@/store";
 import { cn } from "@/utils/cn";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IAddressForm } from "../types";
@@ -20,6 +21,7 @@ interface Props {
 }
 
 function AddAddressMobileForm({ onClose }: Props) {
+	const t = useTranslations("address");
 	const [step, setStep] = useState<number>(0);
 
 	const form = useForm<IAddressForm>({
@@ -60,7 +62,7 @@ function AddAddressMobileForm({ onClose }: Props) {
 
 	const steps = [
 		{
-			title: "Адрес доставки",
+			title: t("add_delivery"),
 			content: (
 				<SelectAddressStep
 					form={form}
@@ -70,7 +72,7 @@ function AddAddressMobileForm({ onClose }: Props) {
 			),
 			action: (
 				<Button onClick={() => setStep(1)} full>
-					Далее
+					{t("next")}
 				</Button>
 			),
 		},
@@ -89,7 +91,7 @@ function AddAddressMobileForm({ onClose }: Props) {
 					disabled={!form.formState.isValid}
 					loading={postLoading}
 				>
-					Сохранить
+					{t("save")}
 				</Button>
 			),
 		},

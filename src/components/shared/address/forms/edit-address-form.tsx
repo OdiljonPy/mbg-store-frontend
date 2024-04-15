@@ -8,6 +8,7 @@ import {
 } from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddressMap from "../address-map/address-map";
@@ -21,6 +22,8 @@ interface Props {
 }
 
 function EditAddressForm({ defaultValues, onClose }: Props) {
+	const t = useTranslations("address");
+
 	const form = useForm<IAddressForm>({
 		defaultValues: {
 			address_name: defaultValues.address_name,
@@ -64,18 +67,18 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 	return (
 		<form className={css.form} onSubmit={form.handleSubmit(onSubmit)}>
 			<div className={css.form_left}>
-				<h2 className={css.title}>Адрес доставки</h2>
+				<h2 className={css.title}>{t("add_delivery")}</h2>
 				<AddressFields form={form} mapConstructor={mapConstructor} />
 				<div className={css.footer}>
 					<Button variant='secondary' onClick={onClose} type='button'>
-						Отмена
+						{t("cancel")}
 					</Button>
 					<Button
 						full
 						disabled={!form.formState.isValid}
 						loading={patchLoading}
 					>
-						Изменить
+						{t("change")}
 					</Button>
 				</div>
 			</div>

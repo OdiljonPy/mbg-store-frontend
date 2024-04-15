@@ -8,6 +8,7 @@ import AddressDetect from "../../address-detect/address-detect";
 import AddressMap from "../../address-map/address-map";
 import { IAddressForm } from "../../types";
 import css from "./select-address-step.module.css";
+import { useTranslations } from "use-intl";
 
 interface Props {
 	form: UseFormReturn<IAddressForm>;
@@ -16,22 +17,24 @@ interface Props {
 }
 
 function SelectAddressStep({ form, mapConstructor, setMapConstructor }: Props) {
+	const t = useTranslations("address");
+
 	return (
 		<div className={css.body}>
 			<div className={css.body_top}>
 				<div className={css.label_wrapper}>
-					<Label required>Адрес</Label>
+					<Label required>{t("title")}</Label>
 					<AddressDetect
 						form={form}
 						mapConstructor={mapConstructor}
 					/>
 				</div>
 				<Input
-					placeholder='Город, улица, дом'
+					placeholder={t("placeholder")}
 					{...form.register("address", {
 						required: {
 							value: true,
-							message: "Это поле обязательно",
+							message: t("required"),
 						},
 					})}
 				/>

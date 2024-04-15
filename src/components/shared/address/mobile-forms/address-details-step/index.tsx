@@ -6,6 +6,7 @@ import { UseFormReturn } from "react-hook-form";
 import { IAddressForm } from "../../types";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
+import { useTranslations } from "next-intl";
 import { Dispatch, SetStateAction } from "react";
 import AddressMap from "../../address-map/address-map";
 import css from "./address-details-step.module.css";
@@ -21,17 +22,18 @@ function AddressDetailsStep({
 	mapConstructor,
 	setMapConstructor,
 }: Props) {
+	const t = useTranslations("address");
 	return (
 		<div className={css.body}>
 			<div className={css.body_top}>
 				<div>
-					<Label required>Название</Label>
+					<Label required>{t("name")}</Label>
 					<Input
-						placeholder='Введите название'
+						placeholder={t("enter_name")}
 						{...form.register("address_name", {
 							required: {
 								value: true,
-								message: "Это поле обязательно",
+								message: t("required"),
 							},
 						})}
 					/>
@@ -41,26 +43,26 @@ function AddressDetailsStep({
 				</div>
 				<div className={css.form_row}>
 					<div>
-						<Label>Подъезд</Label>
+						<Label>{t("entrance")}</Label>
 						<Input
 							type='number'
-							placeholder='Подъезд'
+							placeholder={t("entrance")}
 							{...form.register("entrance")}
 						/>
 					</div>
 					<div>
-						<Label>Этаж</Label>
+						<Label>{t("floor")}</Label>
 						<Input
 							type='number'
-							placeholder='Этаж'
+							placeholder={t("floor")}
 							{...form.register("floor")}
 						/>
 					</div>
 					<div>
-						<Label>Квартира</Label>
+						<Label>{t("apartment")}</Label>
 						<Input
 							type='number'
-							placeholder='Квартира'
+							placeholder={t("apartment")}
 							{...form.register("apartment")}
 						/>
 					</div>
@@ -70,7 +72,7 @@ function AddressDetailsStep({
 						id='main_address'
 						{...form.register("main_address")}
 					/>
-					<Label htmlFor='main_address'>Сделать адрес основным</Label>
+					<Label htmlFor='main_address'>{t("make_address")}</Label>
 				</div>
 			</div>
 			<div className={css.body_bottom}>

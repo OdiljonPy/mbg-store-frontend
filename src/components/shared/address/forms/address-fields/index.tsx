@@ -6,6 +6,7 @@ import { UseFormReturn } from "react-hook-form";
 import { IAddressForm } from "../../types";
 
 import ErrorMessage from "@/components/shared/error-message";
+import { useTranslations } from "next-intl";
 import AddressDetect from "../../address-detect/address-detect";
 import css from "./address-fields.module.css";
 
@@ -15,16 +16,17 @@ interface Props {
 }
 
 function AddressFields({ form, mapConstructor }: Props) {
+	const t = useTranslations("address");
 	return (
 		<>
 			<div>
-				<Label required>Название</Label>
+				<Label required>{t("name")}</Label>
 				<Input
-					placeholder='Введите название'
+					placeholder={t("enter_name")}
 					{...form.register("address_name", {
 						required: {
 							value: true,
-							message: "Это поле обязательно",
+							message: t("required"),
 						},
 					})}
 				/>
@@ -34,18 +36,18 @@ function AddressFields({ form, mapConstructor }: Props) {
 			</div>
 			<div>
 				<div className={css.form_row}>
-					<Label required>Адрес</Label>
+					<Label required>{t("title")}</Label>
 					<AddressDetect
 						form={form}
 						mapConstructor={mapConstructor}
 					/>
 				</div>
 				<Input
-					placeholder='Введите адрес'
+					placeholder={t("placeholder")}
 					{...form.register("address", {
 						required: {
 							value: true,
-							message: "Это поле обязательно",
+							message: t("required"),
 						},
 					})}
 				/>
@@ -55,26 +57,26 @@ function AddressFields({ form, mapConstructor }: Props) {
 			</div>
 			<div className={css.form_row}>
 				<div>
-					<Label>Подъезд</Label>
+					<Label>{t("entrance")}</Label>
 					<Input
 						type='number'
-						placeholder='Подъезд'
+						placeholder={t("entrance")}
 						{...form.register("entrance")}
 					/>
 				</div>
 				<div>
-					<Label>Этаж</Label>
+					<Label>{t("floor")}</Label>
 					<Input
 						type='number'
-						placeholder='Этаж'
+						placeholder={t("floor")}
 						{...form.register("floor")}
 					/>
 				</div>
 				<div>
-					<Label>Квартира</Label>
+					<Label>{t("apartment")}</Label>
 					<Input
 						type='number'
-						placeholder='Квартира'
+						placeholder={t("apartment")}
 						{...form.register("apartment")}
 					/>
 				</div>
@@ -84,7 +86,7 @@ function AddressFields({ form, mapConstructor }: Props) {
 					id='main_address-1'
 					{...form.register("main_address")}
 				/>
-				<Label htmlFor='main_address-1'>Сделать адрес основным</Label>
+				<Label htmlFor='main_address-1'>{t("make_address")}</Label>
 			</div>
 		</>
 	);
