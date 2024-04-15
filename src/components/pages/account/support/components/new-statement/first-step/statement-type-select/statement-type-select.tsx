@@ -7,6 +7,7 @@ import { UseFormReturn } from "react-hook-form";
 import { supportTypeMap } from "../../../../constants/support/support-type-map";
 import { NewStatementForm } from "../../new-statement";
 
+import { useTranslations } from "next-intl";
 import css from "./statement-type-select.module.css";
 
 interface Props {
@@ -14,6 +15,8 @@ interface Props {
 }
 
 function StatementTypeSelect({ form }: Props) {
+	const t = useTranslations("support");
+
 	const [open, setOpen] = useState(false);
 	const supportType = form.watch("topic");
 
@@ -23,7 +26,7 @@ function StatementTypeSelect({ form }: Props) {
 				<p>
 					{supportType
 						? supportTypeMap[supportType]
-						: "Выберите тему"}
+						: t("select_topic")}
 				</p>
 				<span className={cn(css.arrow, open && css.active)}>
 					<svg

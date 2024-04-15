@@ -3,6 +3,7 @@ import ErrorMessage from "@/components/shared/error-message";
 import Input from "@/components/shared/input";
 import Label from "@/components/shared/label";
 import TextArea from "@/components/shared/text-area";
+import { useTranslations } from "next-intl";
 import React from "react";
 import { Controller, UseFormReturn } from "react-hook-form";
 import { NewStatementForm } from "../new-statement";
@@ -15,6 +16,8 @@ interface Props {
 }
 
 function FirstStep({ form, setStep }: Props) {
+	const t = useTranslations("support.first_step");
+
 	const desc = form.watch("description") || "";
 	const isTypeSelected = !!form.watch("topic");
 
@@ -40,7 +43,7 @@ function FirstStep({ form, setStep }: Props) {
 		<>
 			<header className={css.header}>
 				<h2>
-					Поддержка{" "}
+					{t("title")}{" "}
 					<span className={css.steps}>
 						<span className={css.current_step}>1</span>
 						<span>/</span>
@@ -50,17 +53,17 @@ function FirstStep({ form, setStep }: Props) {
 			</header>
 			<div className={css.body}>
 				<div>
-					<Label required>E-mail</Label>
+					<Label required>{t("email")}</Label>
 					<Input
 						placeholder={"example@gmail.com"}
 						{...form.register("email", {
 							required: {
 								value: true,
-								message: "Это поле обязательно",
+								message: t("this_is_required"),
 							},
 							pattern: {
 								value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-								message: "Некорректная почта",
+								message: t("invalid_email"),
 							},
 						})}
 					/>
@@ -69,7 +72,7 @@ function FirstStep({ form, setStep }: Props) {
 					</ErrorMessage>
 				</div>
 				<div>
-					<Label required>Тема обращения</Label>
+					<Label required>{t("topic")}</Label>
 					<StatementTypeSelect form={form} />
 					<ErrorMessage>
 						{form.formState.errors.topic?.message}
@@ -77,7 +80,7 @@ function FirstStep({ form, setStep }: Props) {
 				</div>
 				<div>
 					<div className={css.desc_label}>
-						<Label required>Описание</Label>
+						<Label required>{t("description")}</Label>
 						<div className={css.counter}>{desc.length}/400</div>
 					</div>
 					<Controller
@@ -86,7 +89,7 @@ function FirstStep({ form, setStep }: Props) {
 						rules={{
 							required: {
 								value: true,
-								message: "Это поле обязательно",
+								message: t("this_is_required"),
 							},
 						}}
 						render={({ field: { onChange, value } }) => (
@@ -96,7 +99,7 @@ function FirstStep({ form, setStep }: Props) {
 								onChange={onChange}
 								resize='vertical'
 								maxLength={400}
-								placeholder='Ваш вопрос'
+								placeholder={t("your_message")}
 							/>
 						)}
 					/>
@@ -113,7 +116,7 @@ function FirstStep({ form, setStep }: Props) {
 					disabled={!form.formState.isValid || !isTypeSelected}
 					onClick={() => setStep(1)}
 				>
-					Далее
+					{t("next")}
 				</Button>
 			</footer>
 		</>

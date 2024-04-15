@@ -1,10 +1,12 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import css from "./favorites-empty.module.css";
-import {useRouter} from "next/router";
-
 
 function FavoritesEmpty() {
-	const router = useRouter()
+	const router = useRouter();
+	const t = useTranslations("favorites");
+
 	return (
 		<div className={css.wrapper}>
 			<div className={css.image_wrapper}>
@@ -16,8 +18,10 @@ function FavoritesEmpty() {
 					height={180}
 				/>
 			</div>
-			<p className={css.text}>У вас пока нет избранных</p>
-			<button className={css.button} onClick={() => router.push('/')}>Товары на скидке</button>
+			<p className={css.text}>{t("empty")}</p>
+			<button className={css.button} onClick={() => router.push("/")}>
+				{t("products_on_sale")}
+			</button>
 		</div>
 	);
 }
