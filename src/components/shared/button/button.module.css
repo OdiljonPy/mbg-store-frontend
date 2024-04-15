@@ -46,7 +46,7 @@
 }
 
 .secondary {
-	background-color: transparent;
+	background-color: white;
 	border: 1.6px solid var(--green);
 	color: var(--text-green);
 }
