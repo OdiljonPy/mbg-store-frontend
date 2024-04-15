@@ -1,11 +1,11 @@
 import { useModal } from "@/hooks/use-modal";
-import { clearLoginError } from "@/slices/auth/login";
+import {clearLoginError, closeLoginModal, openLoginModal} from "@/slices/auth/login";
 import { clearSignUpError } from "@/slices/auth/signup";
 import { clearVerifyError } from "@/slices/auth/verify";
-import { AppDispatch } from "@/store";
+import {AppDispatch, RootState} from "@/store";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import css from "./auth.module.css";
 import Login from "./login/login";
 import Otp from "./otp/otp";
@@ -14,6 +14,7 @@ import SignUp from "./signup/signup";
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 function Auth({ children, className, ...props }: Props) {
+	const {onOpenLogin} = useSelector((state:RootState)=> state.login)
 	const { onClose, onOpen, open } = useModal();
 	const [step, setStep] = useState(0);
 	const dispatch = useDispatch<AppDispatch>();
@@ -42,6 +43,19 @@ function Auth({ children, className, ...props }: Props) {
 		},
 	];
 
+	const onCloseModal = () =>{
+		onClose()
+		dispatch(closeLoginModal())
+	}
+
+	useEffect(() => {
+		console.log(onOpenLogin,"open login")
+		if(onOpenLogin){
+			onOpen()
+		}
+		else onClose()
+	}, [onOpenLogin]);
+
 	return (
 		<>
 			<button
@@ -54,7 +68,7 @@ function Auth({ children, className, ...props }: Props) {
 			<Modal
 				destroyOnClose={true}
 				open={open}
-				onCancel={onClose}
+				onCancel={onCloseModal}
 				closeIcon={false}
 				footer={null}
 				width={400}
@@ -65,7 +79,7 @@ function Auth({ children, className, ...props }: Props) {
 					{steps[step].content}
 					<button
 						className={css.modal_close}
-						onClick={onClose}
+						onClick={onCloseModal}
 					>
 						<svg
 							width='30'

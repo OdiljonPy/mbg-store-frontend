@@ -24,7 +24,6 @@ const basketSlices = createSlice({
         addProduct : (state, {payload}) =>{
             const index = state.products.findIndex(product => product.id === payload.product.id);
             if (index !== -1) {
-                console.log(payload.quantity,"quantity")
                 const productCount = state.products[index].count || 0
                 if(productCount !== state.products[index].available || (payload.quantity < 0 && productCount == state.products[index].available)){
                     state.products[index].count += payload.quantity;

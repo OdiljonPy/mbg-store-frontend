@@ -38,6 +38,7 @@ interface LoginState {
 	isLoggedIn: boolean;
 	error: string | null;
 	loading: boolean;
+	onOpenLogin:boolean
 }
 
 export const getItem = (key: string): string | null => {
@@ -54,11 +55,13 @@ const initialState: LoginState = accessToken
 			isLoggedIn: true,
 			error: null,
 			loading: false,
+			onOpenLogin:false
 	  }
 	: {
 			isLoggedIn: false,
 			error: null,
 			loading: false,
+			onOpenLogin:false
 	  };
 
 const loginSlice = createSlice({
@@ -68,6 +71,12 @@ const loginSlice = createSlice({
 		clearLoginError(state) {
 			state.error = null;
 		},
+		openLoginModal(state){
+			state.onOpenLogin = true
+		},
+		closeLoginModal(state){
+			state.onOpenLogin = false
+		}
 	},
 	extraReducers: (builder) => {
 		builder
@@ -91,6 +100,6 @@ const loginSlice = createSlice({
 	},
 });
 
-export const { clearLoginError } = loginSlice.actions;
+export const { clearLoginError,openLoginModal,closeLoginModal } = loginSlice.actions;
 
 export default loginSlice.reducer;
