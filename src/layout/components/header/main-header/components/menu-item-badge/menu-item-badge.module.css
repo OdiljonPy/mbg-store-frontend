@@ -1,47 +1,49 @@
 .menuItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1px;
-    text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	text-decoration: none;
 }
 
-.badge{
-    background: var(--green);
-    border-color: transparent;
+.badge {
+	background: var(--green);
+	border-color: transparent;
 }
 
-.icon{
-    position: relative;
+.icon {
+	position: relative;
 }
 
-.mobile_icon svg path{
-    fill: var(--middle-gray) !important;
-    width: 28px;
-    height: 28px;
+.mobile_icon svg path {
+	fill: var(--middle-gray) !important;
+	width: 28px;
+	height: 28px;
 }
 
-.mobile_icon svg path{
-    fill: var(--middle-gray) !important;
-    width: 28px;
-    height: 28px;
+.mobile_icon svg path {
+	fill: var(--middle-gray) !important;
+	width: 28px;
+	height: 28px;
 }
 
-.icon svg path{
-    transition: all .2s linear;
+.icon svg path {
+	transition: all 0.2s linear;
 }
 
-.active svg path,.menuItem:hover svg path{
-    fill: var(--green) !important;
+.active svg path,
+.menuItem:hover svg path {
+	fill: var(--green) !important;
 }
 
 .text {
-    color: var(--black);
-    font-weight: 500;
-    transition: all .2s linear;
-    font-size: 16px;
+	color: var(--black);
+	font-weight: 500;
+	transition: all 0.2s linear;
+	font-size: 16px;
 }
 
-.active .text, .menuItem:hover .text{
-    color: var(--green);
+.active .text,
+.menuItem:hover .text {
+	color: var(--green);
 }

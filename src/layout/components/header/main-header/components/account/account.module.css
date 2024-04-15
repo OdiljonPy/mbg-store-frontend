@@ -6,11 +6,33 @@
 	text-decoration: none;
 }
 
-.text {
-	font-weight: 600;
-	color: var(--black);
+.link:hover .text {
+	color: var(--green);
 }
 
-.mobile_icon.active path {
+.link:hover .icon path {
+	fill: var(--green);
+}
+
+.text {
+	font-weight: 500;
+	color: var(--black);
+	transition: all 0.2s linear;
+}
+
+.icon path {
+	fill: black;
+	transition: all 0.2s linear;
+}
+
+.mobile_icon path {
+	fill: #c2c2c2;
+}
+
+.link.active .text {
+	color: var(--green);
+}
+
+.link.active path {
 	fill: var(--green);
 }
