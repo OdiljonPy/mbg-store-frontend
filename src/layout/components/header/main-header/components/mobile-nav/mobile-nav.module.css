@@ -64,7 +64,7 @@
 		right: -200%;
 		background: #ffffff;
 		padding: 0 16px;
-		top: 126px;
+		top: 128px;
 		bottom: 0;
 		width: 100%;
 		transition: all 0.3s ease-in-out;
@@ -86,7 +86,7 @@
 	}
 
 	.drawer {
-		top: 99px;
+		top: 87px;
 	}
 
 	.line {
