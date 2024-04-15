@@ -1,0 +1,36 @@
+.error_order{
+    /*margin: 0 auto;*/
+    margin: 150px auto 100px auto;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+.error_title{
+    margin-top: 26px;
+    color:#232323;
+    font-size:30px;
+    font-weight: bold;
+}
+
+.error_description{
+    max-width: 476px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 14px;
+    color: #999999;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+@media (max-width: 575px){
+    .error_title{
+        margin-top: 0;
+        font-size: 14px;
+    }
+
+    .error_description{
+        margin-top: 4px;
+        font-weight: 500;
+        font-size: 12px;
+    }
+}

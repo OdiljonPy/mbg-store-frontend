@@ -177,6 +177,10 @@
 			"name_label": "Имя и фамилия",
 			"phone_label": "Номер телефона",
 			"name_placeholder": "Введите ваше имя"
+		},
+		"orders": {
+			"empty": "Корзина пуста",
+			"done" : "Заказ успешно удален"
 		}
 	},
 	"order_placed": {

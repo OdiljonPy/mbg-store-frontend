@@ -10,15 +10,19 @@ interface IRefreshResponse {
 }
 
 export const refreshUser = async () => {
-    const refreshToken = localStorage.getItem("refresh_token");
-    
+	const refresh = localStorage.getItem("refresh_token");
+
 	const response = await axios.post<IRefreshResponse>(
-		process.env.NEXT_PUBLIC_BASE_URL + "/auth/refresh/", refreshToken
+		process.env.NEXT_PUBLIC_BASE_URL + "/auth/refresh/",
+		{ refresh }
 	);
 
-    if (response.data.result) {
-        localStorage.setItem("access_token", response.data.result.access_token);
-        localStorage.setItem("refresh_token", response.data.result.refresh_token);
-    } 
+	if (response.data.result) {
+		localStorage.setItem("access_token", response.data.result.access_token);
+		localStorage.setItem(
+			"refresh_token",
+			response.data.result.refresh_token
+		);
+	}
 	return response.data;
 };
