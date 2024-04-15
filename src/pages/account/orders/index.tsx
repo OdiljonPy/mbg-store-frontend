@@ -3,11 +3,13 @@ import Wrapper from "@/components/pages/account/orders/wrapper";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
 import Head from "next/head";
+import useAuthCheck from "@/hooks/use-access-page";
 
 interface props {}
 
 const Orders = (props: props) => {
 	const t = useTranslations();
+	useAuthCheck(true)
 	return (
 		<>
 			<AccountLayout>

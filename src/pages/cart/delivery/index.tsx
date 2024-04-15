@@ -2,6 +2,7 @@ import {GetStaticProps} from "next";
 import Head from "next/head";
 import {useTranslations} from "next-intl";
 import dynamic from "next/dynamic";
+import useAuthCheck from "@/hooks/use-access-page";
 
 const ClientSideWrapper = dynamic(() => import('@/components/pages/cart/delivery/wrapper'),{
     ssr:false
@@ -13,6 +14,7 @@ interface props {
 
 const Index = (props: props) => {
     const t = useTranslations()
+    useAuthCheck(true)
     return (
         <>
             <Head>
