@@ -12,7 +12,7 @@ const Contents = ({basketSlices}: props) => {
 const {products,totalCountProduct} = basketSlices
     return (
         <div className={css.contents}>
-            {!totalCountProduct ? <CartEmpty/> :
+            {!totalCountProduct ? <CartEmpty text={'cart.orders.empty'}/> :
                 products.map((product)=> <Product basket={basketSlices} product={product} key={product.id}/>)
             }
 

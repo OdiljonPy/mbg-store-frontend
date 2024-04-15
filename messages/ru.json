@@ -178,6 +178,10 @@
 			"name_label": "Имя и фамилия",
 			"phone_label": "Номер телефона",
 			"name_placeholder": "Введите ваше имя"
+		},
+		"orders": {
+			"empty": "Savatcha bo'sh",
+			"done" : "Order muvaffaqiyatli o'chirildi"
 		}
 	},
 	"order_placed": {
