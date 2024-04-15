@@ -18,18 +18,18 @@ interface props {
 }
 
 const  Actions = ({setCount, count,product}: props) => {
-    const {id} = product
+    const {id,available} = product
     const dispatch = useDispatch<AppDispatch>()
 
     const t = useTranslations()
 
     const onDecrement = () => {
+        console.log(count,"count" , available, "avialib")
         if(count == 1){
             setCount((prev) => prev - 1)
             dispatch(removeProduct(id))
         }
         else if (count > 1) {
-            console.log(count,"inner count")
             setCount((prev) => prev - 1)
             dispatch(addProduct({quantity : -1,product}))
         }
