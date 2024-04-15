@@ -1,7 +1,10 @@
 import Button from "@/components/shared/button";
 import { useForm } from "react-hook-form";
 
-import { postShipping } from "@/slices/shipping/shippingSlice";
+import {
+	fetchShippingList,
+	postShipping,
+} from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { cn } from "@/utils/cn";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
@@ -35,11 +38,11 @@ function AddAddressMobileForm({ onClose }: Props) {
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onSubmit = (data: IAddressForm) => {
+	const onSubmit = async (data: IAddressForm) => {
 		const { apartment, entrance, floor, latitude, longitude, ...rest } =
 			data;
 
-		dispatch(
+		await dispatch(
 			postShipping({
 				apartment: Number(apartment),
 				entrance: Number(entrance),
@@ -48,7 +51,9 @@ function AddAddressMobileForm({ onClose }: Props) {
 				longitude: String(longitude),
 				...rest,
 			})
-		).then(() => onClose());
+		);
+		await dispatch(fetchShippingList());
+		onClose();
 	};
 
 	const address = form.watch("address");
