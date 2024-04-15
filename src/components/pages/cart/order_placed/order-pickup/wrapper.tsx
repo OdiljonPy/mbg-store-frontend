@@ -7,8 +7,9 @@ import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts
 import DetailPrice from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {fetchOrderLast} from "@/slices/order/lastOrderSlice";
+import OrderError from "@/components/pages/cart/order_placed/order-pickup/notification/error/OrderError";
 
 interface props {
 
@@ -17,6 +18,7 @@ interface props {
 const Wrapper = (props: props) => {
     const t = useTranslations()
     const dispatch = useDispatch<AppDispatch>()
+    const [err,setErr] = useState(false)
 
     useEffect(() => {
         dispatch(fetchOrderLast())
@@ -38,16 +40,21 @@ const Wrapper = (props: props) => {
                         label: t('header.order_placed')
                     }
                 ]}/>
-                <div className={css.status}>
-                    <Status status_text={"Ожидает оплаты"} status='warning'/>
-                </div>
-                <div className={css.wrapper}>
-                    <Content/>
-                    <div className={css.detail}>
-                        <DetailCart/>
-                        <DetailPrice isDeleteAction/>
+                {
+                    err ? <OrderError/> :  <div>
+                        <div className={css.status}>
+                            <Status status_text={"Ожидает оплаты"} status='warning'/>
+                        </div>
+                        <div className={css.wrapper}>
+                            <Content/>
+                            <div className={css.detail}>
+                                <DetailCart/>
+                                <DetailPrice isDeleteAction setErr={(err)=> setErr(err)}/>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                }
+
             </div>
         </section>
     );
