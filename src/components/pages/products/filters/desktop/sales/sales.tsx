@@ -29,9 +29,9 @@ const Sales = (props: props) => {
         }
         if (checked) {
             queries.onSales = 'true'
+            delete queries.sale
         } else {
             delete queries.onSales
-            delete queries.sale
         }
         push({
             pathname,

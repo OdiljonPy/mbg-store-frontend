@@ -50,7 +50,7 @@ const Wrapper = (props: props) => {
             min_price:Number(searchParams.get('prices')?.split(',')[0]),
             max_price:Number(searchParams.get('prices')?.split(',')[1]),
             rating:Number(searchParams.get('rating')),
-            discount:Number(searchParams.get('sales')),
+            discount:0,
             store: searchParams.get('stores')?.split(',').map((el) => Number(el)),
             free_shipping:searchParams.get('delivery')?.split(',').includes('1'),
             pickup:searchParams.get('delivery')?.split(',').includes('2'),
@@ -59,11 +59,9 @@ const Wrapper = (props: props) => {
             around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
             sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
         }
-        if(searchParams.get('onSales') === 'true' && !searchParams.get('sale')){
-            filterParams.discount = 0
-        }
-        else if(!searchParams.get('onSales')){
-            filterParams.discount = -1
+
+        if(searchParams.get('onSales') === 'true'){
+            filterParams.discount = 1
         }
         else filterParams.discount = Number(searchParams.get('sale'))
 
