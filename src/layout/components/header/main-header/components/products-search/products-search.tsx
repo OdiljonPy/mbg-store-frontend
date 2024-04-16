@@ -125,7 +125,7 @@ const ProductsSearch = (props: props) => {
                 }
             }}
         >
-            <Dropdown menu={{items}} trigger={['click']} >
+            <Dropdown menu={{items}} trigger={['hover']} >
                 <div className={`${css.search} ${focused ? css.focused : ""}`}>
                     <div className={css.inputWrapper}>
                         <input onChange={onChange} value={searchText} onFocus={onFocused} onBlur={onBlur}

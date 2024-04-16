@@ -18,7 +18,7 @@ const ProductResult = ({item,loading}: props) => {
 
     const queries: ParsedUrlQueryInput = {
         search: item.title,
-        sort: 'popular',
+        sort: searchParams.get('sort') ?? 'popular',
         filters: filters
     }
 
@@ -31,7 +31,7 @@ const ProductResult = ({item,loading}: props) => {
             query: queries
         }} shallow={true} className={css.item}>
             <span className={css.text}>
-                { loading ? <Skeleton count={1} height={'12px'} width={'170px'}/> :  item.title }
+                { loading ? <Skeleton count={1} height={'12px'} width={'190px'}/> :  item.title }
             </span>
         </Link>
     );

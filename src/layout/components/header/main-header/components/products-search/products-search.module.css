@@ -29,6 +29,7 @@
 	border: none;
 	min-width: 0;
 	outline: none;
+	width: 86%;
 }
 
 .icon {
@@ -99,5 +100,17 @@
 
 	.input {
 		padding: 0 14px;
+	}
+}
+
+@media (max-width: 500px){
+	.input{
+		width: 80%;
+	}
+}
+
+@media (max-width: 390px){
+	.input{
+		width: 70%;
 	}
 }

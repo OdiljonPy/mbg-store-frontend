@@ -10,7 +10,7 @@ import Header from "@/components/pages/products/wrapper/header/header";
 import Filters from "@/components/pages/products/filters/filters";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
-import {fetchProduct, filterProduct} from "@/slices/product/productSlices";
+import { filterProduct} from "@/slices/product/productSlices";
 import {useRouter} from "next/router";
 import {fetchCategory} from "@/slices/category/categorySlices";
 
@@ -23,7 +23,7 @@ interface props {
 const Wrapper = (props: props) => {
     const t = useTranslations()
     const searchParams = useSearchParams()
-    const {push, query} = useRouter()
+    const { query} = useRouter()
     const category: string | null = searchParams.get('category')
 
     const dispatch = useDispatch<AppDispatch>()
@@ -32,14 +32,6 @@ const Wrapper = (props: props) => {
     const diffFilters: string[] = ['filters', 'search', 'sort','category']
     const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
 
-
-
-    // search product
-    useEffect(() => {
-        if(searchParams.get('search') || searchParams.get('search') === ''){
-            dispatch(fetchProduct(searchParams.get('search')))
-        }
-    }, [searchParams.get('search')]);
 
 
     // filter product
