@@ -53,7 +53,7 @@ export const filterProduct = createAsyncThunk('product_filter', async (params: I
     if (params.available) data.available = true
     if (params.around_the_clock) data.around_the_clock = true
     const sort = params.sort ? params.sort : 'popular'
-    const response = await API.post<ICommonProductFilter>(`/store/products/filter/?sort=${sort}?page=${params.page || 1}&size=5`, data)
+    const response = await API.post<ICommonProductFilter>(`/store/products/filter/?sort=${sort}?page=${params.page || 1}&size=6`, data)
     return response.data
 
 })

@@ -13,7 +13,7 @@ import Pagination from "@/components/shared/pagination/pagination";
 interface props {
     products:IProductFilter
     loading:boolean
-    setPagePagination:(page:number)=>void
+    setPagePagination?:(page:number)=>void
 }
 
 const ProductList = ({products,loading,setPagePagination}: props) => {
@@ -40,7 +40,7 @@ const ProductList = ({products,loading,setPagePagination}: props) => {
                             }
                         </div>
                         <div className={css.pagination}>
-                            <Pagination content offset={number} page={totalPages} total={totalElements} setOffset={(page)=>setPagePagination(page)}/>
+                            <Pagination content offset={number} page={totalPages} total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
                         </div>
                     </div>
                     : <div className={css.no_data}>No Data</div>
