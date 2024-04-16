@@ -27,12 +27,20 @@ const Prices = (props: props) => {
 
 	const onChangeComplete = (value: number[]) => {
 		const [start, end] = value;
+		let min = start;
+		let max = end;
+		if (min < 1000 || max > 10000000 || max < min) {
+			min = 1000;
+			max = 10000000;
+			setPriceRange([1000, 10000000]);
+		}
+
 		push(
 			{
 				pathname,
 				query: {
 					...query,
-					prices: `${start},${end}`,
+					prices: `${min},${max}`,
 					changeFilter:
 						searchParams.get("changeFilter") === "true"
 							? "false"
