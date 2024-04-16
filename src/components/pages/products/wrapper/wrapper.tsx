@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import css from './wrapper.module.css'
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from 'next-intl';
@@ -26,6 +26,8 @@ const Wrapper = (props: props) => {
     const { query} = useRouter()
     const category: string | null = searchParams.get('category')
 
+    const [page,setPage] = useState(1)
+
     const dispatch = useDispatch<AppDispatch>()
     const {entities, loading} =  useSelector((state:RootState) => state.product)
 
@@ -49,7 +51,8 @@ const Wrapper = (props: props) => {
             comments:searchParams.get('withFeedback'),
             available:searchParams.get('accessibility')?.split(',').includes('1'),
             around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
-            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
+            sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular',
+            page:page
         }
         if(searchParams.get('onSales') === 'true'){
             filterParams.discount = 1
@@ -61,7 +64,7 @@ const Wrapper = (props: props) => {
             dispatch(filterProduct(filterParams))
         }
 
-        if(!activeFilters.length && (searchParams.get('sort') || searchParams.get('category') || searchParams.get('search') )){
+        if(!activeFilters.length && (page || searchParams.get('sort') || searchParams.get('category') || searchParams.get('search') )){
             dispatch(filterProduct(filterParams))
         }
 
@@ -71,12 +74,15 @@ const Wrapper = (props: props) => {
 
     useEffect(() => {
         fetchProductFilter()
-    }, [searchParams.get('changeFilter'),searchParams.get('sort'),searchParams.get('category'),searchParams.get('search')]);
+        console.log(page,"pagination page")
+    }, [page,searchParams.get('changeFilter'),searchParams.get('sort'),searchParams.get('category'),searchParams.get('search')]);
 
     // fetch category
     useEffect(() => {
         dispatch(fetchCategory({q:'',size:'40'}))
+        setPage(entities.number)
     }, []);
+
 
     return (
         <section className={css.results}>
@@ -96,7 +102,7 @@ const Wrapper = (props: props) => {
 
                 <div className={`${css.wrapper}`}>
                     <Filters />
-                    <ProductList products={entities} loading={loading}/>
+                    <ProductList products={entities} loading={loading} setPagePagination={(page)=> setPage(page)}/>
                 </div>
             </div>
         </section>

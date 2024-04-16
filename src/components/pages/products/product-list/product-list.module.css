@@ -35,6 +35,10 @@
     font-size: 28px;
 }
 
+.pagination{
+    margin-top: 60px;
+}
+
 
 @media (max-width: 1199px) {
     .short,.skeleton_short{
