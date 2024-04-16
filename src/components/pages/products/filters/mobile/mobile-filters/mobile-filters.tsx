@@ -63,7 +63,7 @@ const MobileFilters = ({}: props) => {
 			store: values.stores?.length
 				? values.stores.map((store) => Number(store))
 				: "",
-			discount: Number(values.sales),
+			discount: values.onSales ? 1 : Number(values.sales),
 			sort: searchParams.get("sort")
 				? searchParams.get("sort")
 				: "popular",

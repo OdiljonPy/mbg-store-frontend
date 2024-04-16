@@ -26,6 +26,9 @@ const Sales = (props: props) => {
 
 
     const onEnableSales = (checked: boolean) => {
+        if(checked){
+            setValue('sales', undefined)
+        }
         setValue('onSales', checked)
     }
     const onReset = () => {

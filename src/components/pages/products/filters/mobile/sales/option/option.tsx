@@ -24,7 +24,7 @@ const Option = ({item,onClose}: props) => {
         // const salesArr: string[] = sales ? sales : []
         // const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
         setValue('sales', value)
-        setValue('onSales', true)
+        setValue('onSales', false)
         onClose()
     }
 

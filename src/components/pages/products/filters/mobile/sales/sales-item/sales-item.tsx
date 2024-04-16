@@ -28,7 +28,7 @@ const SalesItem = ({item,boolName}: props) => {
     const onSetRating = () => {
         setValue('sales', id.toString())
         if(boolName){
-            setValue(boolName, true)
+            setValue(boolName, false )
         }
         // setValue('withFeedback', true)
     }
