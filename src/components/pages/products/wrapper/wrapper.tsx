@@ -69,20 +69,17 @@ const Wrapper = (props: props) => {
             dispatch(filterProduct(filterParams))
         }
 
-        if(!activeFilters.length && searchParams.get('sort')){
+        if(!activeFilters.length && (searchParams.get('sort') || searchParams.get('category') || searchParams.get('search') )){
             dispatch(filterProduct(filterParams))
         }
 
-        if(!activeFilters.length && searchParams.get('category')){
-            dispatch(filterProduct(filterParams))
-        }
     }
 
 
 
     useEffect(() => {
         fetchProductFilter()
-    }, [searchParams.get('changeFilter'),searchParams.get('sort'),searchParams.get('category')]);
+    }, [searchParams.get('changeFilter'),searchParams.get('sort'),searchParams.get('category'),searchParams.get('search')]);
 
     // fetch category
     useEffect(() => {

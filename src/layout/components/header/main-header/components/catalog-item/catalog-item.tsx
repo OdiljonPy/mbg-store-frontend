@@ -23,7 +23,7 @@ const CatalogItem = ({item}: props) => {
     const queries: ParsedUrlQueryInput = {
         category: title,
         category_id:id,
-        sort: 'popular',
+        sort: searchParams.get('sort') ?? 'popular',
         filters: filters
     }
 
