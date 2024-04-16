@@ -22,7 +22,7 @@ function OrdersEmpty() {
 			<p className={css.text}>{t("empty")}</p>
 			<Link
 				href={
-					"/products?filters=true&changeFilter=false&clear_filter=false&onSales=true&sale=1"
+					"/products?filters=true&changeFilter=false&onSales=true&sale=1"
 				}
 				className={css.link}
 			>

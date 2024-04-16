@@ -29,7 +29,7 @@ const Wrapper = (props: props) => {
     const dispatch = useDispatch<AppDispatch>()
     const {entities, loading} =  useSelector((state:RootState) => state.product)
 
-    const diffFilters: string[] = ['filters', 'search', 'sort','category',"clear_filter"]
+    const diffFilters: string[] = ['filters', 'search', 'sort','category']
     const activeFilters = Object.keys(query).filter((item) => !diffFilters.includes(item))
 
 
@@ -59,17 +59,21 @@ const Wrapper = (props: props) => {
             around_the_clock:searchParams.get('accessibility')?.split(',').includes('2'),
             sort:searchParams.get('sort') ? searchParams.get('sort') : 'popular'
         }
-
         if(searchParams.get('onSales') === 'true'){
             filterParams.discount = 1
         }
         else filterParams.discount = Number(searchParams.get('sale'))
 
 
-        if(activeFilters.length || (!activeFilters.length && searchParams.get('clear_filter') === 'true')){
+        if(activeFilters.length){
             dispatch(filterProduct(filterParams))
         }
-        if(!activeFilters.length && !searchParams.get('clear_filter') && searchParams.get('sort')){
+
+        if(!activeFilters.length && searchParams.get('sort')){
+            dispatch(filterProduct(filterParams))
+        }
+
+        if(!activeFilters.length && searchParams.get('category')){
             dispatch(filterProduct(filterParams))
         }
     }
@@ -78,7 +82,8 @@ const Wrapper = (props: props) => {
 
     useEffect(() => {
         fetchProductFilter()
-    }, [searchParams.get('changeFilter'),searchParams.get('sort')]);
+    }, [searchParams.get('changeFilter'),searchParams.get('sort'),searchParams.get('category')]);
+
     // fetch category
     useEffect(() => {
         dispatch(fetchCategory({q:'',size:'40'}))

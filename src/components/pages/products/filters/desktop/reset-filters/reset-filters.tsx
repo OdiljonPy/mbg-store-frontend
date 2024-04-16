@@ -8,7 +8,7 @@ interface props {
 
 }
 
-const diffFilters: string[] = ['filters', 'changeFilter', 'search', 'sort','category_id','clear_filter','hasDelivery']
+const diffFilters: string[] = ['filters', 'changeFilter', 'search', 'sort','category_id','hasDelivery']
 
 const ResetFilters = (props: props) => {
     const t = useTranslations()
@@ -25,7 +25,6 @@ const ResetFilters = (props: props) => {
                 pathname,
                 query:{
                     ...query,
-                    clear_filter:false
                 }
             })
         }
@@ -34,7 +33,7 @@ const ResetFilters = (props: props) => {
         pathname, query: {
             filters: filters,
             sort: 'popular',
-            clear_filter:true
+            changeFilter : searchParams.get('changeFilter') === 'true' ? 'false' : 'true'
         }
     }, undefined, {
         scroll: false
