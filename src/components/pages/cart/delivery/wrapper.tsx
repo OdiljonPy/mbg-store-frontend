@@ -10,7 +10,6 @@ import {AppDispatch, RootState} from "@/store";
 import {createOrder} from "@/slices/order/ordersSlice";
 import {useRouter} from "next/router";
 import {useToasts} from "react-toast-notifications";
-import deletePromocode from "@/components/pages/cart/common/delete-promocode/delete-promocode";
 import {deletePromoCode} from "@/slices/basket/basketSlice";
 
 interface props {
