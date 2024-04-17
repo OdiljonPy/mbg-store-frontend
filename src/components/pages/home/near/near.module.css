@@ -1,3 +1,17 @@
+.near {
+	margin-bottom: 60px;
+}
+
+.wrapper {
+	margin-top: 20px;
+}
+
+.background_products {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+}
+
 .wrapperOuter {
 	position: relative;
 }
@@ -27,4 +41,18 @@
 	margin-bottom: 23px;
 	font-size: 18px;
 	text-align: center;
+}
+
+.skeleton_cointainer {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+	overflow: hidden;
+}
+
+.skeleton {
+	height: 350px;
+	min-width: 160px;
+	max-width: 400px;
+	width: 100%;
 }

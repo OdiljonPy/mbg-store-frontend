@@ -1,12 +1,18 @@
-import React from "react";
-import css from "./top-header.module.css";
-import { Flex } from "antd";
-import AddressSelect from "@/layout/components/header/top-header/components/address-select/address-select";
 import Nav from "@/layout/components/header/top-header/components/nav/nav";
+import dynamic from "next/dynamic";
+import css from "./top-header.module.css";
 
-interface props {}
+const AddressSelect = dynamic(
+	() =>
+		import(
+			"@/layout/components/header/top-header/components/address-select/address-select"
+		),
+	{
+		ssr: false,
+	}
+);
 
-const TopHeader = (props: props) => {
+const TopHeader = () => {
 	return (
 		<div className={css.header}>
 			<div className={"container"}>

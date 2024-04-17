@@ -1,31 +1,47 @@
 import { raleway } from "@/constants/fonts/fonts";
+import { fetchShippingList } from "@/slices/shipping/shippingSlice";
+import { AppDispatch, RootState } from "@/store";
 import { ConfigProvider, Dropdown, MenuProps } from "antd";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import AddressFormModal from "../address-form-modal/address-form-modal";
+import AddressItem from "./address-item";
 import css from "./address-select.module.css";
+import ShippingItem from "./shipping-item";
 
-const AddressFormModal = dynamic(
-	() =>
-		import(
-			"@/layout/components/header/top-header/components/address-form-modal/address-form-modal"
-		),
-	{
-		ssr: false,
-	}
-);
-interface props {}
+const AddressSelect = () => {
+	const { address_list } = useSelector((state: RootState) => state.address);
+	const { shippingList, loading, error } = useSelector(
+		(state: RootState) => state.shippingList
+	);
 
-const AddressSelect = (props: props) => {
-	const [address, setAddress] = useState<string | null>("");
+	const active_address = address_list.find((item) => item.is_default);
+
+	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
-		setAddress(localStorage.getItem("address") || null);
-	}, []);
+		dispatch(fetchShippingList());
+	}, [dispatch]);
 
 	const items: MenuProps["items"] = [
 		{
 			label: <AddressFormModal />,
 			key: "1",
+		},
+		...address_list.map((item) => ({
+			label: <AddressItem address_item={item} />,
+			key: item.latitude + item.longitude,
+		})),
+		{
+			key: 2,
+			label: "Сохраненные",
+			type: "group",
+			children: [
+				...shippingList.map((item) => ({
+					label: <ShippingItem shipping_item={item} />,
+					key: item.latitude + item.longitude,
+				})),
+			],
 		},
 	];
 
@@ -38,8 +54,9 @@ const AddressSelect = (props: props) => {
 			}}
 		>
 			<Dropdown
-				menu={{ items }}
+				menu={{ items, style: { borderRadius: 16, maxWidth: 350 } }}
 				trigger={["click"]}
+				className={css.dropdown}
 			>
 				<button className={`${css.btn} ${raleway.className}`}>
 					<svg
@@ -57,7 +74,9 @@ const AddressSelect = (props: props) => {
 					</svg>
 
 					<span className={css.text}>
-						{address ? address : "Укажите адрес"}
+						{active_address
+							? active_address.title
+							: "Укажите адрес"}
 					</span>
 				</button>
 			</Dropdown>

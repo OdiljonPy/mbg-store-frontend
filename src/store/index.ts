@@ -11,6 +11,7 @@ import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
 import aboutSlice from "@/slices/base/about/aboutSlice";
 import bannerSlice from "@/slices/base/banner/bannerSlice";
+import faqSlice from "@/slices/base/faq/faqSlice";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
@@ -24,6 +25,7 @@ import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productSingleSlices from "@/slices/product/productSingleSlices";
 import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
 import supportSlice from "@/slices/support/supportSlice";
+import addressSlice from "../slices/address/addressSlice";
 import loginSlice from "../slices/auth/login";
 import signUpUserSlice from "../slices/auth/signup";
 import verifyUserSlice from "../slices/auth/verify";
@@ -31,7 +33,7 @@ import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
-import faqSlice from "@/slices/base/faq/faqSlice";
+import productLocationSlice from "@/slices/product/productLocationSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -49,10 +51,16 @@ const userPersistConfig = {
 	storage,
 };
 
+const addressPersistConfig = {
+	key: "address",
+	storage,
+};
+
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
 	user: persistReducer(userPersistConfig, userSlice),
+	address: persistReducer(addressPersistConfig, addressSlice),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,
@@ -75,7 +83,7 @@ const rootReducers = combineReducers({
 	about: aboutSlice,
 	banner: bannerSlice,
 	faq: faqSlice,
-	// address: addressSlice,
+	product_near: productLocationSlice,
 });
 
 export const makeStore = () => {
