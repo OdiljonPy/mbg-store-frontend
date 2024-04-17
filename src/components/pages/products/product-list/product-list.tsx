@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import css from './product-list.module.css'
 import Product from "@/components/shared/product/product";
 import {useSearchParams} from "next/navigation";
@@ -14,10 +14,11 @@ interface props {
     products:IProductFilter
     loading:boolean
     setPagePagination?:(page:number)=>void
+    offset?:number
 }
 
-const ProductList = ({products,loading,setPagePagination}: props) => {
-    const {totalElements,totalPages,number} = products
+const ProductList = ({products,loading,setPagePagination,offset}: props) => {
+    const {totalElements,size} = products
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
     const {isReady} = useRouter()
@@ -41,7 +42,7 @@ const ProductList = ({products,loading,setPagePagination}: props) => {
                    }
                </div>
                <div className={css.pagination}>
-                   <Pagination content offset={1} page={23} total={12} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
+                   <Pagination content limit={12} offset={offset?offset:12}  total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
                </div>
            </div>
         </>

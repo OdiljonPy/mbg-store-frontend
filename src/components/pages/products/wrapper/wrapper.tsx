@@ -13,7 +13,6 @@ import {AppDispatch, RootState} from "@/store";
 import { filterProduct} from "@/slices/product/productSlices";
 import {useRouter} from "next/router";
 import {fetchCategory} from "@/slices/category/categorySlices";
-import Pagination from "@/components/shared/pagination/pagination";
 
 
 
@@ -27,7 +26,7 @@ const Wrapper = (props: props) => {
     const { query} = useRouter()
     const category: string | null = searchParams.get('category')
 
-    const [page,setPage] = useState(1)
+    const [page,setPage] = useState(12)
 
     const dispatch = useDispatch<AppDispatch>()
     const {entities, loading} =  useSelector((state:RootState) => state.product)
@@ -81,7 +80,6 @@ const Wrapper = (props: props) => {
     // fetch category
     useEffect(() => {
         dispatch(fetchCategory({q:'',size:'40'}))
-        setPage(entities.number)
     }, []);
 
 
@@ -103,7 +101,7 @@ const Wrapper = (props: props) => {
 
                 <div className={`${css.wrapper}`}>
                     <Filters />
-                    <ProductList products={entities} loading={loading} setPagePagination={(page)=> setPage(page)}/>
+                    <ProductList products={entities} loading={loading} offset={page} setPagePagination={(page)=> setPage(page)}/>
                 </div>
             </div>
         </section>
