@@ -60,3 +60,7 @@ export interface IProduct {
 	seller?: string;
 	amount_type?: string;
 }
+
+export interface IProductsWithPagination extends IPagination {
+	content: IProduct[];
+}

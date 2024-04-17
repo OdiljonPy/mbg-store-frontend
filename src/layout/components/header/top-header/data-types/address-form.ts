@@ -1,8 +1,9 @@
 export interface IAddressForm {
-    address: string,
-    title:string
+	title: string;
+	latitude: number;
+	longitude: number;
 }
 
-export  interface IAddressFormObtaining {
-    address: string
+export interface IAddressFormObtaining {
+	address: string;
 }

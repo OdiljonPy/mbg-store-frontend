@@ -1,11 +1,14 @@
 import Button from "@/components/shared/button";
 import CloseModal from "@/components/shared/close-modal/close-modal";
 import { IAddressForm } from "@/layout/components/header/top-header/data-types/address-form";
+import { addAddress } from "@/slices/address/addressSlice";
+import { AppDispatch } from "@/store";
 import { Modal } from "antd";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import css from "./address-form-modal.module.css";
 
 const AddressInner = dynamic(
@@ -37,9 +40,11 @@ const AddressFormModal = (props: props) => {
 		methods.reset();
 	};
 
+	const dispatch = useDispatch<AppDispatch>();
+
 	const onSubmit = (values: IAddressForm) => {
-		localStorage.setItem("address", values.address);
-		window.location.reload();
+		dispatch(addAddress({ is_default: true, ...values }));
+		onClose();
 	};
 
 	return (
