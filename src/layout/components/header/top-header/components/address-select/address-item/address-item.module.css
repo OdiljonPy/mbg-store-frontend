@@ -1,0 +1,8 @@
+.wrapper {
+	display: flex;
+}
+
+.label {
+	margin-left: 2px;
+	flex: 1 1 0;
+}

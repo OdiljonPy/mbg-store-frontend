@@ -8,3 +8,10 @@ export interface IAddressForm {
 	longitude: number;
 	main_address: boolean;
 }
+
+export interface ILocationForm {
+	is_default: boolean;
+	address: string;
+	latitude: number;
+	longitude: number;
+}

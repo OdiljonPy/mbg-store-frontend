@@ -10,26 +10,24 @@ import NearDialog from "./near-dialog";
 import css from "./near.module.css";
 
 const Near = () => {
-	const { address_list } = useSelector((state: RootState) => state.address);
+	const { main_address } = useSelector((state: RootState) => state.address);
 
 	const { data } = useSelector((state: RootState) => state.product_near);
 
 	const dispatch = useDispatch<AppDispatch>();
 
-	const isAddress = address_list.length > 0;
+	const isAddress = !!main_address.address;
 
 	useEffect(() => {
-		const mainAddress = address_list.find((address) => address.is_default);
-
-		if (isAddress && mainAddress) {
+		if (main_address.address) {
 			dispatch(
 				fetchNearestProducts({
-					latitude: mainAddress.latitude,
-					longitude: mainAddress.longitude,
+					latitude: main_address.latitude,
+					longitude: main_address.longitude,
 				})
 			);
 		}
-	}, [address_list, dispatch, isAddress]);
+	}, [dispatch, main_address, main_address.address]);
 
 	return (
 		<section className={css.near}>
@@ -40,9 +38,7 @@ const Near = () => {
 						count: data.content?.length,
 					}}
 				/>
-				<div className={cn(css.wrapperOuter, css.wrapper)}>
-					{isAddress ? <ProductList /> : <NearDialog />}
-				</div>
+				<div className={cn(css.wrapperOuter, css.wrapper)}>{isAddress ? <ProductList /> : <NearDialog />}</div>
 			</div>
 		</section>
 	);

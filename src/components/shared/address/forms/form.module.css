@@ -23,6 +23,10 @@
 	line-height: 23px;
 }
 
+.left_body {
+	flex: 1 1 0;
+}
+
 .form_right {
 	padding: 6px;
 	flex: 1 1 0%;
@@ -31,4 +35,6 @@
 .footer {
 	display: flex;
 	gap: 14px;
+	flex: 1 1 0;
+	align-items: flex-end;
 }

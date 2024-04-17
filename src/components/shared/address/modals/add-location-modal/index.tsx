@@ -1,15 +1,15 @@
-import { useModal } from "@/hooks/use-modal";
-
 import Modal from "@/components/shared/modal";
+import { useModal } from "@/hooks/use-modal";
 import { cn } from "@/utils/cn";
+import React from "react";
 
-import AddAddressForm from "../../forms/add-address-form";
-import AddAddressMobileForm from "../../mobile-forms/add-address-mobile-form";
-import css from "./add-address-modal.module.css";
+import AddLocationForm from "../../forms/add-location-form";
+import AddLocationMobileForm from "../../mobile-forms/add-location-mobile-form";
+import css from "./add-location-modal.module.css";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
-function AddNewAddressModal({ children, className, ...props }: Props) {
+function AddLocationModal({ children, className, ...props }: Props) {
 	const { onClose, onOpen, open } = useModal();
 	return (
 		<>
@@ -25,11 +25,11 @@ function AddNewAddressModal({ children, className, ...props }: Props) {
 					body: css.modal_body,
 				}}
 			>
-				<AddAddressForm onClose={onClose} />
-				<AddAddressMobileForm onClose={onClose} />
+				<AddLocationForm onClose={onClose} />
+				<AddLocationMobileForm onClose={onClose} />
 			</Modal>
 		</>
 	);
 }
 
-export default AddNewAddressModal;
+export default AddLocationModal;

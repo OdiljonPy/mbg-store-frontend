@@ -1,33 +1,41 @@
 import CustomRadio from "@/components/shared/custom-radio/custom-radio";
 import { IAddress } from "@/data-types/address/address";
-import { toggleDefaultAddress } from "@/slices/address/addressSlice";
+import { changeDefaultAddress } from "@/slices/address/addressSlice";
 import { AppDispatch } from "@/store";
 import { useDispatch } from "react-redux";
 
+import css from "./address-item.module.css";
+
 interface Props {
 	address_item: IAddress;
+	main_address: string;
 }
-function AddressItem({ address_item }: Props) {
+function AddressItem({ main_address, address_item }: Props) {
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onChangeHandler = () => {
-		dispatch(toggleDefaultAddress(address_item.title));
+		dispatch(changeDefaultAddress(address_item));
+		console.log(address_item.address);
 	};
 
 	return (
-		<div>
+		<div className={css.wrapper}>
 			<CustomRadio
 				radio={{
 					key: String(address_item.latitude + address_item.longitude),
 					name: "address",
-					title: address_item.title,
+					title: "",
 				}}
 				options={{
-					checked: address_item.is_default,
+					checked: address_item.address === main_address,
 					disabled: false,
 					onChange: onChangeHandler,
 				}}
-			/>
+			>
+				<div className={css.label}>
+					<p>{address_item.address}</p>
+				</div>
+			</CustomRadio>
 		</div>
 	);
 }

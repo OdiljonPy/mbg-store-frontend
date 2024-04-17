@@ -1,6 +1,5 @@
 export interface IAddress {
-	is_default: boolean;
-	title: string;
+	address: string;
 	latitude: number;
 	longitude: number;
 }
