@@ -26,27 +26,27 @@ const ProductList = ({products,loading,setPagePagination}: props) => {
     if (!isReady) return
     return (
         <>
-            {
-                products.content?.length ?
-                    <div>
-                        <div className={`${css.list} ${isOpened ? css.short: ''}`}>
-                            {
-                                loading ? <SkeletonWrapper/> :
-                                    products?.content?.map((product)=>{
-                                        return (
-                                            <Product product={product} isNotSwiper key={product.id} />
-                                        )
-                                    })
-                            }
-                        </div>
-                        <div className={css.pagination}>
-                            <Pagination content offset={number} page={totalPages} total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
-                        </div>
-                    </div>
-                    : <div className={css.no_data}>No Data</div>
-            }
+           <div className={`${css.product_list} ${isOpened ? css.short: ''}`}>
+               <div className={`${css.list} ${isOpened ? css.short: ''}`}>
+                   {
+                       loading ? <SkeletonWrapper/> :
+                           products?.content?.map((product)=>{
+                               return (
+                                   <Product product={product} isNotSwiper key={product.id} />
+                               )
+                           })
+                   }
+                   {
+                       !products.content?.length ? <div className={css.no_data}>No Data</div>:''
+                   }
+               </div>
+               <div className={css.pagination}>
+                   <Pagination content offset={1} page={23} total={12} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
+               </div>
+           </div>
         </>
     );
 };
 
 export default ProductList;
+

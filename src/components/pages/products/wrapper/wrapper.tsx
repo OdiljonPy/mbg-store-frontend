@@ -13,6 +13,7 @@ import {AppDispatch, RootState} from "@/store";
 import { filterProduct} from "@/slices/product/productSlices";
 import {useRouter} from "next/router";
 import {fetchCategory} from "@/slices/category/categorySlices";
+import Pagination from "@/components/shared/pagination/pagination";
 
 
 
