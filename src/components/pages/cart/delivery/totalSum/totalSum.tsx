@@ -26,7 +26,6 @@ const TotalSum = ({}:props) =>{
 
     const fullName = watch('full_name')
     const phoneNumber = watch('phone_number')
-    const discount = watch("promocode")
     const checkPhone = phoneNumber ? phoneNumber.length : 0
 
     const throwOrder = () =>{
@@ -43,7 +42,6 @@ const TotalSum = ({}:props) =>{
         }
     }
     useEffect(() => {
-        console.log("change promo code")
         setValue('promocode',promo_code.promocode)
     }, [promo_code.promocode]);
     return(
