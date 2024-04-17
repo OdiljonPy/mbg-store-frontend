@@ -2332,6 +2332,11 @@ next-intl@^3.5.3:
     negotiator "^0.6.3"
     use-intl "^3.5.3"
 
+next-yandex-metrica@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/next-yandex-metrica/-/next-yandex-metrica-1.1.2.tgz#cf07c7b0c6997ccb5a1027e69a8490dbdfbf9db5"
+  integrity sha512-gHlf3qTFY1PMyk/hqLwKKGkIs5XUa+ALQQb2xcTLR9PKxoD35O5eCzR34LRwgCtdMyHunQ1VSyn33E1l9AOWDA==
+
 next@^13.5.6:
   version "13.5.6"
   resolved "https://registry.npmjs.org/next/-/next-13.5.6.tgz"
