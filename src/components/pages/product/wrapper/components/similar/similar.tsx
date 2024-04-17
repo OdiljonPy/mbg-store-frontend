@@ -19,9 +19,15 @@ const Similar = ({similar,loading}: props) => {
 
     useEffect(() => {
         const slider = instanceRef.current
+        setTimeout(()=>{
+            return ()=>{
+                slider?.update()
+            }
+        },1000)
         return ()=>{
             slider?.update()
         }
+
     }, [instanceRef,similar]);
     return (
         <section className={css.sales}>
