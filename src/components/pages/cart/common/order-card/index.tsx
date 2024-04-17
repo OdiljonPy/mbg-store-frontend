@@ -6,8 +6,9 @@ import Price from "@/components/pages/cart/common/order-card/components/price/in
 import {IProduct} from "@/data-types/products/common";
 interface props{
     product:IProduct
+    orderQuantity?:number
 }
-const OrderCart = ({product}:props) =>{
+const OrderCart = ({product,orderQuantity}:props) =>{
     const t = useTranslations()
     const { images, name,amount_type,store,price,discount_price,discount,count} = product
     return(
@@ -28,7 +29,7 @@ const OrderCart = ({product}:props) =>{
                 </div>
                 <div className={css.info_right}>
                         <Price discount={discount} price={price} discount_price={discount_price} count={count ? count : 1}/>
-                    <p className={css.count}>кол-во: <span className={css.count_value}>{count}</span></p>
+                    <p className={css.count}>кол-во: <span className={css.count_value}>{orderQuantity? orderQuantity : count}</span></p>
                 </div>
             </div>
         </div>

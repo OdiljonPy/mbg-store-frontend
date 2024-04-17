@@ -5,8 +5,8 @@ import Content from "@/components/pages/cart/order_placed/order-delivery/content
 import Status from "@/components/pages/cart/order_placed/common/order-status/status";
 import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart";
 import DetailPrice from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price";
-import {useDispatch, useSelector} from "react-redux";
-import {AppDispatch, RootState} from "@/store";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
 import {useEffect} from "react";
 import {fetchOrderLast} from "@/slices/order/lastOrderSlice";
 interface props {

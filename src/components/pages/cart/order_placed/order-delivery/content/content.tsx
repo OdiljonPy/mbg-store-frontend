@@ -7,14 +7,13 @@ interface props{
 
 }
 const Content = (props:props) =>{
-    const {products,totalCountProduct} = useSelector((state:RootState) => state.basket)
     const {last_order} = useSelector((state:RootState)=> state.last_order)
-    const {delivery_address} = last_order
+    const {delivery_address,order_items} = last_order
     return(
         <div className={css.content}>
             <h2 className={css.title}>Способ получения</h2>
             <Address address={delivery_address}/>
-            <OrderItems products={products} totalCountProduct={totalCountProduct}/>
+            <OrderItems products={order_items} totalCountProduct={order_items.length}/>
         </div>
     )
 }

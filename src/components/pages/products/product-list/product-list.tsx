@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import css from './product-list.module.css'
 import Product from "@/components/shared/product/product";
 import {useSearchParams} from "next/navigation";
@@ -14,10 +14,11 @@ interface props {
     products:IProductFilter
     loading:boolean
     setPagePagination?:(page:number)=>void
+    offset?:number
 }
 
-const ProductList = ({products,loading,setPagePagination}: props) => {
-    const {totalElements,totalPages,number} = products
+const ProductList = ({products,loading,setPagePagination,offset}: props) => {
+    const {totalElements,size} = products
     const searchParams = useSearchParams()
     const isOpened: string | null = searchParams.get('filters')
     const {isReady} = useRouter()
@@ -26,27 +27,27 @@ const ProductList = ({products,loading,setPagePagination}: props) => {
     if (!isReady) return
     return (
         <>
-            {
-                products.content?.length ?
-                    <div>
-                        <div className={`${css.list} ${isOpened ? css.short: ''}`}>
-                            {
-                                loading ? <SkeletonWrapper/> :
-                                    products?.content?.map((product)=>{
-                                        return (
-                                            <Product product={product} isNotSwiper key={product.id} />
-                                        )
-                                    })
-                            }
-                        </div>
-                        <div className={css.pagination}>
-                            <Pagination content offset={number} page={totalPages} total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
-                        </div>
-                    </div>
-                    : <div className={css.no_data}>No Data</div>
-            }
+           <div className={`${css.product_list} ${isOpened ? css.short: ''}`}>
+               <div className={`${css.list} ${isOpened ? css.short: ''}`}>
+                   {
+                       loading ? <SkeletonWrapper/> :
+                           products?.content?.map((product)=>{
+                               return (
+                                   <Product product={product} isNotSwiper key={product.id} />
+                               )
+                           })
+                   }
+                   {
+                       !products.content?.length ? <div className={css.no_data}>No Data</div>:''
+                   }
+               </div>
+               <div className={css.pagination}>
+                   <Pagination content limit={12} offset={offset?offset:12}  total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
+               </div>
+           </div>
         </>
     );
 };
 
 export default ProductList;
+

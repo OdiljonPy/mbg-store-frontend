@@ -88,10 +88,17 @@ const basketSlices = createSlice({
         deletePromoCode:((state)=>{
             state.promo_code.discount = 0
             state.promo_code.promocode = ""
+        }),
+
+        clearBasket:((state)=>{
+            state.products = []
+            state.totalCountProduct = 0
         })
+
+
     },
 
 })
 
-export const {addProduct , removeProduct,calcPrices,promo_code,setProducts,deletePromoCode} = basketSlices.actions
+export const {addProduct , removeProduct,calcPrices,promo_code,setProducts,deletePromoCode,clearBasket} = basketSlices.actions
 export default basketSlices.reducer

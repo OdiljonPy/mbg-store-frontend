@@ -10,7 +10,7 @@ import {AppDispatch, RootState} from "@/store";
 import {createOrder} from "@/slices/order/ordersSlice";
 import {useRouter} from "next/router";
 import {useToasts} from "react-toast-notifications";
-import {deletePromoCode} from "@/slices/basket/basketSlice";
+import {clearBasket, deletePromoCode} from "@/slices/basket/basketSlice";
 
 interface props {
 
@@ -35,6 +35,7 @@ const Wrapper = (props: props) => {
                 })
                 if(res.ok){
                     dispatch(deletePromoCode())
+                    dispatch(clearBasket())
                     if(router.query?.type){
                         if(router.query.type === 'delivery')  router.push("/cart/order-delivery").then(r => true)
                         else router.push("/cart/order-pickup").then(r => true)
