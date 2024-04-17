@@ -9,6 +9,7 @@ interface props {
 }
 
 const AddToFav = ({ product }: props) => {
+	const {count ,...others} = product
 	const {favourites} = useSelector((state: RootState) => state.favorites);
 	const dispatch = useDispatch<AppDispatch>();
 
@@ -16,7 +17,7 @@ const AddToFav = ({ product }: props) => {
 		return item.id === product.id;
 	}):false;
 	const onAdd = () => {
-		dispatch(toggleFavorite(product));
+		dispatch(toggleFavorite(others));
 	};
 	return (
 		<button className={css.btn} onClick={onAdd}>
