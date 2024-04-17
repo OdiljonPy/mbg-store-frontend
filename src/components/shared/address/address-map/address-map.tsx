@@ -13,7 +13,7 @@ interface Props {
 }
 
 function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
-	const state: ymaps.IMapState = {
+	const defaultState: ymaps.IMapState = {
 		center: [
 			Number(form.watch("latitude")),
 			Number(form.watch("longitude")),
@@ -22,10 +22,9 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 	};
 
 	const handleBoundsChange = (e: any) => {
-		const newCoords = e.originalEvent.newCenter;
-		mapConstructor?.geocode(newCoords).then((res: any) => {
+		const [x, y] = e.originalEvent.newCenter;
+		mapConstructor?.geocode([x, y]).then((res: any) => {
 			const nearest = res.geoObjects.get(0);
-			const [x, y] = nearest.geometry.getCoordinates();
 			const address = nearest.properties.get("text");
 			form.setValue("latitude", x);
 			form.setValue("longitude", y);
@@ -35,12 +34,11 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 
 	return (
 		<Map
-			modules={["geocode", "geolocation", "SuggestView", "suggest"]}
 			defaultOptions={{
 				suppressMapOpenBlock: true,
 				copyrightLogoVisible: false,
 			}}
-			state={state}
+			defaultState={defaultState}
 			className={css.map}
 			onLoad={setMapConstructor}
 			onBoundsChange={handleBoundsChange}
