@@ -3,6 +3,8 @@
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
+    max-width: 912px;
+    overflow: hidden;
 }
 
 .info, .header, .point , .images{
@@ -11,12 +13,12 @@
 }
 
 .header {
-
     justify-content: space-between;
 }
 
 .name, .date {
     font-size: 18px;
+
 }
 
 .name {

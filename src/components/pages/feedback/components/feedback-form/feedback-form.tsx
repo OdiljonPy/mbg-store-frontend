@@ -19,6 +19,11 @@ import SuccessfulModal from '@/components/pages/feedback/components/successful-m
 import Skeleton from "react-loading-skeleton";
 import {toNumber} from "@vue/shared";
 import API from "@/utils/axios/axios";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {openLoginModal} from "@/slices/auth/login";
+import {useToasts} from "react-toast-notifications";
+import {useRouter} from "next/router";
 
 
 interface props {
@@ -29,8 +34,11 @@ interface props {
 
 const FeedbackForm = ({info,loading}: props) => {
     const t = useTranslations()
+    const dispatch = useDispatch<AppDispatch>()
     const [open, setOpen] = useState<boolean>(false)
+    const router = useRouter()
 
+    const {addToast} = useToasts()
     const {resetField, clearErrors, handleSubmit, watch, register, formState: {errors}, control, setValue} = useForm<IFeedbackForm>({
         mode: 'all'
     })
@@ -61,27 +69,41 @@ const FeedbackForm = ({info,loading}: props) => {
             data.append('name',values.name)
         }
 
-        try{
-            const res = await API.post('/store/comment/',data)
-            console.log(res)
-            if(res.data.ok){
-                setOpen(true)
-                resetField('name')
-                resetField('message')
-                resetField('rate')
-                remove([...formImages.map((img,idx)=> idx)])
+        const token = localStorage.getItem('access_token');
+        if(token){
+            try{
+                const res = await API.post('/store/comment/',data)
+                console.log(res)
+                if(res.data.ok){
+                    setOpen(true)
+                    resetField('name')
+                    resetField('message')
+                    resetField('rate')
+                    remove([...formImages.map((img,idx)=> idx)])
+                }
+            }
+            catch(err){
+                // @ts-ignore
+                addToast(err.message,{
+                    appearance: 'error',
+                    autoDismiss: true,
+                })
             }
         }
-        catch(err){
-            console.log(err,"err")
-            alert(err)
+        else{
+            dispatch(openLoginModal())
         }
+
+
     }
+
+
 
     // for modal
 
     const closeModal = () =>{
         setOpen(false)
+        router.back()
     }
 
     return (

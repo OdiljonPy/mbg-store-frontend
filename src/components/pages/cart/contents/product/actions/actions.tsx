@@ -37,7 +37,6 @@ const  Actions = ({setCount, count,product}: props) => {
         }
     }
     const onIncrement = () => {
-        console.log(count,"count" , available, "avialib")
         if(count < available){
             setCount((prev) => prev + 1)
             dispatch(addProduct({quantity: 1,product}))
