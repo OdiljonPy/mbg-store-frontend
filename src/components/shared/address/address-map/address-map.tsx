@@ -1,5 +1,5 @@
 import { Map } from "@pbe/react-yandex-maps";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { UseFormReturn } from "react-hook-form";
@@ -10,9 +10,15 @@ interface Props {
 	form: UseFormReturn<IAddressForm>;
 	mapConstructor?: YMapsApi;
 	setMapConstructor: Dispatch<SetStateAction<YMapsApi | undefined>>;
+	mapRef: MutableRefObject<ymaps.Map | undefined>;
 }
 
-function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
+function AddressMap({
+	form,
+	mapConstructor,
+	setMapConstructor,
+	mapRef,
+}: Props) {
 	const defaultState: ymaps.IMapState = {
 		center: [
 			Number(form.watch("latitude")),
@@ -23,25 +29,28 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 
 	const handleBoundsChange = (e: any) => {
 		const [x, y] = e.originalEvent.newCenter;
-		mapConstructor?.geocode([x, y]).then((res: any) => {
-			const nearest = res.geoObjects.get(0);
-			const address = nearest.properties.get("text");
-			form.setValue("latitude", x);
-			form.setValue("longitude", y);
-			form.setValue("address", address);
-		});
+		mapConstructor?.geocode([x, y]).then(
+			(res) => {
+				const nearest = res.geoObjects.get(0);
+				const address = nearest.properties.get("text", {});
+				form.setValue("latitude", x);
+				form.setValue("longitude", y);
+				form.setValue("address", address as unknown as string);
+			},
+			(error) => {
+				console.error("Error occurred during geocoding:", error);
+			}
+		);
 	};
 
 	return (
 		<Map
-			defaultOptions={{
-				suppressMapOpenBlock: true,
-				copyrightLogoVisible: false,
-			}}
+			modules={["geocode", "geolocation", "SuggestView", "suggest"]}
 			defaultState={defaultState}
 			className={css.map}
 			onLoad={setMapConstructor}
 			onBoundsChange={handleBoundsChange}
+			instanceRef={mapRef}
 		>
 			<svg
 				className={css.pin}

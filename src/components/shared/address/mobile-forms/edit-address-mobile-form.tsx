@@ -10,7 +10,7 @@ import { AppDispatch, RootState } from "@/store";
 import { cn } from "@/utils/cn";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IAddressForm } from "../types";
 import AddressDetailsStep from "./address-details-step";
@@ -38,6 +38,9 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 			main_address: defaultValues.main_address,
 		},
 	});
+
+	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
+
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
 	const { patchLoading } = useSelector(
@@ -73,6 +76,7 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 			title: t("add_delivery"),
 			content: (
 				<SelectAddressStep
+					mapRef={mapRef}
 					form={form}
 					mapConstructor={mapConstructor}
 					setMapConstructor={setMapConstructor}
@@ -88,6 +92,7 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 			title: address,
 			content: (
 				<AddressDetailsStep
+					mapRef={mapRef}
 					form={form}
 					mapConstructor={mapConstructor}
 					setMapConstructor={setMapConstructor}
