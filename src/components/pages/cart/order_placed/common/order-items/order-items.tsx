@@ -12,7 +12,7 @@ const OrderItems = ({products,totalCountProduct}:props) =>{
         <div className={css.order}>
             <Heading title="Товары в заказе" isBadge={true} badeCount={totalCountProduct}/>
             <div className={css.order_cart}>
-                {products.map((product)=><OrderCart orderQuantity={product.quantity} product={product?.product} key={product.id} /> )}
+                {products?.map((product)=><OrderCart orderQuantity={product.quantity} product={product?.product} key={product.id} /> )}
             </div>
         </div>
     )

@@ -172,6 +172,7 @@
 		"type": "Доставка/самовывоз",
 		"type_value": "уточняется",
 		"checkout": "Перейти к оплате",
+		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
 		"delivery": {
 			"title_one": "Получатель заказа",
 			"name_label": "Имя и фамилия",
