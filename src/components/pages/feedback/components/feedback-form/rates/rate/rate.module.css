@@ -12,6 +12,9 @@
     fill: var(--orange);
 }
 
+.error{
+    fill:var(--red) !important
+}
 
 @media (max-width: 767px) {
     .icon{
