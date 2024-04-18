@@ -1,12 +1,8 @@
-import ErrorMessage from "@/components/shared/error-message";
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { Dispatch, MutableRefObject, SetStateAction } from "react";
 import { UseFormReturn } from "react-hook-form";
-import { useTranslations } from "use-intl";
-import AddressDetect from "../../address-detect/address-detect";
 import AddressMap from "../../address-map/address-map";
+import AddressField from "../../forms/fields/address-field";
 import { IAddressForm } from "../../types";
 import css from "./select-address-step.module.css";
 
@@ -23,31 +19,14 @@ function SelectAddressStep({
 	setMapConstructor,
 	mapRef,
 }: Props) {
-	const t = useTranslations("address");
-
 	return (
 		<div className={css.body}>
 			<div className={css.body_top}>
-				<div className={css.label_wrapper}>
-					<Label required>{t("title")}</Label>
-					<AddressDetect
-						mapRef={mapRef}
-						form={form}
-						mapConstructor={mapConstructor}
-					/>
-				</div>
-				<Input
-					placeholder={t("placeholder")}
-					{...form.register("address", {
-						required: {
-							value: true,
-							message: t("required"),
-						},
-					})}
+				<AddressField
+					form={form}
+					mapRef={mapRef}
+					mapConstructor={mapConstructor}
 				/>
-				<ErrorMessage>
-					{form.formState.errors.address?.message}
-				</ErrorMessage>
 			</div>
 			<div className={css.body_bottom}>
 				<AddressMap

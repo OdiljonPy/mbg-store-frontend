@@ -7,7 +7,7 @@ import { IAddressForm } from "../../types";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 import AddressMap from "../../address-map/address-map";
 import css from "./address-details-step.module.css";
 
@@ -15,12 +15,14 @@ interface Props {
 	form: UseFormReturn<IAddressForm>;
 	mapConstructor?: YMapsApi;
 	setMapConstructor: Dispatch<SetStateAction<YMapsApi | undefined>>;
+	mapRef: MutableRefObject<ymaps.Map | undefined>;
 }
 
 function AddressDetailsStep({
 	form,
 	mapConstructor,
 	setMapConstructor,
+	mapRef,
 }: Props) {
 	const t = useTranslations("address");
 	return (
@@ -78,6 +80,7 @@ function AddressDetailsStep({
 			<div className={css.body_bottom}>
 				<div className={css.map_disable}></div>
 				<AddressMap
+					mapRef={mapRef}
 					form={form}
 					mapConstructor={mapConstructor}
 					setMapConstructor={setMapConstructor}

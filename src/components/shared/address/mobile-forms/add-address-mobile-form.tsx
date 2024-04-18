@@ -84,6 +84,7 @@ function AddAddressMobileForm({ onClose }: Props) {
 			title: address,
 			content: (
 				<AddressDetailsStep
+					mapRef={mapRef}
 					form={form}
 					mapConstructor={mapConstructor}
 					setMapConstructor={setMapConstructor}
