@@ -2,11 +2,14 @@ import Button from "@/components/shared/button";
 import { useForm } from "react-hook-form";
 
 import { IShipping } from "@/data-types/shipping";
-import { fetchShippingList, patchShipping } from "@/slices/shipping/shippingSlice";
+import {
+	fetchShippingList,
+	patchShipping,
+} from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddressMap from "../address-map/address-map";
 import { IAddressForm } from "../types";
@@ -33,13 +36,19 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 			main_address: defaultValues.main_address,
 		},
 	});
+
+	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
+
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { patchLoading } = useSelector((state: RootState) => state.shippingList);
+	const { patchLoading } = useSelector(
+		(state: RootState) => state.shippingList
+	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = async (data: IAddressForm) => {
-		const { apartment, entrance, floor, latitude, longitude, ...rest } = data;
+		const { apartment, entrance, floor, latitude, longitude, ...rest } =
+			data;
 
 		await dispatch(
 			patchShipping({
@@ -62,18 +71,31 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 		<form className={css.form} onSubmit={form.handleSubmit(onSubmit)}>
 			<div className={css.form_left}>
 				<h2 className={css.title}>{t("add_delivery")}</h2>
-				<Fields form={form} mapConstructor={mapConstructor} />
+				<Fields
+					mapRef={mapRef}
+					form={form}
+					mapConstructor={mapConstructor}
+				/>
 				<div className={css.footer}>
 					<Button variant='secondary' onClick={onClose} type='button'>
 						{t("cancel")}
 					</Button>
-					<Button full disabled={!form.formState.isValid} loading={patchLoading}>
+					<Button
+						full
+						disabled={!form.formState.isValid}
+						loading={patchLoading}
+					>
 						{t("change")}
 					</Button>
 				</div>
 			</div>
 			<div className={css.form_right}>
-				<AddressMap form={form} mapConstructor={mapConstructor} setMapConstructor={setMapConstructor} />
+				<AddressMap
+					mapRef={mapRef}
+					form={form}
+					mapConstructor={mapConstructor}
+					setMapConstructor={setMapConstructor}
+				/>
 			</div>
 		</form>
 	);

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
-import { useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "use-intl";
 import { IAddressForm } from "../types";
@@ -29,9 +29,14 @@ function AddLocationMobileForm({ onClose }: Props) {
 		},
 		mode: "onChange",
 	});
+
+	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
+
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { postLoading } = useSelector((state: RootState) => state.shippingList);
+	const { postLoading } = useSelector(
+		(state: RootState) => state.shippingList
+	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = (data: IAddressForm) => {
@@ -54,7 +59,12 @@ function AddLocationMobileForm({ onClose }: Props) {
 			<header className={css.header}>
 				<h2 className={css.title}>{t("typeAddress")}</h2>
 			</header>
-			<SelectAddressStep form={form} setMapConstructor={setMapConstructor} mapConstructor={mapConstructor} />
+			<SelectAddressStep
+				mapRef={mapRef}
+				form={form}
+				setMapConstructor={setMapConstructor}
+				mapConstructor={mapConstructor}
+			/>
 			<div className={cn(css.action, address && css.action_visible)}>
 				<Button className={css.btn} full loading={postLoading}>
 					{t("save")}

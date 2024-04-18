@@ -10,13 +10,15 @@ import { useTranslations } from "next-intl";
 import AddressField from "./address-field";
 
 import css from "./fields.module.css";
+import { MutableRefObject, RefObject } from "react";
 
 interface Props {
 	form: UseFormReturn<IAddressForm>;
 	mapConstructor?: YMapsApi;
+	mapRef: MutableRefObject<ymaps.Map | undefined>;
 }
 
-function Fields({ form, mapConstructor }: Props) {
+function Fields({ form, mapConstructor, mapRef }: Props) {
 	const t = useTranslations("address");
 	return (
 		<>
@@ -31,25 +33,46 @@ function Fields({ form, mapConstructor }: Props) {
 						},
 					})}
 				/>
-				<ErrorMessage>{form.formState.errors.address_name?.message}</ErrorMessage>
+				<ErrorMessage>
+					{form.formState.errors.address_name?.message}
+				</ErrorMessage>
 			</div>
-			<AddressField form={form} mapConstructor={mapConstructor} />
+			<AddressField
+				form={form}
+				mapConstructor={mapConstructor}
+				mapRef={mapRef}
+			/>
 			<div className={css.form_row}>
 				<div>
 					<Label>{t("entrance")}</Label>
-					<Input type='number' placeholder={t("entrance")} {...form.register("entrance")} />
+					<Input
+						type='number'
+						placeholder={t("entrance")}
+						{...form.register("entrance")}
+					/>
 				</div>
 				<div>
 					<Label>{t("floor")}</Label>
-					<Input type='number' placeholder={t("floor")} {...form.register("floor")} />
+					<Input
+						type='number'
+						placeholder={t("floor")}
+						{...form.register("floor")}
+					/>
 				</div>
 				<div>
 					<Label>{t("apartment")}</Label>
-					<Input type='number' placeholder={t("apartment")} {...form.register("apartment")} />
+					<Input
+						type='number'
+						placeholder={t("apartment")}
+						{...form.register("apartment")}
+					/>
 				</div>
 			</div>
 			<div className={css.checkbox_wrapper}>
-				<Checkbox id='main_address-1' {...form.register("main_address")} />
+				<Checkbox
+					id='main_address-1'
+					{...form.register("main_address")}
+				/>
 				<Label htmlFor='main_address-1'>{t("make_address")}</Label>
 			</div>
 		</>
