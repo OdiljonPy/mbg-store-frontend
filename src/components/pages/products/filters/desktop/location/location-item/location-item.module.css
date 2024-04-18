@@ -1,4 +1,12 @@
-.wrapper {
+.rate {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.checkbox {
+	width: 100%;
 	display: flex;
 }
 

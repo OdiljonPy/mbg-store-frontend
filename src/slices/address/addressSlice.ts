@@ -22,8 +22,14 @@ const addressSlice = createSlice({
 		changeDefaultAddress: (state, action: { payload: IAddress }) => {
 			state.main_address = action.payload;
 		},
+		removeAddress: (state, action: { payload: IAddress["address"] }) => {
+			state.address_list = state.address_list.filter(
+				(address) => address.address !== action.payload
+			);
+		},
 	},
 });
 
-export const { addAddress, changeDefaultAddress } = addressSlice.actions;
+export const { addAddress, changeDefaultAddress, removeAddress } =
+	addressSlice.actions;
 export default addressSlice.reducer;

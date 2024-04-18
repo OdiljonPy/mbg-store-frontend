@@ -15,6 +15,7 @@ import faqSlice from "@/slices/base/faq/faqSlice";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
+import filterLocationSlice from "@/slices/filter_location/filterLocationSlice";
 import messageSlice from "@/slices/message/message";
 import orderChangeStatus from "@/slices/order/changeOrderSlice";
 import lastOrderSlices from "@/slices/order/lastOrderSlice";
@@ -22,6 +23,7 @@ import orderItemSlice from "@/slices/order/orderItemSlice";
 import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
+import productLocationSlice from "@/slices/product/productLocationSlice";
 import productSingleSlices from "@/slices/product/productSingleSlices";
 import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
 import supportSlice from "@/slices/support/supportSlice";
@@ -33,7 +35,6 @@ import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
-import productLocationSlice from "@/slices/product/productLocationSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -56,11 +57,20 @@ const addressPersistConfig = {
 	storage,
 };
 
+const filterLocationPersistConfig = {
+	key: "filterLocation",
+	storage,
+};
+
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
 	user: persistReducer(userPersistConfig, userSlice),
 	address: persistReducer(addressPersistConfig, addressSlice),
+	filter_location: persistReducer(
+		filterLocationPersistConfig,
+		filterLocationSlice
+	),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,

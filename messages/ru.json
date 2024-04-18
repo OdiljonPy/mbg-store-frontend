@@ -129,6 +129,12 @@
 	"price": {
 		"title": "Цена, UZS"
 	},
+	"location": {
+		"title": "Локация",
+		"select_location": "Укажите локацию, для работы фильтра",
+		"add_location": "Другой адрес? Добавьте локацию",
+		"distance": "Радиус поиска от локации"
+	},
 	"product": {
 		"similar": "Покупают вместе",
 		"onSale": "Распродажа",
@@ -181,7 +187,7 @@
 		},
 		"orders": {
 			"empty": "Savatcha bo'sh",
-			"done" : "Order muvaffaqiyatli o'chirildi"
+			"done": "Order muvaffaqiyatli o'chirildi"
 		}
 	},
 	"order_placed": {

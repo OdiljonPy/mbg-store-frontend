@@ -69,6 +69,11 @@
 	color: #fff;
 }
 
+.tertiary:active svg path {
+	fill: #fff;
+	transition: all 0.2s linear;
+}
+
 .danger {
 	background-color: #ffdede;
 	color: var(--red);

@@ -4,7 +4,7 @@ import PriceSlider from "@/components/pages/products/filters/desktop/prices/slid
 import { useTranslations } from "next-intl";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import css from "./prices.module.css";
 
 interface props {}
@@ -53,12 +53,6 @@ const Prices = (props: props) => {
 			}
 		);
 	};
-
-	useEffect(() => {
-		if (isReady) {
-			setPriceRange(pricesRange);
-		}
-	}, [prices]);
 
 	return (
 		<FilterCollapse title={t("price.title")}>
