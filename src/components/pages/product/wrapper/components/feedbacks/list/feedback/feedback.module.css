@@ -3,8 +3,6 @@
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
-    max-width: 912px;
-    overflow: hidden;
 }
 
 .info, .header, .point , .images{
@@ -57,6 +55,7 @@
 .message{
     font-size: 16px;
     font-weight: 400;
+    word-break: break-word;
 }
 
 .images{

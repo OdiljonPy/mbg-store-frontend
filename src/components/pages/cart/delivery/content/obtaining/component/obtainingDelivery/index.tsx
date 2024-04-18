@@ -85,7 +85,7 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 					</Button>
 				</AddNewAddressModal>
 
-				{shippingList.length && <SendButton title={"approve"} onClick={() => saveAddress()} />}
+				{shippingList.length ? <SendButton title={"approve"} onClick={() => saveAddress()} />:''}
 			</div>
 		</div>
 	);

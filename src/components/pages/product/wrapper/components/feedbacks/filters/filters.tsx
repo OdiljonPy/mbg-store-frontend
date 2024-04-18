@@ -6,22 +6,25 @@ import {useRatingMock} from "@/components/pages/product/wrapper/components/feedb
 import Rating from "@/components/pages/product/wrapper/components/feedbacks/filters/rating/rating";
 import {useParams, useSearchParams} from "next/navigation";
 import SendFeedback from "@/components/pages/product/wrapper/components/feedbacks/filters/send-feedback/send-feedback";
+import {IComments} from "@/data-types/products/common";
 
 interface props {
-
+    comments:IComments[]
+    loading:boolean
 }
 
-const Filters = (props: props) => {
+const Filters = ({comments,loading}: props) => {
     const {id} = useParams()
     const t = useTranslations()
     const items = useRatingMock()
     const searchParams = useSearchParams()
 
+    items[0].count = comments?.length
 
     const rating: string | null = searchParams.get('rating')
     return (
         <div className={css.filters}>
-            <RateCurrent noMargin rate={4} count={150}/>
+            <RateCurrent noMargin rate={4} count={comments?.length}/>
             <h4 className={css.title}>
                 {t('product.showOnFeedback')}
             </h4>

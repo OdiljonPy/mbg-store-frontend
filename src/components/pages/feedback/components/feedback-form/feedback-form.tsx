@@ -24,6 +24,7 @@ import {AppDispatch} from "@/store";
 import {openLoginModal} from "@/slices/auth/login";
 import {useToasts} from "react-toast-notifications";
 import {useRouter} from "next/router";
+import Button from "@/components/shared/button";
 
 
 interface props {
@@ -36,6 +37,7 @@ const FeedbackForm = ({info,loading}: props) => {
     const t = useTranslations()
     const dispatch = useDispatch<AppDispatch>()
     const [open, setOpen] = useState<boolean>(false)
+    const [submitLoad,setSubmitLoad] = useState(false)
     const router = useRouter()
 
     const {addToast} = useToasts()
@@ -72,8 +74,8 @@ const FeedbackForm = ({info,loading}: props) => {
         const token = localStorage.getItem('access_token');
         if(token){
             try{
+                setSubmitLoad(true)
                 const res = await API.post('/store/comment/',data)
-                console.log(res)
                 if(res.data.ok){
                     setOpen(true)
                     resetField('name')
@@ -88,6 +90,9 @@ const FeedbackForm = ({info,loading}: props) => {
                     appearance: 'error',
                     autoDismiss: true,
                 })
+            }
+            finally {
+                setSubmitLoad(false)
             }
         }
         else{
@@ -117,7 +122,7 @@ const FeedbackForm = ({info,loading}: props) => {
                        </p></>}
                </div>
                <Seller seller={info?.store?.brand_name}/>
-               <Rates register={register} watch={watch}/>
+               <Rates register={register} watch={watch} errors={errors.rate?.message}/>
                <div className={css.flex}>
                    <div className={css.field}>
                        <label className={css.label}>
@@ -176,9 +181,10 @@ const FeedbackForm = ({info,loading}: props) => {
                    ))}
                </div>
                <div className={css.actions}>
-                   <button type={'submit'} className={css.btn}>
+                   <Button loading={submitLoad}>
                        {t('feedback.send')}
-                   </button>
+                   </Button>
+
                </div>
            </form>
            <SuccessfulModal open={open} onClose={closeModal}/>

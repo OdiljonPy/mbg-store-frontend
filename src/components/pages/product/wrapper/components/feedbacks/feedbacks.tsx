@@ -17,7 +17,7 @@ const Feedbacks = ({comments,loading}: props) => {
                 title: 'product.feedback'
             }}/>
             <div className={css.wrapper}>
-                <Filters/>
+                <Filters comments={comments} loading={loading}/>
                 <List comments={comments} loading={loading}/>
             </div>
         </section>

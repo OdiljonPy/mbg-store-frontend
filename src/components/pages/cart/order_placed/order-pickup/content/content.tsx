@@ -14,7 +14,7 @@ const Content = (props:props) =>{
         <div className={css.content}>
             <h2 className={css.title}>Способ получения</h2>
             <Address/>
-            <OrderItems products={order_items} totalCountProduct={order_items.length}/>
+            <OrderItems products={order_items} totalCountProduct={order_items?.length}/>
         </div>
     )
 }

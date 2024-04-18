@@ -14,6 +14,6 @@ export interface IStores{
 }
 
 export interface ICommonStores{
-    result:IStores,
+    result:IStores[],
     ok:boolean
 }

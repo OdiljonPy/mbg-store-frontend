@@ -23,7 +23,7 @@ const Similar = ({similar,loading}: props) => {
             return ()=>{
                 slider?.update()
             }
-        },1000)
+        },1500)
         return ()=>{
             slider?.update()
         }

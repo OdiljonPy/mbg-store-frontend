@@ -26,13 +26,16 @@ const Wrapper = (props: props) => {
 
 
     const submitOrder = (values:IPostOrder)=>{
+        console.log(values)
+        if(values.type == 'D' && !values.delivery_address) {
+                 return addToast(t('cart.info_enter_address'),{
+                    appearance: 'info',
+                    autoDismiss: true,
+                })
+        }
         dispatch(createOrder(values))
             .unwrap()
             .then((res)=>{
-                if(error) return addToast('error',{
-                    appearance: 'error',
-                    autoDismiss: true,
-                })
                 if(res.ok){
                     dispatch(deletePromoCode())
                     dispatch(clearBasket())
@@ -44,7 +47,13 @@ const Wrapper = (props: props) => {
                         router.push("/cart/order-delivery").then(r => true)
                     }
                 }
+                else throw new Error("error")
+            }).catch((err)=>{
+             return addToast(err,{
+                appearance: 'error',
+                autoDismiss: true,
             })
+        })
     }
     return (
         <section className={css.cart}>

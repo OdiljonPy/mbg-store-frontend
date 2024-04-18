@@ -10,6 +10,7 @@ import {
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./delete-address-modal.module.css";
+import {useToasts} from "react-toast-notifications";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	shippingId: number;
@@ -23,6 +24,7 @@ function DeleteAddressModal({
 	shippingName,
 	...props
 }: Props) {
+	const {addToast} = useToasts()
 	const { onClose, onOpen, open } = useModal();
 
 	const { deleteLoading, loading } = useSelector(
@@ -32,7 +34,14 @@ function DeleteAddressModal({
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onDelete = async () => {
-		await dispatch(deleteShipping(shippingId));
+		await dispatch(deleteShipping(shippingId))
+			.then((res)=>{
+			// @ts-ignore
+				addToast(res.error?.message,{
+					appearance: 'error',
+					autoDismiss: true,
+				})
+		})
 		await dispatch(fetchShippingList());
 		onClose();
 	};

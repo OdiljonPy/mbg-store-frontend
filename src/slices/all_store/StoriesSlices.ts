@@ -24,7 +24,7 @@ const storeSlices = createSlice({
             })
             .addCase(fetchStories.fulfilled, (state, {payload}) =>{
             if(payload.ok){
-                state.stories = [payload.result]
+                state.stories = payload.result
             }else throw new Error('error')
                 state.loading = false
         })
