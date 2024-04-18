@@ -41,9 +41,11 @@ const Stores = (props: props) => {
 
     useEffect(() => {
         const fetchStoreList:ICustomCheckbox[] = []
-        dispatch(fetchStories()).then<any>((res:any)=>{
-            if(res.payload.ok){
-                res.payload?.result?.map((store:any) =>{
+        dispatch(fetchStories())
+            .unwrap()
+            .then((res)=>{
+            if(res.ok){
+                res.result?.map((store) =>{
                     fetchStoreList.push({
                         id:store.id,
                         title:store.brand_name,

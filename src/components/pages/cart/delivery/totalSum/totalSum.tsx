@@ -51,7 +51,7 @@ const TotalSum = ({}:props) =>{
             </h3>
             <div className={css.info}>
                 <TotalItem label={t('cart.price')} value={priceFormatter(all_prices, true)}/>
-                <TotalItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(-discount_price, true)}/>
+                <TotalItem className={css.paddingTop} label={t('cart.sales')} value={priceFormatter(discount_price > 0 ? -discount_price:discount_price, true)}/>
                 {promo_code.discount ?  <TotalItem className={css.paddingTop} label={t('cart.promo_code')} value={priceFormatter(-promo_code_price, true)}/>:''}
 
                 <TotalItem className={css.bordered} label={t('cart.type')} value={t('cart.type_value')}/>
