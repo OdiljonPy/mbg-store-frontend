@@ -4,6 +4,8 @@ import {feedbacksMock} from "@/components/pages/product/wrapper/components/feedb
 import Feedback from "@/components/pages/product/wrapper/components/feedbacks/list/feedback/feedback";
 import {IComments} from "@/data-types/products/common";
 import Pagination from "@/components/shared/pagination/pagination";
+import FeedbackLoader
+    from "@/components/pages/product/wrapper/components/feedbacks/list/feedback-loader/feedback-loader";
 
 interface props {
     comments:IComments[]
@@ -15,10 +17,15 @@ const List = ({comments,loading}: props) => {
     return (
         <div className={css.list}>
             {
-                loading ? <p>Loading</p>:
-                comments?.slice(1,offset).map((item) => (
-                <Feedback feedback={item} key={item.name}/>
-            ))}
+                loading ?
+                    <div className={css.list}>
+                        <FeedbackLoader/>
+                        <FeedbackLoader/>
+                        <FeedbackLoader/>
+                    </div>:
+                    comments?.slice(1,offset).map((item) => (
+                     <Feedback feedback={item} key={item.name}/>))
+            }
             {
                 (!loading && comments?.length > 5) &&
                 <Pagination total={comments?.length} offset={offset} limit={5} setOffset={(offset)=> setOffset(offset)}/>
