@@ -1,6 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import API from "@/utils/axios/axios";
 import {ICommonProduct, IProductInner} from "@/data-types/products/product-inner/product-inner";
+import {IComments} from "@/data-types/products/common";
+import {useRatingMock} from "@/components/pages/product/wrapper/components/feedbacks/filters/hooks/mock";
+import {comment} from "postcss";
 
 export const fetchProductSingle = createAsyncThunk('product_single', async (id: string[] | string | undefined) => {
     const response = await API.get<ICommonProduct>(`/store/products/${id}/`)
@@ -16,7 +19,9 @@ const initialState = {
 const productSingleInfo = createSlice({
     name : 'product_single',
     initialState,
-    reducers:{},
+    reducers:{
+
+    },
     extraReducers: (builder) =>{
         builder
             .addCase(fetchProductSingle.pending, (state,action) =>{

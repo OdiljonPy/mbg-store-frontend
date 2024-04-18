@@ -19,6 +19,7 @@ const Filters = ({comments,loading}: props) => {
     const items = useRatingMock()
     const searchParams = useSearchParams()
 
+    items[0].count = comments?.length
 
     const rating: string | null = searchParams.get('rating')
     return (
