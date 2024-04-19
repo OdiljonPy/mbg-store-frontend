@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './language.module.css'
-import {useLocale, useTranslations} from 'next-intl';
+import {useLocale} from 'next-intl';
 import {ILanguage, ILanguagesIcons} from "@/layout/components/header/main-header/data-types/languages";
 import Link from "next/link";
 import {usePathname} from "next/navigation";

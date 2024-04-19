@@ -49,7 +49,6 @@ function Auth({ children, className, ...props }: Props) {
 	}
 
 	useEffect(() => {
-		console.log(onOpenLogin,"open login")
 		if(onOpenLogin){
 			onOpen()
 		}

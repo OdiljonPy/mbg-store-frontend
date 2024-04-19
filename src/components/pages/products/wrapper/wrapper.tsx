@@ -90,7 +90,6 @@ const Wrapper = (props: props) => {
 
 	useEffect(() => {
 		fetchProductFilter();
-		console.log(page, "pagination page");
 	}, [fetchProductFilter, page]);
 
 	// fetch category
@@ -114,7 +113,7 @@ const Wrapper = (props: props) => {
 					]}
 				/>
 
-				<Header data={entities} />
+				<Header data={entities} loading={loading} />
 
 				<div className={`${css.wrapper}`}>
 					<Filters />

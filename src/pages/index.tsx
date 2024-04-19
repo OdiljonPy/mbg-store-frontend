@@ -15,7 +15,6 @@ interface props {
 	message: string;
 }
 export default function Home(props: props) {
-	console.log(props);
 	return (
 		<>
 			<Head>

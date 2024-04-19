@@ -41,9 +41,12 @@ const ProductList = ({products,loading,setPagePagination,offset}: props) => {
                        !products.content?.length ? <div className={css.no_data}>No Data</div>:''
                    }
                </div>
-               <div className={css.pagination}>
-                   <Pagination content limit={12} offset={offset?offset:12}  total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
-               </div>
+               {
+                   totalElements > 12 ?
+                   <div className={css.pagination}>
+                       <Pagination content limit={12} offset={offset?offset:12}  total={totalElements} setOffset={(page)=> setPagePagination ? setPagePagination(page) :''}/>
+                   </div> : ''
+               }
            </div>
         </>
     );
