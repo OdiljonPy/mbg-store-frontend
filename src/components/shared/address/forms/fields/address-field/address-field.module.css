@@ -32,15 +32,26 @@
 }
 
 .dropdown_item {
-	padding: 4px 16px;
+	padding: 4px 20px;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	min-height: 35px;
+	min-height: 42px;
 	font-size: 14px;
 	font-weight: 500;
 }
 
 .dropdown_item:not(:last-child) {
 	border-bottom: 1.6px solid var(--light-gray);
+}
+
+.icon {
+	flex-shrink: 0;
+	margin-right: 8px;
+}
+
+@media (max-width: 767px) {
+	.dropdown {
+		display: none;
+	}
 }
