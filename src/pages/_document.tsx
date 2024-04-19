@@ -10,8 +10,8 @@ const MyDocument = ({__NEXT_DATA__}: DocumentProps) => {
         <Head>
         </Head>
         <body>
-        <Main/>
-        <NextScript/>
+            <Main/>
+            <NextScript/>
         </body>
     </Html>)
 };

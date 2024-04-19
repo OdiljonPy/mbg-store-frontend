@@ -10,15 +10,15 @@ import {IProductFilter} from "@/data-types/products/product-filter/product-filte
 
 interface props {
     data:IProductFilter
-
+    loading:boolean
 }
 
-const Header = ({data}: props) => {
+const Header = ({data,loading}: props) => {
     return (
         <div className={css.wrapper}>
             <div className={css.info}>
                 <Title/>
-                <ProductsCount count={data ? data?.size : 12}/>
+                <ProductsCount loading={loading} count={data ? data?.totalElements : 0}/>
             </div>
             <div className={css.actions}>
                 <MobileFilters data={data}/>
