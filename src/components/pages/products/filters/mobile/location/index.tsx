@@ -1,77 +1,37 @@
 import Button from "@/components/shared/button";
 import { useTranslations } from "next-intl";
-import FilterCollapse from "../filter-collapse/filter-collapse";
 
 import AddFilterLocationModal from "@/components/shared/address/modals/add-filter-location-modal";
 import { RootState } from "@/store";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import DistanceInput from "./distance-input";
 import LocationItem from "./location-item";
+
 import css from "./location.module.css";
+
+import mainCss from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters.module.css";
+
+import { useFormContext } from "react-hook-form";
+import TopBar from "../categories/top-bar/top-bar";
+import { IFilters } from "../mobile-filters/data-types";
 import DistanceSlider from "./slider/slider";
 
 function Location() {
 	const t = useTranslations();
-	const pathname = usePathname();
-	const { push, query } = useRouter();
-	const searchParams = useSearchParams();
-
-	const locationQuery = searchParams.get("location");
-
-	const [distance, setDistance] = useState<number>();
-
-	useEffect(() => {
-		setDistance(
-			locationQuery ? Number(searchParams.get("distance") || "5") : 0
-		);
-	}, [locationQuery, searchParams]);
+	const { unregister } = useFormContext<IFilters>();
 
 	const { address_list } = useSelector(
 		(state: RootState) => state.filter_location
 	);
 
-	const onDistanceChange = (value: number) => {
-		if (!locationQuery) return;
-		setDistance(value);
-	};
-
-	const onDistanceChangeComplete = (value: number) => {
-		if (!locationQuery) return;
-		if (value > 20) {
-			value = 20;
-			setDistance(value);
-		}
-
-		if (value < 1) {
-			value = 1;
-			setDistance(value);
-		}
-
-		push(
-			{
-				pathname,
-				query: {
-					...query,
-					distance: String(value),
-					changeFilter:
-						searchParams.get("changeFilter") === "true"
-							? "false"
-							: "true",
-				},
-			},
-			undefined,
-			{ scroll: false }
-		);
+	const onReset = () => {
+		unregister("location");
+		unregister("distance");
 	};
 
 	return (
-		<FilterCollapse
-			title={t("location.title")}
-			queryResetList={["distance", "location"]}
-		>
+		<div className={mainCss.item}>
+			<TopBar onReset={onReset} hideIcon title={t("location.title")} />
 			<div className={css.wrapper}>
 				<div className={css.location_select_wrapper}>
 					<p className={css.text}>
@@ -81,7 +41,7 @@ function Location() {
 					</p>
 					<AddFilterLocationModal>
 						<Button
-							height={36}
+							height={40}
 							className={css.btn}
 							variant='tertiary'
 							leftIcon={
@@ -105,16 +65,8 @@ function Location() {
 				</div>
 				{!!address_list.length && (
 					<>
-						<DistanceInput
-							distance={Number(distance)}
-							onChange={onDistanceChange}
-							onChangeComplete={onDistanceChangeComplete}
-						/>
-						<DistanceSlider
-							distanceRange={Number(distance)}
-							onChange={onDistanceChange}
-							onChangeComplete={onDistanceChangeComplete}
-						/>
+						<DistanceInput />
+						<DistanceSlider />
 						<ul className={css.list}>
 							{address_list.map((item) => (
 								<li key={item.address}>
@@ -125,7 +77,7 @@ function Location() {
 					</>
 				)}
 			</div>
-		</FilterCollapse>
+		</div>
 	);
 }
 

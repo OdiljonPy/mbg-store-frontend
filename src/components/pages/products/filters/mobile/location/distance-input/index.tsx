@@ -1,17 +1,13 @@
+import { useFormContext } from "react-hook-form";
 import { useTranslations } from "use-intl";
+import { IFilters } from "../../mobile-filters/data-types";
 import css from "./index.module.css";
-import { useSearchParams } from "next/navigation";
 
-interface Props {
-	distance: number;
-	onChange: (value: number) => void;
-	onChangeComplete: (value: number) => void;
-}
-
-function DistanceInput({ distance, onChange, onChangeComplete }: Props) {
-	const searchParams = useSearchParams();
-	const locationQuery = searchParams.get("location");
+function DistanceInput() {
+	const { watch, setValue } = useFormContext<IFilters>();
 	const t = useTranslations();
+	const location = watch().location;
+	const distance = watch().distance;
 
 	return (
 		<div className={css.wrapper}>
@@ -19,13 +15,12 @@ function DistanceInput({ distance, onChange, onChangeComplete }: Props) {
 			<div className={css.input}>
 				<p className={css.text}>{t("from").toLowerCase()}</p>
 				<input
-					disabled={!locationQuery}
+					disabled={!location}
 					value={distance || ""}
 					className={css.value}
-					onChange={(e) => onChange(Number(e.target.value))}
-					onBlur={(e) => {
-						onChangeComplete(Number(e.target.value));
-					}}
+					onChange={(e) =>
+						setValue("distance", Number(e.target.value))
+					}
 					type='number'
 				/>
 			</div>
