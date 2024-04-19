@@ -46,6 +46,7 @@ interface IFilterParams {
 	page?: number;
 	latitude?: number;
 	longitude?: number;
+	distance?: number;
 }
 
 export const filterProduct = createAsyncThunk(
@@ -56,6 +57,7 @@ export const filterProduct = createAsyncThunk(
 		if (params.min_price) data.min_price = params.min_price;
 		if (params.latitude) data.latitude = params.latitude;
 		if (params.longitude) data.longitude = params.longitude;
+		if (params.distance) data.distance = params.distance;
 		if (params.q) data.q = params.q;
 		if (params.category) data.category = params.category;
 		if (params.rating) data.rating = params.rating;

@@ -43,6 +43,7 @@ const Wrapper = (props: props) => {
 			max_price: Number(searchParams.get("prices")?.split(",")[1]),
 			latitude: Number(searchParams.get("location")?.split(",")[0]),
 			longitude: Number(searchParams.get("location")?.split(",")[1]),
+			distance: Number(searchParams.get("distance")),
 			rating: Number(searchParams.get("rating")),
 			discount: 0,
 			store: searchParams
