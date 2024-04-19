@@ -11,11 +11,11 @@ interface props {
 }
 
 const Product = ({product}: props) => {
-    const {name, price,discount, discount_price, rating, rating_count, store} = product
+    const {name,images, price,discount, discount_price, rating, rating_count, store} = product
     return (
         <div className={css.product}>
             <div className={css.img}>
-                <ResponsiveImage src={mikado} alt={'Mikado'}/>
+                <ResponsiveImage src={images?.[0]?.image} alt={'Mikado'}/>
             </div>
             <div className={css.wrapper}>
                 <p className={css.title}>
