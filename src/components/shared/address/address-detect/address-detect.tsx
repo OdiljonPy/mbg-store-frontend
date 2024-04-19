@@ -22,7 +22,9 @@ const AddressDetect = ({ mapConstructor, form, mapRef }: Props) => {
 			})
 			.then((res: any) => {
 				const [x, y] = res.geoObjects.position;
-				mapRef.current?.panTo([x, y], { flying: true });
+				mapRef.current?.panTo([x, y], {
+					flying: true,
+				});
 			});
 	};
 

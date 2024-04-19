@@ -1,4 +1,4 @@
-import { Map } from "@pbe/react-yandex-maps";
+import { Map, ZoomControl } from "@pbe/react-yandex-maps";
 import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
@@ -30,12 +30,13 @@ function AddressMap({
 	const handleBoundsChange = (e: any) => {
 		const [x, y] = e.originalEvent.newCenter;
 		mapConstructor?.geocode([x, y]).then(
-			(res) => {
+			(res: any) => {
 				const nearest = res.geoObjects.get(0);
-				const address = nearest.properties.get("text", {});
+				console.log(res.geoObjects.get(0));
+				const address = nearest.properties.get("name");
 				form.setValue("latitude", x);
 				form.setValue("longitude", y);
-				form.setValue("address", address as unknown as string);
+				form.setValue("address", address);
 			},
 			(error) => {
 				console.error("Error occurred during geocoding:", error);
@@ -76,6 +77,7 @@ function AddressMap({
 					fill='#F65751'
 				/>
 			</svg>
+			<ZoomControl />
 		</Map>
 	);
 }
