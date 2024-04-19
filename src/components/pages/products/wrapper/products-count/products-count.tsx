@@ -6,7 +6,7 @@ import Skeleton from "react-loading-skeleton";
 
 interface props {
     count: number
-    loading:boolean
+    loading?:boolean
 }
 
 const ProductsCount = ({count,loading}: props) => {

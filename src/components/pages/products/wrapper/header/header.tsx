@@ -10,7 +10,7 @@ import {IProductFilter} from "@/data-types/products/product-filter/product-filte
 
 interface props {
     data:IProductFilter
-    loading:boolean
+    loading?:boolean
 }
 
 const Header = ({data,loading}: props) => {
