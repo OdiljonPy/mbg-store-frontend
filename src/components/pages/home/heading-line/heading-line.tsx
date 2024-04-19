@@ -12,7 +12,7 @@ interface props {
 
 const HeadingLine = ({ heading, small, loading }: props) => {
 	const t = useTranslations();
-	const { title, count } = heading;
+	const { title, count,link } = heading;
 	const [address, setAddress] = useState<string | null>("");
 
 	useEffect(() => {
@@ -25,7 +25,7 @@ const HeadingLine = ({ heading, small, loading }: props) => {
 			{!!address && (
 				<>
 					<Link
-						href={`/`}
+						href={link ? link : '/'}
 						className={`${css.link} ${!count ? css.hide : ""}`}
 					>
 						<span className={css.text}>

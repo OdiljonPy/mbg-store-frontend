@@ -29,7 +29,8 @@ const Sales = (props: props) => {
             <div className={'container'}>
                 <HeadingLine heading={{
                     title: 'sales.title',
-                    count: data?.totalElements
+                    count: data?.totalElements,
+                    link : "products?sort=popular&onSales=true"
                 }}/>
 
                 {

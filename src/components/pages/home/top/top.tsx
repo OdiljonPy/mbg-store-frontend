@@ -34,7 +34,8 @@ const Top = (props: props) => {
             <div className={'container'}>
                 <HeadingLine heading={{
                     title: 'products.top',
-                    count: data?.totalElements
+                    count: data?.totalElements,
+                    link : "products?sort=popular"
                 }}/>
                 {
                     loading ? <Skeleton count={4} containerClassName={css.skeleton_cointainer}  className={css.skeleton} /> :
