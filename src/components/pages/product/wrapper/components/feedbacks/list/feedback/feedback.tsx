@@ -20,7 +20,7 @@ const Feedback = ({feedback}: props) => {
         <div className={css.feedback}>
             <div className={css.header}>
                 <h3 className={css.name}>
-                    {name}
+                    {!(name === 'null') ? name : ''}
                 </h3>
                 <div className={css.info}>
                     <p className={css.date}>

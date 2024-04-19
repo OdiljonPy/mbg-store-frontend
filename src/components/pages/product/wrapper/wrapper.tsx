@@ -9,7 +9,7 @@ import Feedbacks from "@/components/pages/product/wrapper/components/feedbacks/f
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
-import { fetchProductSingle } from "@/slices/product/productSingleSlices";
+import {fetchProductComments, fetchProductSingle} from "@/slices/product/productSingleSlices";
 
 interface props {}
 
@@ -17,12 +17,19 @@ const Wrapper = (props: props) => {
 	const t = useTranslations();
 	const router = useRouter();
 
-	const { info, loading } = useSelector((state: RootState) => state.product_single);
+	const { info, loading,comments } = useSelector((state: RootState) => state.product_single);
+	const {rating,rating_count,comparison_products,related_products} = info
+
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
 		dispatch(fetchProductSingle(router.query.id));
 	}, [dispatch, router.query.id]);
+
+
+	useEffect(() => {
+		dispatch(fetchProductComments(router.query.id))
+	}, [router.query.id]);
 
 	return (
 		<section className={css.wrapper}>
@@ -45,9 +52,9 @@ const Wrapper = (props: props) => {
 				/>
 				{info && <Info info={info} loading={loading} />}
 
-				<Comparison comparison={info.comparison_products} loading={loading} />
-				<Similar similar={info.related_products} loading={loading} />
-				<Feedbacks comments={info.comments} loading={loading} />
+				<Comparison comparison={comparison_products} loading={loading} />
+				<Similar similar={related_products} loading={loading} />
+				<Feedbacks rating={rating} rating_count={rating_count} comments={comments} loading={loading} />
 			</div>
 		</section>
 	);

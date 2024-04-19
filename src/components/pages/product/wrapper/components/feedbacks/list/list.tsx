@@ -23,7 +23,7 @@ const List = ({comments,loading}: props) => {
                         <FeedbackLoader/>
                         <FeedbackLoader/>
                     </div>:
-                    comments?.slice(1,offset).map((item) => (
+                    comments?.slice(0,offset).map((item) => (
                      <Feedback feedback={item} key={item.name}/>))
             }
             {
