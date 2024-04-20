@@ -76,7 +76,7 @@ const basketSlices = createSlice({
 
             state.discount_price = state.products.reduce((acc,product)=> acc + (product.discount ? product.discount_price ? product.discount_price : 0 : 0)*(product.count ? product.count : 1) ,0)
 
-            state.promo_code_price = state.cost_price * state.promo_code.discount * 0.01
+            state.promo_code_price = +((state.all_prices - state.discount_price) * state.promo_code.discount * 0.01).toFixed()
 
             state.cost_price = (state.all_prices - state.discount_price) - state.promo_code_price
         }),
