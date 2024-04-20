@@ -15,7 +15,7 @@ interface Props {
 }
 
 function StatementTypeSelect({ form }: Props) {
-	const t = useTranslations("support");
+	const t = useTranslations("support.first_step");
 
 	const [open, setOpen] = useState(false);
 	const supportType = form.watch("topic");
