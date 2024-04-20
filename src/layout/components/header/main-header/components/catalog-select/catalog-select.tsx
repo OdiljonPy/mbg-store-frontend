@@ -49,7 +49,7 @@ const CatalogSelect = (props: props) => {
 
     useEffect(() => {
         const fetchCategoryData:ICategoryItem[] = []
-        dispatch(fetchCategory({q:' ',size:'30'})).then((response:any) =>{
+        dispatch(fetchCategory(30)).then((response:any) =>{
             response.payload?.result?.map((categories:any) =>{
                 fetchCategoryData.push({
                     id: categories.id,

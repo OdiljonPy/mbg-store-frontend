@@ -19,7 +19,7 @@ const Index = (props: props) => {
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
-        dispatch(fetchCategory({q:'',size:200}))
+        dispatch(fetchCategory(200))
     }, []);
 
 
