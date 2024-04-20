@@ -1,0 +1,27 @@
+.wrapper {
+	padding: 12px 6px;
+}
+
+.location_select_wrapper {
+	display: flex;
+	gap: 10px;
+	padding: 10px 0;
+	justify-content: space-between;
+}
+
+.text {
+	color: var(--icon-gray);
+	font-size: 14px;
+	font-weight: 500;
+	max-width: 150px;
+}
+
+.btn {
+	padding: 0 10px;
+	font-size: 15px;
+	border-radius: 12px;
+}
+
+.list {
+	list-style: none;
+}

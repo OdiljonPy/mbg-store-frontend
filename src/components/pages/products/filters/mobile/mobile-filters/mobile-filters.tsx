@@ -19,6 +19,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { FormProvider, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import Location from "../location";
 import { IFilters } from "./data-types/index";
 import css from "./mobile-filters.module.css";
 
@@ -59,6 +60,9 @@ const MobileFilters = ({}: props) => {
 			category: values.category,
 			min_price: Number(values.prices?.split(",")[0]),
 			max_price: Number(values.prices?.split(",")[1]),
+			latitude: Number(values.location?.split(",")[0]),
+			longitude: Number(values.location?.split(",")[1]),
+			distance: Number(values.distance),
 			rating: Number(values.rating),
 			store: values.stores?.length
 				? values.stores.map((store) => Number(store))
@@ -139,6 +143,7 @@ const MobileFilters = ({}: props) => {
 						<Stores />
 						<Sales />
 						<Rating />
+						<Location />
 						<Delivery />
 						<Accessibility />
 						<div className={css.fixed_btn}>

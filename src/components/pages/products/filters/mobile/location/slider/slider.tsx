@@ -1,19 +1,13 @@
 import { ConfigProvider, Slider } from "antd";
-import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useFormContext } from "react-hook-form";
+import { IFilters } from "../../mobile-filters/data-types";
+const DistanceSlider = () => {
+	const { watch, setValue } = useFormContext<IFilters>();
+	const t = useTranslations();
+	const location = watch().location;
+	const distance = watch().distance;
 
-interface props {
-	distanceRange: number;
-	onChange: (value: number) => void;
-	onChangeComplete: (value: number) => void;
-}
-
-const DistanceSlider = ({
-	onChangeComplete,
-	onChange,
-	distanceRange,
-}: props) => {
-	const searchParams = useSearchParams();
-	const locationQuery = searchParams.get("location");
 	return (
 		<ConfigProvider
 			theme={{
@@ -33,14 +27,13 @@ const DistanceSlider = ({
 			}}
 		>
 			<Slider
-				disabled={!locationQuery}
+				disabled={!location}
 				min={1}
 				max={20}
-				defaultValue={distanceRange}
+				defaultValue={distance}
 				tooltip={{ open: false }}
-				value={distanceRange}
-				onChange={onChange}
-				onChangeComplete={onChangeComplete}
+				value={distance}
+				onChange={(e) => setValue("distance", e)}
 			/>
 		</ConfigProvider>
 	);

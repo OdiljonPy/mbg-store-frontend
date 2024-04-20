@@ -1,5 +1,6 @@
 import { useTranslations } from "use-intl";
 import css from "./index.module.css";
+import { useSearchParams } from "next/navigation";
 
 interface Props {
 	distance: number;
@@ -8,6 +9,8 @@ interface Props {
 }
 
 function DistanceInput({ distance, onChange, onChangeComplete }: Props) {
+	const searchParams = useSearchParams();
+	const locationQuery = searchParams.get("location");
 	const t = useTranslations();
 
 	return (
@@ -16,7 +19,8 @@ function DistanceInput({ distance, onChange, onChangeComplete }: Props) {
 			<div className={css.input}>
 				<p className={css.text}>{t("from").toLowerCase()}</p>
 				<input
-					value={distance}
+					disabled={!locationQuery}
+					value={distance || ""}
 					className={css.value}
 					onChange={(e) => onChange(Number(e.target.value))}
 					onBlur={(e) => {

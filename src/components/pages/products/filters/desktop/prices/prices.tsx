@@ -55,7 +55,7 @@ const Prices = (props: props) => {
 	};
 
 	return (
-		<FilterCollapse title={t("price.title")}>
+		<FilterCollapse title={t("price.title")} queryResetList={["prices"]}>
 			<div className={css.price}>
 				<Inputs
 					priceRange={priceRange}

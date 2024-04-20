@@ -20,7 +20,7 @@ const Inputs = () => {
 			<div className={css.input}>
 				<p className={css.text}>{t("from").toLowerCase()}</p>
 				<input
-					value={priceRange[0]}
+					value={priceRange[0] || ""}
 					className={css.value}
 					onChange={(e) =>
 						onChangeHandler([Number(e.target.value), priceRange[1]])
@@ -31,7 +31,7 @@ const Inputs = () => {
 			<div className={css.input}>
 				<p className={css.text}>{t("to").toLowerCase()}</p>
 				<input
-					value={priceRange[1]}
+					value={priceRange[1] || ""}
 					className={css.value}
 					type='number'
 					onChange={(e) =>

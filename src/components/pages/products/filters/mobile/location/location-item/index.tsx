@@ -2,9 +2,9 @@ import CustomRadio from "@/components/shared/custom-radio/custom-radio";
 import { IFilterLocation } from "@/data-types/address/filter-location";
 import { removeFilterLocation } from "@/slices/filter_location/filterLocationSlice";
 import { AppDispatch } from "@/store";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useFormContext } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { IFilters } from "../../mobile-filters/data-types";
 import css from "./location-item.module.css";
 
 interface props {
@@ -12,13 +12,10 @@ interface props {
 }
 
 const LocationItem = ({ location }: props) => {
-	const searchParams = useSearchParams();
-	const pathname = usePathname();
-	const { push, query } = useRouter();
-
-	const latitude = searchParams.get("location")?.split(",")[0];
-	const longitude = searchParams.get("location")?.split(",")[1];
-	const distance = searchParams.get("distance");
+	const { watch, setValue } = useFormContext<IFilters>();
+	const latitude = watch().location?.split(",")[0];
+	const longitude = watch().location?.split(",")[1];
+	const distance = watch().distance;
 
 	const dispatch = useDispatch<AppDispatch>();
 
@@ -26,24 +23,6 @@ const LocationItem = ({ location }: props) => {
 		dispatch(removeFilterLocation(location.address));
 	};
 
-	const onChange = () => {
-		push(
-			{
-				pathname,
-				query: {
-					...query,
-					distance: distance || "5",
-					location: `${location.latitude},${location.longitude}`,
-					changeFilter:
-						searchParams.get("changeFilter") === "true"
-							? "false"
-							: "true",
-				},
-			},
-			undefined,
-			{ scroll: false }
-		);
-	};
 	return (
 		<div className={css.rate}>
 			<div className={css.checkbox}>
@@ -54,7 +33,11 @@ const LocationItem = ({ location }: props) => {
 						title: location.address,
 					}}
 					options={{
-						onChange: onChange,
+						onChange: () =>
+							setValue(
+								"location",
+								`${location.latitude},${location.longitude}`
+							),
 						disabled: false,
 						checked:
 							`${location.latitude},${location.longitude}` ===

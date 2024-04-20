@@ -1,47 +1,46 @@
 .btn {
-    height: 18px;
-    flex-basis: 18px;
-    position: relative;
-    background: none;
-    border: none;
-    cursor: pointer;
+	height: 18px;
+	width: 18px;
+	flex-basis: 18px;
+	position: relative;
+	background: none;
+	border: none;
+	cursor: pointer;
 }
 
-
 .btn:before {
-    content: "";
-    display: block;
-    position: absolute;
-    background: var(--black);
-    top: 0;
-    border-radius: var(--default-radius);
-    left: 50%;
-    height: 100%;
-    width: 2px;
-    transition: all .2s linear;
-    transform: translateX(-50%);
+	content: "";
+	display: block;
+	position: absolute;
+	background: var(--black);
+	top: 0;
+	border-radius: var(--default-radius);
+	left: 50%;
+	height: 100%;
+	width: 2px;
+	transition: all 0.2s linear;
+	transform: translateX(-50%);
 }
 
 .btn:after {
-    content: "";
-    display: block;
-    position: absolute;
-    background: var(--black);
-    left: 0;
-    transition: all .2s linear;
-    border-radius: var(--default-radius);
-    top: 50%;
-    height: 2px;
-    width: 100%;
-    transform: translateY(-50%);
+	content: "";
+	display: block;
+	position: absolute;
+	background: var(--black);
+	left: 0;
+	transition: all 0.2s linear;
+	border-radius: var(--default-radius);
+	top: 50%;
+	height: 2px;
+	width: 100%;
+	transform: translateY(-50%);
 }
 
-
-.btn:hover:after ,.btn:hover:before {
-    background: var(--green);
+.btn:hover:after,
+.btn:hover:before {
+	background: var(--green);
 }
 
-.active:before{
-    opacity: 0;
+.active:before {
+	opacity: 0;
 }
-
