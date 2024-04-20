@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import css from "./wrapper.module.css";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import { useTranslations } from "next-intl";
@@ -10,15 +10,20 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import {fetchProductComments, fetchProductSingle} from "@/slices/product/productSingleSlices";
+import {useSearchParams} from "next/navigation";
 
 interface props {}
 
 const Wrapper = (props: props) => {
 	const t = useTranslations();
 	const router = useRouter();
+	const searchParams = useSearchParams()
 
 	const { info, loading,comments } = useSelector((state: RootState) => state.product_single);
 	const {rating,rating_count,comparison_products,related_products} = info
+
+	const ratingFilter = searchParams.get('rating')
+	const [offset,setOffset] = useState(5)
 
 	const dispatch = useDispatch<AppDispatch>();
 
@@ -28,8 +33,12 @@ const Wrapper = (props: props) => {
 
 
 	useEffect(() => {
-		dispatch(fetchProductComments(router.query.id))
-	}, [router.query.id]);
+		dispatch(fetchProductComments({
+			id:router.query.id,
+			size:offset,
+			rating:ratingFilter?ratingFilter: ''
+		}))
+	}, [router.query.id,ratingFilter,offset]);
 
 	return (
 		<section className={css.wrapper}>
@@ -54,7 +63,7 @@ const Wrapper = (props: props) => {
 
 				<Comparison comparison={comparison_products} loading={loading} />
 				<Similar similar={related_products} loading={loading} />
-				<Feedbacks rating={rating} rating_count={rating_count} comments={comments} loading={loading} />
+				<Feedbacks rating={rating} rating_count={rating_count} comments={comments} loading={loading} setOffset={(offset)=> setOffset(offset)} />
 			</div>
 		</section>
 	);

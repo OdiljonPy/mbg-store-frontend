@@ -9,8 +9,13 @@ export const fetchProductSingle = createAsyncThunk('product_single', async (id: 
     return response.data
 });
 
-export const fetchProductComments = createAsyncThunk('product_comment',async (id:string[] | string | undefined)=>{
-    const response = await API.get<ICommonComment>(`/store/comments/${id}/`)
+interface IPayloadComment{
+    id:string[] | string | undefined,
+    size:number,
+    rating:string
+}
+export const fetchProductComments = createAsyncThunk('product_comment',async ({id,size=5,rating=''}:IPayloadComment)=>{
+    const response = await API.get<ICommonComment>(`/store/comments/${id}/?page=1&size=${size}${rating ? `&rating=${rating}`:''}`)
     return response.data
 })
 

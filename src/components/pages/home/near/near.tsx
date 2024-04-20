@@ -36,6 +36,7 @@ const Near = () => {
 					heading={{
 						title: "products.near",
 						count: data.content?.length,
+						link : "products?sort=popular"
 					}}
 				/>
 				<div className={cn(css.wrapperOuter, css.wrapper)}>{isAddress ? <ProductList /> : <NearDialog />}</div>
