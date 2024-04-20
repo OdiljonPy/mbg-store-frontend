@@ -23,7 +23,7 @@ const Filters = ({loading,rating:rate,all_rating,rating_count}: props) => {
 
     items[0].count = all_rating
     // @ts-ignore
-    Array.from({length:5},(_,idx:number)=> items[idx+1].count = rating_count?.[idx+1])
+    Array.from({length:5},(_,idx:number)=> items[idx+1].count = rating_count?.[5 - idx])
 
     const rating: string | null = searchParams.get('rating')
     return (

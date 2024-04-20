@@ -11,9 +11,10 @@ interface props {
     loading:boolean,
     rating:number,
     rating_count:number
+    setOffset:(offset:number)=>void
 }
 
-const Feedbacks = ({comments,loading,rating,rating_count}: props) => {
+const Feedbacks = ({comments,loading,rating,rating_count,setOffset}: props) => {
     return (
         <section className={css.feedback}>
             <HeadingLine small heading={{
@@ -21,7 +22,7 @@ const Feedbacks = ({comments,loading,rating,rating_count}: props) => {
             }}/>
             <div className={css.wrapper}>
                 <Filters rating_count={comments?.rating_count} rating={rating} all_rating={rating_count} loading={loading}/>
-                <List comments={comments?.content} loading={loading}/>
+                <List comments={comments} loading={loading} setOffset={(offset)=> setOffset(offset)}/>
             </div>
         </section>
     );

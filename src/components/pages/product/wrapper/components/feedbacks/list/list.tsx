@@ -6,14 +6,15 @@ import {IComments} from "@/data-types/products/common";
 import Pagination from "@/components/shared/pagination/pagination";
 import FeedbackLoader
     from "@/components/pages/product/wrapper/components/feedbacks/list/feedback-loader/feedback-loader";
+import {IProductComments} from "@/data-types/products/product-comments/product-comments";
 
 interface props {
-    comments:IComments[]
+    comments:IProductComments
     loading:boolean
+    setOffset:(offset:number)=>void
 }
 
-const List = ({comments,loading}: props) => {
-    const [offset,setOffset] = useState(5)
+const List = ({comments,loading,setOffset}: props) => {
     return (
         <div className={css.list}>
             {
@@ -23,12 +24,12 @@ const List = ({comments,loading}: props) => {
                         <FeedbackLoader/>
                         <FeedbackLoader/>
                     </div>:
-                    comments?.slice(0,offset).map((item) => (
+                    comments?.content?.map((item) => (
                      <Feedback feedback={item} key={item.name}/>))
             }
             {
-                (!loading && comments?.length > 5) &&
-                <Pagination total={comments?.length} offset={offset} limit={5} setOffset={(offset)=> setOffset(offset)}/>
+                (!loading && comments?.totalPages > 1) &&
+                <Pagination total={comments?.totalElements} offset={comments?.content.length} limit={5} setOffset={(offset)=> setOffset(offset)}/>
             }
         </div>
     );
