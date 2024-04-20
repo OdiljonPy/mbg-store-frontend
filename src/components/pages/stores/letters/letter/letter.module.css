@@ -1,15 +1,19 @@
 .letter {
-    font-size: 18px;
-    color: var(--black);
-    padding: 10px;
-    font-weight: 500;
-    border-bottom: 1px solid #DADADA;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all .2s linear;
+	font-size: 18px;
+	color: var(--black);
+	padding: 10px;
+	font-weight: 500;
+	border-bottom: 1px solid #dadada;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all 0.2s linear;
 }
 
-
 .selected {
-    border-bottom: 2px solid var(--black);
+	border-bottom: 2px solid var(--black);
+}
+
+.disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
 }

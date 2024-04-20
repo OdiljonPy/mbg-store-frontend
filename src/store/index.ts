@@ -35,6 +35,7 @@ import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
+import storesSlice from "../slices/stores/storesSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -94,6 +95,7 @@ const rootReducers = combineReducers({
 	banner: bannerSlice,
 	faq: faqSlice,
 	product_near: productLocationSlice,
+	stores: storesSlice,
 });
 
 export const makeStore = () => {
