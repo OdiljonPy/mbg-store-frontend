@@ -6,6 +6,7 @@ import {useState} from "react";
 import Actions from "@/components/pages/cart/contents/product/actions/actions";
 import Price from "@/components/pages/cart/contents/product/description/price/price";
 import {IBasketSlices} from "@/data-types/slices/basket";
+import Link from "next/link";
 
 interface props {
     product: IProduct
@@ -19,9 +20,9 @@ const Product = ({product}: props) => {
     return (
        <div>
            <div className={css.product}>
-               <div className={css.img}>
+               <Link href={`/products/${id}`} className={css.img} >
                    <ResponsiveImage src={images[0]?.image} alt={name}/>
-               </div>
+               </Link>
                <div className={css.info}>
                    <Description count={count} product={product}/>
                    <div className={css.desktop_action}>

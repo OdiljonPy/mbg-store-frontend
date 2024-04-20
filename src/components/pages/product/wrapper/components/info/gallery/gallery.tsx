@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import css from './gallery.module.css'
 import {useKeenSlider} from "keen-slider/react";
 import {ThumbnailPlugin} from "@/components/pages/product/wrapper/plugins/thumbnail/thumbnail";
@@ -42,11 +42,18 @@ const Gallery = ({gallery,loading} : props) => {
     )
 
 
-    const onPrev = () => instanceRef.current?.prev()
+    const onPrev = () => instanceRef?.current?.prev()
 
-    const onNext = () => instanceRef.current?.next()
+    const onNext = () => instanceRef?.current?.next()
 
     const onChangeSlide = (i: number) => instanceRef.current?.moveToIdx(i)
+
+    useEffect(() => {
+        const slider = instanceRef.current
+        return ()=>{
+            slider?.update()
+        }
+    }, [instanceRef,thumbnailRef,sliderRef]);
 
     return (
         <>

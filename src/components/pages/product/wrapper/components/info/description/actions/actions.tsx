@@ -11,7 +11,7 @@ interface props {
 const Actions = ({product}: props) => {
 	return (
 		<div className={css.actions}>
-			<AddToCard />
+			<AddToCard product={product} />
 			<AddToFav product={product}/>
 		</div>
 	);

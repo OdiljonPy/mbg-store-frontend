@@ -21,9 +21,12 @@ const Preview = forwardRef(({loading,gallery}: props, ref: ForwardedRef<HTMLDivE
                 loading ? '' : gallery?.images?.map((item) =>{
                     return (
                       <div key={item.id} className={`${css.item} ${mainCss.img} keen-slider__slide`}>
-                           <div className={css.badge}>
-                               <Badge text={t('product.onSale')} color={'#767BF9'}/>
-                          </div>
+                          {
+                              gallery?.available < 1 &&  <div className={css.badge}>
+                                  <Badge text={t('product.sold')} color={'#767BF9'}/>
+                              </div>
+                          }
+
                            <ResponsiveImage src={item.image} alt={'Кукуруза Bonduelle Classique сладкая'}/>
                        </div>
                     )

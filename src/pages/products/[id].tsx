@@ -17,11 +17,6 @@ const Id = (props: props) => {
 
     return (
         <>
-            <Head>
-                <title>
-                    Кукуруза Bonduelle Classique сладкая
-                </title>
-            </Head>
             <Wrapper/>
         </>
     );
