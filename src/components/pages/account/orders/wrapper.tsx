@@ -21,7 +21,7 @@ const Wrapper = () => {
 
 	const { filteredData, onSearchValueChange, searchValue } = useClientSearch({
 		data: Array.isArray(orders) ? orders : [],
-		searchBy: ["created_at", "id"],
+		searchBy: ["id"],
 	});
 
 	if (error)

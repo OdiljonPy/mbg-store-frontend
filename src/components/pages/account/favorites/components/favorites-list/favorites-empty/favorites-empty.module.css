@@ -15,24 +15,12 @@
 	margin-bottom: 14px;
 }
 
-.button {
-	color: white;
-	background-color: var(--green);
-	font-weight: 600;
-	font-size: 17px;
-	display: flex;
-	border: none;
-	align-items: center;
-	justify-content: center;
-	border-radius: var(--default-radius);
-	padding: 15px 56px;
-	transition: all 0.2s linear;
-	cursor: pointer;
-	text-wrap: nowrap;
+.link {
+	text-decoration: none;
 }
 
-.button:hover {
-	opacity: 0.8;
+.btn {
+	width: 260px;
 }
 
 @media (max-width: 991px) {
@@ -55,7 +43,11 @@
 		height: 140px;
 	}
 
-	.button {
+	.link {
+		width: 100%;
+	}
+
+	.btn {
 		width: 100%;
 	}
 }
