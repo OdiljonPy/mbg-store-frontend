@@ -4,6 +4,12 @@
     flex-basis: 0;
     position: sticky;
     top: 150px;
+    max-height: 78vh;
+    overflow-y: scroll;
+}
+
+.filters::-webkit-scrollbar{
+    display: none;
 }
 
 .show {

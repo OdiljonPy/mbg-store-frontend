@@ -22,7 +22,7 @@ const Option = ({item, onClose}: props) => {
 
     const onSetValue = () => {
         setValue('rating', key.toString())
-        setValue('withFeedback', true)
+        // setValue('withFeedback', true)
         onClose()
     }
 
