@@ -39,6 +39,7 @@ const Wrapper = (props: props) => {
                     <Contents basketSlices={basketSlices}/>
                     <Total basketSlice={basketSlices} />
                 </div>
+
                 {total_count ? <Favourites favourites={favourites}/>:''}
             </div>
         </section>
