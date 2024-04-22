@@ -18,6 +18,10 @@
     color: var(--orange);
 }
 
+.noDiscountPrise{
+    color:var(--black) !important
+}
+
 .actualPrice {
     font-size: 20px;
     font-weight: 500;

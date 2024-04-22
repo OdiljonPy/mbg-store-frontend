@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 import css from "./badge.module.css";
 
 interface props extends React.HTMLAttributes<HTMLDivElement> {

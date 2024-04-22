@@ -19,6 +19,10 @@
    color: var(--icon-gray);
 }
 
+.text_grey{
+    color: #999999 !important;
+}
+
 
 @media (max-width: 991px) {
     .text{

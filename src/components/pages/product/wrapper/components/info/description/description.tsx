@@ -26,8 +26,11 @@ const Description = ({ info, loading }: props) => {
 				<Skeleton className={css.skeleton_position} count={1} height={"30px"} width={"160px"} />
 			) : (
 				<div className={css.text}>
-					<p className={css.weight}>{`${info?.available}г`}</p>
-					<Badge text={t("product.has")} color={"#60C787"} />
+					<p className={css.weight}>{`${info?.amount_type}`}</p>
+					{
+						info?.available >= 1 ? <Badge text={t("product.has")} color={"#60C787"} /> :
+						<Badge text={t("product.has_not")} color={"#F2F2F2"} className={css.text_grey}/>
+					}
 				</div>
 			)}
 
