@@ -11,7 +11,7 @@ interface IProps {
     loading?:boolean
 }
 
-const Price = ({
+const   Price = ({
                    discount_percentage,
                    price,
                    discount_price,
@@ -24,7 +24,7 @@ const Price = ({
                     {
                         discount_percentage !== 0 ?  <DiscountBadge className={css.discount} discount_percentage={discount_percentage}/> : null
                     }
-                    <p className={css.discountPrice}>
+                    <p className={`${css.discountPrice} ${!discount_percentage ? css.noDiscountPrise :''}`}>
                         {discount_price && priceFormatter(discount_price, true)}
                     </p>
                     { discount_percentage !==0 ? <p className={css.actualPrice}>

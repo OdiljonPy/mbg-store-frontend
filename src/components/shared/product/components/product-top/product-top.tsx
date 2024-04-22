@@ -19,25 +19,23 @@ const ProductTop = ({ product }: props) => {
 
 	return (
 		<div className={css.actions}>
-				<div className={css.discount}>
-					{
-						<>
-							{
-								(available > 1 && discount) && <DiscountBadge discount_percentage={discount} />
-							}
-							{
-								available < 1 && <Badge text={t('products.sold')} color={'#767BF9'}/>
-							}
-						</>
-					}
-				</div>
+			<div className={css.discount}>
+				{
+					(available > 1 && discount) ? <DiscountBadge discount_percentage={discount} /> : ''
+				}
+			</div>
+			<div className={css.unavailable}>
+				{
+					available < 1 ? <Badge text={t('products.sold')} color={'#767BF9'}/> : ''
+				}
+			</div>
 
-			{(
+			{
+				available > 1 ?
 				<div className={css.favorite_icon}>
 					<AddToFav product={product}/>
-				</div>
-
-			)}
+				</div> : ''
+			}
 			<Link href={`/products/${id}`} className={css.img}>
 				<ResponsiveImage src={images[0]?.image} alt={name} />
 			</Link>

@@ -24,7 +24,7 @@ const AddToCard = ({product}: props) => {
         })
     }
     return (
-        <button className={css.btn} onClick={()=> addBasket()}>
+        <button className={css.btn} onClick={()=> addBasket()} disabled={product.available < 1}>
             {t('product.addToCart')}
         </button>
     );

@@ -4,6 +4,13 @@
 	left: 20px;
 }
 
+.unavailable{
+	position: absolute;
+	bottom: unset;
+	top: 16px;
+	left: 16px;
+}
+
 .favorite_icon {
 	position: absolute;
 	top: 20px;

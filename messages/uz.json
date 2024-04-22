@@ -85,7 +85,8 @@
 		"sold": "Sotilgan",
 		"addToCart": "Mahsulot savatga qo'shildi!",
 		"show_more": "Ko'proq ko'rsatish",
-		"no_product": "Mahsulot bazada qolmadi"
+		"no_product": "Mahsulot bazada qolmadi",
+		"unavailable_product": "Mavjud bo'lmagan mahsulatlar"
 	},
 	"about": {
 		"title": "Кратко о MBG store",
@@ -142,6 +143,7 @@
 		"similar": "Покупают вместе",
 		"onSale": "Распродажа",
 		"has": "В наличии",
+		"has_not": "Mavjud emas",
 		"seller": "Продавец",
 		"rates": "Оценок",
 		"addToCart": "Добавить в корзину",

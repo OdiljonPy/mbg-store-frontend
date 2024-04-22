@@ -5,20 +5,20 @@ import Description from "@/components/pages/cart/contents/product/description/de
 import {useState} from "react";
 import Actions from "@/components/pages/cart/contents/product/actions/actions";
 import Price from "@/components/pages/cart/contents/product/description/price/price";
-import {IBasketSlices} from "@/data-types/slices/basket";
 import Link from "next/link";
+import Button from "@/components/shared/button";
 
 interface props {
     product: IProduct
-    basket:IBasketSlices
+    isAvailable?:boolean
 }
 
-const Product = ({product}: props) => {
+const Product = ({product,isAvailable = false}: props) => {
     const { images, name,id} = product
     const [count, setCount] = useState<number>(product.count ? product.count : 0)
 
     return (
-       <div>
+       <div className={css.product_cart}>
            <div className={css.product}>
                <Link href={`/products/${id}`} className={css.img} >
                    <ResponsiveImage src={images[0]?.image} alt={name}/>
@@ -26,7 +26,7 @@ const Product = ({product}: props) => {
                <div className={css.info}>
                    <Description count={count} product={product}/>
                    <div className={css.desktop_action}>
-                    <Actions count={count} setCount={setCount}  product={product}/>
+                    <Actions isAvailable={isAvailable} count={count} setCount={setCount}  product={product}/>
                    </div>
                    <div className={css.price_mobile}>
                        <Price discount={product.discount} discount_price={product.discount_price} price={product.price} count={count}/>
@@ -34,8 +34,13 @@ const Product = ({product}: props) => {
                </div>
            </div>
            <div className={css.mobile_action}>
-               <Actions count={count} setCount={setCount}  product={product}/>
+               <Actions isAvailable={isAvailable} count={count} setCount={setCount}  product={product}/>
            </div>
+           {isAvailable &&  <div className={css.isAvailable}>
+               <div className={css.available_action}>
+                   <Button variant={"tertiary"}>Похожие товары</Button>
+               </div>
+           </div>}
        </div>
     );
 };
