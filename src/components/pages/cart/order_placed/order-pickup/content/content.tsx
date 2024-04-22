@@ -8,13 +8,13 @@ interface props{
 
 }
 const Content = (props:props) =>{
-    const {last_order} = useSelector((state:RootState)=> state.last_order)
+    const {last_order,loading} = useSelector((state:RootState)=> state.last_order)
     const {order_items} = last_order
     return(
         <div className={css.content}>
             <h2 className={css.title}>Способ получения</h2>
             <Address/>
-            <OrderItems products={order_items} totalCountProduct={order_items?.length}/>
+            <OrderItems loading={loading} products={order_items} totalCountProduct={order_items?.length}  />
         </div>
     )
 }

@@ -19,7 +19,7 @@ const Price = ({price, discount_price, count,discount}: props) => {
                 {priceFormatter(price * count, true)}
             </p>
             <p className={`${css.pricePerItem} ${count > 1 ? css.show: ''}`}>
-                {priceFormatter(price, true)}/ед
+                {priceFormatter(currentPrice, true)}/ед
             </p>
         </div>
     );
