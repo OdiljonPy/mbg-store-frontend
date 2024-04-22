@@ -54,7 +54,7 @@ const signUpUserSlice = createSlice({
 			})
 			.addCase(signUpUser.rejected, (state) => {
 				state.loading = false;
-				state.error = "Аккаунт с таким номером уже существует";
+				state.error = "account_already_exists";
 			});
 	},
 });

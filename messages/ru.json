@@ -210,6 +210,72 @@
 		"delete_desc": "Вы уверены что хотите удалить адрес"
 	},
 	"remove": "Удалить",
+	"auth": {
+		"signUp": {
+			"title": "Создание аккаунта",
+			"phone_number": "Номер телефона",
+			"password": "Пароль",
+			"enter_password": "Введите пароль",
+			"label": "Номер телефона",
+			"accept_terms": "Я принимаю условия <terms>Офферты</terms>",
+			"create_account": "Создать аккаунт",
+			"have_account": "Есть аккаунт?",
+			"login": "Войти в аккаунт",
+			"account_already_exists": "Аккаунт с таким номером уже существует"
+		},
+		"signUp_success": {
+			"title": "Добро пожаловать!",
+			"description": "Вы успешно создали аккаунт в MBG store",
+			"login": "Войти"
+		},
+		"login": {
+			"title": "Вход в аккаунт",
+			"password": "Пароль",
+			"enter_password": "Введите пароль",
+			"forgot_password": "Забыли пароль?",
+			"enter": "Войти",
+			"no_account": "Нет аккаунта?",
+			"create_account": "Создать аккаунт",
+			"invalid_phone_or_password": "Неврный номер телефона или пароль"
+		},
+		"reset_password": {
+			"title": "Сброс пароля",
+			"description": "Код для сброса пароля будет отправлен на ваш номер телефона",
+			"phone_number": "Номер телефона",
+			"current_password": "Текущий пароль",
+			"get_code": "Получить код",
+			"invalid_phone_number": "Номер телефона недействителен"
+		},
+		"otp": {
+			"title": "Введите код",
+			"description": "Код отправлен на номер <phone>{phone}</phone>",
+			"back": "Назад",
+			"confirm": "Подтвердить",
+			"new_code_after": "Новый код через",
+			"send_new_code": "Отправить новый код ({count} попытки)",
+			"invalid_code": "Недействителен код"
+		},
+		"otp_error": {
+			"title": "Ошибка регистрации",
+			"description": "Введен неверный OTP-код более 3х раз. Попробуйте еще раз позже.",
+			"close": "Закрыть"
+		},
+		"new_password": {
+			"title": "Новый пароль",
+			"description": "Придумайте новый пароль",
+			"label": "Пароль",
+			"placeholder": "Введите пароль",
+			"change_password": "Изменить пароль",
+			"min_length": "не менее 8 символов",
+			"min_one_letter": "минимум 1 буква",
+			"min_one_digit": "минимум 1 цифра"
+		},
+		"reset_success": {
+			"title": "Пароль обновлен",
+			"description": "Теперь вы можете войти с новым паролем",
+			"login": "Войти"
+		}
+	},
 	"profile": {
 		"title": "Профиль",
 		"logout": {
@@ -230,28 +296,6 @@
 			"title": "Безопасность",
 			"phone_number": "Номер телефона",
 			"current_password": "Текущий пароль"
-		},
-		"drop_password": {
-			"modal_title": "Сброс пароля",
-			"modal_description": "Код для сброса пароля будет отправлен на ваш номер телефона",
-			"label": "Номер телефона",
-			"placeholder": "Введите номер телефона",
-			"current_password": "Текущий пароль",
-			"get_code": "Получить код"
-		},
-		"enter_code": {
-			"modal_title": "Введите код",
-			"modal_description": "Код отправлен на номер",
-			"back": "Назад",
-			"confirm": "Подтвердить",
-			"new_code_after": "Новый код через"
-		},
-		"new_password": {
-			"modal_title": "Новый пароль",
-			"modal_description": "Придумайте новый пароль",
-			"label": "Пароль",
-			"placeholder": "Введите пароль",
-			"change_password": "Изменить пароль"
 		},
 		"save": "Сохранить"
 	},

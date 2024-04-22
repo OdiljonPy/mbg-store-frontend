@@ -1,10 +1,10 @@
+import Auth from "@/components/pages/home/auth/auth";
 import Label from "@/components/shared/label";
 import { IUser } from "@/data-types/auth/user";
 import { Skeleton } from "antd";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { PhoneInput } from "react-international-phone";
-import ResetPassword from "./reset-password/reset-password";
 import css from "./security.module.css";
 
 interface Props {
@@ -74,7 +74,7 @@ function Security({ user, loading, error }: Props) {
 								<Label className={css.label}>
 									{t("profile.security.current_password")}
 								</Label>
-								<ResetPassword>
+								<Auth defaultStep='resetPassword'>
 									<input
 										className={`${css.input} ${css.password}`}
 										type='password'
@@ -95,7 +95,7 @@ function Security({ user, loading, error }: Props) {
 											/>
 										</svg>
 									</div>
-								</ResetPassword>
+								</Auth>
 							</div>
 						</div>
 					</>

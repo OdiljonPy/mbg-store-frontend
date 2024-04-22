@@ -38,7 +38,7 @@ interface LoginState {
 	isLoggedIn: boolean;
 	error: string | null;
 	loading: boolean;
-	onOpenLogin:boolean
+	onOpenLogin: boolean;
 }
 
 export const getItem = (key: string): string | null => {
@@ -55,13 +55,13 @@ const initialState: LoginState = accessToken
 			isLoggedIn: true,
 			error: null,
 			loading: false,
-			onOpenLogin:false
+			onOpenLogin: false,
 	  }
 	: {
 			isLoggedIn: false,
 			error: null,
 			loading: false,
-			onOpenLogin:false
+			onOpenLogin: false,
 	  };
 
 const loginSlice = createSlice({
@@ -71,12 +71,12 @@ const loginSlice = createSlice({
 		clearLoginError(state) {
 			state.error = null;
 		},
-		openLoginModal(state){
-			state.onOpenLogin = true
+		openLoginModal(state) {
+			state.onOpenLogin = true;
 		},
-		closeLoginModal(state){
-			state.onOpenLogin = false
-		}
+		closeLoginModal(state) {
+			state.onOpenLogin = false;
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -91,7 +91,7 @@ const loginSlice = createSlice({
 			})
 			.addCase(loginUser.rejected, (state) => {
 				state.loading = false;
-				state.error = "Неверный логин или пароль";
+				state.error = "invalid_phone_or_password";
 			});
 
 		builder.addCase(logoutUser.fulfilled, (state) => {
@@ -100,6 +100,7 @@ const loginSlice = createSlice({
 	},
 });
 
-export const { clearLoginError,openLoginModal,closeLoginModal } = loginSlice.actions;
+export const { clearLoginError, openLoginModal, closeLoginModal } =
+	loginSlice.actions;
 
 export default loginSlice.reducer;

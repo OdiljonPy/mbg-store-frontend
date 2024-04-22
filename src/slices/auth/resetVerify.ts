@@ -12,10 +12,13 @@ export interface IOtpKeyResponse {
 	error?: string;
 }
 
-export const verify = createAsyncThunk(
-	"auth/verify",
+export const resetVerify = createAsyncThunk(
+	"auth/reset_verify",
 	async (body: IOtpKeyRequest) => {
-		const response = await API.post<IOtpKeyResponse>("/auth/verify/", body);
+		const response = await API.post<IOtpKeyResponse>(
+			"/auth/check/reset_token/",
+			body
+		);
 		return response.data;
 	}
 );
@@ -44,41 +47,41 @@ export const resendOtpKey = createAsyncThunk(
 );
 
 interface VerifyState {
-	verified: boolean;
+	token: string;
 	loading: boolean;
 	error: string | null;
 }
 
 const initialState: VerifyState = {
-	verified: false,
+	token: "",
 	loading: false,
 	error: null,
 };
 
-const verifyUserSlice = createSlice({
+const resetVerifySlice = createSlice({
 	name: "auth/verify",
 	initialState,
 	reducers: {
-		clearVerifyError(state) {
+		clearResetVerifyError(state) {
 			state.error = null;
 		},
 	},
 	extraReducers: (builder) => {
 		builder
-			.addCase(verify.pending, (state) => {
+			.addCase(resetVerify.pending, (state) => {
 				state.loading = true;
 			})
-			.addCase(verify.fulfilled, (state) => {
+			.addCase(resetVerify.fulfilled, (state, { payload }) => {
+				state.token = payload.result;
 				state.loading = false;
-				state.verified = true;
 			})
-			.addCase(verify.rejected, (state) => {
+			.addCase(resetVerify.rejected, (state) => {
 				state.loading = false;
 				state.error = "invalid_code";
 			});
 	},
 });
 
-export const { clearVerifyError } = verifyUserSlice.actions;
+export const { clearResetVerifyError } = resetVerifySlice.actions;
 
-export default verifyUserSlice.reducer;
+export default resetVerifySlice.reducer;

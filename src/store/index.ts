@@ -36,6 +36,9 @@ import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
 import storesSlice from "../slices/stores/storesSlice";
+import resetPasswordSlice from "../slices/auth/resetPassword";
+import resetVerifySlice from "../slices/auth/resetVerify";
+import updatePasswordSlice from "../slices/auth/updatePassword";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -84,6 +87,9 @@ const rootReducers = combineReducers({
 	verify: verifyUserSlice,
 	signup: signUpUserSlice,
 	login: loginSlice,
+	resetPassword: resetPasswordSlice,
+	resetVerify: resetVerifySlice,
+	updatePassword: updatePasswordSlice,
 	orders: ordersSlice,
 	order_item: orderItemSlice,
 	last_order: lastOrderSlices,
