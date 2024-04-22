@@ -72,7 +72,10 @@ const Gallery = ({gallery,loading} : props) => {
                             <NavigationBtn onClick={onNext} isNext/>
                         </div>
                     }
-                    <Dots onChangeSlide={onChangeSlide} currentSlide={currentSlide} items={[]}/>
+                    {
+                      gallery?.images?.length > 1 ?  <Dots onChangeSlide={onChangeSlide} currentSlide={currentSlide} items={gallery?.images?.length}/> :''
+                    }
+
                 </div>
             }
         </>
