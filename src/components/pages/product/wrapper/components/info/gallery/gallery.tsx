@@ -41,10 +41,15 @@ const Gallery = ({gallery,loading} : props) => {
         [ThumbnailPlugin(instanceRef)]
     )
 
+    console.log("gallery",gallery)
 
-    const onPrev = () => instanceRef?.current?.prev()
+    const onPrev = () => {
+        if(gallery?.images?.length > 3) instanceRef?.current?.prev()
+    }
 
-    const onNext = () => instanceRef?.current?.next()
+    const onNext = () => {
+        if(gallery?.images?.length > 3) instanceRef?.current?.next()
+    }
 
     const onChangeSlide = (i: number) => instanceRef.current?.moveToIdx(i)
 

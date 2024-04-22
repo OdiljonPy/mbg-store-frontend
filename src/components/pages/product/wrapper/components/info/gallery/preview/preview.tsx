@@ -23,7 +23,7 @@ const Preview = forwardRef(({loading,gallery}: props, ref: ForwardedRef<HTMLDivE
                       <div key={item.id} className={`${css.item} ${mainCss.img} keen-slider__slide`}>
                           {
                               gallery?.available < 1 &&  <div className={css.badge}>
-                                  <Badge text={t('product.sold')} color={'#767BF9'}/>
+                                  <Badge text={t('products.sold')} color={'#767BF9'}/>
                               </div>
                           }
 
