@@ -32,13 +32,13 @@ const LanguageSwitcher = (props: props) => {
             query,
             pathname,
         }} scroll={false} className={css.language}
-              locale={languages.find((item) => item.code !== (locale == 'default' ? 'uz' : locale))?.code ?? 'uz' }
+              locale={languages.find((item) => item.code !== (locale === 'default' ? 'uz' : locale))?.code ?? 'uz' }
               onClick={()=> changeLocale()}
         >
             <span className={css.icon}>
-                <ResponsiveImage src={languagesIcons[locale as keyof ILanguagesIcons]} alt={locale}/>
+                <ResponsiveImage src={languagesIcons[(locale === 'default' ? 'uz' : locale) as keyof ILanguagesIcons]} alt={locale}/>
             </span>
-            {languagesObj[locale as keyof ILanguagePointer]?.slice(0, 3)}
+            {languagesObj[(locale === 'default' ? 'uz' : locale) as keyof ILanguagePointer]?.slice(0, 3)}
         </Link>
     );
 };
