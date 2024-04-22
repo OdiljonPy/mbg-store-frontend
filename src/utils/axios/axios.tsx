@@ -8,7 +8,8 @@ const defaultOptions = {
 const API = axios.create(defaultOptions);
 
 API.interceptors.request.use(function (config) {
-	const locale = localStorage.getItem("locale") || 'ru'
+	let locale = localStorage.getItem("locale") || 'uz'
+	if(locale === 'default') locale = 'uz'
 	const token = localStorage.getItem("access_token");
 	config.headers.Authorization = token ? `Bearer ${token}` : "";
 	config.headers['Accept-Language'] = locale

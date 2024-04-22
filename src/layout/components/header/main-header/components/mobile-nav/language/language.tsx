@@ -34,7 +34,7 @@ const Language = ({language, onClose}: props) => {
         <Link href={{
             pathname
         }} locale={code} onClick={()=> changeLocale()}  scroll={false}
-              className={`${css.language} ${locale === code ? css.active : ''}`}>
+              className={`${css.language} ${(locale == 'default' ? 'uz' : locale) === code ? css.active : ''}`}>
             <span className={css.icon}>
                 <ResponsiveImage src={languagesIcons[code as keyof ILanguagesIcons]} alt={title}/>
             </span>

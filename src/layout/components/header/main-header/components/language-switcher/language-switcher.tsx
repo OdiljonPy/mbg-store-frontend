@@ -32,7 +32,7 @@ const LanguageSwitcher = (props: props) => {
             query,
             pathname,
         }} scroll={false} className={css.language}
-              locale={languages.find((item) => item.code !== locale)?.code ?? 'uz' }
+              locale={languages.find((item) => item.code !== (locale == 'default' ? 'uz' : locale))?.code ?? 'uz' }
               onClick={()=> changeLocale()}
         >
             <span className={css.icon}>

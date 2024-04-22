@@ -1,0 +1,364 @@
+{
+  "header": {
+    "home": "Главная",
+    "catalog": "Каталог",
+    "about": "О нас",
+    "stores": "Магазины",
+    "faq": "FAQ",
+    "searchProducts": "Поиск продуктов",
+    "favourites": "Избранное",
+    "login": "Войти",
+    "basket": "Savatcha",
+    "delivery": "Yetkazib Berish",
+    "account": "Akkaunt",
+    "profile": "Profil",
+    "orders": "Buyurtmalar",
+    "order": "Buyurtma",
+    "address_book": "Адресная книжка",
+    "favorites": "Saralangan",
+    "support": "Yordam",
+    "order_placed": "Buyurtma berilgan"
+  },
+  "categories": {
+    "title": "Категории",
+    "all": "Все категории"
+  },
+  "address": {
+    "add": "Добавить адрес",
+    "next": "Далее",
+    "cancel": "Отмена",
+    "change": "Изменить",
+    "save": "Сохранить",
+    "typeAddress": "Укажите свой адрес",
+    "title": "Адрес",
+    "placeholder": "Город, улица, дом",
+    "add_delivery": "Адрес доставки",
+    "name": "Название",
+    "enter_name": "Введите название",
+    "entrance": "Подъезд",
+    "floor": "Этаж",
+    "apartment": "Квартира",
+    "make_address": "Сделать адрес основным",
+    "required": "Это поле обязательно"
+  },
+  "search": {
+    "placeholder": "Поиск товаров",
+    "often": "Часто ищут",
+    "title": "Поиск",
+    "found": "Найдено {products} товаров в {categories} категориях",
+    "categories": "{products} товаров",
+    "byName": "Поиск по названию"
+  },
+  "errors": {
+    "required": "Это поле обязательно"
+  },
+  "detect": "Определить",
+  "approve": "Подтвердить",
+  "catalog": "Каталог",
+  "footer": {
+    "phone": "Телефон",
+    "email": "Почта",
+    "address": "Адрес",
+    "information": "Информация",
+    "offert": "Офферта",
+    "copyright": "Все права защищены.",
+    "qr": "Отсканируйте QR-код, чтобы скачать приложение",
+    "mgbStore": "Приложение MBG store"
+  },
+  "account": {
+    "orders": "Заказы",
+    "title": "Аккаунт"
+  },
+  "sales": {
+    "sale": "Скидки",
+    "title": "На скидке",
+    "more": "{count}% и более"
+  },
+  "products": {
+    "title": "Товары",
+    "plural": "Товаров",
+    "rates": "Оценок",
+    "near": "Товары поблизости",
+    "top": "Хиты продаж",
+    "popular": "Популярное",
+    "withFeedbacks": "Товары с отзывами",
+    "sold": "Sotilgan",
+    "addToCart": "Mahsulot savatga qo'shildi!",
+    "show_more": "Ko'proq ko'rsatish",
+    "no_product": "Mahsulot bazada qolmadi"
+  },
+  "about": {
+    "title": "Кратко о MBG store",
+    "products": "различных товаров",
+    "stores": "магазинов на сайте",
+    "orders": "заказов в день",
+    "partners": "Наши партнеры",
+    "faq": "Частые вопросы",
+    "chat": "Не смогли найти ответ на свой вопрос? Напишите в чат:",
+    "writeToChat": "Написать в чат"
+  },
+  "show": "Показать",
+  "show_count": "{count} ta mahsulotni ko'rsatish",
+  "hide": "Скрыть",
+  "filters": {
+    "title": "Фильтры",
+    "sorting": {
+      "title": "Сортировка",
+      "popular": "Популярные",
+      "cheap": "Подешевле",
+      "expensive": "Подороже",
+      "highRate": "Высокий рейтинг",
+      "null": "Популярные"
+    },
+    "delivery": {
+      "title": "Доставка",
+      "free": "Бесплатная доставка",
+      "self": "Самовывоз",
+      "has": "Есть доставка"
+    },
+    "accessibility": {
+      "title": "Доступность"
+    },
+    "reset": "Сбросить фильтры"
+  },
+  "from": "От",
+  "to": "До",
+  "fromBeginning": "Сначала",
+  "rating": {
+    "title": "Рейтинг",
+    "rate": "{count} и более"
+  },
+  "reset": "Сбросить",
+  "price": {
+    "title": "Цена, UZS"
+  },
+  "location": {
+    "title": "Локация",
+    "select_location": "Укажите локацию, для работы фильтра",
+    "add_location": "Другой адрес? Добавьте локацию",
+    "distance": "Радиус поиска от локации"
+  },
+  "product": {
+    "similar": "Покупают вместе",
+    "onSale": "Распродажа",
+    "has": "В наличии",
+    "seller": "Продавец",
+    "rates": "Оценок",
+    "addToCart": "Добавить в корзину",
+    "about": "О товаре",
+    "comparison": "Сравнение схожих товаров",
+    "title": "Продукт",
+    "price": "Цена",
+    "feedback": "Отзывы о товаре",
+    "showOnFeedback": "Показать по рейтингу",
+    "allFeedbacks": "Все отзывы",
+    "sendFeedback": "Оставить отзыв",
+    "writeFeedback": "Написать отзыв",
+    "orders": "Заказов"
+  },
+  "feedback": {
+    "bad": "Плохо",
+    "excellent": "Отлично",
+    "name": "Ваше имя",
+    "namePlaceholder": "Введите имя",
+    "anonymus": "Анонимный отзыв",
+    "message": "Ваш отзыв",
+    "messagePlaceholder": "Ваше мнение о товаре",
+    "photo": "Фото",
+    "photoDetails": "максимум 4",
+    "photoPlaceholder": "или перетащите файл сюда",
+    "send": "Отправить отзыв"
+  },
+  "cart": {
+    "title": "",
+    "yourOrder": "Ваш заказ",
+    "price": "Стоимость товаров",
+    "sales": "Скидки",
+    "actualPrice": "Предварительная стоимость",
+    "order": "Оформить заказ",
+    "promo_code": "Промокод",
+    "invalid_code": "Этот код недействителен",
+    "accept": "Применить",
+    "type": "Доставка/самовывоз",
+    "type_value": "уточняется",
+    "checkout": "Перейти к оплате",
+    "info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
+    "delivery": {
+      "title_one": "Получатель заказа",
+      "name_label": "Имя и фамилия",
+      "phone_label": "Номер телефона",
+      "name_placeholder": "Введите ваше имя"
+    },
+    "orders": {
+      "empty": "Корзина пуста",
+      "done": "Заказ успешно удален"
+    }
+  },
+  "order_placed": {
+    "order_detail": "Детали заказа",
+    "number_order": "Номер заказа",
+    "date_order": "Время заказа",
+    "recipient": "Получатель",
+    "order_cost_title": "Стоимость заказа",
+    "order_cost": "Стоимость товаров",
+    "order_all": "Всего",
+    "warning_text": "Оплата при получении товара",
+    "cancel_order": "Отмена заказа",
+    "agree_cancel_text": "Вы уверены что хотите отменить заказ на самовынос"
+  },
+  "modal": {
+    "no": "Нет",
+    "yes": "Да, удалить",
+    "delete_address": "Удаление адреса",
+    "delete_desc": "Вы уверены что хотите удалить адрес"
+  },
+  "remove": "Удалить",
+  "profile": {
+    "title": "Profil",
+    "logout": {
+      "title": "Chiqish",
+      "modal_title": "Akkauntdan chiqish",
+      "modal_description": "Siz haqiqatdan ham akkauntingizdan chiqmoqchimisiz?",
+      "modal_cancel": "Bekor qilish",
+      "modal_logout": "Chiqish"
+    },
+    "personal_data": {
+      "title": "Shaxsiy ma'lumotlar",
+      "name_and_surname": "Ism va familiya",
+      "birthday": "Tug'ilgan sana",
+      "male": "Erkak",
+      "female": "Ayol"
+    },
+    "security": {
+      "title": "Xafsizlik",
+      "phone_number": "Telefon raqami",
+      "current_password": "Xozirgi parol"
+    },
+    "drop_password": {
+      "modal_title": "Parolni tiklash",
+      "modal_description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
+      "label": "Telefon raqami",
+      "placeholder": "Telefon raqamingizni kiriting",
+      "current_password": "Xozirgi parol",
+      "get_code": "Kodni olish"
+    },
+    "enter_code": {
+      "modal_title": "Kodni kiriting",
+      "modal_description": "Код отправлен на номер",
+      "back": "Orqaga",
+      "confirm": "Tasdiqlash",
+      "new_code_after": "Новый код через"
+    },
+    "new_password": {
+      "modal_title": "Yangi parol",
+      "modal_description": "Yangi parol o'ylab toping",
+      "label": "Пароль",
+      "placeholder": "Введите пароль",
+      "change_password": "Изменить пароль"
+    },
+    "save": "Saqlash"
+  },
+  "orders": {
+    "title": "Zakazlar",
+    "search": "Qidirish",
+    "method": {
+      "DELIVERY": "Доставка",
+      "PICKUP": "Самовывоз"
+    },
+    "status": {
+      "WAITING_FOR_PAYMENT": "Ожидает оплаты",
+      "PAID": "Оплачен",
+      "ACCEPTED": "Принят",
+      "PROGRESSING": "В процессе",
+      "ON_THE_WAY": "В пути",
+      "READY_FOR_PICKUP": "Готов к выдаче",
+      "DELIVERED": "Доставлен",
+      "PICKED_UP": "Выдан",
+      "CANCELLED": "Отменен"
+    },
+    "empty": "У вас пока нет заказов",
+    "discount": "Товары на скидке",
+    "posted": "Размещен",
+    "reorder": "Повторить заказ",
+    "order_method": {
+      "title": "Способ получения"
+    },
+    "delivery": {
+      "title": "Доставка по адресу",
+      "main": "основной",
+      "approximate_arrival_date": "Примерная дата доставки",
+      "delivery_details": "Детали доставки",
+      "courier": "Курьер",
+      "phone": "Номер телефона",
+      "transport": "Транспорт",
+      "arrival_date": "Время прибытия"
+    },
+    "pickup": {
+      "title": "Самовывоз с магазина",
+      "available_for_pickup": "Товар(ы) доступны для получения до"
+    },
+    "order_item_list": {
+      "title": "Товары в заказе"
+    },
+    "order_cost_card": {
+      "title": "Стоимость заказа",
+      "products_cost": "Стоимость товаров",
+      "discounts": "Скидки",
+      "promo_code": "Промокод",
+      "delivery": "Доставка",
+      "pickup": "Самовывоз",
+      "total": "Всего",
+      "payment_when_receiving": "Оплата при получении товара",
+      "cancel": "Отменить заказ"
+    },
+    "order_details_card": {
+      "title": "Детали заказа",
+      "status": "Статус",
+      "order_datetime": "Время заказа",
+      "receiver": "Получатель",
+      "phone": "Номер телефона",
+      "reorder": "Повторить заказ"
+    }
+  },
+  "favorites": {
+    "title": "Saralangan",
+    "search": "Поиск",
+    "empty": "У вас пока нет избранных",
+    "products_on_sale": "Товары на скидке"
+  },
+  "address_book": {
+    "title": "Адресная книга",
+    "search": "Поиск",
+    "add_address": "Добавить адрес",
+    "empty": "У вас пока нет адреса",
+    "delivery": "Доставка",
+    "pickup": "Самовывоз"
+  },
+  "support": {
+    "title": "Поддержка",
+    "write_to_support": "Написать в поддержку",
+    "statement": "Заявка",
+    "closed": "Закрыто",
+    "processing": "В обработке",
+    "show_more": "Показать больше...",
+    "show_less": "Показать меньше",
+    "first_step": {
+      "title": "Поддержка",
+      "next": "Далее",
+      "email": "E-mail",
+      "this_is_required": "Это поле обязательно",
+      "invalid_email": "Некорректная почта",
+      "topic": "Тема обращения",
+      "select_topic": "Выберите тему",
+      "description": "Описание",
+      "your_message": "Ваш вопрос"
+    },
+    "second_step": {
+      "title": "Поддержка",
+      "applications": "Приложения",
+      "max_count": "максимум 4",
+      "back": "Назад",
+      "send": "Отправить"
+    }
+  }
+}
