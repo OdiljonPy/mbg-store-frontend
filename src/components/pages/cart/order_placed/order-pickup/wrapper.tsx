@@ -19,14 +19,15 @@ interface props {
 const Wrapper = (props: props) => {
     const t = useTranslations()
     const dispatch = useDispatch<AppDispatch>()
-    const {last_order} = useSelector((state:RootState)=> state.last_order)
     const [err,setErr] = useState(false)
     const [done,setDone] = useState(false)
 
     useEffect(() => {
-        dispatch(fetchOrderLast())
-        if(last_order.status == 8) setDone(true)
-    }, [dispatch,last_order]);
+        dispatch(fetchOrderLast()).unwrap()
+            .then((res)=>{
+                if(res?.ok) if(res?.response?.status == 8) setDone(true)
+            })
+    }, [dispatch]);
 
     if(err) return <OrderError/>
 

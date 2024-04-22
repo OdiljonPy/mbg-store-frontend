@@ -10,6 +10,7 @@ import {AppDispatch} from "@/store";
 import {addProduct, removeProduct} from "@/slices/basket/basketSlice";
 import {IProduct} from "@/data-types/products/common";
 import AddToFav from "@/components/shared/add-to-fav/add-to-fav";
+import {useToasts} from "react-toast-notifications";
 
 interface props {
     product:IProduct
@@ -18,6 +19,7 @@ interface props {
 }
 
 const  Actions = ({setCount, count,product}: props) => {
+    const {addToast} = useToasts()
     const [disabled,setDisabled] = useState(false)
     const {id,available} = product
     const dispatch = useDispatch<AppDispatch>()
@@ -29,18 +31,26 @@ const  Actions = ({setCount, count,product}: props) => {
             setDisabled(false)
             setCount((prev) => prev - 1)
             dispatch(removeProduct(id))
+
         }
         else if (count > 1) {
             setDisabled(false)
             setCount((prev) => prev - 1)
             dispatch(addProduct({quantity : -1,product}))
+
         }
     }
     const onIncrement = () => {
         if(count < available){
             setCount((prev) => prev + 1)
             dispatch(addProduct({quantity: 1,product}))
-        }else setDisabled(true)
+        }else{
+            addToast(t('products.no_product'),{
+                appearance:"info",
+                autoDismiss:true
+            })
+            setDisabled(true)
+        }
     }
 
     return (

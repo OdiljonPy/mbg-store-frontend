@@ -81,7 +81,11 @@
 		"near": "Товары поблизости",
 		"top": "Хиты продаж",
 		"popular": "Популярное",
-		"withFeedbacks": "Товары с отзывами"
+		"withFeedbacks": "Товары с отзывами",
+		"sold": "Sotilgan",
+		"addToCart": "Mahsulot savatga qo'shildi!",
+		"show_more": "Ko'proq ko'rsatish",
+		"no_product": "Mahsulot bazada qolmadi"
 	},
 	"about": {
 		"title": "Кратко о MBG store",

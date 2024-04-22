@@ -3,11 +3,13 @@ import css from './info.module.css'
 import Gallery from "@/components/pages/product/wrapper/components/info/gallery/gallery";
 import Description from "@/components/pages/product/wrapper/components/info/description/description";
 import {IProductInner} from "@/data-types/products/product-inner/product-inner";
+import dynamic from "next/dynamic";
 
 interface props {
     info:IProductInner ,
     loading:boolean
 }
+
 
 const Info = ({info,loading}: props) => {
     return (

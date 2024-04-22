@@ -11,7 +11,7 @@ const PlusBtn = ({
                      open
                  }: props) => {
     return (
-        <button onClick={onClick} className={`${css.btn} ${open ? css.active : ''}`}/>
+        <button onClick={()=>onClick} className={`${css.btn} ${open ? css.active : ''}`}/>
     );
 };
 

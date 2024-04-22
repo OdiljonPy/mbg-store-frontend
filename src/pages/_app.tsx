@@ -8,7 +8,6 @@ import {useRouter} from "next/router";
 import {YMaps} from "@pbe/react-yandex-maps";
 import {Providers} from "@/provider";
 
-
 function App({Component, pageProps}: AppProps) {
     const {locale} = useRouter()
     return (

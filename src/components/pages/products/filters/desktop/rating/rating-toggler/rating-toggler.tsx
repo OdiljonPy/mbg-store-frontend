@@ -25,7 +25,7 @@ const RatingToggler = (props: props) => {
             queries.withFeedback = 'true'
         } else {
             delete queries.withFeedback
-            delete queries.rating
+            // delete queries.rating
         }
         push({
             pathname,

@@ -26,10 +26,10 @@ const Rate = ({rate}: props) => {
 
         if (e.target.checked) {
             queries.rating = key
-            queries.withFeedback = 'true'
+            // queries.withFeedback = 'true'
         } else {
             delete queries.rating
-            delete queries.withFeedbacks
+            // delete queries.withFeedbacks
         }
 
         push({

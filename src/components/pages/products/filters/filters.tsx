@@ -24,7 +24,6 @@ const Filters = ({}: props) => {
 	const searchParams = useSearchParams();
 	const isOpened: string | null = searchParams.get("filters");
 	const { isReady } = useRouter();
-
 	return (
 		<div
 			className={`${css.filters} ${!isReady ? css.hide : ""} ${

@@ -1,6 +1,5 @@
 import React from 'react';
 import {GetServerSideProps} from "next";
-import Head from "next/head";
 import Wrapper from "@/components/pages/product/wrapper/wrapper";
 
 interface props {
@@ -17,11 +16,6 @@ const Id = (props: props) => {
 
     return (
         <>
-            <Head>
-                <title>
-                    Кукуруза Bonduelle Classique сладкая
-                </title>
-            </Head>
             <Wrapper/>
         </>
     );

@@ -5,21 +5,33 @@ import { IProduct } from "@/data-types/products/common";
 import Link from "next/link";
 import css from "./product-top.module.css";
 import AddToFav from "@/components/shared/add-to-fav/add-to-fav";
+import Badge from "@/components/shared/badge/badge";
+import React from "react";
+import {useTranslations} from "next-intl";
 
 interface props {
 	product: IProduct;
 }
 
 const ProductTop = ({ product }: props) => {
-	const { id, images, name, discount, count } = product;
+	const t = useTranslations()
+	const { id, images, name, discount, count,available } = product;
 
 	return (
 		<div className={css.actions}>
-			{discount ? (
 				<div className={css.discount}>
-					<DiscountBadge discount_percentage={discount} />
+					{
+						<>
+							{
+								(available > 1 && discount) && <DiscountBadge discount_percentage={discount} />
+							}
+							{
+								available < 1 && <Badge text={t('products.sold')} color={'#767BF9'}/>
+							}
+						</>
+					}
 				</div>
-			) : null}
+
 			{(
 				<div className={css.favorite_icon}>
 					<AddToFav product={product}/>

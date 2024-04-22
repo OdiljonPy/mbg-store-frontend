@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import {fetchProductComments, fetchProductSingle} from "@/slices/product/productSingleSlices";
 import {useSearchParams} from "next/navigation";
+import Head from "next/head";
 
 interface props {}
 
@@ -20,7 +21,7 @@ const Wrapper = (props: props) => {
 	const searchParams = useSearchParams()
 
 	const { info, loading,comments } = useSelector((state: RootState) => state.product_single);
-	const {rating,rating_count,comparison_products,related_products} = info
+	const {rating,rating_count,comparison_products,related_products,name} = info
 
 	const ratingFilter = searchParams.get('rating')
 	const [offset,setOffset] = useState(5)
@@ -42,6 +43,11 @@ const Wrapper = (props: props) => {
 
 	return (
 		<section className={css.wrapper}>
+			<Head>
+				<title>
+					{name ? name : 'Кукуруза Bonduelle Classique сладкая'}
+				</title>
+			</Head>
 			<div className={"container"}>
 				<Breadcrumbs
 					items={[

@@ -31,10 +31,10 @@ const Description = ({ info, loading }: props) => {
 				</div>
 			)}
 
-			<Seller seller={"Зеленая лавка"} />
+			<Seller seller={info?.store?.brand_name} />
 			<Rate rate={info?.rating} count={info?.rating_count} loading={loading} />
 			<Price price={info?.price} discount_percentage={info?.discount} discount_price={info?.discount_price} loading={loading} />
-			<Deliveries />
+			<Deliveries free_shipping={product?.free_shipping} pickup={product?.pickup} />
 			<Actions  product={product} />
 			<AboutProduct description={info?.description} />
 		</div>

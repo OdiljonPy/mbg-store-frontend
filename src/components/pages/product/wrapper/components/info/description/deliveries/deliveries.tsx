@@ -4,15 +4,20 @@ import {deliveries} from "@/components/pages/product/wrapper/components/info/des
 import Delivery from "@/components/pages/product/wrapper/components/info/description/delivery/delivery";
 
 interface props {
-
+    pickup?:boolean,
+    free_shipping?:boolean
 }
 
-const Deliveries = (props: props) => {
+const Deliveries = ({pickup,free_shipping}: props) => {
     return (
         <div className={css.wrapper}>
-            {deliveries.map((item) => (
-                <Delivery delivery={item} key={item.title}/>
-            ))}
+            {
+                free_shipping ? <Delivery delivery={deliveries[0]}/>:''
+            }
+            {
+                pickup ? <Delivery delivery={deliveries[1]} /> : ''
+            }
+
         </div>
     );
 };

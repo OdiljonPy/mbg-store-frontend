@@ -30,7 +30,7 @@ const Wrapper = (props: props) => {
 
 	// fetch category
 	useEffect(() => {
-		dispatch(fetchCategory({ q: "", size: "40" }));
+		dispatch(fetchCategory(40));
 	}, [dispatch]);
 
 	return (

@@ -86,3 +86,17 @@ input[type="number"] {
 .react-international-phone-country-selector {
 	display: none;
 }
+
+.react-toast-notifications__container {
+}
+.react-toast-notifications__toast__content {
+	font-size: 16px !important;
+	font-weight: 500 !important;
+	font-family: "Lato", sans-serif;
+}
+
+@media (max-width: 575px) {
+	.react-toast-notifications__toast__content {
+		font-size: 14px !important;
+	}
+}

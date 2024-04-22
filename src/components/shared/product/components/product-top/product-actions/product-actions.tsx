@@ -5,6 +5,8 @@ import {IProduct} from "@/data-types/products/common";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {addProduct, removeProduct} from "@/slices/basket/basketSlice";
+import {useToasts} from "react-toast-notifications";
+import {useTranslations} from "next-intl";
 
 interface props {
     count?: number
@@ -12,6 +14,8 @@ interface props {
 }
 
 const ProductActions = ({count,product}: props) => {
+    const t = useTranslations()
+    const {addToast} = useToasts()
     const [disabled,setDisabled] = useState(false)
     const {id,available} = product
     const dispatch = useDispatch<AppDispatch>()
@@ -21,8 +25,14 @@ const ProductActions = ({count,product}: props) => {
             setIntermediate((prev) => prev + 1)
             dispatch(addProduct({quantity : 1 ,product}))
         }
-        else setDisabled(true)
-        console.log(intermediateValue,"count",available,"aviale")
+        else {
+            setDisabled(true)
+            addToast(t('products.no_product'),{
+                appearance:"info",
+                autoDismiss:true
+            })
+        }
+
     }
 
     const onDecrement = () => {
