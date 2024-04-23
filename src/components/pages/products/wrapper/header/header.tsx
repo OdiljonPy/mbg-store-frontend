@@ -6,7 +6,6 @@ import FiltersToggler from "@/components/pages/products/wrapper/header/filters-t
 import SortDropdown from "@/components/pages/products/filters/desktop/sort-dropdown/sort-dropdown";
 import MobileFilters from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters";
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
-import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
 

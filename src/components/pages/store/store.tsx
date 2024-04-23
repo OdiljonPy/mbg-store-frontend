@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import {useTranslations} from "next-intl";
 import Header from "@/components/pages/products/wrapper/header/header";

@@ -9,7 +9,7 @@
 
 @media (max-width: 1199px) {
     .notSwiper {
-        flex-basis: 32%;
+        flex-basis: 31%;
     }
     .short{
         flex-basis: 48%;

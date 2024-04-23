@@ -10,7 +10,7 @@ const Store = ({ store }: props) => {
 	const { brand_name: title } = store;
 	return (
 		<Link
-			href={`/stores/${store.id}?sort=popular&stores=${store.id}`}
+			href={`/stores/${store?.id}?stores=${store?.id}`}
 			className={css.store}
 		>
 			{title}
