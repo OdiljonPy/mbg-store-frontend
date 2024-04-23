@@ -7,7 +7,8 @@ import Contents from "@/components/pages/cart/contents/contents";
 import Total from "@/components/pages/cart/total/total";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
-import {calcPrices} from "@/slices/basket/basketSlice"
+import {calcPrices, checkProductAvailable} from "@/slices/basket/basketSlice"
+import {useEffect} from "react";
 interface props {
 
 }
@@ -19,6 +20,13 @@ const Wrapper = (props: props) => {
     const t = useTranslations()
 
     dispatch(calcPrices())
+
+    const ids = basketSlices.products.map((product)=>product.id)
+    console.log(ids,"idsx")
+
+    useEffect(() => {
+        dispatch(checkProductAvailable([...ids]))
+    }, []);
     return (
         <section className={css.cart}>
             <div className={'container'}>

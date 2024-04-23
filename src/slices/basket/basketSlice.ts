@@ -1,10 +1,13 @@
 import {IProduct, IStore} from "@/data-types/products/common";
-import { createSlice,PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IBasketSlices} from "@/data-types/slices/basket";
+import API from "@/utils/axios/axios";
 
 const initialState:IBasketSlices = {
     products : [] as IProduct[],
     store_list: [] as IStore[],
+    checkLoad:false,
+    checkErr:false,
     totalCountProduct : 0,
     all_prices:0,
     discount_price:0,
@@ -16,6 +19,11 @@ const initialState:IBasketSlices = {
         promocode:""
     }
 }
+
+export const checkProductAvailable = createAsyncThunk('check_product',async (products:number[])=>{
+    const response = await  API.post('/store/product/check/',{products})
+    return response.data
+})
 
 const basketSlices = createSlice({
     name:"basket_store",
@@ -95,8 +103,24 @@ const basketSlices = createSlice({
             state.totalCountProduct = 0
         })
 
-
     },
+    extraReducers:builder => {
+        builder.addCase(checkProductAvailable.pending,(state)=>{
+            state.checkLoad = true
+            state.checkErr = false
+        })
+            .addCase(checkProductAvailable.fulfilled,(state, {payload})=>{
+                console.log(payload,"payload")
+                if(payload.ok){
+                    // state.products = payload
+                }
+                state.checkLoad = false
+            })
+            .addCase(checkProductAvailable.rejected,(state)=>{
+                state.checkErr = true
+                state.checkLoad = false
+            })
+    }
 
 })
 
