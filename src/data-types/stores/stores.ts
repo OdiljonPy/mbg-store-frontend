@@ -11,9 +11,16 @@ export interface IStores{
     rating:number
     rating_count:number
     view_count:number
+    created_at?:string
+    working_time?:string
 }
 
 export interface ICommonStores{
     result:IStores[],
+    ok:boolean
+}
+
+export interface ICommonStoreSingle{
+    result:IStores,
     ok:boolean
 }
