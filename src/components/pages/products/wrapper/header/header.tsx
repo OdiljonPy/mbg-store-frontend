@@ -7,13 +7,17 @@ import SortDropdown from "@/components/pages/products/filters/desktop/sort-dropd
 import MobileFilters from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters";
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
 import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 
 interface props {
-    data:IProductFilter
-    loading?:boolean
+
 }
 
-const Header = ({data,loading}: props) => {
+const Header = ({}: props) => {
+    const { entities:data, loading } = useSelector(
+        (state: RootState) => state.product
+    );
     return (
         <div className={css.wrapper}>
             <div className={css.info}>

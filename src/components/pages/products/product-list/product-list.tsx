@@ -3,19 +3,21 @@ import Pagination from "@/components/shared/pagination/pagination";
 import Product from "@/components/shared/product/product";
 import { IProductFilter } from "@/data-types/products/product-filter/product-filter";
 import { filterProduct } from "@/slices/product/productSlices";
-import { AppDispatch } from "@/store";
+import {AppDispatch, RootState} from "@/store";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import css from "./product-list.module.css";
 
 interface props {
-	products: IProductFilter;
-	loading: boolean;
+
 }
 
-const ProductList = ({ products, loading }: props) => {
+const ProductList = ({  }: props) => {
+	const { entities:products, loading } = useSelector(
+		(state: RootState) => state.product
+	);
 	const { totalElements, size } = products;
 	const searchParams = useSearchParams();
 	const isOpened: string | null = searchParams.get("filters");

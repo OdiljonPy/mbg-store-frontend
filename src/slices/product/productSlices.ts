@@ -6,16 +6,6 @@ import {
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-// search product value
-export const fetchProduct = createAsyncThunk(
-	"products",
-	async (search: string | null) => {
-		const response = await API.get<ICommonProductFilter>(
-			`/store/products/?q=${search}`
-		);
-		return response.data;
-	}
-);
 
 // search product title for searchbar
 export const fetchSearchKey = createAsyncThunk(
@@ -93,11 +83,7 @@ const initialState = {
 const productSlices = createSlice({
 	name: "product",
 	initialState,
-	reducers: {
-		searchProduct: (state, action: { payload: string }) => {
-			console.log(action, "action");
-		},
-	},
+	reducers: {},
 	extraReducers: (builder) => {
 		//filter data
 		builder
@@ -112,21 +98,6 @@ const productSlices = createSlice({
 			})
 			.addCase(filterProduct.rejected, (state) => {
 				state.loading = false;
-				state.error = true;
-			});
-
-		// search data
-		builder
-			.addCase(fetchProduct.pending, (state, action) => {
-				state.loading = true;
-			})
-			.addCase(fetchProduct.fulfilled, (state, { payload }) => {
-				if (payload.ok) {
-					state.entities = payload.result;
-				}
-				state.loading = false;
-			})
-			.addCase(fetchProduct.rejected, (state) => {
 				state.error = true;
 			});
 
@@ -147,7 +118,5 @@ const productSlices = createSlice({
 			});
 	},
 });
-
-export const { searchProduct } = productSlices.actions;
 
 export default productSlices.reducer;
