@@ -21,7 +21,11 @@ const Offer = ({ offer, setOffer }: Props) => {
 			/>
 			<Label htmlFor='offer' className={css.text}>
 				{t.rich("accept_terms", {
-					terms: (terms) => <Link href=''>{terms}</Link>,
+					terms: (terms) => (
+						<Link href='/offer' target='_blank'>
+							{terms}
+						</Link>
+					),
 				})}
 			</Label>
 		</div>

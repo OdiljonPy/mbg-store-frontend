@@ -103,14 +103,14 @@
 	}
 }
 
-@media (max-width: 500px){
-	.input{
+@media (max-width: 500px) {
+	.input {
 		width: 80%;
 	}
 }
 
-@media (max-width: 390px){
-	.input{
+@media (max-width: 390px) {
+	.input {
 		width: 70%;
 	}
 }

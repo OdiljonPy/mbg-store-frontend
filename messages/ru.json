@@ -18,7 +18,8 @@
 		"order": "Заказ",
 		"address_book": "Адресная книжка",
 		"favorites": "Избранные",
-		"support": "Поддержка"
+		"support": "Поддержка",
+		"offer": "Офферта"
 	},
 	"categories": {
 		"title": "Категории",

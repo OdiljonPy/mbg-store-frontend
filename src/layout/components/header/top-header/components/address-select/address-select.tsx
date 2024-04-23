@@ -59,7 +59,7 @@ const AddressSelect = () => {
 			),
 			key: item.latitude + item.longitude,
 		})),
-		isLoggedIn
+		isLoggedIn && shippingList.length
 			? {
 					key: 2,
 					label: "Сохраненные",

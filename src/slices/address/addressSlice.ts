@@ -26,6 +26,9 @@ const addressSlice = createSlice({
 			state.address_list = state.address_list.filter(
 				(address) => address.address !== action.payload
 			);
+			if (state.address_list.length === 0) {
+				state.main_address = {} as IAddress;
+			}
 		},
 	},
 });

@@ -68,14 +68,11 @@
 	}
 
 	.text {
-		width: 500px;
-		text-align: start;
 		font-size: 14px;
 	}
 }
-
 @media (max-width: 575px) {
 	.text {
-		width: 320px;
+		max-width: 250px;
 	}
 }
