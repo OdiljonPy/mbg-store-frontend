@@ -6,13 +6,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/store";
 import {fetchPartner} from "@/slices/base/partner/partnerSlice";
 import Skeleton from "react-loading-skeleton";
+import FormError from "@/components/shared/form-error/form-error";
 
 interface Props {
 
 }
 
 const Partners = (props: Props) => {
-    const {loading,partner} = useSelector((state:RootState)=>state.partner)
+    const {loading,partner,error} = useSelector((state:RootState)=>state.partner)
     const dispatch = useDispatch<AppDispatch>()
 
     console.log(partner,"partner")
@@ -20,6 +21,11 @@ const Partners = (props: Props) => {
     useEffect(() => {
         dispatch(fetchPartner())
     }, [dispatch]);
+
+    if (error)
+        return (
+            <FormError error='Что-то пошло не так. Попробуйте обновить страницу' />
+        );
 
     return (
         <div className={'container'}>
