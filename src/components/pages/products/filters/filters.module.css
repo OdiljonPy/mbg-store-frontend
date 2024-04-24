@@ -6,10 +6,11 @@
     top: 150px;
     max-height: 78vh;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .filters::-webkit-scrollbar{
-    display: none ;
+    /*display: none ;*/
 }
 
 .show {
