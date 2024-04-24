@@ -13,7 +13,7 @@ export const navigationList: INav[] = [
         }
     },
     {
-        path: '/faq',
+        path: '/about',
         title: 'header.faq'
     },
     {
@@ -25,7 +25,7 @@ export const navigationList: INav[] = [
         title: 'account.orders'
     },
     {
-        path: '/offert',
+        path: '/offer',
         title: 'footer.offert'
     }
 ]

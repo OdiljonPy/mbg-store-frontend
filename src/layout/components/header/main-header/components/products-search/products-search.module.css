@@ -57,6 +57,7 @@
 	top: -2px;
 	right: -2px;
 	bottom: -2px;
+	height: 108%;
 	transition: all 0.2s linear;
 }
 
