@@ -1,0 +1,32 @@
+.no_data{
+    text-align: center;
+}
+.image_wrapper{
+    margin-bottom: 30px;
+}
+
+.title{
+    color: var(--black);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.description{
+    color: var(--dark-grey);
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 14px;
+}
+
+@media (max-width: 575px){
+    .image_wrapper{
+        margin-bottom: 15px;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .description{
+        margin-top: 8px;
+        font-size: 16px;
+    }
+}

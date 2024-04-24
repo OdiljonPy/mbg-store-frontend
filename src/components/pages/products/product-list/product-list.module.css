@@ -38,8 +38,7 @@
     align-items: center;
     width: 100%;
     height: 50vh;
-    font-weight: 500;
-    font-size: 28px;
+    margin-top: 20px;
 }
 
 .pagination{
@@ -65,9 +64,6 @@
     .list{
         column-gap: 8px ;
     }
-    /*.short,.skeleton_short{*/
-    /*    flex-basis: 100%;*/
-    /*}*/
     .skeleton{
         height: 300px;
     }
@@ -83,7 +79,6 @@
     }
 
     .no_data{
-        font-size: 20px;
         height: 40vh;
     }
     .pagination{

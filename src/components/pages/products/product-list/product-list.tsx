@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import css from "./product-list.module.css";
+import NoData from "@/components/pages/products/wrapper/no-data/no-data";
 
 interface props {
 
@@ -106,7 +107,7 @@ const ProductList = ({  }: props) => {
 						})
 					)}
 					{!products.content?.length ? (
-						<div className={css.no_data}>No Data</div>
+						<div className={css.no_data}><NoData/></div>
 					) : (
 						""
 					)}
