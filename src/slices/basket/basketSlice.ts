@@ -108,7 +108,7 @@ const basketSlices = createSlice({
     //     not available
         removeFromNotAvailable:((state,{payload})=>{
             state.not_available = state.not_available.filter((product)=> product.id !== payload)
-            state.totalCountProduct -= 1
+            state.totalCountProduct = state.products?.length + state.not_available?.length
         })
 
     },
