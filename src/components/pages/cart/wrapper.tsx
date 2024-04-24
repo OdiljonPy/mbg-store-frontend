@@ -21,11 +21,22 @@ const Wrapper = (props: props) => {
 
     dispatch(calcPrices())
 
-    const ids = basketSlices.products.map((product)=>product.id)
-    console.log(ids,"idsx")
+    const products = basketSlices.products.map((product)=>{
+       return {
+           id:product.id,
+           count:product?.count
+       }
+    })
+
+    basketSlices.not_available?.forEach((product)=>{
+        products.push({
+            id:product.id,
+            count:product.count
+        })
+    })
 
     useEffect(() => {
-        dispatch(checkProductAvailable([...ids]))
+        dispatch(checkProductAvailable([...products]))
     }, []);
     return (
         <section className={css.cart}>

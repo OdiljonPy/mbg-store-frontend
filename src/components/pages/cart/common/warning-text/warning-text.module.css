@@ -3,16 +3,30 @@
     padding: 6px  10px  6px 10px;
     border-radius: 10px;
     gap: 5px;
+    transition: all .2s ease;
+}
+
+.status[data-theme="warning"]{
     background-color: #FFF9E7;
     margin-top: 10px;
-    transition: all .2s ease;
+}
+
+.status[data-theme="error"]{
+    background-color: #FFEAEA;
 }
 
 .status_text{
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
+}
+
+.status_text[data-theme='warning']{
     color: #D38037;
+}
+
+.status_text[data-theme="error"]{
+    color: #EA6060 ;
 }
 .status_text span{
     font-weight: 600;
@@ -26,6 +40,8 @@
     }
     .status{
         border-radius: 8px;
+    }
+    .status[data-theme="warning"]{
         margin-top: 6px;
     }
 

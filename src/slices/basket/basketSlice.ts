@@ -2,9 +2,11 @@ import {IProduct, IStore} from "@/data-types/products/common";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IBasketSlices} from "@/data-types/slices/basket";
 import API from "@/utils/axios/axios";
+import {IProductAvailable} from "@/data-types/products/product-available/product-available";
 
 const initialState:IBasketSlices = {
     products : [] as IProduct[],
+    not_available : [] as IProduct[],
     store_list: [] as IStore[],
     checkLoad:false,
     checkErr:false,
@@ -20,8 +22,8 @@ const initialState:IBasketSlices = {
     }
 }
 
-export const checkProductAvailable = createAsyncThunk('check_product',async (products:number[])=>{
-    const response = await  API.post('/store/product/check/',{products})
+export const checkProductAvailable = createAsyncThunk('check_product',async (products: { id:number,count:number|undefined }[])=>{
+    const response = await  API.post<IProductAvailable>('/store/products/check/',{products})
     return response.data
 })
 
@@ -101,6 +103,12 @@ const basketSlices = createSlice({
         clearBasket:((state)=>{
             state.products = []
             state.totalCountProduct = 0
+        }),
+
+    //     not available
+        removeFromNotAvailable:((state,{payload})=>{
+            state.not_available = state.not_available.filter((product)=> product.id !== payload)
+            state.totalCountProduct -= 1
         })
 
     },
@@ -110,9 +118,17 @@ const basketSlices = createSlice({
             state.checkErr = false
         })
             .addCase(checkProductAvailable.fulfilled,(state, {payload})=>{
-                console.log(payload,"payload")
                 if(payload.ok){
-                    // state.products = payload
+                    state.products = payload.result?.filter((product)=> product.available > 2)
+                    state.products?.forEach((product,idx,array)=>{
+                        if(product?.count){
+                            if(product?.count > product?.available){
+                                array[idx].count = product.available
+                            }
+                        }
+                    })
+                    state.not_available = payload.result?.filter((product)=> product.available < 2)
+                    state.totalCountProduct = state.products?.length + state.not_available?.length
                 }
                 state.checkLoad = false
             })
@@ -124,5 +140,5 @@ const basketSlices = createSlice({
 
 })
 
-export const {addProduct , removeProduct,calcPrices,promo_code,setProducts,deletePromoCode,clearBasket} = basketSlices.actions
+export const {addProduct , removeProduct,calcPrices,promo_code,setProducts,deletePromoCode,clearBasket,removeFromNotAvailable} = basketSlices.actions
 export default basketSlices.reducer

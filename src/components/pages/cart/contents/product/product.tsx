@@ -7,6 +7,9 @@ import Actions from "@/components/pages/cart/contents/product/actions/actions";
 import Price from "@/components/pages/cart/contents/product/description/price/price";
 import Link from "next/link";
 import Button from "@/components/shared/button";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/store";
+import {removeFromNotAvailable} from "@/slices/basket/basketSlice";
 
 interface props {
     product: IProduct
@@ -14,6 +17,8 @@ interface props {
 }
 
 const Product = ({product,isAvailable = false}: props) => {
+    const dispatch = useDispatch<AppDispatch>()
+
     const { images, name,id} = product
     const [count, setCount] = useState<number>(product.count ? product.count : 0)
 
@@ -38,7 +43,7 @@ const Product = ({product,isAvailable = false}: props) => {
            </div>
            {isAvailable &&  <div className={css.isAvailable}>
                <div className={css.available_action}>
-                   <Button variant={"tertiary"}>Похожие товары</Button>
+                   <Button variant={"tertiary"} onClick={()=> dispatch(removeFromNotAvailable(id))}>Похожие товары</Button>
                </div>
            </div>}
        </div>
