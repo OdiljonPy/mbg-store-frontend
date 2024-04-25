@@ -31,7 +31,7 @@ const ProductTop = ({ product }: props) => {
 			</div>
 
 			{
-				available > 1 ?
+				available > 0 ?
 				<div className={css.favorite_icon}>
 					<AddToFav product={product}/>
 				</div> : ''

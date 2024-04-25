@@ -119,7 +119,7 @@ const basketSlices = createSlice({
         })
             .addCase(checkProductAvailable.fulfilled,(state, {payload})=>{
                 if(payload.ok){
-                    state.products = payload.result?.filter((product)=> product.available > 2)
+                    state.products = payload.result?.filter((product)=> product.available > 0)
                     state.products?.forEach((product,idx,array)=>{
                         if(product?.count){
                             if(product?.count > product?.available){
@@ -127,7 +127,7 @@ const basketSlices = createSlice({
                             }
                         }
                     })
-                    state.not_available = payload.result?.filter((product)=> product.available < 2)
+                    state.not_available = payload.result?.filter((product)=> product.available < 1)
                     state.totalCountProduct = state.products?.length + state.not_available?.length
                 }
                 state.checkLoad = false
