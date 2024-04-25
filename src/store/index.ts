@@ -40,6 +40,7 @@ import resetPasswordSlice from "../slices/auth/resetPassword";
 import resetVerifySlice from "../slices/auth/resetVerify";
 import updatePasswordSlice from "../slices/auth/updatePassword";
 import partnerSlice from "@/slices/base/partner/partnerSlice";
+import statisticSlices from "@/slices/base/statistics/statisticsSlices";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -102,6 +103,7 @@ const rootReducers = combineReducers({
 	banner: bannerSlice,
 	faq: faqSlice,
 	partner: partnerSlice,
+	statistics:statisticSlices,
 	product_near: productLocationSlice,
 	stores: storesSlice,
 });

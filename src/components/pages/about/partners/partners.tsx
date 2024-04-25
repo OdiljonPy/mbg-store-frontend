@@ -16,7 +16,6 @@ const Partners = (props: Props) => {
     const {loading,partner,error} = useSelector((state:RootState)=>state.partner)
     const dispatch = useDispatch<AppDispatch>()
 
-    console.log(partner,"partner")
 
     useEffect(() => {
         dispatch(fetchPartner())

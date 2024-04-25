@@ -9,8 +9,12 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {addProduct, removeProduct} from "@/slices/basket/basketSlice";
 import {IProduct} from "@/data-types/products/common";
-import AddToFav from "@/components/shared/add-to-fav/add-to-fav";
 import {useToasts} from "react-toast-notifications";
+import dynamic from "next/dynamic";
+
+const ClientAddToFav = dynamic(()=> import("@/components/shared/add-to-fav/add-to-fav"),{
+    ssr:false
+})
 
 interface props {
     product:IProduct
@@ -91,7 +95,7 @@ const  Actions = ({setCount, count,product,isAvailable}: props) => {
                         }
                         onClick={onIncrement}/>
                 </div>
-               <AddToFav product={product}/>
+               <ClientAddToFav product={product}/>
             </div>
             {
                 available > 1 &&  <button type={'button'} className={css.remove} onClick={() => dispatch(removeProduct(id))}>

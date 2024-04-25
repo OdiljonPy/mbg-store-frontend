@@ -41,8 +41,6 @@ const Gallery = ({gallery,loading} : props) => {
         [ThumbnailPlugin(instanceRef)]
     )
 
-    console.log("gallery",gallery)
-
     const onPrev = () => {
         if(gallery?.images?.length > 3) instanceRef?.current?.prev()
     }

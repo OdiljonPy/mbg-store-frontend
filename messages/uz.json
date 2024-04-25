@@ -93,7 +93,7 @@
 		"title": "MBG do'koni haqida qisqacha",
 		"products": "turli xil tovarlar",
 		"stores": "saytdagi do'konlar",
-		"orders": "kunlik buyurtmalar",
+		"orders": "umumiy buyurtmalar",
 		"partners": "Bizning hamkorlar",
 		"faq": "Tez beriladigan savollar",
 		"chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
@@ -104,6 +104,8 @@
 	"hide": "Yashirish",
 	"filters": {
 		"title": "Filter",
+		"show_filter": "Filterni ko'rsatish",
+		"hide_filter": "Filterni yashirish",
 		"sorting": {
 			"title": "Tartiblash",
 			"popular": "Mashhurlari",

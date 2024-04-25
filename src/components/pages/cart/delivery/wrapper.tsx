@@ -26,7 +26,6 @@ const Wrapper = (props: props) => {
 
 
     const submitOrder = (values:IPostOrder)=>{
-        console.log(values)
         if(values.type == 'D' && !values.delivery_address) {
                  return addToast(t('cart.info_enter_address'),{
                     appearance: 'info',

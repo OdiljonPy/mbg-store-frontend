@@ -8,6 +8,8 @@ import {IProduct} from "@/data-types/products/common";
 import Skeleton from "react-loading-skeleton";
 import {product} from "@/constants/product/product";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
+import {useRouter} from "next/router";
+import {useKeenSlider} from "keen-slider/react";
 
 interface props {
     similar:IProduct[]
@@ -16,38 +18,41 @@ interface props {
 
 const Similar = ({similar,loading}: props) => {
     const {onPrev, onNext, currentSlide, loaded, sliderRef,instanceRef} = useSlider()
+    const {query:{id}} = useRouter();
 
-    useEffect(() => {
-        const slider = instanceRef.current
-        setTimeout(()=>{
-            return ()=>{
-                slider?.update()
-            }
-        },1500)
-        return ()=>{
-            slider?.update()
+
+    const [ref, internalSlider] = useKeenSlider({
+        slideChanged(){
+            internalSlider?.current?.update();
         }
+    })
+    useEffect(() => {
+        internalSlider?.current?.update();
+        instanceRef?.current?.update()
+    }, [similar]);
 
-    }, [instanceRef,similar]);
     return (
         <section className={css.sales}>
                 <HeadingLine small heading={{
                     title: 'product.similar',
                 }}/>
-            <div className={css.wrapperOuter}>
-                <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
-                <ProductSwiperArrow onClick={onNext} isNext/>
-                <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
-                    {
-                        loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
-                        </div> :similar?.map((product)=>{
-                            return <div className={`keen-slider__slide`} key={product.id}>
-                                <Product product={product} />
-                            </div>
-                        })
-                    }
+            {
+                loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
+                </div> : <div className={css.wrapperOuter}>
+                    <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
+                    <ProductSwiperArrow onClick={onNext} isNext/>
+                    <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
+                        {
+                            similar?.map((product)=>{
+                                return <div className={`keen-slider__slide`} key={product.id}>
+                                    <Product product={product} />
+                                </div>
+                            })
+                        }
+                    </div>
                 </div>
-            </div>
+            }
+
         </section>
     );
 };
