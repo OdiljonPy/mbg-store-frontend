@@ -1,4 +1,4 @@
-import { toggleFavorite } from "@/slices/favorites/favoritesSlice";
+import {postFavourites, toggleFavorite} from "@/slices/favorites/favoritesSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./add-to-fav.module.css";
@@ -16,8 +16,13 @@ const AddToFav = ({ product }: props) => {
 	const isFavorite = favourites.length ? favourites.some((item) => {
 		return item.id === product.id;
 	}):false;
+
+	const token = localStorage.getItem('access_token')
 	const onAdd = () => {
 		dispatch(toggleFavorite(others));
+		if(token){
+			dispatch(postFavourites([others?.id]))
+		}
 	};
 	return (
 		<button className={css.btn} onClick={onAdd}>

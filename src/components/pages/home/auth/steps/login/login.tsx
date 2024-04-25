@@ -12,6 +12,7 @@ import Button from "@/components/shared/button";
 import { useTranslations } from "next-intl";
 import authCss from "../../auth.module.css";
 import css from "./login.module.css";
+import {fetchFavourites, postFavourites} from "@/slices/favorites/favoritesSlice";
 
 interface Props {
 	setStep: React.Dispatch<React.SetStateAction<TStep>>;
@@ -22,7 +23,9 @@ const Login = ({ setStep, onClose }: Props) => {
 	const t = useTranslations("auth.login");
 	const [phoneNumber, setPhoneNumber] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+
 	const { error, loading } = useSelector((state: RootState) => state.login);
+	const {newFavourites} = useSelector((state:RootState)=> state.favorites)
 
 	const dispatch = useDispatch<AppDispatch>();
 
@@ -45,6 +48,15 @@ const Login = ({ setStep, onClose }: Props) => {
 
 				if (res?.ok) {
 					onClose();
+				// 	fetch favourite product from server
+					dispatch(fetchFavourites()).then(()=>{
+						// 	send server favourite products
+						const ids = newFavourites?.map((product)=> product.id)
+						console.log(newFavourites,"new favourites")
+						console.log(ids,"ids")
+						if(ids?.length) dispatch(postFavourites(ids))
+					})
+
 				}
 			});
 	};
