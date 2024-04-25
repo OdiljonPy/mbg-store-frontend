@@ -30,6 +30,9 @@ const ProductList = ({  }: props) => {
 	const activeFilters = Object.keys(query).filter(
 		(item) => !diffFilters.includes(item)
 	);
+
+	console.log(activeFilters,"active filters")
+
 	const dispatch = useDispatch<AppDispatch>();
 	const fetchProductFilter = useCallback(() => {
 		const filterParams = {
@@ -82,11 +85,11 @@ const ProductList = ({  }: props) => {
 		) {
 			dispatch(filterProduct(filterParams));
 		}
-	}, [activeFilters.length, dispatch, page, searchParams]);
+	}, [ dispatch, page, searchParams.get("changeFilter")]);
 
 	useEffect(() => {
 		fetchProductFilter();
-	}, [fetchProductFilter, page, searchParams, activeFilters.length]);
+	}, [fetchProductFilter, page, searchParams.get("changeFilter")]);
 
 	if (!isReady) return;
 	return (

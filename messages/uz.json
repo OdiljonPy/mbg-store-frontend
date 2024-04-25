@@ -104,6 +104,8 @@
 	"hide": "Yashirish",
 	"filters": {
 		"title": "Filter",
+		"show_filter": "Filterni ko'rsatish",
+		"hide_filter": "Filterni yashirish",
 		"sorting": {
 			"title": "Tartiblash",
 			"popular": "Mashhurlari",

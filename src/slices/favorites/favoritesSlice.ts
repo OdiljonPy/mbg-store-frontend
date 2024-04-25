@@ -59,7 +59,6 @@ const favoritesSlice = createSlice({
 			state.posErr = false
 		})
 			.addCase(postFavourites.fulfilled,(state, action)=>{
-			console.log(action,"payload action")
 		})
 			.addCase(postFavourites.rejected,(state)=>{
 				state.posErr = false

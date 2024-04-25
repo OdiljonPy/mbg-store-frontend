@@ -58,7 +58,7 @@ const FiltersToggler = (props: props) => {
                           fill="#232323"/>
                 </svg>
                 <span className={css.text}>
-               {t(isOpened ? 'hide' : 'show')} {t('filters.title').toLowerCase()}
+               {t(isOpened ? 'filters.hide_filter' : 'filters.show_filter')}
             </span>
             </button>
         </>

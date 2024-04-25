@@ -52,8 +52,6 @@ const Login = ({ setStep, onClose }: Props) => {
 					dispatch(fetchFavourites()).then(()=>{
 						// 	send server favourite products
 						const ids = newFavourites?.map((product)=> product.id)
-						console.log(newFavourites,"new favourites")
-						console.log(ids,"ids")
 						if(ids?.length) dispatch(postFavourites(ids))
 					})
 

@@ -28,10 +28,10 @@ export const statisticSlices = createSlice({
             state.loading = true
         })
             .addCase(fetchStatistics.fulfilled,(state, {payload})=>{
-                console.log(payload,"payload")
-                // if(payload.ok){
+
+                if(payload.ok){
                     state.statistic = payload.result
-                // }
+                }
                 state.loading = false
             })
             .addCase(fetchStatistics.rejected,(state)=>{

@@ -105,6 +105,8 @@
 	"hide": "Скрыть",
 	"filters": {
 		"title": "Фильтры",
+		"show_filter": "Показать фильтр",
+		"hide_filter": "Скрыть фильтр",
 		"sorting": {
 			"title": "Сортировка",
 			"popular": "Популярные",
