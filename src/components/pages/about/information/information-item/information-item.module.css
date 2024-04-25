@@ -25,6 +25,11 @@
     color: var(--icon-gray);
 }
 
+.count_skeleton{
+    height: 55px;
+    width: 70%;
+}
+
 
 @media (max-width: 991px) {
     .item{

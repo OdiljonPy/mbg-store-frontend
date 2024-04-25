@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./faq.module.css";
 import Loading from "./skeleton";
+import {IFaq} from "@/data-types/base/faq";
 
 const Faq = () => {
 	const { data, loading, error } = useSelector(
@@ -35,7 +36,7 @@ const Faq = () => {
 							? Array.from({ length: 5 }).map((_, index) => (
 									<Loading key={index} index={index} />
 							  ))
-							: data.map((faq) => (
+							: data.map((faq:IFaq) => (
 									<CustomCollapse item={faq} key={faq.id} />
 							  ))}
 					</div>
