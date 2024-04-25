@@ -4,10 +4,14 @@ import ResponsiveImage from "@/components/shared/responsive-image/responsive-ima
 import { IProduct } from "@/data-types/products/common";
 import Link from "next/link";
 import css from "./product-top.module.css";
-import AddToFav from "@/components/shared/add-to-fav/add-to-fav";
 import Badge from "@/components/shared/badge/badge";
 import React from "react";
 import {useTranslations} from "next-intl";
+import dynamic from "next/dynamic";
+
+const ClientAddToFav = dynamic(()=> import("@/components/shared/add-to-fav/add-to-fav"),{
+	ssr:false
+})
 
 interface props {
 	product: IProduct;
@@ -33,7 +37,7 @@ const ProductTop = ({ product }: props) => {
 			{
 				available > 0 ?
 				<div className={css.favorite_icon}>
-					<AddToFav product={product}/>
+					<ClientAddToFav product={product}/>
 				</div> : ''
 			}
 			<Link href={`/products/${id}`} className={css.img}>

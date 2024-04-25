@@ -67,8 +67,14 @@ const Wrapper = (props: props) => {
 				/>
 				{info && <Info info={info} loading={loading} />}
 
-				<Comparison comparison={comparison_products} loading={loading} />
-				<Similar similar={related_products} loading={loading} />
+				{	comparison_products?.length ?
+					<Comparison comparison={comparison_products} loading={loading} /> :""
+				}
+				{
+					related_products?.length ?
+						<Similar similar={related_products} loading={loading} />
+						: ''
+				}
 				<Feedbacks rating={rating} rating_count={rating_count} comments={comments} loading={loading} setOffset={(offset)=> setOffset(offset)} />
 			</div>
 		</section>
