@@ -25,13 +25,15 @@ const ProductList = ({  }: props) => {
 	const { isReady, query } = useRouter();
 
 	const [page, setPage] = useState(12);
+	const search = searchParams.get("search")
+	const sort = searchParams.get("sort")
+	const changeFilter = searchParams.get("changeFilter")
 
 	const diffFilters: string[] = ["filters", "search", "sort", "category"];
 	const activeFilters = Object.keys(query).filter(
 		(item) => !diffFilters.includes(item)
 	);
 
-	console.log(activeFilters,"active filters")
 
 	const dispatch = useDispatch<AppDispatch>();
 	const fetchProductFilter = useCallback(() => {
@@ -85,11 +87,11 @@ const ProductList = ({  }: props) => {
 		) {
 			dispatch(filterProduct(filterParams));
 		}
-	}, [ dispatch, page, searchParams.get("changeFilter")]);
+	}, [ dispatch, page, changeFilter,search,sort]);
 
 	useEffect(() => {
 		fetchProductFilter();
-	}, [fetchProductFilter, page, searchParams.get("changeFilter")]);
+	}, [fetchProductFilter, page, changeFilter,search,sort]);
 
 	if (!isReady) return;
 	return (
