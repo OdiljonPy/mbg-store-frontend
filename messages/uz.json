@@ -48,7 +48,7 @@
 		"often": "Tez-tez qidirilganlar",
 		"title": "Qidirish",
 		"found": "{categories} turkumidagi {products} mahsulot topildi",
-		"categories": "{products} tovarlar",
+		"categories": "{products} ta mahsulot",
 		"byName": "Ism bo'yicha qidirish"
 	},
 	"errors": {
@@ -89,7 +89,8 @@
 		"show_more": "Ko'proq ko'rsatish",
 		"no_product": "Mahsulot bazada qolmadi",
 		"unavailable_product": "Mavjud bo'lmagan mahsulatlar",
-		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting"
+		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
+		"has_products": "mavjud tovarlar"
 	},
 	"about": {
 		"title": "MBG do'koni haqida qisqacha",
@@ -108,6 +109,9 @@
 		"title": "Filter",
 		"show_filter": "Filterni ko'rsatish",
 		"hide_filter": "Filterni yashirish",
+		"clear": "tozalash",
+		"up_to": "gacha",
+		"from": "ta mahsulotdan",
 		"sorting": {
 			"title": "Tartiblash",
 			"popular": "Mashhurlari",

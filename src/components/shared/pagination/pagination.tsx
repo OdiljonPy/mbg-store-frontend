@@ -22,7 +22,7 @@ const Pagination = ({content=false,offset,total,setOffset,limit} :props) =>{
     return(
         <div className={css.pagination}>
             {content &&  <div className={css.pagination_content}>
-                1-{offset < total ? offset : total} из {priceFormatter(total)} товаров
+                1-{offset < total ? offset : total} {t('filters.up_to')} {priceFormatter(total)} {t('filters.from')}
             </div>}
             <div className={css.pagination_btn}>
                 <Button onClick={()=> handlePagination()} variant={"secondary"} disabled={offset >=total}>{t('products.show_more')}</Button>

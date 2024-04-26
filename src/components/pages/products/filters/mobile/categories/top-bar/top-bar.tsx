@@ -22,7 +22,7 @@ const TopBar = ({title, onOpen, hideIcon, onReset}: props) => {
             <div className={css.actions}>
                 <div onClick={onReset}
                         className={`${header.reset} ${!onReset ? css.hide : ''} ${raleway.className}`}>
-                    {t('reset')}
+                    {t('filters.clear')}
                 </div>
                 <button onClick={onOpen} className={`${css.btn} ${hideIcon ? css.hide : ''}`} type={'button'}>
                     <svg className={css.icon} width="25" height="25" viewBox="0 0 30 30" fill="none"
