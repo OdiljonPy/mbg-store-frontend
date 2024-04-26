@@ -78,7 +78,7 @@
 	},
 	"products": {
 		"title": "Mahsulotlar",
-		"plural": "Mahsulotlar",
+		"plural": "ta mahsulot",
 		"rates": "Reytinglar",
 		"near": "Yaqin atrofdagi mahsulotlar",
 		"top": "Eng ko'p sotilganlar",
@@ -201,6 +201,7 @@
 		"type_value": "уточняется",
 		"checkout": "To'lovga o'ting",
 		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
+		"fill_cart": "Savatchaga qo'shish",
 		"delivery": {
 			"title_one": "Buyurtma oluvchi",
 			"name_label": "Ism va familiya",
