@@ -4,7 +4,7 @@ import PriceSlider from "@/components/pages/products/filters/desktop/prices/slid
 import { useTranslations } from "next-intl";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import css from "./prices.module.css";
 
 interface props {}
@@ -15,11 +15,18 @@ const Prices = (props: props) => {
 	const { push, query, isReady } = useRouter();
 	const searchParams = useSearchParams();
 	const prices: string | null = searchParams.get("prices");
+	console.log(prices,"prices")
 	const pricesRange = prices
 		? prices.split(",").map((item) => Number(item))
 		: [1000, 10000000];
 	const [priceRange, setPriceRange] = useState<number[]>(pricesRange);
 
+	useEffect(() => {
+		const price = prices
+			? prices.split(",").map((item) => Number(item))
+			: [1000, 10000000];
+		setPriceRange(price)
+	}, [prices]);
 	const onChange = (value: number[]) => {
 		const [start, end] = value;
 		setPriceRange([start, end]);

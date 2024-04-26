@@ -12,6 +12,7 @@ import { AppDispatch, RootState } from "@/store";
 import {fetchProductComments, fetchProductSingle} from "@/slices/product/productSingleSlices";
 import {useSearchParams} from "next/navigation";
 import Head from "next/head";
+import Skeleton from "react-loading-skeleton";
 
 interface props {}
 
@@ -19,6 +20,8 @@ const Wrapper = (props: props) => {
 	const t = useTranslations();
 	const router = useRouter();
 	const searchParams = useSearchParams()
+	const [slideLoad,setSlideLoad] = useState(true)
+
 
 	const { info, loading,comments } = useSelector((state: RootState) => state.product_single);
 	const {rating,rating_count,comparison_products,related_products,name} = info
@@ -39,6 +42,8 @@ const Wrapper = (props: props) => {
 			size:offset,
 			rating:ratingFilter?ratingFilter: ''
 		}))
+		setSlideLoad(true)
+		setTimeout(()=>setSlideLoad(false),2000)
 	}, [router.query.id,ratingFilter,offset]);
 
 	return (
@@ -65,15 +70,22 @@ const Wrapper = (props: props) => {
 						},
 					]}
 				/>
-				{info && <Info info={info} loading={loading} />}
+
+				{info && <Info info={info} loading={slideLoad} />}
 
 				{	comparison_products?.length ?
 					<Comparison comparison={comparison_products} loading={loading} /> :""
 				}
+
+				<p>{slideLoad}</p>
+
 				{
-					related_products?.length ?
-						<Similar similar={related_products} loading={loading} />
-						: ''
+					related_products?.length && <div>
+						{
+							 <Similar similar={related_products} loading={slideLoad} />
+
+						}
+					</div>
 				}
 				<Feedbacks rating={rating} rating_count={rating_count} comments={comments} loading={loading} setOffset={(offset)=> setOffset(offset)} />
 			</div>

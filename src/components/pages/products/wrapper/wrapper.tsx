@@ -5,11 +5,11 @@ import ProductList from "@/components/pages/products/product-list/product-list";
 import Header from "@/components/pages/products/wrapper/header/header";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import { fetchCategory } from "@/slices/category/categorySlices";
-import { AppDispatch } from "@/store";
-import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import {AppDispatch} from "@/store";
+import {useTranslations } from "next-intl";
+import {useSearchParams} from "next/navigation";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import css from "./wrapper.module.css";
 
 interface props {}

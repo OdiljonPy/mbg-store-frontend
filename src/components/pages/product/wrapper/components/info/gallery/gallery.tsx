@@ -42,11 +42,11 @@ const Gallery = ({gallery,loading} : props) => {
     )
 
     const onPrev = () => {
-        if(gallery?.images?.length > 3) instanceRef?.current?.prev()
+        if(gallery?.images?.length > 2) instanceRef?.current?.prev()
     }
 
     const onNext = () => {
-        if(gallery?.images?.length > 3) instanceRef?.current?.next()
+        if(gallery?.images?.length > 2) instanceRef?.current?.next()
     }
 
     const onChangeSlide = (i: number) => instanceRef.current?.moveToIdx(i)
