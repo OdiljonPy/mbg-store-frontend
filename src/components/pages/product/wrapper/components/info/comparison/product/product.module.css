@@ -4,6 +4,7 @@
     color: var(--black);
     transition: all .2s linear;
     border-radius: var(--medium-radius);
+    cursor: pointer;
 }
 
 .product:hover {

@@ -1,8 +1,10 @@
 import css from "./no_data.module.css"
 import Image from "next/image";
 import {raleway} from "@/constants/fonts/fonts";
+import {useTranslations} from "next-intl";
 
 const NoData = ()=>{
+    const t = useTranslations('filters.no_data')
     return (
         <div className={css.no_data}>
             <div className={css.image_wrapper}>
@@ -15,8 +17,8 @@ const NoData = ()=>{
                 />
             </div>
             <div>
-                <p className={`${css.title} ${raleway.className}`}>Мы не нашли подходящих товаров</p>
-                <p className={`${css.description} ${raleway.className}`}>Попробуйте изменить фильтры или сбросить их</p>
+                <p className={`${css.title} ${raleway.className}`}>{t('title')}</p>
+                <p className={`${css.description} ${raleway.className}`}>{t('description')}</p>
             </div>
         </div>
     )

@@ -84,7 +84,7 @@
 		"top": "Eng ko'p sotilganlar",
 		"popular": "Ommabop",
 		"withFeedbacks": "Sharh yozilgan mahsulotlar",
-		"sold": "Sotilgan",
+		"sold": "Tugagan",
 		"addToCart": "Mahsulot savatga qo'shildi!",
 		"show_more": "Ko'proq ko'rsatish",
 		"no_product": "Mahsulot bazada qolmadi",
@@ -128,6 +128,10 @@
 		},
 		"accessibility": {
 			"title": "Mavjudligi"
+		},
+		"no_data": {
+			"title": "Hech qanday mos mahsulot topilmadi",
+			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
 		},
 		"reset": "Filtrlarni tiklash"
 	},

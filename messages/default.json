@@ -18,7 +18,8 @@
     "favorites": "Saralangan",
     "support": "Yordam",
     "order_placed": "Buyurtma berilgan",
-    "offer": "Oferta"
+    "offer": "Oferta",
+    "please_enter_address": "Iltimos,manzilingizni kiriting"
   },
   "categories": {
     "title": "Kategoriyalar",
@@ -47,7 +48,7 @@
     "often": "Tez-tez qidirilganlar",
     "title": "Qidirish",
     "found": "{categories} turkumidagi {products} mahsulot topildi",
-    "categories": "{products} tovarlar",
+    "categories": "{products} ta mahsulot",
     "byName": "Ism bo'yicha qidirish"
   },
   "errors": {
@@ -68,7 +69,7 @@
   },
   "account": {
     "orders": "Buyurtmalar",
-    "title": "Hisob"
+    "title": "Profil"
   },
   "sales": {
     "sale": "Chegirmalar",
@@ -83,17 +84,19 @@
     "top": "Eng ko'p sotilganlar",
     "popular": "Ommabop",
     "withFeedbacks": "Sharh yozilgan mahsulotlar",
-    "sold": "Sotilgan",
+    "sold": "Tugagan",
     "addToCart": "Mahsulot savatga qo'shildi!",
     "show_more": "Ko'proq ko'rsatish",
     "no_product": "Mahsulot bazada qolmadi",
-    "unavailable_product": "Mavjud bo'lmagan mahsulatlar"
+    "unavailable_product": "Mavjud bo'lmagan mahsulatlar",
+    "add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
+    "has_products": "mavjud tovarlar"
   },
   "about": {
     "title": "MBG do'koni haqida qisqacha",
     "products": "turli xil tovarlar",
     "stores": "saytdagi do'konlar",
-    "orders": "kunlik buyurtmalar",
+    "orders": "umumiy buyurtmalar",
     "partners": "Bizning hamkorlar",
     "faq": "Tez beriladigan savollar",
     "chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
@@ -104,6 +107,11 @@
   "hide": "Yashirish",
   "filters": {
     "title": "Filter",
+    "show_filter": "Filterni ko'rsatish",
+    "hide_filter": "Filterni yashirish",
+    "clear": "tozalash",
+    "up_to": "gacha",
+    "from": "ta mahsulotdan",
     "sorting": {
       "title": "Tartiblash",
       "popular": "Mashhurlari",
@@ -120,6 +128,10 @@
     },
     "accessibility": {
       "title": "Mavjudligi"
+    },
+    "no_data": {
+      "title": "Hech qanday mos mahsulot topilmadi",
+      "description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
     },
     "reset": "Filtrlarni tiklash"
   },
@@ -180,6 +192,7 @@
     "actualPrice": "Dastlabki xarajat",
     "order": "Ro'yxatdan o'chirilish",
     "promo_code": "Promakod",
+    "use": "qo'llaniladi",
     "invalid_code": "Bu kod yaroqsiz",
     "accept": "Murojaat qiling",
     "type": "Yetkazib berish / olib ketish",
@@ -389,6 +402,7 @@
     "processing": "Qayta ishlashda",
     "show_more": "Batafsil ko'rsatish...",
     "show_less": "Kamroq ko'rsatish",
+
     "first_step": {
       "title": "Qo'llab-quvvatlash",
       "next": "Keyingi",
@@ -398,7 +412,10 @@
       "topic": "Apellyatsiya mavzusi",
       "select_topic": "Mavzuni tanlang",
       "description": "Tavsif",
-      "your_message": "Sizning savolingiz"
+      "your_message": "Sizning savolingiz",
+      "complaint": "Shikoyat",
+      "ask_question": "Savol berish",
+      "comment_suggestions": "Fikr va takliflar"
     },
     "second_step": {
       "title": "Qo'llab-quvvatlash",

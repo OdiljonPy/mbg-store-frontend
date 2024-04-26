@@ -129,6 +129,10 @@
 		"accessibility": {
 			"title": "Доступность"
 		},
+		"no_data": {
+			"title": "Hech qanday mos mahsulot topilmadi",
+			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
+		},
 		"reset": "Сбросить фильтры"
 	},
 	"from": "От",
