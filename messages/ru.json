@@ -13,13 +13,13 @@
 		"account": "Аккаунт",
 		"profile": "Профиль",
 		"orders": "Заказы",
-
 		"order_placed": "Заказ размещен",
 		"order": "Заказ",
 		"address_book": "Адресная книжка",
 		"favorites": "Избранные",
 		"support": "Поддержка",
-		"offer": "Офферта"
+		"offer": "Офферта",
+		"please_enter_address": "Укажите адрес"
 	},
 	"categories": {
 		"title": "Категории",
@@ -88,7 +88,8 @@
 		"addToCart": "Продукт был добавлен в корзину!",
 		"show_more": "Показать больше",
 		"no_product": "Товар не остался в базе",
-		"unavailable_product": "Недоступные товары"
+		"unavailable_product": "Недоступные товары",
+		"add_address_for_see_near": "Укажите адрес, чтобы видеть товары поблизости"
 	},
 	"about": {
 		"title": "Кратко о MBG store",
@@ -402,7 +403,10 @@
 			"topic": "Тема обращения",
 			"select_topic": "Выберите тему",
 			"description": "Описание",
-			"your_message": "Ваш вопрос"
+			"your_message": "Ваш вопрос",
+			"complaint": "Жалоба",
+			"ask_question": "Задать вопрос",
+			"comment_suggestions": "Отзывы и предложения"
 		},
 		"second_step": {
 			"title": "Поддержка",

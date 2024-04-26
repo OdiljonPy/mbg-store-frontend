@@ -18,7 +18,8 @@
 		"favorites": "Saralangan",
 		"support": "Yordam",
 		"order_placed": "Buyurtma berilgan",
-		"offer": "Oferta"
+		"offer": "Oferta",
+		"please_enter_address": "Iltimos,manzilingizni kiriting"
 	},
 	"categories": {
 		"title": "Kategoriyalar",
@@ -68,7 +69,7 @@
 	},
 	"account": {
 		"orders": "Buyurtmalar",
-		"title": "Hisob"
+		"title": "Profil"
 	},
 	"sales": {
 		"sale": "Chegirmalar",
@@ -87,7 +88,8 @@
 		"addToCart": "Mahsulot savatga qo'shildi!",
 		"show_more": "Ko'proq ko'rsatish",
 		"no_product": "Mahsulot bazada qolmadi",
-		"unavailable_product": "Mavjud bo'lmagan mahsulatlar"
+		"unavailable_product": "Mavjud bo'lmagan mahsulatlar",
+		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting"
 	},
 	"about": {
 		"title": "MBG do'koni haqida qisqacha",
@@ -392,6 +394,7 @@
 		"processing": "Qayta ishlashda",
 		"show_more": "Batafsil ko'rsatish...",
 		"show_less": "Kamroq ko'rsatish",
+
 		"first_step": {
 			"title": "Qo'llab-quvvatlash",
 			"next": "Keyingi",
@@ -401,7 +404,10 @@
 			"topic": "Apellyatsiya mavzusi",
 			"select_topic": "Mavzuni tanlang",
 			"description": "Tavsif",
-			"your_message": "Sizning savolingiz"
+			"your_message": "Sizning savolingiz",
+			"complaint": "Shikoyat",
+			"ask_question": "Savol berish",
+			"comment_suggestions": "Fikr va takliflar"
 		},
 		"second_step": {
 			"title": "Qo'llab-quvvatlash",

@@ -3,13 +3,15 @@ import AddLocationModal from "@/components/shared/address/modals/add-location-mo
 import Button from "@/components/shared/button";
 import Product from "@/components/shared/product/product";
 import { productClose } from "@/constants/product/product";
+import {useTranslations} from "next-intl";
 
 function NearDialog() {
+	const t = useTranslations()
 	return (
 		<>
 			<div className={nearCss.card_wrapper}>
 				<div className={nearCss.card}>
-					<p className={nearCss.card_text}>Укажите адрес, чтобы видеть товары поблизости</p>
+					<p className={nearCss.card_text}>{t('products.add_address_for_see_near')}</p>
 					<AddLocationModal>
 						<Button
 							full
@@ -23,7 +25,7 @@ function NearDialog() {
 								</svg>
 							}
 						>
-							Добавить адрес
+							{t('address_book.add_address')}
 						</Button>
 					</AddLocationModal>
 				</div>
