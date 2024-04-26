@@ -24,7 +24,7 @@ const {products,totalCountProduct,not_available} = basketSlices
             }
 
             {!totalCountProduct ? <CartEmpty text={'cart.orders.empty'}/> :
-                products.map((product)=> <Product product={product} key={product.id}/>)
+                products.map((product)=> <Product  product={product} key={product.id}/>)
             }
 
             {

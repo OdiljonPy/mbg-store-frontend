@@ -11,6 +11,7 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/store";
 import {removeFromNotAvailable} from "@/slices/basket/basketSlice";
 import {useTranslations} from "next-intl";
+import {useRouter} from "next/router";
 
 interface props {
     product: IProduct
@@ -19,10 +20,17 @@ interface props {
 
 const Product = ({product,isAvailable = false}: props) => {
     const t = useTranslations()
-    const dispatch = useDispatch<AppDispatch>()
 
+    const {push} = useRouter()
+
+    const dispatch = useDispatch<AppDispatch>()
     const { images, name,id} = product
     const [count, setCount] = useState<number>(product.count ? product.count : 0)
+
+    const actionButton = (id:number,name:string)=>{
+        dispatch(removeFromNotAvailable(id))
+        push(`/products?search=${name}&sort=popular`).then(r => true)
+    }
 
     return (
        <div className={css.product_cart}>
@@ -45,7 +53,7 @@ const Product = ({product,isAvailable = false}: props) => {
            </div>
            {isAvailable &&  <div className={css.isAvailable}>
                <div className={css.available_action}>
-                   <Button variant={"tertiary"} onClick={()=> dispatch(removeFromNotAvailable(id))}>{t('products.some_product')}</Button>
+                   <Button variant={"tertiary"} onClick={()=> actionButton(id,name)}>{t('products.some_product')}</Button>
                </div>
            </div>}
        </div>

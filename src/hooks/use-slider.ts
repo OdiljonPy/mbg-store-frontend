@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState} from "react";
 import {useKeenSlider} from "keen-slider/react";
 import "keen-slider/keen-slider.min.css"
 export function useSlider() {
@@ -6,7 +6,7 @@ export function useSlider() {
     const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
-        renderMode:"performance",
+        mode: "free-snap",
         breakpoints: {
             "(min-width: 320px)": {
                 slides: {
@@ -45,11 +45,13 @@ export function useSlider() {
         slideChanged(slider) {
             setCurrentSlide(slider.track.details.rel)
         },
+
     })
 
     const onNext = () => instanceRef.current?.next()
 
     const onPrev = () => instanceRef.current?.prev()
+
 
     return {loaded, sliderRef, instanceRef, onNext, onPrev, currentSlide}
 }

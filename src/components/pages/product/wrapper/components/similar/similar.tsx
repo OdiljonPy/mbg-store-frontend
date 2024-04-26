@@ -8,7 +8,6 @@ import {IProduct} from "@/data-types/products/common";
 import Skeleton from "react-loading-skeleton";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
 import {useRouter} from "next/router";
-import {useKeenSlider} from "keen-slider/react";
 
 interface props {
     similar:IProduct[]
@@ -16,20 +15,18 @@ interface props {
 }
 
 const Similar = ({similar,loading}: props) => {
-    const {onPrev, onNext, currentSlide, loaded, sliderRef} = useSlider()
+    const {onPrev, onNext, currentSlide, loaded, sliderRef ,instanceRef} = useSlider()
 
     const {query:{id}} = useRouter();
 
 
-    const [ref, internalSlider] = useKeenSlider({
-        slideChanged(){
-            internalSlider?.current?.update();
-        }
-    })
     useEffect(() => {
-        internalSlider?.current?.update();
-        // onNext()
-    }, [similar,loaded]);
+        const slider = instanceRef.current
+        return ()=>{
+            slider?.update()
+        }
+    }, [instanceRef,similar,loaded,loading]);
+
 
     return (
         <section className={css.sales}>
