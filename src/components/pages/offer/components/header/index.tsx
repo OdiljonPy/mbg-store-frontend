@@ -1,10 +1,12 @@
 import Image from "next/image";
 
 import css from "./index.module.css";
+import {useRouter} from "next/router";
 
 function Header() {
+	const {push} = useRouter()
 	return (
-		<header className={css.header}>
+		<header className={css.header} onClick={()=> push('/')}>
 			<div className='container'>
 				<div className={css.logo}>
 					<Image
