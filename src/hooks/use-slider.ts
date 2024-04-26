@@ -6,6 +6,7 @@ export function useSlider() {
     const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
+        renderMode:"performance",
         breakpoints: {
             "(min-width: 320px)": {
                 slides: {
