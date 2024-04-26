@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./index.module.css";
+import {useTranslations} from "next-intl";
 
 interface props {
 	changeContainerHeight: (e: number) => void;
@@ -23,6 +24,8 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 	const { setValue } = useFormContext<IPostOrder>();
 	const cardRef = useRef<any>(null);
 	const [activeAddressCart, setActiveAddressCart] = useState<IShipping>();
+
+	const t = useTranslations()
 
 	const fetchActive = (address: IShipping) => {
 		setActiveAddressCart(address);
@@ -81,7 +84,7 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 							</svg>
 						}
 					>
-						Добавить адрес
+						{t('address.add')}
 					</Button>
 				</AddNewAddressModal>
 

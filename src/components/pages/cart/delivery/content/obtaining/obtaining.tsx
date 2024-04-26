@@ -69,7 +69,7 @@ const Obtaining = (props: props) => {
 
     return (
         <div className={css.obtaining}>
-            <Heading title="Товары в заказе" index={2}>
+            <Heading title="orders.order_method.title" index={2}>
                 {isChoose && <EditSVG onClick={backAddress}/>}
             </Heading>
             <div>

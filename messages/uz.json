@@ -79,7 +79,7 @@
 	"products": {
 		"title": "Mahsulotlar",
 		"plural": "Mahsulotlar",
-		"rates": "Hisob-kitoblar",
+		"rates": "Reytinglar",
 		"near": "Yaqin atrofdagi mahsulotlar",
 		"top": "Eng ko'p sotilganlar",
 		"popular": "Ommabop",
@@ -90,7 +90,9 @@
 		"no_product": "Mahsulot bazada qolmadi",
 		"unavailable_product": "Mavjud bo'lmagan mahsulatlar",
 		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
-		"has_products": "mavjud tovarlar"
+		"has_products": "mavjud tovarlar",
+		"some_product": "Shunga o'xshash",
+		"warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas"
 	},
 	"about": {
 		"title": "MBG do'koni haqida qisqacha",
@@ -158,7 +160,7 @@
 		"has": "Sotuvda mavjud",
 		"has_not": "Mavjud emas",
 		"seller": "Sotuvchi",
-		"rates": "Hisob-kitoblar",
+		"rates": "Reytinglar",
 		"addToCart": "Savatga qo'shish",
 		"about": "Mahsulot haqida",
 		"comparison": "Shu kabi mahsulotlarni taqqoslash",
@@ -190,11 +192,11 @@
 		"price": "Tovarlarning narxi",
 		"sales": "Chegirmalar",
 		"actualPrice": "Dastlabki xarajat",
-		"order": "Ro'yxatdan o'chirilish",
+		"order": "Ro'yxatdan o'tkazish",
 		"promo_code": "Promakod",
 		"use": "qo'llaniladi",
 		"invalid_code": "Bu kod yaroqsiz",
-		"accept": "Murojaat qiling",
+		"accept": "Qo'llash",
 		"type": "Yetkazib berish / olib ketish",
 		"type_value": "уточняется",
 		"checkout": "To'lovga o'ting",
@@ -203,7 +205,8 @@
 			"title_one": "Buyurtma oluvchi",
 			"name_label": "Ism va familiya",
 			"phone_label": "Telefon raqami",
-			"name_placeholder": "Ismingizni kiriting"
+			"name_placeholder": "Ismingizni kiriting",
+			"delivery_to": "Yetkazib berish manzili"
 		},
 		"orders": {
 			"empty": "Savatcha bo'sh",
@@ -321,6 +324,7 @@
 	"orders": {
 		"title": "Zakazlar",
 		"search": "Qidirish",
+		"success": "Sizning buyurtmangiz qabul qilindi!",
 		"method": {
 			"DELIVERY": "Yetkazib berish",
 			"PICKUP": "Olib ketish"
@@ -426,6 +430,8 @@
 		}
 	},
 	"stories": {
-		"with_us": "MBD do'koni blan birga "
+		"with_us": "MBD do'koni blan birga ",
+		"with_rule": "maxsus qoidalar",
+		"pay_on": "joyida to'lash"
 	}
 }

@@ -11,7 +11,7 @@ interface props{
 const Order = ({products,totalCountProduct}:props) =>{
     return(
         <div className={css.order}>
-            <Heading title="Товары в заказе" index={3} isBadge={true} badeCount={totalCountProduct}>
+            <Heading title="orders.order_item_list.title" index={3} isBadge={true} badeCount={totalCountProduct}>
                 <Link href={'/cart'}>
                       <EditSVG/>
                 </Link>

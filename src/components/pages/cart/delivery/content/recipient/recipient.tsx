@@ -38,7 +38,7 @@ const Recipient = ({}:props) =>{
 
     return(
         <div>
-            <Heading title='Получатель заказа' index={1} />
+            <Heading title='cart.delivery.title_one' index={1} />
             <form  className={css.form}>
                 <div className={css.flex}>
 

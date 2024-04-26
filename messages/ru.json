@@ -90,7 +90,9 @@
 		"no_product": "Товар не остался в базе",
 		"unavailable_product": "Недоступные товары",
 		"add_address_for_see_near": "Укажите адрес, чтобы видеть товары поблизости",
-		"has_products": "товары в наличии"
+		"has_products": "товары в наличии",
+		"some_product": "Похожие товары",
+		"warning_products": "Некоторые товары в вашей корзине недоступны в данный момент"
 	},
 	"about": {
 		"title": "Кратко о MBG store",
@@ -203,11 +205,12 @@
 			"title_one": "Получатель заказа",
 			"name_label": "Имя и фамилия",
 			"phone_label": "Номер телефона",
-			"name_placeholder": "Введите ваше имя"
+			"name_placeholder": "Введите ваше имя",
+			"delivery_to": "Доставка по адресу"
 		},
 		"orders": {
-			"empty": "Savatcha bo'sh",
-			"done": "Order muvaffaqiyatli o'chirildi"
+			"empty": "Корзина пуста",
+			"done": "Заказ успешно удален"
 		}
 	},
 	"order_placed": {
@@ -321,6 +324,7 @@
 	"orders": {
 		"title": "Заказы",
 		"search": "Поиск",
+		"success": "Ваш заказ принят!",
 		"method": {
 			"DELIVERY": "Доставка",
 			"PICKUP": "Самовывоз"
@@ -425,6 +429,8 @@
 		}
 	},
 	"stories": {
-		"with_us": "В MBG store с "
+		"with_us": "В MBG store с ",
+		"with_rule": "особые правила",
+		"pay_on": "оплата на месте"
 	}
 }
