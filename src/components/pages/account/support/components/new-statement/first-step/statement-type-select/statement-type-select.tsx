@@ -25,7 +25,7 @@ function StatementTypeSelect({ form }: Props) {
 			<div className={css.select} onClick={() => setOpen(!open)}>
 				<p>
 					{supportType
-						? supportTypeMap[supportType]
+						? t(supportTypeMap[supportType])
 						: t("select_topic")}
 				</p>
 				<span className={cn(css.arrow, open && css.active)}>
@@ -53,7 +53,7 @@ function StatementTypeSelect({ form }: Props) {
 							setOpen(false);
 						}}
 					>
-						<p>{item[1]}</p>
+						<p>{t(item[1])}</p>
 						{supportTypeMap[supportType] === item[1] && (
 							<Image src={CheckCircle} alt={""} />
 						)}

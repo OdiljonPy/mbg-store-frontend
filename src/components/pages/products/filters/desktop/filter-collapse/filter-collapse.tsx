@@ -6,6 +6,7 @@ import { PropsWithChildren } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import css from "./filter-collapse.module.css";
+import {useTranslations} from "next-intl";
 
 interface props {
 	title: string;
@@ -17,6 +18,7 @@ const FilterCollapse = ({
 	children,
 	queryResetList: paramsResetList,
 }: PropsWithChildren<props>) => {
+	const t = useTranslations()
 	const { open, onToggle } = useCustomCollapse();
 	const searchQuery = useSearchParams();
 	const { push, query } = useRouter();
@@ -43,7 +45,7 @@ const FilterCollapse = ({
 				<h4 className={css.title}>{title}</h4>
 				<div className={css.control}>
 					<button onClick={onReset} className={css.btn}>
-						{open && "Reset"}
+						{open && t('filters.clear')}
 					</button>
 					<PlusBtn open={open} onClick={onToggle} />
 				</div>

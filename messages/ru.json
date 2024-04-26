@@ -13,13 +13,13 @@
 		"account": "Аккаунт",
 		"profile": "Профиль",
 		"orders": "Заказы",
-
 		"order_placed": "Заказ размещен",
 		"order": "Заказ",
 		"address_book": "Адресная книжка",
 		"favorites": "Избранные",
 		"support": "Поддержка",
-		"offer": "Офферта"
+		"offer": "Офферта",
+		"please_enter_address": "Укажите адрес"
 	},
 	"categories": {
 		"title": "Категории",
@@ -88,13 +88,17 @@
 		"addToCart": "Продукт был добавлен в корзину!",
 		"show_more": "Показать больше",
 		"no_product": "Товар не остался в базе",
-		"unavailable_product": "Недоступные товары"
+		"unavailable_product": "Недоступные товары",
+		"add_address_for_see_near": "Укажите адрес, чтобы видеть товары поблизости",
+		"has_products": "товары в наличии",
+		"some_product": "Похожие товары",
+		"warning_products": "Некоторые товары в вашей корзине недоступны в данный момент"
 	},
 	"about": {
 		"title": "Кратко о MBG store",
 		"products": "различных товаров",
 		"stores": "магазинов на сайте",
-		"orders": "общие приказы",
+		"orders": "общие заказы",
 		"partners": "Наши партнеры",
 		"faq": "Частые вопросы",
 		"chat": "Не смогли найти ответ на свой вопрос? Напишите в чат:",
@@ -107,6 +111,9 @@
 		"title": "Фильтры",
 		"show_filter": "Показать фильтр",
 		"hide_filter": "Скрыть фильтр",
+		"clear": "cбросить",
+		"up_to": "из",
+		"from": "товаров",
 		"sorting": {
 			"title": "Сортировка",
 			"popular": "Популярные",
@@ -123,6 +130,10 @@
 		},
 		"accessibility": {
 			"title": "Доступность"
+		},
+		"no_data": {
+			"title": "Hech qanday mos mahsulot topilmadi",
+			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
 		},
 		"reset": "Сбросить фильтры"
 	},
@@ -190,15 +201,17 @@
 		"type_value": "уточняется",
 		"checkout": "Перейти к оплате",
 		"info_enter_address": "Введите адрес, по которому должен быть отправлен заказ!",
+		"fill_cart": "B корзину",
 		"delivery": {
 			"title_one": "Получатель заказа",
 			"name_label": "Имя и фамилия",
 			"phone_label": "Номер телефона",
-			"name_placeholder": "Введите ваше имя"
+			"name_placeholder": "Введите ваше имя",
+			"delivery_to": "Доставка по адресу"
 		},
 		"orders": {
-			"empty": "Savatcha bo'sh",
-			"done": "Order muvaffaqiyatli o'chirildi"
+			"empty": "Корзина пуста",
+			"done": "Заказ успешно удален"
 		}
 	},
 	"order_placed": {
@@ -312,6 +325,7 @@
 	"orders": {
 		"title": "Заказы",
 		"search": "Поиск",
+		"success": "Ваш заказ принят!",
 		"method": {
 			"DELIVERY": "Доставка",
 			"PICKUP": "Самовывоз"
@@ -402,7 +416,10 @@
 			"topic": "Тема обращения",
 			"select_topic": "Выберите тему",
 			"description": "Описание",
-			"your_message": "Ваш вопрос"
+			"your_message": "Ваш вопрос",
+			"complaint": "Жалоба",
+			"ask_question": "Задать вопрос",
+			"comment_suggestions": "Отзывы и предложения"
 		},
 		"second_step": {
 			"title": "Поддержка",
@@ -413,6 +430,8 @@
 		}
 	},
 	"stories": {
-		"with_us": "В MBG store с "
+		"with_us": "В MBG store с ",
+		"with_rule": "особые правила",
+		"pay_on": "оплата на месте"
 	}
 }

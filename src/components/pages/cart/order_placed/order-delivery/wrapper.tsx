@@ -38,7 +38,7 @@ const Wrapper = (props: props) => {
                     }
                 ]}/>
                 <div className={css.status}>
-                    <Status status_text={"Оплачено"} status='done'/>
+                    <Status status_text={"status.PAID"} status='done'/>
                 </div>
                 <div className={css.wrapper}>
                     <Content/>

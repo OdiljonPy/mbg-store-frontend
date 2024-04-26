@@ -6,17 +6,18 @@ export function useSlider() {
     const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
         initial: 0,
+        renderMode:"performance",
         breakpoints: {
             "(min-width: 320px)": {
                 slides: {
-                    perView: 1.4,
-                    spacing: 24
+                    perView: 2.2,
+                    spacing: 10
                 }
             },
             "(min-width: 576px)": {
                 slides: {
-                    perView: 2.5,
-                    spacing: 24
+                    perView: 2.4,
+                    spacing: 16
                 }
             },
             "(min-width: 768px)": {

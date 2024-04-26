@@ -9,7 +9,7 @@ interface props {}
 export const accessibilityList: ICustomCheckbox[] = [
 	{
 		id: 1,
-		title: "товары в наличии",
+		title: "products.has_products",
 		count: 150,
 	},
 	{
@@ -21,7 +21,7 @@ export const accessibilityList: ICustomCheckbox[] = [
 
 const Accessibility = (props: props) => {
 	const t = useTranslations();
-
+	accessibilityList[0].title = t('products.has_products')
 	return (
 		<FilterCollapse
 			title={t("filters.accessibility.title")}

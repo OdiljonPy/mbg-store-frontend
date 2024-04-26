@@ -5,12 +5,12 @@ import pickup from '@/../public/images/icons/pickup.svg'
 export const deliveries: IDelivery[] = [
     {
         icon:delivery,
-        text: 'особые правила',
-        title: 'Бесплатная доставка'
+        text: 'stories.with_rule',
+        title: 'filters.delivery.free'
     },
     {
         icon: pickup,
-        title: 'Самовывоз',
-        text: 'оплата на месте'
+        title: 'filters.delivery.self',
+        text: 'stories.pay_on'
     }
 ]

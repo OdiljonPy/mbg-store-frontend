@@ -6,7 +6,6 @@ import Product from "@/components/shared/product/product";
 import {useSlider} from "@/hooks/use-slider";
 import {IProduct} from "@/data-types/products/common";
 import Skeleton from "react-loading-skeleton";
-import {product} from "@/constants/product/product";
 import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
 import {useRouter} from "next/router";
 import {useKeenSlider} from "keen-slider/react";
@@ -17,7 +16,8 @@ interface props {
 }
 
 const Similar = ({similar,loading}: props) => {
-    const {onPrev, onNext, currentSlide, loaded, sliderRef,instanceRef} = useSlider()
+    const {onPrev, onNext, currentSlide, loaded, sliderRef} = useSlider()
+
     const {query:{id}} = useRouter();
 
 
@@ -28,8 +28,8 @@ const Similar = ({similar,loading}: props) => {
     })
     useEffect(() => {
         internalSlider?.current?.update();
-        instanceRef?.current?.update()
-    }, [similar]);
+        // onNext()
+    }, [similar,loaded]);
 
     return (
         <section className={css.sales}>
@@ -37,10 +37,11 @@ const Similar = ({similar,loading}: props) => {
                     title: 'product.similar',
                 }}/>
             {
-                loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
-                </div> : <div className={css.wrapperOuter}>
+                loading ?  <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  /> :
+                <div className={css.wrapperOuter}>
                     <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
                     <ProductSwiperArrow onClick={onNext} isNext/>
+
                     <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
                         {
                             similar?.map((product)=>{

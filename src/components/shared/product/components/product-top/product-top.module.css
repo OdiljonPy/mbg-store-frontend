@@ -52,6 +52,14 @@
 		height: 104px;
 		margin-top: 30px;
 	}
+	.favorite_icon {
+		top: 8px;
+		right: 8px;
+	}
+	.favorite_icon svg {
+		width: 28px;
+		height: 28px;
+	}
 }
 
 @media (max-width: 575px) {
@@ -63,8 +71,8 @@
 	}
 
 	.favorite_icon {
-		top: 8px;
-		right: 8px;
+		top: 6px;
+		right: 6px;
 	}
 
 	.favorite_icon svg {

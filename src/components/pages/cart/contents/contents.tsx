@@ -19,7 +19,7 @@ const {products,totalCountProduct,not_available} = basketSlices
 
             {
                 not_available?.length ?  <div className={css.info_not_available}>
-                    <WarningText type={"error"} color={'#FF6C6C'}><p>Некоторые товары в вашей корзине недоступны в данный момент</p></WarningText>
+                    <WarningText type={"error"} color={'#FF6C6C'}><p>{t('products.warning_products')}</p></WarningText>
                 </div> : ''
             }
 

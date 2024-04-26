@@ -110,7 +110,7 @@ const AddressSelect = () => {
 					<span className={css.text}>
 						{main_address.address
 							? main_address.address
-							: "Укажите адрес"}
+							: t('header.please_enter_address')}
 					</span>
 				</button>
 			</Dropdown>

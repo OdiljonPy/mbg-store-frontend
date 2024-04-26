@@ -4,15 +4,17 @@ import OrderItems from "@/components/pages/cart/order_placed/common/order-items/
 import {useSelector} from "react-redux";
 import {RootState} from "@/store";
 import OrderError from "@/components/pages/cart/order_placed/order-pickup/notification/error/OrderError";
+import {useTranslations} from "next-intl";
 interface props{
 
 }
 const Content = (props:props) =>{
     const {last_order,loading} = useSelector((state:RootState)=> state.last_order)
     const {order_items} = last_order
+    const t = useTranslations()
     return(
         <div className={css.content}>
-            <h2 className={css.title}>Способ получения</h2>
+            <h2 className={css.title}>{t('orders.order_method.title')}</h2>
             <Address/>
             <OrderItems loading={loading} products={order_items} totalCountProduct={order_items?.length}  />
         </div>

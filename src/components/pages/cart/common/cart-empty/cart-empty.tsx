@@ -24,7 +24,7 @@ function CartEmpty({text}:props) {
 				/>
 			</div>
 			<p className={css.text}>{t(text)}</p>
-			<Button className={css.btn} onClick={() => push('/')}>Товары на скидке</Button>
+			<Button className={css.btn} onClick={() => push('/')}>{t('cart.fill_cart')}</Button>
 		</div>
 	);
 }

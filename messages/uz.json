@@ -18,7 +18,8 @@
 		"favorites": "Saralangan",
 		"support": "Yordam",
 		"order_placed": "Buyurtma berilgan",
-		"offer": "Oferta"
+		"offer": "Oferta",
+		"please_enter_address": "Iltimos,manzilingizni kiriting"
 	},
 	"categories": {
 		"title": "Kategoriyalar",
@@ -47,7 +48,7 @@
 		"often": "Tez-tez qidirilganlar",
 		"title": "Qidirish",
 		"found": "{categories} turkumidagi {products} mahsulot topildi",
-		"categories": "{products} tovarlar",
+		"categories": "{products} ta mahsulot",
 		"byName": "Ism bo'yicha qidirish"
 	},
 	"errors": {
@@ -68,7 +69,7 @@
 	},
 	"account": {
 		"orders": "Buyurtmalar",
-		"title": "Hisob"
+		"title": "Profil"
 	},
 	"sales": {
 		"sale": "Chegirmalar",
@@ -77,17 +78,21 @@
 	},
 	"products": {
 		"title": "Mahsulotlar",
-		"plural": "Mahsulotlar",
-		"rates": "Hisob-kitoblar",
+		"plural": "ta mahsulot",
+		"rates": "Reytinglar",
 		"near": "Yaqin atrofdagi mahsulotlar",
 		"top": "Eng ko'p sotilganlar",
 		"popular": "Ommabop",
 		"withFeedbacks": "Sharh yozilgan mahsulotlar",
-		"sold": "Sotilgan",
+		"sold": "Tugagan",
 		"addToCart": "Mahsulot savatga qo'shildi!",
 		"show_more": "Ko'proq ko'rsatish",
 		"no_product": "Mahsulot bazada qolmadi",
-		"unavailable_product": "Mavjud bo'lmagan mahsulatlar"
+		"unavailable_product": "Mavjud bo'lmagan mahsulatlar",
+		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
+		"has_products": "mavjud tovarlar",
+		"some_product": "Shunga o'xshash",
+		"warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas"
 	},
 	"about": {
 		"title": "MBG do'koni haqida qisqacha",
@@ -106,6 +111,9 @@
 		"title": "Filter",
 		"show_filter": "Filterni ko'rsatish",
 		"hide_filter": "Filterni yashirish",
+		"clear": "tozalash",
+		"up_to": "gacha",
+		"from": "ta mahsulotdan",
 		"sorting": {
 			"title": "Tartiblash",
 			"popular": "Mashhurlari",
@@ -122,6 +130,10 @@
 		},
 		"accessibility": {
 			"title": "Mavjudligi"
+		},
+		"no_data": {
+			"title": "Hech qanday mos mahsulot topilmadi",
+			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
 		},
 		"reset": "Filtrlarni tiklash"
 	},
@@ -148,7 +160,7 @@
 		"has": "Sotuvda mavjud",
 		"has_not": "Mavjud emas",
 		"seller": "Sotuvchi",
-		"rates": "Hisob-kitoblar",
+		"rates": "Reytinglar",
 		"addToCart": "Savatga qo'shish",
 		"about": "Mahsulot haqida",
 		"comparison": "Shu kabi mahsulotlarni taqqoslash",
@@ -180,20 +192,22 @@
 		"price": "Tovarlarning narxi",
 		"sales": "Chegirmalar",
 		"actualPrice": "Dastlabki xarajat",
-		"order": "Ro'yxatdan o'chirilish",
+		"order": "Ro'yxatdan o'tkazish",
 		"promo_code": "Promakod",
 		"use": "qo'llaniladi",
 		"invalid_code": "Bu kod yaroqsiz",
-		"accept": "Murojaat qiling",
+		"accept": "Qo'llash",
 		"type": "Yetkazib berish / olib ketish",
 		"type_value": "уточняется",
 		"checkout": "To'lovga o'ting",
 		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
+		"fill_cart": "Savatchaga qo'shish",
 		"delivery": {
 			"title_one": "Buyurtma oluvchi",
 			"name_label": "Ism va familiya",
 			"phone_label": "Telefon raqami",
-			"name_placeholder": "Ismingizni kiriting"
+			"name_placeholder": "Ismingizni kiriting",
+			"delivery_to": "Yetkazib berish manzili"
 		},
 		"orders": {
 			"empty": "Savatcha bo'sh",
@@ -311,6 +325,7 @@
 	"orders": {
 		"title": "Zakazlar",
 		"search": "Qidirish",
+		"success": "Sizning buyurtmangiz qabul qilindi!",
 		"method": {
 			"DELIVERY": "Yetkazib berish",
 			"PICKUP": "Olib ketish"
@@ -392,6 +407,7 @@
 		"processing": "Qayta ishlashda",
 		"show_more": "Batafsil ko'rsatish...",
 		"show_less": "Kamroq ko'rsatish",
+
 		"first_step": {
 			"title": "Qo'llab-quvvatlash",
 			"next": "Keyingi",
@@ -401,7 +417,10 @@
 			"topic": "Apellyatsiya mavzusi",
 			"select_topic": "Mavzuni tanlang",
 			"description": "Tavsif",
-			"your_message": "Sizning savolingiz"
+			"your_message": "Sizning savolingiz",
+			"complaint": "Shikoyat",
+			"ask_question": "Savol berish",
+			"comment_suggestions": "Fikr va takliflar"
 		},
 		"second_step": {
 			"title": "Qo'llab-quvvatlash",
@@ -412,6 +431,8 @@
 		}
 	},
 	"stories": {
-		"with_us": "MBD do'koni blan birga "
+		"with_us": "MBD do'koni blan birga ",
+		"with_rule": "maxsus qoidalar",
+		"pay_on": "joyida to'lash"
 	}
 }

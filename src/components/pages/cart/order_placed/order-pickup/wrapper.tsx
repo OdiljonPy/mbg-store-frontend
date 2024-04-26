@@ -51,7 +51,7 @@ const Wrapper = (props: props) => {
                 {
                     done ? <CartEmpty text={'cart.orders.done'}/> :  <div>
                         <div className={css.status}>
-                            <Status status_text={"Ожидает оплаты"} status='warning'/>
+                            <Status status_text={"status.PROGRESSING"} status='warning'/>
                         </div>
                         <div className={css.wrapper}>
                             <Content/>

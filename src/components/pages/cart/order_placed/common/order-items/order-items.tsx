@@ -12,7 +12,7 @@ interface props{
 const OrderItems = ({products,totalCountProduct,loading}:props) =>{
     return(
         <div className={css.order}>
-            <Heading title="Товары в заказе" isBadge={true} badeCount={totalCountProduct}/>
+            <Heading title="orders.order_item_list.title" isBadge={true} badeCount={totalCountProduct}/>
             <div className={css.order_cart}>
                 {
                     loading ?
