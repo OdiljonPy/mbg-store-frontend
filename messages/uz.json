@@ -41,7 +41,8 @@
 		"floor": "Qavat",
 		"apartment": "Kvartira",
 		"make_address": "Manzilni asosiyga aylantirish",
-		"required": "Ushbu qator to'ldirilishi shart"
+		"required": "Ushbu qator to'ldirilishi shart",
+		"saved": "Saqlanganlar"
 	},
 	"search": {
 		"placeholder": "Mahsulotlarni qidirish",
@@ -191,7 +192,7 @@
 		"yourOrder": "Sizning buyurtmangiz",
 		"price": "Tovarlarning narxi",
 		"sales": "Chegirmalar",
-		"actualPrice": "Dastlabki xarajat",
+		"actualPrice": "Yechilanadigan narx",
 		"order": "Ro'yxatdan o'tkazish",
 		"promo_code": "Promakod",
 		"use": "qo'llaniladi",
@@ -211,7 +212,8 @@
 		},
 		"orders": {
 			"empty": "Savatcha bo'sh",
-			"done": "Buyurtma muvaffaqiyatli o'chirildi"
+			"done": "Buyurtma muvaffaqiyatli o'chirildi",
+			"error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring"
 		}
 	},
 	"order_placed": {
@@ -407,7 +409,7 @@
 		"processing": "Qayta ishlashda",
 		"show_more": "Batafsil ko'rsatish...",
 		"show_less": "Kamroq ko'rsatish",
-
+		"empty_section": "Sizda hali hech qanday ilova yo'q",
 		"first_step": {
 			"title": "Qo'llab-quvvatlash",
 			"next": "Keyingi",
@@ -434,5 +436,9 @@
 		"with_us": "MBD do'koni blan birga ",
 		"with_rule": "maxsus qoidalar",
 		"pay_on": "joyida to'lash"
+	},
+	"not_found": {
+		"main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
+		"to_back": "Asosiy sahifaga qaytish"
 	}
 }

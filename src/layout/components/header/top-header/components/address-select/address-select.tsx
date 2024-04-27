@@ -62,7 +62,7 @@ const AddressSelect = () => {
 		isLoggedIn && shippingList.length
 			? {
 					key: 2,
-					label: "Сохраненные",
+					label: t('address.saved'),
 					type: "group",
 					children: [
 						...shippingList.map((item) => ({

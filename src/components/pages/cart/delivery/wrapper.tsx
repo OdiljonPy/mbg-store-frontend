@@ -11,6 +11,7 @@ import {createOrder} from "@/slices/order/ordersSlice";
 import {useRouter} from "next/router";
 import {useToasts} from "react-toast-notifications";
 import {clearBasket, deletePromoCode} from "@/slices/basket/basketSlice";
+import OrderError from "@/components/pages/cart/order_placed/order-pickup/notification/error/OrderError";
 
 interface props {
 
@@ -48,12 +49,17 @@ const Wrapper = (props: props) => {
                 }
                 else throw new Error("error")
             }).catch((err)=>{
-             return addToast(err,{
+             return addToast(t('cart.orders.error'),{
                 appearance: 'error',
                 autoDismiss: true,
             })
         })
     }
+
+    // if(error){
+    //     return <OrderError/>
+    // }
+
     return (
         <section className={css.cart}>
             <div className={'container'}>
@@ -71,6 +77,7 @@ const Wrapper = (props: props) => {
                         label: t('header.delivery')
                     }
                 ]}/>
+
                 <FormProvider {...methods}>
                     <form className={css.wrapper} onSubmit={methods.handleSubmit(submitOrder)}>
                         <Content form={methods} />

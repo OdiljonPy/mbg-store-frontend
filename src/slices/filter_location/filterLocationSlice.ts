@@ -14,7 +14,10 @@ const filterLocationSlice = createSlice({
 	initialState,
 	reducers: {
 		addFilterLocation: (state, action: { payload: IFilterLocation }) => {
-			state.address_list.push(action.payload);
+			const check = state.address_list.findIndex((state)=> state.address === action.payload.address)
+			if(check == -1){
+				state.address_list.push(action.payload);
+			}
 		},
 		removeFilterLocation: (
 			state,
