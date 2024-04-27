@@ -212,7 +212,8 @@
 		},
 		"orders": {
 			"empty": "Savatcha bo'sh",
-			"done": "Buyurtma muvaffaqiyatli o'chirildi"
+			"done": "Buyurtma muvaffaqiyatli o'chirildi",
+			"error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring"
 		}
 	},
 	"order_placed": {

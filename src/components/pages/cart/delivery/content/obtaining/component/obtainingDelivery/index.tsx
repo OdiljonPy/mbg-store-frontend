@@ -70,11 +70,11 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 				})}
 			</div>
 			<div className={css.action_btn}>
-				<AddNewAddressModal>
+				<AddNewAddressModal className={css.address_btn}>
 					<Button
+						full
 						variant='tertiary'
-						className={css.btn}
-						width={300}
+						className={css.address_btn}
 						leftIcon={
 							<svg width='21' height='22' viewBox='-1 0 22 23' fill='none' xmlns='http://www.w2.org/2000/svg'>
 								<path
