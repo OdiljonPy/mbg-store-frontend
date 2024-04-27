@@ -2,7 +2,7 @@ import { raleway } from "@/constants/fonts/fonts";
 import Header from "@/layout/components/header/header";
 import Head from "next/head";
 import { ReactNode} from "react";
-import css from "../../layout.module.css";
+import css from "./not-found.module.css";
 
 interface LayoutProps {
     children: ReactNode;

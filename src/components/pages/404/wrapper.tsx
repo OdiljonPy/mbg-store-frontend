@@ -19,20 +19,18 @@ function Wrapper() {
 						src={notFound}
 						alt='404'
 						width={1000}
-						height={400}
 					/>
 					<Image
 						className={css.image_box}
 						src={box}
 						alt='empty-box'
 						width={300}
-						height={300}
 					/>
 				</div>
-				<p className={css.text}>
-					{t('main_text')}
-				</p>
-				<Button onClick={() => push("/")}>{t('to_back')}</Button>
+					<p className={css.text}>
+						{t('main_text')}
+					</p>
+					<Button onClick={() => push("/")}>{t('to_back')}</Button>
 			</div>
 		</div>
 	);
