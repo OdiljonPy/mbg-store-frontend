@@ -434,5 +434,9 @@
 		"with_us": "MBD do'koni blan birga ",
 		"with_rule": "maxsus qoidalar",
 		"pay_on": "joyida to'lash"
+	},
+	"not_found": {
+		"main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
+		"to_back": "Asosiy sahifaga qaytish"
 	}
 }

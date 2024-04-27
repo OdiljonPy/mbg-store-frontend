@@ -5,10 +5,11 @@ import notFound from "@/../public/images/404/404.png";
 import box from "@/../public/images/404/box.png";
 import Button from "@/components/shared/button";
 import { useRouter } from "next/navigation";
+import {useTranslations} from "next-intl";
 
 function Wrapper() {
 	const { push } = useRouter();
-
+	const t = useTranslations('not_found')
 	return (
 		<div className='container'>
 			<div className={css.wrapper}>
@@ -29,13 +30,14 @@ function Wrapper() {
 					/>
 				</div>
 				<p className={css.text}>
-					Упс! Кажется, эта страница ушла за покупками.
-					Присоединяйтесь к ней!
+					{t('main_text')}
 				</p>
-				<Button onClick={() => push("/")}>Перейти на главную</Button>
+				<Button onClick={() => push("/")}>{t('to_back')}</Button>
 			</div>
 		</div>
 	);
 }
+
+
 
 export default Wrapper;
