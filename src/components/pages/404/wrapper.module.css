@@ -12,7 +12,7 @@
 	justify-content: center;
 	padding-bottom: 6%;
 	margin-bottom: 40px;
-	max-height: 50vh;
+	height: 50vh;
 }
 
 .image_box {
@@ -37,6 +37,9 @@
 @media (max-width: 575px){
 	.wrapper{
 		margin-top: 80px;
+	}
+	.image_wrapper{
+		max-height: 40vh;
 	}
 	.text{
 		font-size: 16px;

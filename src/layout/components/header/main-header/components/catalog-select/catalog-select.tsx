@@ -65,7 +65,7 @@ const CatalogSelect = (props: props) => {
 
     const items: MenuProps['items'] = [
         {
-            label: <CatalogTop item={{title: 'Все категории', id: 1}}/>,
+            label: <CatalogTop item={{title: t('categories.all'), id: 1}}/>,
             key: '0',
         },
         ...categorySelect.map((item) => (

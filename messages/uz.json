@@ -41,7 +41,8 @@
 		"floor": "Qavat",
 		"apartment": "Kvartira",
 		"make_address": "Manzilni asosiyga aylantirish",
-		"required": "Ushbu qator to'ldirilishi shart"
+		"required": "Ushbu qator to'ldirilishi shart",
+		"saved": "Saqlanganlar"
 	},
 	"search": {
 		"placeholder": "Mahsulotlarni qidirish",
@@ -407,7 +408,7 @@
 		"processing": "Qayta ishlashda",
 		"show_more": "Batafsil ko'rsatish...",
 		"show_less": "Kamroq ko'rsatish",
-
+		"empty_section": "Sizda hali hech qanday ilova yo'q",
 		"first_step": {
 			"title": "Qo'llab-quvvatlash",
 			"next": "Keyingi",
