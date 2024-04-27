@@ -22,7 +22,7 @@ type AppPropsWithLayout = AppProps & {
 function App({Component, pageProps}: AppPropsWithLayout) {
     const {locale} = useRouter()
     const getLayout = Component.getLayout ?? ((page) => page)
-    console.log(Component.getLayout,"has loayout")
+
     return (
         <Providers>
         <IntlProvider
@@ -33,7 +33,6 @@ function App({Component, pageProps}: AppPropsWithLayout) {
             timeZone={'Asia/Tashkent'}
         >
             <YMaps enterprise query={{lang: 'ru_RU', apikey: process.env.NEXT_PUBLIC_YANDEX_KEY, mode: 'debug', suggest_apikey: process.env.NEXT_PUBLIC_SUGGEST_KEY}}>
-
                         <NextNProgress color={`#39B969`}
                                        startPosition={0.3}
                                        stopDelayMs={200}

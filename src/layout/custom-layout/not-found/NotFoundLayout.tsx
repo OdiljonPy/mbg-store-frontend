@@ -1,17 +1,14 @@
 import { raleway } from "@/constants/fonts/fonts";
 import Header from "@/layout/components/header/header";
 import Head from "next/head";
-import { usePathname } from "next/navigation";
 import { ReactNode} from "react";
-import css from "../layout.module.css";
+import css from "../../layout.module.css";
 
 interface LayoutProps {
     children: ReactNode;
 }
 
 const NotFoundLayout:React.FC<LayoutProps> = ({ children }) => {
-    const pathname = usePathname();
-
     return (
         <>
             <Head>

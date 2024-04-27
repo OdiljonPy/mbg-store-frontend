@@ -2,7 +2,7 @@ import Wrapper from "@/components/pages/404/wrapper";
 import Head from "next/head";
 import {NextPageWithLayout} from "@/pages/_app";
 import {ReactElement} from "react";
-import NotFoundLayout from "@/layout/not-found/NotFoundLayout";
+import NotFoundLayout from "@/layout/custom-layout/not-found/NotFoundLayout";
 
 const NotFound:NextPageWithLayout = () => {
 	return (
