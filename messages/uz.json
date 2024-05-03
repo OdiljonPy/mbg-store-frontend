@@ -45,7 +45,8 @@
 		"saved": "Saqlanganlar",
 		"address_status": "Asosiy",
 		"delete_address": "Manzilni o'chirish",
-		"permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz"
+		"permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
 	},
 	"search": {
 		"placeholder": "Mahsulotlarni qidirish",

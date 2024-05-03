@@ -31,6 +31,8 @@ function DeleteAddressModal({
 
 	const t = useTranslations()
 
+	const {shippingList} = useSelector((state:RootState)=> state.shippingList)
+
 	const { deleteLoading, loading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
@@ -38,26 +40,39 @@ function DeleteAddressModal({
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onDelete = async () => {
-		await dispatch(deleteShipping(shippingId)).unwrap()
-			.then((res)=>{
-				if(!res.ok){
-					// @ts-ignore
-					addToast(res.error?.message,{
-						appearance: 'error',
-						autoDismiss: true,
-					})
-				}
-		})
-		await dispatch(fetchShippingList());
-		onClose();
+			await dispatch(deleteShipping(shippingId)).unwrap()
+				.then((res)=>{
+					if(!res.ok){
+						// @ts-ignore
+						addToast(res.error?.message,{
+							appearance: 'error',
+							autoDismiss: true,
+						})
+					}
+			})
+			await dispatch(fetchShippingList());
+			onClose();
+
 	};
+
+	const openDeleteModal = () =>{
+		if(shippingList?.length > 1){
+			onOpen()
+		}
+		else{
+				addToast(t('address.notAllowed_delete'),{
+					appearance: 'warning',
+					autoDismiss: true,
+				})
+			}
+	}
 
 	return (
 		<>
 			<div
 				{...props}
 				className={[css.modal_trigger, className].join(" ")}
-				onClick={onOpen}
+				onClick={openDeleteModal}
 			>
 				{children}
 			</div>
