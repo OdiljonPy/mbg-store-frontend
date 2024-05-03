@@ -104,6 +104,8 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 						{t("cancel")}
 					</Button>
 					<Button
+						onClick={form.handleSubmit(onSubmit)}
+						type={'button'}
 						full
 						disabled={!form.formState.isValid}
 						loading={patchLoading}

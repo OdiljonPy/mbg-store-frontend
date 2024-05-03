@@ -72,6 +72,7 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 			<div className={css.action_btn}>
 				<AddNewAddressModal className={css.address_btn}>
 					<Button
+						type={'button'}
 						full
 						variant='tertiary'
 						className={css.address_btn}

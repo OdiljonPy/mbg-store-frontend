@@ -13,6 +13,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 	rightIcon?: React.ReactNode;
 	width?: string | number;
 	height?: string | number;
+	onClick?:()=> void
 }
 
 function Button({
@@ -29,10 +30,11 @@ function Button({
 	children,
 	className,
 	style,
+	onClick,
 	...props
 }: Props) {
 	return (
-		<button
+		<button onClick={onClick}
 			{...props}
 			className={cn(
 				css.btn,

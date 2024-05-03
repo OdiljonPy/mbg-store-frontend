@@ -92,6 +92,8 @@ function AddAddressMobileForm({ onClose }: Props) {
 			),
 			action: (
 				<Button
+					onClick={form.handleSubmit(onSubmit)}
+					type={'button'}
 					full
 					disabled={!form.formState.isValid}
 					loading={postLoading}
