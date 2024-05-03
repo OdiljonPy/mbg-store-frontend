@@ -68,6 +68,8 @@ function AddAddressForm({ onClose }: Props) {
 					mapConstructor={mapConstructor}
 				/>
 				<Button
+					onClick={form.handleSubmit(onSubmit)}
+					type={'button'}
 					full
 					disabled={!form.formState.isValid}
 					loading={postLoading}

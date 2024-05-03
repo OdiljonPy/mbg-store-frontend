@@ -7,14 +7,15 @@ import { AppDispatch } from "@/store";
 import { cn } from "@/utils/cn";
 import { useDispatch } from "react-redux";
 import css from "./delivery-item.module.css";
+import {useTranslations} from "next-intl";
 
 interface Props {
 	deliveryItem: IShipping;
 }
 
 function DeliveryItem({ deliveryItem }: Props) {
+	const t = useTranslations()
 	const dispatch = useDispatch<AppDispatch>();
-
 	const handleDelete = () => {
 		dispatch(deleteShipping(deliveryItem.id));
 	};
@@ -33,7 +34,7 @@ function DeliveryItem({ deliveryItem }: Props) {
 						<Badge
 							className={css.badge}
 							color='var(--green)'
-							text='Основное'
+							text={t('address.address_status')}
 						/>
 					)}
 				</h3>

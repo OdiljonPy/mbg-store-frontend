@@ -35,14 +35,18 @@
     "title": "Manzil",
     "placeholder": "Shahar, ko'cha, uy",
     "add_delivery": "Yetkazib berish manzili",
-    "name": "Ism",
-    "enter_name": "Ismingizni kiriting",
+    "name": "Nomi",
+    "enter_name": "Nomni kiriting",
     "entrance": "Kirish",
     "floor": "Qavat",
     "apartment": "Kvartira",
     "make_address": "Manzilni asosiyga aylantirish",
     "required": "Ushbu qator to'ldirilishi shart",
-    "saved": "Saqlanganlar"
+    "saved": "Saqlanganlar",
+    "address_status": "Asosiy",
+    "delete_address": "Manzilni o'chirish",
+    "permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
+    "notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
   },
   "search": {
     "placeholder": "Mahsulotlarni qidirish",
@@ -212,7 +216,9 @@
     },
     "orders": {
       "empty": "Savatcha bo'sh",
-      "done": "Buyurtma muvaffaqiyatli o'chirildi"
+      "done": "Buyurtma muvaffaqiyatli o'chirildi",
+      "error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
+      "must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
     }
   },
   "order_placed": {

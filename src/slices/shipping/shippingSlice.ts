@@ -55,6 +55,7 @@ export const patchShipping = createAsyncThunk(
 );
 
 interface IDeleteShippingResponse {
+    error(error: any, arg1: string): unknown;
 	ok: boolean;
 	result: string;
 }

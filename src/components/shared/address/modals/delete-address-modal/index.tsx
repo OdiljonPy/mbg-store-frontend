@@ -11,6 +11,8 @@ import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./delete-address-modal.module.css";
 import {useToasts} from "react-toast-notifications";
+import {useTranslations} from "next-intl";
+
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	shippingId: number;
@@ -27,6 +29,10 @@ function DeleteAddressModal({
 	const {addToast} = useToasts()
 	const { onClose, onOpen, open } = useModal();
 
+	const t = useTranslations()
+
+	const {shippingList} = useSelector((state:RootState)=> state.shippingList)
+
 	const { deleteLoading, loading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
@@ -34,24 +40,39 @@ function DeleteAddressModal({
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onDelete = async () => {
-		await dispatch(deleteShipping(shippingId))
-			.then((res)=>{
-			// @ts-ignore
-				addToast(res.error?.message,{
-					appearance: 'error',
+			await dispatch(deleteShipping(shippingId)).unwrap()
+				.then((res)=>{
+					if(!res.ok){
+						// @ts-ignore
+						addToast(res.error?.message,{
+							appearance: 'error',
+							autoDismiss: true,
+						})
+					}
+			})
+			await dispatch(fetchShippingList());
+			onClose();
+
+	};
+
+	const openDeleteModal = () =>{
+		if(shippingList?.length > 1){
+			onOpen()
+		}
+		else{
+				addToast(t('address.notAllowed_delete'),{
+					appearance: 'warning',
 					autoDismiss: true,
 				})
-		})
-		await dispatch(fetchShippingList());
-		onClose();
-	};
+			}
+	}
 
 	return (
 		<>
 			<div
 				{...props}
 				className={[css.modal_trigger, className].join(" ")}
-				onClick={onOpen}
+				onClick={openDeleteModal}
 			>
 				{children}
 			</div>
@@ -69,11 +90,11 @@ function DeleteAddressModal({
 				centered
 			>
 				<div className={css.header}>
-					<h3 className={css.title}>Удалить адресa</h3>
+					<h3 className={css.title}>{t('address.delete_address')}</h3>
 				</div>
 				<div className={css.body}>
 					<p className={css.text}>
-						Вы уверены что хотите удалить адрес{" "}
+						{t('address.permission_delete')} {" "}
 						<span className={css.address_name}>{shippingName}</span>
 						?
 					</p>
@@ -84,14 +105,14 @@ function DeleteAddressModal({
 						variant='secondary'
 						style={{ minWidth: "120px" }}
 					>
-						Нет
+						{t('modal.no')}
 					</Button>
 					<Button
 						onClick={onDelete}
 						full
 						loading={deleteLoading || loading}
 					>
-						Да, удалить
+						{t('modal.yes')}
 					</Button>
 				</div>
 			</Modal>

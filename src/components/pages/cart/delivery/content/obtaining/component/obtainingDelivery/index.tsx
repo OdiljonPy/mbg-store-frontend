@@ -11,6 +11,7 @@ import { useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./index.module.css";
 import {useTranslations} from "next-intl";
+import {useToasts} from "react-toast-notifications";
 
 interface props {
 	changeContainerHeight: (e: number) => void;
@@ -19,6 +20,7 @@ interface props {
 }
 
 const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAddress }: props) => {
+	const {addToast} = useToasts()
 	const dispatch = useDispatch<AppDispatch>();
 	const { shippingList, loading } = useSelector((state: RootState) => state.shippingList);
 	const { setValue } = useFormContext<IPostOrder>();
@@ -32,21 +34,17 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 		setValue("delivery_address", address.id);
 	};
 
-	const fakeShipping = {
-		id: 1,
-		address_name: "Home",
-		address: "string",
-		entrance: 21,
-		floor: 10,
-		apartment: 2,
-		latitude: "string",
-		longitude: "string",
-		main_address: true,
-	};
-
 	const saveAddress = () => {
-		saveActiveAddress(activeAddressCart || fakeShipping);
-		setValue("delivery_address", activeAddressCart?.id);
+		if(activeAddressCart){
+			saveActiveAddress(activeAddressCart);
+			setValue("delivery_address", activeAddressCart?.id);
+		}
+		else {
+			addToast(t('cart.orders.must_choose_one'),{
+				appearance: 'warning',
+				autoDismiss: true,
+			})
+		}
 	};
 
 	useEffect(() => {
@@ -72,6 +70,7 @@ const ObtainingDelivery = ({ changeContainerHeight, saveActiveAddress, activeAdd
 			<div className={css.action_btn}>
 				<AddNewAddressModal className={css.address_btn}>
 					<Button
+						type={'button'}
 						full
 						variant='tertiary'
 						className={css.address_btn}
