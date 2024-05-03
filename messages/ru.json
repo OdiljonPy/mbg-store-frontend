@@ -42,7 +42,10 @@
 		"apartment": "Квартира",
 		"make_address": "Сделать адрес основным",
 		"required": "Это поле обязательно",
-		"saved": "Сохраненные"
+		"saved": "Сохраненные",
+		"address_status": "Основное",
+		"delete_address": "Удалить адресa",
+		"permission_delete": "Вы уверены что хотите удалить адрес"
 	},
 	"search": {
 		"placeholder": "Поиск товаров",
