@@ -1,15 +1,9 @@
 import {IProduct} from "@/data-types/products/common";
 import img from '@/../public/images/products/mikado.png'
-import img1 from '@/../public/images/products/fruct.png'
-import img2 from '@/../public/images/products/tanho.png'
-import img3 from '@/../public/images/products/avokado.png'
 import img4 from '@/../public/images/products/pomidor.png'
 import img5 from '@/../public/images/products/makfa.png'
 import img6 from '@/../public/images/products/mountain.png'
 import img7 from '@/../public/images/products/onion.png'
-import img8 from '@/../public/images/products/bread.png'
-import img9 from '@/../public/images/products/nesquik.png'
-import img10 from '@/../public/images/products/oil.png'
 import {ISortingOption} from "@/components/pages/products/filters/desktop/data-types/sorting/sorting";
 
 export const product: IProduct = {
@@ -43,126 +37,6 @@ export const product: IProduct = {
 }
 
 
-
-export const productSales:IProduct[] = [
-    {
-        id: 1,
-        name: 'Ананасы Mikado ломтики 580мл',
-        rating: 4.9,
-        weight: '580г',
-        available:170,
-        rating_count: 12358,
-        price: 30000,
-        discount: 50,
-        discount_price: 15000,
-        view_count:0,
-        images: [
-            {
-                id:1,
-                product:1,
-                image:img
-            }
-        ],
-        seller: 'Продавец',
-        store:{
-        id:1,
-        brand_name:"Фермерская базарка",
-        longitude:0,
-        latitude:0,
-        working_time:"",
-        store_location_name:"",
-        logo:""
-    }
-    },
-    {
-        id: 2,
-        name: 'Фруктовые капли без сахара\n' +
-            '300 г',
-        rating: 4.9,
-        weight: '300г',
-        available:170,
-        rating_count: 12358,
-        price: 15000,
-        discount: 15,
-        discount_price: 12700,
-        view_count:0,
-        images: [
-            {
-                id:1,
-                product:1,
-                image:img1
-            }
-        ],
-        seller: 'Продавец',
-        store:{
-        id:1,
-        brand_name:"Фермерская базарка",
-        longitude:0,
-        latitude:0,
-        working_time:"",
-        store_location_name:"",
-        logo:""
-    }
-    },
-    {
-        id: 3,
-        name: 'Avokado 1 штук',
-        rating: 4.9,
-        weight: '300г',
-        available:170,
-        rating_count: 12358,
-        price: 12000,
-        discount: 40,
-        discount_price: 7200,
-        view_count:0,
-        images: [
-            {
-                id:1,
-                product:1,
-                image:img3
-            }
-        ],
-        seller: 'Продавец',
-        store:{
-        id:1,
-        brand_name:"Фермерская базарка",
-        longitude:0,
-        latitude:0,
-        working_time:"",
-        store_location_name:"",
-        logo:""
-    }
-    },
-    {
-        id: 4,
-        name: 'Кетчуп Tanho острый 910 г',
-        rating: 4.9,
-        weight: '300г',
-        available:170,
-        rating_count: 12358,
-        price: 14000,
-        discount: 10,
-        discount_price: 12000,
-        view_count:0,
-        images: [
-            {
-                id:1,
-                product:1,
-                image:img2
-            }
-        ],
-        seller: 'Продавец',
-        store:{
-        id:1,
-        brand_name:"Фермерская базарка",
-        longitude:0,
-        latitude:0,
-        working_time:"",
-        store_location_name:"",
-        logo:""
-    }
-    }
-]
 export const productClose:IProduct[] = [
     {
         id: 1,

@@ -77,13 +77,10 @@ const Wrapper = (props: props) => {
 					<Comparison comparison={comparison_products} loading={loading} /> :""
 				}
 
-				<p>{slideLoad}</p>
-
 				{
 					related_products?.length && <div>
 						{
 							 <Similar similar={related_products} loading={slideLoad} />
-
 						}
 					</div>
 				}

@@ -16,6 +16,14 @@ export interface IStore {
 	working_time: string;
 }
 
+export interface ICommentAnswers{
+	id:number,
+	comment_answers:number,
+	name:string,
+	comment:string,
+	created_at:string
+}
+
 export interface IComments {
 	id: number;
 	user: number;
@@ -25,6 +33,7 @@ export interface IComments {
 	comment: string;
 	created_at: string;
 	images: IImages[];
+	answers:ICommentAnswers[]
 }
 
 export interface IPagination {
