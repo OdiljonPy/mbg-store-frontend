@@ -217,7 +217,8 @@
 		"orders": {
 			"empty": "Savatcha bo'sh",
 			"done": "Buyurtma muvaffaqiyatli o'chirildi",
-			"error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring"
+			"error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
+			"must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
 		}
 	},
 	"order_placed": {

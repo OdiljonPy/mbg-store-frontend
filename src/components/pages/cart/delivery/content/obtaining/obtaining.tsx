@@ -66,7 +66,6 @@ const Obtaining = (props: props) => {
         setIsChoose(false)
     }
 
-
     return (
         <div className={css.obtaining}>
             <Heading title="orders.order_method.title" index={2}>
