@@ -1,19 +1,18 @@
-import { clearLoginError } from "@/slices/auth/login";
 import { setPhoneNumber } from "@/slices/phone_numer/phoneNumber";
 import { AppDispatch } from "@/store";
 import { PhoneInput } from "react-international-phone";
 import { useDispatch } from "react-redux";
 
 import Label from "@/components/shared/label";
-import { clearSignUpError } from "@/slices/auth/signup";
 import authCss from "../auth.module.css";
 import { useTranslations } from "next-intl";
 
 interface Props {
 	setValue: React.Dispatch<React.SetStateAction<string>>;
+	value?:string
 }
 
-function PhoneNumberInput({ setValue }: Props) {
+function PhoneNumberInput({ setValue,value }: Props) {
 	const t = useTranslations("auth.signUp");
 
 	const dispatch = useDispatch<AppDispatch>();
@@ -28,6 +27,7 @@ function PhoneNumberInput({ setValue }: Props) {
 				inputProps={{
 					placeholder: "+998",
 				}}
+				value={value}
 				onChange={(value) => {
 					dispatch(setPhoneNumber(value));
 					setValue(value);

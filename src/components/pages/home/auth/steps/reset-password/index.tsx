@@ -21,6 +21,9 @@ interface Props {
 
 function ResetPassword({ setStep, setPrevStep }: Props) {
 	const t = useTranslations("auth.reset_password");
+	const { user } = useSelector(
+		(state: RootState) => state.user
+	);
 
 	const [isValid, setIsValid] = useState(false);
 	const [phoneNumber, setPhoneNumber] = useState("");
@@ -34,6 +37,10 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 		setIsValid(phoneNumber.length >= 13);
 		dispatch(clearResetError());
 	}, [dispatch, phoneNumber]);
+
+	useEffect(() => {
+		setPhoneNumber(user?.phone_number)
+	}, []);
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -57,7 +64,7 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 			</div>
 			<div className={css.modal_body}>
 				<div>
-					<PhoneNumberInput setValue={setPhoneNumber} />
+					<PhoneNumberInput value={user?.phone_number} setValue={setPhoneNumber} />
 					<ErrorMessage>{!!error && t(error)}</ErrorMessage>
 				</div>
 			</div>
