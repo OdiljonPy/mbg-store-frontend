@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 
-type PrimitiveType = string | number | number | null | undefined;
+type PrimitiveType = string | number | null | undefined;
 
 /**
  * Props for the useClientSearch hook.

@@ -9,6 +9,8 @@ import css from "./stores.module.css";
 import { fetchStories } from "@/slices/all_store/StoriesSlices";
 import { AppDispatch } from "@/store";
 import { useDispatch } from "react-redux";
+import {useClientSearch} from "@/hooks/use-client-search";
+import {StoriesSearchContext} from "@/components/pages/products/filters/desktop/stores/context/stores-search-context";
 
 interface props {}
 
@@ -22,6 +24,12 @@ const Stores = (props: props) => {
 			count: 2132,
 		},
 	]);
+
+	const { filteredData, onSearchValueChange, searchValue } = useClientSearch({
+		data: storesList,
+		searchBy: ["title"],
+	});
+
 	useEffect(() => {
 		const fetchStoreList: ICustomCheckbox[] = [];
 		dispatch(fetchStories())
@@ -43,12 +51,14 @@ const Stores = (props: props) => {
 
 	return (
 		<FilterCollapse title={t("header.stores")} queryResetList={["stores"]}>
-			<div className={css.stores}>
-				<Search />
-				{storesList.map((item) => (
-					<Store item={item} key={item.id} />
-				))}
-			</div>
+			<StoriesSearchContext.Provider value={{filteredData,searchValue,onSearchValueChange}}>
+				<div className={css.stores}>
+					<Search />
+					{storesList.map((item) => (
+						<Store item={item} key={item.id} />
+					))}
+				</div>
+			</StoriesSearchContext.Provider>
 		</FilterCollapse>
 	);
 };
