@@ -76,7 +76,8 @@ export const filterProduct = createAsyncThunk(
 const initialState = {
 	entities: {} as IProductFilter,
 	product_search: [] as string[],
-	loading: true,
+	loading: false,
+	loading_search_key:true,
 	error: false,
 };
 
@@ -89,6 +90,7 @@ const productSlices = createSlice({
 		builder
 			.addCase(filterProduct.pending, (state, action) => {
 				state.loading = true;
+				state.error = false
 			})
 			.addCase(filterProduct.fulfilled, (state, { payload }) => {
 				if (payload.ok) {
@@ -104,17 +106,18 @@ const productSlices = createSlice({
 		//search key
 		builder
 			.addCase(fetchSearchKey.pending, (state, action) => {
-				state.loading = true;
+				state.loading_search_key = true;
+				state.error = false
 			})
 			.addCase(fetchSearchKey.fulfilled, (state, { payload }) => {
 				if (payload.ok) {
 					state.product_search = payload.result;
 				}
-				state.loading = false;
+				state.loading_search_key = false;
 			})
 			.addCase(fetchSearchKey.rejected, (state) => {
 				state.error = true;
-				state.loading = false;
+				state.loading_search_key = false;
 			});
 	},
 });

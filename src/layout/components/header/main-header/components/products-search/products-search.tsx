@@ -23,7 +23,7 @@ interface props {
 const ProductsSearch = (props: props) => {
     const t = useTranslations()
     const {push, isReady, query} = useRouter()
-    const {product_search,loading} =  useSelector((state:RootState) => state.product)
+    const {product_search,loading_search_key:loading} =  useSelector((state:RootState) => state.product)
     const dispatch = useDispatch<AppDispatch>()
 
     const {focused, onFocused, searchText, onChange, onBlur, onClearValue} = useProductSearch()
