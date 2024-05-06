@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useState} from 'react';
+import React, {KeyboardEventHandler, useEffect, useState} from 'react';
 import css from './products-search.module.css'
 import {useTranslations} from 'next-intl';
 import {raleway} from "@/constants/fonts/fonts";
@@ -87,6 +87,11 @@ const ProductsSearch = (props: props) => {
         }, undefined)
     }
 
+    const handleWithKey = (e:any)=>{
+        if(e.code === 'Enter' && searchText){
+            onSearch()
+        }
+    }
 
     const items: MenuProps['items'] = [
         {
@@ -128,7 +133,7 @@ const ProductsSearch = (props: props) => {
             <Dropdown menu={{items}} trigger={['hover']} >
                 <div className={`${css.search} ${focused ? css.focused : ""}`}>
                     <div className={css.inputWrapper}>
-                        <input onChange={onChange} value={searchText} onFocus={onFocused} onBlur={onBlur}
+                        <input onKeyUp={handleWithKey} onChange={onChange} value={searchText} onFocus={onFocused} onBlur={onBlur}
                                className={`${css.input} ${raleway.className}`} type={'search'}
                                placeholder={t('search.placeholder')}/>
                         <svg className={`${css.icon} ${searchText.length ? css.show : ''}`} onClick={onClearInput} width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
