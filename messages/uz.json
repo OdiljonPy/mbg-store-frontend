@@ -97,7 +97,12 @@
 		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
 		"has_products": "mavjud tovarlar",
 		"some_product": "Shunga o'xshash",
-		"warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas"
+		"warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas",
+		"flag": {
+			"new": "Yangi",
+			"free_ship": "Tekin yetkasish",
+			"sale": "Chegirmada"
+		}
 	},
 	"about": {
 		"title": "MBG do'koni haqida qisqacha",
@@ -217,7 +222,7 @@
 		"orders": {
 			"empty": "Savatcha bo'sh",
 			"done": "Buyurtma muvaffaqiyatli o'chirildi",
-			"error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
+			"error": "Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
 			"must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
 		}
 	},
@@ -229,7 +234,7 @@
 		"order_cost_title": "Buyurtma narxi",
 		"order_cost": "Tovarlarning narxi",
 		"order_all": "Jami",
-			"warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
+		"warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
 		"cancel_order": "Bekor qilish",
 		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?"
 	},
