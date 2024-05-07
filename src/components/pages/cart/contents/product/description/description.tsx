@@ -19,7 +19,7 @@ const Description = ({product, count}: props) => {
                 <p className={css.weight}>
                     {weight}
                 </p>
-                <Seller seller={store?.brand_name}/>
+                <Seller store={store}/>
             </div>
             <div className={css.price_desctop}>
                 <Price discount={discount} discount_price={discount_price} price={price} count={count}/>

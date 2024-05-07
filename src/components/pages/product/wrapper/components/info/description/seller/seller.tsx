@@ -7,6 +7,7 @@ import { IProductInner } from "@/data-types/products/product-inner/product-inner
 
 interface props {
 	store?: IProductInner["store"];
+	// seller?:string
 }
 
 const Seller = ({ store }: props) => {
