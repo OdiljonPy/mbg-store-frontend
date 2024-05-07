@@ -1,45 +1,63 @@
+import Badge from "@/components/shared/badge/badge";
 import DiscountBadge from "@/components/shared/discount-badge/discount-badge";
 import ProductActions from "@/components/shared/product/components/product-top/product-actions/product-actions";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import { IProduct } from "@/data-types/products/common";
-import Link from "next/link";
-import css from "./product-top.module.css";
-import Badge from "@/components/shared/badge/badge";
-import React from "react";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { productFlagMap } from "./product-flag-map";
+import css from "./product-top.module.css";
 
-const ClientAddToFav = dynamic(()=> import("@/components/shared/add-to-fav/add-to-fav"),{
-	ssr:false
-})
+const ClientAddToFav = dynamic(
+	() => import("@/components/shared/add-to-fav/add-to-fav"),
+	{
+		ssr: false,
+	}
+);
 
 interface props {
 	product: IProduct;
 }
 
 const ProductTop = ({ product }: props) => {
-	const t = useTranslations()
-	const { id, images, name, discount, count,available } = product;
+	const t = useTranslations();
+	const { id, images, name, discount, count, available } = product;
 
 	return (
 		<div className={css.actions}>
 			<div className={css.discount}>
-				{
-					(available > 1 && discount) ? <DiscountBadge discount_percentage={discount} /> : ''
-				}
+				{available > 1 && discount ? (
+					<DiscountBadge discount_percentage={discount} />
+				) : (
+					""
+				)}
 			</div>
 			<div className={css.unavailable}>
-				{
-					available < 1 ? <Badge text={t('products.sold')} color={'#767BF9'}/> : ''
-				}
+				{available < 1 ? (
+					<Badge text={t("products.sold")} color={"#767BF9"} />
+				) : (
+					""
+				)}
 			</div>
 
-			{
-				available > 0 ?
+			<div className={css.unavailable}>
+				{available > 0 && product.flag ? (
+					<Badge
+						text={t(productFlagMap[product.flag])}
+						color={"#767BF9"}
+					/>
+				) : (
+					""
+				)}
+			</div>
+			{available > 0 ? (
 				<div className={css.favorite_icon}>
-					<ClientAddToFav product={product}/>
-				</div> : ''
-			}
+					<ClientAddToFav product={product} />
+				</div>
+			) : (
+				""
+			)}
 			<Link href={`/products/${id}`} className={css.img}>
 				<ResponsiveImage src={images[0]?.image} alt={name} />
 			</Link>

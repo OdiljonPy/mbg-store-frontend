@@ -16,12 +16,12 @@ export interface IStore {
 	working_time: string;
 }
 
-export interface ICommentAnswers{
-	id:number,
-	comment_answers:number,
-	name:string,
-	comment:string,
-	created_at:string
+export interface ICommentAnswers {
+	id: number;
+	comment_answers: number;
+	name: string;
+	comment: string;
+	created_at: string;
 }
 
 export interface IComments {
@@ -33,7 +33,7 @@ export interface IComments {
 	comment: string;
 	created_at: string;
 	images: IImages[];
-	answers:ICommentAnswers[]
+	answers: ICommentAnswers[];
 }
 
 export interface IPagination {
@@ -68,8 +68,15 @@ export interface IProduct {
 	is_favorite?: boolean;
 	seller?: string;
 	amount_type?: string;
+	flag?: EnumProductFlag;
 }
 
 export interface IProductsWithPagination extends IPagination {
 	content: IProduct[];
+}
+
+export enum EnumProductFlag {
+	NEW = "new",
+	SALE = "sale",
+	FREE_SHIP = "free_ship",
 }

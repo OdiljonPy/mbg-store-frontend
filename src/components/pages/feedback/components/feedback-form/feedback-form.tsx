@@ -121,7 +121,7 @@ const FeedbackForm = ({info,loading}: props) => {
                            {info?.available}г
                        </p></>}
                </div>
-               <Seller seller={info?.store?.brand_name}/>
+               <Seller store={info?.store}/>
                <Rates register={register} watch={watch} errors={errors.rate?.message}/>
                <div className={css.flex}>
                    <div className={css.field}>
