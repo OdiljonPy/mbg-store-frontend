@@ -90,7 +90,7 @@ const FeedbackForm = ({ info, loading }: props) => {
         }
       } catch (err) {
         // @ts-ignore
-        addToast(err.message, {
+        addToast(err?.message, {
           appearance: "error",
           autoDismiss: true,
         });
@@ -122,7 +122,11 @@ const FeedbackForm = ({ info, loading }: props) => {
             </>
           )}
         </div>
-        <Seller store={info?.store} />
+        {loading ? (
+          <Skeleton count={1} height={"25px"} width={"280px"} />
+        ) : (
+          <Seller store={info?.store} />
+        )}
         <Rates
           register={register}
           watch={watch}
