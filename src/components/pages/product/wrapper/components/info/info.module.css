@@ -11,3 +11,9 @@
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: 575px) {
+    .info{
+        gap: 12px;
+    }
+}
