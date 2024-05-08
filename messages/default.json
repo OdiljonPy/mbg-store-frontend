@@ -97,7 +97,12 @@
     "add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
     "has_products": "mavjud tovarlar",
     "some_product": "Shunga o'xshash",
-    "warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas"
+    "warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas",
+    "flag": {
+      "new": "Yangi",
+      "free_ship": "Tekin yetkasish",
+      "sale": "Chegirmada"
+    }
   },
   "about": {
     "title": "MBG do'koni haqida qisqacha",
@@ -136,6 +141,7 @@
     "accessibility": {
       "title": "Mavjudligi"
     },
+    "empty_store": "Malumot topilmadi",
     "no_data": {
       "title": "Hech qanday mos mahsulot topilmadi",
       "description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
@@ -217,7 +223,7 @@
     "orders": {
       "empty": "Savatcha bo'sh",
       "done": "Buyurtma muvaffaqiyatli o'chirildi",
-      "error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
+      "error": "Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
       "must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
     }
   },

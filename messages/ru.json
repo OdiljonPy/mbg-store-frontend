@@ -140,6 +140,7 @@
 		"accessibility": {
 			"title": "Доступность"
 		},
+		"empty_store": "Информация не найдена",
 		"no_data": {
 			"title": "Hech qanday mos mahsulot topilmadi",
 			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
