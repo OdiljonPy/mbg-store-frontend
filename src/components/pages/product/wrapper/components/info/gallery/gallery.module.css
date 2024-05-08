@@ -26,10 +26,15 @@
     opacity: 1;
 }
 
-.skeleton{
-    height: 600px;
-   width: 620px;
+.skeleton_container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
 
+.skeleton{
+   height: 600px;
+   width: 620px;
 }
 
 @media(max-width: 1325px){
@@ -76,8 +81,12 @@
     .wrapper{
         max-height: 300px;
     }
+    .skeleton_container{
+        width: 100%;
+    }
     .skeleton{
-        width: 100vw;
-        height: 340px;
+        width: 100%;
+        margin: 0 auto;
+        height: 320px;
     }
 }

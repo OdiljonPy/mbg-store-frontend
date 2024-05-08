@@ -50,6 +50,8 @@
 	"search": {
 		"placeholder": "Поиск товаров",
 		"often": "Часто ищут",
+		"recently_searched": "Вы недавно искали",
+		"clear": "Очистить",
 		"title": "Поиск",
 		"found": "Найдено {products} товаров в {categories} категориях",
 		"categories": "{products} товаров",
@@ -140,6 +142,7 @@
 		"accessibility": {
 			"title": "Доступность"
 		},
+		"empty_store": "Информация не найдена",
 		"no_data": {
 			"title": "Hech qanday mos mahsulot topilmadi",
 			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"

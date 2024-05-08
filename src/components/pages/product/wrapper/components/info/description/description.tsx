@@ -8,63 +8,54 @@ import Title from "@/components/pages/product/wrapper/components/info/descriptio
 import Badge from "@/components/shared/badge/badge";
 import { IProductInner } from "@/data-types/products/product-inner/product-inner";
 import { useTranslations } from "next-intl";
-import Skeleton from "react-loading-skeleton";
 import css from "./description.module.css";
+import InfoPreloader from "@/components/pages/product/wrapper/components/info/info_preloader/info_preloader";
 
 interface props {
-	info: IProductInner;
-	loading: boolean;
+  info: IProductInner;
+  loading: boolean;
 }
 
 const Description = ({ info, loading }: props) => {
-	const { comments, related_products, comparison_products, ...product } =
-		info;
-	const t = useTranslations();
-	return (
-		<div className={css.description}>
-			<Title title={info?.name} loading={loading} />
-			{loading ? (
-				<Skeleton
-					className={css.skeleton_position}
-					count={1}
-					height={"30px"}
-					width={"160px"}
-				/>
-			) : (
-				<div className={css.text}>
-					<p className={css.weight}>{`${info?.amount_type}`}</p>
-					{info?.available >= 1 ? (
-						<Badge text={t("product.has")} color={"#60C787"} />
-					) : (
-						<Badge
-							text={t("product.has_not")}
-							color={"#F2F2F2"}
-							className={css.text_grey}
-						/>
-					)}
-				</div>
-			)}
+  const { comments, related_products, comparison_products, ...product } = info;
+  const t = useTranslations();
+  return (
+    <div className={css.description}>
+      {loading ? (
+        <InfoPreloader />
+      ) : (
+        <>
+          <Title title={info?.name} />
+          <div className={css.text}>
+            <p className={css.weight}>{`${info?.amount_type}`}</p>
+            {info?.available >= 1 ? (
+              <Badge text={t("product.has")} color={"#60C787"} />
+            ) : (
+              <Badge
+                text={t("product.has_not")}
+                color={"#F2F2F2"}
+                className={css.text_grey}
+              />
+            )}
+          </div>
 
-			<Seller store={info?.store} />
-			<Rate
-				rate={info?.rating}
-				count={info?.rating_count}
-				loading={loading}
-			/>
-			<Price
-				price={info?.price}
-				discount_percentage={info?.discount}
-				discount_price={info?.discount_price}
-				loading={loading}
-			/>
-			<Deliveries
-				free_shipping={product?.free_shipping}
-				pickup={product?.pickup}
-			/>
-			<Actions product={product} />
-			<AboutProduct description={info?.description} />
-		</div>
-	);
+          <Seller store={info?.store} />
+          <Rate rate={info?.rating} count={info?.rating_count} />
+          <Price
+            price={info?.price}
+            discount_percentage={info?.discount}
+            discount_price={info?.discount_price}
+          />
+          <Deliveries
+            free_shipping={product?.free_shipping}
+            pickup={product?.pickup}
+          />
+          <Actions product={product} />
+          <AboutProduct description={info?.description} />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Description;

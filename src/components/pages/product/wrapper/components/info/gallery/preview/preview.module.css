@@ -1,6 +1,7 @@
 .wrapper{
     flex-grow: 1;
     order: 1;
+    min-height: 328px;
 }
 
 .img img{

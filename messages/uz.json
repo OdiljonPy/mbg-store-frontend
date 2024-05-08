@@ -51,6 +51,8 @@
 	"search": {
 		"placeholder": "Mahsulotlarni qidirish",
 		"often": "Tez-tez qidirilganlar",
+		"recently_searched": "Yaqinda izlaganlaringiz",
+		"clear": "Tozalash",
 		"title": "Qidirish",
 		"found": "{categories} turkumidagi {products} mahsulot topildi",
 		"categories": "{products} ta mahsulot",
@@ -141,6 +143,7 @@
 		"accessibility": {
 			"title": "Mavjudligi"
 		},
+		"empty_store": "Malumot topilmadi",
 		"no_data": {
 			"title": "Hech qanday mos mahsulot topilmadi",
 			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"

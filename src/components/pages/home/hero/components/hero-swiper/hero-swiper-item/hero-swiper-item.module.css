@@ -6,3 +6,9 @@
 .banner_image {
 	width: 100%;
 }
+
+@media (max-width: 575px){
+	.banner_image{
+		height: 154px;
+	}
+}
