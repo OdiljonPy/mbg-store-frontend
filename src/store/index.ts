@@ -12,6 +12,8 @@ import userSlice from "@/slices/auth/user";
 import aboutSlice from "@/slices/base/about/aboutSlice";
 import bannerSlice from "@/slices/base/banner/bannerSlice";
 import faqSlice from "@/slices/base/faq/faqSlice";
+import partnerSlice from "@/slices/base/partner/partnerSlice";
+import statisticSlices from "@/slices/base/statistics/statisticsSlices";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
@@ -26,21 +28,20 @@ import phoneNumber from "@/slices/phone_numer/phoneNumber";
 import productLocationSlice from "@/slices/product/productLocationSlice";
 import productSingleSlices from "@/slices/product/productSingleSlices";
 import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
+import searchHistorySlice from "@/slices/search_history/searchHistorySlice";
 import supportSlice from "@/slices/support/supportSlice";
 import addressSlice from "../slices/address/addressSlice";
 import loginSlice from "../slices/auth/login";
+import resetPasswordSlice from "../slices/auth/resetPassword";
+import resetVerifySlice from "../slices/auth/resetVerify";
 import signUpUserSlice from "../slices/auth/signup";
+import updatePasswordSlice from "../slices/auth/updatePassword";
 import verifyUserSlice from "../slices/auth/verify";
 import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
 import storesSlice from "../slices/stores/storesSlice";
-import resetPasswordSlice from "../slices/auth/resetPassword";
-import resetVerifySlice from "../slices/auth/resetVerify";
-import updatePasswordSlice from "../slices/auth/updatePassword";
-import partnerSlice from "@/slices/base/partner/partnerSlice";
-import statisticSlices from "@/slices/base/statistics/statisticsSlices";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -68,6 +69,11 @@ const filterLocationPersistConfig = {
 	storage,
 };
 
+const searchHistoryPersistConfig = {
+	key: "searchHistory",
+	storage,
+};
+
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
@@ -76,6 +82,10 @@ const rootReducers = combineReducers({
 	filter_location: persistReducer(
 		filterLocationPersistConfig,
 		filterLocationSlice
+	),
+	search_history: persistReducer(
+		searchHistoryPersistConfig,
+		searchHistorySlice
 	),
 	product: productSlices,
 	product_discount: productDiscount,
@@ -103,7 +113,7 @@ const rootReducers = combineReducers({
 	banner: bannerSlice,
 	faq: faqSlice,
 	partner: partnerSlice,
-	statistics:statisticSlices,
+	statistics: statisticSlices,
 	product_near: productLocationSlice,
 	stores: storesSlice,
 });

@@ -50,6 +50,8 @@
 	"search": {
 		"placeholder": "Поиск товаров",
 		"often": "Часто ищут",
+		"recently_searched": "Вы недавно искали",
+		"clear": "Очистить",
 		"title": "Поиск",
 		"found": "Найдено {products} товаров в {categories} категориях",
 		"categories": "{products} товаров",

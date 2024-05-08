@@ -6,7 +6,6 @@ import {
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-
 // search product title for searchbar
 export const fetchSearchKey = createAsyncThunk(
 	"search_key",
@@ -77,7 +76,7 @@ const initialState = {
 	entities: {} as IProductFilter,
 	product_search: [] as string[],
 	loading: false,
-	loading_search_key:true,
+	loading_search_key: false,
 	error: false,
 };
 
@@ -90,7 +89,7 @@ const productSlices = createSlice({
 		builder
 			.addCase(filterProduct.pending, (state, action) => {
 				state.loading = true;
-				state.error = false
+				state.error = false;
 			})
 			.addCase(filterProduct.fulfilled, (state, { payload }) => {
 				if (payload.ok) {
@@ -107,7 +106,7 @@ const productSlices = createSlice({
 		builder
 			.addCase(fetchSearchKey.pending, (state, action) => {
 				state.loading_search_key = true;
-				state.error = false
+				state.error = false;
 			})
 			.addCase(fetchSearchKey.fulfilled, (state, { payload }) => {
 				if (payload.ok) {
