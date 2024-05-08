@@ -1,0 +1,82 @@
+.title{
+    height: 40px;
+    width: 95%;
+}
+.weight{
+    height: 35px;
+    width: 45%;
+    margin-top: 15px;
+}
+.store{
+    height: 20px;
+    width: 75%;
+    margin-top: 12px;
+}
+.rank{
+    height: 18px;
+    width: 35%;
+    margin-top: 10px;
+}
+.discount{
+    height: 40px;
+    width: 80%;
+    margin-top: 16px;
+}
+.type_container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+.type{
+    height: 100px;
+    width: 35%;
+    border-radius: 16px;
+}
+
+.action{
+    margin-top: 30px;
+    height: 46px;
+    width: 70%;
+    border-radius: 12px;
+}
+
+.product{
+    margin-top: 40px;
+    width: 30%;
+    height: 30px;
+}
+
+@media(max-width: 575px){
+    .title{
+        height: 26px;
+    }
+    .width{
+        height: 18px;
+        margin-top: 8px;
+    }
+    .rank{
+        height: 16px;
+        margin-top: 10px;
+    }
+    .store{}
+    .discount{
+        height: 20px;
+    }
+    .type_container{
+        margin-top: 10px;
+    }
+    .type{
+        height: 70px;
+    }
+    .action{
+        margin-top: 16px;
+        height: 24px;
+        border-radius: 4px;
+    }
+    .product{
+        margin-top: 12px;
+        height: 22px;
+    }
+
+}
