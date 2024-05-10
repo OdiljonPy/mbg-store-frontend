@@ -1,0 +1,11 @@
+.icon_delivery{
+    height: 17px;
+    margin-right: 4px;
+}
+
+@media (max-width: 991px){
+   .icon_delivery{
+       height: 11px;
+       margin-right: 2px;
+   }
+}

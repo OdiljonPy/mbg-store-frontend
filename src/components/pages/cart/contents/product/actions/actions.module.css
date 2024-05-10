@@ -64,7 +64,10 @@
 .add_disabled {
     opacity: 0.85 !important;
     cursor:not-allowed;
-    background: var(--light-green);
+    background: var(--middle-gray);
+}
+.add_disabled:hover{
+    background: var(--middle-gray) !important;
 }
 
 .increment:hover {
