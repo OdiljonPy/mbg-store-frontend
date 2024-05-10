@@ -18,10 +18,13 @@
     background: var(--green);
 }
 
-.btn:disabled{
-    background: var(--light-gray);
+.disabled{
+    background: var(--middle-gray);
     color: var(--dark-grey);
     cursor: not-allowed;
+}
+.disabled:hover{
+    background: var(--middle-gray);
 }
 
 @media (max-width: 991px) {
