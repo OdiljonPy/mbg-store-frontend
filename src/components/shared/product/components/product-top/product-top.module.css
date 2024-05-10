@@ -4,7 +4,7 @@
 	left: 20px;
 }
 
-.unavailable{
+.unavailable,.flag{
 	position: absolute;
 	bottom: unset;
 	top: 16px;
@@ -39,6 +39,18 @@
 		bottom: unset;
 		top: 8px;
 		left: 16px;
+	}
+	.flag_with_discount{
+		top: 50px;
+	}
+}
+
+@media (max-width: 991px){
+	.flag_badge{
+		font-size: 10px;
+	}
+	.flag_with_discount{
+		top: 40px;
 	}
 }
 
@@ -78,5 +90,14 @@
 	.favorite_icon svg {
 		width: 24px;
 		height: 24px;
+	}
+
+	.flag{
+		left: 8px;
+		top: 38px;
+	}
+
+	.flag_badge{
+		padding: 3px 8px;
 	}
 }
