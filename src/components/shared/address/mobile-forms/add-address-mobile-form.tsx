@@ -11,6 +11,7 @@ import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
 import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
 import AddressDetailsStep from "./address-details-step";
 import css from "./form.module.css";
@@ -47,20 +48,30 @@ function AddAddressMobileForm({ onClose }: Props) {
 		const { apartment, entrance, floor, latitude, longitude, ...rest } =
 			data;
 
-		await dispatch(
-			postShipping({
-				apartment: Number(apartment),
-				entrance: Number(entrance),
-				floor: Number(floor),
-				latitude: String(latitude),
-				longitude: String(longitude),
-				...rest,
-			})
-		);
-		await dispatch(fetchShippingList());
-		onClose();
-	};
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
 
+			await dispatch(
+				postShipping({
+					apartment: Number(apartment),
+					entrance: Number(entrance),
+					floor: Number(floor),
+					latitude: String(latitude),
+					longitude: String(longitude),
+					...rest,
+					address: address,
+				})
+			);
+			await dispatch(fetchShippingList());
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
+	};
 	const address = form.watch("address");
 
 	const steps = [
@@ -93,7 +104,7 @@ function AddAddressMobileForm({ onClose }: Props) {
 			action: (
 				<Button
 					onClick={form.handleSubmit(onSubmit)}
-					type={'button'}
+					type={"button"}
 					full
 					disabled={!form.formState.isValid}
 					loading={postLoading}

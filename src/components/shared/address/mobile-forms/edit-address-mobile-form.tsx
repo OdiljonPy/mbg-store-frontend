@@ -12,6 +12,7 @@ import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
 import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
 import AddressDetailsStep from "./address-details-step";
 import css from "./form.module.css";
@@ -52,21 +53,32 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 		const { apartment, entrance, floor, latitude, longitude, ...rest } =
 			data;
 
-		await dispatch(
-			patchShipping({
-				body: {
-					apartment: Number(apartment),
-					entrance: Number(entrance),
-					floor: Number(floor),
-					latitude: String(latitude),
-					longitude: String(longitude),
-					...rest,
-				},
-				shippingId: defaultValues.id,
-			})
-		);
-		await dispatch(fetchShippingList());
-		onClose();
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
+
+			await dispatch(
+				patchShipping({
+					body: {
+						apartment: Number(apartment),
+						entrance: Number(entrance),
+						floor: Number(floor),
+						latitude: String(latitude),
+						longitude: String(longitude),
+						...rest,
+						address,
+					},
+					shippingId: defaultValues.id,
+				})
+			);
+			await dispatch(fetchShippingList());
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
 
 	const address = form.watch("address");
@@ -105,7 +117,7 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 					</Button>
 					<Button
 						onClick={form.handleSubmit(onSubmit)}
-						type={'button'}
+						type={"button"}
 						full
 						disabled={!form.formState.isValid}
 						loading={patchLoading}
