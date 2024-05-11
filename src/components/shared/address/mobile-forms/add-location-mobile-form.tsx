@@ -10,9 +10,9 @@ import { IAddressForm } from "../types";
 
 import { addAddress } from "@/slices/address/addressSlice";
 import { cn } from "@/utils/cn";
+import { getAddressByCoordinates } from "../helpers";
 import css from "./form.module.css";
 import SelectAddressStep from "./select-address-step";
-import { getAddressByCoordinates } from "../helpers";
 
 interface Props {
 	onClose: () => void;

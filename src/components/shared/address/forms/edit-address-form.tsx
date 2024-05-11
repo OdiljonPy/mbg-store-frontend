@@ -36,6 +36,7 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 			longitude: Number(defaultValues.longitude),
 			main_address: defaultValues.main_address,
 		},
+		mode: "onChange",
 	});
 
 	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();

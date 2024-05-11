@@ -31,6 +31,7 @@ function AddAddressForm({ onClose }: Props) {
 			longitude: 69.268657,
 			main_address: false,
 		},
+		mode: "onChange",
 	});
 	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
 
