@@ -11,6 +11,7 @@ import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslations } from "use-intl";
 import AddressMap from "../address-map/address-map";
+import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
 import Fields from "./fields";
 import css from "./form.module.css";
@@ -44,18 +45,29 @@ function AddAddressForm({ onClose }: Props) {
 		const { apartment, entrance, floor, latitude, longitude, ...rest } =
 			data;
 
-		await dispatch(
-			postShipping({
-				apartment: Number(apartment),
-				entrance: Number(entrance),
-				floor: Number(floor),
-				latitude: String(latitude),
-				longitude: String(longitude),
-				...rest,
-			})
-		);
-		await dispatch(fetchShippingList());
-		onClose();
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
+
+			await dispatch(
+				postShipping({
+					apartment: Number(apartment),
+					entrance: Number(entrance),
+					floor: Number(floor),
+					latitude: String(latitude),
+					longitude: String(longitude),
+					...rest,
+					address: address,
+				})
+			);
+			await dispatch(fetchShippingList());
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
 
 	return (
@@ -69,7 +81,7 @@ function AddAddressForm({ onClose }: Props) {
 				/>
 				<Button
 					onClick={form.handleSubmit(onSubmit)}
-					type={'button'}
+					type={"button"}
 					full
 					disabled={!form.formState.isValid}
 					loading={postLoading}

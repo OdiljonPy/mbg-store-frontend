@@ -32,7 +32,6 @@ function AddressMap({
 		mapConstructor?.geocode([x, y]).then(
 			(res: any) => {
 				const nearest = res.geoObjects.get(0);
-				console.log(res.geoObjects.get(0));
 				const address = nearest.properties.get("name");
 				form.setValue("latitude", x);
 				form.setValue("longitude", y);
