@@ -11,6 +11,7 @@ import { IAddressForm } from "../types";
 import AddressField from "./fields/address-field";
 
 import { addFilterLocation } from "@/slices/filter_location/filterLocationSlice";
+import { getAddressByCoordinates } from "../helpers";
 import css from "./form.module.css";
 
 interface Props {
@@ -38,17 +39,26 @@ function AddFilterLocationForm({ onClose }: Props) {
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onSubmit = (data: IAddressForm) => {
-		const { latitude, longitude, address } = data;
-		dispatch(
-			addFilterLocation({
-				latitude,
-				longitude,
-				address,
-			})
-		);
+	const onSubmit = async (data: IAddressForm) => {
+		const { latitude, longitude } = data;
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
 
-		onClose();
+			dispatch(
+				addFilterLocation({
+					latitude,
+					longitude,
+					address,
+				})
+			);
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
 
 	return (
@@ -61,7 +71,12 @@ function AddFilterLocationForm({ onClose }: Props) {
 					mapConstructor={mapConstructor}
 				/>
 				<div className={css.footer}>
-					<Button className={css.btn} full loading={postLoading}>
+					<Button
+						className={css.btn}
+						full
+						loading={postLoading}
+						disabled={!form.formState.isValid}
+					>
 						{t("save")}
 					</Button>
 				</div>

@@ -11,6 +11,7 @@ import { IAddressForm } from "../types";
 import AddressField from "./fields/address-field";
 
 import { addAddress } from "@/slices/address/addressSlice";
+import { getAddressByCoordinates } from "../helpers";
 import css from "./form.module.css";
 
 interface Props {
@@ -39,17 +40,26 @@ function AddLocationForm({ onClose }: Props) {
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onSubmit = (data: IAddressForm) => {
-		const { latitude, longitude, address } = data;
-		dispatch(
-			addAddress({
-				latitude,
-				longitude,
-				address,
-			})
-		);
+	const onSubmit = async (data: IAddressForm) => {
+		const { latitude, longitude } = data;
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
 
-		onClose();
+			dispatch(
+				addAddress({
+					latitude,
+					longitude,
+					address,
+				})
+			);
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
 
 	return (
@@ -62,7 +72,12 @@ function AddLocationForm({ onClose }: Props) {
 					mapConstructor={mapConstructor}
 				/>
 				<div className={css.footer}>
-					<Button className={css.btn} full loading={postLoading}>
+					<Button
+						className={css.btn}
+						full
+						loading={postLoading}
+						disabled={!form.formState.isValid}
+					>
 						{t("save")}
 					</Button>
 				</div>

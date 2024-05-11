@@ -10,6 +10,7 @@ import { IAddressForm } from "../types";
 
 import { addFilterLocation } from "@/slices/filter_location/filterLocationSlice";
 import { cn } from "@/utils/cn";
+import { getAddressByCoordinates } from "../helpers";
 import css from "./form.module.css";
 import SelectAddressStep from "./select-address-step";
 
@@ -38,19 +39,27 @@ function AddFilterLocationMobileForm({ onClose }: Props) {
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onSubmit = (data: IAddressForm) => {
-		const { latitude, longitude, address } = data;
-		dispatch(
-			addFilterLocation({
-				latitude,
-				longitude,
-				address,
-			})
-		);
+	const onSubmit = async (data: IAddressForm) => {
+		const { latitude, longitude } = data;
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
 
-		onClose();
+			dispatch(
+				addFilterLocation({
+					latitude,
+					longitude,
+					address,
+				})
+			);
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
-
 	const address = form.watch("address");
 
 	return (
