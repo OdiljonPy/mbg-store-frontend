@@ -1,11 +1,13 @@
 .img{
-padding: 40px 50px;
+    padding: 40px 50px;
     border-right: 2px solid var(--light-green);
     text-align: center;
+    max-height: 130px;
 }
 
 @media (max-width: 575px) {
     .img{
         padding: 30px;
+        max-height: 90px;
     }
 }
