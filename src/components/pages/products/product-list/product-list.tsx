@@ -27,9 +27,9 @@ const ProductList = ({}: props) => {
   const sort = searchParams.get("sort");
   const changeFilter = searchParams.get("changeFilter");
 
-  const diffFilters: string[] = ["filters", "search", "sort", "category"];
-  const activeFilters = Object.keys(query).filter(
-    (item) => !diffFilters.includes(item),
+  const diffFilters: string[] = ["search", "sort", "changeFilter"];
+  const activeFilters = Object.keys(query).filter((item) =>
+    diffFilters.includes(item),
   );
 
   const dispatch = useDispatch<AppDispatch>();
@@ -64,16 +64,6 @@ const ProductList = ({}: props) => {
     } else filterParams.discount = Number(searchParams.get("sale"));
 
     if (activeFilters.length) {
-      dispatch(filterProduct(filterParams));
-    }
-
-    if (
-      !activeFilters.length &&
-      (page ||
-        searchParams.get("sort") ||
-        searchParams.get("category_id") ||
-        searchParams.get("search"))
-    ) {
       dispatch(filterProduct(filterParams));
     }
   }, [dispatch, page, changeFilter, search, sort]);

@@ -2,6 +2,7 @@
     transition: all .4s ease-in-out;
     overflow: hidden;
     flex-basis: 0;
+    flex-shrink: 0;
     position: sticky;
     top: 150px;
     max-height: 78vh;
