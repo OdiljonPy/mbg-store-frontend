@@ -1,12 +1,30 @@
+
 .wrapper{
+    max-width: 480px;
     flex-grow: 1;
     order: 1;
+    transition: all .2s linear;
+    cursor: grab;
     min-height: 328px;
 }
+
 
 .img img{
     max-width: 360px;
     height: auto;
+}
+
+@media (max-width: 991px){
+    .wrapper{
+        max-width: 390px;
+    }
+}
+
+@media(max-width: 768px){
+    .wrapper{
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 @media (max-width: 575px) {

@@ -18,7 +18,7 @@ const Preview = forwardRef(
     const t = useTranslations();
 
     return (
-      <div ref={ref} className={`keen-slider ${mainCss.wrapper}`}>
+      <div ref={ref} className={`keen-slider ${mainCss.wrapper} `}>
         {loading
           ? ""
           : gallery?.images?.map((item) => {

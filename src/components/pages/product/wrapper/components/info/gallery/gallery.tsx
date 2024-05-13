@@ -19,7 +19,6 @@ const Gallery = ({ gallery, loading }: props) => {
   const [loaded, setLoaded] = useState<boolean>(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
-    vertical: true,
     slides: {
       perView: 1,
       spacing: 12,
