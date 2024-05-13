@@ -16,8 +16,13 @@
 	color: var(--text-green);
 	transition: all .5s ease-in-out;
 	position: relative;
+	cursor:pointer
 }
-.wrapper:hover .value{
+.value:hover .tooltip {
+	opacity: 1;
+	visibility: visible;
+}
+.value:hover{
 	border-bottom: 1px solid var(--text-green);
 }
 .tooltip {
@@ -66,10 +71,11 @@
 	font-size: 16px;
 }
 
-.wrapper:hover .tooltip {
-	opacity: 1;
-	visibility: visible;
+.location{
+	cursor: pointer;
+	padding-left: 10px;
 }
+
 
 @media (max-width: 575px) {
 	.seller,.text {
