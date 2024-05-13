@@ -17,20 +17,22 @@ const Seller = ({ store, className }: props) => {
     <div className={cn(css.wrapper, className)}>
       <p className={css.seller}>
         <span className={css.label}>{t("product.seller")}:</span>
-        <span className={css.value}>{store?.brand_name}</span>
-      </p>
-      <div className={css.tooltip}>
-        <div className={css.tooltip_arrow} />
-        <div className={css.tooltip_content}>
-          <span className={css.img}>
-            <ResponsiveImage src={star} alt={"rating"} />
-          </span>
-          <div className={css.text}>
-            {store?.rating} ({priceFormatter(store?.rating_count || 1)}{" "}
-            {t("product.rates").toLowerCase()})
+        <span className={css.value}>
+          {store?.brand_name}
+          <div className={css.tooltip}>
+            <div className={css.tooltip_arrow} />
+            <div className={css.tooltip_content}>
+              <span className={css.img}>
+                <ResponsiveImage src={star} alt={"rating"} />
+              </span>
+              <div className={css.text}>
+                {store?.rating} ({priceFormatter(store?.rating_count || 1)}{" "}
+                {t("product.rates").toLowerCase()})
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </span>
+      </p>
     </div>
   );
 };
