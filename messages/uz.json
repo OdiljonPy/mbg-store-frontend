@@ -205,7 +205,7 @@
 		"price": "Tovarlarning narxi",
 		"sales": "Chegirmalar",
 		"actualPrice": "Yechilanadigan narx",
-		"order": "Ro'yxatdan o'tkazish",
+		"order": "Buyurtma berish",
 		"promo_code": "Promakod",
 		"use": "qo'llaniladi",
 		"invalid_code": "Bu kod yaroqsiz",
@@ -338,7 +338,7 @@
 		"save": "Saqlash"
 	},
 	"orders": {
-		"title": "Zakazlar",
+		"title": "Buyurtmalar",
 		"search": "Qidirish",
 		"success": "Sizning buyurtmangiz qabul qilindi!",
 		"method": {
