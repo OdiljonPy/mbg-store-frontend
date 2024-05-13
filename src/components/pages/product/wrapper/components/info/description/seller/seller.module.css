@@ -1,5 +1,4 @@
 .wrapper {
-	position: relative;
 }
 
 .seller {
@@ -16,8 +15,14 @@
 .value {
 	color: var(--text-green);
 	transition: all .5s ease-in-out;
+	position: relative;
+	cursor:pointer
 }
-.wrapper:hover .value{
+.value:hover .tooltip {
+	opacity: 1;
+	visibility: visible;
+}
+.value:hover{
 	border-bottom: 1px solid var(--text-green);
 }
 .tooltip {
@@ -26,7 +31,8 @@
 	position: absolute;
 	z-index: 5;
 	top: 100%;
-	left: 7%;
+	left: 50%;
+	transform: translateX(-50%);
 	min-width: auto;
 	padding-top: 8px;
 	transition: all 0.2s linear;
@@ -59,21 +65,19 @@
 }
 
 .text {
-	text-wrap: nowrap;
+	/*text-wrap: nowrap;*/
 	color: white;
 	font-weight: 500;
 	font-size: 16px;
 }
 
-.wrapper:hover .tooltip {
-	opacity: 1;
-	visibility: visible;
+.location{
+	cursor: pointer;
+	padding-left: 10px;
 }
 
+
 @media (max-width: 575px) {
-	.tooltip{
-		left: 10%;
-	}
 	.seller,.text {
 		font-size: 14px;
 	}

@@ -3,8 +3,14 @@
     justify-content: space-between;
     align-items: stretch;
     margin: 20px 0 50px;
+    gap: 30px;
 }
 
+@media(max-width: 991px){
+    .info{
+        gap:20px
+    }
+}
 
 @media (max-width: 767px) {
     .info{
@@ -14,6 +20,6 @@
 
 @media (max-width: 575px) {
     .info{
-        gap: 12px;
+        gap: 36px;
     }
 }
