@@ -9,10 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { calcPrices, checkProductAvailable } from "@/slices/basket/basketSlice";
 import { useEffect } from "react";
-import {
-  fetchFavourites,
-  postFavourites,
-} from "@/slices/favorites/favoritesSlice";
 interface props {}
 
 const Wrapper = (props: props) => {

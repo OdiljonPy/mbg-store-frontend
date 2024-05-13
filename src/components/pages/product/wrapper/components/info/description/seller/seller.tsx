@@ -4,15 +4,17 @@ import { priceFormatter } from "@/utils/price-formatter/price-formatter";
 import { useTranslations } from "next-intl";
 import css from "./seller.module.css";
 import { IProductInner } from "@/data-types/products/product-inner/product-inner";
+import { cn } from "@/utils/cn";
 
 interface props {
   store?: IProductInner["store"];
+  className?: string;
 }
 
-const Seller = ({ store }: props) => {
+const Seller = ({ store, className }: props) => {
   const t = useTranslations();
   return (
-    <div className={css.wrapper}>
+    <div className={cn(css.wrapper, className)}>
       <p className={css.seller}>
         <span className={css.label}>{t("product.seller")}:</span>
         <span className={css.value}>{store?.brand_name}</span>
