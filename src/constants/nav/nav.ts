@@ -13,7 +13,7 @@ export const navigationList: INav[] = [
     },
   },
   {
-    path: "/about",
+    path: `/about/#faq`,
     title: "header.faq",
   },
   {
@@ -41,5 +41,9 @@ export const navTopList: INav[] = [
     query: {
       letter: "a",
     },
+  },
+  {
+    path: `/about#faq`,
+    title: "header.faq",
   },
 ];
