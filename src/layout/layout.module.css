@@ -7,26 +7,20 @@
 .main {
 	flex: 1 0 auto;
 	min-height: 75vh;
+	z-index: 1;
 }
-.chat_container {
-	position: sticky;
-	width: 100%;
-	bottom: 100px;
-	z-index: 2;
-	display: inline;
-}
+
 .mobile_navbar {
 	position: sticky;
 	width: 100%;
 	bottom: 0;
 	display: none;
+	z-index: 2;
 }
 
 @media (max-width: 1199px) {
-	.chat_container {
-		bottom: 98px;
-	}
 	.mobile_navbar {
 		display: block;
 	}
 }
+
