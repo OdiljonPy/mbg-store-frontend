@@ -41,5 +41,6 @@
     }
     .skeleton_item{
         height: 220px;
+        min-width: 150px;
     }
 }

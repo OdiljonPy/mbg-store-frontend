@@ -26,6 +26,9 @@
 }
 
 @media(max-width: 575px){
+    .prices{
+        text-align: left;
+    }
     .price,.discount,.actualPrice{
         font-size: 15px;
         text-align: left;
