@@ -40,7 +40,7 @@ const ContactList = () => {
         icon={map}
         label="footer.address"
         title={data?.address}
-        path={data?.url}
+        path={data?.address_url}
         loading={loading}
       />
     </ul>
