@@ -11,7 +11,7 @@ interface IFetchAboutResponse {
     facebook: string;
     instagram: string;
     app_qr_image: string;
-    url: string;
+    address_url: string;
   };
   ok: boolean;
 }
@@ -30,7 +30,7 @@ interface IInitialState {
     facebook: string;
     instagram: string;
     app_qr_image: string;
-    url: string;
+    address_url: string;
   };
   loading: boolean;
   error: boolean;
@@ -45,7 +45,7 @@ const initialState: IInitialState = {
     facebook: "",
     instagram: "",
     app_qr_image: "",
-    url: "",
+    address_url: "",
   },
   loading: true,
   error: false,

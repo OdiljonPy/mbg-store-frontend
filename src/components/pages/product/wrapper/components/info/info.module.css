@@ -4,6 +4,7 @@
     align-items: stretch;
     margin: 20px 0 50px;
     gap: 30px;
+    overflow: hidden;
 }
 
 @media(max-width: 991px){
