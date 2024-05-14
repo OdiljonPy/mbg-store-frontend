@@ -16,11 +16,12 @@
 .value {
     color: var(--text-green);
     transition: all .5s ease-in-out;
+    text-transform: uppercase;
 }
 
 @media (max-width: 575px) {
     .seller {
-        font-size: 14px;
+        font-size: 12px;
     }
 
 }
