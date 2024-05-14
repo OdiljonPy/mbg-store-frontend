@@ -112,18 +112,13 @@ const basketSlices = createSlice({
         0,
       );
 
-      const discount = state.products.reduce(
+      state.discount_price = state.products.reduce(
         (acc, product) =>
           acc +
-          (product.discount
-            ? product.discount_price
-              ? product.discount_price
-              : 0
-            : 0) *
+          (product.discount > 0 ? product.discount_price : 0) *
             (product.count ? product.count : 1),
         0,
       );
-      state.discount_price = state.all_prices - discount;
 
       state.promo_code_price = +(
         (state.all_prices - state.discount_price) *

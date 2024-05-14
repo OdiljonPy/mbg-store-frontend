@@ -94,4 +94,8 @@
     fill: var(--green);
 }
 
-
+@media (max-width: 575px){
+    .actions{
+        align-items: center;
+    }
+}

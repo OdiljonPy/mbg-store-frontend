@@ -5,6 +5,7 @@
 	margin: 0;
 	outline-color: var(--text-green);
 	font-variant-numeric: lining-nums proportional-nums;
+	scroll-behavior: smooth;
 }
 
 img {

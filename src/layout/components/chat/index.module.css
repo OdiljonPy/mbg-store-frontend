@@ -1,4 +1,5 @@
 .actions{
+    margin-top: -80px;
     width: 60px;
     margin-right: 60px;
     position: absolute;
@@ -47,6 +48,7 @@
 @media (max-width: 575px){
     .actions{
         margin-right: 16px;
+        margin-top: -60px;
     }
     .scroll{
         width: 50px;

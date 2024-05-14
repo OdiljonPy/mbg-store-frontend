@@ -1,3 +1,4 @@
+
 .title{
     height: 40px;
     width: 95%;
@@ -48,6 +49,9 @@
 }
 
 @media(max-width: 575px){
+    .skeleton_container{
+        margin-top: -30px;
+    }
     .title{
         height: 26px;
     }
