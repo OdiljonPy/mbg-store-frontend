@@ -34,7 +34,7 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 	);
 
 	useEffect(() => {
-		setIsValid(phoneNumber.length >= 13);
+		setIsValid(phoneNumber?.length >= 13);
 		dispatch(clearResetError());
 	}, [dispatch, phoneNumber]);
 
