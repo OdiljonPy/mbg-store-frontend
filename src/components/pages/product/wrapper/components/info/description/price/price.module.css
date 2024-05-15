@@ -4,8 +4,13 @@
     gap: 14px;
 }
 
+.discount{
+    overflow: hidden;
+}
+
 .discount:after, .discount:before {
     background: #FFFFFF;
+
 }
 
 .discountPrice {

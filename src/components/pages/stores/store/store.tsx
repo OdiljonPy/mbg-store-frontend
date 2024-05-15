@@ -3,19 +3,19 @@ import Link from "next/link";
 import css from "./store.module.css";
 
 interface props {
-	store: IStore;
+  store: IStore;
 }
 
 const Store = ({ store }: props) => {
-	const { brand_name: title } = store;
-	return (
-		<Link
-			href={`/stores/${store?.id}?stores=${store?.id}`}
-			className={css.store}
-		>
-			{title}
-		</Link>
-	);
+  const { brand_name: title } = store;
+  return (
+    <Link
+      href={`/stores/${store?.id}?stores=${store?.id}&sort=popular`}
+      className={css.store}
+    >
+      {title}
+    </Link>
+  );
 };
 
 export default Store;
