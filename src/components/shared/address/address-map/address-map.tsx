@@ -36,6 +36,7 @@ function AddressMap({
 				form.setValue("latitude", x);
 				form.setValue("longitude", y);
 				form.setValue("address", address);
+				form.trigger("address");
 			},
 			(error) => {
 				console.error("Error occurred during geocoding:", error);
