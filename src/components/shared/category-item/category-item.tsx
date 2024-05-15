@@ -15,7 +15,6 @@ const CategoryItem = ({ category, classNames }: props) => {
     <Link
       style={{
         backgroundImage: `url(${image})`,
-        objectFit: "cover",
       }}
       href={{
         pathname: "/products",
