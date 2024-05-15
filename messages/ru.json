@@ -1,4 +1,9 @@
 {
+	"metadata": {
+		"description": "MBGStore - интернет магазин",
+		"locale": "ru-RU",
+		"language": "ru"
+	},
 	"header": {
 		"home": "Главная",
 		"catalog": "Каталог",
