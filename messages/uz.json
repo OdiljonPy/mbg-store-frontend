@@ -281,7 +281,7 @@
 			"description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
 			"phone_number": "Telefon raqami",
 			"current_password": "Joriy Parol",
-			"get_code": "Kodni olish uchun",
+			"get_code": "Kodni olish",
 			"invalid_phone_number": "Telefon raqami noto‘g‘ri"
 		},
 		"otp": {
