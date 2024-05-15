@@ -27,9 +27,11 @@ const Description = ({ info, loading }: props) => {
         <>
           <Title title={info?.name} />
           <div className={css.text}>
-            <p className={css.weight}>{`${info?.amount_type}`}</p>
             {info?.available >= 1 ? (
-              <Badge text={t("product.has")} color={"#60C787"} />
+              <>
+                <p className={css.weight}>{`${info?.amount_type}`}</p>
+                <Badge text={t("product.has")} color={"#60C787"} />
+              </>
             ) : (
               <Badge
                 text={t("product.has_not")}
