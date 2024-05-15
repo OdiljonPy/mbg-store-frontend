@@ -1,6 +1,6 @@
 import CategoryItem from "@/components/shared/category-item/category-item";
 import { raleway } from "@/constants/fonts/fonts";
-import { fetchCategoryPopular} from "@/slices/category/categorySlices";
+import { fetchCategoryPopular } from "@/slices/category/categorySlices";
 import { AppDispatch, RootState } from "@/store";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
