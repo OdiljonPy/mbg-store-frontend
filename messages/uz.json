@@ -46,7 +46,8 @@
 		"address_status": "Asosiy",
 		"delete_address": "Manzilni o'chirish",
 		"permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
-		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz",
+		"already_exists": "Ushbu manzil allaqachon saqlangan"
 	},
 	"search": {
 		"placeholder": "Mahsulotlarni qidirish",

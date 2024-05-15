@@ -11,6 +11,7 @@ import { IAddressForm } from "../types";
 import AddressField from "./fields/address-field";
 
 import { addAddress } from "@/slices/address/addressSlice";
+import { useToasts } from "react-toast-notifications";
 import { getAddressByCoordinates } from "../helpers";
 import css from "./form.module.css";
 
@@ -20,6 +21,7 @@ interface Props {
 
 function AddLocationForm({ onClose }: Props) {
 	const t = useTranslations("address");
+	const { addToast } = useToasts();
 
 	const form = useForm<IAddressForm>({
 		defaultValues: {
@@ -32,6 +34,10 @@ function AddLocationForm({ onClose }: Props) {
 	});
 
 	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
+
+	const { shippingList } = useSelector(
+		(state: RootState) => state.shippingList
+	);
 
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
@@ -48,13 +54,14 @@ function AddLocationForm({ onClose }: Props) {
 				mapConstructor
 			);
 
-			dispatch(
-				addAddress({
-					latitude,
-					longitude,
-					address,
-				})
-			);
+			if (shippingList.find((item) => item.address === address)) {
+				addToast(t("already_exists"), {
+					appearance: "error",
+					autoDismiss: true,
+				});
+				return;
+			}
+			dispatch(addAddress({ latitude, longitude, address }));
 		} catch (e) {
 			console.error(e);
 		} finally {

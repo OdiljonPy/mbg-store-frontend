@@ -50,7 +50,8 @@
 		"saved": "Сохраненные",
 		"address_status": "Основное",
 		"delete_address": "Удалить адресa",
-		"permission_delete": "Вы уверены что хотите удалить адрес"
+		"permission_delete": "Вы уверены что хотите удалить адрес",
+		"already_exists": "Этот адрес уже существует"
 	},
 	"search": {
 		"placeholder": "Поиск товаров",

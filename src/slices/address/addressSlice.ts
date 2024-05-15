@@ -16,6 +16,12 @@ const addressSlice = createSlice({
 	initialState,
 	reducers: {
 		addAddress: (state, action: { payload: IAddress }) => {
+			if (
+				state.address_list.find(
+					(item) => item.address === action.payload.address
+				)
+			)
+				return;
 			state.address_list.push(action.payload);
 			state.main_address = action.payload;
 		},
