@@ -15,6 +15,11 @@
     gap: 14px;
 }
 
+.active_address{
+    margin-top: 10px;
+    border-color: var(--green) !important;
+}
+
 @media (max-width: 575px){
     .address{
         margin-top: 12px;
@@ -26,5 +31,9 @@
     .address_item{
         margin-top: 8px;
         gap: 10px;
+    }
+    .active_address{
+        margin-top: 8px;
+        border-radius: 12px !important;
     }
 }
