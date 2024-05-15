@@ -1,4 +1,9 @@
 {
+	"metadata": {
+		"description": "MBGStore - интернет магазин",
+		"locale": "ru-RU",
+		"language": "ru"
+	},
 	"header": {
 		"home": "Главная",
 		"catalog": "Каталог",
@@ -101,7 +106,7 @@
 		"warning_products": "Некоторые товары в вашей корзине недоступны в данный момент",
 		"flag": {
 			"new": "Новый",
-			"free_ship": "Бесплатная доставка",
+			"free_ship": "Бесплатно",
 			"sale": "Распродажа"
 		}
 	},

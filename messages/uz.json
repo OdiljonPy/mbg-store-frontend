@@ -37,7 +37,7 @@
 		"add_delivery": "Yetkazib berish manzili",
 		"name": "Nomi",
 		"enter_name": "Nomni kiriting",
-		"entrance": "Kirish",
+		"entrance": "Kirish joyi",
 		"floor": "Qavat",
 		"apartment": "Kvartira",
 		"make_address": "Manzilni asosiyga aylantirish",
@@ -281,7 +281,7 @@
 			"description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
 			"phone_number": "Telefon raqami",
 			"current_password": "Joriy Parol",
-			"get_code": "Kodni olish uchun",
+			"get_code": "Kodni olish",
 			"invalid_phone_number": "Telefon raqami noto‘g‘ri"
 		},
 		"otp": {

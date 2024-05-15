@@ -115,7 +115,7 @@ const basketSlices = createSlice({
       state.discount_price = state.products.reduce(
         (acc, product) =>
           acc +
-          (product.discount > 0 ? product.discount_price : 0) *
+          (product.discount > 0 ? product.price - product.discount_price : 0) *
             (product.count ? product.count : 1),
         0,
       );
