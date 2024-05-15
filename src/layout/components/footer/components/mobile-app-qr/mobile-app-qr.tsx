@@ -17,13 +17,13 @@ const MobileAppQr = () => {
 					<Skeleton width={"100%"} baseColor="white" height={"100%"} />
 				) : (
 					<div className={css.qr_code}>
-						<Image
+						{!!data.app_qr_image && <Image
                             className={css.image}
 							src={data.app_qr_image}
 							width={250}
 							height={250}
 							alt='App QR'
-						/>
+						/>}
 					</div>
 				)}
 			</div>
