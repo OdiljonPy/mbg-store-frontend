@@ -18,6 +18,10 @@ const Near = () => {
 
 	const isAddress = !!main_address.address;
 
+	const { data: products, loading } = useSelector(
+		(state: RootState) => state.product_near
+	);
+
 	useEffect(() => {
 		if (main_address.address) {
 			dispatch(
@@ -29,6 +33,8 @@ const Near = () => {
 		}
 	}, [dispatch, main_address, main_address.address]);
 
+	if (products.content.length === 0 && !loading) return;
+
 	return (
 		<section className={css.near}>
 			<div className='container'>
@@ -36,10 +42,12 @@ const Near = () => {
 					heading={{
 						title: "products.near",
 						count: data.content?.length,
-						link : "products?sort=popular"
+						link: "products?sort=popular",
 					}}
 				/>
-				<div className={cn(css.wrapperOuter, css.wrapper)}>{isAddress ? <ProductList /> : <NearDialog />}</div>
+				<div className={cn(css.wrapperOuter, css.wrapper)}>
+					{isAddress ? <ProductList /> : <NearDialog />}
+				</div>
 			</div>
 		</section>
 	);
