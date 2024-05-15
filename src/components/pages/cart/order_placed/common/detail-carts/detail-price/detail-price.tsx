@@ -109,7 +109,7 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
               <p>{t("order_placed.warning_text")}</p>
             </WarningText>
             <SendButton
-              title={"cart.checkout"}
+              title={"orders.order_cost_card.cancel"}
               outline={true}
               onClick={openModal}
             />
