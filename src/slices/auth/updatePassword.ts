@@ -18,7 +18,7 @@ export const updatePassword = createAsyncThunk(
 	"update_password",
 	async (payload: IUpdatePasswordRequest) => {
 		const response = await API.post<IUpdatePasswordResponse>(
-			`/auth/update/password/${payload.token}`,
+			`/auth/update/password/${payload.token}/`,
 			{ new_password: payload.new_password }
 		);
 		return response.data;
