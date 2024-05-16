@@ -12,6 +12,7 @@ const diffFilters: string[] = [
   "search",
   "sort",
   "hasDelivery",
+  "id",
 ];
 
 const ResetFilters = (props: props) => {
