@@ -48,7 +48,7 @@ const Store = (props: props) => {
               },
               {
                 path: "",
-                label: "Деревенская лавка",
+                label: single_store?.brand_name,
               },
             ]}
           />
