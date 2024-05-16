@@ -27,7 +27,12 @@ const ProductList = ({}: props) => {
   const sort = searchParams.get("sort");
   const changeFilter = searchParams.get("changeFilter");
 
-  const diffFilters: string[] = ["search", "sort", "changeFilter"];
+  const diffFilters: string[] = [
+    "search",
+    "sort",
+    "changeFilter",
+    "category_id",
+  ];
   const activeFilters = Object.keys(query).filter((item) =>
     diffFilters.includes(item),
   );
