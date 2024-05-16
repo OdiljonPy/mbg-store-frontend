@@ -11,7 +11,7 @@ import css from "./address-item.module.css";
 
 interface Props {
 	address_item: IAddress;
-	main_address: string;
+	main_address: IAddress;
 }
 function AddressItem({ main_address, address_item }: Props) {
 	const dispatch = useDispatch<AppDispatch>();
@@ -34,7 +34,7 @@ function AddressItem({ main_address, address_item }: Props) {
 					title: "",
 				}}
 				options={{
-					checked: address_item.address === main_address,
+					checked: address_item.latitude + "" + address_item.longitude === main_address.latitude + "" + main_address.longitude,
 					disabled: false,
 					onChange: onChangeHandler,
 				}}

@@ -53,14 +53,6 @@ function AddLocationForm({ onClose }: Props) {
 				[latitude, longitude],
 				mapConstructor
 			);
-
-			if (shippingList.find((item) => item.address === address)) {
-				addToast(t("already_exists"), {
-					appearance: "error",
-					autoDismiss: true,
-				});
-				return;
-			}
 			dispatch(addAddress({ latitude, longitude, address }));
 		} catch (e) {
 			console.error(e);
