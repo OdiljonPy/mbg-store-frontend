@@ -92,7 +92,7 @@
 		height: 24px;
 	}
 
-	.flag{
+	.flag_with_discount{
 		left: 8px;
 		top: 38px;
 	}
@@ -100,4 +100,5 @@
 	.flag_badge{
 		padding: 3px 8px;
 	}
+
 }
