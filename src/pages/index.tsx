@@ -6,34 +6,37 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 
 import dynamic from "next/dynamic";
+import Metadata from "@/layout/metadata";
+import React from "react";
 
 const Near = dynamic(() => import("@/components/pages/home/near/near"), {
-	ssr: false,
+  ssr: false,
 });
 
 interface props {
-	message: string;
+  message: string;
 }
 export default function Home(props: props) {
-	return (
-		<>
-			<Head>
-				<title>MGB store</title>
-			</Head>
-			<Hero />
-			<Sales />
-			<Popular />
-			<Near />
-			<Top />
-		</>
-	);
+  return (
+    <>
+      <Head>
+        <title>MGB store</title>
+        <Metadata name="MBG store" />
+      </Head>
+      <Hero />
+      <Sales />
+      <Popular />
+      <Near />
+      <Top />
+    </>
+  );
 }
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-	return {
-		props: {
-			messages: require(`@/../messages/${locale}.json`),
-		},
-	};
+  return {
+    props: {
+      messages: require(`@/../messages/${locale}.json`),
+    },
+  };
 };

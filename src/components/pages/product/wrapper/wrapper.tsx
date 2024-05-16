@@ -16,6 +16,7 @@ import {
 import { useSearchParams } from "next/navigation";
 import Head from "next/head";
 import Skeleton from "react-loading-skeleton";
+import Metadata from "@/layout/metadata";
 
 interface props {}
 
@@ -56,6 +57,7 @@ const Wrapper = (props: props) => {
     <section className={css.wrapper}>
       <Head>
         <title>{name ? name : "Кукуруза Bonduelle Classique сладкая"}</title>
+        <Metadata name={name ? name : "Кукуруза Bonduelle Classique сладкая"} />
       </Head>
       <div className={"container"}>
         <Breadcrumbs
