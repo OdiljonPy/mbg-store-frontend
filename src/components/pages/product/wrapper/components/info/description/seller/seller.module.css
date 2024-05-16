@@ -74,6 +74,7 @@
 .location{
 	cursor: pointer;
 	padding-left: 10px;
+	flex-shrink: 0;
 }
 
 
