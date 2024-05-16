@@ -4,7 +4,6 @@ import css from "./filters-toggle.module.css";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import { raleway } from "@/constants/fonts/fonts";
-import { Drawer } from "antd";
 
 interface props {}
 
@@ -50,6 +49,7 @@ const FiltersToggler = (props: props) => {
     <>
       <button onClick={onToggle} className={`${css.btn} ${raleway.className}`}>
         <svg
+          className={css.icon_filter}
           width="24"
           height="24"
           viewBox="0 0 24 24"

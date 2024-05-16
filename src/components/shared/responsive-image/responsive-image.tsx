@@ -8,6 +8,7 @@ interface props {
   height?: number;
   isStretch?: boolean;
   objectFit?: "cover" | "contain";
+  priority?: boolean;
 }
 
 const ResponsiveImage = ({
@@ -17,11 +18,13 @@ const ResponsiveImage = ({
   height,
   isStretch,
   objectFit,
+  priority = false,
 }: props) => {
   const url = typeof src === "string" ? `${src ? src : ""}` : src;
 
   return (
     <Image
+      priority={priority}
       src={url ? url : ""}
       alt={alt}
       sizes="100vw"

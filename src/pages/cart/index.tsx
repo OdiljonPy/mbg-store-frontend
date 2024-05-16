@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 interface props {}
 
 import dynamic from "next/dynamic";
+import Metadata from "@/layout/metadata";
+import React from "react";
 
 const ClientSideWrapper = dynamic(
   () => import("@/components/pages/cart/wrapper"),
@@ -20,6 +22,7 @@ const Index = (props: props) => {
     <>
       <Head>
         <title>{t("header.basket")}</title>
+        <Metadata />
       </Head>
       <ClientSideWrapper />
     </>
