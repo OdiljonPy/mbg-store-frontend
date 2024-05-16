@@ -118,7 +118,11 @@ const FeedbackForm = ({ info, loading }: props) => {
           ) : (
             <>
               <Title title={info?.name} />
-              <p className={css.weight}>{info?.available}г</p>
+              {info?.available ? (
+                <p className={css.weight}>{info?.amount_type}</p>
+              ) : (
+                ""
+              )}
             </>
           )}
         </div>
