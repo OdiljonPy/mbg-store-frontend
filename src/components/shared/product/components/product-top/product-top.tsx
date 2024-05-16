@@ -43,8 +43,9 @@ const ProductTop = ({ product }: props) => {
           ""
         )}
       </div>
-
-      <div className={`${css.flag} ${discount ? css.flag_with_discount : ""}`}>
+      <div
+        className={`${css.flag} ${discount > 0 ? css.flag_with_discount : ""}`}
+      >
         {available > 0 && product.flag ? (
           <Badge
             className={css.flag_badge}
