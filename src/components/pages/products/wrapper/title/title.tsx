@@ -13,9 +13,9 @@ const Title = (props: props) => {
   const { categories } = useSelector((state: RootState) => state.category);
   const search: string | null = searchParams.get("search");
   const categoryId = searchParams.get("category_id");
-  const [category, setCategory] = useState(searchParams.get("category"));
+  const [category, setCategory] = useState(searchParams.get("category_id"));
   const chooseTitle = () => {
-    if (search || category) {
+    if (search || categoryId) {
       if (search) {
         return `${t("products.title")}: ${search}`;
       }
