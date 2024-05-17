@@ -1,28 +1,29 @@
 import Wrapper from "@/components/pages/offer/wrapper";
+import OfferLayout from "@/layout/custom-layout/offer/layout-offer";
+import HeadWithSeo from "@/layout/metadata";
+import { NextPageWithLayout } from "@/pages/_app";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
-import Head from "next/head";
-import {NextPageWithLayout} from "@/pages/_app";
-import {ReactElement} from "react";
-import OfferLayout from "@/layout/custom-layout/offer/layout-offer";
+import { ReactElement } from "react";
 
-const Offer:NextPageWithLayout = () => {
+const Offer: NextPageWithLayout = () => {
 	const t = useTranslations();
 	return (
 		<>
-			<Head>
-				<title>{t("header.offer")}</title>
-			</Head>
+			<HeadWithSeo
+				name={t("header.offer")}
+				url={"/offer"}
+				noIndex
+				noFollow
+			/>
 			<Wrapper />
 		</>
 	);
 };
 
-Offer.getLayout = ((page:ReactElement)=>{
-	return(
-		<OfferLayout>{page}</OfferLayout>
-	)
-})
+Offer.getLayout = (page: ReactElement) => {
+	return <OfferLayout>{page}</OfferLayout>;
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	return {
