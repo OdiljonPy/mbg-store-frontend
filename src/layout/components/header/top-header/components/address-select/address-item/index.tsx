@@ -22,7 +22,7 @@ function AddressItem({ main_address, address_item }: Props) {
 	};
 
 	const handleAddressRemove = () => {
-		dispatch(removeAddress(address_item.address));
+		dispatch(removeAddress(address_item.id));
 	};
 
 	return (
@@ -34,7 +34,7 @@ function AddressItem({ main_address, address_item }: Props) {
 					title: "",
 				}}
 				options={{
-					checked: address_item.latitude + "" + address_item.longitude === main_address.latitude + "" + main_address.longitude,
+					checked: address_item.id === main_address.id,
 					disabled: false,
 					onChange: onChangeHandler,
 				}}

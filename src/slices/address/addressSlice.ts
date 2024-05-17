@@ -15,26 +15,27 @@ const addressSlice = createSlice({
 	name: "address",
 	initialState,
 	reducers: {
-		addAddress: (state, action: { payload: IAddress }) => {
+		addAddress: (state, action: { payload: Omit<IAddress, "id"> }) => {
 			if (
 				state.address_list.find(
 					(item) => item.address === action.payload.address
 				)
 			)
 				return;
-			state.address_list.push(action.payload);
-			state.main_address = action.payload;
+			const newId = Math.random();
+			state.address_list.push({ ...action.payload, id: newId });
+			state.main_address = { ...action.payload, id: newId };
 		},
 		changeDefaultAddress: (state, action: { payload: IAddress }) => {
 			state.main_address = action.payload;
 		},
-		removeAddress: (state, action: { payload: IAddress["address"] }) => {
+		removeAddress: (state, action: { payload: IAddress["id"] }) => {
 			state.address_list = state.address_list.filter(
-				(address) => address.address !== action.payload
+				(address) => address.id !== action.payload
 			);
 			if (
 				state.address_list.length === 0 ||
-				action.payload === state.main_address.address
+				action.payload === state.main_address.id
 			) {
 				state.main_address = {} as IAddress;
 			}

@@ -19,6 +19,7 @@ function ShippingItem({ main_address, shipping_item }: Props) {
 	const onChangeHandler = () => {
 		dispatch(
 			changeDefaultAddress({
+				id: shipping_item.id,
 				address: shipping_item.address,
 				latitude: Number(shipping_item.latitude),
 				longitude: Number(shipping_item.longitude),
@@ -37,11 +38,7 @@ function ShippingItem({ main_address, shipping_item }: Props) {
 					title: "",
 				}}
 				options={{
-					checked:
-						shipping_item.latitude +
-							"" +
-							shipping_item.longitude ===
-						main_address.latitude + "" + main_address.longitude,
+					checked: shipping_item.id === main_address.id,
 					disabled: false,
 					onChange: onChangeHandler,
 				}}
