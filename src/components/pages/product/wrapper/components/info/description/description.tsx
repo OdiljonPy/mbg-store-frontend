@@ -30,7 +30,7 @@ const Description = ({ info, loading }: props) => {
             {info?.available >= 1 ? (
               <>
                 <p className={css.weight}>{`${info?.amount_type}`}</p>
-                <Badge text={t("product.has")} color={"#60C787"} />
+                <Badge text={t("product.has", { count: info?.available })} color={"#60C787"} />
               </>
             ) : (
               <Badge

@@ -171,7 +171,7 @@
 	"product": {
 		"similar": "Birga sotib oling",
 		"onSale": "Sotish",
-		"has": "Sotuvda mavjud",
+		"has": "Sotuvda {count} ta",
 		"has_not": "Mavjud emas",
 		"seller": "Sotuvchi",
 		"rates": "Reytinglar",
