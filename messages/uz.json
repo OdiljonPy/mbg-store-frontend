@@ -292,11 +292,12 @@
 			"confirm": "Tasdiqlang",
 			"new_code_after": "Yangi kod orqali",
 			"send_new_code": "Yangi kodni yuborish ({count} ta urinish)",
-			"invalid_code": "Yaroqsiz kod"
+			"invalid_code": "Yaroqsiz kod",
+			"no_more_attempts": "Urunushlar tugadi."
 		},
 		"otp_error": {
 			"title": "Ro'yxatga olish xatosi",
-			"description": "Noto'g'ri OTP kodi 3 martadan ortiq kiritilgan. Iltimos keyinroq qayta urinib ko'ring.",
+			"description": "Noto'g'ri OTP kodi 3 martadan ortiq kiritilgan. Iltimos {hour} soatdan keyin qayta urinib ko'ring.",
 			"close": "Yopish"
 		},
 		"new_password": {

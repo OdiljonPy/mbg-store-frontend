@@ -12,12 +12,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TStep } from "../../../auth";
 
+const RESENT_TIME = 59;
+
 export const useOtp = (prevStep: TStep) => {
 	const [otp, setOtp] = useState<string>("");
-	const [resendTime, setResendTime] = useState<number>(59);
+	const [resendTime, setResendTime] = useState<number>(RESENT_TIME);
 	const otpKey = useSelector((state: RootState) => state.otpKey);
 	const [isTimerStarted, setIsTimerStarted] = useState<boolean>(true);
 	const dispatch = useDispatch<AppDispatch>();
+	const [attemptCountWithSameOtp, setAttemptCountWithSameOtp] =
+		useState<number>(2);
 	const [attemptCount, setAttemptCount] = useState<number>(2);
 
 	useEffect(() => {
@@ -27,7 +31,7 @@ export const useOtp = (prevStep: TStep) => {
 
 	useEffect(() => {
 		setIsTimerStarted(true);
-		setResendTime(59);
+		setResendTime(RESENT_TIME);
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -52,6 +56,7 @@ export const useOtp = (prevStep: TStep) => {
 		if (!otpKey) return;
 		dispatch(clearVerifyError());
 		dispatch(clearResetVerifyError());
+		setAttemptCountWithSameOtp((prev) => prev - 1);
 		const payload: IOtpKeyRequest = {
 			otp_key: otpKey,
 			otp_code: otp,
@@ -68,7 +73,7 @@ export const useOtp = (prevStep: TStep) => {
 			return;
 		}
 		setIsTimerStarted(true);
-		setResendTime(59);
+		setResendTime(RESENT_TIME);
 		setOtp("");
 		dispatch(clearVerifyError());
 		dispatch(clearResetVerifyError());
@@ -86,6 +91,7 @@ export const useOtp = (prevStep: TStep) => {
 			})
 			.finally(() => {
 				setAttemptCount((prevState) => prevState - 1);
+				setAttemptCountWithSameOtp(2);
 			});
 	};
 
@@ -94,6 +100,7 @@ export const useOtp = (prevStep: TStep) => {
 		setOtp,
 		handleConfirm,
 		handleResend,
+		attemptCountWithSameOtp,
 		resendTime,
 		attemptCount,
 	};
