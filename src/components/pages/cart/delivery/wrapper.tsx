@@ -1,8 +1,9 @@
 import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
+import { siteConfig } from "@/config/site";
 import { IPostOrder } from "@/data-types/order/order";
-import { clearBasket, deletePromoCode } from "@/slices/basket/basketSlice";
+import { clearBasket } from "@/slices/basket/basketSlice";
 import { createOrder } from "@/slices/order/ordersSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useTranslations } from "next-intl";
@@ -22,6 +23,12 @@ const Wrapper = (props: props) => {
 	const router = useRouter();
 	const { addToast } = useToasts();
 
+	const { cost_price } = useSelector((state: RootState) => state.basket);
+
+	const generatePaymentLink = (orderId: number, returnUrl: string) => {
+		return `https://my.click.uz/services/pay?service_id=34007&merchant_id=26028&amount=${cost_price}&transaction_param=${orderId}&return_url=${returnUrl}`;
+	};
+
 	const submitOrder = (values: IPostOrder) => {
 		if (values.type == "D" && !values.delivery_address) {
 			return addToast(t("cart.info_enter_address"), {
@@ -33,21 +40,15 @@ const Wrapper = (props: props) => {
 			.unwrap()
 			.then((res) => {
 				if (res.ok) {
-					dispatch(deletePromoCode());
 					dispatch(clearBasket());
-					if (router.query?.type) {
-						if (router.query.type === "delivery")
-							router
-								.replace("/cart/order-delivery")
-								.then((r) => true);
-						else
-							router
-								.replace("/cart/order-pickup")
-								.then((r) => true);
+					if (router.query.type === "pickup") {
+						router.replace("/card/order-pickup").then((r) => true);
 					} else {
-						router
-							.replace("/cart/order-delivery")
-							.then((r) => true);
+						const paymentLink = generatePaymentLink(
+							res.result.id,
+							siteConfig.url + "/cart/order-delivery"
+						);
+						router.replace(paymentLink).then((r) => true);
 					}
 				} else throw new Error("error");
 			})
