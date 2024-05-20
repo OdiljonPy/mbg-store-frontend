@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import css from "./product-actions.module.css";
 import ProductActionBtn from "@/components/shared/product-action-btn/product-action-btn";
 import { IProduct } from "@/data-types/products/common";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store";
 import { addProduct, removeProduct } from "@/slices/basket/basketSlice";
 import { useToasts } from "react-toast-notifications";
 import { useTranslations } from "next-intl";
+import NotificationStore from "@/components/shared/notification-store/NotificationStore";
+import { CheckStoreList } from "@/utils/checking-store-list/checkStoreList";
 
 interface props {
   count?: number;
@@ -19,18 +21,22 @@ const ProductActions = ({ count, product }: props) => {
   const [disabled, setDisabled] = useState(false);
   const { id, available } = product;
   const dispatch = useDispatch<AppDispatch>();
+  const { products } = useSelector((state: RootState) => state.basket);
   const [intermediateValue, setIntermediate] = useState<number>(count ?? 0);
+  const [openNotification, setOpenNotification] = useState(false);
   const onIncrement = () => {
-    if (intermediateValue + 1 <= available) {
-      setIntermediate((prev) => prev + 1);
-      dispatch(addProduct({ quantity: 1, product }));
-    } else {
-      setDisabled(true);
-      addToast(t("products.no_product"), {
-        appearance: "info",
-        autoDismiss: true,
-      });
-    }
+    if (CheckStoreList(products, product.store)) {
+      if (intermediateValue + 1 <= available) {
+        setIntermediate((prev) => prev + 1);
+        dispatch(addProduct({ quantity: 1, product }));
+      } else {
+        setDisabled(true);
+        addToast(t("products.no_product"), {
+          appearance: "info",
+          autoDismiss: true,
+        });
+      }
+    } else setOpenNotification(true);
   };
 
   const onDecrement = () => {
@@ -51,6 +57,10 @@ const ProductActions = ({ count, product }: props) => {
 
   return (
     <div className={`${css.actions} ${intermediateValue > 0 ? css.wide : ""}`}>
+      <NotificationStore
+        open={openNotification}
+        setOpen={setOpenNotification}
+      />
       <ProductActionBtn
         onClick={onDecrement}
         classNames={`${css.decrement} ${intermediateValue > 0 ? css.show : ""}`}
