@@ -1,41 +1,41 @@
 import { GetStaticProps } from "next";
-import Head from "next/head";
 import { useTranslations } from "next-intl";
 
 interface props {}
 
+import HeadWithSeo from "@/layout/metadata";
 import dynamic from "next/dynamic";
-import Metadata from "@/layout/metadata";
-import React from "react";
 
 const ClientSideWrapper = dynamic(
-  () => import("@/components/pages/cart/wrapper"),
-  {
-    ssr: false,
-  },
+	() => import("@/components/pages/cart/wrapper"),
+	{
+		ssr: false,
+	}
 );
 
 const Index = (props: props) => {
-  const t = useTranslations();
+	const t = useTranslations();
 
-  return (
-    <>
-      <Head>
-        <title>{t("header.basket")}</title>
-        <Metadata />
-      </Head>
-      <ClientSideWrapper />
-    </>
-  );
+	return (
+		<>
+			<HeadWithSeo
+				name={t("header.basket")}
+				url={"/cart"}
+				noIndex
+				noFollow
+			/>
+			<ClientSideWrapper />
+		</>
+	);
 };
 
 export default Index;
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  return {
-    props: {
-      messages: require(`@/../messages/${locale}.json`),
-    },
-  };
+	return {
+		props: {
+			messages: require(`@/../messages/${locale}.json`),
+		},
+	};
 };

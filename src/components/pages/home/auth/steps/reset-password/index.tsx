@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 
 import Button from "@/components/shared/button";
 
-import { clearResetError, resetPassword } from "@/slices/auth/resetPassword";
+import {
+	clearResetError,
+	resetPassword,
+	setNewOtpTime,
+} from "@/slices/auth/resetPassword";
 import { clearVerifyError } from "@/slices/auth/verify";
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,9 +25,7 @@ interface Props {
 
 function ResetPassword({ setStep, setPrevStep }: Props) {
 	const t = useTranslations("auth.reset_password");
-	const { user } = useSelector(
-		(state: RootState) => state.user
-	);
+	const { user } = useSelector((state: RootState) => state.user);
 
 	const [isValid, setIsValid] = useState(false);
 	const [phoneNumber, setPhoneNumber] = useState("");
@@ -39,8 +41,8 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 	}, [dispatch, phoneNumber]);
 
 	useEffect(() => {
-		setPhoneNumber(user?.phone_number)
-	}, []);
+		setPhoneNumber(user?.phone_number);
+	}, [user?.phone_number]);
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -52,6 +54,13 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 					dispatch(setOtpKey(res.result.otp_key));
 					setPrevStep("resetPassword");
 					setStep("otp");
+				} else {
+				}
+			})
+			.catch((res) => {
+				if (res.new_otp_time) {
+					dispatch(setNewOtpTime(res.new_otp_time));
+					setStep("otpError");
 				}
 			});
 	};
@@ -64,7 +73,10 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 			</div>
 			<div className={css.modal_body}>
 				<div>
-					<PhoneNumberInput value={user?.phone_number} setValue={setPhoneNumber} />
+					<PhoneNumberInput
+						value={user?.phone_number}
+						setValue={setPhoneNumber}
+					/>
 					<ErrorMessage>{!!error && t(error)}</ErrorMessage>
 				</div>
 			</div>

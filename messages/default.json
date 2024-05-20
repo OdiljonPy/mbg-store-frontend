@@ -451,5 +451,12 @@
   "not_found": {
     "main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
     "to_back": "Asosiy sahifaga qaytish"
+  },
+  "notification": {
+    "title": "Eslatma",
+    "description": "Sizga turli xil do'konlardan bo'lgan mahsulotlarni sotib olmoqchisiz! Savatchangizga qo'shilaversinmi?",
+    "agree": "Ha",
+    "disagree": "Yo'q",
+    "notShowAgain": "Boshqa ko'rsatilmasin"
   }
 }

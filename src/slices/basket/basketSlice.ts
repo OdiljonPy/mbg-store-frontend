@@ -1,8 +1,8 @@
 import { IProduct, IStore } from "@/data-types/products/common";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IProductAvailable } from "@/data-types/products/product-available/product-available";
 import { IBasketSlices } from "@/data-types/slices/basket";
 import API from "@/utils/axios/axios";
-import { IProductAvailable } from "@/data-types/products/product-available/product-available";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState: IBasketSlices = {
   products: [] as IProduct[],
@@ -51,7 +51,10 @@ const basketSlices = createSlice({
           state.products[index].count += payload.quantity;
         }
       } else {
-        state.products.push({ count: payload.quantity, ...payload.product });
+        state.products.push({
+          count: payload.quantity,
+          ...payload.product,
+        });
       }
       state.totalCountProduct = state.products.length;
 
@@ -142,6 +145,17 @@ const basketSlices = createSlice({
     clearBasket: (state) => {
       state.products = [];
       state.totalCountProduct = 0;
+      // state.store_list = [];
+      state.not_available = [];
+      state.all_prices = 0;
+      state.discount_price = 0;
+      state.delivery_price = 5000;
+      state.cost_price = 0;
+      state.promo_code_price = 0;
+      state.promo_code = {
+        discount: 0,
+        promocode: "",
+      };
     },
 
     //     not available

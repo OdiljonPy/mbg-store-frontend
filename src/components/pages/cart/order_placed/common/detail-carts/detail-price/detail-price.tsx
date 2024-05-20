@@ -19,15 +19,10 @@ interface props {
 
 const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
   const { addToast } = useToasts();
-  const {
-    cost_price,
-    all_prices,
-    discount_price,
-    promo_code_price,
-    delivery_price,
-  } = useSelector((state: RootState) => state.basket);
+  const { delivery_price } = useSelector((state: RootState) => state.basket);
   const { last_order } = useSelector((state: RootState) => state.last_order);
-  const { promo_code, sale_price_promo_code, id } = last_order;
+  const { promo_code, sale_price_promo_code, id, total_price, sale_price } =
+    last_order;
 
   const salePromoCode = sale_price_promo_code ? sale_price_promo_code : 0;
 
@@ -70,15 +65,12 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
       <div className={css.info}>
         <DetailItem
           label={t("order_placed.order_cost")}
-          value={priceFormatter(all_prices, true)}
+          value={priceFormatter(total_price + sale_price, true)}
         />
         <DetailItem
           className={css.paddingTop}
           label={t("cart.sales")}
-          value={priceFormatter(
-            discount_price ? -discount_price : discount_price,
-            true,
-          )}
+          value={priceFormatter(-sale_price, true)}
         />
         {promo_code?.discount ? (
           <DetailItem
@@ -101,7 +93,7 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
         <DetailItem
           className={css.all_price}
           label={t("order_placed.order_all")}
-          value={priceFormatter(cost_price + delivery_price, true)}
+          value={priceFormatter(total_price + delivery_price, true)}
         />
         {isDeleteAction && (
           <div className={css.action}>

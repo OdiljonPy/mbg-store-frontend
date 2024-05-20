@@ -15,6 +15,10 @@ const Attempts = memo(function Attempts({
 }: Props) {
 	const t = useTranslations("auth.otp");
 
+	if (attemptCount === 0) {
+		return <p className={css.timer}>{t("no_more_attempts")}</p>;
+	}
+
 	if (resendTime === 0) {
 		return (
 			<button onClick={onClick} className={css.attempts}>

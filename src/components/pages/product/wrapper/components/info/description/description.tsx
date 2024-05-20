@@ -10,6 +10,9 @@ import { IProductInner } from "@/data-types/products/product-inner/product-inner
 import { useTranslations } from "next-intl";
 import css from "./description.module.css";
 import InfoPreloader from "@/components/pages/product/wrapper/components/info/info_preloader/info_preloader";
+import NotificationStore from "@/components/shared/notification-store/NotificationStore";
+import React, { useState } from "react";
+import Button from "@/components/shared/button";
 
 interface props {
   info: IProductInner;
@@ -26,11 +29,15 @@ const Description = ({ info, loading }: props) => {
       ) : (
         <>
           <Title title={info?.name} />
+
           <div className={css.text}>
             {info?.available >= 1 ? (
               <>
                 <p className={css.weight}>{`${info?.amount_type}`}</p>
-                <Badge text={t("product.has")} color={"#60C787"} />
+                <Badge
+                  text={t("product.has", { count: info?.available })}
+                  color={"#60C787"}
+                />
               </>
             ) : (
               <Badge

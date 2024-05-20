@@ -1,16 +1,17 @@
-import css from "./wrapper.module.css";
-import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
-import { useTranslations } from "next-intl";
 import Content from "@/components/pages/cart/delivery/content/content";
 import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
-import { FormProvider, useForm } from "react-hook-form";
+import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
+import { siteConfig } from "@/config/site";
 import { IPostOrder } from "@/data-types/order/order";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store";
+import { clearBasket } from "@/slices/basket/basketSlice";
 import { createOrder } from "@/slices/order/ordersSlice";
+import { AppDispatch, RootState } from "@/store";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
+import { FormProvider, useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { useToasts } from "react-toast-notifications";
-import { clearBasket, deletePromoCode } from "@/slices/basket/basketSlice";
+import css from "./wrapper.module.css";
 
 interface props {}
 
@@ -21,6 +22,12 @@ const Wrapper = (props: props) => {
   const methods = useForm<IPostOrder>();
   const router = useRouter();
   const { addToast } = useToasts();
+
+  const { cost_price } = useSelector((state: RootState) => state.basket);
+
+  const generatePaymentLink = (orderId: number, returnUrl: string) => {
+    return `https://my.click.uz/services/pay?service_id=34007&merchant_id=26028&amount=${cost_price}&transaction_param=${orderId}&return_url=${returnUrl}`;
+  };
 
   const submitOrder = (values: IPostOrder) => {
     if (values.type == "D" && !values.delivery_address) {
@@ -33,14 +40,16 @@ const Wrapper = (props: props) => {
       .unwrap()
       .then((res) => {
         if (res.ok) {
-          dispatch(deletePromoCode());
-          dispatch(clearBasket());
-          if (router.query?.type) {
-            if (router.query.type === "delivery")
-              router.push("/cart/order-delivery").then((r) => true);
-            else router.push("/cart/order-pickup").then((r) => true);
+          if (router.query.type === "pickup") {
+            router.replace("/cart/order-pickup").then((r) => true);
+            dispatch(clearBasket());
           } else {
-            router.push("/cart/order-delivery").then((r) => true);
+            const paymentLink = generatePaymentLink(
+              res.result.id,
+              siteConfig.url + "/cart/order-delivery",
+            );
+            router.replace(paymentLink).then((r) => true);
+            // dispatch(clearBasket());
           }
         } else throw new Error("error");
       })

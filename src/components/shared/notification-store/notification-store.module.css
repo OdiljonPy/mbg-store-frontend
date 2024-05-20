@@ -1,0 +1,12 @@
+.btn{
+    padding: 6px 12px;
+    font-size: 14px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.btn_group{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

@@ -54,7 +54,7 @@ const Wrapper = (props: props) => {
         ) : (
           <div>
             <div className={css.status}>
-              <Status status_text={"status.PROGRESSING"} status="warning" />
+              <Status />
             </div>
             <div className={css.wrapper}>
               <Content />

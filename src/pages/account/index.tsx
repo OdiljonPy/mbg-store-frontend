@@ -1,45 +1,45 @@
 import AccountNavigation from "@/components/pages/account/components/nav/navigation";
 import AccountWrapper from "@/components/pages/account/wrapper";
+import HeadWithSeo from "@/layout/metadata";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
-import Head from "next/head";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
-import Metadata from "@/layout/metadata";
-import useAuthCheck from "@/hooks/use-access-page";
+import { useEffect } from "react";
 
 interface props {}
 
 const Account = (props: props) => {
-  const t = useTranslations();
-  const { push } = useRouter();
+	const t = useTranslations();
+	const { push } = useRouter();
 
-  useEffect(() => {
-    if (window.innerWidth > 991) {
-      push("/account/profile");
-    }
-  }, [push]);
+	useEffect(() => {
+		if (window.innerWidth > 991) {
+			push("/account/profile");
+		}
+	}, [push]);
 
-  return (
-    <>
-      <Head>
-        <title>{t("header.account")}</title>
-        <Metadata />
-      </Head>
-      <AccountWrapper>
-        <AccountNavigation />
-      </AccountWrapper>
-    </>
-  );
+	return (
+		<>
+			<HeadWithSeo
+				name={t("header.account")}
+				url={"/account"}
+				noIndex
+				noFollow
+			/>
+			<AccountWrapper>
+				<AccountNavigation />
+			</AccountWrapper>
+		</>
+	);
 };
 
 export default Account;
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  return {
-    props: {
-      messages: require(`@/../messages/${locale}.json`),
-    },
-  };
+	return {
+		props: {
+			messages: require(`@/../messages/${locale}.json`),
+		},
+	};
 };

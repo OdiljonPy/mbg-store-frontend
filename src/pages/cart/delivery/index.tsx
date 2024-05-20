@@ -1,40 +1,41 @@
+import useAuthCheck from "@/hooks/use-access-page";
+import HeadWithSeo from "@/layout/metadata";
 import { GetStaticProps } from "next";
-import Head from "next/head";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
-import useAuthCheck from "@/hooks/use-access-page";
-import Metadata from "@/layout/metadata";
 
 const ClientSideWrapper = dynamic(
-  () => import("@/components/pages/cart/delivery/wrapper"),
-  {
-    ssr: false,
-  },
+	() => import("@/components/pages/cart/delivery/wrapper"),
+	{
+		ssr: false,
+	}
 );
 
 interface props {}
 
 const Index = (props: props) => {
-  const t = useTranslations();
-  useAuthCheck(true);
-  return (
-    <>
-      <Head>
-        <title>{t("header.delivery")}</title>
-        <Metadata name={t("header.delivery")} />
-      </Head>
-      <ClientSideWrapper />
-    </>
-  );
+	const t = useTranslations();
+	useAuthCheck(true);
+	return (
+		<>
+			<HeadWithSeo
+				name={t("header.delivery")}
+				url={"/cart/delivery"}
+				noIndex
+				noFollow
+			/>
+			<ClientSideWrapper />
+		</>
+	);
 };
 
 export default Index;
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  return {
-    props: {
-      messages: require(`@/../messages/${locale}.json`),
-    },
-  };
+	return {
+		props: {
+			messages: require(`@/../messages/${locale}.json`),
+		},
+	};
 };
