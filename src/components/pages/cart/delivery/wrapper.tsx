@@ -16,83 +16,84 @@ import css from "./wrapper.module.css";
 interface props {}
 
 const Wrapper = (props: props) => {
-	const t = useTranslations();
-	const dispatch = useDispatch<AppDispatch>();
-	const { error } = useSelector((state: RootState) => state.orders);
-	const methods = useForm<IPostOrder>();
-	const router = useRouter();
-	const { addToast } = useToasts();
+  const t = useTranslations();
+  const dispatch = useDispatch<AppDispatch>();
+  const { error } = useSelector((state: RootState) => state.orders);
+  const methods = useForm<IPostOrder>();
+  const router = useRouter();
+  const { addToast } = useToasts();
 
-	const { cost_price } = useSelector((state: RootState) => state.basket);
+  const { cost_price } = useSelector((state: RootState) => state.basket);
 
-	const generatePaymentLink = (orderId: number, returnUrl: string) => {
-		return `https://my.click.uz/services/pay?service_id=34007&merchant_id=26028&amount=${cost_price}&transaction_param=${orderId}&return_url=${returnUrl}`;
-	};
+  const generatePaymentLink = (orderId: number, returnUrl: string) => {
+    return `https://my.click.uz/services/pay?service_id=34007&merchant_id=26028&amount=${cost_price}&transaction_param=${orderId}&return_url=${returnUrl}`;
+  };
 
-	const submitOrder = (values: IPostOrder) => {
-		if (values.type == "D" && !values.delivery_address) {
-			return addToast(t("cart.info_enter_address"), {
-				appearance: "info",
-				autoDismiss: true,
-			});
-		}
-		dispatch(createOrder(values))
-			.unwrap()
-			.then((res) => {
-				if (res.ok) {
-					dispatch(clearBasket());
-					if (router.query.type === "pickup") {
-						router.replace("/card/order-pickup").then((r) => true);
-					} else {
-						const paymentLink = generatePaymentLink(
-							res.result.id,
-							siteConfig.url + "/cart/order-delivery"
-						);
-						router.replace(paymentLink).then((r) => true);
-					}
-				} else throw new Error("error");
-			})
-			.catch((err) => {
-				console.log(err, "error");
-				return addToast(t("cart.orders.error"), {
-					appearance: "error",
-					autoDismiss: true,
-				});
-			});
-	};
+  const submitOrder = (values: IPostOrder) => {
+    if (values.type == "D" && !values.delivery_address) {
+      return addToast(t("cart.info_enter_address"), {
+        appearance: "info",
+        autoDismiss: true,
+      });
+    }
+    dispatch(createOrder(values))
+      .unwrap()
+      .then((res) => {
+        if (res.ok) {
+          if (router.query.type === "pickup") {
+            router.replace("/cart/order-pickup").then((r) => true);
+            dispatch(clearBasket());
+          } else {
+            const paymentLink = generatePaymentLink(
+              res.result.id,
+              siteConfig.url + "/cart/order-delivery",
+            );
+            router.replace(paymentLink).then((r) => true);
+            // dispatch(clearBasket());
+          }
+        } else throw new Error("error");
+      })
+      .catch((err) => {
+        console.log(err, "error");
+        return addToast(t("cart.orders.error"), {
+          appearance: "error",
+          autoDismiss: true,
+        });
+      });
+  };
 
-	return (
-		<section className={css.cart}>
-			<div className={"container"}>
-				<Breadcrumbs
-					items={[
-						{
-							path: "/",
-							label: t("header.home"),
-						},
-						{
-							path: "/cart",
-							label: t("header.basket"),
-						},
-						{
-							path: "/cart/delivery",
-							label: t("header.delivery"),
-						},
-					]}
-				/>
+  return (
+    <section className={css.cart}>
+      <div className={"container"}>
+        <Breadcrumbs
+          items={[
+            {
+              path: "/",
+              label: t("header.home"),
+            },
+            {
+              path: "/cart",
+              label: t("header.basket"),
+            },
+            {
+              path: "/cart/delivery",
+              label: t("header.delivery"),
+            },
+          ]}
+        />
 
-				<FormProvider {...methods}>
-					<form
-						className={css.wrapper}
-						onSubmit={methods.handleSubmit(submitOrder)}
-					>
-						<Content form={methods} />
-						<TotalSum />
-					</form>
-				</FormProvider>
-			</div>
-		</section>
-	);
+        <FormProvider {...methods}>
+          <form
+            className={css.wrapper}
+            onSubmit={methods.handleSubmit(submitOrder)}
+          >
+            <Content form={methods} />
+            <TotalSum />
+          </form>
+        </FormProvider>
+      </div>
+    </section>
+  );
 };
 
 export default Wrapper;
