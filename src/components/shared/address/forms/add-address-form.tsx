@@ -9,6 +9,7 @@ import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 import { useTranslations } from "use-intl";
 import AddressMap from "../address-map/address-map";
 import { getAddressByCoordinates } from "../helpers";
@@ -22,6 +23,7 @@ interface Props {
 
 function AddAddressForm({ onClose }: Props) {
 	const t = useTranslations("address");
+	const { addToast } = useToasts();
 
 	const form = useForm<IAddressForm>({
 		defaultValues: {
@@ -37,14 +39,29 @@ function AddAddressForm({ onClose }: Props) {
 
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { postLoading } = useSelector(
+	const { shippingList, postLoading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = async (data: IAddressForm) => {
-		const { apartment, entrance, floor, latitude, longitude, ...rest } =
-			data;
+		const {
+			apartment,
+			entrance,
+			floor,
+			latitude,
+			longitude,
+			address_name,
+			...rest
+		} = data;
+
+		if (shippingList.find((item) => item.address_name === address_name)) {
+			addToast(t("already_exists"), {
+				appearance: "error",
+				autoDismiss: true,
+			});
+			return;
+		}
 
 		try {
 			const address = await getAddressByCoordinates(
@@ -59,6 +76,7 @@ function AddAddressForm({ onClose }: Props) {
 					floor: floor ? Number(floor) : undefined,
 					latitude: String(latitude),
 					longitude: String(longitude),
+					address_name,
 					...rest,
 					address: address,
 				})
