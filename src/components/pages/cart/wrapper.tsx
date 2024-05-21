@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { calcPrices, checkProductAvailable } from "@/slices/basket/basketSlice";
 import { useEffect } from "react";
+import { fetchFavourites } from "@/slices/favorites/favoritesSlice";
 interface props {}
 
 const Wrapper = (props: props) => {
@@ -44,14 +45,10 @@ const Wrapper = (props: props) => {
 
   useEffect(() => {
     dispatch(checkProductAvailable([...products]));
-    // const token = localStorage.getItem("access_token");
-    // if (token) {
-    //   dispatch(fetchFavourites()).then(() => {
-    //     // 	send server favourite products
-    //     const ids = newFavourites?.map((product) => product.id);
-    //     if (ids?.length) dispatch(postFavourites(ids));
-    //   });
-    // }
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      dispatch(fetchFavourites());
+    }
   }, []);
   return (
     <section className={css.cart}>
