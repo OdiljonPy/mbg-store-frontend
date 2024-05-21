@@ -58,13 +58,9 @@ const ProductTop = ({ product }: props) => {
           ""
         )}
       </div>
-      {available > 0 ? (
-        <div className={css.favorite_icon}>
-          <ClientAddToFav product={product} />
-        </div>
-      ) : (
-        ""
-      )}
+      <div className={css.favorite_icon}>
+        <ClientAddToFav product={product} />
+      </div>
       <Link href={`/products/${id}`} className={css.img}>
         <ResponsiveImage src={images[0]?.image} alt={name} />
       </Link>
