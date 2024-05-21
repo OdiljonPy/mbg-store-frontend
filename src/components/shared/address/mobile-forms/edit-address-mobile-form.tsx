@@ -63,9 +63,9 @@ function EditAddressMobileForm({ defaultValues, onClose }: Props) {
 			await dispatch(
 				patchShipping({
 					body: {
-						apartment: Number(apartment),
-						entrance: Number(entrance),
-						floor: Number(floor),
+						apartment: apartment ? Number(apartment) : undefined,
+						entrance: entrance ? Number(entrance) : undefined,
+						floor: floor ? Number(floor) : undefined,
 						latitude: String(latitude),
 						longitude: String(longitude),
 						...rest,
