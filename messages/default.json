@@ -457,6 +457,7 @@
     "description": "Sizga turli xil do'konlardan bo'lgan mahsulotlarni sotib olmoqchisiz! Savatchangizga qo'shilaversinmi?",
     "agree": "Ha",
     "disagree": "Yo'q",
-    "notShowAgain": "Boshqa ko'rsatilmasin"
+    "notShowAgain": "Boshqa ko'rsatilmasin",
+    "error": "Xatolik yuz berdi!"
   }
 }
