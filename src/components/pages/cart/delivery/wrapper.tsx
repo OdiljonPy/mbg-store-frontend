@@ -51,10 +51,10 @@ const Wrapper = (props: props) => {
             router.replace(paymentLink).then((r) => true);
             // dispatch(clearBasket());
           }
+          localStorage.removeItem("storeCheckOne");
         } else throw new Error("error");
       })
       .catch((err) => {
-        console.log(err, "error");
         return addToast(t("cart.orders.error"), {
           appearance: "error",
           autoDismiss: true,

@@ -44,7 +44,7 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
           if (setErr) {
             setErr(true);
           }
-          addToast("Xatolik yuz berdi", {
+          addToast(t("notification.error"), {
             appearance: "error",
             autoDismiss: true,
           });

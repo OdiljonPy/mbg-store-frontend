@@ -25,6 +25,7 @@ import orderItemSlice from "@/slices/order/orderItemSlice";
 import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
+import oftenSearchedProductsSlice from "@/slices/product/oftenSearchedProductsSlice";
 import productLocationSlice from "@/slices/product/productLocationSlice";
 import productSingleSlices from "@/slices/product/productSingleSlices";
 import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
@@ -116,6 +117,7 @@ const rootReducers = combineReducers({
 	statistics: statisticSlices,
 	product_near: productLocationSlice,
 	stores: storesSlice,
+	oftenSearchedProducts: oftenSearchedProductsSlice,
 });
 
 export const makeStore = () => {

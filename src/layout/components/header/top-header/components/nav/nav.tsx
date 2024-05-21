@@ -12,7 +12,6 @@ interface props {}
 const Nav = (props: props) => {
   const t = useTranslations();
   const { asPath } = useRouter();
-  console.log(asPath, "query");
   return (
     <nav className={css.nav}>
       <ul className={css.list}>

@@ -11,6 +11,7 @@ import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
 import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 import AddressMap from "../address-map/address-map";
 import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
@@ -24,6 +25,7 @@ interface Props {
 
 function EditAddressForm({ defaultValues, onClose }: Props) {
 	const t = useTranslations("address");
+	const { addToast } = useToasts();
 
 	const form = useForm<IAddressForm>({
 		defaultValues: {
@@ -43,14 +45,35 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { patchLoading } = useSelector(
+	const { shippingList, patchLoading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = async (data: IAddressForm) => {
-		const { apartment, entrance, floor, latitude, longitude, ...rest } =
-			data;
+		const {
+			apartment,
+			entrance,
+			floor,
+			latitude,
+			longitude,
+			address_name,
+			...rest
+		} = data;
+
+		if (
+			shippingList.find(
+				(item) =>
+					item.address_name === address_name &&
+					item.id !== defaultValues.id
+			)
+		) {
+			addToast(t("already_exists"), {
+				appearance: "error",
+				autoDismiss: true,
+			});
+			return;
+		}
 
 		try {
 			const address = await getAddressByCoordinates(
@@ -61,11 +84,12 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 			await dispatch(
 				patchShipping({
 					body: {
-						apartment: Number(apartment),
-						entrance: Number(entrance),
-						floor: Number(floor),
+						apartment: apartment ? Number(apartment) : undefined,
+						entrance: entrance ? Number(entrance) : undefined,
+						floor: floor ? Number(floor) : undefined,
 						latitude: String(latitude),
 						longitude: String(longitude),
+						address_name,
 						...rest,
 						address,
 					},

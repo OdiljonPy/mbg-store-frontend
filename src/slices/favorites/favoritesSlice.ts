@@ -13,6 +13,16 @@ export const fetchFavourites = createAsyncThunk(
   },
 );
 
+export const updateFavourites = createAsyncThunk(
+  "update_favourites",
+  async () => {
+    const response = await API.get<IProductFavourite>(
+      "/store/products/feature-list/",
+    );
+    return response.data;
+  },
+);
+
 export const postFavourites = createAsyncThunk(
   "post_favourites",
   async (ids: number[]) => {
@@ -69,6 +79,15 @@ const favoritesSlice = createSlice({
         state.total_count = state.favourites?.length;
       }
     });
+
+    // update favourites products
+    builder.addCase(updateFavourites.fulfilled, (state, { payload }) => {
+      if (payload.ok) {
+        state.favourites = payload.result;
+        state.total_count = state.favourites?.length;
+      }
+    });
+
     // post request
     builder
       .addCase(postFavourites.pending, (state) => {
