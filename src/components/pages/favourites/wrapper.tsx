@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import Product from "@/components/shared/product/product";
 import ProductsEmpty from "@/components/pages/account/favorites/components/favorites-list/favorites-empty/favorites-empty";
-import { fetchFavourites } from "@/slices/favorites/favoritesSlice";
+import { updateFavourites } from "@/slices/favorites/favoritesSlice";
 const Wrapper = () => {
   const t = useTranslations();
   const { favourites, total_count } = useSelector(
@@ -19,11 +19,14 @@ const Wrapper = () => {
     if (total_count > 0) {
       setIsShow(true);
     } else setIsShow(false);
+  }, [favourites]);
+
+  useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {
-      dispatch(fetchFavourites());
+      dispatch(updateFavourites());
     }
-  }, [favourites, dispatch]);
+  }, [dispatch]);
 
   return (
     <section className={css.favourite}>
