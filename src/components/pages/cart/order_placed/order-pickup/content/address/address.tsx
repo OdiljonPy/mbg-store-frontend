@@ -1,35 +1,42 @@
 import AddressCard from "@/components/pages/cart/common/address-card/address-card";
 import css from "@/components/pages/cart/order_placed/order-delivery/content/address/address.module.css";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CollectStoreList } from "@/utils/collect-store-list/collect-store-list";
 import { IOrderItem } from "@/data-types/order/order";
 import { IStore } from "@/data-types/products/common";
+import OrderedItemSkeleton from "@/components/pages/account/orders/order/ordered-item-list/skeleton/skeleton";
 
 interface props {
   products: IOrderItem[];
+  loading: boolean;
 }
 
-const Address = ({ products }: props) => {
+const Address = ({ products, loading }: props) => {
   const t = useTranslations();
-  console.log(products, "products");
-  const storeList = useSelector((state: RootState) => state.basket.store_list);
-  //   const [storeList,setStoreList] = useState([])
+  const [storeList, setStoreList] = useState<IStore[]>([]);
   useEffect(() => {
     const stores: IStore[] = CollectStoreList(products);
-    console.log(stores, "new stores");
+    setStoreList(stores);
   }, [products]);
   return (
     <div className={css.address}>
       <p className={css.title}>{t("orders.pickup.title")}:</p>
-      <div className={css.address_item}>
-        {storeList.length &&
-          storeList.map((store) => (
-            <AddressCard type={"pick_up"} store={store} key={store?.id} />
+      {loading ? (
+        <>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <OrderedItemSkeleton key={index} />
           ))}
-      </div>
+        </>
+      ) : (
+        <div className={css.address_item}>
+          {storeList.length
+            ? storeList?.map((store) => (
+                <AddressCard type={"pick_up"} store={store} key={store?.id} />
+              ))
+            : ""}
+        </div>
+      )}
     </div>
   );
 };

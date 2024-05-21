@@ -55,7 +55,6 @@ const Wrapper = (props: props) => {
         } else throw new Error("error");
       })
       .catch((err) => {
-        console.log(err, "error");
         return addToast(t("cart.orders.error"), {
           appearance: "error",
           autoDismiss: true,

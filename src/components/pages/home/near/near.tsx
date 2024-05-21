@@ -19,8 +19,6 @@ const Near = () => {
   const [isAddress, setIsAddress] = useState(false);
 
   // const isAddress = !!main_address?.address;
-  console.log(main_address, "main address");
-  console.log(isAddress, "isadress");
 
   const { data: products, loading } = useSelector(
     (state: RootState) => state.product_near,

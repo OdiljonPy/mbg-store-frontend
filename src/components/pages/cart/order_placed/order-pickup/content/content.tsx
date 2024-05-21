@@ -15,7 +15,7 @@ const Content = (props: props) => {
   return (
     <div className={css.content}>
       <h2 className={css.title}>{t("orders.order_method.title")}</h2>
-      <Address products={order_items} />
+      <Address products={order_items} loading={loading} />
       <OrderItems
         loading={loading}
         products={order_items}
