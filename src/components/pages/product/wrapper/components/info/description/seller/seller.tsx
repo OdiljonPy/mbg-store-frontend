@@ -19,7 +19,10 @@ const Seller = ({ store, className }: props) => {
 		<div className={cn(css.wrapper, className)}>
 			<p className={css.seller}>
 				<p className={css.label}>{t("product.seller")}:</p>
-				<Link href={`/stores/${store?.id}`} className={css.value}>
+				<Link
+					href={`/stores/${store?.id}?sort=popular&id=${store?.id}&stores=${store?.id}`}
+					className={css.value}
+				>
 					{store?.brand_name}
 					<div className={css.tooltip}>
 						<div className={css.tooltip_arrow} />
