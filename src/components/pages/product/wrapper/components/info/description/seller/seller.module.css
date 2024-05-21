@@ -16,7 +16,8 @@
 	color: var(--text-green);
 	transition: all .5s ease-in-out;
 	position: relative;
-	cursor:pointer
+	cursor:pointer;
+	text-decoration: none;
 }
 .value:hover .tooltip {
 	opacity: 1;
