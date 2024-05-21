@@ -51,6 +51,7 @@ const Wrapper = (props: props) => {
             router.replace(paymentLink).then((r) => true);
             // dispatch(clearBasket());
           }
+          localStorage.removeItem("storeCheckOne");
         } else throw new Error("error");
       })
       .catch((err) => {
