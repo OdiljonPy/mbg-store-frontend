@@ -61,7 +61,13 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 			...rest
 		} = data;
 
-		if (shippingList.find((item) => item.address_name === address_name)) {
+		if (
+			shippingList.find(
+				(item) =>
+					item.address_name === address_name &&
+					item.id !== defaultValues.id
+			)
+		) {
 			addToast(t("already_exists"), {
 				appearance: "error",
 				autoDismiss: true,
