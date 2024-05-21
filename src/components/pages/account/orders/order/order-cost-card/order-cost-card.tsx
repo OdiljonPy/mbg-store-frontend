@@ -58,7 +58,7 @@ function OrderCostCard({ order, loading }: Props) {
 							) : (
 								<>
 									{priceFormatter(
-										-(order.promo_code?.discount || 0),
+										-(order.promo_code?.discount || -0),
 										true
 									)}
 								</>
