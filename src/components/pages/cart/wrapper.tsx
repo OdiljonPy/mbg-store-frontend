@@ -31,10 +31,15 @@ const Wrapper = (props: props) => {
   });
 
   basketSlices.not_available?.forEach((product) => {
-    products.push({
-      id: product.id,
-      count: product.count,
-    });
+    const idx = products.findIndex(
+      (allProduct) => allProduct.id === product.id,
+    );
+    if (idx === -1) {
+      products.push({
+        id: product.id,
+        count: product.count,
+      });
+    }
   });
 
   useEffect(() => {
