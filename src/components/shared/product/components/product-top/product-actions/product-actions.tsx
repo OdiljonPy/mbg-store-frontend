@@ -43,7 +43,8 @@ const ProductActions = ({ count, product }: props) => {
     if (intermediateValue === 1) {
       setDisabled(false);
       setIntermediate((prev) => prev - 1);
-      dispatch(removeProduct(id));
+      // dispatch(removeProduct(id));
+      dispatch(addProduct({ quantity: -1, product }));
     } else if (intermediateValue > 0) {
       setDisabled(false);
       setIntermediate((prev) => prev - 1);
