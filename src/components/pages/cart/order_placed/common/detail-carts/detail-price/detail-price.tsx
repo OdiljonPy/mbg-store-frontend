@@ -70,7 +70,10 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
         <DetailItem
           className={css.paddingTop}
           label={t("cart.sales")}
-          value={priceFormatter(-sale_price, true)}
+          value={priceFormatter(
+            sale_price > 0 ? -sale_price : sale_price,
+            true,
+          )}
         />
         {promo_code?.discount ? (
           <DetailItem

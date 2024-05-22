@@ -380,7 +380,8 @@
 			"available_for_pickup": "Tovar(lar)ni olib ketish mumkin"
 		},
 		"order_item_list": {
-			"title": "Buyurtma bo'yicha mahsulotlar"
+			"title": "Buyurtma bo'yicha mahsulotlar",
+			"qty": "miqdor"
 		},
 		"order_cost_card": {
 			"title": "Buyurtma narxi",

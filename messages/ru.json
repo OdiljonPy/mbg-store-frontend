@@ -385,7 +385,8 @@
 			"available_for_pickup": "Товар(ы) доступны для получения до"
 		},
 		"order_item_list": {
-			"title": "Товары в заказе"
+			"title": "Товары в заказе",
+			"qty": "кол-во"
 		},
 		"order_cost_card": {
 			"title": "Стоимость заказа",
