@@ -105,7 +105,7 @@ const ProductsSearch = (props: props) => {
 								<ProductResult
 									isHistory
 									item={item}
-									loading={loading}
+									loading={false}
 								/>
 							),
 							style: { marginInline: -8 },
@@ -204,7 +204,7 @@ const ProductsSearch = (props: props) => {
 				},
 			}}
 		>
-			<Dropdown menu={{ items }} trigger={["hover"]}>
+			<Dropdown menu={{ items }} placement="bottomCenter" autoAdjustOverflow={false}  trigger={["hover"]}>
 				<div className={`${css.search} ${focused ? css.focused : ""}`}>
 					<div className={css.inputWrapper}>
 						<input
