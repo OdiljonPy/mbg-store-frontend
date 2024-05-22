@@ -168,7 +168,6 @@ const ProductsSearch = (props: props) => {
 					...products?.map((item, index) => ({
 						label: <ProductResult item={item} loading={loading} />,
 						key: index + "c",
-						style: { marginInline: -8 },
 						icon: (
 							<ProductSearchIcon>
 								<svg
