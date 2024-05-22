@@ -13,7 +13,7 @@ const Index = (props: props) => {
 	const t = useTranslations();
 	return (
 		<>
-			<HeadWithSeo name='header.about' url={"/about"} />
+			<HeadWithSeo name={t("header.about")} url={"/about"} />
 			<section className={css.about}>
 				<div className={"container"}>
 					<Breadcrumbs
