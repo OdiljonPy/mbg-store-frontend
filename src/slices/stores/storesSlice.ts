@@ -3,15 +3,7 @@ import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface IFetchStoresResponse {
-	result: Record<
-		string,
-		[
-			{
-				id: number;
-				brand_name: string;
-			}
-		]
-	>;
+	result: IStoreLetter[];
 	ok: boolean;
 	error?: string;
 }
@@ -50,18 +42,9 @@ const storesSlice = createSlice({
 			})
 			.addCase(fetchAllStores.fulfilled, (state, action) => {
 				state.loading = false;
-				const result = action.payload.result;
 
-				let storesCount = 0;
-				state.stores = Object.keys(result).map((key) => {
-					storesCount += result[key].length;
-					return {
-						letter: key,
-						stores: result[key],
-					};
-				});
-
-				state.storesCount = storesCount;
+				state.stores = action.payload.result;
+				state.storesCount = action.payload.result.length;
 			})
 			.addCase(fetchAllStores.rejected, (state) => {
 				state.loading = false;

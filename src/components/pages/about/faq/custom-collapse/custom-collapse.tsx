@@ -5,13 +5,14 @@ import { IFaq } from "@/data-types/base/faq";
 
 interface Props {
 	item: IFaq;
+	index: number
 }
 
-const CustomCollapse = ({ item }: Props) => {
+const CustomCollapse = ({ item, index }: Props) => {
 	const { open, onToggle } = useCustomCollapse();
 	return (
 		<>
-			<Header item={item} open={open} onToggle={onToggle} />
+			<Header item={item} open={open} index={index} onToggle={onToggle} />
 			<Body answer={item.answer} open={open} />
 		</>
 	);

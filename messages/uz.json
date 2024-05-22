@@ -47,7 +47,7 @@
 		"delete_address": "Manzilni o'chirish",
 		"permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
 		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz",
-		"already_exists": "Ushbu manzil allaqachon saqlangan"
+		"already_exists": "Bunday nomli manzil allaqachon saqlangan"
 	},
 	"search": {
 		"placeholder": "Mahsulotlarni qidirish",
@@ -380,7 +380,8 @@
 			"available_for_pickup": "Tovar(lar)ni olib ketish mumkin"
 		},
 		"order_item_list": {
-			"title": "Buyurtma bo'yicha mahsulotlar"
+			"title": "Buyurtma bo'yicha mahsulotlar",
+			"qty": "miqdor"
 		},
 		"order_cost_card": {
 			"title": "Buyurtma narxi",

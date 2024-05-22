@@ -51,7 +51,7 @@
 		"address_status": "Основное",
 		"delete_address": "Удалить адресa",
 		"permission_delete": "Вы уверены что хотите удалить адрес",
-		"already_exists": "Этот адрес уже существует"
+		"already_exists": "Адрес с таким названием уже существует"
 	},
 	"search": {
 		"placeholder": "Поиск товаров",
@@ -385,7 +385,8 @@
 			"available_for_pickup": "Товар(ы) доступны для получения до"
 		},
 		"order_item_list": {
-			"title": "Товары в заказе"
+			"title": "Товары в заказе",
+			"qty": "кол-во"
 		},
 		"order_cost_card": {
 			"title": "Стоимость заказа",

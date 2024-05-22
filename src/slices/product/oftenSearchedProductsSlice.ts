@@ -11,7 +11,7 @@ export const fetchOftenSearchedProducts = createAsyncThunk(
 	"often_searched_products",
 	async () => {
 		const response = await API.get<OftenSearchedProductsResponse>(
-			"/store/products/often_searched/"
+			"/store/products/most-viewed/"
 		);
 		return response.data;
 	}
