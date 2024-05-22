@@ -34,8 +34,8 @@ const Faq = () => {
               ? Array.from({ length: 5 }).map((_, index) => (
                   <Loading key={index} index={index} />
                 ))
-              : data.map((faq: IFaq) => (
-                  <CustomCollapse item={faq} key={faq.id} />
+              : data.map((faq: IFaq, index) => (
+                  <CustomCollapse index={index} item={faq} key={faq.id} />
                 ))}
           </div>
           <ChatTrigger />
