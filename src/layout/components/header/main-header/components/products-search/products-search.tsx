@@ -108,7 +108,7 @@ const ProductsSearch = (props: props) => {
 									loading={false}
 								/>
 							),
-							style: { marginInline: -8 },
+							style: { marginInline: -8, paddingBlock: 0 },
 							key: index + "a",
 							icon: (
 								<svg
@@ -141,7 +141,7 @@ const ProductsSearch = (props: props) => {
 									loading={oftenSearchedLoading}
 								/>
 							),
-							style: { marginInline: -8 },
+							style: { marginInline: -8, paddingBlock: 0 },
 							key: index + "b",
 							icon: (
 								<ProductSearchIcon>
@@ -168,6 +168,7 @@ const ProductsSearch = (props: props) => {
 					...products?.map((item, index) => ({
 						label: <ProductResult item={item} loading={loading} />,
 						key: index + "c",
+						style: { paddingBlock: 0 },
 						icon: (
 							<ProductSearchIcon>
 								<svg
@@ -204,7 +205,12 @@ const ProductsSearch = (props: props) => {
 				},
 			}}
 		>
-			<Dropdown menu={{ items }} placement="bottomCenter" autoAdjustOverflow={false}  trigger={["hover"]}>
+			<Dropdown
+				menu={{ items }}
+				placement='bottomCenter'
+				autoAdjustOverflow={false}
+				trigger={["hover"]}
+			>
 				<div className={`${css.search} ${focused ? css.focused : ""}`}>
 					<div className={css.inputWrapper}>
 						<input
