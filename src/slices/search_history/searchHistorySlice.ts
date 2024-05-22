@@ -14,7 +14,7 @@ const searchHistorySlice = createSlice({
 	reducers: {
 		addSearchHistory: (state, action) => {
 			if (!state.data.includes(action.payload)) {
-				state.data = [...state.data, action.payload];
+				state.data = [action.payload, ...state.data];
 			}
 		},
 		removeSearchHistory: (state, action) => {

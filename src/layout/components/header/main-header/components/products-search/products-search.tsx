@@ -100,7 +100,7 @@ const ProductsSearch = (props: props) => {
 					),
 					type: "group",
 					children: [
-						...searchHistoryData?.map((item, index) => ({
+						...searchHistoryData.slice(0, 5)?.map((item, index) => ({
 							label: (
 								<ProductResult
 									isHistory
