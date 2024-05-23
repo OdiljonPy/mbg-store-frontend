@@ -13,7 +13,7 @@ interface Props {
 const HeadWithSeo = ({
 	name,
 	description = siteConfig.description,
-	url,
+	url = "",
 	ogImage = siteConfig.ogImage,
 	noFollow = false,
 	noIndex = false,

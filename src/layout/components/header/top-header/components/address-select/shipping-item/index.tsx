@@ -21,8 +21,8 @@ function ShippingItem({ main_address, shipping_item }: Props) {
 			changeDefaultAddress({
 				id: shipping_item.id,
 				address: shipping_item.address,
-				latitude: Number(shipping_item.latitude),
-				longitude: Number(shipping_item.longitude),
+				latitude: shipping_item.latitude,
+				longitude: shipping_item.longitude,
 			})
 		);
 	};

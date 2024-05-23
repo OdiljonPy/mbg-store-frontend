@@ -16,7 +16,7 @@ function OrderCostCard({ order, loading }: Props) {
 	const productsCost =
 		order.sale_price +
 		order.total_price +
-		(order.promo_code ? order.promo_code.discount : 0);
+		Number(order.promo_code?.discount);
 
 	return (
 		<div className={css.card}>
@@ -41,7 +41,14 @@ function OrderCostCard({ order, loading }: Props) {
 							{loading ? (
 								<Skeleton width={90} />
 							) : (
-								<>{priceFormatter(-order.sale_price, true)}</>
+								<>
+									{priceFormatter(
+										order.sale_price
+											? -order.sale_price
+											: 0,
+										true
+									)}
+								</>
 							)}
 						</span>
 					</li>
