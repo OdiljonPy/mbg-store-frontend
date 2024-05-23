@@ -24,14 +24,24 @@
 	font-weight: bold;
 }
 
-.warning {
-	color: #ef9545;
-}
-.done {
-	color: #2e9d58;
+.DELIVERED,
+.PICKED_UP,
+.PAID,
+.ACCEPTED {
+	color: #60c787;
 }
 
-.error {
+.PROGRESSING,
+.WAITING_FOR_PAYMENT {
+	color: #efb754;
+}
+
+.ON_THE_WAY,
+.READY_FOR_PICKUP {
+	color: #767bf9;
+}
+
+.CANCELLED {
 	color: #ff6c6c;
 }
 
