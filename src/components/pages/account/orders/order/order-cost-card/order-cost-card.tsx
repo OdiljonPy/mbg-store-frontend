@@ -16,7 +16,7 @@ function OrderCostCard({ order, loading }: Props) {
 	const productsCost =
 		order.sale_price +
 		order.total_price +
-		Number(order.promo_code.discount);
+		Number(order.promo_code?.discount);
 
 	return (
 		<div className={css.card}>

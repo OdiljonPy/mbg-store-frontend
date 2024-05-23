@@ -1,10 +1,9 @@
 import { IDeliveryAddress } from "../address/delivery-address";
-import { IUser } from "../auth/user";
 import { IProduct } from "../products/common";
 
 export interface IOrder {
 	id: number;
-	user: IUser;
+	user: number;
 	type: EnumDeliveryType;
 	total_price: number;
 	status: OrderStatusChoices;
