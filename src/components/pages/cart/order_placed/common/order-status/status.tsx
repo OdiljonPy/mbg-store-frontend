@@ -25,12 +25,7 @@ const Status = () => {
 					) : (
 						<span
 							className={
-								last_order.status === OrderStatusChoices.PAID
-									? css.done
-									: last_order.status ===
-									  OrderStatusChoices.WAITING_FOR_PAYMENT
-									? css.warning
-									: css.error
+								css[OrderStatusChoices[last_order.status]]
 							}
 						>
 							{t(orderStatusMap[last_order.status])}

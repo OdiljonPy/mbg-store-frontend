@@ -14,7 +14,7 @@ const Copyright = (props: props) => {
         ©{year}. MBGstore - {t("footer.copyright")}
       </p>
       <a
-        href="https://zerodev.uz"
+        href="https://www.zerodev.uz"
         target="_blank"
         className={css.copyright_link}
       >

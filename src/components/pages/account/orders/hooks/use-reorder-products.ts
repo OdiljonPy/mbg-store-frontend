@@ -12,13 +12,9 @@ export const useReorderProducts = (orderedItems: IOrderItem[]) => {
 		const basketProducts = [];
 		for (let i = 0; i < orderedItems.length; i++) {
 			const item = orderedItems[i];
-			const quantity = item.product.available >= item.quantity ? item.quantity : item.product.available;
-
-			if (quantity === 0) return;
-
 			basketProducts.push({
 				product: item.product,
-				quantity,
+				quantity: item.quantity,
 			});
 		}
 
