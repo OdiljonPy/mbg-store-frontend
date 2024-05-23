@@ -10,23 +10,23 @@ export interface IOrder {
 	status: OrderStatusChoices;
 	delivery_address: IDeliveryAddress | null;
 	created_at: string;
-	promo_code: IPromoCode | null;
+	promo_code: IPromoCode;
 	delivery_price: number;
 	sale_price: number;
-	sale_price_promo_code?:number,
+	sale_price_promo_code?: number;
 	order_items: IOrderItem[];
-	full_name?:string;
-	phone_number?:string
+	full_name?: string;
+	phone_number?: string;
 }
 
-export interface IPostOrder{
+export interface IPostOrder {
 	type: EnumDeliveryType;
-	full_name:string;
-	phone_number:string
-	products:{product:number,quantity:number}[]
-	delivery_price?:number,
-	delivery_address?:number,
-	promocode?:string | number
+	full_name: string;
+	phone_number: string;
+	products: { product: number; quantity: number }[];
+	delivery_price?: number;
+	delivery_address?: number;
+	promocode?: string | number;
 }
 
 export enum EnumDeliveryType {
@@ -48,7 +48,7 @@ export enum OrderStatusChoices {
 
 export interface IPromoCode {
 	promocode: string;
-	discount: number;
+	discount: number | null;
 }
 
 export interface IOrderItem {
