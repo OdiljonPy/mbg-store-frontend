@@ -18,76 +18,73 @@ import OrderedItemList from "./ordered-item-list/ordered-item-list";
 import css from "./wrapper.module.css";
 
 interface Props {
-	orderId: number;
+  orderId: number;
 }
 
 const Wrapper = ({ orderId }: Props) => {
-	const t = useTranslations();
+  const t = useTranslations();
 
-	const { order, loading, error } = useSelector(
-		(state: RootState) => state.order_item
-	);
+  const { order, loading, error } = useSelector(
+    (state: RootState) => state.order_item,
+  );
 
-	const dispatch = useDispatch<AppDispatch>();
+  console.log(order, "order item");
 
-	useEffect(() => {
-		dispatch(fetchOrderById(orderId));
-	}, [dispatch, orderId]);
+  const dispatch = useDispatch<AppDispatch>();
 
-	if (error)
-		return (
-			<div className={css.wrapper}>
-				<FormError error={"Что-то пошло не так"} />
-			</div>
-		);
+  useEffect(() => {
+    dispatch(fetchOrderById(orderId));
+  }, [dispatch, orderId]);
 
-	return (
-		<>
-			<HeadWithSeo
-				name={t("header.order") + " №" + orderId}
-				url={"/account/orders" + orderId}
-				noIndex
-				noFollow
-			/>
-			<div className={css.wrapper}>
-				<div className={cn(css.container, "container")}>
-					<Header order={order} loading={loading} />
-					<MobileHeader orderId={order.id} loading={loading} />
-					<div className={css.content}>
-						<main className={css.main}>
-							<section className={css.section}>
-								<h2 className={css.title}>
-									{t("orders.order_method.title")}
-								</h2>
-								{order.type === EnumDeliveryType.PICKUP ? (
-									<Pickup order={order} loading={loading} />
-								) : (
-									<Delivery order={order} loading={loading} />
-								)}
-							</section>
-							<section className={css.section}>
-								<h2 className={css.title}>
-									{t("orders.order_item_list.title")}{" "}
-									<Badge
-										count={order.order_items?.length}
-										color={"#60C787"}
-									/>
-								</h2>
-								<OrderedItemList
-									orderedItems={order.order_items}
-									loading={loading}
-								/>
-							</section>
-						</main>
-						<aside className={css.side}>
-							<OrderDetailsCard loading={loading} order={order} />
-							<OrderCostCard loading={loading} order={order} />
-						</aside>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+  if (error)
+    return (
+      <div className={css.wrapper}>
+        <FormError error={"Что-то пошло не так"} />
+      </div>
+    );
+
+  return (
+    <>
+      <HeadWithSeo
+        name={t("header.order") + " №" + orderId}
+        url={"/account/orders" + orderId}
+        noIndex
+        noFollow
+      />
+      <div className={css.wrapper}>
+        <div className={cn(css.container, "container")}>
+          <Header order={order} loading={loading} />
+          <MobileHeader orderId={order.id} loading={loading} />
+          <div className={css.content}>
+            <main className={css.main}>
+              <section className={css.section}>
+                <h2 className={css.title}>{t("orders.order_method.title")}</h2>
+                {order.type === EnumDeliveryType.PICKUP ? (
+                  <Pickup order={order} loading={loading} />
+                ) : (
+                  <Delivery order={order} loading={loading} />
+                )}
+              </section>
+              <section className={css.section}>
+                <h2 className={css.title}>
+                  {t("orders.order_item_list.title")}{" "}
+                  <Badge count={order.order_items?.length} color={"#60C787"} />
+                </h2>
+                <OrderedItemList
+                  orderedItems={order.order_items}
+                  loading={loading}
+                />
+              </section>
+            </main>
+            <aside className={css.side}>
+              <OrderDetailsCard loading={loading} order={order} />
+              <OrderCostCard loading={loading} order={order} />
+            </aside>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Wrapper;
