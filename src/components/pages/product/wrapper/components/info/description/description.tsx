@@ -13,6 +13,7 @@ import InfoPreloader from "@/components/pages/product/wrapper/components/info/in
 import NotificationStore from "@/components/shared/notification-store/NotificationStore";
 import React, { useState } from "react";
 import Button from "@/components/shared/button";
+import { cn } from "@/utils/cn";
 
 interface props {
   info: IProductInner;
@@ -37,13 +38,14 @@ const Description = ({ info, loading }: props) => {
                 <Badge
                   text={t("product.has", { count: info?.available })}
                   color={"#60C787"}
+                  className={css.custom_badge}
                 />
               </>
             ) : (
               <Badge
                 text={t("product.has_not")}
                 color={"#F2F2F2"}
-                className={css.text_grey}
+                className={cn(css.custom_badge, css.text_grey)}
               />
             )}
           </div>
