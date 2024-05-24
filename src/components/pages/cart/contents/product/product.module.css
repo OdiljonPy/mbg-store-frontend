@@ -66,8 +66,10 @@
         display: block;
     }
     .img{
-        width: 100px;
+        flex-basis: 100px;
+        height: 112px;
         flex-shrink: 0;
+        border-radius: 12px;
     }
     .product{
         border-bottom: none;
