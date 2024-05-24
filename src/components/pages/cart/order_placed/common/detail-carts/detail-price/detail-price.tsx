@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import css from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price.module.css";
 import DetailItem from "@/components/pages/cart/order_placed/common/detail-carts/components/detail-items/detail-item";
 import { priceFormatter } from "@/utils/price-formatter/price-formatter";
-import SendButton from "@/components/pages/cart/common/button/send_button";
 import React, { useState } from "react";
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
 import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
@@ -10,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
 import { useToasts } from "react-toast-notifications";
+import Button from "@/components/shared/button";
 
 interface props {
   isDeleteAction?: boolean;
@@ -103,11 +103,9 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
             <WarningText>
               <p>{t("order_placed.warning_text")}</p>
             </WarningText>
-            <SendButton
-              title={"orders.order_cost_card.cancel"}
-              outline={true}
-              onClick={openModal}
-            />
+            <Button full variant="secondary" onClick={openModal}>
+              {t("orders.order_cost_card.cancel")}
+            </Button>
           </div>
         )}
       </div>
