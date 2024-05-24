@@ -28,8 +28,6 @@ const Wrapper = ({ orderId }: Props) => {
     (state: RootState) => state.order_item,
   );
 
-  console.log(order, "order item");
-
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

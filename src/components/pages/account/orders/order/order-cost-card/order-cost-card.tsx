@@ -42,7 +42,6 @@ function OrderCostCard({ order, loading }: Props) {
       dispatch(changeOrderStatus(data))
         .unwrap()
         .then((res) => {
-          console.log(res, "response cancel");
           if (!res.ok) {
             setOpenCancelModal(false);
             addToast(t("notification.error"), {
