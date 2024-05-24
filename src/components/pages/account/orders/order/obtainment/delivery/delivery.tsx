@@ -19,7 +19,11 @@ function Delivery({ order, loading }: Props) {
 	const t = useTranslations("orders.delivery");
 	return (
 		<>
-			<p className={css.title}>{t("title")}:</p>
+			{loading ? (
+				<Skeleton className={css.title} width={"30%"} />
+			) : (
+				<p className={css.title}>{t("title")}:</p>
+			)}
 			<div className={css.card}>
 				<header className={css.card_header}>
 					{loading ? (
