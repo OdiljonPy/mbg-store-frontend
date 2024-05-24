@@ -15,6 +15,7 @@ import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store";
 import { useToasts } from "react-toast-notifications";
+import { useRouter } from "next/navigation";
 
 interface Props {
   order: IOrder;
@@ -25,6 +26,7 @@ function OrderCostCard({ order, loading }: Props) {
   const t = useTranslations("orders.order_cost_card");
   const dispatch = useDispatch<AppDispatch>();
   const { addToast } = useToasts();
+  const { push } = useRouter();
 
   const productsCost =
     order.sale_price + order.total_price + Number(order.promo_code?.discount);
@@ -37,16 +39,22 @@ function OrderCostCard({ order, loading }: Props) {
         id: order.id,
         status: 8,
       };
-      dispatch(changeOrderStatus(data)).then((res) => {
-        if (!res.payload?.ok) {
-          setOpenCancelModal(false);
-          addToast(t("notification.error"), {
-            appearance: "error",
-            autoDismiss: true,
-          });
-        }
-      });
-    }
+      dispatch(changeOrderStatus(data))
+        .unwrap()
+        .then((res) => {
+          console.log(res, "response cancel");
+          if (!res.ok) {
+            setOpenCancelModal(false);
+            addToast(t("notification.error"), {
+              appearance: "error",
+              autoDismiss: true,
+            });
+          } else {
+            setOpenCancelModal(false);
+            push("/account/orders");
+          }
+        });
+    } else setOpenCancelModal(false);
   };
 
   return (
