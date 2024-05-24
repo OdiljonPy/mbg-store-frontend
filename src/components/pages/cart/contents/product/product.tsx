@@ -72,7 +72,11 @@ const Product = ({ product, isAvailable = false }: props) => {
       {isAvailable && (
         <div className={css.isAvailable}>
           <div className={css.available_action}>
-            <Button variant={"tertiary"} onClick={() => actionButton(id, name)}>
+            <Button
+              className={css.available_btn}
+              variant={"light_green"}
+              onClick={() => actionButton(id, name)}
+            >
               {t("products.some_product")}
             </Button>
           </div>

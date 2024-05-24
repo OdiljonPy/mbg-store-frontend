@@ -19,12 +19,12 @@
 }
 
 .disabled{
-    background: var(--middle-gray);
+    background: var(--light-gray);
     color: var(--dark-grey);
     cursor: not-allowed;
 }
 .disabled:hover{
-    background: var(--middle-gray);
+    background: var(--light-gray);
 }
 
 @media (max-width: 991px) {

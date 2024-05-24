@@ -23,6 +23,10 @@
     right: 0;
 }
 
+.available_btn{
+    padding: 14px 20px;
+}
+
 .img {
     flex-basis: 150px;
     height: 168px;
@@ -62,8 +66,10 @@
         display: block;
     }
     .img{
-        width: 100px;
+        flex-basis: 100px;
+        height: 112px;
         flex-shrink: 0;
+        border-radius: 12px;
     }
     .product{
         border-bottom: none;
@@ -82,5 +88,11 @@
     }
     .available_action{
         bottom: 10px;
+    }
+    .available_btn{
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+        height: 40px !important;
+        border-radius: 12px !important;
     }
 }

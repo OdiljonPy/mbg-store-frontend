@@ -44,7 +44,9 @@ const Wrapper = (props: props) => {
   });
 
   useEffect(() => {
-    dispatch(checkProductAvailable([...products]));
+    if (products.length > 0) {
+      dispatch(checkProductAvailable([...products]));
+    }
     const token = localStorage.getItem("access_token");
     if (token) {
       dispatch(updateFavourites());

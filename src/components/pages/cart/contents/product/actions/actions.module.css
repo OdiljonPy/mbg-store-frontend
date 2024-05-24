@@ -1,101 +1,128 @@
-.action, .actions, .cardAdder {
-    display: flex;
+.action,
+.actions,
+.cardAdder {
+  display: flex;
 }
 
 .actions {
-    justify-content: space-between;
-    align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.action{
-    align-items: center;
-    gap: 28px;
+.action_available {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.available_saved{
+  display: block;
+}
+
+.action {
+  align-items: center;
+  gap: 28px;
+}
+
+.custom_badge {
+  color: #999999 !important;
 }
 
 .remove {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .text {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--icon-gray);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--icon-gray);
 }
 
-
-.path, .text{
-    transition: all .2s linear;
+.path,
+.text {
+  transition: all 0.2s linear;
 }
 
-.remove:hover .text{
-    color: var(--green);
+.remove:hover .text {
+  color: var(--green);
 }
 
-.remove:hover .path{
-    fill: var(--green);
+.remove:hover .path {
+  fill: var(--green);
 }
 
-.heart{
-    background: none;
-    border: none;
-    cursor: pointer;
+.heart {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.heart:hover .path{
-   fill: var(--green);
+.heart:hover .path {
+  fill: var(--green);
 }
 
-
-.cardAdder{
-    align-items: center;
-    gap: 20px;
+.cardAdder {
+  align-items: center;
+  gap: 20px;
 }
 
 .increment {
-    background: var(--green);
-    border-color: transparent;
+  background: var(--green);
+  border-color: transparent;
 }
 
 .add_disabled {
-    opacity: 0.85 !important;
-    cursor:not-allowed;
-    background: var(--middle-gray);
+  opacity: 0.85 !important;
+  cursor: not-allowed;
+  background: var(--middle-gray);
 }
-.add_disabled:hover{
-    background: var(--middle-gray) !important;
+.add_disabled:hover {
+  background: var(--middle-gray) !important;
 }
 
 .increment:hover {
-    background: var(--light-green);
+  background: var(--light-green);
 }
 
 .increment:active {
-    background: var(--green);
+  background: var(--green);
 }
-
 
 .decrement {
-    background: #FFFFFF;
-    border-color: var(--input-gray)!important;
+  background: #ffffff;
+  border-color: var(--input-gray) !important;
 }
 
-.decrement svg path{
-    transition: all .2s linear;
+.decrement svg path {
+  transition: all 0.2s linear;
 }
-.decrement:hover{
-    border-color: var(--green)!important;
+.decrement:hover {
+  border-color: var(--green) !important;
 }
 .decrement:hover svg path {
-    fill: var(--green);
+  fill: var(--green);
 }
 
-@media (max-width: 575px){
-    .actions{
-        align-items: center;
-    }
+
+@media (max-width: 768px){
+  .available_saved{
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .actions {
+    align-items: center;
+  }
+  .custom_badge {
+    border-radius: 4px;
+    padding: 2px 5px;
+  }
+  .action_available{
+      gap: 14px;
+  }
 }
