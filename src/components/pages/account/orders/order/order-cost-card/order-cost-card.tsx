@@ -1,5 +1,10 @@
+import Button from "@/components/shared/button";
 import Info from "@/components/shared/info/info";
-import { EnumDeliveryType, IOrder } from "@/data-types/order/order";
+import {
+	EnumDeliveryType,
+	IOrder,
+	OrderStatusChoices,
+} from "@/data-types/order/order";
 import { priceFormatter } from "@/utils/price-formatter/price-formatter";
 import { useTranslations } from "next-intl";
 import Skeleton from "react-loading-skeleton";
@@ -113,12 +118,15 @@ function OrderCostCard({ order, loading }: Props) {
 						</span>
 					</li>
 				</ul>
-				{order.type === EnumDeliveryType.PICKUP && (
-					<footer className={css.card_footer}>
-						<Info>{t("payment_when_receiving")}</Info>
-						<button className={css.btn}>{t("cancel")}</button>
-					</footer>
-				)}
+				{order.type === EnumDeliveryType.PICKUP &&
+					order.status !== OrderStatusChoices.CANCELLED && (
+						<footer className={css.card_footer}>
+							<Info>{t("payment_when_receiving")}</Info>
+							<Button full variant='secondary'>
+								{t("cancel")}
+							</Button>
+						</footer>
+					)}
 			</div>
 		</div>
 	);
