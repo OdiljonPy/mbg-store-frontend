@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import FormError from "@/components/shared/form-error/form-error";
 import { clearSignUpError, signUpUser } from "@/slices/auth/signup";
 import { setOtpKey } from "@/slices/otpKey/otpKey";
-import { setPhoneNumber } from "@/slices/phone_numer/phoneNumber";
 import { AppDispatch, RootState } from "@/store";
 import { TStep } from "../../auth";
 import Offer from "./offer/offer";
@@ -24,7 +23,8 @@ interface Props {
 
 const SignUp = ({ setStep, setPrevStep }: Props) => {
 	const t = useTranslations("auth.signUp");
-	const phoneNumber = useSelector((state: RootState) => state.phoneNumber);
+
+	const [phoneNumber, setPhoneNumber] = useState("");
 	const [password, setPassword] = useState<string>("");
 	const [offer, setOffer] = useState(false);
 	const dispatch = useDispatch<AppDispatch>();
@@ -60,7 +60,7 @@ const SignUp = ({ setStep, setPrevStep }: Props) => {
 				<h3 className={authCss.modal_title}>{t("title")}</h3>
 			</header>
 			<div className={authCss.modal_body}>
-				<PhoneNumberInput setValue={setPhoneNumber} />
+				<PhoneNumberInput setValue={setPhoneNumber} value={phoneNumber} />
 				<NewPasswordField
 					setPassword={setPassword}
 					isValid={isValid}
@@ -72,7 +72,12 @@ const SignUp = ({ setStep, setPrevStep }: Props) => {
 			<div className={authCss.modal_footer}>
 				<Button
 					loading={loading}
-					disabled={!isValid || !offer || phoneNumber.length < 13}
+					disabled={
+						!isValid ||
+						!offer ||
+						phoneNumber.length !== 13 ||
+						!phoneNumber.startsWith("+998")
+					}
 					className={`${authCss.btn} ${authCss.btn_primary}`}
 					type={"submit"}
 				>

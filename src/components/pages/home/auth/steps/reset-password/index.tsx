@@ -27,8 +27,7 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 	const t = useTranslations("auth.reset_password");
 	const { user } = useSelector((state: RootState) => state.user);
 
-	const [isValid, setIsValid] = useState(false);
-	const [phoneNumber, setPhoneNumber] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("+998");
 
 	const dispatch = useDispatch<AppDispatch>();
 	const { loading, error } = useSelector(
@@ -36,12 +35,11 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 	);
 
 	useEffect(() => {
-		setIsValid(phoneNumber?.length >= 13);
 		dispatch(clearResetError());
 	}, [dispatch, phoneNumber]);
 
 	useEffect(() => {
-		setPhoneNumber(user?.phone_number);
+		if (user?.phone_number) setPhoneNumber(user.phone_number);
 	}, [user?.phone_number]);
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -74,14 +72,21 @@ function ResetPassword({ setStep, setPrevStep }: Props) {
 			<div className={css.modal_body}>
 				<div>
 					<PhoneNumberInput
-						value={user?.phone_number}
+						value={phoneNumber}
 						setValue={setPhoneNumber}
 					/>
 					<ErrorMessage>{!!error && t(error)}</ErrorMessage>
 				</div>
 			</div>
 			<div className={css.modal_footer}>
-				<Button disabled={!isValid} full loading={loading}>
+				<Button
+					disabled={
+						phoneNumber?.length !== 13 ||
+						!phoneNumber.startsWith("+998")
+					}
+					full
+					loading={loading}
+				>
 					{t("get_code")}
 				</Button>
 			</div>
