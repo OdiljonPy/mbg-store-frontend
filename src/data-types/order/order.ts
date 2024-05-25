@@ -34,15 +34,15 @@ export enum EnumDeliveryType {
 }
 
 export enum OrderStatusChoices {
-	WAITING_FOR_PAYMENT,
-	PAID,
-	ACCEPTED,
-	PROGRESSING,
-	ON_THE_WAY,
-	READY_FOR_PICKUP,
-	DELIVERED,
-	PICKED_UP,
-	CANCELLED,
+	WAITING_FOR_PAYMENT = 0,
+	PAID = 1,
+	ACCEPTED = 2,
+	PROGRESSING = 3,
+	ON_THE_WAY = 4,
+	READY_FOR_PICKUP = 5,
+	DELIVERED = 6,
+	PICKED_UP = 7,
+	CANCELLED = 8,
 }
 
 export interface IPromoCode {

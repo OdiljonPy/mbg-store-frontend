@@ -392,7 +392,9 @@
 			"pickup": "Olib ketish",
 			"total": "Jami",
 			"payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
-			"cancel": "Buyurtmani bekor qilish"
+			"cancel": "Buyurtmani bekor qilish",
+			"checkout": "To'lovga o'tish",
+			"error":"Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
 		},
 		"order_details_card": {
 			"title": "Buyurtma tafsilotlari",
