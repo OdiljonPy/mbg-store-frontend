@@ -24,7 +24,7 @@ interface Props {
 const SignUp = ({ setStep, setPrevStep }: Props) => {
 	const t = useTranslations("auth.signUp");
 
-	const [phoneNumber, setPhoneNumber] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("+998");
 	const [password, setPassword] = useState<string>("");
 	const [offer, setOffer] = useState(false);
 	const dispatch = useDispatch<AppDispatch>();
@@ -85,7 +85,7 @@ const SignUp = ({ setStep, setPrevStep }: Props) => {
 				</Button>
 				<p className={css.signup}>
 					{t("have_account")}{" "}
-					<span onClick={() => setStep("login")}>{t("login")}</span>
+					<button onClick={() => setStep("login")}>{t("login")}</button>
 				</p>
 			</div>
 		</form>
