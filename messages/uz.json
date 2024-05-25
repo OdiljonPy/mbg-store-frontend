@@ -260,7 +260,8 @@
 			"create_account": "Hisob yaratish",
 			"have_account": "Hisobingiz mavjudmi?",
 			"login": "Hisobga kirish",
-			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud"
+			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud",
+			"invalid_region": "Faqat Uzbekiston telefon raqamini kiriting"
 		},
 		"signUp_success": {
 			"title": "Xush kelibsiz!",

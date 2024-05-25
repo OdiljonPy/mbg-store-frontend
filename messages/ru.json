@@ -265,7 +265,8 @@
 			"create_account": "Создать аккаунт",
 			"have_account": "Есть аккаунт?",
 			"login": "Войти в аккаунт",
-			"account_already_exists": "Аккаунт с таким номером уже существует"
+			"account_already_exists": "Аккаунт с таким номером уже существует",
+			"invalid_region": "Введите Узбекистанский номер телефона"
 		},
 		"signUp_success": {
 			"title": "Добро пожаловать!",
