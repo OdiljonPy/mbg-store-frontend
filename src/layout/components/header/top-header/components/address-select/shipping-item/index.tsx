@@ -1,32 +1,30 @@
 import CustomRadio from "@/components/shared/custom-radio/custom-radio";
 import { IShipping } from "@/data-types/shipping";
-import {
-	fetchShippingList,
-	patchShipping,
-} from "@/slices/shipping/shippingSlice";
 import { AppDispatch } from "@/store";
 import { useDispatch } from "react-redux";
 
+import { changeDefaultAddress } from "@/slices/address/addressSlice";
 import Badge from "./badge/badge";
+
+import { IAddress } from "@/data-types/address/address";
 import css from "./shipping-item.module.css";
 
 interface Props {
 	shipping_item: IShipping;
+	main_address: IAddress;
 }
-function ShippingItem({ shipping_item }: Props) {
+function ShippingItem({ main_address, shipping_item }: Props) {
 	const dispatch = useDispatch<AppDispatch>();
 
-	const onChangeHandler = async () => {
-		await dispatch(
-			patchShipping({
-				shippingId: shipping_item.id,
-				body: {
-					...shipping_item,
-					main_address: true,
-				},
+	const onChangeHandler = () => {
+		dispatch(
+			changeDefaultAddress({
+				id: shipping_item.id,
+				address: shipping_item.address,
+				latitude: shipping_item.latitude,
+				longitude: shipping_item.longitude,
 			})
 		);
-		dispatch(fetchShippingList());
 	};
 
 	return (
@@ -40,7 +38,7 @@ function ShippingItem({ shipping_item }: Props) {
 					title: "",
 				}}
 				options={{
-					checked: shipping_item.main_address,
+					checked: shipping_item.id === main_address.id,
 					disabled: false,
 					onChange: onChangeHandler,
 				}}

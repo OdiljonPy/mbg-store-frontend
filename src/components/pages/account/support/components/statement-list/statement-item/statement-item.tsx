@@ -13,6 +13,7 @@ interface Props {
 }
 function StatementItem({ statementItem }: Props) {
 	const t = useTranslations("support");
+	const tn = useTranslations("support.first_step")
 
 	const [showMore, setShowMore] = React.useState(false);
 
@@ -37,7 +38,10 @@ function StatementItem({ statementItem }: Props) {
 					<h3 className={css.title}>
 						{t("statement")} № {statementItem.id}
 					</h3>
-					<p className={css.subtitle}>{statementItem.topic}</p>
+					{statementItem.topic ?
+							<p className={css.subtitle}>{tn(statementItem.topic)}</p>
+						: ""
+					}
 				</div>
 				<div className={css.header_right}>
 					<p className={css.date}>

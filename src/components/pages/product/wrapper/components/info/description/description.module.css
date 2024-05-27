@@ -19,6 +19,10 @@
    color: var(--icon-gray);
 }
 
+.text_grey{
+    color: #999999 !important;
+}
+
 
 @media (max-width: 991px) {
     .text{
@@ -43,5 +47,9 @@
     }
     .weight{
         font-size: 16px;
+    }
+    .custom_badge{
+        border-radius: 4px;
+        padding: 2px 5px;
     }
 }

@@ -1,76 +1,77 @@
-.item, .background{
-    border-radius: var(--medium-radius);
-    object-fit: cover;
+.item,
+.background {
+	border-radius: var(--medium-radius);
+	background-size: cover;
 }
 
 .item {
-    min-height: 250px;
-    display: block;
-    padding: 24px 30px;
-    flex: 0 0 23%;
-    position: relative;
-    cursor: pointer;
-    transition: all .2s linear;
-    text-decoration: none;
+	min-height: 250px;
+	display: block;
+	padding: 24px 30px;
+	flex: 0 0 23%;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	text-decoration: none;
 }
 
 .item:hover {
-    transform: translateY(-15px);
+	transform: translateY(-15px);
 }
 
 .background {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-size: cover;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
 }
 
 .title {
-    display: block;
-    font-size: 28px;
-    font-weight: 700;
-    color: #FFFFFF;
-    z-index: 1;
+	display: block;
+	font-size: 28px;
+	font-weight: 700;
+	color: #ffffff;
+	z-index: 1;
 }
 
 @media (max-width: 1199px) {
-    .item{
-        flex: 0 0 31%;
-    }
+	.item {
+		flex: 0 0 31%;
+	}
 }
 @media (max-width: 991px) {
-    .item{
-        flex: 0 0 48%;
-    }
+	.item {
+		flex: 0 0 48%;
+	}
 }
 @media (max-width: 767px) {
-    .background{
-        background-size: contain;
-        background-position: bottom center;
-    }
-    .item{
-    }
+	.background {
+		background-size: contain;
+		background-position: bottom center;
+	}
+	.item {
+	}
 }
 
 @media (max-width: 767px) {
-    .title{
-        font-size: 20px;
-    }
+	.title {
+		font-size: 20px;
+	}
 }
 
 @media (max-width: 575px) {
-    .item{
-        min-height: 150px;
-        padding: 14px;
-    }
+	.item {
+		min-height: 150px;
+		padding: 14px;
+	}
 
-    .title{
-        font-size: 14px;
-    }
+	.title {
+		font-size: 14px;
+	}
 }

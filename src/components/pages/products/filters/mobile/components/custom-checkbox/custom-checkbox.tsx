@@ -24,7 +24,7 @@ const CustomCheckbox = ({item, name, boolName,hasCount = true}: props) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         if (boolName) {
-            setValue(boolName, true)
+            // setValue(boolName, true)
         }
         onChange(e)
     }

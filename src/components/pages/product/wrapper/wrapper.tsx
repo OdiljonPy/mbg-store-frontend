@@ -1,31 +1,69 @@
-import React, { useEffect } from "react";
-import css from "./wrapper.module.css";
-import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
-import { useTranslations } from "next-intl";
-import Similar from "@/components/pages/product/wrapper/components/similar/similar";
-import Info from "@/components/pages/product/wrapper/components/info/info";
-import Comparison from "@/components/pages/product/wrapper/components/info/comparison/comparison";
 import Feedbacks from "@/components/pages/product/wrapper/components/feedbacks/feedbacks";
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import Comparison from "@/components/pages/product/wrapper/components/info/comparison/comparison";
+import Info from "@/components/pages/product/wrapper/components/info/info";
+import Similar from "@/components/pages/product/wrapper/components/similar/similar";
+import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
+import HeadWithSeo from "@/layout/metadata";
+import {
+	fetchProductComments,
+	fetchProductSingle,
+} from "@/slices/product/productSingleSlices";
 import { AppDispatch, RootState } from "@/store";
-import { fetchProductSingle } from "@/slices/product/productSingleSlices";
+import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import css from "./wrapper.module.css";
 
 interface props {}
 
 const Wrapper = (props: props) => {
 	const t = useTranslations();
 	const router = useRouter();
+	const searchParams = useSearchParams();
+	const [slideLoad, setSlideLoad] = useState(true);
 
-	const { info, loading } = useSelector((state: RootState) => state.product_single);
+	const { info, loading, comments } = useSelector(
+		(state: RootState) => state.product_single
+	);
+	const {
+		rating,
+		rating_count,
+		comparison_products,
+		related_products,
+		name,
+	} = info;
+
+	const ratingFilter = searchParams.get("rating");
+	const [offset, setOffset] = useState(5);
+
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
-		dispatch(fetchProductSingle(router.query.id));
+		dispatch(fetchProductSingle(router?.query?.id));
 	}, [dispatch, router.query.id]);
+
+	useEffect(() => {
+		dispatch(
+			fetchProductComments({
+				id: router?.query?.id,
+				size: offset,
+				rating: ratingFilter ? ratingFilter : "",
+			})
+		);
+		setSlideLoad(true);
+		setTimeout(() => setSlideLoad(false), 2000);
+	}, [router.query.id, ratingFilter, offset]);
 
 	return (
 		<section className={css.wrapper}>
+			<HeadWithSeo
+				name={name}
+				ogImage={info?.images?.[0]?.image as string}
+				description={info?.description}
+				url={"/products/" + info.id}
+			/>
 			<div className={"container"}>
 				<Breadcrumbs
 					items={[
@@ -43,11 +81,35 @@ const Wrapper = (props: props) => {
 						},
 					]}
 				/>
-				{info && <Info info={info} loading={loading} />}
 
-				<Comparison comparison={info.comparison_products} loading={loading} />
-				<Similar similar={info.related_products} loading={loading} />
-				<Feedbacks comments={info.comments} loading={loading} />
+				{info && <Info info={info} loading={slideLoad} />}
+
+				{comparison_products?.length ? (
+					<Comparison
+						comparison={comparison_products}
+						loading={loading}
+					/>
+				) : (
+					""
+				)}
+
+				{related_products?.length && (
+					<div>
+						{
+							<Similar
+								similar={related_products}
+								loading={slideLoad}
+							/>
+						}
+					</div>
+				)}
+				<Feedbacks
+					rating={rating}
+					rating_count={rating_count}
+					comments={comments}
+					loading={loading}
+					setOffset={(offset) => setOffset(offset)}
+				/>
 			</div>
 		</section>
 	);

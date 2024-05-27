@@ -1,5 +1,6 @@
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
+import { MutableRefObject } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { IAddressForm } from "../types";
 import css from "./address-detect.module.css";
@@ -7,9 +8,10 @@ import css from "./address-detect.module.css";
 interface Props {
 	form: UseFormReturn<IAddressForm>;
 	mapConstructor?: YMapsApi;
+	mapRef: MutableRefObject<ymaps.Map | undefined>;
 }
 
-const AddressDetect = ({ mapConstructor, form }: Props) => {
+const AddressDetect = ({ mapConstructor, form, mapRef }: Props) => {
 	const t = useTranslations();
 
 	const onDetectLocation = () => {
@@ -19,9 +21,11 @@ const AddressDetect = ({ mapConstructor, form }: Props) => {
 				mapStateAutoApply: true,
 			})
 			.then((res: any) => {
-				const [x, y] = res.geoObjects.position;
-				form.setValue("latitude", x);
-				form.setValue("longitude", y);
+				const coordinates = res.geoObjects.position;
+				if (mapRef.current) {
+					mapRef.current.setZoom(18);
+					mapRef.current.panTo(coordinates, { flying: true });
+				}
 			});
 	};
 

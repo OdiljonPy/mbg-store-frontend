@@ -12,7 +12,7 @@ interface props {
 
 const HeadingLine = ({ heading, small, loading }: props) => {
 	const t = useTranslations();
-	const { title, count } = heading;
+	const { title, count, link } = heading;
 	const [address, setAddress] = useState<string | null>("");
 
 	useEffect(() => {
@@ -22,10 +22,10 @@ const HeadingLine = ({ heading, small, loading }: props) => {
 	return (
 		<div className={`${css.heading} ${small ? css.small : ""}`}>
 			<h3 className={css.title}>{t(title)}</h3>
-			{!!address && (
-				<>
+			<>
+				{link && (
 					<Link
-						href={`/`}
+						href={link}
 						className={`${css.link} ${!count ? css.hide : ""}`}
 					>
 						<span className={css.text}>
@@ -45,8 +45,8 @@ const HeadingLine = ({ heading, small, loading }: props) => {
 							/>
 						</svg>
 					</Link>
-				</>
-			)}
+				)}
+			</>
 		</div>
 	);
 };

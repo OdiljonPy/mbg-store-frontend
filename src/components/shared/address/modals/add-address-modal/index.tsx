@@ -13,11 +13,7 @@ function AddNewAddressModal({ children, className, ...props }: Props) {
 	const { onClose, onOpen, open } = useModal();
 	return (
 		<>
-			<div
-				{...props}
-				className={cn(css.modal_trigger, className)}
-				onClick={onOpen}
-			>
+			<div {...props} className={cn(css.modal_trigger, className)} onClick={onOpen}>
 				{children}
 			</div>
 			<Modal

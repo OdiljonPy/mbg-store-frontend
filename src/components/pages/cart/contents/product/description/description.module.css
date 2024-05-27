@@ -2,6 +2,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .name{
@@ -16,11 +17,11 @@
     font-weight: 600;
     color: var(--icon-gray);
 }
-.price_desctop{
+.price_desktop{
     display: block;
 }
 @media (max-width: 575px) {
-    .price_desctop{
+    .price_desktop{
         display: none;
     }
     .info{

@@ -81,7 +81,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 							{loading ? (
 								<Skeleton width={150} />
 							) : (
-								<>Малика Кадирова</>
+								<>{order?.full_name}</>
 							)}
 						</span>
 					</li>
@@ -91,7 +91,7 @@ function OrderDetailsCard({ order, loading }: Props) {
 							{loading ? (
 								<Skeleton width={120} />
 							) : (
-								<>{formatPhoneNumber("+998901234567")}</>
+								<>{formatPhoneNumber(order?.phone_number ? order.phone_number : '+998900000000')}</>
 							)}
 						</span>
 					</li>

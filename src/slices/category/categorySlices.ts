@@ -2,19 +2,21 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import API from "@/utils/axios/axios";
 import {ICategory, ICommonCategory} from "@/data-types/categories/categories";
 
-interface IQuery {
-    q:string,
-    size:number | string
-}
-export const fetchCategory = createAsyncThunk('category', async (query:IQuery) =>{
-    const {q,size} = query
-    const response = await API.get<ICommonCategory>(`/category/?size=${size}&q=${q}`)
+
+export const fetchCategory = createAsyncThunk('category', async (size:number) =>{
+    const response = await API.get<ICommonCategory>(`/category/?size=${size}`)
+    return response.data
+})
+
+export const fetchCategoryPopular = createAsyncThunk('category_popular', async () =>{
+    const response = await API.get<ICommonCategory>(`/category/?size=6&q=popular`)
     return response.data
 })
 
 
 const initialState = {
     categories : [] as ICategory[],
+    popular_categories : [] as ICategory[],
     loading : false,
     error:false
 }
@@ -28,6 +30,7 @@ const initialState = {
         builder
             .addCase(fetchCategory.pending, (state,action) =>{
                 state.loading = true
+                state.error = false
             })
             .addCase(fetchCategory.fulfilled,(state, {payload}) =>{
             if(payload.ok){
@@ -40,7 +43,29 @@ const initialState = {
         })
             .addCase(fetchCategory.rejected, (state)=>{
                 state.error = true
+                state.loading = false
             })
+
+    //     popular category
+        builder
+            .addCase(fetchCategoryPopular.pending, (state,action) =>{
+                state.error = false
+                state.loading = true
+            })
+            .addCase(fetchCategoryPopular.fulfilled,(state, {payload}) =>{
+                if(payload.ok){
+                    state.popular_categories = payload.result
+                }
+                else{
+                    state.error = true
+                }
+                state.loading = false
+            })
+            .addCase(fetchCategoryPopular.rejected, (state)=>{
+                state.error = true
+                state.loading = false
+            })
+
     })
 })
 

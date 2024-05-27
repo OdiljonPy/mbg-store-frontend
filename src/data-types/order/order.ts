@@ -1,16 +1,15 @@
 import { IDeliveryAddress } from "../address/delivery-address";
-import { IUser } from "../auth/user";
 import { IPagination, IProduct } from "../products/common";
 
 export interface IOrder {
 	id: number;
-	user: IUser;
+	user: number;
 	type: EnumDeliveryType;
 	total_price: number;
 	status: OrderStatusChoices;
 	delivery_address: IDeliveryAddress | null;
 	created_at: string;
-	promo_code: IPromoCode | null;
+	promo_code: IPromoCode;
 	delivery_price: number;
 	sale_price: number;
 	sale_price_promo_code?: number;
@@ -39,20 +38,20 @@ export enum EnumDeliveryType {
 }
 
 export enum OrderStatusChoices {
-	WAITING_FOR_PAYMENT,
-	PAID,
-	ACCEPTED,
-	PROGRESSING,
-	ON_THE_WAY,
-	READY_FOR_PICKUP,
-	DELIVERED,
-	PICKED_UP,
-	CANCELLED,
+	WAITING_FOR_PAYMENT = 0,
+	PAID = 1,
+	ACCEPTED = 2,
+	PROGRESSING = 3,
+	ON_THE_WAY = 4,
+	READY_FOR_PICKUP = 5,
+	DELIVERED = 6,
+	PICKED_UP = 7,
+	CANCELLED = 8,
 }
 
 export interface IPromoCode {
 	promocode: string;
-	discount: number;
+	discount: number | null;
 }
 
 export interface IOrderItem {

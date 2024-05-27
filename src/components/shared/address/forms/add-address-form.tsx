@@ -7,12 +7,14 @@ import {
 } from "@/slices/shipping/shippingSlice";
 import { AppDispatch, RootState } from "@/store";
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
-import { useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 import { useTranslations } from "use-intl";
 import AddressMap from "../address-map/address-map";
+import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
-import AddressFields from "./address-fields";
+import Fields from "./fields";
 import css from "./form.module.css";
 
 interface Props {
@@ -21,6 +23,7 @@ interface Props {
 
 function AddAddressForm({ onClose }: Props) {
 	const t = useTranslations("address");
+	const { addToast } = useToasts();
 
 	const form = useForm<IAddressForm>({
 		defaultValues: {
@@ -30,38 +33,74 @@ function AddAddressForm({ onClose }: Props) {
 			longitude: 69.268657,
 			main_address: false,
 		},
+		mode: "onChange",
 	});
+	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
+
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { postLoading } = useSelector(
+	const { shippingList, postLoading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = async (data: IAddressForm) => {
-		const { apartment, entrance, floor, latitude, longitude, ...rest } =
-			data;
+		const {
+			apartment,
+			entrance,
+			floor,
+			latitude,
+			longitude,
+			address_name,
+			...rest
+		} = data;
 
-		await dispatch(
-			postShipping({
-				apartment: Number(apartment),
-				entrance: Number(entrance),
-				floor: Number(floor),
-				latitude: String(latitude),
-				longitude: String(longitude),
-				...rest,
-			})
-		);
-		await dispatch(fetchShippingList());
-		onClose();
+		if (shippingList.find((item) => item.address_name === address_name)) {
+			addToast(t("already_exists"), {
+				appearance: "error",
+				autoDismiss: true,
+			});
+			return;
+		}
+
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
+
+			await dispatch(
+				postShipping({
+					apartment: apartment ? Number(apartment) : undefined,
+					entrance: entrance ? Number(entrance) : undefined,
+					floor: floor ? Number(floor) : undefined,
+					latitude: latitude,
+					longitude: longitude,
+					address_name,
+					...rest,
+					address: address,
+				})
+			);
+			await dispatch(fetchShippingList());
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
 
 	return (
 		<form className={css.form} onSubmit={form.handleSubmit(onSubmit)}>
 			<div className={css.form_left}>
 				<h2 className={css.title}>{t("add_delivery")}</h2>
-				<AddressFields form={form} mapConstructor={mapConstructor} />
+				<Fields
+					mapRef={mapRef}
+					form={form}
+					mapConstructor={mapConstructor}
+				/>
 				<Button
+					onClick={form.handleSubmit(onSubmit)}
+					type={"button"}
 					full
 					disabled={!form.formState.isValid}
 					loading={postLoading}
@@ -74,6 +113,7 @@ function AddAddressForm({ onClose }: Props) {
 					form={form}
 					mapConstructor={mapConstructor}
 					setMapConstructor={setMapConstructor}
+					mapRef={mapRef}
 				/>
 			</div>
 		</form>

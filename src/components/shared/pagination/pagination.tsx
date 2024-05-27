@@ -7,20 +7,25 @@ import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 
 interface props{
     content?:boolean
-    page:number,
     total:number,
     offset:number,
+    limit:number
     setOffset:(page:number)=> void
 }
-const Pagination = ({content=false,page,offset,total,setOffset} :props) =>{
+const Pagination = ({content=false,offset,total,setOffset,limit} :props) =>{
     const t = useTranslations()
+    const handlePagination = () =>{
+        if(offset < total){
+            setOffset(offset + limit)
+        }
+    }
     return(
         <div className={css.pagination}>
             {content &&  <div className={css.pagination_content}>
-                {offset}-{page} из {priceFormatter(total)} товаров
+                1-{offset < total ? offset : total} {t('filters.up_to')} {priceFormatter(total)} {t('filters.from')}
             </div>}
             <div className={css.pagination_btn}>
-                <Button onClick={()=> setOffset(offset + 1)} variant={"secondary"}>{t('support.show_less')}</Button>
+                <Button onClick={()=> handlePagination()} variant={"secondary"} disabled={offset >=total}>{t('products.show_more')}</Button>
             </div>
         </div>
     )

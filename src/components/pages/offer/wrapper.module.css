@@ -1,0 +1,16 @@
+.wrapper {
+	background-color: var(--light-gray);
+	overflow: auto;
+}
+
+.main {
+	display: flex;
+	padding: 40px 24px;
+	justify-content: center;
+}
+
+@media (max-width: 767px) {
+	.main {
+		padding: 16px 0;
+	}
+}

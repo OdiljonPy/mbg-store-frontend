@@ -28,7 +28,7 @@ const RatingItem = ({item}: props) => {
 
     const onSetRating = () => {
         setValue('rating', key.toString())
-        setValue('withFeedback', true)
+        // setValue('withFeedback', true)
     }
 
 

@@ -8,14 +8,16 @@ import {useTranslations} from 'next-intl';
 import {usePathname, useSearchParams} from "next/navigation";
 import {useRouter} from "next/router";
 import {ParsedUrlQuery} from "querystring";
+import Skeleton from "react-loading-skeleton";
 
 interface IProps {
     item: ICustomRadio
     hasIcon?: boolean
     checked?: boolean
+    loading:boolean
 }
 
-const Rating = ({item, hasIcon, checked}: IProps) => {
+const Rating = ({item, hasIcon, checked,loading}: IProps) => {
     const t = useTranslations()
 
     const searchParams = useSearchParams()
@@ -58,9 +60,12 @@ const Rating = ({item, hasIcon, checked}: IProps) => {
                 <p className={css.title}>
                     {title}
                 </p>
-                <p className={css.count}>
-                    ({count} {t('products.rates').toLowerCase()})
-                </p>
+                {
+                    loading ? <Skeleton count={1} width={120}/> :
+                    <p className={css.count}>
+                        ({count} {t('products.rates').toLowerCase()})
+                    </p>
+                }
             </div>
         </CustomRadio>
     );

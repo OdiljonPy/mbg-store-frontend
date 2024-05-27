@@ -24,7 +24,7 @@ const Option = ({item}: props) => {
         const salesArr: string[] = delivery ? delivery : []
         const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
         setValue('delivery', newStores)
-        setValue('hasDelivery', true)
+        // setValue('hasDelivery', true)
     }
 
 

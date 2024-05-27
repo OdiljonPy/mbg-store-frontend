@@ -34,7 +34,7 @@ const DrawerHeader = ({options}: props) => {
             </h3>
             <button onClick={onReset} type={'button'}
                     className={`${css.reset} ${!count ? css.hide : ''} ${raleway.className}`}>
-                {t('reset')}
+                {t('filters.clear')}
             </button>
         </div>
     );

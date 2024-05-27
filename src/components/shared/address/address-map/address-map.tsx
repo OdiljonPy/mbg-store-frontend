@@ -1,5 +1,5 @@
-import { Map } from "@pbe/react-yandex-maps";
-import { Dispatch, SetStateAction } from "react";
+import { Map, ZoomControl } from "@pbe/react-yandex-maps";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { UseFormReturn } from "react-hook-form";
@@ -10,10 +10,16 @@ interface Props {
 	form: UseFormReturn<IAddressForm>;
 	mapConstructor?: YMapsApi;
 	setMapConstructor: Dispatch<SetStateAction<YMapsApi | undefined>>;
+	mapRef: MutableRefObject<ymaps.Map | undefined>;
 }
 
-function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
-	const state: ymaps.IMapState = {
+function AddressMap({
+	form,
+	mapConstructor,
+	setMapConstructor,
+	mapRef,
+}: Props) {
+	const defaultState: ymaps.IMapState = {
 		center: [
 			Number(form.watch("latitude")),
 			Number(form.watch("longitude")),
@@ -22,28 +28,30 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 	};
 
 	const handleBoundsChange = (e: any) => {
-		const newCoords = e.originalEvent.newCenter;
-		mapConstructor?.geocode(newCoords).then((res: any) => {
-			const nearest = res.geoObjects.get(0);
-			const [x, y] = nearest.geometry.getCoordinates();
-			const address = nearest.properties.get("text");
-			form.setValue("latitude", x);
-			form.setValue("longitude", y);
-			form.setValue("address", address);
-		});
+		const [x, y] = e.originalEvent.newCenter;
+		mapConstructor?.geocode([x, y]).then(
+			(res: any) => {
+				const nearest = res.geoObjects.get(0);
+				const address = nearest.properties.get("name");
+				form.setValue("latitude", x);
+				form.setValue("longitude", y);
+				form.setValue("address", address);
+				form.trigger("address");
+			},
+			(error) => {
+				console.error("Error occurred during geocoding:", error);
+			}
+		);
 	};
 
 	return (
 		<Map
 			modules={["geocode", "geolocation", "SuggestView", "suggest"]}
-			defaultOptions={{
-				suppressMapOpenBlock: true,
-				copyrightLogoVisible: false,
-			}}
-			state={state}
+			defaultState={defaultState}
 			className={css.map}
 			onLoad={setMapConstructor}
 			onBoundsChange={handleBoundsChange}
+			instanceRef={mapRef}
 		>
 			<svg
 				className={css.pin}
@@ -69,6 +77,7 @@ function AddressMap({ form, mapConstructor, setMapConstructor }: Props) {
 					fill='#F65751'
 				/>
 			</svg>
+			<ZoomControl />
 		</Map>
 	);
 }

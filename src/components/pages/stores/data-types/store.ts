@@ -1,10 +1,9 @@
 export interface IStoreLetter {
-    letter: string
-    id: number
-    stores: IStore[]
+	letter: string;
+	stores: IStore[];
 }
 
 export interface IStore {
-    id: number
-    title: string
+	id: number;
+	brand_name: string;
 }

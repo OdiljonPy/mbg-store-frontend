@@ -12,37 +12,39 @@ import css from "./contact-list.module.css";
 import Skeleton from "react-loading-skeleton";
 
 const ContactList = () => {
-	const { data, error, loading } = useSelector(
-		(state: RootState) => state.about
-	);
+  const { data, error, loading } = useSelector(
+    (state: RootState) => state.about,
+  );
 
-	if (error) return <p>Что-то пошло не так</p>;
+  if (error) return <p>Что-то пошло не так</p>;
 
-	return (
-		<ul className={css.list}>
-			<ContactItem
-				icon={phone}
-				label='footer.phone'
-				title={formatPhoneNumber(data.phone) || "Нет телефона"}
-				path={data?.phone}
-				loading={loading}
-			/>
-			<ContactItem
-				icon={email}
-				label='footer.email'
-				title={data?.email}
-				path={data?.email}
-				loading={loading}
-			/>
-			<ContactItem
-				icon={map}
-				label='footer.address'
-				title={data?.address}
-				path={data?.address}
-				loading={loading}
-			/>
-		</ul>
-	);
+  return (
+    <ul className={css.list}>
+      <ContactItem
+        type={"phone"}
+        icon={phone}
+        label="footer.phone"
+        title={formatPhoneNumber(data.phone) || "Нет телефона"}
+        path={data?.phone}
+        loading={loading}
+      />
+      <ContactItem
+        type={"mail"}
+        icon={email}
+        label="footer.email"
+        title={data?.email}
+        path={data?.email}
+        loading={loading}
+      />
+      <ContactItem
+        icon={map}
+        label="footer.address"
+        title={data?.address}
+        path={data?.address_url}
+        loading={loading}
+      />
+    </ul>
+  );
 };
 
 export default ContactList;

@@ -4,6 +4,14 @@
 	left: 20px;
 }
 
+.unavailable,
+.flag {
+	position: absolute;
+	bottom: unset;
+	top: 16px;
+	left: 16px;
+}
+
 .favorite_icon {
 	position: absolute;
 	top: 20px;
@@ -17,14 +25,17 @@
 	position: relative;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .img {
 	text-decoration: none;
 	cursor: pointer;
-	height: 200px;
 	width: 200px;
-	margin-top: 50px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (max-width: 1199px) {
@@ -32,6 +43,18 @@
 		bottom: unset;
 		top: 8px;
 		left: 16px;
+	}
+	.flag_with_discount {
+		top: 50px;
+	}
+}
+
+@media (max-width: 991px) {
+	.flag_badge {
+		font-size: 10px;
+	}
+	.flag_with_discount {
+		top: 40px;
 	}
 }
 
@@ -43,7 +66,14 @@
 	.img {
 		width: 104px;
 		height: 104px;
-		margin-top: 30px;
+	}
+	.favorite_icon {
+		top: 8px;
+		right: 8px;
+	}
+	.favorite_icon svg {
+		width: 28px;
+		height: 28px;
 	}
 }
 
@@ -56,12 +86,21 @@
 	}
 
 	.favorite_icon {
-		top: 8px;
-		right: 8px;
+		top: 6px;
+		right: 6px;
 	}
 
 	.favorite_icon svg {
 		width: 24px;
 		height: 24px;
+	}
+
+	.flag_with_discount {
+		left: 8px;
+		top: 38px;
+	}
+
+	.flag_badge {
+		padding: 3px 8px;
 	}
 }

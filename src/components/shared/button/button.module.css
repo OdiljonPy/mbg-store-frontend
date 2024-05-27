@@ -55,6 +55,14 @@
 	background-color: var(--super-light-green);
 }
 
+.light_green{
+	color: var(--text-green);
+	background-color: var(--pale-green);
+}
+.light_green:hover{
+	background-color: var(--super-light-green);
+}
+
 .tertiary {
 	background-color: var(--super-light-green);
 	color: var(--green);
@@ -67,6 +75,11 @@
 .tertiary:active {
 	background-color: var(--green);
 	color: #fff;
+}
+
+.tertiary:active svg path {
+	fill: #fff;
+	transition: all 0.2s linear;
 }
 
 .danger {

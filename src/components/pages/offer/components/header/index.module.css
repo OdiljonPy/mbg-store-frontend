@@ -1,0 +1,44 @@
+.header {
+	height: 80px;
+	display: flex;
+	align-items: center;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	cursor: pointer;
+}
+
+.header > div {
+	flex-grow: 1;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.logo_text {
+	font-size: 30px;
+	font-weight: 900;
+}
+
+@media (max-width: 768px) {
+	.header {
+		height: 52px;
+	}
+
+	.logo {
+		width: fit-content;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.logo img {
+		width: 46px;
+	}
+
+	.logo_text {
+		font-size: 16px;
+	}
+}

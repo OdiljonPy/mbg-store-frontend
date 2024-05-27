@@ -1,8 +1,23 @@
+import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
+import Button from "@/components/shared/button";
 import Info from "@/components/shared/info/info";
-import { EnumDeliveryType, IOrder } from "@/data-types/order/order";
+import { generateClickUpPaymentLink } from "@/config/clickup";
+import { siteConfig } from "@/config/site";
+import {
+	EnumDeliveryType,
+	IOrder,
+	OrderStatusChoices,
+} from "@/data-types/order/order";
+import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
+import { createOrder } from "@/slices/order/ordersSlice";
+import { AppDispatch, RootState } from "@/store";
 import { priceFormatter } from "@/utils/price-formatter/price-formatter";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 import css from "./order-cost-card.module.css";
 
 interface Props {
@@ -12,11 +27,76 @@ interface Props {
 
 function OrderCostCard({ order, loading }: Props) {
 	const t = useTranslations("orders.order_cost_card");
+	const dispatch = useDispatch<AppDispatch>();
+	const { addToast } = useToasts();
+	const { push } = useRouter();
 
 	const productsCost =
 		order.sale_price +
 		order.total_price +
-		(order.promo_code ? order.promo_code.discount : 0);
+		Number(order.promo_code?.discount);
+
+	const [openCancelModal, setOpenCancelModal] = useState(false);
+	const { createLoad } = useSelector((state: RootState) => state.orders);
+
+	const orderCancel = (status: "cancel" | "close") => {
+		if (status === "cancel") {
+			const data = {
+				id: order.id,
+				status: 8,
+			};
+			dispatch(changeOrderStatus(data))
+				.unwrap()
+				.then((res) => {
+					if (!res.ok) {
+						setOpenCancelModal(false);
+						addToast(t("notification.error"), {
+							appearance: "error",
+							autoDismiss: true,
+						});
+					} else {
+						setOpenCancelModal(false);
+						push("/account/orders");
+					}
+				});
+		} else setOpenCancelModal(false);
+	};
+
+	const submitOrder = () => {
+		dispatch(
+			createOrder({
+				products: order.order_items.map((item) => ({
+					product: item.product.id,
+					quantity: item.quantity,
+				})),
+				full_name: order.full_name || "",
+				phone_number: order.phone_number || "",
+				type: order.type,
+				delivery_address: order.delivery_address?.id,
+				delivery_price: order.delivery_price,
+				promocode: order.promo_code?.promocode,
+			})
+		)
+			.unwrap()
+			.then((res) => {
+				if (res.ok) {
+					const paymentLink = generateClickUpPaymentLink({
+						orderId: res.result.id,
+						returnUrl:
+							siteConfig.url + `/account/orders/${order.id}`,
+						amount: order.total_price,
+					});
+					push(paymentLink).then(() => true);
+					localStorage.removeItem("storeCheckOne");
+				} else throw new Error("error");
+			})
+			.catch(() => {
+				return addToast(t("error"), {
+					appearance: "error",
+					autoDismiss: true,
+				});
+			});
+	};
 
 	return (
 		<div className={css.card}>
@@ -41,7 +121,14 @@ function OrderCostCard({ order, loading }: Props) {
 							{loading ? (
 								<Skeleton width={90} />
 							) : (
-								<>{priceFormatter(-order.sale_price, true)}</>
+								<>
+									{priceFormatter(
+										order.sale_price
+											? -order.sale_price
+											: 0,
+										true
+									)}
+								</>
 							)}
 						</span>
 					</li>
@@ -58,7 +145,7 @@ function OrderCostCard({ order, loading }: Props) {
 							) : (
 								<>
 									{priceFormatter(
-										-(order.promo_code?.discount || 0),
+										-(order.promo_code?.discount || -0),
 										true
 									)}
 								</>
@@ -106,10 +193,33 @@ function OrderCostCard({ order, loading }: Props) {
 						</span>
 					</li>
 				</ul>
-				{order.type === EnumDeliveryType.PICKUP && (
+				{order.status !== OrderStatusChoices.CANCELLED && !loading && (
 					<footer className={css.card_footer}>
-						<Info>{t("payment_when_receiving")}</Info>
-						<button className={css.btn}>{t("cancel")}</button>
+						{order.type === EnumDeliveryType.PICKUP && (
+							<Info>{t("payment_when_receiving")}</Info>
+						)}
+						{order.type === EnumDeliveryType.DELIVERY && (
+							<Button
+								type='submit'
+								full
+								onClick={submitOrder}
+								loading={createLoad}
+							>
+								{t("checkout")}
+							</Button>
+						)}
+						<Button
+							full
+							variant='secondary'
+							onClick={() => setOpenCancelModal(true)}
+						>
+							{t("cancel")}
+						</Button>
+						<CancelModal
+							open={openCancelModal}
+							onClose={orderCancel}
+							title={order.id}
+						/>
 					</footer>
 				)}
 			</div>

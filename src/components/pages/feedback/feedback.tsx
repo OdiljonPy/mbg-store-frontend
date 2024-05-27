@@ -18,9 +18,11 @@ const Feedback = (props: props) => {
     const {info,loading} = useSelector((state:RootState) => state.product_single)
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
+
     useEffect(() => {
         dispatch(fetchProductSingle(router.query.id))
     }, [dispatch]);
+
     return (
         <section className={css.page}>
             <div className={'container'}>

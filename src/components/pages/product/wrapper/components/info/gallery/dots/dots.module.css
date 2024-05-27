@@ -21,6 +21,7 @@
 @media (max-width: 991px) {
     .wrapper{
         display: flex;
+        justify-content: center;
         order: 1;
     }
 }

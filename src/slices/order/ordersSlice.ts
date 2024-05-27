@@ -23,10 +23,15 @@ export const fetchOrders = createAsyncThunk(
 
 // create order
 
+interface CreateOrderResponse {
+	result: IOrder;
+	ok: boolean;
+}
+
 export const createOrder = createAsyncThunk(
 	"order_create",
 	async (order: IPostOrder) => {
-		const res = await API.post("/store/order/", order);
+		const res = await API.post<CreateOrderResponse>("/store/order/", order);
 		return res.data;
 	}
 );
@@ -74,7 +79,7 @@ const ordersSlice = createSlice({
 			})
 			.addCase(createOrder.fulfilled, (state, { payload }) => {
 				state.createLoad = false;
-				state.error = false
+				state.error = false;
 			})
 			.addCase(createOrder.rejected, (state) => {
 				state.createLoad = false;

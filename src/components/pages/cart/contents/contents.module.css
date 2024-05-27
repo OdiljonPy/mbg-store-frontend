@@ -3,9 +3,40 @@
     gap: 24px;
 }
 
+.unavailable{
+    margin: 50px 0;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.info_not_available{
+    margin-bottom: 24px;
+}
+
 @media (max-width: 992px){
     .contents{
         flex-basis: 100%;
         width: 100%;
+    }
+}
+
+@media (max-width: 575px){
+    .unavailable{
+        margin: 16px 0 10px;
+    }
+    .title{
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    .info_not_available{
+        margin-bottom: 12px;
     }
 }

@@ -2,7 +2,10 @@ import {IProduct, IStore} from "@/data-types/products/common";
 
 export interface IBasketSlices{
     products:IProduct[]
+    not_available:IProduct[]
     store_list:IStore[],
+    checkLoad:boolean,
+    checkErr:boolean,
     totalCountProduct : number
     all_prices:number
     discount_price:number

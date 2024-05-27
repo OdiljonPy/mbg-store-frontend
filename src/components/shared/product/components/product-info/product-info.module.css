@@ -15,6 +15,10 @@
     color: var(--text-green);
 }
 
+.seller{
+    margin-top: 4px;
+}
+
 
 @media (max-width: 575px) {
     .title{
