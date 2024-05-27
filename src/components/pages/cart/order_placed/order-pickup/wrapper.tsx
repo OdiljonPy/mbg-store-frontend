@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
 import { fetchOrderLast } from "@/slices/order/lastOrderSlice";
-import OrderError from "@/components/pages/cart/order_placed/order-pickup/notification/error/OrderError";
+import OrderError from "@/components/pages/cart/order_placed/common/order-error/error/OrderError";
 import CartEmpty from "@/components/pages/cart/common/cart-empty/cart-empty";
 import OrderCostCard from "@/components/pages/account/orders/order/order-cost-card/order-cost-card";
 
@@ -56,7 +56,7 @@ const Wrapper = (props: props) => {
             <Content />
             <div className={css.detail}>
               <DetailCart />
-              {/*<DetailPrice isDeleteAction setErr={(err) => setErr(err)} />*/}
+              <DetailPrice isDeleteAction setErr={(err) => setErr(err)} />
               <OrderCostCard order={last_order} loading={loading} />
             </div>
           </div>

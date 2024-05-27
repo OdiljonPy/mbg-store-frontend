@@ -1,12 +1,12 @@
-import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
+import CancelModal from "@/components/pages/cart/order_placed/common/cancel-modal/cancel-modal";
 import Button from "@/components/shared/button";
 import Info from "@/components/shared/info/info";
 import { generateClickUpPaymentLink } from "@/config/clickup";
 import { siteConfig } from "@/config/site";
 import {
-	EnumDeliveryType,
-	IOrder,
-	OrderStatusChoices,
+  EnumDeliveryType,
+  IOrder,
+  OrderStatusChoices,
 } from "@/data-types/order/order";
 import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
 import { createOrder } from "@/slices/order/ordersSlice";
@@ -21,210 +21,199 @@ import { useToasts } from "react-toast-notifications";
 import css from "./order-cost-card.module.css";
 
 interface Props {
-	order: IOrder;
-	loading: boolean;
+  order: IOrder;
+  loading: boolean;
+  setErr?: (val: boolean) => void;
 }
 
-function OrderCostCard({ order, loading }: Props) {
-	const t = useTranslations("orders.order_cost_card");
-	const dispatch = useDispatch<AppDispatch>();
-	const { addToast } = useToasts();
-	const { push } = useRouter();
+function OrderCostCard({ order, loading, setErr }: Props) {
+  const t = useTranslations("orders.order_cost_card");
+  const dispatch = useDispatch<AppDispatch>();
+  const { addToast } = useToasts();
+  const { push } = useRouter();
 
-	const productsCost =
-		order.sale_price +
-		order.total_price +
-		Number(order.promo_code?.discount);
+  const productsCost =
+    order.sale_price + order.total_price + Number(order.promo_code?.discount);
 
-	const [openCancelModal, setOpenCancelModal] = useState(false);
-	const { createLoad } = useSelector((state: RootState) => state.orders);
+  const [openCancelModal, setOpenCancelModal] = useState(false);
+  const { createLoad } = useSelector((state: RootState) => state.orders);
 
-	const orderCancel = (status: "cancel" | "close") => {
-		if (status === "cancel") {
-			const data = {
-				id: order.id,
-				status: 8,
-			};
-			dispatch(changeOrderStatus(data))
-				.unwrap()
-				.then((res) => {
-					if (!res.ok) {
-						setOpenCancelModal(false);
-						addToast(t("notification.error"), {
-							appearance: "error",
-							autoDismiss: true,
-						});
-					} else {
-						setOpenCancelModal(false);
-						push("/account/orders");
-					}
-				});
-		} else setOpenCancelModal(false);
-	};
+  const orderCancel = (status: "cancel" | "close") => {
+    if (status === "cancel") {
+      const data = {
+        id: order.id,
+        status: 8,
+      };
+      dispatch(changeOrderStatus(data))
+        .unwrap()
+        .then((res) => {
+          if (!res.ok) {
+            setOpenCancelModal(false);
+            if (setErr) {
+              setErr(true);
+            }
+            addToast(t("notification.error"), {
+              appearance: "error",
+              autoDismiss: true,
+            });
+          } else {
+            setOpenCancelModal(false);
+            push("/account/orders");
+          }
+        });
+    } else setOpenCancelModal(false);
+  };
 
-	const submitOrder = () => {
-		dispatch(
-			createOrder({
-				products: order.order_items.map((item) => ({
-					product: item.product.id,
-					quantity: item.quantity,
-				})),
-				full_name: order.full_name || "",
-				phone_number: order.phone_number || "",
-				type: order.type,
-				delivery_address: order.delivery_address?.id,
-				delivery_price: order.delivery_price,
-				promocode: order.promo_code?.promocode,
-			})
-		)
-			.unwrap()
-			.then((res) => {
-				if (res.ok) {
-					const paymentLink = generateClickUpPaymentLink({
-						orderId: res.result.id,
-						returnUrl:
-							siteConfig.url + `/account/orders/${order.id}`,
-						amount: order.total_price,
-					});
-					push(paymentLink).then(() => true);
-					localStorage.removeItem("storeCheckOne");
-				} else throw new Error("error");
-			})
-			.catch(() => {
-				return addToast(t("error"), {
-					appearance: "error",
-					autoDismiss: true,
-				});
-			});
-	};
+  const submitOrder = () => {
+    dispatch(
+      createOrder({
+        products: order.order_items.map((item) => ({
+          product: item.product.id,
+          quantity: item.quantity,
+        })),
+        full_name: order.full_name || "",
+        phone_number: order.phone_number || "",
+        type: order.type,
+        delivery_address: order.delivery_address?.id,
+        delivery_price: order.delivery_price,
+        promocode: order.promo_code?.promocode,
+      }),
+    )
+      .unwrap()
+      .then((res) => {
+        if (res.ok) {
+          const paymentLink = generateClickUpPaymentLink({
+            orderId: res.result.id,
+            returnUrl: siteConfig.url + `/account/orders/${order.id}`,
+            amount: order.total_price,
+          });
+          push(paymentLink).then(() => true);
+          localStorage.removeItem("storeCheckOne");
+        } else throw new Error("error");
+      })
+      .catch(() => {
+        return addToast(t("error"), {
+          appearance: "error",
+          autoDismiss: true,
+        });
+      });
+  };
 
-	return (
-		<div className={css.card}>
-			<header className={css.card_header}>
-				<h2 className={css.card_title}>{t("title")}</h2>
-			</header>
-			<div className={css.card_body}>
-				<ul className={css.list}>
-					<li>
-						<span>{t("products_cost")}</span>
-						<span>
-							{loading ? (
-								<Skeleton width={100} />
-							) : (
-								<>{priceFormatter(productsCost, true)}</>
-							)}
-						</span>
-					</li>
-					<li>
-						<span>{t("discounts")}</span>
-						<span>
-							{loading ? (
-								<Skeleton width={90} />
-							) : (
-								<>
-									{priceFormatter(
-										order.sale_price
-											? -order.sale_price
-											: 0,
-										true
-									)}
-								</>
-							)}
-						</span>
-					</li>
-					<li>
-						<span>
-							{t("promo_code")}{" "}
-							<span className={css.promoname}>
-								{order.promo_code?.promocode}
-							</span>
-						</span>
-						<span>
-							{loading ? (
-								<Skeleton width={90} />
-							) : (
-								<>
-									{priceFormatter(
-										-(order.promo_code?.discount || -0),
-										true
-									)}
-								</>
-							)}
-						</span>
-					</li>
-					{order.type === EnumDeliveryType.DELIVERY && (
-						<li>
-							<span>{t("delivery")}</span>
-							<span>
-								{loading ? (
-									<Skeleton width={90} />
-								) : (
-									<>
-										{priceFormatter(
-											order.delivery_price,
-											true
-										)}
-									</>
-								)}
-							</span>
-						</li>
-					)}
-					{order.type === EnumDeliveryType.PICKUP && (
-						<li>
-							<span>{t("pickup")}</span>
-							<span>
-								{loading ? (
-									<Skeleton width={90} />
-								) : (
-									<>{priceFormatter(0, true)}</>
-								)}
-							</span>
-						</li>
-					)}
-					<div className={css.divider} />
-					<li className={css.total}>
-						<span>{t("total")}</span>
-						<span>
-							{loading ? (
-								<Skeleton width={90} />
-							) : (
-								<>{priceFormatter(order.total_price, true)}</>
-							)}
-						</span>
-					</li>
-				</ul>
-				{order.status !== OrderStatusChoices.CANCELLED && !loading && (
-					<footer className={css.card_footer}>
-						{order.type === EnumDeliveryType.PICKUP && (
-							<Info>{t("payment_when_receiving")}</Info>
-						)}
-						{order.type === EnumDeliveryType.DELIVERY && (
-							<Button
-								type='submit'
-								full
-								onClick={submitOrder}
-								loading={createLoad}
-							>
-								{t("checkout")}
-							</Button>
-						)}
-						<Button
-							full
-							variant='secondary'
-							onClick={() => setOpenCancelModal(true)}
-						>
-							{t("cancel")}
-						</Button>
-						<CancelModal
-							open={openCancelModal}
-							onClose={orderCancel}
-							title={order.id}
-						/>
-					</footer>
-				)}
-			</div>
-		</div>
-	);
+  return (
+    <div className={css.card}>
+      <header className={css.card_header}>
+        <h2 className={css.card_title}>{t("title")}</h2>
+      </header>
+      <div className={css.card_body}>
+        <ul className={css.list}>
+          <li>
+            <span>{t("products_cost")}</span>
+            <span>
+              {loading ? (
+                <Skeleton width={100} />
+              ) : (
+                <>{priceFormatter(productsCost, true)}</>
+              )}
+            </span>
+          </li>
+          <li>
+            <span>{t("discounts")}</span>
+            <span>
+              {loading ? (
+                <Skeleton width={90} />
+              ) : (
+                <>
+                  {priceFormatter(
+                    order.sale_price ? -order.sale_price : 0,
+                    true,
+                  )}
+                </>
+              )}
+            </span>
+          </li>
+          <li>
+            <span>
+              {t("promo_code")}{" "}
+              <span className={css.promoname}>
+                {order.promo_code?.promocode}
+              </span>
+            </span>
+            <span>
+              {loading ? (
+                <Skeleton width={90} />
+              ) : (
+                <>{priceFormatter(-(order.promo_code?.discount || -0), true)}</>
+              )}
+            </span>
+          </li>
+          {order.type === EnumDeliveryType.DELIVERY && (
+            <li>
+              <span>{t("delivery")}</span>
+              <span>
+                {loading ? (
+                  <Skeleton width={90} />
+                ) : (
+                  <>{priceFormatter(order.delivery_price, true)}</>
+                )}
+              </span>
+            </li>
+          )}
+          {order.type === EnumDeliveryType.PICKUP && (
+            <li>
+              <span>{t("pickup")}</span>
+              <span>
+                {loading ? (
+                  <Skeleton width={90} />
+                ) : (
+                  <>{priceFormatter(0, true)}</>
+                )}
+              </span>
+            </li>
+          )}
+          <div className={css.divider} />
+          <li className={css.total}>
+            <span>{t("total")}</span>
+            <span>
+              {loading ? (
+                <Skeleton width={90} />
+              ) : (
+                <>{priceFormatter(order.total_price, true)}</>
+              )}
+            </span>
+          </li>
+        </ul>
+        {order.status !== OrderStatusChoices.CANCELLED && !loading && (
+          <footer className={css.card_footer}>
+            {order.type === EnumDeliveryType.PICKUP && (
+              <Info>{t("payment_when_receiving")}</Info>
+            )}
+            {order.type === EnumDeliveryType.DELIVERY && (
+              <Button
+                type="submit"
+                full
+                onClick={submitOrder}
+                loading={createLoad}
+              >
+                {t("checkout")}
+              </Button>
+            )}
+            <Button
+              full
+              variant="secondary"
+              onClick={() => setOpenCancelModal(true)}
+            >
+              {t("cancel")}
+            </Button>
+            <CancelModal
+              open={openCancelModal}
+              onClose={orderCancel}
+              title={order.id}
+            />
+          </footer>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default OrderCostCard;

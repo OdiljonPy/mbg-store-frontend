@@ -3,7 +3,7 @@ import Address from "@/components/pages/cart/order_placed/order-pickup/content/a
 import OrderItems from "@/components/pages/cart/order_placed/common/order-items/order-items";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
-import OrderError from "@/components/pages/cart/order_placed/order-pickup/notification/error/OrderError";
+import OrderError from "@/components/pages/cart/order_placed/common/order-error/error/OrderError";
 import { useTranslations } from "next-intl";
 interface props {}
 const Content = (props: props) => {

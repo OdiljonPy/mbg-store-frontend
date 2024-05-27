@@ -4,7 +4,7 @@ import DetailItem from "@/components/pages/cart/order_placed/common/detail-carts
 import { priceFormatter } from "@/utils/price-formatter/price-formatter";
 import React, { useState } from "react";
 import WarningText from "@/components/pages/cart/common/warning-text/warning-text";
-import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
+import CancelModal from "@/components/pages/cart/order_placed/common/cancel-modal/cancel-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
