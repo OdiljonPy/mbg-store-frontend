@@ -1,4 +1,4 @@
-import CancelModal from "@/components/pages/cart/order_placed/order-pickup/content/modal/cancel-modal/cancel-modal";
+import CancelModal from "@/components/pages/cart/order_placed/common/cancel-modal/cancel-modal";
 import Button from "@/components/shared/button";
 import Info from "@/components/shared/info/info";
 import { generateClickUpPaymentLink } from "@/config/clickup";
@@ -21,46 +21,48 @@ import { useToasts } from "react-toast-notifications";
 import css from "./order-cost-card.module.css";
 
 interface Props {
-	order: IOrder;
-	loading: boolean;
+  order: IOrder;
+  loading: boolean;
+  setErr?: (val: boolean) => void;
 }
 
-function OrderCostCard({ order, loading }: Props) {
-	const t = useTranslations("orders.order_cost_card");
-	const dispatch = useDispatch<AppDispatch>();
-	const { addToast } = useToasts();
-	const { push } = useRouter();
+function OrderCostCard({ order, loading, setErr }: Props) {
+  const t = useTranslations("orders.order_cost_card");
+  const dispatch = useDispatch<AppDispatch>();
+  const { addToast } = useToasts();
+  const { push } = useRouter();
 
-	const productsCost =
-		order.sale_price +
-		order.total_price +
-		Number(order.promo_code?.discount);
+  const productsCost =
+    order.sale_price + order.total_price + Number(order.promo_code?.discount);
 
-	const [openCancelModal, setOpenCancelModal] = useState(false);
-	const { createLoad } = useSelector((state: RootState) => state.orders);
+  const [openCancelModal, setOpenCancelModal] = useState(false);
+  const { createLoad } = useSelector((state: RootState) => state.orders);
 
-	const orderCancel = (status: "cancel" | "close") => {
-		if (status === "cancel") {
-			const data = {
-				id: order.id,
-				status: 8,
-			};
-			dispatch(changeOrderStatus(data))
-				.unwrap()
-				.then((res) => {
-					if (!res.ok) {
-						setOpenCancelModal(false);
-						addToast(t("notification.error"), {
-							appearance: "error",
-							autoDismiss: true,
-						});
-					} else {
-						setOpenCancelModal(false);
-						push("/account/orders");
-					}
-				});
-		} else setOpenCancelModal(false);
-	};
+  const orderCancel = (status: "cancel" | "close") => {
+    if (status === "cancel") {
+      const data = {
+        id: order.id,
+        status: 8,
+      };
+      dispatch(changeOrderStatus(data))
+        .unwrap()
+        .then((res) => {
+          if (!res.ok) {
+            setOpenCancelModal(false);
+            if (setErr) {
+              setErr(true);
+            }
+            addToast(t("notification.error"), {
+              appearance: "error",
+              autoDismiss: true,
+            });
+          } else {
+            setOpenCancelModal(false);
+            push("/account/orders");
+          }
+        });
+    } else setOpenCancelModal(false);
+  };
 
 	const submitOrder = () => {
 		dispatch(

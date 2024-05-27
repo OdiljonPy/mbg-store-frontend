@@ -1,6 +1,5 @@
-import css from "./address.module.css";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+import css from "./delivery-address.module.css";
+
 import ShippingCard from "@/components/pages/cart/common/address-card/shipping-card";
 import { IDeliveryAddress } from "@/data-types/address/delivery-address";
 import { useTranslations } from "next-intl";
