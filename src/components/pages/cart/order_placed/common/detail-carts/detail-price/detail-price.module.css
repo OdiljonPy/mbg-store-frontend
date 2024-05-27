@@ -85,7 +85,10 @@
     .total{
         border:none;
         flex-basis: 100%;
+        padding: 14px 0;
+        border-radius: 14px;
     }
+
 }
 
 /*recipient total sum*/
