@@ -1,6 +1,6 @@
 import { IDeliveryAddress } from "../address/delivery-address";
 import { IUser } from "../auth/user";
-import { IProduct } from "../products/common";
+import { IPagination, IProduct } from "../products/common";
 
 export interface IOrder {
 	id: number;
@@ -13,20 +13,24 @@ export interface IOrder {
 	promo_code: IPromoCode | null;
 	delivery_price: number;
 	sale_price: number;
-	sale_price_promo_code?:number,
+	sale_price_promo_code?: number;
 	order_items: IOrderItem[];
-	full_name?:string;
-	phone_number?:string
+	full_name?: string;
+	phone_number?: string;
 }
 
-export interface IPostOrder{
+export interface IOrderWithPagination extends IPagination {
+	content: IOrder[];
+}
+
+export interface IPostOrder {
 	type: EnumDeliveryType;
-	full_name:string;
-	phone_number:string
-	products:{product:number,quantity:number}[]
-	delivery_price?:number,
-	delivery_address?:number,
-	promocode?:string | number
+	full_name: string;
+	phone_number: string;
+	products: { product: number; quantity: number }[];
+	delivery_price?: number;
+	delivery_address?: number;
+	promocode?: string | number;
 }
 
 export enum EnumDeliveryType {
