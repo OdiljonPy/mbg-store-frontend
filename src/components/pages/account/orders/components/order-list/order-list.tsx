@@ -16,7 +16,7 @@ function OrdersList() {
 	if (loading)
 		return (
 			<ul className={css.list}>
-				{Array.from({ length: orders.content.length || 3 }).map(
+				{Array.from({ length: orders.content?.length || 3 }).map(
 					(_, index) => (
 						<li key={index}>
 							<OrderItemSkeleton />
