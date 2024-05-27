@@ -98,6 +98,13 @@ function OrderCostCard({ order, loading }: Props) {
 			});
 	};
 
+	console.log(
+		(order.status !== OrderStatusChoices.CANCELLED &&
+			order.status !== OrderStatusChoices.PICKED_UP &&
+			order.type === EnumDeliveryType.PICKUP) ||
+			order.status === OrderStatusChoices.WAITING_FOR_PAYMENT
+	);
+
 	return (
 		<div className={css.card}>
 			<header className={css.card_header}>
@@ -193,12 +200,15 @@ function OrderCostCard({ order, loading }: Props) {
 						</span>
 					</li>
 				</ul>
-				{order.status !== OrderStatusChoices.CANCELLED && !loading && (
+				{!loading && (
 					<footer className={css.card_footer}>
-						{order.type === EnumDeliveryType.PICKUP && (
-							<Info>{t("payment_when_receiving")}</Info>
-						)}
-						{order.type === EnumDeliveryType.DELIVERY && (
+						{order.status !== OrderStatusChoices.PICKED_UP &&
+							order.status !== OrderStatusChoices.CANCELLED &&
+							order.type === EnumDeliveryType.PICKUP && (
+								<Info>{t("payment_when_receiving")}</Info>
+							)}
+						{order.status ===
+							OrderStatusChoices.WAITING_FOR_PAYMENT && (
 							<Button
 								type='submit'
 								full
@@ -208,18 +218,26 @@ function OrderCostCard({ order, loading }: Props) {
 								{t("checkout")}
 							</Button>
 						)}
-						<Button
-							full
-							variant='secondary'
-							onClick={() => setOpenCancelModal(true)}
-						>
-							{t("cancel")}
-						</Button>
-						<CancelModal
-							open={openCancelModal}
-							onClose={orderCancel}
-							title={order.id}
-						/>
+						{(order.status !== OrderStatusChoices.CANCELLED &&
+							order.status !== OrderStatusChoices.PICKED_UP &&
+							order.type === EnumDeliveryType.PICKUP) ||
+						order.status ===
+							OrderStatusChoices.WAITING_FOR_PAYMENT ? (
+							<>
+								<Button
+									full
+									variant='secondary'
+									onClick={() => setOpenCancelModal(true)}
+								>
+									{t("cancel")}
+								</Button>
+								<CancelModal
+									open={openCancelModal}
+									onClose={orderCancel}
+									title={order.id}
+								/>
+							</>
+						) : null}
 					</footer>
 				)}
 			</div>
