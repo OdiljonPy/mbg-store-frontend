@@ -10,9 +10,10 @@ import OrderedItemSkeleton from "@/components/pages/account/orders/order/ordered
 interface props {
   products: IOrderItem[];
   loading: boolean;
+  create_at?: string;
 }
 
-const Address = ({ products, loading }: props) => {
+const Address = ({ products, loading, create_at }: props) => {
   const t = useTranslations();
   const [storeList, setStoreList] = useState<IStore[]>([]);
   useEffect(() => {
@@ -32,7 +33,12 @@ const Address = ({ products, loading }: props) => {
         <div className={css.address_item}>
           {storeList.length
             ? storeList?.map((store) => (
-                <AddressCard type={"pick_up"} store={store} key={store?.id} />
+                <AddressCard
+                  create_at={create_at}
+                  type={"pick_up"}
+                  store={store}
+                  key={store?.id}
+                />
               ))
             : ""}
         </div>

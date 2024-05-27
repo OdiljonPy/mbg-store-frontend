@@ -22,7 +22,11 @@ const Content = ({ last_order, loading }: props) => {
       {last_order.type === EnumDeliveryType.PICKUP && (
         <>
           <h2 className={css.title}>{t("orders.order_method.title")}</h2>
-          <PickupAddress products={order_items} loading={loading} />
+          <PickupAddress
+            create_at={last_order.created_at}
+            products={order_items}
+            loading={loading}
+          />
         </>
       )}
 
