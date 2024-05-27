@@ -1,5 +1,5 @@
 import AddressCard from "@/components/pages/cart/common/address-card/address-card";
-import css from "@/components/pages/cart/order_placed/order-delivery/content/address/address.module.css";
+import css from "./delivery-address.module.css";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { CollectStoreList } from "@/utils/collect-store-list/collect-store-list";
@@ -10,9 +10,10 @@ import OrderedItemSkeleton from "@/components/pages/account/orders/order/ordered
 interface props {
   products: IOrderItem[];
   loading: boolean;
+  create_at?: string;
 }
 
-const Address = ({ products, loading }: props) => {
+const Address = ({ products, loading, create_at }: props) => {
   const t = useTranslations();
   const [storeList, setStoreList] = useState<IStore[]>([]);
   useEffect(() => {
@@ -32,7 +33,12 @@ const Address = ({ products, loading }: props) => {
         <div className={css.address_item}>
           {storeList.length
             ? storeList?.map((store) => (
-                <AddressCard type={"pick_up"} store={store} key={store?.id} />
+                <AddressCard
+                  create_at={create_at}
+                  type={"pick_up"}
+                  store={store}
+                  key={store?.id}
+                />
               ))
             : ""}
         </div>

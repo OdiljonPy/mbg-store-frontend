@@ -16,17 +16,19 @@ function OrdersList() {
 	if (loading)
 		return (
 			<ul className={css.list}>
-				{Array.from({ length: 3 }).map((_, index) => (
-					<li key={index}>
-						<OrderItemSkeleton />
-					</li>
-				))}
+				{Array.from({ length: orders.content?.length || 3 }).map(
+					(_, index) => (
+						<li key={index}>
+							<OrderItemSkeleton />
+						</li>
+					)
+				)}
 			</ul>
 		);
 
 	if (error || !orders) return;
 
-	if (!orders.length) {
+	if (!orders.totalElements) {
 		return <OrdersEmpty />;
 	}
 

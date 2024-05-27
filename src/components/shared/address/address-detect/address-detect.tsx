@@ -21,10 +21,11 @@ const AddressDetect = ({ mapConstructor, form, mapRef }: Props) => {
 				mapStateAutoApply: true,
 			})
 			.then((res: any) => {
-				const [x, y] = res.geoObjects.position;
-				mapRef.current?.panTo([x, y], {
-					flying: true,
-				});
+				const coordinates = res.geoObjects.position;
+				if (mapRef.current) {
+					mapRef.current.setZoom(18);
+					mapRef.current.panTo(coordinates, { flying: true });
+				}
 			});
 	};
 

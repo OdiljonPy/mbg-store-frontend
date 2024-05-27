@@ -260,7 +260,8 @@
 			"create_account": "Hisob yaratish",
 			"have_account": "Hisobingiz mavjudmi?",
 			"login": "Hisobga kirish",
-			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud"
+			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud",
+			"invalid_region": "Faqat Uzbekiston telefon raqamini kiriting"
 		},
 		"signUp_success": {
 			"title": "Xush kelibsiz!",
@@ -392,7 +393,9 @@
 			"pickup": "Olib ketish",
 			"total": "Jami",
 			"payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
-			"cancel": "Buyurtmani bekor qilish"
+			"cancel": "Buyurtmani bekor qilish",
+			"checkout": "To'lovga o'tish",
+			"error":"Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
 		},
 		"order_details_card": {
 			"title": "Buyurtma tafsilotlari",
