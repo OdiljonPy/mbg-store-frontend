@@ -38,12 +38,12 @@ const Wrapper = (props: props) => {
         if (res.ok) {
           if (router.query.type === "pickup") {
             router
-              .replace("/cart/order-pickup")
+              .replace("/cart/order-placed")
               .then((r) => dispatch(clearBasket()));
           } else {
             const paymentLink = generateClickUpPaymentLink({
               orderId: res.result.id,
-              returnUrl: siteConfig.url + "/cart/order-delivery",
+              returnUrl: siteConfig.url + "/cart/order-placed",
               amount: cost_price,
             });
             router.replace(paymentLink).then((r) => dispatch(clearBasket()));
