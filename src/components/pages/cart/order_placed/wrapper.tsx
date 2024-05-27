@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./wrapper.module.css";
 import OrderCostCard from "@/components/pages/account/orders/order/order-cost-card/order-cost-card";
-import OrderError from "@/components/pages/cart/order_placed/common/order-error/error/OrderError";
+import OrderError from "@/components/pages/cart/order_placed/common/order-error/OrderError";
 interface props {}
 
 const Wrapper = (props: props) => {

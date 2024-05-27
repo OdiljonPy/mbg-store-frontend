@@ -1,5 +1,5 @@
 import Content from "@/components/pages/cart/delivery/content/content";
-import TotalSum from "@/components/pages/cart/delivery/totalSum/totalSum";
+import TotalSum from "@/components/pages/cart/delivery/total-sum/totalSum";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
 import { generateClickUpPaymentLink } from "@/config/clickup";
 import { siteConfig } from "@/config/site";
