@@ -1,5 +1,4 @@
 import DetailCart from "@/components/pages/cart/order_placed/common/detail-carts/detail-cart/detail-cart";
-import DetailPrice from "@/components/pages/cart/order_placed/common/detail-carts/detail-price/detail-price";
 import Status from "@/components/pages/cart/order_placed/common/order-status/status";
 import Content from "@/components/pages/cart/order_placed/content";
 import Breadcrumbs from "@/components/shared/breadcrumbs/breadcrumbs";
