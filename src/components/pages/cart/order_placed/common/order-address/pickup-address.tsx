@@ -1,5 +1,5 @@
 import AddressCard from "@/components/pages/cart/common/address-card/address-card";
-import css from "@/components/pages/cart/order_placed/order-delivery/content/address/address.module.css";
+import css from "./delivery-address.module.css";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { CollectStoreList } from "@/utils/collect-store-list/collect-store-list";

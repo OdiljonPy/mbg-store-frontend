@@ -1,7 +1,5 @@
 import css from "./content.module.css";
 import OrderItems from "@/components/pages/cart/order_placed/common/order-items/order-items";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
 import { EnumDeliveryType, IOrder } from "@/data-types/order/order";
 import DeliveryAddress from "@/components/pages/cart/order_placed/common/order-address/delivery-address";
