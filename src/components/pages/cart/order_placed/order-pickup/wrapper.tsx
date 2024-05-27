@@ -49,26 +49,18 @@ const Wrapper = (props: props) => {
             },
           ]}
         />
-        {done ? (
-          <CartEmpty text={"cart.orders.done"} />
-        ) : (
-          <div>
-            <div className={css.status}>
-              <Status />
-            </div>
-            <div className={css.wrapper}>
-              <Content />
-              <div className={css.detail}>
-                <DetailCart />
-                <DetailPrice
-                  isDeleteAction
-                  setErr={(err) => setErr(err)}
-                  setDone={(done) => setDone(done)}
-                />
-              </div>
+        <div>
+          <div className={css.status}>
+            <Status />
+          </div>
+          <div className={css.wrapper}>
+            <Content />
+            <div className={css.detail}>
+              <DetailCart />
+              <DetailPrice isDeleteAction setErr={(err) => setErr(err)} />
             </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

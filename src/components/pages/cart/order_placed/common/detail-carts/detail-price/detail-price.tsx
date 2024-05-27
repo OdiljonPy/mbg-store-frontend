@@ -10,14 +10,14 @@ import { AppDispatch, RootState } from "@/store";
 import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
 import { useToasts } from "react-toast-notifications";
 import Button from "@/components/shared/button";
+import { useRouter } from "next/navigation";
 
 interface props {
   isDeleteAction?: boolean;
   setErr?: (val: boolean) => void;
-  setDone?: (val: boolean) => void;
 }
 
-const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
+const DetailCart = ({ isDeleteAction, setErr }: props) => {
   const { addToast } = useToasts();
   const { delivery_price } = useSelector((state: RootState) => state.basket);
   const { last_order } = useSelector((state: RootState) => state.last_order);
@@ -25,6 +25,8 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
     last_order;
 
   const salePromoCode = sale_price_promo_code ? sale_price_promo_code : 0;
+
+  const router = useRouter();
 
   const dispatch = useDispatch<AppDispatch>();
   const t = useTranslations();
@@ -50,9 +52,7 @@ const DetailCart = ({ isDeleteAction, setErr, setDone }: props) => {
           });
         }
         setOnOpen(false);
-        if (setDone) {
-          setDone(true);
-        }
+        router.push("/account/orders");
       });
     } else {
       setOnOpen(false);
