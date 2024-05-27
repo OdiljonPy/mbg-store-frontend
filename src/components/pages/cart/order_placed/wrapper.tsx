@@ -47,15 +47,18 @@ const Wrapper = (props: props) => {
           ]}
         />
         <div className={css.status}>
-          <Status />
+          <Status last_order={last_order} loading={loading} />
         </div>
         <div className={css.wrapper}>
           <Content loading={loading} last_order={last_order} />
-          <div className={css.detail}>
+          <aside className={css.detail}>
             <DetailCart />
-            {/*<DetailPrice />*/}
-            <OrderCostCard order={last_order} loading={loading} />
-          </div>
+            <OrderCostCard
+              setErr={setErr}
+              order={last_order}
+              loading={loading}
+            />
+          </aside>
         </div>
       </div>
     </section>
