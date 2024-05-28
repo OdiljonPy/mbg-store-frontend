@@ -1,5 +1,6 @@
 .content{
     flex-basis: 65%;
+    padding: 0 16px;
 }
 
 .title{
@@ -19,7 +20,10 @@
 
 @media (max-width: 575px){
     .content{
-        margin-top: 12px;
+        margin-top: -4px;
+        padding: 16px ;
+        border-radius: 14px;
+        box-shadow: 0 -2px 12px var(--input-gray);
     }
     .title{
         font-size: 16px;

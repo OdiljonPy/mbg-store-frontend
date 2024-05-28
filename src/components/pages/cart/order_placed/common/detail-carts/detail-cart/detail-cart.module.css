@@ -63,7 +63,9 @@
     .total{
         border:none;
         flex-basis: 100%;
-        padding: 14px 0;
+        padding: 16px;
+        border-radius: 14px;
+        box-shadow: 0 0 12px var(--input-gray);
     }
 }
 

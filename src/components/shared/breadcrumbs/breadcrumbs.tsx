@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FC, Fragment, ReactNode } from "react";
 import css from "./breadcrumbs.module.css";
+import { cn } from "@/utils/cn";
 
 // define the Props
 export type CrumbItem = {
@@ -10,11 +11,12 @@ export type CrumbItem = {
 
 export type BreadcrumbsProps = {
   items: CrumbItem[];
+  className?: string;
 };
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({ items }) => {
+const Breadcrumbs: FC<BreadcrumbsProps> = ({ items, className }) => {
   return (
-    <div className={css.breadcrumbs}>
+    <div className={cn(className, css.breadcrumbs)}>
       {items.map((crumb, i) => {
         const isLastItem = i === items.length - 1;
         if (!isLastItem) {
