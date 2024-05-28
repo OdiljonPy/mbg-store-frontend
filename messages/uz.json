@@ -117,7 +117,8 @@
 		"chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
 		"writeToChat": "Chatga yozing"
 	},
-	"show": "Ko'rsatish",
+	"show": "{count} ta mahsulotni ko'rsatish",
+	"apply": "Tasdiqlash",
 	"show_count": "{count} ta mahsulotni ko'rsatish",
 	"hide": "Yashirish",
 	"filters": {
@@ -395,7 +396,7 @@
 			"payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
 			"cancel": "Buyurtmani bekor qilish",
 			"checkout": "To'lovga o'tish",
-			"error":"Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
+			"error": "Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
 		},
 		"order_details_card": {
 			"title": "Buyurtma tafsilotlari",
