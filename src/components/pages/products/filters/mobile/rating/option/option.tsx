@@ -1,42 +1,53 @@
-import React from 'react';
-import {ICustomRadio} from "@/components/shared/custom-radio/data-types/custom-radio";
-import {useFormContext} from "react-hook-form";
-import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
-import css from "@/components/pages/products/filters/mobile/categories/option/option.module.css";
-import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import star from '@/../public/images/icons/star.svg'
-import CustomRadio from "@/components/shared/custom-radio/custom-radio";
 import CustomLabel from "@/components/pages/products/filters/desktop/rating/custom-label/custom-label";
+import CustomRadio from "@/components/shared/custom-radio/custom-radio";
+import { ICustomRadio } from "@/components/shared/custom-radio/data-types/custom-radio";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface props {
-    item: ICustomRadio
-    onClose: () => void
+	item: ICustomRadio;
 }
 
-const Option = ({item, onClose}: props) => {
-    const {key, title, count} = item
-    const {
-        watch,
-        setValue
-    } = useFormContext<IFilters>()
+const Option = ({ item }: props) => {
+	const { key, title, count } = item;
 
-    const onSetValue = () => {
-        setValue('rating', key.toString())
-        // setValue('withFeedback', true)
-        onClose()
-    }
+	const { push, query } = useRouter();
+	const searchParams = useSearchParams();
+	const pathname: string = usePathname();
 
-    const rating = watch('rating')
+	const rating = searchParams.get("rating");
+	const onSetValue = () => {
+		push(
+			{
+				pathname,
+				query: {
+					...query,
+					rating: key,
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
+	};
 
-    return (
-        <CustomRadio radio={item} options={{
-            onChange: onSetValue,
-            disabled: false,
-            checked: rating === key
-        }}>
-            <CustomLabel title={title} count={count}/>
-        </CustomRadio>
-    );
+	return (
+		<CustomRadio
+			radio={item}
+			options={{
+				onChange: onSetValue,
+				disabled: false,
+				checked: rating === key,
+			}}
+		>
+			<CustomLabel title={title} count={count} />
+		</CustomRadio>
+	);
 };
 
 export default Option;

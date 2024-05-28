@@ -1,7 +1,7 @@
-import { IFilters } from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import { ICategory } from "@/data-types/categories/categories";
-import { useFormContext } from "react-hook-form";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import css from "./option.module.css";
 
 interface props {
@@ -10,18 +10,36 @@ interface props {
 }
 
 const Option = ({ item, onClose }: props) => {
-	const { id, name, count_product, icon: icon } = item;
-	const { watch, setValue } = useFormContext<IFilters>();
+	const { push, query } = useRouter();
+	const pathname = usePathname();
+	const searchParams = useSearchParams();
+	const category: string | null = searchParams.get("category_id");
+	const { icon: icon, name, count_product, id } = item;
 
-	const onSetValue = () => {
-		setValue("category", id.toString());
+	const onChangeCategory = () => {
+		push(
+			{
+				pathname,
+				query: {
+					...query,
+					category_id: id,
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
+
 		onClose();
 	};
 
-	const category = watch("category");
-
 	return (
-		<label onClick={onSetValue} className={css.item}>
+		<label onClick={onChangeCategory} className={css.item}>
 			<input type={"radio"} className={css.input} value={id} />
 			<span className={css.info}>
 				<span className={css.icon}>

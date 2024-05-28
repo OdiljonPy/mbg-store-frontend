@@ -1,7 +1,6 @@
 import Accessibility from "@/components/pages/products/filters/mobile/accessibility/accessibility";
 import Categories from "@/components/pages/products/filters/mobile/categories/categories";
 import Delivery from "@/components/pages/products/filters/mobile/delivery/delivery";
-import { hideArr } from "@/components/pages/products/filters/mobile/mobile-filters/constants/filters";
 import Prices from "@/components/pages/products/filters/mobile/prices/prices";
 import Rating from "@/components/pages/products/filters/mobile/rating/rating";
 import Sales from "@/components/pages/products/filters/mobile/sales/sales";
@@ -11,87 +10,73 @@ import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
 import { raleway } from "@/constants/fonts/fonts";
 import { IProductFilter } from "@/data-types/products/product-filter/product-filter";
 import { useModal } from "@/hooks/use-modal";
-import { filterProduct } from "@/slices/product/productSlices";
-import { AppDispatch } from "@/store";
+import { RootState } from "@/store";
 import { Drawer } from "antd";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
-import { FormProvider, useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Location from "../location";
-import { IFilters } from "./data-types/index";
 import css from "./mobile-filters.module.css";
 
 interface props {
 	data: IProductFilter;
 }
 
+const diffFilters: string[] = [
+	"filters",
+	"changeFilter",
+	"search",
+	"sort",
+	"hasDelivery",
+	"id",
+];
+
 const MobileFilters = ({}: props) => {
 	const t = useTranslations();
-	const { query } = useRouter();
-	const searchParams = useSearchParams();
-	const dispatch = useDispatch<AppDispatch>();
-
 	const { open, onClose, onOpen } = useModal();
-	const methods = useForm<IFilters>({
-		defaultValues: query,
-	});
 
-	const valuesCount: number = Object.entries(methods.getValues()).filter(
-		([key, value]) => !!value && !hideArr.includes(key) && value?.length
-	).length;
+	const { push, query } = useRouter();
+	const searchParams = useSearchParams();
+	const pathname: string = usePathname();
+	const filters: string | null = searchParams.get("filters");
 
-	const prices = methods.watch("prices");
-
-	const checkPrice = () => {
-		const min = Number(prices?.split(",")[0]);
-		const max = Number(prices?.split(",")[1]);
-
-		if (min < 1000 || max > 10000000 || max < min) {
-			methods.setValue("prices", `1000,10000000`);
+	const activeFilters = Object.keys(query).filter(
+		(item) => !diffFilters.includes(item)
+	);
+	useEffect(() => {
+		if (activeFilters.length) {
+			push({
+				pathname,
+				query: {
+					...query,
+				},
+			});
 		}
-	};
+	}, [activeFilters.length]);
+	const onReset = () =>
+		push(
+			{
+				pathname,
+				query: {
+					filters: filters,
+					sort: "popular",
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
 
-	const onFilter = (values: IFilters) => {
-		checkPrice();
-		const filterData = {
-			q: searchParams.get("search"),
-			category: values.category,
-			min_price: Number(values.prices?.split(",")[0]),
-			max_price: Number(values.prices?.split(",")[1]),
-			latitude: Number(values.location?.split(",")[0]),
-			longitude: Number(values.location?.split(",")[1]),
-			distance: Number(values.distance),
-			rating: Number(values.rating),
-			store: values.stores?.length
-				? values.stores.map((store) => Number(store))
-				: "",
-			discount: values.onSales ? 1 : Number(values.sales),
-			sort: searchParams.get("sort")
-				? searchParams.get("sort")
-				: "popular",
-			comments: values.withFeedback,
-			free_shipping: values.delivery?.length
-				? values.delivery?.includes("1")
-				: false,
-			pickup: values.delivery?.length
-				? values.delivery?.includes("2")
-				: false,
-			available: values.accessibility?.length
-				? values.accessibility?.includes("1")
-				: false,
-			around_the_clock: values.accessibility?.length
-				? values.accessibility?.includes("2")
-				: false,
-		};
-		dispatch(filterProduct(filterData));
-		onClose();
-	};
-
-	const onReset = () => {
-		methods.reset(undefined);
-	};
+	const { entities, loading } = useSelector(
+		(state: RootState) => state.product
+	);
 
 	return (
 		<>
@@ -130,28 +115,25 @@ const MobileFilters = ({}: props) => {
 						title: t("filters.title"),
 						onClose,
 						onReset,
-						count: valuesCount,
+						count: activeFilters.length || undefined,
 					}}
 				/>
-				<FormProvider {...methods}>
-					<form
-						className={css.wrapper}
-						onSubmit={methods.handleSubmit(onFilter)}
-					>
-						<Categories />
-						<Prices />
-						<Stores />
-						<Sales />
-						<Rating />
-						<Location />
-						<Delivery />
-						<Accessibility />
-						<div className={css.fixed_btn}>
-							<Button full>{t("show")}</Button>
-							{/*<Button full>{t('show_count',{count:priceFormatter(1520)})}</Button>*/}
-						</div>
-					</form>
-				</FormProvider>
+				<div className={css.wrapper}>
+					<Categories />
+					<Prices />
+					<Stores />
+					<Sales />
+					<Rating />
+					<Location />
+					<Delivery />
+					<Accessibility />
+					<div className={css.fixed_btn}>
+						<Button full onClick={onClose} loading={loading}>
+							{t("show", { count: entities.totalElements })}
+						</Button>
+						{/*<Button full>{t('show_count',{count:priceFormatter(1520)})}</Button>*/}
+					</div>
+				</div>
 			</Drawer>
 		</>
 	);

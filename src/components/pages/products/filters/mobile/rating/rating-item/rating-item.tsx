@@ -1,51 +1,59 @@
-import React from 'react';
-import {useFormContext} from "react-hook-form";
-import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
+import star from "@/../public/images/icons/star.svg";
 import css from "@/components/pages/products/filters/mobile/categories/body/category-item/category-item.module.css";
+import { ICustomRadio } from "@/components/shared/custom-radio/data-types/custom-radio";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
-import {ICustomRadio} from "@/components/shared/custom-radio/data-types/custom-radio";
-import star from '@/../public/images/icons/star.svg'
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface props {
-    item: ICustomRadio
+	item: ICustomRadio;
 }
 
-const RatingItem = ({item}: props) => {
-    const {
-        watch,
-        setValue
-    } = useFormContext<IFilters>()
+const RatingItem = ({ item }: props) => {
+	const { push, query } = useRouter();
+	const searchParams = useSearchParams();
+	const pathname: string = usePathname();
 
-    const rating: string | undefined = watch('rating')
-    const withFeedback: boolean | undefined = watch('withFeedback')
+	const rating = searchParams.get("rating");
+	const withFeedback = searchParams.get("withFeedback");
 
-    const {
-        title,
-        count,
-        key
-    } = item
+	const { title, count, key } = item;
 
+	const onSetRating = () => {
+		push(
+			{
+				pathname,
+				query: {
+					...query,
+					rating: key.toString(),
+					withFeedback: undefined,
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
+	};
 
-    const onSetRating = () => {
-        setValue('rating', key.toString())
-        // setValue('withFeedback', true)
-    }
-
-
-    return (
-        <label onClick={onSetRating} className={`${css.item} ${rating === key.toString() ? css.active : ''}`}>
-            <input className={css.input} value={key} type={'radio'}/>
-            <span className={css.icon}>
-                <ResponsiveImage src={star} alt={title}/>
-             </span>
-            <span className={css.title}>
-                {title}
-             </span>
-            {/*<span className={css.count}>*/}
-            {/*    {count}*/}
-            {/* </span>*/}
-        </label>
-    );
+	return (
+		<label
+			onClick={onSetRating}
+			className={`${css.item} ${
+				rating === key.toString() ? css.active : ""
+			}`}
+		>
+			<input className={css.input} value={key} type={"radio"} />
+			<span className={css.icon}>
+				<ResponsiveImage src={star} alt={title} />
+			</span>
+			<span className={css.title}>{title}</span>
+		</label>
+	);
 };
 
 export default RatingItem;
