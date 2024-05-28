@@ -30,6 +30,7 @@ const Wrapper = (props: props) => {
   return (
     <section className={cn("container", css.cart)}>
       <Breadcrumbs
+        className={css.breadcrumb}
         items={[
           {
             path: "/",

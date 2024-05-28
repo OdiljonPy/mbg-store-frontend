@@ -1,62 +1,61 @@
 .total {
-    flex-basis: 32%;
-    border: 2px solid var(--input-gray);
-    border-radius: 26px;
+  flex-basis: 32%;
+  border: 2px solid var(--input-gray);
+  border-radius: 26px;
+    padding: 18px;
 }
 
 .title {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--black);
-    margin: 20px 20px 0 20px;
-}
-
-.info {
-    margin: 18px 0;
-
-}
-
-.bordered {
-    padding: 14px 20px;
-    border-bottom: 2px solid var(--light-gray);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
     margin-bottom: 18px;
 }
 
+.bordered {
+  padding: 14px 0;
+  border-bottom: 2px solid var(--light-gray);
+  margin-bottom: 18px;
+}
+
 .finalPrice p {
-    color: var(--text-green);
+  color: var(--text-green);
 }
 
-.total_btn{
-    margin: 18px  20px;
+.total_btn {
+  margin: 18px 20px;
 }
 
-.btn_box{
-    padding: 0 20px;
-    margin: 18px auto 20px;
+.btn_box {
+  margin: 18px auto 20px;
 }
 
-
-.link{
-    text-decoration: none;
+.link {
+  text-decoration: none;
 }
 
 @media (max-width: 575px) {
-    .title{
-        font-size: 15px;
-    }
-
-    .total{
-        border:none;
-        flex-basis: 100%;
-    }
+  .title {
+    font-size: 15px;
+      margin-bottom: 12px;
+  }
+  .bordered {
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+  .total {
+    border: none;
+    flex-basis: 100%;
+      padding: 16px;
+  }
 }
 
 /*recipient total sum*/
 
-.pb_4{
-    padding-bottom:16px ;
+.pb_4 {
+  padding-bottom: 16px;
 }
 
-.paddingTop{
-    padding: 14px 20px 0 20px;
+.paddingTop {
+  padding: 14px 20px 0 20px;
 }

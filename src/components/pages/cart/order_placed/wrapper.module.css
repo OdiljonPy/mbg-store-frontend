@@ -39,6 +39,9 @@
         margin-bottom: 30px;
         padding: 0;
     }
+    .breadcrumb{
+        padding: 0 16px;
+    }
 
     .status {
         margin-top: 20px;

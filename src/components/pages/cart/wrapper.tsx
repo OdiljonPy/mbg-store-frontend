@@ -10,6 +10,7 @@ import { AppDispatch, RootState } from "@/store";
 import { calcPrices, checkProductAvailable } from "@/slices/basket/basketSlice";
 import { useEffect } from "react";
 import { updateFavourites } from "@/slices/favorites/favoritesSlice";
+import { cn } from "@/utils/cn";
 interface props {}
 
 const Wrapper = (props: props) => {
@@ -53,38 +54,35 @@ const Wrapper = (props: props) => {
     }
   }, [dispatch]);
   return (
-    <section className={css.cart}>
-      <div className={"container"}>
-        <Breadcrumbs
-          items={[
-            {
-              path: "/",
-              label: t("header.home"),
-            },
-            {
-              path: "/cart",
-              label: t("header.basket"),
-            },
-          ]}
+    <section className={cn("container", css.cart)}>
+      <Breadcrumbs
+        className={css.breadcrumb}
+        items={[
+          {
+            path: "/",
+            label: t("header.home"),
+          },
+          {
+            path: "/cart",
+            label: t("header.basket"),
+          },
+        ]}
+      />
+      <h1 className={css.title}>
+        {t("header.basket")}{" "}
+        <Badge
+          count={
+            basketSlices.totalCountProduct ? basketSlices.totalCountProduct : 0
+          }
+          color={"#39B969"}
         />
-        <h1 className={css.title}>
-          {t("header.basket")}{" "}
-          <Badge
-            count={
-              basketSlices.totalCountProduct
-                ? basketSlices.totalCountProduct
-                : 0
-            }
-            color={"#39B969"}
-          />
-        </h1>
-        <div className={css.wrapper}>
-          <Contents basketSlices={basketSlices} />
-          <Total basketSlice={basketSlices} />
-        </div>
-
-        {total_count ? <Favourites favourites={favourites} /> : ""}
+      </h1>
+      <div className={css.wrapper}>
+        <Contents basketSlices={basketSlices} />
+        <Total basketSlice={basketSlices} />
       </div>
+
+      {total_count ? <Favourites favourites={favourites} /> : ""}
     </section>
   );
 };
