@@ -37,6 +37,7 @@ const Address = ({ products, loading, create_at }: props) => {
                   create_at={create_at}
                   type={"pick_up"}
                   store={store}
+                  showText
                   key={store?.id}
                 />
               ))
