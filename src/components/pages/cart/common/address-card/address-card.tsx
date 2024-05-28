@@ -10,8 +10,9 @@ interface props {
   type: "delivery" | "pick_up";
   store: IStore;
   create_at?: string;
+  showText?: boolean;
 }
-const AddressCard = ({ type, store, create_at }: props) => {
+const AddressCard = ({ type, store, create_at, showText = false }: props) => {
   const t = useTranslations();
   const createdTime = new Date(create_at ? create_at : "");
   const availableTime = createdTime.setHours(createdTime.getHours() + 4);
@@ -43,7 +44,7 @@ const AddressCard = ({ type, store, create_at }: props) => {
       {/*    Примерная дата доставки: <span>18 декабря 2023 г.</span>{" "}*/}
       {/*  </p>*/}
       {/*</WarningText>*/}
-      {type == "pick_up" ? (
+      {type == "pick_up" && showText ? (
         <div className={css.notice}>
           <Info>
             {t("orders.pickup.available_for_pickup")}{" "}

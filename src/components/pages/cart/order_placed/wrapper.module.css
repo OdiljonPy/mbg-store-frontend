@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    padding: 16px;
 }
 
 .detail {
@@ -36,10 +37,15 @@
     }
     .cart {
         margin-bottom: 30px;
+        padding: 0;
+    }
+    .breadcrumb{
+        padding: 0 16px;
     }
 
     .status {
         margin-top: 20px;
+        border-radius: 14px;
     }
 
     .detail {
