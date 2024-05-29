@@ -21,48 +21,50 @@ import { useToasts } from "react-toast-notifications";
 import css from "./order-cost-card.module.css";
 
 interface Props {
-  order: IOrder;
-  loading: boolean;
-  setErr?: (val: boolean) => void;
+	order: IOrder;
+	loading: boolean;
+	setErr?: (val: boolean) => void;
 }
 
 function OrderCostCard({ order, loading, setErr }: Props) {
-  const t = useTranslations("orders.order_cost_card");
-  const dispatch = useDispatch<AppDispatch>();
-  const { addToast } = useToasts();
-  const { push } = useRouter();
+	const t = useTranslations("orders.order_cost_card");
+	const dispatch = useDispatch<AppDispatch>();
+	const { addToast } = useToasts();
+	const { push } = useRouter();
 
-  const productsCost =
-    order.sale_price + order.total_price + Number(order.promo_code?.discount);
+	const productsCost =
+		order.sale_price +
+		order.total_price +
+		Number(order.promo_code?.discount);
 
-  const [openCancelModal, setOpenCancelModal] = useState(false);
-  const { createLoad } = useSelector((state: RootState) => state.orders);
+	const [openCancelModal, setOpenCancelModal] = useState(false);
+	const { createLoad } = useSelector((state: RootState) => state.orders);
 
-  const orderCancel = (status: "cancel" | "close") => {
-    if (status === "cancel") {
-      const data = {
-        id: order.id,
-        status: 8,
-      };
-      dispatch(changeOrderStatus(data))
-        .unwrap()
-        .then((res) => {
-          if (!res.ok) {
-            setOpenCancelModal(false);
-            if (setErr) {
-              setErr(true);
-            }
-            addToast(t("notification.error"), {
-              appearance: "error",
-              autoDismiss: true,
-            });
-          } else {
-            setOpenCancelModal(false);
-            push("/account/orders");
-          }
-        });
-    } else setOpenCancelModal(false);
-  };
+	const orderCancel = (status: "cancel" | "close") => {
+		if (status === "cancel") {
+			const data = {
+				id: order.id,
+				status: 8,
+			};
+			dispatch(changeOrderStatus(data))
+				.unwrap()
+				.then((res) => {
+					if (!res.ok) {
+						setOpenCancelModal(false);
+						if (setErr) {
+							setErr(true);
+						}
+						addToast(t("notification.error"), {
+							appearance: "error",
+							autoDismiss: true,
+						});
+					} else {
+						setOpenCancelModal(false);
+						push("/account/orders");
+					}
+				});
+		} else setOpenCancelModal(false);
+	};
 
 	const submitOrder = () => {
 		dispatch(
@@ -210,16 +212,17 @@ function OrderCostCard({ order, loading, setErr }: Props) {
 								<Info>{t("payment_when_receiving")}</Info>
 							)}
 						{order.status ===
-							OrderStatusChoices.WAITING_FOR_PAYMENT && (
-							<Button
-								type='submit'
-								full
-								onClick={submitOrder}
-								loading={createLoad}
-							>
-								{t("checkout")}
-							</Button>
-						)}
+							OrderStatusChoices.WAITING_FOR_PAYMENT &&
+							order.type === EnumDeliveryType.DELIVERY && (
+								<Button
+									type='submit'
+									full
+									onClick={submitOrder}
+									loading={createLoad}
+								>
+									{t("checkout")}
+								</Button>
+							)}
 						{(order.status !== OrderStatusChoices.CANCELLED &&
 							order.status !== OrderStatusChoices.PICKED_UP &&
 							order.type === EnumDeliveryType.PICKUP) ||
