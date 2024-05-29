@@ -18,7 +18,7 @@
     opacity: 1;
     visibility: visible;
 }
-.skeleton_cointainer{
+.skeleton_container{
     width: 100%;
     display: flex;
     gap: 10px;
