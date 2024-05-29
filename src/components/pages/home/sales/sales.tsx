@@ -4,7 +4,6 @@ import { useSlider } from "@/hooks/use-slider";
 import { fetchProductDiscount } from "@/slices/product/productDiscountSlices";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect } from "react";
-import Skeleton from "react-loading-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./sales.module.css";
 import ProductSkeleton from "@/components/shared/product/product-skeleton/product-skeleton";
