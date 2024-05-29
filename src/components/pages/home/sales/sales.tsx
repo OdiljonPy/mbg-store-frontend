@@ -35,7 +35,7 @@ const Sales = (props: props) => {
           }}
         />
 
-        {!loading ? (
+        {loading ? (
           <div className={css.skeleton_container}>
             <ProductSkeleton />
             <ProductSkeleton />
