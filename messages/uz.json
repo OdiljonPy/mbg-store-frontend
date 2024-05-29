@@ -142,17 +142,20 @@
 		"orders": "Заказов"
 	},
 	"feedback": {
-		"bad": "Плохо",
-		"excellent": "Отлично",
-		"name": "Ваше имя",
-		"namePlaceholder": "Введите имя",
-		"anonymus": "Анонимный отзыв",
-		"message": "Ваш отзыв",
-		"messagePlaceholder": "Ваше мнение о товаре",
-		"photo": "Фото",
-		"photoDetails": "максимум 4",
-		"photoPlaceholder": "или перетащите файл сюда",
-		"send": "Отправить отзыв"
+		"bad": "Yomon",
+		"excellent": "Ajoyib",
+		"name": "Sizning ismingiz",
+		"namePlaceholder": "Ismingizni kiriting",
+		"anonymus": "Anonim sharh",
+		"message": "Fikr-mulohazalaringiz",
+		"messagePlaceholder": "Mahsulot haqida fikringiz",
+		"photo": "Surat",
+		"photoDetails": "maksimal 4",
+		"photoPlaceholder": "yoki faylni shu yerga torting",
+		"send": "Yuboorish",
+		"file_too_large": "Fayl juda katta",
+		"file_invalid_type": "Noto‘g‘ri fayl turi",
+		"file_invalid": "Noto‘g‘ri fayl"
 	},
 	"cart": {
 		"title": "",

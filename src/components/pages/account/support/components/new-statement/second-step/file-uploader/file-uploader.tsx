@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { useDropzone } from "react-dropzone";
 import { UseFormReturn } from "react-hook-form";
+import { useToasts } from "react-toast-notifications";
 import { NewStatementForm } from "../../new-statement";
 import css from "./file-uploader.module.css";
 
@@ -11,11 +12,17 @@ interface props {
 const FileUploader = ({ form }: props) => {
 	const t = useTranslations();
 	const files = form.watch("files") || [];
+	const { addToast } = useToasts();
 
 	const onDrop = (acceptedFiles: File[]) => {
 		const file = acceptedFiles[0];
 		if (!file || files.length >= 4) return;
 		form.setValue("files", [...files, file]);
+	};
+
+	const dropImageErrorsMap: Record<string, string> = {
+		"file-too-large": "feedback.file_too_large",
+		"file-invalid-type": "feedback.file_invalid_type",
 	};
 
 	const { getRootProps, getInputProps } = useDropzone({
@@ -25,6 +32,17 @@ const FileUploader = ({ form }: props) => {
 			"image/*": [".png", ".jpg", ".jpeg"],
 			"application/pdf": [".pdf"],
 		},
+		onDropRejected: (err) => {
+			const { code } = err[0].errors[0];
+			let errorMsg = "";
+			if (code in dropImageErrorsMap) {
+				errorMsg = t(dropImageErrorsMap[code]);
+			} else {
+				errorMsg = t("feedback.file_invalid");
+			}
+			addToast(errorMsg, { appearance: "error", autoDismiss: true });
+		},
+		maxSize: 2 * 1024 * 1024,
 	});
 
 	return (
