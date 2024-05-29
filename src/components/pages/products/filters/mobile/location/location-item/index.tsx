@@ -2,9 +2,9 @@ import CustomRadio from "@/components/shared/custom-radio/custom-radio";
 import { IFilterLocation } from "@/data-types/address/filter-location";
 import { removeFilterLocation } from "@/slices/filter_location/filterLocationSlice";
 import { AppDispatch } from "@/store";
-import { useFormContext } from "react-hook-form";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { IFilters } from "../../mobile-filters/data-types";
 import css from "./location-item.module.css";
 
 interface props {
@@ -12,15 +12,37 @@ interface props {
 }
 
 const LocationItem = ({ location }: props) => {
-	const { watch, setValue } = useFormContext<IFilters>();
-	const latitude = watch().location?.split(",")[0];
-	const longitude = watch().location?.split(",")[1];
-	const distance = watch().distance;
+	const { push, query } = useRouter();
+	const searchParams = useSearchParams();
+	const pathname: string = usePathname();
+
+	const latitude = searchParams.get("location")?.split(",")[0];
+	const longitude = searchParams.get("location")?.split(",")[1];
 
 	const dispatch = useDispatch<AppDispatch>();
 
 	const removeLocation = () => {
 		dispatch(removeFilterLocation(location.address));
+	};
+
+	const onChange = () => {
+		push(
+			{
+				pathname,
+				query: {
+					...query,
+					location: `${location.latitude},${location.longitude}`,
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
 	};
 
 	return (
@@ -33,11 +55,7 @@ const LocationItem = ({ location }: props) => {
 						title: location.address,
 					}}
 					options={{
-						onChange: () =>
-							setValue(
-								"location",
-								`${location.latitude},${location.longitude}`
-							),
+						onChange,
 						disabled: false,
 						checked:
 							`${location.latitude},${location.longitude}` ===

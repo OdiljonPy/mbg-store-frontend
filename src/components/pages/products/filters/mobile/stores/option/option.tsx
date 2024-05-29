@@ -1,38 +1,65 @@
-import React, {ChangeEvent} from 'react';
-import {Controller, useFormContext} from "react-hook-form";
-import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import CustomCheckbox from "@/components/shared/custom-checkbox/custom-checkbox";
-import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
-import {CheckboxChangeEvent} from "antd/lib/checkbox";
+import { ICustomCheckbox } from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
+import { CheckboxChangeEvent } from "antd/lib/checkbox";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface props {
-    item: ICustomCheckbox
+	item: ICustomCheckbox;
 }
 
-const Option = ({item}: props) => {
-    const {id} = item
+const Option = ({ item }: props) => {
+	const { id } = item;
+	const searchParams = useSearchParams();
+	const { push, query } = useRouter();
+	const pathname = usePathname();
+	const stores: string[] | undefined = searchParams.get("stores")?.split(",");
 
-    const {watch, setValue} = useFormContext<IFilters>()
+	const onChange = (e: CheckboxChangeEvent) => {
+		const value = e.target.value;
+		const queries = {
+			...query,
+		};
 
-    const stores: string[] | undefined = watch('stores')
+		if (e.target.checked) {
+			queries.stores = stores ? stores + "," + value : value;
+		} else {
+			if (stores?.length === 1) {
+				delete queries.stores;
+			} else {
+				queries.stores = stores
+					?.filter((item) => item !== value.toString())
+					.join(",");
+			}
+		}
 
+		push(
+			{
+				pathname,
+				query: {
+					...queries,
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{ scroll: false }
+		);
+	};
 
-    const onChange = (e: CheckboxChangeEvent) => {
-        const value = e.target.value.toString()
-        const checked = e.target.checked
-        const storesArr: string[] = stores ? stores : []
-        const newStores: string[] = checked ? [...storesArr, value] : storesArr.filter((item) => item !== value)
-        setValue('stores', newStores)
-    }
-
-
-    return (
-       <CustomCheckbox options={{
-           onChange,
-           disabled: false,
-           checked: !!stores && !!stores?.includes(id.toString())
-       }} item={item} hasCount={false}/>
-    );
+	return (
+		<CustomCheckbox
+			options={{
+				onChange,
+				disabled: false,
+				checked: !!stores && !!stores?.includes(id.toString()),
+			}}
+			item={item}
+			hasCount={false}
+		/>
+	);
 };
 
 export default Option;
