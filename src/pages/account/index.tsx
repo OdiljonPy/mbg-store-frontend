@@ -1,8 +1,8 @@
 import AccountNavigation from "@/components/pages/account/components/nav/navigation";
 import AccountWrapper from "@/components/pages/account/wrapper";
+import HeadWithSeo from "@/layout/metadata";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
-import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -20,9 +20,12 @@ const Account = (props: props) => {
 
 	return (
 		<>
-			<Head>
-				<title>{t("header.account")}</title>
-			</Head>
+			<HeadWithSeo
+				name={t("header.account")}
+				url={"/account"}
+				noIndex
+				noFollow
+			/>
 			<AccountWrapper>
 				<AccountNavigation />
 			</AccountWrapper>

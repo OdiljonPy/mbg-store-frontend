@@ -4,12 +4,14 @@ import {ReactElement} from "react";
 
 interface props {
     children:ReactElement
+    color?:string,
+    type?:'warning' | 'error'
 }
-const WarningText = ({children}:props) =>{
+const WarningText = ({children,color="#EF9545",type="warning"}:props) =>{
     return(
-        <div className={css.status}>
-            <InfoSVG/>
-            <div className={css.status_text}>{children}</div>
+        <div className={css.status} data-theme={type}>
+            <InfoSVG color={color}/>
+            <div className={css.status_text} data-theme={type}>{children}</div>
         </div>
     )
 }

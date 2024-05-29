@@ -1,4 +1,16 @@
 .header {
-    background: var(--light-gray);
-    padding: 12px 0;
+	background: var(--light-gray);
+}
+
+.wrapper {
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+	.wrapper {
+		height: 34px;
+	}
 }

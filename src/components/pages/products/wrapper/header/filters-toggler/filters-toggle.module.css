@@ -22,6 +22,9 @@
     fill: var(--green);
 }
 
+.icon_filter{
+    flex-shrink: 0;
+}
 
 
 @media (max-width: 767px) {

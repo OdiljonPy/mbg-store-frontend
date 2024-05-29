@@ -10,33 +10,37 @@ import Account from "../header/main-header/components/account/account";
 import css from "./mobile_navbar.module.css";
 
 const MobileNavbar = () => {
-	const { isLoggedIn } = useSelector((state: RootState) => state.login);
-	const [mounted, setMounted] = useState(false);
+  const { isLoggedIn } = useSelector((state: RootState) => state.login);
+  const [mounted, setMounted] = useState(false);
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+  const totalCountCart = useSelector(
+    (state: RootState) => state.basket.totalCountProduct,
+  );
+  const totalCountFavourite = useSelector(
+    (state: RootState) => state.favorites.total_count,
+  );
 
-	return (
-		<div className={css.mobile}>
-			<BookOpen path='/catalog' />
-			<MenuItemBadge
-				badge={favouritesBadge}
-				mobile={true}
-			/>
-			<MenuItemBadge
-				badge={cartBadge}
-				mobile={true}
-			/>
-			{isLoggedIn && mounted ? (
-				<Account mobile />
-			) : (
-				<Auth>
-					<Login mobile />
-				</Auth>
-			)}
-		</div>
-	);
+  cartBadge.count = totalCountCart ? totalCountCart : 0;
+  favouritesBadge.count = totalCountFavourite ? totalCountFavourite : 0;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <div className={css.mobile}>
+      <BookOpen path="/catalog" />
+      <MenuItemBadge badge={favouritesBadge} mobile={true} />
+      <MenuItemBadge badge={cartBadge} mobile={true} />
+      {isLoggedIn && mounted ? (
+        <Account mobile />
+      ) : (
+        <Auth>
+          <Login mobile />
+        </Auth>
+      )}
+    </div>
+  );
 };
 
 export default MobileNavbar;

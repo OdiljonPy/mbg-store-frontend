@@ -1,73 +1,48 @@
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
-import css from "@/components/pages/home/sales/sales.module.css";
-import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
-import Product from "@/components/shared/product/product";
-import { productClose } from "@/constants/product/product";
-import { useSlider } from "@/hooks/use-slider";
+import { fetchNearestProducts } from "@/slices/product/productLocationSlice";
+import { AppDispatch, RootState } from "@/store";
+import { cn } from "@/utils/cn";
 import { useEffect, useState } from "react";
-import { cn } from "../../../../utils/cn";
-import AddressFormModal from "./address-form-modal/address-form-modal";
-import nearCss from "./near.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import ProductList from "./near-product-list";
 
-interface props {}
+import NearDialog from "./near-dialog";
+import css from "./near.module.css";
 
-const Near = (props: props) => {
-	const { sliderRef, loaded, onNext, onPrev, currentSlide } = useSlider();
-	const [address, setAddress] = useState<string | null>("");
+const Near = () => {
+	const { main_address } = useSelector((state: RootState) => state.address);
+
+	const { data } = useSelector((state: RootState) => state.product_near);
+
+	const dispatch = useDispatch<AppDispatch>();
+
+	const [isAddress, setIsAddress] = useState(false);
 
 	useEffect(() => {
-		setAddress(localStorage.getItem("address") || null);
-	}, []);
+		if (main_address.address) {
+			setIsAddress(true);
+			dispatch(
+				fetchNearestProducts({
+					latitude: main_address.latitude,
+					longitude: main_address.longitude,
+				})
+			);
+		}
+	}, [dispatch, main_address, main_address.address]);
+
+	// if (products.content.length === 0 && !loading) return;
 
 	return (
-		<section className={css.sales}>
+		<section className={css.near}>
 			<div className='container'>
 				<HeadingLine
 					heading={{
 						title: "products.near",
-						count: 978,
+						count: data.content?.length,
 					}}
 				/>
-				<div className={cn(css.wrapperOuter, nearCss.wrapper)}>
-					{!address && (
-						<div className={nearCss.card_wrapper}>
-							<div className={nearCss.card}>
-								<p className={nearCss.card_text}>
-									Укажите адрес, чтобы видеть товары
-									поблизости
-								</p>
-								<AddressFormModal />
-							</div>
-						</div>
-					)}
-					{!!address && (
-						<>
-							<ProductSwiperArrow
-								onClick={onPrev}
-								isDisabled={currentSlide === 0}
-							/>
-							<ProductSwiperArrow
-								onClick={onNext}
-								isNext
-							/>
-						</>
-					)}
-
-					<div
-						ref={sliderRef}
-						className={`keen-slider ${css.wrapper} ${
-							loaded ? css.show : ""
-						}`}
-					>
-						{productClose.map((product) => (
-							<div
-								className={`keen-slider__slide`}
-								key={product.id}
-							>
-								<Product product={product} />
-							</div>
-						))}
-					</div>
+				<div className={cn(css.wrapperOuter, css.wrapper)}>
+					{isAddress ? <ProductList /> : <NearDialog />}
 				</div>
 			</div>
 		</section>

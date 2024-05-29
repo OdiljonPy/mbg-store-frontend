@@ -1,8 +1,9 @@
 import AccountLayout from "@/components/pages/account/layout/account-layout";
+import useAuthCheck from "@/hooks/use-access-page";
+import HeadWithSeo from "@/layout/metadata";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
-import Head from "next/head";
 
 interface props {}
 
@@ -15,12 +16,16 @@ const Wrapper = dynamic(
 
 const Favorites = (props: props) => {
 	const t = useTranslations();
+	useAuthCheck(true);
 	return (
 		<>
 			<AccountLayout>
-				<Head>
-					<title>{t("header.favorites")}</title>
-				</Head>
+				<HeadWithSeo
+					name={t("header.favorites")}
+					url={"/account/favorites"}
+					noIndex
+					noFollow
+				/>
 				<Wrapper />
 			</AccountLayout>
 		</>

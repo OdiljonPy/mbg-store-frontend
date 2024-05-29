@@ -1,3 +1,4 @@
+import Label from "@/components/shared/label";
 import { ConfigProvider, DatePicker } from "antd";
 import dayjs from "dayjs";
 import { useTranslations } from "next-intl";
@@ -32,12 +33,9 @@ function BirthdayInput({ edit, birthDate, setBirthDate }: Props) {
 			}}
 		>
 			<div>
-				<label
-					className={css.label}
-					htmlFor='birthday'
-				>
+				<Label htmlFor='birthday'>
 					{t("profile.personal_data.birthday")}
-				</label>
+				</Label>
 				<DatePicker
 					style={{
 						borderRadius: "16px",

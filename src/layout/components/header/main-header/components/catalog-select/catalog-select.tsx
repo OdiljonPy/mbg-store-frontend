@@ -49,12 +49,12 @@ const CatalogSelect = (props: props) => {
 
     useEffect(() => {
         const fetchCategoryData:ICategoryItem[] = []
-        dispatch(fetchCategory({q:' ',size:'30'})).then((response:any) =>{
+        dispatch(fetchCategory(30)).then((response:any) =>{
             response.payload?.result?.map((categories:any) =>{
                 fetchCategoryData.push({
                     id: categories.id,
                     title: categories.name,
-                    img: categories.icone && <CatalogIcon><ResponsiveImage src={categories.icone} alt={''} key={categories.id}/></CatalogIcon>
+                    img: categories.icon && <CatalogIcon><ResponsiveImage src={categories.icon} alt={''} key={categories.id}/></CatalogIcon>
                 })
             })
             setCategorySelect(prevState => prevState = fetchCategoryData)
@@ -65,7 +65,7 @@ const CatalogSelect = (props: props) => {
 
     const items: MenuProps['items'] = [
         {
-            label: <CatalogTop item={{title: 'Все категории', id: 1}}/>,
+            label: <CatalogTop item={{title: t('categories.all'), id: 1}}/>,
             key: '0',
         },
         ...categorySelect.map((item) => (

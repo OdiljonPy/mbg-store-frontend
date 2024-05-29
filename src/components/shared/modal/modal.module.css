@@ -10,7 +10,7 @@
 @media (max-width: 767px) {
 	.modal_content,
 	.modal_body {
-		height: calc(100vh - 16px);
+		height: calc(100svh - 16px);
 		margin: 0;
 	}
 }

@@ -1,41 +1,51 @@
-import React from 'react';
-import {useFormContext} from "react-hook-form";
-import {IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
-import {CheckboxChangeEvent} from "antd/lib/checkbox";
 import CustomCheckbox from "@/components/shared/custom-checkbox/custom-checkbox";
-import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
+import { ICustomCheckbox } from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface props {
-    item: ICustomCheckbox
-    onClose : () => void
+	item: ICustomCheckbox;
 }
 
-const Option = ({item,onClose}: props) => {
-    const {id} = item
+const Option = ({ item }: props) => {
+	const { id } = item;
 
-    const {watch, setValue} = useFormContext<IFilters>()
+	const { push, query } = useRouter();
+	const searchParams = useSearchParams();
+	const pathname: string = usePathname();
 
-    const sales: string | undefined = watch('sales')
+	const sales = searchParams.get("sales");
 
+	const onChange = () => {
+		push(
+			{
+				pathname,
+				query: {
+					...query,
+					sales: id.toString(),
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
+	};
 
-    const onChange = (e: CheckboxChangeEvent) => {
-        const value = e.target.value.toString()
-        const checked = e.target.checked
-        // const salesArr: string[] = sales ? sales : []
-        // const newStores: string[] = checked ? [...salesArr, value] : salesArr.filter((item) => item !== value)
-        setValue('sales', value)
-        setValue('onSales', true)
-        onClose()
-    }
-
-
-    return (
-        <CustomCheckbox options={{
-            onChange,
-            disabled: false,
-            checked: !!sales && !!sales?.includes(id.toString())
-        }} item={item}/>
-    );
+	return (
+		<CustomCheckbox
+			options={{
+				onChange,
+				disabled: false,
+				checked: !!sales && !!sales?.includes(id.toString()),
+			}}
+			item={item}
+		/>
+	);
 };
 
 export default Option;

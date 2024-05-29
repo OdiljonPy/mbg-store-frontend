@@ -29,10 +29,9 @@ const Sale = ({item}: props) => {
 
         if (e.target.checked) {
             queries.sale = item.key
-            queries.onSales = 'true'
+            delete queries.onSales
         } else {
             delete queries.sale
-            delete queries.onSales
         }
         push({
             pathname,

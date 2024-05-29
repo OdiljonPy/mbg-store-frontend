@@ -1,0 +1,12 @@
+.icon_error{
+    width: 218px;
+    height: 203px;
+    margin-top: 20px;
+}
+
+@media (max-width: 575px){
+    .icon_error{
+        width: 131px;
+        height: 148px;
+    }
+}

@@ -5,17 +5,19 @@ import mikado from '@/../public/images/products/mikado.png'
 import {priceFormatter} from "@/utils/price-formatter/price-formatter";
 import Rate from "../rate/rate";
 import {IProduct} from "@/data-types/products/common";
+import {useRouter} from "next/router";
 
 interface props {
     product:  IProduct
 }
 
 const Product = ({product}: props) => {
-    const {name, price,discount, discount_price, rating, rating_count, store} = product
+    const {push} = useRouter()
+    const {name,id,images, price,discount, discount_price, rating, rating_count, store} = product
     return (
-        <div className={css.product}>
+        <div className={css.product} onClick={()=>push(`/products/${id}`)}>
             <div className={css.img}>
-                <ResponsiveImage src={mikado} alt={'Mikado'}/>
+                <ResponsiveImage src={images?.[0]?.image} alt={'Mikado'}/>
             </div>
             <div className={css.wrapper}>
                 <p className={css.title}>

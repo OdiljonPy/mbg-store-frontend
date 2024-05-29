@@ -2,6 +2,10 @@
 	display: none;
 }
 
+.pagination {
+	margin-top: 20px;
+}
+
 @media (max-width: 991px) {
 	.search_box {
 		display: flex;

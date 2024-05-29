@@ -74,7 +74,7 @@ const verifyUserSlice = createSlice({
 			})
 			.addCase(verify.rejected, (state) => {
 				state.loading = false;
-				state.error = "Неверный код";
+				state.error = "invalid_code";
 			});
 	},
 });

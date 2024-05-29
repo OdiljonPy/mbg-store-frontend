@@ -1,11 +1,13 @@
 .list {
    flex-grow: 1;
+   flex-basis: 85%;
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 992px) {
    .list{
-      flex: 0 0 67%;
+      /*flex: 0 0 67%;*/
+      flex-basis: 100%;
    }
 }
 

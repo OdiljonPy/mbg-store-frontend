@@ -30,24 +30,6 @@
 	opacity: 30%;
 }
 
-.desc_label {
-	display: flex;
-	align-items: flex-end;
-	justify-content: space-between;
-}
-
-.counter {
-	font-size: 14px;
-	font-weight: 500;
-	color: var(--icon-gray);
-	padding: 0 8px;
-}
-
-.description {
-	font-size: 16px;
-	font-weight: 500;
-}
-
 .formInputTop {
 	width: 100%;
 	display: flex;

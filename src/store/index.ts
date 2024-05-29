@@ -11,9 +11,13 @@ import storiesSlices from "@/slices/all_store/StoriesSlices";
 import userSlice from "@/slices/auth/user";
 import aboutSlice from "@/slices/base/about/aboutSlice";
 import bannerSlice from "@/slices/base/banner/bannerSlice";
+import faqSlice from "@/slices/base/faq/faqSlice";
+import partnerSlice from "@/slices/base/partner/partnerSlice";
+import statisticSlices from "@/slices/base/statistics/statisticsSlices";
 import basketSlice from "@/slices/basket/basketSlice";
 import categorySlices from "@/slices/category/categorySlices";
 import favoritesSlice from "@/slices/favorites/favoritesSlice";
+import filterLocationSlice from "@/slices/filter_location/filterLocationSlice";
 import messageSlice from "@/slices/message/message";
 import orderChangeStatus from "@/slices/order/changeOrderSlice";
 import lastOrderSlices from "@/slices/order/lastOrderSlice";
@@ -21,17 +25,24 @@ import orderItemSlice from "@/slices/order/orderItemSlice";
 import ordersSlice from "@/slices/order/ordersSlice";
 import otpKey from "@/slices/otpKey/otpKey";
 import phoneNumber from "@/slices/phone_numer/phoneNumber";
+import oftenSearchedProductsSlice from "@/slices/product/oftenSearchedProductsSlice";
+import productLocationSlice from "@/slices/product/productLocationSlice";
 import productSingleSlices from "@/slices/product/productSingleSlices";
 import promoCodeSlice from "@/slices/promo-code/promoCodeSlice";
+import searchHistorySlice from "@/slices/search_history/searchHistorySlice";
 import supportSlice from "@/slices/support/supportSlice";
+import addressSlice from "../slices/address/addressSlice";
 import loginSlice from "../slices/auth/login";
+import resetPasswordSlice from "../slices/auth/resetPassword";
+import resetVerifySlice from "../slices/auth/resetVerify";
 import signUpUserSlice from "../slices/auth/signup";
+import updatePasswordSlice from "../slices/auth/updatePassword";
 import verifyUserSlice from "../slices/auth/verify";
 import productBestSeller from "../slices/product/productBestSellerSlices";
 import productDiscount from "../slices/product/productDiscountSlices";
 import productSlices from "../slices/product/productSlices";
 import shippingListSlice from "../slices/shipping/shippingSlice";
-import faqSlice from "@/slices/base/faq/faqSlice";
+import storesSlice from "../slices/stores/storesSlice";
 
 const basketPersistConfig = {
 	key: "basket",
@@ -49,10 +60,34 @@ const userPersistConfig = {
 	storage,
 };
 
+const addressPersistConfig = {
+	key: "address",
+	storage,
+};
+
+const filterLocationPersistConfig = {
+	key: "filterLocation",
+	storage,
+};
+
+const searchHistoryPersistConfig = {
+	key: "searchHistory",
+	storage,
+};
+
 const rootReducers = combineReducers({
 	basket: persistReducer(basketPersistConfig, basketSlice),
 	favorites: persistReducer(favoritesPersistConfig, favoritesSlice),
 	user: persistReducer(userPersistConfig, userSlice),
+	address: persistReducer(addressPersistConfig, addressSlice),
+	filter_location: persistReducer(
+		filterLocationPersistConfig,
+		filterLocationSlice
+	),
+	search_history: persistReducer(
+		searchHistoryPersistConfig,
+		searchHistorySlice
+	),
 	product: productSlices,
 	product_discount: productDiscount,
 	product_bestseller: productBestSeller,
@@ -65,6 +100,9 @@ const rootReducers = combineReducers({
 	verify: verifyUserSlice,
 	signup: signUpUserSlice,
 	login: loginSlice,
+	resetPassword: resetPasswordSlice,
+	resetVerify: resetVerifySlice,
+	updatePassword: updatePasswordSlice,
 	orders: ordersSlice,
 	order_item: orderItemSlice,
 	last_order: lastOrderSlices,
@@ -75,7 +113,11 @@ const rootReducers = combineReducers({
 	about: aboutSlice,
 	banner: bannerSlice,
 	faq: faqSlice,
-	// address: addressSlice,
+	partner: partnerSlice,
+	statistics: statisticSlices,
+	product_near: productLocationSlice,
+	stores: storesSlice,
+	oftenSearchedProducts: oftenSearchedProductsSlice,
 });
 
 export const makeStore = () => {

@@ -1,97 +1,115 @@
 .wrapper {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(4, 2fr);
-    grid-template-areas:
-     'item1 item2 item3  item3 '
-     'item4 item4 item5  item6 '
-     'item4 item4 link  link '
-;
-    margin-top: 20px;
+	display: grid;
+	gap: 24px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-areas:
+		"item1 item2 item3  item3 "
+		"item4 item4 item5  item6 "
+		"item4 item4 link  link ";
+	margin-top: 20px;
 }
 
-
 .item1 {
-    grid-area: item1;
+	grid-area: item1;
 }
 
 .item2 {
-    grid-area: item2;
+	grid-area: item2;
 }
 
-
 .item3 {
-    grid-area: item3;
+	grid-area: item3;
 }
 
 .item4 {
-    grid-area: item4;
+	grid-area: item4;
 }
 
 .item5 {
-    grid-area: item5;
+	grid-area: item5;
 }
 
-.item6{
-    grid-area: item6;
+.item6 {
+	grid-area: item6;
 }
 
-.link{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: var(--medium-radius);
-    background: var(--green);
-    grid-area: link;
-    transition: all .2s linear;
-    padding: 32px 30px;
-    text-decoration: none;
-    font-size: 28px;
-    font-weight: 700;
-    color: #FFFFFF;
+.link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: var(--medium-radius);
+	background: var(--green);
+	grid-area: link;
+	transition: all 0.2s linear;
+	padding: 32px 30px;
+	text-decoration: none;
+	font-size: 28px;
+	font-weight: 700;
+	color: #ffffff;
 }
 
-.link:hover{
-    background: var(--light-green);
+.link:hover {
+	background: var(--light-green);
 }
 
-.link:active{
-    background: var(--green);
+.link:active {
+	background: var(--green);
+}
+
+.skeleton {
+	border-radius: 30px;
+	min-height: 250px;
+	height: 100%;
+}
+
+.link_skeleton {
+	grid-area: link;
+	border-radius: 30px;
+	overflow: hidden;
 }
 
 @media (max-width: 991px) {
-    .wrapper {
-        display: grid;
-        gap: 24px;
-        grid-template-columns: repeat(1, 2fr);
-        grid-template-areas:
-     'item1 item2'
-     'item3 item4'
-     'item5 item6'
-        'link link'
-    ;
-    }
-    .link{
-        padding: 20px 22px;
-        font-size: 24px;
-    }
+	.wrapper {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+			"item1 item1 item2"
+			"item3 item3 item4"
+			"item5 item5 item6"
+			"link link link";
+	}
+	.link {
+		padding: 20px 22px;
+		font-size: 24px;
+	}
 }
 
 @media (max-width: 767px) {
-    .wrapper {
-        display: grid;
-        gap: 24px;
-        grid-template-columns: repeat(2, 2fr);
-
-    }
+	.wrapper {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas:
+			"item1 item2"
+			"item3 item4"
+			"item5 item6"
+			"link link";
+	}
 }
 
 @media (max-width: 575px) {
-    .wrapper{
-        gap: 10px;
-    }
-    .link{
-        padding: 16px;
-        font-size: 14px;
-    }
+	.wrapper {
+		gap: 10px;
+	}
+	.link {
+		padding: 16px;
+		font-size: 14px;
+		border-radius: 16px;
+	}
+
+	.skeleton {
+		min-height: auto;
+		aspect-ratio: 1 / 1;
+	}
 }

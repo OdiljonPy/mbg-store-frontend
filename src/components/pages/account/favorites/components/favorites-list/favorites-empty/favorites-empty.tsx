@@ -1,10 +1,10 @@
+import Button from "@/components/shared/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import css from "./favorites-empty.module.css";
 
 function FavoritesEmpty() {
-	const router = useRouter();
 	const t = useTranslations("favorites");
 
 	return (
@@ -19,9 +19,14 @@ function FavoritesEmpty() {
 				/>
 			</div>
 			<p className={css.text}>{t("empty")}</p>
-			<button className={css.button} onClick={() => router.push("/")}>
-				{t("products_on_sale")}
-			</button>
+			<Link
+				href={
+					"/products?filters=true&changeFilter=false&onSales=true&sale=1"
+				}
+				className={css.link}
+			>
+				<Button className={css.btn}>{t("products_on_sale")}</Button>
+			</Link>
 		</div>
 	);
 }

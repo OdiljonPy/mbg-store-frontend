@@ -3,11 +3,24 @@
     justify-content: space-between;
     align-items: stretch;
     margin: 20px 0 50px;
+    gap: 30px;
+    overflow: hidden;
 }
 
+@media(max-width: 991px){
+    .info{
+        gap:20px
+    }
+}
 
 @media (max-width: 767px) {
     .info{
         flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 575px) {
+    .info{
+        gap: 36px;
     }
 }

@@ -1,0 +1,25 @@
+.pagination{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.pagination_content{
+    color: #999999;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.pagination_btn{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 575px){
+    .pagination_content{
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+}

@@ -1,19 +1,24 @@
 import AccountLayout from "@/components/pages/account/layout/account-layout";
 import Wrapper from "@/components/pages/account/profile/wrapper";
+import useAuthCheck from "@/hooks/use-access-page";
+import HeadWithSeo from "@/layout/metadata";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
-import Head from "next/head";
 
 interface props {}
 
 const Profile = (props: props) => {
 	const t = useTranslations();
+	useAuthCheck(true);
 	return (
 		<>
 			<AccountLayout>
-				<Head>
-					<title>{t("header.profile")}</title>
-				</Head>
+				<HeadWithSeo
+					name={t("header.profile")}
+					url={"/account/profile"}
+					noIndex
+					noFollow
+				/>
 				<Wrapper />
 			</AccountLayout>
 		</>

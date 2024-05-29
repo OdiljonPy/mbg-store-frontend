@@ -6,19 +6,22 @@ import FiltersToggler from "@/components/pages/products/wrapper/header/filters-t
 import SortDropdown from "@/components/pages/products/filters/desktop/sort-dropdown/sort-dropdown";
 import MobileFilters from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters";
 import MobileSort from "@/components/pages/products/filters/mobile/mobile-sort/mobile-sort";
-import {IProductFilter} from "@/data-types/products/product-filter/product-filter";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store";
 
 interface props {
-    data:IProductFilter
 
 }
 
-const Header = ({data}: props) => {
+const Header = ({}: props) => {
+    const { entities:data, loading } = useSelector(
+        (state: RootState) => state.product
+    );
     return (
         <div className={css.wrapper}>
             <div className={css.info}>
                 <Title/>
-                <ProductsCount count={data ? data?.size : 12}/>
+                <ProductsCount loading={loading} count={data ? data?.totalElements : 0}/>
             </div>
             <div className={css.actions}>
                 <MobileFilters data={data}/>

@@ -1,0 +1,20 @@
+.signup {
+	text-align: center;
+	margin-top: 12px;
+	color: var(--icon-gray);
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.signup button {
+	background-color: transparent;
+	border: none;
+	color: var(--text-green);
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.signup button:hover {
+	color: var(--light-green);
+}

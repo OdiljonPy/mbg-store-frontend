@@ -1,7 +1,7 @@
 import { EnumSupportType } from "@/data-types/support";
 
 export const supportTypeMap: Record<EnumSupportType, string> = {
-	[EnumSupportType.COMPLAINT]: "Жалоба",
-	[EnumSupportType.QUESTION]: "Задать вопрос",
-	[EnumSupportType.FEEDBACK]: "Отзывы и предложения",
+	[EnumSupportType.COMPLAINT]: "complaint",
+	[EnumSupportType.QUESTION]: "ask_question",
+	[EnumSupportType.FEEDBACK]: "comment_suggestions",
 };

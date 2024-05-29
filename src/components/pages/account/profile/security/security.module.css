@@ -53,6 +53,10 @@
 	background-color: transparent;
 }
 
+.input:disabled {
+	cursor: not-allowed;
+}
+
 .input.password {
 	font-size: 32px;
 	letter-spacing: 2px;

@@ -1,94 +1,61 @@
 .total {
-    flex-basis: 32%;
-    border: 2px solid var(--input-gray);
-    border-radius: 26px;
+  flex-basis: 32%;
+  border: 2px solid var(--input-gray);
+  border-radius: 26px;
+    padding: 18px;
 }
 
 .title {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--black);
-    margin: 20px 20px 0 20px;
-}
-
-.info {
-    margin: 18px 0;
-
-}
-
-.bordered {
-    padding: 14px 20px;
-    border-bottom: 2px solid var(--light-gray);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
     margin-bottom: 18px;
 }
 
+.bordered {
+  padding: 14px 0;
+  border-bottom: 2px solid var(--light-gray);
+  margin-bottom: 18px;
+}
+
 .finalPrice p {
-    color: var(--text-green);
+  color: var(--text-green);
 }
 
-
-.btn{
-    background: var(--green);
-    padding: 14px 0;
-    width: calc(100% - 40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    font-weight: 600;
-    color: #FFFFFF;
-    border: none;
-    border-radius: var(--default-radius);
-    cursor: pointer;
-    margin: 18px auto 20px;
-    transition: all .2s linear;
-}
-.total_btn{
-    margin: 18px  20px;
+.total_btn {
+  margin: 18px 20px;
 }
 
-.btn:hover {
-    background: var(--text-green);
+.btn_box {
+  margin: 18px auto 20px;
 }
 
-.btn:active{
-    background: var(--green);
-}
-
-.link{
-    text-decoration: none;
+.link {
+  text-decoration: none;
 }
 
 @media (max-width: 575px) {
-    .title{
-        font-size: 15px;
-    }
-
-    .total{
-        border:none;
-        flex-basis: 100%;
-    }
+  .title {
+    font-size: 15px;
+      margin-bottom: 12px;
+  }
+  .bordered {
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+  .total {
+    border: none;
+    flex-basis: 100%;
+      padding: 16px;
+  }
 }
 
 /*recipient total sum*/
 
-.pb_4{
-    padding-bottom:16px ;
+.pb_4 {
+  padding-bottom: 16px;
 }
 
-.paddingTop{
-    padding: 14px 20px 0 20px;
-}
-
-.checkout_btn{
-    background-color: var( --light-gray);
-    color:var(--icon-gray)
-}
-.checkout_btn:hover{
-    color: #fff;
-}
-.checkout_btn:disabled:hover {
-    background-color: var(--light-gray);
-    color:var(--icon-gray);
-    cursor: not-allowed;
+.paddingTop {
+  padding: 14px 20px 0 20px;
 }

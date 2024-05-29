@@ -1,1 +1,3 @@
-export const letters: string[] = ['a', 'b', 'c', 'd', 'f']
+export const letters = Array.from(
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+);

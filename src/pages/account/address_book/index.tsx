@@ -1,19 +1,24 @@
 import Wrapper from "@/components/pages/account/address-book/wrapper";
 import AccountLayout from "@/components/pages/account/layout/account-layout";
+import useAuthCheck from "@/hooks/use-access-page";
+import HeadWithSeo from "@/layout/metadata";
 import { GetStaticProps } from "next";
 import { useTranslations } from "next-intl";
-import Head from "next/head";
 
 interface props {}
 
 const AddressBook = (props: props) => {
 	const t = useTranslations();
+	useAuthCheck(true);
 	return (
 		<>
 			<AccountLayout>
-				<Head>
-					<title>{t("header.address_book")}</title>
-				</Head>
+				<HeadWithSeo
+					name={t("header.address_book")}
+					url={"/account/address_book"}
+					noIndex
+					noFollow
+				/>
 				<Wrapper />
 			</AccountLayout>
 		</>

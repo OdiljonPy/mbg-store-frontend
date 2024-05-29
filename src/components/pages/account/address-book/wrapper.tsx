@@ -35,8 +35,6 @@ const Wrapper = () => {
 		searchBy: ["address", "address_name", "latitude", "longitude"],
 	});
 
-	console.log(filteredData);
-
 	return (
 		<AddressBookSearchContext.Provider
 			value={{ filteredData, searchValue, onSearchValueChange }}

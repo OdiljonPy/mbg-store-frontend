@@ -66,6 +66,15 @@
     visibility: visible;
 }
 
+.add_disabled {
+    opacity: 0.85 !important;
+    cursor:not-allowed;
+    background: var(--middle-gray);
+}
+
+.add_disabled:hover{
+    background-color: var(--middle-gray);
+}
 
 
 @media (max-width: 767px) {

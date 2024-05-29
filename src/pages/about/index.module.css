@@ -1,11 +1,9 @@
-.about{
-    margin: 150px 0 100px;
+.about {
+	margin-bottom: 100px;
 }
 
-
-
 @media (max-width: 767px) {
-    .about{
-        margin: 140px 0 60px;
-    }
+	.about {
+		margin-bottom: 60px;
+	}
 }

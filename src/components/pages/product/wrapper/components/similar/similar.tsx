@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from "@/components/pages/home/sales/sales.module.css";
 import HeadingLine from "@/components/pages/home/heading-line/heading-line";
 import Product from "@/components/shared/product/product";
@@ -6,7 +6,8 @@ import Product from "@/components/shared/product/product";
 import {useSlider} from "@/hooks/use-slider";
 import {IProduct} from "@/data-types/products/common";
 import Skeleton from "react-loading-skeleton";
-import {product} from "@/constants/product/product";
+import ProductSwiperArrow from "@/components/shared/product-swiper-arrow/product-swiper-arrow";
+import {useRouter} from "next/router";
 
 interface props {
     similar:IProduct[]
@@ -14,23 +15,42 @@ interface props {
 }
 
 const Similar = ({similar,loading}: props) => {
-    const {loaded, sliderRef} = useSlider()
+    const {onPrev, onNext, currentSlide, loaded, sliderRef ,instanceRef} = useSlider()
+
+    const {query:{id}} = useRouter();
+
+
+    useEffect(() => {
+        const slider = instanceRef.current
+        return ()=>{
+            slider?.update()
+        }
+    }, [instanceRef,similar,loaded,loading]);
+
+
     return (
         <section className={css.sales}>
                 <HeadingLine small heading={{
                     title: 'product.similar',
-                    count: similar?.length
                 }}/>
-                <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
-                    {
-                        loading ? <div> <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  />
-                        </div> :similar?.map((product)=>{
-                            return <div className={`keen-slider__slide`} key={product.id}>
-                                <Product product={product} />
-                            </div>
-                        })
-                    }
+            {
+                loading ?  <Skeleton containerClassName={css.container_skeleton} className={css.skeleton_position} count={4}  /> :
+                <div className={css.wrapperOuter}>
+                    <ProductSwiperArrow onClick={onPrev} isDisabled={currentSlide === 0}/>
+                    <ProductSwiperArrow onClick={onNext} isNext/>
+
+                    <div ref={sliderRef} className={`keen-slider ${css.wrapper} ${loaded ? css.show : ''}`}>
+                        {
+                            similar?.map((product)=>{
+                                return <div className={`keen-slider__slide`} key={product.id}>
+                                    <Product product={product} />
+                                </div>
+                            })
+                        }
+                    </div>
                 </div>
+            }
+
         </section>
     );
 };

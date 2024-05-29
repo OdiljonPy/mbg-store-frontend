@@ -8,7 +8,7 @@ interface props {
     discount?:number
 }
 const Price = ({price, discount_price,discount, count}: props) =>{
-    const currentPrice = discount ? price - discount_price : price
+    const currentPrice = discount ? discount_price : price
     return(
         <div className={css.prices}>
             <p className={`${css.price} ${discount ? css.discount: ''}`}>
@@ -18,7 +18,7 @@ const Price = ({price, discount_price,discount, count}: props) =>{
                 {priceFormatter(price * count, true)}
             </p>
             <p className={`${css.pricePerItem} ${count > 1 ? css.show: ''}`}>
-                {priceFormatter(price, true)}/ед
+                {priceFormatter(currentPrice, true)}/ед
             </p>
         </div>
     )

@@ -9,14 +9,16 @@ export const useReorderProducts = (orderedItems: IOrderItem[]) => {
 	const { push } = useRouter();
 
 	const reorderItems = () => {
-		dispatch(
-			setProducts(
-				orderedItems.map((item) => ({
-					product: item.product,
-					quantity: item.quantity,
-				}))
-			)
-		);
+		const basketProducts = [];
+		for (let i = 0; i < orderedItems.length; i++) {
+			const item = orderedItems[i];
+			basketProducts.push({
+				product: item.product,
+				quantity: item.quantity,
+			});
+		}
+
+		dispatch(setProducts(basketProducts));
 		push("/cart");
 	};
 

@@ -3,9 +3,15 @@ import Image from "next/image";
 import Button from "@/components/shared/button";
 import css from "./cart-empty.module.css";
 import {useRouter} from "next/navigation";
+import {useTranslations} from "next-intl";
 
-function CartEmpty() {
+interface props{
+	text?:string
+}
+
+function CartEmpty({text}:props) {
 	const { push } = useRouter();
+	const t = useTranslations()
 	return (
 		<div className={css.wrapper}>
 			<div className={css.image_wrapper}>
@@ -17,8 +23,8 @@ function CartEmpty() {
 					height={180}
 				/>
 			</div>
-			<p className={css.text}>Корзина пуста</p>
-			<Button className={css.btn} onClick={() => push('/')}>Товары на скидке</Button>
+			<p className={css.text}>{t(text)}</p>
+			<Button className={css.btn} onClick={() => push('/')}>{t('cart.fill_cart')}</Button>
 		</div>
 	);
 }

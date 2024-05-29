@@ -1,36 +1,52 @@
-import { IOrder, IPostOrder } from "@/data-types/order/order";
+import {
+	IOrder,
+	IOrderWithPagination,
+	IPostOrder,
+} from "@/data-types/order/order";
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface OrdersResponse {
-	response: IOrder[];
+	response: IOrderWithPagination;
 	ok: boolean;
 }
 
-export const fetchOrders = createAsyncThunk("order", async () => {
-	const response = await API.get<OrdersResponse>("/store/orders/");
-	return response.data;
-});
+export const fetchOrders = createAsyncThunk(
+	"order",
+	async ({ page, size }: { page: number; size: number }) => {
+		const response = await API.get<OrdersResponse>("/store/orders/", {
+			params: { page, size },
+		});
+		return response.data;
+	}
+);
 
 // create order
+
+interface CreateOrderResponse {
+	result: IOrder;
+	ok: boolean;
+}
 
 export const createOrder = createAsyncThunk(
 	"order_create",
 	async (order: IPostOrder) => {
-		const res = await API.post("/store/order/", order);
+		const res = await API.post<CreateOrderResponse>("/store/order/", order);
 		return res.data;
 	}
 );
 
 interface InitialState {
-	orders: IOrder[];
+	orders: IOrderWithPagination;
 	loading: boolean;
 	createLoad: boolean;
 	error: boolean;
 }
 
 const initialState: InitialState = {
-	orders: [] as IOrder[],
+	orders: {
+		content: [] as IOrder[],
+	} as IOrderWithPagination,
 	loading: true,
 	createLoad: false,
 	error: false,
@@ -63,7 +79,7 @@ const ordersSlice = createSlice({
 			})
 			.addCase(createOrder.fulfilled, (state, { payload }) => {
 				state.createLoad = false;
-				state.error = false
+				state.error = false;
 			})
 			.addCase(createOrder.rejected, (state) => {
 				state.createLoad = false;

@@ -1,91 +1,113 @@
 .search {
-    display: flex;
-    align-items: center;
-    margin-left: 14px;
-    border: 2px solid var(--input-gray);
-    border-radius: var(--default-radius);
-    flex: 1 0 auto;
-    transition: all .2s linear;
-    position: relative;
-    gap: 14px;
+	display: flex;
+	align-items: center;
+	margin-left: 14px;
+	border: 2px solid var(--input-gray);
+	border-radius: var(--default-radius);
+	flex: 1 0 auto;
+	transition: all 0.2s linear;
+	position: relative;
+	gap: 14px;
+	height: 50px;
 }
 
 .inputWrapper {
-    flex: 1 0 auto;
-    display: flex;
-    align-items: center;
+	flex: 1 0 auto;
+	display: flex;
+	align-items: center;
+	margin-right: 55px;
 }
 
-.input, .title {
-    color: var(--black);
+.input,
+.title {
+	color: var(--black);
 }
 
 .input {
-    font-weight: 500;
-    border-radius: var(--default-radius);
-    padding: var(--default-padding);
-    border: none;
-    flex: 0 0 calc(100% - 70px);
-    width: calc(100% - 70px);
-    outline: none;
-
+	font-weight: 500;
+	border-radius: var(--default-radius);
+	padding: 0 20px;
+	border: none;
+	min-width: 0;
+	outline: none;
+	width: 100%;
+	background-color: transparent;
+	font-size: 16px;
 }
 
 .icon {
-    cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .2s linear;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.2s linear;
 }
 
 .show {
-    visibility: visible;
-    opacity: 1;
+	visibility: visible;
+	opacity: 1;
 }
 
 .btn {
-    border: none;
-    border-radius: var(--default-radius);
-    background: var(--green);
-    padding: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    bottom: -2px;
-    transition: all .2s linear;
+	border: none;
+	border-radius: var(--default-radius);
+	background: var(--green);
+	aspect-ratio: 1 / 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	bottom: -2px;
+	height: 108%;
+	transition: all 0.2s linear;
 }
 
 .btn:hover {
-    background: var(--light-green);
+	background: var(--light-green);
 }
 
 .btn:active {
-    background: var(--green);
+	background: var(--green);
 }
 
 .focused {
-    border-color: var(--green);
+	border-color: var(--green);
 }
-
 
 .title {
-    font-size: 14px;
-    font-weight: 700;
+	font-size: 14px;
+	font-weight: 700;
 }
 
-
 @media (max-width: 1199px) {
-    .search{
-        margin: 0 14px;
-    }
+	.search {
+		margin: 0 14px;
+	}
 }
 
 @media (max-width: 767px) {
-    .search{
-        margin: 0;
-    }
+	.search {
+		margin: 0;
+		height: 38px;
+		border-radius: 12px;
+		border-width: 1.2px;
+	}
+
+	.btn {
+		border-radius: 12px;
+		top: -1.2px;
+		right: -1.2px;
+		bottom: -1.2px;
+	}
+
+	.inputWrapper {
+		margin-right: 44px;
+	}
+
+	.input {
+		padding: 0 14px;
+		font-size: 14px;
+	}
 }

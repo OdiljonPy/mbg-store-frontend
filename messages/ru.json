@@ -1,4 +1,9 @@
 {
+	"metadata": {
+		"description": "MBGStore - интернет магазин",
+		"locale": "ru-RU",
+		"language": "ru"
+	},
 	"header": {
 		"home": "Главная",
 		"catalog": "Каталог",
@@ -13,12 +18,13 @@
 		"account": "Аккаунт",
 		"profile": "Профиль",
 		"orders": "Заказы",
-
 		"order_placed": "Заказ размещен",
 		"order": "Заказ",
 		"address_book": "Адресная книжка",
 		"favorites": "Избранные",
-		"support": "Поддержка"
+		"support": "Поддержка",
+		"offer": "Офферта",
+		"please_enter_address": "Укажите адрес"
 	},
 	"categories": {
 		"title": "Категории",
@@ -26,6 +32,10 @@
 	},
 	"address": {
 		"add": "Добавить адрес",
+		"next": "Далее",
+		"cancel": "Отмена",
+		"change": "Изменить",
+		"save": "Сохранить",
 		"typeAddress": "Укажите свой адрес",
 		"title": "Адрес",
 		"placeholder": "Город, улица, дом",
@@ -35,11 +45,19 @@
 		"entrance": "Подъезд",
 		"floor": "Этаж",
 		"apartment": "Квартира",
-		"make_address": "Сделать адрес основным"
+		"make_address": "Сделать адрес основным",
+		"required": "Это поле обязательно",
+		"saved": "Сохраненные",
+		"address_status": "Основное",
+		"delete_address": "Удалить адресa",
+		"permission_delete": "Вы уверены что хотите удалить адрес",
+		"already_exists": "Адрес с таким названием уже существует"
 	},
 	"search": {
 		"placeholder": "Поиск товаров",
 		"often": "Часто ищут",
+		"recently_searched": "Вы недавно искали",
+		"clear": "Очистить",
 		"title": "Поиск",
 		"found": "Найдено {products} товаров в {categories} категориях",
 		"categories": "{products} товаров",
@@ -77,23 +95,43 @@
 		"near": "Товары поблизости",
 		"top": "Хиты продаж",
 		"popular": "Популярное",
-		"withFeedbacks": "Товары с отзывами"
+		"withFeedbacks": "Товары с отзывами",
+		"sold": "Распроданный",
+		"addToCart": "Продукт был добавлен в корзину!",
+		"show_more": "Показать больше",
+		"no_product": "Товар не остался в базе",
+		"unavailable_product": "Недоступные товары",
+		"add_address_for_see_near": "Укажите адрес, чтобы видеть товары поблизости",
+		"has_products": "товары в наличии",
+		"some_product": "Похожие товары",
+		"warning_products": "Некоторые товары в вашей корзине недоступны в данный момент",
+		"flag": {
+			"new": "Новый",
+			"free_ship": "Бесплатно",
+			"sale": "Распродажа"
+		}
 	},
 	"about": {
 		"title": "Кратко о MBG store",
 		"products": "различных товаров",
 		"stores": "магазинов на сайте",
-		"orders": "заказов в день",
+		"orders": "общие заказы",
 		"partners": "Наши партнеры",
 		"faq": "Частые вопросы",
 		"chat": "Не смогли найти ответ на свой вопрос? Напишите в чат:",
 		"writeToChat": "Написать в чат"
 	},
-	"show": "Показать",
+	"show": "Показать {count} товаров",
+	"apply": "Применить",
 	"show_count": "Показать {count} товаров",
 	"hide": "Скрыть",
 	"filters": {
 		"title": "Фильтры",
+		"show_filter": "Показать фильтр",
+		"hide_filter": "Скрыть фильтр",
+		"clear": "cбросить",
+		"up_to": "из",
+		"from": "товаров",
 		"sorting": {
 			"title": "Сортировка",
 			"popular": "Популярные",
@@ -111,6 +149,11 @@
 		"accessibility": {
 			"title": "Доступность"
 		},
+		"empty_store": "Информация не найдена",
+		"no_data": {
+			"title": "Hech qanday mos mahsulot topilmadi",
+			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
+		},
 		"reset": "Сбросить фильтры"
 	},
 	"from": "От",
@@ -124,10 +167,17 @@
 	"price": {
 		"title": "Цена, UZS"
 	},
+	"location": {
+		"title": "Локация",
+		"select_location": "Укажите локацию, для работы фильтра",
+		"add_location": "Другой адрес? Добавьте локацию",
+		"distance": "Радиус поиска от локации"
+	},
 	"product": {
 		"similar": "Покупают вместе",
 		"onSale": "Распродажа",
-		"has": "В наличии",
+		"has": "В наличии {count}",
+		"has_not": "Нет в наличии",
 		"seller": "Продавец",
 		"rates": "Оценок",
 		"addToCart": "Добавить в корзину",
@@ -166,16 +216,26 @@
 		"actualPrice": "Предварительная стоимость",
 		"order": "Оформить заказ",
 		"promo_code": "Промокод",
+		"use": "применено",
 		"invalid_code": "Этот код недействителен",
 		"accept": "Применить",
 		"type": "Доставка/самовывоз",
 		"type_value": "уточняется",
 		"checkout": "Перейти к оплате",
+		"info_enter_address": "Введите адрес, по которому должен быть отправлен заказ!",
+		"fill_cart": "B корзину",
 		"delivery": {
 			"title_one": "Получатель заказа",
 			"name_label": "Имя и фамилия",
 			"phone_label": "Номер телефона",
-			"name_placeholder": "Введите ваше имя"
+			"name_placeholder": "Введите ваше имя",
+			"delivery_to": "Доставка по адресу"
+		},
+		"orders": {
+			"empty": "Корзина пуста",
+			"done": "Заказ успешно удален",
+			"error": "Произошла ошибка. Пожалуйста, проверьте наличие товаров в наличии",
+			"must_choose_one": "Вы должны выбрать основной адрес!"
 		}
 	},
 	"order_placed": {
@@ -188,7 +248,8 @@
 		"order_all": "Всего",
 		"warning_text": "Оплата при получении товара",
 		"cancel_order": "Отмена заказа",
-		"agree_cancel_text": "Вы уверены что хотите отменить заказ на самовынос"
+		"agree_cancel_text": "Вы уверены что хотите отменить заказ на самовынос",
+		"notAllowed_delete": "Вы не можете удалить основной адрес"
 	},
 	"modal": {
 		"no": "Нет",
@@ -197,6 +258,74 @@
 		"delete_desc": "Вы уверены что хотите удалить адрес"
 	},
 	"remove": "Удалить",
+	"auth": {
+		"signUp": {
+			"title": "Создание аккаунта",
+			"phone_number": "Номер телефона",
+			"password": "Пароль",
+			"enter_password": "Введите пароль",
+			"label": "Номер телефона",
+			"accept_terms": "Я принимаю условия <terms>Офферты</terms>",
+			"create_account": "Создать аккаунт",
+			"have_account": "Есть аккаунт?",
+			"login": "Войти в аккаунт",
+			"account_already_exists": "Аккаунт с таким номером уже существует",
+			"invalid_region": "Введите Узбекистанский номер телефона"
+		},
+		"signUp_success": {
+			"title": "Добро пожаловать!",
+			"description": "Вы успешно создали аккаунт в MBG store",
+			"login": "Войти"
+		},
+		"login": {
+			"title": "Вход в аккаунт",
+			"password": "Пароль",
+			"enter_password": "Введите пароль",
+			"forgot_password": "Забыли пароль?",
+			"enter": "Войти",
+			"no_account": "Нет аккаунта?",
+			"create_account": "Создать аккаунт",
+			"invalid_phone_or_password": "Неврный номер телефона или пароль"
+		},
+		"reset_password": {
+			"title": "Сброс пароля",
+			"description": "Код для сброса пароля будет отправлен на ваш номер телефона",
+			"phone_number": "Номер телефона",
+			"current_password": "Текущий пароль",
+			"get_code": "Получить код",
+			"invalid_phone_number": "Номер телефона недействителен"
+		},
+		"otp": {
+			"title": "Введите код",
+			"description": "Код отправлен на номер <phone>{phone}</phone>",
+			"back": "Назад",
+			"confirm": "Подтвердить",
+			"new_code_after": "Новый код через",
+			"send_new_code": "Отправить новый код ({count} попытки)",
+			"invalid_code": "Недействителен код",
+			"no_more_attempts": "Попытки закончились."
+		},
+		"otp_error": {
+			"title": "Ошибка регистрации",
+			"description": "Введен неверный OTP-код более 3х раз. Попробуйте еще раз через {hour}ч.",
+			"close": "Закрыть"
+		},
+		"new_password": {
+			"title": "Новый пароль",
+			"description": "Придумайте новый пароль",
+			"label": "Пароль",
+			"placeholder": "Введите пароль",
+			"change_password": "Изменить пароль",
+			"min_length": "не менее 8 символов",
+			"min_one_letter": "минимум 1 буква",
+			"min_one_digit": "минимум 1 цифра"
+		},
+		"reset_success": {
+			"title": "Пароль обновлен",
+			"description": "Теперь вы можете войти с новым паролем",
+			"login": "Войти"
+		}
+	},
 	"profile": {
 		"title": "Профиль",
 		"logout": {
@@ -218,33 +347,12 @@
 			"phone_number": "Номер телефона",
 			"current_password": "Текущий пароль"
 		},
-		"drop_password": {
-			"modal_title": "Сброс пароля",
-			"modal_description": "Код для сброса пароля будет отправлен на ваш номер телефона",
-			"label": "Номер телефона",
-			"placeholder": "Введите номер телефона",
-			"current_password": "Текущий пароль",
-			"get_code": "Получить код"
-		},
-		"enter_code": {
-			"modal_title": "Введите код",
-			"modal_description": "Код отправлен на номер",
-			"back": "Назад",
-			"confirm": "Подтвердить",
-			"new_code_after": "Новый код через"
-		},
-		"new_password": {
-			"modal_title": "Новый пароль",
-			"modal_description": "Придумайте новый пароль",
-			"label": "Пароль",
-			"placeholder": "Введите пароль",
-			"change_password": "Изменить пароль"
-		},
 		"save": "Сохранить"
 	},
 	"orders": {
 		"title": "Заказы",
 		"search": "Поиск",
+		"success": "Ваш заказ принят!",
 		"method": {
 			"DELIVERY": "Доставка",
 			"PICKUP": "Самовывоз"
@@ -282,7 +390,8 @@
 			"available_for_pickup": "Товар(ы) доступны для получения до"
 		},
 		"order_item_list": {
-			"title": "Товары в заказе"
+			"title": "Товары в заказе",
+			"qty": "кол-во"
 		},
 		"order_cost_card": {
 			"title": "Стоимость заказа",
@@ -293,7 +402,9 @@
 			"pickup": "Самовывоз",
 			"total": "Всего",
 			"payment_when_receiving": "Оплата при получении товара",
-			"cancel": "Отменить заказ"
+			"cancel": "Отменить заказ",
+			"checkout": "Перейти к оплате",
+			"error":"Произошла ошибка. Пожалуйста, повторите позднее или сообщите в поддержку"
 		},
 		"order_details_card": {
 			"title": "Детали заказа",
@@ -326,6 +437,7 @@
 		"processing": "В обработке",
 		"show_more": "Показать больше...",
 		"show_less": "Показать меньше",
+		"empty_section": "У вас пока нет заявок",
 		"first_step": {
 			"title": "Поддержка",
 			"next": "Далее",
@@ -335,7 +447,10 @@
 			"topic": "Тема обращения",
 			"select_topic": "Выберите тему",
 			"description": "Описание",
-			"your_message": "Ваш вопрос"
+			"your_message": "Ваш вопрос",
+			"complaint": "Жалоба",
+			"ask_question": "Задать вопрос",
+			"comment_suggestions": "Отзывы и предложения"
 		},
 		"second_step": {
 			"title": "Поддержка",
@@ -344,5 +459,22 @@
 			"back": "Назад",
 			"send": "Отправить"
 		}
+	},
+	"stories": {
+		"with_us": "В MBG store с ",
+		"with_rule": "особые правила",
+		"pay_on": "оплата на месте"
+	},
+	"not_found": {
+		"main_text": "Упс! Кажется, эта страница ушла за покупками Присоединяйтесь к ней!",
+		"to_back": "Перейти на главную"
+	},
+	"notification": {
+		"title": "Примечание",
+		"description": "Вам захочется покупать товары из разных магазинов! Добавить в корзину?",
+		"agree": "Да",
+		"disagree": "Нет",
+		"notShowAgain": "Не указывать больше",
+		"error": "Произошла ошибка!"
 	}
 }

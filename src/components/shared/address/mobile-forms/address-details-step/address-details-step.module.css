@@ -37,3 +37,9 @@
 	display: flex;
 	align-items: center;
 }
+
+.input{
+	height: 45px;
+	padding: 0 10px;
+	border-radius: 10px;
+}

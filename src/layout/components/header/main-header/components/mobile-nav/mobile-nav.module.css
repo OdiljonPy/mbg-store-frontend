@@ -1,75 +1,103 @@
 .nav {
-    display: none;
+	display: none;
 }
 
-
 @media (max-width: 1199px) {
-    .nav {
-        display: block;
-    }
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-    .burger {
-        position: relative;
-        height: 26px;
-        width: 32px;
-        border: none;
-        background: none;
-        z-index: 2;
-        display: flex;
-        cursor: pointer;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+	.burger {
+		position: relative;
+		height: 26px;
+		width: 32px;
+		border: none;
+		background: none;
+		z-index: 2;
+		display: flex;
+		cursor: pointer;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 
-    .line {
-        display: block;
-        height: 4px;
-        width: 100%;
-        border-radius: 10px;
-        background: var(--black);
-    }
+	.line {
+		display: block;
+		height: 4px;
+		width: 100%;
+		border-radius: 10px;
+		background: var(--black);
+	}
 
-    .line1, .line3 {
-        transition: transform 0.4s ease-in-out;
-    }
+	.line1,
+	.line3 {
+		transition: transform 0.4s ease-in-out;
+	}
 
-    .line1 {
-        transform-origin: 0% 0%;
-    }
+	.line1 {
+		transform-origin: 0% 0%;
+	}
 
-    .line3 {
-        transform-origin: 0% 100%;
-    }
+	.line3 {
+		transform-origin: 0% 100%;
+	}
 
-    .line2 {
-        transition: transform 0.2s ease-in-out;
-    }
+	.line2 {
+		transition: transform 0.2s ease-in-out;
+	}
 
-    .open .line1 {
-        transform: rotate(45deg);
-    }
+	.open .line1 {
+		transform: rotate(45deg);
+	}
 
-    .open .line2 {
-        transform: scale(0);
-    }
+	.open .line2 {
+		transform: scale(0);
+	}
 
-    .open .line3 {
-        transform: rotate(-45deg);
-    }
+	.open .line3 {
+		transform: rotate(-45deg);
+	}
 
-    .drawer{
-        position: fixed;
-        right: -200%;
-        background: #FFFFFF;
-        padding: 0 16px;
-        top: 131.5px;
-        bottom: 0;
-        width: 100%;
-        transition: all .3s ease-in-out;
-    }
+	.drawer {
+		position: fixed;
+		right: -200%;
+		background: #ffffff;
+		padding: 0 16px;
+		top: 128px;
+		bottom: 0;
+		width: 100%;
+		transition: all 0.3s ease-in-out;
+	}
 
-    .show{
-        right: 0;
-    }
+	.show {
+		right: 0;
+	}
+}
 
+@media (max-width: 767px) {
+	.nav {
+		height: 24px;
+		width: 24px;
+	}
+	.burger {
+		height: 13px;
+		width: 18px;
+	}
+
+	.drawer {
+		top: 87px;
+	}
+
+	.line {
+		height: 2px;
+	}
+
+	.open .line1 {
+		transform: rotate(40deg);
+	}
+
+	.open .line3 {
+		transform: rotate(-40deg);
+	}
 }

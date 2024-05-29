@@ -1,22 +1,24 @@
-import React from "react";
-import { cn } from "../../../utils/cn";
+import React, { ReactNode } from "react";
+import { cn } from "@/utils/cn";
 import css from "./badge.module.css";
 
 interface props extends React.HTMLAttributes<HTMLDivElement> {
-	text: string;
-	color: string;
+  text: string;
+  color: string;
+  children?: ReactNode;
 }
 
-const Badge = ({ text, color, className, ...props }: props) => {
-	return (
-		<div
-			{...props}
-			className={cn(css.badge, className)}
-			style={{ background: color }}
-		>
-			{text}
-		</div>
-	);
+const Badge = ({ text, color, className, children, ...props }: props) => {
+  return (
+    <div
+      {...props}
+      className={cn(css.badge, className)}
+      style={{ background: color }}
+    >
+      {children}
+      {text}
+    </div>
+  );
 };
 
 export default Badge;

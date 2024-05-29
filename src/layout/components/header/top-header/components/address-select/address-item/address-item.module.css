@@ -1,0 +1,15 @@
+.wrapper {
+	display: flex;
+}
+
+.label {
+	margin-left: 2px;
+	flex: 1 1 0;
+}
+
+.remove_btn {
+	margin-left: 8px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
