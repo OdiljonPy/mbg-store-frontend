@@ -203,7 +203,10 @@
 		"photo": "Фото",
 		"photoDetails": "максимум 4",
 		"photoPlaceholder": "или перетащите файл сюда",
-		"send": "Отправить отзыв"
+		"send": "Отправить отзыв",
+		"file_too_large": "Файл слишком большой",
+		"file_invalid_type": "Неверный тип файла",
+		"file_invalid": "Неверный файл"
 	},
 	"cart": {
 		"title": "",

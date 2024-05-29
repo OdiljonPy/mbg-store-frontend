@@ -2,14 +2,14 @@
   flex-basis: 32%;
   border: 2px solid var(--input-gray);
   border-radius: 26px;
-    padding: 18px;
+  padding: 18px;
 }
 
 .title {
   font-size: 24px;
   font-weight: 700;
   color: var(--black);
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .bordered {
@@ -23,7 +23,7 @@
 }
 
 .total_btn {
-  margin: 18px 20px;
+  margin: 18px 0;
 }
 
 .btn_box {
@@ -34,10 +34,19 @@
   text-decoration: none;
 }
 
+.pb_4 {
+  padding-bottom: 16px;
+}
+
+.paddingTop {
+  padding-top: 14px;
+}
+
+
 @media (max-width: 575px) {
   .title {
     font-size: 15px;
-      margin-bottom: 12px;
+    margin-bottom: 12px;
   }
   .bordered {
     padding: 10px 0;
@@ -46,16 +55,9 @@
   .total {
     border: none;
     flex-basis: 100%;
-      padding: 16px;
+    padding: 16px;
   }
-}
-
-/*recipient total sum*/
-
-.pb_4 {
-  padding-bottom: 16px;
-}
-
-.paddingTop {
-  padding: 14px 20px 0 20px;
+  .paddingTop{
+    padding-top: 10px;
+  };
 }

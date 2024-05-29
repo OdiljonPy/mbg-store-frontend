@@ -5,6 +5,8 @@ import Option from "@/components/pages/products/filters/mobile/stores/option/opt
 import Button from "@/components/shared/button";
 import { ICustomCheckbox } from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
+import Input from "@/components/shared/input";
+import { useClientSearch } from "@/hooks/use-client-search";
 import { useModal } from "@/hooks/use-modal";
 import { fetchStories } from "@/slices/all_store/StoriesSlices";
 import { AppDispatch, RootState } from "@/store";
@@ -13,6 +15,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useReset } from "../hooks/use-reset";
+import storesCss from "./stores.module.css";
 
 interface props {}
 
@@ -26,6 +29,10 @@ const Stores = (props: props) => {
 	const { onReset } = useReset(["stores"]);
 
 	const [storeList, setStoreList] = useState<ICustomCheckbox[]>([]);
+	const { filteredData, onSearchValueChange, searchValue } = useClientSearch({
+		data: storeList,
+		searchBy: ["title"],
+	});
 
 	useEffect(() => {
 		const fetchStoreList: ICustomCheckbox[] = [];
@@ -53,7 +60,7 @@ const Stores = (props: props) => {
 					title={t("header.stores")}
 					onOpen={onOpen}
 				/>
-				<Body storeList={storeList} />
+				<Body storeList={filteredData} />
 			</div>
 			<Drawer
 				classNames={{
@@ -74,9 +81,16 @@ const Stores = (props: props) => {
 					}}
 				/>
 				<div className={css.inner}>
+					<div className={storesCss.search_box}>
+						<Input
+							placeholder={t("search.byName")}
+							onChange={onSearchValueChange}
+							value={searchValue}
+						/>
+					</div>
 					{loading
 						? "...loading"
-						: storeList.map((store) => (
+						: filteredData.map((store) => (
 								<Option item={store} key={store.id} />
 						  ))}
 				</div>

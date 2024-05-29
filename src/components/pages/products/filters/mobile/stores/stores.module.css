@@ -1,0 +1,7 @@
+.search_box {
+	position: sticky;
+	background-color: white;
+  padding-block: 8px;
+	top: 0;
+	z-index: 1;
+}

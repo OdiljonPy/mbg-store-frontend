@@ -89,7 +89,7 @@ const ProductList = ({}: props) => {
               return <Product product={product} isNotSwiper key={product.id} />;
             })
           )}
-          {!products.content?.length ? (
+          {!products.content?.length && !loading ? (
             <div className={css.no_data}>
               <NoData />
             </div>

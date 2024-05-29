@@ -6,54 +6,47 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 
 interface props {
-	item: ICustomRadio;
+  item: ICustomRadio;
 }
 
 const RatingItem = ({ item }: props) => {
-	const { push, query } = useRouter();
-	const searchParams = useSearchParams();
-	const pathname: string = usePathname();
+  const { push, query } = useRouter();
+  const searchParams = useSearchParams();
+  const pathname: string = usePathname();
 
-	const rating = searchParams.get("rating");
-	const withFeedback = searchParams.get("withFeedback");
+  const rating = searchParams.get("rating");
+  const { title, count, key } = item;
 
-	const { title, count, key } = item;
+  const onSetRating = () => {
+    push(
+      {
+        pathname,
+        query: {
+          ...query,
+          rating: key.toString(),
+          changeFilter:
+            searchParams.get("changeFilter") === "true" ? "false" : "true",
+        },
+      },
+      undefined,
+      {
+        scroll: false,
+      },
+    );
+  };
 
-	const onSetRating = () => {
-		push(
-			{
-				pathname,
-				query: {
-					...query,
-					rating: key.toString(),
-					withFeedback: undefined,
-					changeFilter:
-						searchParams.get("changeFilter") === "true"
-							? "false"
-							: "true",
-				},
-			},
-			undefined,
-			{
-				scroll: false,
-			}
-		);
-	};
-
-	return (
-		<label
-			onClick={onSetRating}
-			className={`${css.item} ${
-				rating === key.toString() ? css.active : ""
-			}`}
-		>
-			<input className={css.input} value={key} type={"radio"} />
-			<span className={css.icon}>
-				<ResponsiveImage src={star} alt={title} />
-			</span>
-			<span className={css.title}>{title}</span>
-		</label>
-	);
+  return (
+    <label
+      onClick={onSetRating}
+      className={`${css.item} ${rating === key.toString() ? css.active : ""}`}
+    >
+      <input className={css.input} value={key} type={"radio"} />
+      <span className={css.icon}>
+        <ResponsiveImage src={star} alt={title} />
+      </span>
+      <span className={css.title}>{title}</span>
+    </label>
+  );
 };
 
 export default RatingItem;
