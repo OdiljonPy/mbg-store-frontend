@@ -7,6 +7,7 @@ import Skeleton from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 
 import css from "./near.module.css";
+import ProductSkeleton from "@/components/shared/product/product-skeleton/product-skeleton";
 
 const ProductList = () => {
   const { sliderRef, loaded, onNext, onPrev, currentSlide } = useSlider();
@@ -16,11 +17,12 @@ const ProductList = () => {
 
   if (loading)
     return (
-      <Skeleton
-        containerClassName={css.skeleton_cointainer}
-        className={css.skeleton}
-        count={4}
-      />
+      <div className={css.skeleton_container}>
+        <ProductSkeleton />
+        <ProductSkeleton />
+        <ProductSkeleton />
+        <ProductSkeleton />
+      </div>
     );
 
   return (
