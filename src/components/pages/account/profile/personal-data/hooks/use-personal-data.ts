@@ -14,10 +14,8 @@ export const usePersonalData = (user: IUser) => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
-		if (isEdit) {
-			fullNameRef.current?.focus();
-		}
-	}, [isEdit]);
+		fullNameRef.current?.focus();
+	});
 
 	useEffect(() => {
 		setFullName(user.full_name || "");
