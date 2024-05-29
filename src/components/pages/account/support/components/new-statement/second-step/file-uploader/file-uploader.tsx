@@ -33,14 +33,14 @@ const FileUploader = ({ form }: props) => {
 			"application/pdf": [".pdf"],
 		},
 		onDropRejected: (err) => {
-			const { code } = err[0].errors[0];
+			const { code } = err?.[0].errors?.[0];
 			let errorMsg = "";
 			if (code in dropImageErrorsMap) {
-				errorMsg = t(dropImageErrorsMap[code]);
+				errorMsg = dropImageErrorsMap[code];
 			} else {
-				errorMsg = t("feedback.file_invalid");
+				errorMsg = "feedback.file_invalid";
 			}
-			addToast(errorMsg, { appearance: "error", autoDismiss: true });
+			addToast(t(errorMsg), { appearance: "error", autoDismiss: true });
 		},
 		maxSize: 2 * 1024 * 1024,
 	});

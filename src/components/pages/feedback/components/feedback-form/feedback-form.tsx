@@ -180,10 +180,6 @@ const FeedbackForm = ({ info, loading }: props) => {
           <textarea
             maxLength={300}
             {...register("message", {
-              required: {
-                value: true,
-                message: t("errors.required"),
-              },
               maxLength: 300,
             })}
             placeholder={t("feedback.messagePlaceholder")}
