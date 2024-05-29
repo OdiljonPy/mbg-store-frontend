@@ -9,7 +9,6 @@ import {
 	OrderStatusChoices,
 } from "@/data-types/order/order";
 import { changeOrderStatus } from "@/slices/order/changeOrderSlice";
-import { createOrder } from "@/slices/order/ordersSlice";
 import { AppDispatch, RootState } from "@/store";
 import { priceFormatter } from "@/utils/price-formatter/price-formatter";
 import { useTranslations } from "next-intl";
@@ -67,39 +66,13 @@ function OrderCostCard({ order, loading, setErr }: Props) {
 	};
 
 	const submitOrder = () => {
-		dispatch(
-			createOrder({
-				products: order.order_items.map((item) => ({
-					product: item.product.id,
-					quantity: item.quantity,
-				})),
-				full_name: order.full_name || "",
-				phone_number: order.phone_number || "",
-				type: order.type,
-				delivery_address: order.delivery_address?.id,
-				delivery_price: order.delivery_price,
-				promocode: order.promo_code?.promocode,
-			})
-		)
-			.unwrap()
-			.then((res) => {
-				if (res.ok) {
-					const paymentLink = generateClickUpPaymentLink({
-						orderId: res.result.id,
-						returnUrl:
-							siteConfig.url + `/account/orders/${order.id}`,
-						amount: order.total_price,
-					});
-					push(paymentLink).then(() => true);
-					localStorage.removeItem("storeCheckOne");
-				} else throw new Error("error");
-			})
-			.catch(() => {
-				return addToast(t("error"), {
-					appearance: "error",
-					autoDismiss: true,
-				});
-			});
+		const paymentLink = generateClickUpPaymentLink({
+			orderId: order.id,
+			returnUrl: siteConfig.url + `/account/orders/${order.id}`,
+			amount: order.total_price,
+		});
+		push(paymentLink).then(() => true);
+		localStorage.removeItem("storeCheckOne");
 	};
 
 	console.log(
