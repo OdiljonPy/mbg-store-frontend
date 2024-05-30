@@ -28,3 +28,9 @@
 	border: none;
 	cursor: pointer;
 }
+
+.highlight{
+	/*background-color: transparent;*/
+	font-weight: bold;
+	color: var(--black);
+}
