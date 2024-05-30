@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { cn } from "@/utils/cn";
 import { UseFormReturn } from "react-hook-form";
-import { supportTypeMap } from "../../../../constants/support/support-type-map";
+import { supportTypeMap } from "../../../../constants/support/support-topic-map";
 import { NewStatementForm } from "../../new-statement";
 
 import { useTranslations } from "next-intl";
