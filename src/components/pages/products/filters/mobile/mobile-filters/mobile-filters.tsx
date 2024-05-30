@@ -79,7 +79,7 @@ const MobileFilters = ({}: props) => {
 	);
 
 	const endingMap: { [key: number]: string } = {
-		1: "",
+		1: "ов",
 		2: "а",
 		3: "а",
 		4: "а",
@@ -144,7 +144,10 @@ const MobileFilters = ({}: props) => {
 						<Button full onClick={onClose} loading={loading}>
 							{t("show", {
 								count: entities.totalElements || 0,
-								ending: endingMap[entities.totalElements % 10],
+								ending:
+									entities.totalElements !== 1
+										? endingMap[entities.totalElements % 10]
+										: "",
 							})}
 						</Button>
 					</div>
