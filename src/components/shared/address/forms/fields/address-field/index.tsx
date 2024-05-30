@@ -41,13 +41,12 @@ function AddressField({
 		});
 	}, [address, mapConstructor]);
 
-	const selectSuggestion = (s: ymaps.ISuggestResult) => {
+	const onSelectSuggestion = (s: ymaps.ISuggestResult) => {
 		const { displayName } = s;
 		if (mapConstructor) {
 			mapConstructor.geocode(displayName).then((res: any) => {
 				const firstGeoObject = res.geoObjects.get(0);
 				const coordinates = firstGeoObject.geometry.getCoordinates();
-				console.log(firstGeoObject);
 				if (mapRef.current) {
 					mapRef.current.setZoom(18);
 					mapRef.current.panTo(coordinates, { flying: true });
@@ -83,7 +82,7 @@ function AddressField({
 					<ul className={css.dropdown}>
 						{suggestions.map((s) => (
 							<li
-								onClick={() => selectSuggestion(s)}
+								onClick={() => onSelectSuggestion(s)}
 								key={s.displayName}
 								className={css.dropdown_item}
 							>

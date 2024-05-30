@@ -32,11 +32,11 @@ function AddressMap({
 		mapConstructor?.geocode([x, y]).then(
 			(res: any) => {
 				const nearest = res.geoObjects.get(0);
-				console.log(res.geoObjects.get(0));
 				const address = nearest.properties.get("name");
 				form.setValue("latitude", x);
 				form.setValue("longitude", y);
 				form.setValue("address", address);
+				form.trigger("address");
 			},
 			(error) => {
 				console.error("Error occurred during geocoding:", error);

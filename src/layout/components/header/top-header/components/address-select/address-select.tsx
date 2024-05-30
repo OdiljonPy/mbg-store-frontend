@@ -52,24 +52,21 @@ const AddressSelect = () => {
 		},
 		...address_list.map((item) => ({
 			label: (
-				<AddressItem
-					address_item={item}
-					main_address={main_address.address}
-				/>
+				<AddressItem address_item={item} main_address={main_address} />
 			),
 			key: item.latitude + item.longitude,
 		})),
 		isLoggedIn && shippingList.length
 			? {
 					key: 2,
-					label: t('address.saved'),
+					label: t("address.saved"),
 					type: "group",
 					children: [
 						...shippingList.map((item) => ({
 							label: (
 								<ShippingItem
 									shipping_item={item}
-									main_address={main_address.address}
+									main_address={main_address}
 								/>
 							),
 							key: item.latitude + item.longitude,
@@ -110,7 +107,7 @@ const AddressSelect = () => {
 					<span className={css.text}>
 						{main_address.address
 							? main_address.address
-							: t('header.please_enter_address')}
+							: t("header.please_enter_address")}
 					</span>
 				</button>
 			</Dropdown>

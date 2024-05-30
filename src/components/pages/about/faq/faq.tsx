@@ -8,43 +8,41 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./faq.module.css";
 import Loading from "./skeleton";
-import {IFaq} from "@/data-types/base/faq";
+import { IFaq } from "@/data-types/base/faq";
 
 const Faq = () => {
-	const { data, loading, error } = useSelector(
-		(state: RootState) => state.faq
-	);
+  const { data, loading, error } = useSelector((state: RootState) => state.faq);
 
-	const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
 
-	useEffect(() => {
-		dispatch(fetchFaq());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchFaq());
+  }, [dispatch]);
 
-	if (error)
-		return (
-			<FormError error='Что-то пошло не так. Попробуйте обновить страницу' />
-		);
+  if (error)
+    return (
+      <FormError error="Что-то пошло не так. Попробуйте обновить страницу" />
+    );
 
-	return (
-		<section className={css.faq}>
-			<div className={"container"}>
-				<HeadingLine title={"about.faq"} />
-				<div className={css.wrapper}>
-					<div className={css.questions}>
-						{loading
-							? Array.from({ length: 5 }).map((_, index) => (
-									<Loading key={index} index={index} />
-							  ))
-							: data.map((faq:IFaq) => (
-									<CustomCollapse item={faq} key={faq.id} />
-							  ))}
-					</div>
-					<ChatTrigger />
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className={css.faq} id="faq">
+      <div className={"container"}>
+        <HeadingLine title={"about.faq"} />
+        <div className={css.wrapper}>
+          <div className={css.questions}>
+            {loading
+              ? Array.from({ length: 5 }).map((_, index) => (
+                  <Loading key={index} index={index} />
+                ))
+              : data.map((faq: IFaq, index) => (
+                  <CustomCollapse index={index} item={faq} key={faq.id} />
+                ))}
+          </div>
+          <ChatTrigger />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Faq;

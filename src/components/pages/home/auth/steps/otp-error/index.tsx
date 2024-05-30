@@ -2,8 +2,9 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import Button from "@/components/shared/button";
-import { TStep } from "../../auth";
 
+import { RootState } from "@/store";
+import { useSelector } from "react-redux";
 import css from "./index.module.css";
 
 interface Props {
@@ -12,12 +13,27 @@ interface Props {
 
 function OtpError({ onClose }: Props) {
 	const t = useTranslations("auth.otp_error");
+	const { new_otp_time } = useSelector(
+		(state: RootState) => state.resetPassword
+	);
+
+	const getLeftHour = () => {
+		if (!new_otp_time) return;
+		const currentTime = new Date();
+		const targetTime = new Date(new_otp_time);
+		const timeDifference = targetTime.getTime() - currentTime.getTime();
+		const hoursLeft = Math.ceil(timeDifference / (1000 * 60 * 60));
+
+		return hoursLeft;
+	};
 
 	return (
 		<div className={css.wrapper}>
 			<div>
 				<h3 className={css.title}>{t("title")}</h3>
-				<p className={css.desc}>{t("description")}</p>
+				<p className={css.desc}>
+					{t("description", { hour: getLeftHour() })}
+				</p>
 				<div className={css.image}>
 					<Image
 						src='/images/auth/error.png'

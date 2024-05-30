@@ -11,7 +11,9 @@ import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
 import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 import AddressMap from "../address-map/address-map";
+import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
 import Fields from "./fields";
 import css from "./form.module.css";
@@ -23,6 +25,7 @@ interface Props {
 
 function EditAddressForm({ defaultValues, onClose }: Props) {
 	const t = useTranslations("address");
+	const { addToast } = useToasts();
 
 	const form = useForm<IAddressForm>({
 		defaultValues: {
@@ -35,36 +38,70 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 			longitude: Number(defaultValues.longitude),
 			main_address: defaultValues.main_address,
 		},
+		mode: "onChange",
 	});
 
 	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
 
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { patchLoading } = useSelector(
+	const { shippingList, patchLoading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = async (data: IAddressForm) => {
-		const { apartment, entrance, floor, latitude, longitude, ...rest } =
-			data;
+		const {
+			apartment,
+			entrance,
+			floor,
+			latitude,
+			longitude,
+			address_name,
+			...rest
+		} = data;
 
-		await dispatch(
-			patchShipping({
-				body: {
-					apartment: Number(apartment),
-					entrance: Number(entrance),
-					floor: Number(floor),
-					latitude: String(latitude),
-					longitude: String(longitude),
-					...rest,
-				},
-				shippingId: defaultValues.id,
-			})
-		);
-		await dispatch(fetchShippingList());
-		onClose();
+		if (
+			shippingList.find(
+				(item) =>
+					item.address_name === address_name &&
+					item.id !== defaultValues.id
+			)
+		) {
+			addToast(t("already_exists"), {
+				appearance: "error",
+				autoDismiss: true,
+			});
+			return;
+		}
+
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
+
+			await dispatch(
+				patchShipping({
+					body: {
+						apartment: apartment ? Number(apartment) : undefined,
+						entrance: entrance ? Number(entrance) : undefined,
+						floor: floor ? Number(floor) : undefined,
+						latitude: latitude,
+						longitude: longitude,
+						address_name,
+						...rest,
+						address,
+					},
+					shippingId: defaultValues.id,
+				})
+			);
+			await dispatch(fetchShippingList());
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
 
 	return (
@@ -82,7 +119,7 @@ function EditAddressForm({ defaultValues, onClose }: Props) {
 					</Button>
 					<Button
 						onClick={form.handleSubmit(onSubmit)}
-						type={'button'}
+						type={"button"}
 						full
 						disabled={!form.formState.isValid}
 						loading={patchLoading}

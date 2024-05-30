@@ -24,6 +24,11 @@
     min-width: 190px;
 }
 
+.skeleton{
+    width: 90%;
+    height: 20px;
+}
+
 @media (max-width: 575px) {
     .label, .value{
         font-size: 14px;

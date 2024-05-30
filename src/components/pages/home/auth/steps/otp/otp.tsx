@@ -32,6 +32,7 @@ function Otp({ setStep, prevStep }: Props) {
 		handleResend,
 		resendTime,
 		attemptCount,
+		attemptCountWithSameOtp,
 	} = useOtp(prevStep);
 
 	const phoneNumber = useSelector((state: RootState) => state.phoneNumber);
@@ -53,7 +54,7 @@ function Otp({ setStep, prevStep }: Props) {
 					);
 			})
 			.catch(() => {
-				if (attemptCount === 0) {
+				if (attemptCount === 0 && attemptCountWithSameOtp === 1) {
 					setStep("otpError");
 				}
 			});
@@ -108,7 +109,9 @@ function Otp({ setStep, prevStep }: Props) {
 					<Button
 						full
 						loading={loading || resetLoading}
-						disabled={otp.length < 5 || !!error || !!resetError}
+						disabled={
+							otp.length < 5 || attemptCountWithSameOtp === 0
+						}
 						variant='primary'
 					>
 						{t("confirm")}

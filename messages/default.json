@@ -37,7 +37,7 @@
     "add_delivery": "Yetkazib berish manzili",
     "name": "Nomi",
     "enter_name": "Nomni kiriting",
-    "entrance": "Kirish",
+    "entrance": "Kirish joyi",
     "floor": "Qavat",
     "apartment": "Kvartira",
     "make_address": "Manzilni asosiyga aylantirish",
@@ -46,11 +46,14 @@
     "address_status": "Asosiy",
     "delete_address": "Manzilni o'chirish",
     "permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
-    "notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
+    "notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz",
+    "already_exists": "Ushbu manzil allaqachon saqlangan"
   },
   "search": {
     "placeholder": "Mahsulotlarni qidirish",
     "often": "Tez-tez qidirilganlar",
+    "recently_searched": "Yaqinda izlaganlaringiz",
+    "clear": "Tozalash",
     "title": "Qidirish",
     "found": "{categories} turkumidagi {products} mahsulot topildi",
     "categories": "{products} ta mahsulot",
@@ -97,7 +100,12 @@
     "add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
     "has_products": "mavjud tovarlar",
     "some_product": "Shunga o'xshash",
-    "warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas"
+    "warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas",
+    "flag": {
+      "new": "Yangi",
+      "free_ship": "Bepul",
+      "sale": "Chegirmada"
+    }
   },
   "about": {
     "title": "MBG do'koni haqida qisqacha",
@@ -105,7 +113,7 @@
     "stores": "saytdagi do'konlar",
     "orders": "umumiy buyurtmalar",
     "partners": "Bizning hamkorlar",
-    "faq": "Tez beriladigan savollar",
+    "faq": "Ko'p beriladigan savollar",
     "chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
     "writeToChat": "Chatga yozing"
   },
@@ -136,6 +144,7 @@
     "accessibility": {
       "title": "Mavjudligi"
     },
+    "empty_store": "Malumot topilmadi",
     "no_data": {
       "title": "Hech qanday mos mahsulot topilmadi",
       "description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
@@ -162,7 +171,7 @@
   "product": {
     "similar": "Birga sotib oling",
     "onSale": "Sotish",
-    "has": "Sotuvda mavjud",
+    "has": "Sotuvda {count} ta",
     "has_not": "Mavjud emas",
     "seller": "Sotuvchi",
     "rates": "Reytinglar",
@@ -197,7 +206,7 @@
     "price": "Tovarlarning narxi",
     "sales": "Chegirmalar",
     "actualPrice": "Yechilanadigan narx",
-    "order": "Ro'yxatdan o'tkazish",
+    "order": "Buyurtma berish",
     "promo_code": "Promakod",
     "use": "qo'llaniladi",
     "invalid_code": "Bu kod yaroqsiz",
@@ -217,7 +226,7 @@
     "orders": {
       "empty": "Savatcha bo'sh",
       "done": "Buyurtma muvaffaqiyatli o'chirildi",
-      "error":"Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
+      "error": "Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
       "must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
     }
   },
@@ -273,7 +282,7 @@
       "description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
       "phone_number": "Telefon raqami",
       "current_password": "Joriy Parol",
-      "get_code": "Kodni olish uchun",
+      "get_code": "Kodni olish",
       "invalid_phone_number": "Telefon raqami noto‘g‘ri"
     },
     "otp": {
@@ -283,11 +292,12 @@
       "confirm": "Tasdiqlang",
       "new_code_after": "Yangi kod orqali",
       "send_new_code": "Yangi kodni yuborish ({count} ta urinish)",
-      "invalid_code": "Yaroqsiz kod"
+      "invalid_code": "Yaroqsiz kod",
+      "no_more_attempts": "Urunushlar tugadi."
     },
     "otp_error": {
       "title": "Ro'yxatga olish xatosi",
-      "description": "Noto'g'ri OTP kodi 3 martadan ortiq kiritilgan. Iltimos keyinroq qayta urinib ko'ring.",
+      "description": "Noto'g'ri OTP kodi 3 martadan ortiq kiritilgan. Iltimos {hour} soatdan keyin qayta urinib ko'ring.",
       "close": "Yopish"
     },
     "new_password": {
@@ -330,7 +340,7 @@
     "save": "Saqlash"
   },
   "orders": {
-    "title": "Zakazlar",
+    "title": "Buyurtmalar",
     "search": "Qidirish",
     "success": "Sizning buyurtmangiz qabul qilindi!",
     "method": {
@@ -370,7 +380,8 @@
       "available_for_pickup": "Tovar(lar)ni olib ketish mumkin"
     },
     "order_item_list": {
-      "title": "Buyurtma bo'yicha mahsulotlar"
+      "title": "Buyurtma bo'yicha mahsulotlar",
+      "qty": "miqdor"
     },
     "order_cost_card": {
       "title": "Buyurtma narxi",
@@ -445,5 +456,13 @@
   "not_found": {
     "main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
     "to_back": "Asosiy sahifaga qaytish"
+  },
+  "notification": {
+    "title": "Eslatma",
+    "description": "Sizga turli xil do'konlardan bo'lgan mahsulotlarni sotib olmoqchisiz! Savatchangizga qo'shilaversinmi?",
+    "agree": "Ha",
+    "disagree": "Yo'q",
+    "notShowAgain": "Boshqa ko'rsatilmasin",
+    "error": "Xatolik yuz berdi!"
   }
 }

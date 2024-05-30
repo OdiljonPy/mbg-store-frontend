@@ -54,7 +54,7 @@ const CatalogSelect = (props: props) => {
                 fetchCategoryData.push({
                     id: categories.id,
                     title: categories.name,
-                    img: categories.icone && <CatalogIcon><ResponsiveImage src={categories.icone} alt={''} key={categories.id}/></CatalogIcon>
+                    img: categories.icon && <CatalogIcon><ResponsiveImage src={categories.icon} alt={''} key={categories.id}/></CatalogIcon>
                 })
             })
             setCategorySelect(prevState => prevState = fetchCategoryData)

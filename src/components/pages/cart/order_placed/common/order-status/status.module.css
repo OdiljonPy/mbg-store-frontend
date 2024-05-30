@@ -1,68 +1,84 @@
-.status_icon{
-    display: flex;
-    justify-content: center;
-    width: 216px;
-    height: 200px;
-    margin:0 auto;
+.status_icon {
+	display: flex;
+	justify-content: center;
+	width: 216px;
+	height: 200px;
+	margin: 0 auto;
 }
 
-.status_text{
-    margin-top: 26px;
-    text-align: center;
+.status_text {
+	margin-top: 26px;
+	text-align: center;
 }
 
-.status_text > h2{
-    color: #232323;
-    font-size: 40px;
-    font-weight: bold;
+.status_text > h2 {
+	color: #232323;
+	font-size: 40px;
+	font-weight: bold;
 }
 
-.status_text > p{
-    margin-top: 14px;
-    color: #999999;
-    font-size: 24px;
-    font-weight: bold;
+.status_text > p {
+	margin-top: 14px;
+	color: #999999;
+	font-size: 24px;
+	font-weight: bold;
 }
 
-.warning{
-    color: #EF9545;
-}
-.done{
-    color: #2E9D58;
-;
+.WAITING_FOR_PAYMENT {
+	color: #ef9545;
 }
 
-@media (max-width: 992px){
-    .status_icon{
-        width: 180px;
-        height: 160px;
-    }
-    .status_text{
-        margin-top: 18px;
-    }
-    .status_text > h2{
-        font-size: 26px;
-    }
-    .status_text > p{
-        margin-top: 6px;
-        font-size: 18px;
-    }
+.DELIVERED,
+.PICKED_UP,
+.PAID,
+.ACCEPTED {
+	color: #60c787;
 }
 
-@media (max-width: 575px){
-    .status_icon{
-        width: 150px;
-        height: 140px;
-    }
-    .status_text{
-        margin-top: 12px;
-    }
-    .status_text > h2{
-        font-size: 14px;
-    }
-    .status_text > p{
-        margin-top: 4px;
-        font-size: 12px;
-        font-weight: 600;
-    }
+.PROGRESSING {
+	color: #efb754
+}
+
+.ON_THE_WAY,
+.READY_FOR_PICKUP {
+	color: #767bf9;
+}
+
+.CANCELLED {
+	color: #ff6c6c;
+}
+
+@media (max-width: 992px) {
+	.status_icon {
+		width: 180px;
+		height: 160px;
+	}
+	.status_text {
+		margin-top: 18px;
+	}
+	.status_text > h2 {
+		font-size: 26px;
+	}
+	.status_text > p {
+		margin-top: 6px;
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 575px) {
+	.status_icon {
+		width: 150px;
+		height: 140px;
+	}
+	.status_text {
+		margin-top: 12px;
+	}
+	.status_text > h2 {
+		font-size: 14px;
+	}
+	.status_text > p {
+		margin-top: 4px;
+		font-size: 12px;
+		font-weight: 600;
+	}
 }

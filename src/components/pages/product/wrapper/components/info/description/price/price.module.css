@@ -4,12 +4,13 @@
     gap: 14px;
 }
 
-.discount:after, .discount:before {
-    background: #FFFFFF;
+.discount{
+    overflow: hidden;
 }
 
-.skeleton_position{
-    margin: 10px 0 ;
+.discount:after, .discount:before {
+    background: #FFFFFF;
+
 }
 
 .discountPrice {

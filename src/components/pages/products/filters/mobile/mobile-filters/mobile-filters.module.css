@@ -15,6 +15,7 @@
 @media (max-width: 767px) {
     .btn {
         display: flex;
+        outline: none;
         align-items: center;
         background: none;
         border: none;

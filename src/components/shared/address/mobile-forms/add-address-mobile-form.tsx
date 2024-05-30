@@ -11,6 +11,8 @@ import { YMapsApi } from "@pbe/react-yandex-maps/typings/util/typing";
 import { useTranslations } from "next-intl";
 import { MutableRefObject, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
+import { getAddressByCoordinates } from "../helpers";
 import { IAddressForm } from "../types";
 import AddressDetailsStep from "./address-details-step";
 import css from "./form.module.css";
@@ -23,6 +25,7 @@ interface Props {
 function AddAddressMobileForm({ onClose }: Props) {
 	const t = useTranslations("address");
 	const [step, setStep] = useState<number>(0);
+	const { addToast } = useToasts();
 
 	const form = useForm<IAddressForm>({
 		defaultValues: {
@@ -32,35 +35,62 @@ function AddAddressMobileForm({ onClose }: Props) {
 			longitude: 69.268657,
 			main_address: false,
 		},
+		mode: "onChange",
 	});
 
 	const mapRef: MutableRefObject<ymaps.Map | undefined> = useRef();
 
 	const [mapConstructor, setMapConstructor] = useState<YMapsApi>();
 
-	const { postLoading } = useSelector(
+	const { shippingList, postLoading } = useSelector(
 		(state: RootState) => state.shippingList
 	);
 	const dispatch = useDispatch<AppDispatch>();
 
 	const onSubmit = async (data: IAddressForm) => {
-		const { apartment, entrance, floor, latitude, longitude, ...rest } =
-			data;
+		const {
+			apartment,
+			entrance,
+			floor,
+			latitude,
+			longitude,
+			address_name,
+			...rest
+		} = data;
 
-		await dispatch(
-			postShipping({
-				apartment: Number(apartment),
-				entrance: Number(entrance),
-				floor: Number(floor),
-				latitude: String(latitude),
-				longitude: String(longitude),
-				...rest,
-			})
-		);
-		await dispatch(fetchShippingList());
-		onClose();
+		if (shippingList.find((item) => item.address_name === address_name)) {
+			addToast(t("already_exists"), {
+				appearance: "error",
+				autoDismiss: true,
+			});
+			return;
+		}
+
+		try {
+			const address = await getAddressByCoordinates(
+				[latitude, longitude],
+				mapConstructor
+			);
+
+			await dispatch(
+				postShipping({
+					apartment: apartment ? Number(apartment) : undefined,
+					entrance: entrance ? Number(entrance) : undefined,
+					floor: floor ? Number(floor) : undefined,
+					latitude: latitude,
+					longitude: longitude,
+					address_name,
+					...rest,
+					address: address,
+				})
+			);
+			await dispatch(fetchShippingList());
+		} catch (e) {
+			console.error(e);
+		} finally {
+			onClose();
+		}
 	};
-
 	const address = form.watch("address");
 
 	const steps = [
@@ -93,7 +123,7 @@ function AddAddressMobileForm({ onClose }: Props) {
 			action: (
 				<Button
 					onClick={form.handleSubmit(onSubmit)}
-					type={'button'}
+					type={"button"}
 					full
 					disabled={!form.formState.isValid}
 					loading={postLoading}

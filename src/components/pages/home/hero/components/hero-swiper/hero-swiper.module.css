@@ -19,3 +19,10 @@
 	aspect-ratio: 3 / 1;
 	border-radius: 3vw;
 }
+
+@media (max-width: 575px){
+	.skeleton{
+		aspect-ratio: 2;
+	}
+}
+

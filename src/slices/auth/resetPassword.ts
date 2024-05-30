@@ -11,22 +11,31 @@ interface IResetPasswordResponse {
 	};
 	ok: boolean;
 	error?: string;
+	new_otp_time?: string;
 }
 
 export const resetPassword = createAsyncThunk(
 	"reset_password",
-	async (data: IResetPasswordRequest) => {
-		const response = await API.post<IResetPasswordResponse>(
-			"/auth/reset/password/",
-			data
-		);
-		return response.data;
+	async (data: IResetPasswordRequest, { rejectWithValue }) => {
+		try {
+			const response = await API.post<IResetPasswordResponse>(
+				"/auth/reset/password/",
+				data
+			);
+			return response.data;
+		} catch (err: any) {
+			if (!err.response) {
+				throw err;
+			}
+			return rejectWithValue(err.response.data);
+		}
 	}
 );
 
 interface InitialState {
 	loading: boolean;
 	error: string | null;
+	new_otp_time?: string;
 }
 
 const initialState: InitialState = {
@@ -40,6 +49,9 @@ const resetPasswordSlice = createSlice({
 	reducers: {
 		clearResetError: (state) => {
 			state.error = null;
+		},
+		setNewOtpTime: (state, action) => {
+			state.new_otp_time = action.payload;
 		},
 	},
 	extraReducers: (builder) => {
@@ -58,5 +70,5 @@ const resetPasswordSlice = createSlice({
 	},
 });
 
-export const { clearResetError } = resetPasswordSlice.actions;
+export const { clearResetError, setNewOtpTime } = resetPasswordSlice.actions;
 export default resetPasswordSlice.reducer;

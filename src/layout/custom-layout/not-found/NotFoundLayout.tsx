@@ -20,7 +20,7 @@ const NotFoundLayout:React.FC<LayoutProps> = ({ children }) => {
                     name='viewport'
                     content='width=device-width, initial-scale=1'
                 />
-                <link rel='icon' href='/favicon.ico' />
+                <link rel='icon' href='/logos/favicon.ico' />
             </Head>
             <div className={`${css.content} ${raleway.className}`}>
                 <Header />

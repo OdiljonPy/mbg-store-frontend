@@ -15,6 +15,7 @@
 	flex: 1 0 auto;
 	display: flex;
 	align-items: center;
+	margin-right: 55px;
 }
 
 .input,
@@ -29,7 +30,9 @@
 	border: none;
 	min-width: 0;
 	outline: none;
-	width: 86%;
+	width: 100%;
+	background-color: transparent;
+	font-size: 16px;
 }
 
 .icon {
@@ -99,19 +102,12 @@
 		bottom: -1.2px;
 	}
 
+	.inputWrapper {
+		margin-right: 44px;
+	}
+
 	.input {
 		padding: 0 14px;
-	}
-}
-
-@media (max-width: 500px) {
-	.input {
-		width: 80%;
-	}
-}
-
-@media (max-width: 390px) {
-	.input {
-		width: 70%;
+		font-size: 14px;
 	}
 }

@@ -9,10 +9,14 @@ import PhoneNumberInput from "../../phone-number-input";
 import PasswordInput from "./password-input/password-input";
 
 import Button from "@/components/shared/button";
+import { fetchUser } from "@/slices/auth/user";
+import {
+	fetchFavourites,
+	postFavourites,
+} from "@/slices/favorites/favoritesSlice";
 import { useTranslations } from "next-intl";
 import authCss from "../../auth.module.css";
 import css from "./login.module.css";
-import {fetchFavourites, postFavourites} from "@/slices/favorites/favoritesSlice";
 
 interface Props {
 	setStep: React.Dispatch<React.SetStateAction<TStep>>;
@@ -21,11 +25,13 @@ interface Props {
 
 const Login = ({ setStep, onClose }: Props) => {
 	const t = useTranslations("auth.login");
-	const [phoneNumber, setPhoneNumber] = useState<string>("");
+	const [phoneNumber, setPhoneNumber] = useState<string>("+998");
 	const [password, setPassword] = useState<string>("");
 
 	const { error, loading } = useSelector((state: RootState) => state.login);
-	const {newFavourites} = useSelector((state:RootState)=> state.favorites)
+	const { newFavourites } = useSelector(
+		(state: RootState) => state.favorites
+	);
 
 	const dispatch = useDispatch<AppDispatch>();
 
@@ -44,18 +50,18 @@ const Login = ({ setStep, onClose }: Props) => {
 		dispatch(loginUser(payload))
 			.unwrap()
 			.then((res) => {
-				console.log(res.error);
-
 				if (res?.ok) {
 					onClose();
-				// 	fetch favourite product from server
-					dispatch(fetchFavourites()).then(()=>{
+					// 	fetch favourite product from server
+					dispatch(fetchFavourites()).then(() => {
 						// 	send server favourite products
-						const ids = newFavourites?.map((product)=> product.id)
-						if(ids?.length) dispatch(postFavourites(ids))
-					})
-
+						const ids = newFavourites?.map((product) => product.id);
+						if (ids?.length) dispatch(postFavourites(ids));
+					});
 				}
+			})
+			.then(() => {
+				dispatch(fetchUser());
 			});
 	};
 
@@ -65,14 +71,21 @@ const Login = ({ setStep, onClose }: Props) => {
 				<h3 className={authCss.modal_title}>{t("title")}</h3>
 			</header>
 			<div className={authCss.modal_body}>
-				<PhoneNumberInput setValue={setPhoneNumber} />
+				<PhoneNumberInput
+					value={phoneNumber}
+					setValue={setPhoneNumber}
+				/>
 				<PasswordInput setStep={setStep} setPassword={setPassword} />
 				<FormError error={error ? t(error) : ""} />
 			</div>
 			<div className={authCss.modal_footer}>
 				<Button
 					loading={loading}
-					disabled={password.length < 8 || phoneNumber.length < 12}
+					disabled={
+						password.length < 8 ||
+						phoneNumber.length !== 13 ||
+						!phoneNumber.startsWith("+998")
+					}
 					className={`${authCss.btn} ${authCss.btn_primary}`}
 					type={"submit"}
 				>
@@ -80,9 +93,9 @@ const Login = ({ setStep, onClose }: Props) => {
 				</Button>
 				<p className={css.signup}>
 					{t("no_account")}{" "}
-					<span onClick={() => setStep("signUp")}>
+					<button onClick={() => setStep("signUp")}>
 						{t("create_account")}
-					</span>
+					</button>
 				</p>
 			</div>
 		</form>

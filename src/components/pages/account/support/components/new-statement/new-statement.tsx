@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, useState } from "react";
 
 import Button from "@/components/shared/button";
-import { EnumSupportType } from "@/data-types/support";
+import { EnumSupportTopic } from "@/data-types/support";
 import { useModal } from "@/hooks/use-modal";
 import { postSupport } from "@/slices/support/supportSlice";
 import { AppDispatch } from "@/store";
@@ -9,7 +9,7 @@ import { Modal } from "antd";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { supportTypeMap } from "../../constants/support/support-type-map";
+import { supportTypeMap } from "../../constants/support/support-topic-map";
 import FirstStep from "./first-step/first-step";
 import css from "./new-statement.module.css";
 import SecondStep from "./second-step/second-step";
@@ -17,7 +17,7 @@ import SecondStep from "./second-step/second-step";
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 export interface NewStatementForm {
 	email: string;
-	topic: EnumSupportType;
+	topic: EnumSupportTopic;
 	description: string;
 	files: File[];
 }

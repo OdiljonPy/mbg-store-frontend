@@ -38,6 +38,12 @@
     display: none;
 }
 
+@media(max-width: 991px){
+    .qr{
+        margin-top: 16px;
+    }
+}
+
 @media (max-width: 767px) {
 
     .qr {

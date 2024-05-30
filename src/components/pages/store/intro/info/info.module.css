@@ -15,6 +15,7 @@
     width: 100px;
     height: 100px;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .title {
@@ -43,6 +44,9 @@
 
 .rate, .description {
     flex-grow: 1;
+}
+.rate{
+    flex-shrink: 0;
 }
 
 .text {
