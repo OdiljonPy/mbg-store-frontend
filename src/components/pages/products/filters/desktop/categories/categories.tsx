@@ -1,17 +1,13 @@
-import React, { useEffect } from "react";
-import css from "./categories.module.css";
-import FilterCollapse from "@/components/pages/products/filters/desktop/filter-collapse/filter-collapse";
 import Category from "@/components/pages/products/filters/desktop/categories/category/category";
+import FilterCollapse from "@/components/pages/products/filters/desktop/filter-collapse/filter-collapse";
+import { RootState } from "@/store";
 import { useTranslations } from "next-intl";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store";
-import { fetchCategory } from "@/slices/category/categorySlices";
-import { ICategory } from "@/data-types/categories/categories";
+import { useSelector } from "react-redux";
 
 interface props {}
 
 const Categories = ({}: props) => {
-	const { categories, loading, error } = useSelector(
+	const { categories, loading } = useSelector(
 		(state: RootState) => state.category
 	);
 	const t = useTranslations();

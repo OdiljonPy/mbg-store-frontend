@@ -1,21 +1,17 @@
-import { setPhoneNumber } from "@/slices/phone_numer/phoneNumber";
-import { AppDispatch } from "@/store";
 import { PhoneInput } from "react-international-phone";
-import { useDispatch } from "react-redux";
 
+import ErrorMessage from "@/components/shared/error-message";
 import Label from "@/components/shared/label";
-import authCss from "../auth.module.css";
 import { useTranslations } from "next-intl";
+import authCss from "../auth.module.css";
 
 interface Props {
 	setValue: React.Dispatch<React.SetStateAction<string>>;
-	value?:string
+	value: string;
 }
 
-function PhoneNumberInput({ setValue,value }: Props) {
+function PhoneNumberInput({ setValue, value }: Props) {
 	const t = useTranslations("auth.signUp");
-
-	const dispatch = useDispatch<AppDispatch>();
 
 	return (
 		<div className={authCss.input_wrapper}>
@@ -29,10 +25,12 @@ function PhoneNumberInput({ setValue,value }: Props) {
 				}}
 				value={value}
 				onChange={(value) => {
-					dispatch(setPhoneNumber(value));
 					setValue(value);
 				}}
 			/>
+			{!value?.startsWith("+998") && (
+				<ErrorMessage>{t("invalid_region")}</ErrorMessage>
+			)}
 		</div>
 	);
 }

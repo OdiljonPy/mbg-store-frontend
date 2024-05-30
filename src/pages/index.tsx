@@ -15,7 +15,6 @@ interface props {
   message: string;
 }
 export default function Home(props: props) {
-  console.log("For deploy test");
   return (
     <>
       <HeadWithSeo />

@@ -117,7 +117,8 @@
 		"chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
 		"writeToChat": "Chatga yozing"
 	},
-	"show": "Ko'rsatish",
+	"show": "{count} ta mahsulotni ko'rsatish",
+	"apply": "Tasdiqlash",
 	"show_count": "{count} ta mahsulotni ko'rsatish",
 	"hide": "Yashirish",
 	"filters": {
@@ -198,7 +199,10 @@
 		"photo": "Surat",
 		"photoDetails": "maksimal 4",
 		"photoPlaceholder": "yoki faylni shu yerga torting",
-		"send": "Yuboorish"
+		"send": "Yuboorish",
+		"file_too_large": "Fayl juda katta",
+		"file_invalid_type": "Noto‘g‘ri fayl turi",
+		"file_invalid": "Noto‘g‘ri fayl"
 	},
 	"cart": {
 		"title": "",
@@ -260,7 +264,8 @@
 			"create_account": "Hisob yaratish",
 			"have_account": "Hisobingiz mavjudmi?",
 			"login": "Hisobga kirish",
-			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud"
+			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud",
+			"invalid_region": "Faqat Uzbekiston telefon raqamini kiriting"
 		},
 		"signUp_success": {
 			"title": "Xush kelibsiz!",
@@ -394,7 +399,7 @@
 			"payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
 			"cancel": "Buyurtmani bekor qilish",
 			"checkout": "To'lovga o'tish",
-			"error":"Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
+			"error": "Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
 		},
 		"order_details_card": {
 			"title": "Buyurtma tafsilotlari",
