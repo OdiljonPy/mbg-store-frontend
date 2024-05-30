@@ -60,7 +60,7 @@ const Stores = (props: props) => {
 					title={t("header.stores")}
 					onOpen={onOpen}
 				/>
-				<Body storeList={filteredData} />
+				<Body storeList={storeList} />
 			</div>
 			<Drawer
 				classNames={{
