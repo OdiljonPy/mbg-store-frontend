@@ -78,6 +78,19 @@ const MobileFilters = ({}: props) => {
 		(state: RootState) => state.product
 	);
 
+	const endingMap: { [key: number]: string } = {
+		1: "",
+		2: "а",
+		3: "а",
+		4: "а",
+		5: "ов",
+		6: "ов",
+		7: "ов",
+		8: "ов",
+		9: "ов",
+		0: "ов",
+	};
+
 	return (
 		<>
 			<button
@@ -129,9 +142,11 @@ const MobileFilters = ({}: props) => {
 					<Accessibility />
 					<div className={css.fixed_btn}>
 						<Button full onClick={onClose} loading={loading}>
-							{t("show", { count: entities.totalElements })}
+							{t("show", {
+								count: entities.totalElements || 0,
+								ending: endingMap[entities.totalElements % 10],
+							})}
 						</Button>
-						{/*<Button full>{t('show_count',{count:priceFormatter(1520)})}</Button>*/}
 					</div>
 				</div>
 			</Drawer>
