@@ -414,7 +414,8 @@
 	"favorites": {
 		"title": "Saralangan",
 		"search": "Qidiruv",
-		"empty": "Sizda hali sevimlilar yo‘q"
+		"empty": "Sizda hali sevimlilar yo‘q",
+		"products_on_sale": "Chegirmdagi mahsulotlar"
 	},
 	"address_book": {
 		"title": "Manzil kitobi",
