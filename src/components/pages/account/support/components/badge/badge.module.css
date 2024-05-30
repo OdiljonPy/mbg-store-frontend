@@ -21,6 +21,10 @@
 	background-color: #60c787;
 }
 
-.PROCESSING {
+.ACCEPTED {
+	background-color: #ef9545;
+}
+
+.IN_PROGRESS {
 	background-color: #767bf9;
 }
