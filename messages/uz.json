@@ -199,7 +199,10 @@
 		"photo": "Surat",
 		"photoDetails": "maksimal 4",
 		"photoPlaceholder": "yoki faylni shu yerga torting",
-		"send": "Yuboorish"
+		"send": "Yuboorish",
+		"file_too_large": "Fayl juda katta",
+		"file_invalid_type": "Noto‘g‘ri fayl turi",
+		"file_invalid": "Noto‘g‘ri fayl"
 	},
 	"cart": {
 		"title": "",
