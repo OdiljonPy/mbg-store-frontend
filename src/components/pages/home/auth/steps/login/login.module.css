@@ -6,7 +6,7 @@
 	font-weight: 500;
 }
 
-.signup span {
+.signup button {
 	background-color: transparent;
 	border: none;
 	color: var(--text-green);
@@ -15,6 +15,6 @@
 	font-weight: 500;
 }
 
-.signup span:hover {
+.signup button:hover {
 	color: var(--light-green);
 }

@@ -1,5 +1,5 @@
 import { IDeliveryAddress } from "../address/delivery-address";
-import { IProduct } from "../products/common";
+import { IPagination, IProduct } from "../products/common";
 
 export interface IOrder {
 	id: number;
@@ -16,6 +16,10 @@ export interface IOrder {
 	order_items: IOrderItem[];
 	full_name?: string;
 	phone_number?: string;
+}
+
+export interface IOrderWithPagination extends IPagination {
+	content: IOrder[];
 }
 
 export interface IPostOrder {

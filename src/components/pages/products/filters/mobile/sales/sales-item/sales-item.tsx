@@ -1,47 +1,60 @@
-import React from 'react';
-import {useFormContext} from "react-hook-form";
-import {BoolFields, IFilters} from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import css from "@/components/pages/products/filters/mobile/categories/body/category-item/category-item.module.css";
-import {ICustomCheckbox} from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
-
+import { BoolFields } from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
+import { ICustomCheckbox } from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface props {
-    item: ICustomCheckbox
-    boolName?: BoolFields | undefined
+	item: ICustomCheckbox;
+	boolName?: BoolFields | undefined;
 }
 
-const SalesItem = ({item,boolName}: props) => {
-    const {
-        watch,
-        setValue
-    } = useFormContext<IFilters>()
+const SalesItem = ({ item, boolName }: props) => {
+	const { push, query } = useRouter();
+	const searchParams = useSearchParams();
+	const pathname: string = usePathname();
 
-    const sales: string | undefined = watch('sales')
+	const sale = searchParams.get("sale");
 
+	const { title, id } = item;
 
-    const {
-        title,
-        id
-    } = item
+	const onSetRating = () => {
+		const queries = {
+			...query,
+		};
 
+		queries.sale = String(item.id);
+		delete queries.onSales;
 
-    const onSetRating = () => {
-        setValue('sales', id.toString())
-        if(boolName){
-            setValue(boolName, false )
-        }
-        // setValue('withFeedback', true)
-    }
+		push(
+			{
+				pathname,
+				query: {
+					...queries,
+					changeFilter:
+						searchParams.get("changeFilter") === "true"
+							? "false"
+							: "true",
+				},
+			},
+			undefined,
+			{
+				scroll: false,
+			}
+		);
+	};
 
-
-    return (
-        <label onClick={onSetRating} className={`${css.item} ${sales === id.toString() ? css.active : ''}`}>
-            <input className={css.input} value={id} type={'radio'}/>
-            <span className={css.title}>
-                {title}
-             </span>
-        </label>
-    );
+	return (
+		<label
+			onClick={onSetRating}
+			className={`${css.item} ${
+				sale === id.toString() ? css.active : ""
+			}`}
+		>
+			<input className={css.input} value={id} type={"radio"} />
+			<span className={css.title}>{title}</span>
+		</label>
+	);
 };
 
 export default SalesItem;

@@ -1,4 +1,4 @@
-import { ISupport } from "@/data-types/support";
+import { EnumSupportStatus, ISupport } from "@/data-types/support";
 
 import dayjs from "dayjs";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import React from "react";
 import Badge from "../../badge/badge";
 
 import { useTranslations } from "next-intl";
+import { supportStatusMap } from "../../../constants/support/support-status-map";
 import css from "./statement-item.module.css";
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 }
 function StatementItem({ statementItem }: Props) {
 	const t = useTranslations("support");
-	const tn = useTranslations("support.first_step")
+	const tn = useTranslations("support.first_step");
 
 	const [showMore, setShowMore] = React.useState(false);
 
@@ -38,20 +39,21 @@ function StatementItem({ statementItem }: Props) {
 					<h3 className={css.title}>
 						{t("statement")} № {statementItem.id}
 					</h3>
-					{statementItem.topic ?
-							<p className={css.subtitle}>{tn(statementItem.topic)}</p>
-						: ""
-					}
+					{statementItem.topic ? (
+						<p className={css.subtitle}>
+							{tn(statementItem.topic)}
+						</p>
+					) : (
+						""
+					)}
 				</div>
 				<div className={css.header_right}>
 					<p className={css.date}>
 						{dayjs(statementItem.date).format("D MMMM YYYY г.")}
 					</p>
-					{statementItem.is_closed ? (
-						<Badge status={"CLOSED"}>{t("closed")}</Badge>
-					) : (
-						<Badge status={"PROCESSING"}>{t("processing")}</Badge>
-					)}
+					<Badge status={EnumSupportStatus[statementItem.type]}>
+						{t(supportStatusMap[statementItem.type])}
+					</Badge>
 				</div>
 			</header>
 			<div className={css.body}>

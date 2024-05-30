@@ -14,7 +14,6 @@ const Body = (props: props) => {
         <div className={css.wrapper}>
             {salesList.map((item) => (
                 <SalesItem item={item} key={item.id} boolName={'onSales'}/>
-                // <CustomCheckbox boolName={'onSales'} name={'sales'} item={item} key={item.id}/>
             ))}
         </div>
     );

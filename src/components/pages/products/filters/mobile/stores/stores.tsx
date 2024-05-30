@@ -1,19 +1,21 @@
 import TopBar from "@/components/pages/products/filters/mobile/categories/top-bar/top-bar";
-import { IFilters } from "@/components/pages/products/filters/mobile/mobile-filters/data-types";
 import css from "@/components/pages/products/filters/mobile/mobile-filters/mobile-filters.module.css";
 import Body from "@/components/pages/products/filters/mobile/stores/body/body";
 import Option from "@/components/pages/products/filters/mobile/stores/option/option";
 import Button from "@/components/shared/button";
 import { ICustomCheckbox } from "@/components/shared/custom-checkbox/data-types/custom-checkbox";
 import DrawerHeader from "@/components/shared/drawer-header/drawer-header";
+import Input from "@/components/shared/input";
+import { useClientSearch } from "@/hooks/use-client-search";
 import { useModal } from "@/hooks/use-modal";
 import { fetchStories } from "@/slices/all_store/StoriesSlices";
 import { AppDispatch, RootState } from "@/store";
 import { Drawer } from "antd";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import { useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { useReset } from "../hooks/use-reset";
+import storesCss from "./stores.module.css";
 
 interface props {}
 
@@ -24,16 +26,13 @@ const Stores = (props: props) => {
 	);
 	const t = useTranslations();
 	const { open, onOpen, onClose } = useModal(true);
-	const { watch, setValue } = useFormContext<IFilters>();
-	const stores: string[] | undefined = watch("stores");
+	const { onReset } = useReset(["stores"]);
 
-	const [storeList, setStoreList] = useState<ICustomCheckbox[]>([
-		{
-			id: 1,
-			title: "Зеленая лавка",
-			count: 2132,
-		},
-	]);
+	const [storeList, setStoreList] = useState<ICustomCheckbox[]>([]);
+	const { filteredData, onSearchValueChange, searchValue } = useClientSearch({
+		data: storeList,
+		searchBy: ["title"],
+	});
 
 	useEffect(() => {
 		const fetchStoreList: ICustomCheckbox[] = [];
@@ -52,14 +51,12 @@ const Stores = (props: props) => {
 				setStoreList(fetchStoreList);
 			});
 	}, []);
-	const onReset = () => {
-		setValue("stores", undefined);
-	};
+
 	return (
 		<>
 			<div className={css.item}>
 				<TopBar
-					onReset={stores?.length ? onReset : undefined}
+					resetItems={["stores"]}
 					title={t("header.stores")}
 					onOpen={onOpen}
 				/>
@@ -80,19 +77,26 @@ const Stores = (props: props) => {
 						title: t("header.stores"),
 						onClose,
 						onReset,
-						count: stores?.length ?? 0,
+						count: stories?.length ?? 0,
 					}}
 				/>
 				<div className={css.inner}>
+					<div className={storesCss.search_box}>
+						<Input
+							placeholder={t("search.byName")}
+							onChange={onSearchValueChange}
+							value={searchValue}
+						/>
+					</div>
 					{loading
 						? "...loading"
-						: storeList.map((store) => (
+						: filteredData.map((store) => (
 								<Option item={store} key={store.id} />
 						  ))}
 				</div>
 				<div className={css.fixed_btn}>
 					<Button full onClick={onClose}>
-						{t("show")}
+						{t("apply")}
 					</Button>
 				</div>
 			</Drawer>

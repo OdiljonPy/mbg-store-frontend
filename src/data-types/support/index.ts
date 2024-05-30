@@ -1,7 +1,13 @@
-export enum EnumSupportType {
+export enum EnumSupportTopic {
 	QUESTION,
 	FEEDBACK,
 	COMPLAINT,
+}
+
+export enum EnumSupportStatus {
+	CLOSED = 0,
+	ACCEPTED = 1,
+	IN_PROGRESS = 2,
 }
 
 export interface ISupport {
@@ -9,7 +15,7 @@ export interface ISupport {
 	email: string;
 	date: string;
 	topic: string;
-	is_closed: boolean;
+	type: EnumSupportStatus;
 	description: string;
 	files: {
 		id: number;
