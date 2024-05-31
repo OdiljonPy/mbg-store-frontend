@@ -14,15 +14,21 @@ const Option = ({ item }: props) => {
 	const searchParams = useSearchParams();
 	const pathname: string = usePathname();
 
-	const sales = searchParams.get("sales");
+	const sale = searchParams.get("sale");
 
 	const onChange = () => {
+		const queries = {
+			...query,
+		};
+
+		queries.sale = String(item.id);
+		delete queries.onSales;
+
 		push(
 			{
 				pathname,
 				query: {
-					...query,
-					sales: id.toString(),
+					...queries,
 					changeFilter:
 						searchParams.get("changeFilter") === "true"
 							? "false"
@@ -41,7 +47,7 @@ const Option = ({ item }: props) => {
 			options={{
 				onChange,
 				disabled: false,
-				checked: !!sales && !!sales?.includes(id.toString()),
+				checked: !!sale && !!sale?.includes(id.toString()),
 			}}
 			item={item}
 		/>

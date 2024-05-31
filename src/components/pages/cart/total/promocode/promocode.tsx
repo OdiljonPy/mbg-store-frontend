@@ -59,7 +59,7 @@ const PromoCode = (props: props) => {
           ></FormError>
         )}
       </div>
-      <Button type={"submit"} disabled={!code} loading={loading}>
+      <Button full type={"submit"} disabled={!code} loading={loading}>
         {!loading && t("cart.accept")}
       </Button>
     </form>

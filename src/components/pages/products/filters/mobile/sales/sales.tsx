@@ -61,7 +61,7 @@ const Sales = (props: props) => {
 		<>
 			<div className={css.item}>
 				<TopBar
-					resetItems={["sales", "onSales"]}
+					resetItems={["sale", "onSales"]}
 					title={t("sales.sale")}
 					onOpen={onOpen}
 				/>

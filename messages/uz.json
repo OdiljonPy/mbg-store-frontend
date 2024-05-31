@@ -19,7 +19,7 @@
 		"support": "Yordam",
 		"order_placed": "Buyurtma berilgan",
 		"offer": "Oferta",
-		"please_enter_address": "Iltimos,manzilingizni kiriting"
+		"please_enter_address": "Iltimos, manzilingizni kiriting"
 	},
 	"categories": {
 		"title": "Kategoriyalar",
@@ -220,6 +220,7 @@
 		"checkout": "To'lovga o'ting",
 		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
 		"fill_cart": "Savatchaga qo'shish",
+		"on_sale": "Chegirmadagi mahsulotlar",
 		"delivery": {
 			"title_one": "Buyurtma oluvchi",
 			"name_label": "Ism va familiya",
@@ -244,7 +245,8 @@
 		"order_all": "Jami",
 		"warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
 		"cancel_order": "Bekor qilish",
-		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?"
+		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?",
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
 	},
 	"modal": {
 		"no": "Yo'q",
@@ -414,7 +416,7 @@
 		"title": "Saralangan",
 		"search": "Qidiruv",
 		"empty": "Sizda hali sevimlilar yo‘q",
-		"products_on_sale": "Chegirmali mahsulotlar"
+		"products_on_sale": "Chegirmdagi mahsulotlar"
 	},
 	"address_book": {
 		"title": "Manzil kitobi",

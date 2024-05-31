@@ -18,7 +18,7 @@ const TopBar = ({ title, onOpen, hideIcon, resetItems }: props) => {
 	const { onReset } = useReset(resetItems);
 	const searchParams = useSearchParams();
 
-	const params = searchParams.get(resetItems?.[0] || "");
+	const params = resetItems?.find((item) => searchParams.get(item));
 
 	return (
 		<div className={css.bar}>
