@@ -220,6 +220,7 @@
 		"checkout": "To'lovga o'ting",
 		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
 		"fill_cart": "Savatchaga qo'shish",
+		"on_sale": "Chegirmadagi mahsulotlar",
 		"delivery": {
 			"title_one": "Buyurtma oluvchi",
 			"name_label": "Ism va familiya",
@@ -414,7 +415,7 @@
 		"title": "Saralangan",
 		"search": "Qidiruv",
 		"empty": "Sizda hali sevimlilar yo‘q",
-		"products_on_sale": "Chegirmali mahsulotlar"
+		"products_on_sale": "Chegirmdagi mahsulotlar"
 	},
 	"address_book": {
 		"title": "Manzil kitobi",

@@ -1,17 +1,17 @@
 import Image from "next/image";
 
 import Button from "@/components/shared/button";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import css from "./cart-empty.module.css";
-import {useRouter} from "next/navigation";
-import {useTranslations} from "next-intl";
 
-interface props{
-	text?:string
+interface props {
+	text?: string;
 }
 
-function CartEmpty({text}:props) {
+function CartEmpty({ text }: props) {
 	const { push } = useRouter();
-	const t = useTranslations()
+	const t = useTranslations();
 	return (
 		<div className={css.wrapper}>
 			<div className={css.image_wrapper}>
@@ -24,7 +24,16 @@ function CartEmpty({text}:props) {
 				/>
 			</div>
 			<p className={css.text}>{t(text)}</p>
-			<Button className={css.btn} onClick={() => push('/')}>{t('cart.fill_cart')}</Button>
+			<Button
+				className={css.btn}
+				onClick={() =>
+					push(
+						"/products?sort=popular&changeFilter=false&onSales=true"
+					)
+				}
+			>
+				{t("cart.on_sale")}
+			</Button>
 		</div>
 	);
 }
