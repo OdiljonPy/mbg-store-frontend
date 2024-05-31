@@ -9,6 +9,7 @@
 
 .inputWrapper {
     flex-basis: 60%;
+    flex-shrink: 0;
 }
 
 .btn {
