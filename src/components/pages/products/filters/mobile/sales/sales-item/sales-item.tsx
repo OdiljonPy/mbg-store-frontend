@@ -14,17 +14,23 @@ const SalesItem = ({ item, boolName }: props) => {
 	const searchParams = useSearchParams();
 	const pathname: string = usePathname();
 
-	const sales = searchParams.get("sales");
+	const sale = searchParams.get("sale");
 
 	const { title, id } = item;
 
 	const onSetRating = () => {
+		const queries = {
+			...query,
+		};
+
+		queries.sale = String(item.id);
+		delete queries.onSales;
+
 		push(
 			{
 				pathname,
 				query: {
-					...query,
-					sales: id.toString(),
+					...queries,
 					changeFilter:
 						searchParams.get("changeFilter") === "true"
 							? "false"
@@ -42,7 +48,7 @@ const SalesItem = ({ item, boolName }: props) => {
 		<label
 			onClick={onSetRating}
 			className={`${css.item} ${
-				sales === id.toString() ? css.active : ""
+				sale === id.toString() ? css.active : ""
 			}`}
 		>
 			<input className={css.input} value={id} type={"radio"} />
