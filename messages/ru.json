@@ -51,7 +51,8 @@
 		"address_status": "Основное",
 		"delete_address": "Удалить адресa",
 		"permission_delete": "Вы уверены что хотите удалить адрес",
-		"already_exists": "Адрес с таким названием уже существует"
+		"already_exists": "Адрес с таким названием уже существует",
+		"notAllowed_delete":"Вы не можете удалить основной адрес"
 	},
 	"search": {
 		"placeholder": "Поиск товаров",

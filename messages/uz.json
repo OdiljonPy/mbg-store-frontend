@@ -19,7 +19,7 @@
 		"support": "Yordam",
 		"order_placed": "Buyurtma berilgan",
 		"offer": "Oferta",
-		"please_enter_address": "Iltimos,manzilingizni kiriting"
+		"please_enter_address": "Iltimos, manzilingizni kiriting"
 	},
 	"categories": {
 		"title": "Kategoriyalar",
@@ -245,7 +245,8 @@
 		"order_all": "Jami",
 		"warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
 		"cancel_order": "Bekor qilish",
-		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?"
+		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?",
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
 	},
 	"modal": {
 		"no": "Yo'q",
