@@ -15,42 +15,12 @@ function generateSiteMap({
 	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!--We manually set the two URLs we know already-->
 	<url>
-	<loc>${siteConfig.url}/</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>1.00</priority>
-	</url>
-	<url>
-	<loc>${siteConfig.url}/about</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.80</priority>
-	</url>
-	<url>
-	<loc>${siteConfig.url}/stores</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.80</priority>
-	</url>
-	<url>
 	<loc>${siteConfig.url}/uz</loc>
 	<lastmod>${new Date().toISOString()}</lastmod>
 	<priority>0.80</priority>
 	</url>
 	<url>
 	<loc>${siteConfig.url}/ru</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.80</priority>
-	</url>
-	<url>
-	<loc>${siteConfig.url}/products?sort=popular&amp;onSales=true</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.80</priority>
-	</url>
-	<url>
-	<loc>${siteConfig.url}/products?sort=popular</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.80</priority>
-	</url>
-	<url>
-	<loc>${siteConfig.url}/catalog</loc>
 	<lastmod>${new Date().toISOString()}</lastmod>
 	<priority>0.80</priority>
 	</url>
@@ -115,11 +85,6 @@ function generateSiteMap({
 	<priority>0.64</priority>
 	</url>
 	<url>
-	<loc>${siteConfig.url}/products</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.64</priority>
-	</url>
-	<url>
 	<loc>${siteConfig.url}/uz/catalog</loc>
 	<lastmod>${new Date().toISOString()}</lastmod>
 	<priority>0.64</priority>
@@ -129,21 +94,10 @@ function generateSiteMap({
 	<lastmod>${new Date().toISOString()}</lastmod>
 	<priority>0.64</priority>
 	</url>
-	<url>
-	<loc>${siteConfig.url}/catalog</loc>
-	<lastmod>${new Date().toISOString()}</lastmod>
-	<priority>0.64</priority>
-	</url>
 	<!-- sitemap for products -->
   ${products?.content
 		?.map(
 			({ id }) => `<url>
-        <loc>${siteConfig.url}/products/${id}</loc>
-       	<lastmod>${new Date().toISOString()}</lastmod>
-				<changefreq>weekly</changefreq>
-				<priority>0.55</priority>
-      </url>
-			<url>
 				<loc>${siteConfig.url}/ru/products/${id}</loc>
 				<lastmod>${new Date().toISOString()}</lastmod>
 				<changefreq>weekly</changefreq>
@@ -162,12 +116,6 @@ function generateSiteMap({
 		${stores
 			?.map(
 				({ id }) => `<url>
-				<loc>${siteConfig.url}/stores/${id}</loc>
-				<lastmod>${new Date().toISOString()}</lastmod>
-				<changefreq>monthly</changefreq>
-				<priority>0.5</priority>
-		 </url>
-		 <url>
 				<loc>${siteConfig.url}/ru/stores/${id}</loc>
 				<lastmod>${new Date().toISOString()}</lastmod>
 				<changefreq>monthly</changefreq>
