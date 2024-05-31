@@ -22,7 +22,7 @@ const OrderCart = ({ product, orderQuantity }: props) => {
   return (
     <div className={css.product}>
       <div className={css.img}>
-        <ResponsiveImage src={images[0]?.image} alt={name} />
+        <ResponsiveImage src={images[0]?.image || '/images/products/not-available.png'} alt={name} />
       </div>
       <div className={css.info}>
         <div className={css.info_left}>
