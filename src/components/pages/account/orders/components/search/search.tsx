@@ -1,19 +1,30 @@
 import Input from "@/components/shared/input";
+import useDebounce from "@/hooks/use-debounce";
+import { fetchOrders } from "@/slices/order/ordersSlice";
+import { AppDispatch } from "@/store";
 import { useTranslations } from "next-intl";
-import { useOrdersSearch } from "../../hooks/use-orders-search";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import css from "./search.module.css";
 
 function Search() {
 	const t = useTranslations("orders");
 
-	const { onSearchValueChange, searchValue } = useOrdersSearch();
+	const [searchValue, setSearchValue] = useState("");
+	const debouncedSearchValue: string = useDebounce(searchValue, 500);
+
+	const dispatch = useDispatch<AppDispatch>();
+
+	useEffect(() => {
+		dispatch(fetchOrders({ q: debouncedSearchValue }));
+	}, [debouncedSearchValue]);
 
 	return (
 		<div className={css.search_box}>
 			<Input
 				value={searchValue}
-				onChange={onSearchValueChange}
-				type='search'
+				onChange={(e) => setSearchValue(e.target.value.trim())}
+				type='number'
 				placeholder={t("search")}
 			/>
 			<span className={css.search_icon}>
