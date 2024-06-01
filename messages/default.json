@@ -1,468 +1,479 @@
 {
-  "header": {
-    "home": "Asosiy",
-    "catalog": "Katalog",
-    "about": "Biz haqimizda",
-    "stores": "Do'konlar",
-    "faq": "FAQ",
-    "searchProducts": "Mahsulot qidirish",
-    "favourites": "Sevimlilar",
-    "login": "Kirish",
-    "basket": "Savatcha",
-    "delivery": "Yetkazib Berish",
-    "account": "Akkaunt",
-    "profile": "Profil",
-    "orders": "Buyurtmalar",
-    "order": "Buyurtma",
-    "address_book": "Manzillar",
-    "favorites": "Saralangan",
-    "support": "Yordam",
-    "order_placed": "Buyurtma berilgan",
-    "offer": "Oferta",
-    "please_enter_address": "Iltimos,manzilingizni kiriting"
-  },
-  "categories": {
-    "title": "Kategoriyalar",
-    "all": "Barcha kategoriyalar"
-  },
-  "address": {
-    "add": "Manzil qo'shish",
-    "next": "Keyingi",
-    "cancel": "Bekor qilish",
-    "change": "O'zgartirish",
-    "save": "Saqlash",
-    "typeAddress": "Manzilingizni kiriting",
-    "title": "Manzil",
-    "placeholder": "Shahar, ko'cha, uy",
-    "add_delivery": "Yetkazib berish manzili",
-    "name": "Nomi",
-    "enter_name": "Nomni kiriting",
-    "entrance": "Kirish joyi",
-    "floor": "Qavat",
-    "apartment": "Kvartira",
-    "make_address": "Manzilni asosiyga aylantirish",
-    "required": "Ushbu qator to'ldirilishi shart",
-    "saved": "Saqlanganlar",
-    "address_status": "Asosiy",
-    "delete_address": "Manzilni o'chirish",
-    "permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
-    "notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz",
-    "already_exists": "Ushbu manzil allaqachon saqlangan"
-  },
-  "search": {
-    "placeholder": "Mahsulotlarni qidirish",
-    "often": "Tez-tez qidirilganlar",
-    "recently_searched": "Yaqinda izlaganlaringiz",
-    "clear": "Tozalash",
-    "title": "Qidirish",
-    "found": "{categories} turkumidagi {products} mahsulot topildi",
-    "categories": "{products} ta mahsulot",
-    "byName": "Ism bo'yicha qidirish"
-  },
-  "errors": {
-    "required": "Ushbu qator to'ldirilishi shart"
-  },
-  "detect": "Aniqlash",
-  "approve": "Tasdiqlang",
-  "catalog": "Katalog",
-  "footer": {
-    "phone": "Telefon",
-    "email": "Pochta",
-    "address": "Manzil",
-    "information": "Ma `lumot",
-    "offert": "Oferta",
-    "copyright": "Barcha huquqlar himoyalangan.",
-    "qr": "Ilovani yuklab olish uchun QR kodini skanerlang",
-    "mgbStore": "MBG do'kon ilovasi"
-  },
-  "account": {
-    "orders": "Buyurtmalar",
-    "title": "Profil"
-  },
-  "sales": {
-    "sale": "Chegirmalar",
-    "title": "Chegirma bilan",
-    "more": "{count}% yoki undan ko'p"
-  },
-  "products": {
-    "title": "Mahsulotlar",
-    "plural": "ta mahsulot",
-    "rates": "Reytinglar",
-    "near": "Yaqin atrofdagi mahsulotlar",
-    "top": "Eng ko'p sotilganlar",
-    "popular": "Ommabop",
-    "withFeedbacks": "Sharh yozilgan mahsulotlar",
-    "sold": "Tugagan",
-    "addToCart": "Mahsulot savatga qo'shildi!",
-    "show_more": "Ko'proq ko'rsatish",
-    "no_product": "Mahsulot bazada qolmadi",
-    "unavailable_product": "Mavjud bo'lmagan mahsulatlar",
-    "add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
-    "has_products": "mavjud tovarlar",
-    "some_product": "Shunga o'xshash",
-    "warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas",
-    "flag": {
-      "new": "Yangi",
-      "free_ship": "Bepul",
-      "sale": "Chegirmada"
-    }
-  },
-  "about": {
-    "title": "MBG do'koni haqida qisqacha",
-    "products": "turli xil tovarlar",
-    "stores": "saytdagi do'konlar",
-    "orders": "umumiy buyurtmalar",
-    "partners": "Bizning hamkorlar",
-    "faq": "Ko'p beriladigan savollar",
-    "chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
-    "writeToChat": "Chatga yozing"
-  },
-  "show": "Ko'rsatish",
-  "show_count": "{count} ta mahsulotni ko'rsatish",
-  "hide": "Yashirish",
-  "filters": {
-    "title": "Filter",
-    "show_filter": "Filterni ko'rsatish",
-    "hide_filter": "Filterni yashirish",
-    "clear": "tozalash",
-    "up_to": "gacha",
-    "from": "ta mahsulotdan",
-    "sorting": {
-      "title": "Tartiblash",
-      "popular": "Mashhurlari",
-      "cheap": "Arzonroq",
-      "expensive": "Qimmatroq",
-      "highRate": "Yuqori reyting",
-      "null": "Mashhur"
-    },
-    "delivery": {
-      "title": "Yetkazib berish",
-      "free": "Bepul yetkazib berish",
-      "self": "Olib ketish",
-      "has": "Yetkazib berish mavjud"
-    },
-    "accessibility": {
-      "title": "Mavjudligi"
-    },
-    "empty_store": "Malumot topilmadi",
-    "no_data": {
-      "title": "Hech qanday mos mahsulot topilmadi",
-      "description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
-    },
-    "reset": "Filtrlarni tiklash"
-  },
-  "from": "dan",
-  "to": "gacha",
-  "fromBeginning": "Boshida",
-  "rating": {
-    "title": "Reyting",
-    "rate": "{count} dan yuqori"
-  },
-  "reset": "Qayta tiklash",
-  "price": {
-    "title": "Narxi, so'm"
-  },
-  "location": {
-    "title": "Manzil",
-    "select_location": "Filtr ishlashi uchun joyni belgilang",
-    "add_location": "Boshqa manzilmi? Joy qo'shing",
-    "distance": "Qidirish radiusi"
-  },
-  "product": {
-    "similar": "Birga sotib oling",
-    "onSale": "Sotish",
-    "has": "Sotuvda {count} ta",
-    "has_not": "Mavjud emas",
-    "seller": "Sotuvchi",
-    "rates": "Reytinglar",
-    "addToCart": "Savatga qo'shish",
-    "about": "Mahsulot haqida",
-    "comparison": "Shu kabi mahsulotlarni taqqoslash",
-    "title": "Mahsulot",
-    "price": "Narxi",
-    "feedback": "Mahsulot sharhlari",
-    "showOnFeedback": "Reyting bo'yicha ko'rsatish",
-    "allFeedbacks": "Barcha sharhlar",
-    "sendFeedback": "Fikr qoldiring",
-    "writeFeedback": "Sharh yozing",
-    "orders": "Buyurtmalar"
-  },
-  "feedback": {
-    "bad": "Yomon",
-    "excellent": "Ajoyib",
-    "name": "Sizning ismingiz",
-    "namePlaceholder": "Ismingizni kiriting",
-    "anonymus": "Anonim sharh",
-    "message": "Fikr-mulohazalaringiz",
-    "messagePlaceholder": "Mahsulot haqida fikringiz",
-    "photo": "Surat",
-    "photoDetails": "maksimal 4",
-    "photoPlaceholder": "yoki faylni shu yerga torting",
-    "send": "Yuboorish"
-  },
-  "cart": {
-    "title": "",
-    "yourOrder": "Sizning buyurtmangiz",
-    "price": "Tovarlarning narxi",
-    "sales": "Chegirmalar",
-    "actualPrice": "Yechilanadigan narx",
-    "order": "Buyurtma berish",
-    "promo_code": "Promakod",
-    "use": "qo'llaniladi",
-    "invalid_code": "Bu kod yaroqsiz",
-    "accept": "Qo'llash",
-    "type": "Yetkazib berish / olib ketish",
-    "type_value": "уточняется",
-    "checkout": "To'lovga o'ting",
-    "info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
-    "fill_cart": "Savatchaga qo'shish",
-    "delivery": {
-      "title_one": "Buyurtma oluvchi",
-      "name_label": "Ism va familiya",
-      "phone_label": "Telefon raqami",
-      "name_placeholder": "Ismingizni kiriting",
-      "delivery_to": "Yetkazib berish manzili"
-    },
-    "orders": {
-      "empty": "Savatcha bo'sh",
-      "done": "Buyurtma muvaffaqiyatli o'chirildi",
-      "error": "Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
-      "must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
-    }
-  },
-  "order_placed": {
-    "order_detail": "Buyurtma tafsilotlari",
-    "number_order": "Buyurtma raqami",
-    "date_order": "Buyurtma vaqti",
-    "recipient": "Qabul qiluvchi",
-    "order_cost_title": "Buyurtma narxi",
-    "order_cost": "Tovarlarning narxi",
-    "order_all": "Jami",
-    "warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
-    "cancel_order": "Bekor qilish",
-    "agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?"
-  },
-  "modal": {
-    "no": "Yo'q",
-    "yes": "Ha,o'chirish",
-    "delete_address": "Manzilni o'chirilmoqda",
-    "delete_desc": "Haqiqatan ham manzilni o‘chirib tashlamoqchimisiz?"
-  },
-  "remove": "O'chirish",
-  "auth": {
-    "signUp": {
-      "title": "Hisob yaratish",
-      "phone_number": "Telefon raqami",
-      "password": "Parol",
-      "enter_password": "Parolni kiriting",
-      "label": "Telefon raqami",
-      "accept_terms": "Men <terms>Offerta</terms> shartlarini qabul qilaman",
-      "create_account": "Hisob yaratish",
-      "have_account": "Hisobingiz mavjudmi?",
-      "login": "Hisobga kirish",
-      "account_already_exists": "Bu raqamga ega hisob allaqachon mavjud"
-    },
-    "signUp_success": {
-      "title": "Xush kelibsiz!",
-      "description": "Siz MBG do'konida muvaffaqiyatli hisob yaratdingiz",
-      "login": "Kirish"
-    },
-    "login": {
-      "title": "Tizimga kirish",
-      "password": "Parol",
-      "enter_password": "Parolni kiriting",
-      "forgot_password": "Parolni unutdingizmi?",
-      "enter": "Kirish",
-      "no_account": "Hisobingiz yo'qmi?",
-      "create_account": "Hisob yaratish",
-      "invalid_phone_or_password": "Telefon raqami yoki parol noto‘g‘ri"
-    },
-    "reset_password": {
-      "title": "Parolni tiklash",
-      "description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
-      "phone_number": "Telefon raqami",
-      "current_password": "Joriy Parol",
-      "get_code": "Kodni olish",
-      "invalid_phone_number": "Telefon raqami noto‘g‘ri"
-    },
-    "otp": {
-      "title": "Kodni kiriting",
-      "description": "Kod <phone>{phone}</phone> raqamiga yuborildi",
-      "back": "Orqaga",
-      "confirm": "Tasdiqlang",
-      "new_code_after": "Yangi kod orqali",
-      "send_new_code": "Yangi kodni yuborish ({count} ta urinish)",
-      "invalid_code": "Yaroqsiz kod",
-      "no_more_attempts": "Urunushlar tugadi."
-    },
-    "otp_error": {
-      "title": "Ro'yxatga olish xatosi",
-      "description": "Noto'g'ri OTP kodi 3 martadan ortiq kiritilgan. Iltimos {hour} soatdan keyin qayta urinib ko'ring.",
-      "close": "Yopish"
-    },
-    "new_password": {
-      "title": "Yangi parol",
-      "description": "Yangi parol yarating",
-      "label": "Parol",
-      "placeholder": "Parolni kiriting",
-      "change_password": "Parolni o'zgartirish",
-      "min_length": "kamida 8 ta belgi",
-      "min_one_letter": "kamida 1 harf",
-      "min_one_digit": "kamida 1 ta raqam"
-    },
-    "reset_success": {
-      "title": "Parol yangilandi",
-      "description": "Endi siz yangi parolingiz bilan tizimga kirishingiz mumkin",
-      "login": "Kirish"
-    }
-  },
-  "profile": {
-    "title": "Profil",
-    "logout": {
-      "title": "Chiqish",
-      "modal_title": "Akkauntdan chiqish",
-      "modal_description": "Siz haqiqatdan ham akkauntingizdan chiqmoqchimisiz?",
-      "modal_cancel": "Bekor qilish",
-      "modal_logout": "Chiqish"
-    },
-    "personal_data": {
-      "title": "Shaxsiy ma'lumotlar",
-      "name_and_surname": "Ism va familiya",
-      "birthday": "Tug'ilgan sana",
-      "male": "Erkak",
-      "female": "Ayol"
-    },
-    "security": {
-      "title": "Xafsizlik",
-      "phone_number": "Telefon raqami",
-      "current_password": "Xozirgi parol"
-    },
-    "save": "Saqlash"
-  },
-  "orders": {
-    "title": "Buyurtmalar",
-    "search": "Qidirish",
-    "success": "Sizning buyurtmangiz qabul qilindi!",
-    "method": {
-      "DELIVERY": "Yetkazib berish",
-      "PICKUP": "Olib ketish"
-    },
-    "status": {
-      "WAITING_FOR_PAYMENT": "To'lov kutilmoqda",
-      "PAID": "To'langan",
-      "ACCEPTED": "Qabul qilingan",
-      "PROGRESSING": "Jarayonda",
-      "ON_THE_WAY": "Yo'ldaman",
-      "READY_FOR_PICKUP": "Olib ketishga tayyor",
-      "DELIVERED": "Yetkazib berildi",
-      "PICKED_UP": "Berilgan sana",
-      "CANCELLED": "Bekor qilingan"
-    },
-    "empty": "Sizda hali buyurtma yo'q",
-    "discount": "Chegirmali mahsulotlar",
-    "posted": "Joylashtirilgan",
-    "reorder": "Buyurtmani takrorlang",
-    "order_method": {
-      "title": "Qabul qilish usuli"
-    },
-    "delivery": {
-      "title": "Manzilga yetkazib berish",
-      "main": "asosiy",
-      "approximate_arrival_date": "Taxminiy yetkazib berish sanasi",
-      "delivery_details": "Yetkazib berish tafsilotlari",
-      "courier": "Kuryer",
-      "phone": "Telefon raqami",
-      "transport": "Transport",
-      "arrival_date": "Kelish vaqti"
-    },
-    "pickup": {
-      "title": "Do'kondan olib ketish",
-      "available_for_pickup": "Tovar(lar)ni olib ketish mumkin"
-    },
-    "order_item_list": {
-      "title": "Buyurtma bo'yicha mahsulotlar",
-      "qty": "miqdor"
-    },
-    "order_cost_card": {
-      "title": "Buyurtma narxi",
-      "products_cost": "Tovarlarning narxi",
-      "discounts": "Chegirmalar",
-      "promo_code": "Promokod",
-      "delivery": "Yetkazib berish",
-      "pickup": "Olib ketish",
-      "total": "Jami",
-      "payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
-      "cancel": "Buyurtmani bekor qilish"
-    },
-    "order_details_card": {
-      "title": "Buyurtma tafsilotlari",
-      "status": "Holat",
-      "order_datetime": "Buyurtma vaqti",
-      "receiver": "Qabul qiluvchi",
-      "phone": "Telefon raqami",
-      "reorder": "Buyurtmani takrorlash"
-    }
-  },
-  "favorites": {
-    "title": "Saralangan",
-    "search": "Qidiruv",
-    "empty": "Sizda hali sevimlilar yo‘q",
-    "products_on_sale": "Chegirmali mahsulotlar"
-  },
-  "address_book": {
-    "title": "Manzil kitobi",
-    "search": "Qidirmoq",
-    "add_address": "Manzil qo'shish",
-    "empty": "Sizda hali manzil yo'q",
-    "delivery": "Yetkazib berish",
-    "pickup": "Olib ketish"
-  },
-  "support": {
-    "title": "Qo'llab-quvvatlash",
-    "write_to_support": "Qo'llab-quvvatlashga yozing",
-    "statement": "So'rov",
-    "closed": "Yopiq",
-    "processing": "Qayta ishlashda",
-    "show_more": "Batafsil ko'rsatish...",
-    "show_less": "Kamroq ko'rsatish",
-    "empty_section": "Sizda hali hech qanday ilova yo'q",
-    "first_step": {
-      "title": "Qo'llab-quvvatlash",
-      "next": "Keyingi",
-      "email": "E-mail",
-      "this_is_required": "Ushbu qator to'ldirilishi shart",
-      "invalid_email": "Noto'g'ri pochta",
-      "topic": "Apellyatsiya mavzusi",
-      "select_topic": "Mavzuni tanlang",
-      "description": "Tavsif",
-      "your_message": "Sizning savolingiz",
-      "complaint": "Shikoyat",
-      "ask_question": "Savol berish",
-      "comment_suggestions": "Fikr va takliflar"
-    },
-    "second_step": {
-      "title": "Qo'llab-quvvatlash",
-      "applications": "Ilovalar",
-      "max_count": "maksimal 4",
-      "back": "Orqaga",
-      "send": "Yuborish"
-    }
-  },
-  "stories": {
-    "with_us": "MBD do'koni blan birga ",
-    "with_rule": "maxsus qoidalar",
-    "pay_on": "joyida to'lash"
-  },
-  "not_found": {
-    "main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
-    "to_back": "Asosiy sahifaga qaytish"
-  },
-  "notification": {
-    "title": "Eslatma",
-    "description": "Sizga turli xil do'konlardan bo'lgan mahsulotlarni sotib olmoqchisiz! Savatchangizga qo'shilaversinmi?",
-    "agree": "Ha",
-    "disagree": "Yo'q",
-    "notShowAgain": "Boshqa ko'rsatilmasin",
-    "error": "Xatolik yuz berdi!"
-  }
+	"header": {
+		"home": "Asosiy",
+		"catalog": "Katalog",
+		"about": "Biz haqimizda",
+		"stores": "Do'konlar",
+		"faq": "FAQ",
+		"searchProducts": "Mahsulot qidirish",
+		"favourites": "Sevimlilar",
+		"login": "Kirish",
+		"basket": "Savatcha",
+		"delivery": "Yetkazib Berish",
+		"account": "Akkaunt",
+		"profile": "Profil",
+		"orders": "Buyurtmalar",
+		"order": "Buyurtma",
+		"address_book": "Manzillar",
+		"favorites": "Saralangan",
+		"support": "Yordam",
+		"order_placed": "Buyurtma berilgan",
+		"offer": "Oferta",
+		"please_enter_address": "Iltimos, manzilingizni kiriting"
+	},
+	"categories": {
+		"title": "Kategoriyalar",
+		"all": "Barcha kategoriyalar"
+	},
+	"address": {
+		"add": "Manzil qo'shish",
+		"next": "Keyingi",
+		"cancel": "Bekor qilish",
+		"change": "O'zgartirish",
+		"save": "Saqlash",
+		"typeAddress": "Manzilingizni kiriting",
+		"title": "Manzil",
+		"placeholder": "Shahar, ko'cha, uy",
+		"add_delivery": "Yetkazib berish manzili",
+		"name": "Nomi",
+		"enter_name": "Nomni kiriting",
+		"entrance": "Kirish joyi",
+		"floor": "Qavat",
+		"apartment": "Kvartira",
+		"make_address": "Manzilni asosiyga aylantirish",
+		"required": "Ushbu qator to'ldirilishi shart",
+		"saved": "Saqlanganlar",
+		"address_status": "Asosiy",
+		"delete_address": "Manzilni o'chirish",
+		"permission_delete": "Siz rostdan ham ushbu mazilni o'chirmoqchimisiz",
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz",
+		"already_exists": "Bunday nomli manzil allaqachon saqlangan"
+	},
+	"search": {
+		"placeholder": "Mahsulotlarni qidirish",
+		"often": "Tez-tez qidirilganlar",
+		"recently_searched": "Yaqinda izlaganlaringiz",
+		"clear": "Tozalash",
+		"title": "Qidirish",
+		"found": "{categories} turkumidagi {products} mahsulot topildi",
+		"categories": "{products} ta mahsulot",
+		"byName": "Ism bo'yicha qidirish"
+	},
+	"errors": {
+		"required": "Ushbu qator to'ldirilishi shart"
+	},
+	"detect": "Aniqlash",
+	"approve": "Tasdiqlang",
+	"catalog": "Katalog",
+	"footer": {
+		"phone": "Telefon",
+		"email": "Pochta",
+		"address": "Manzil",
+		"information": "Ma `lumot",
+		"offert": "Oferta",
+		"copyright": "Barcha huquqlar himoyalangan.",
+		"qr": "Ilovani yuklab olish uchun QR kodini skanerlang",
+		"mgbStore": "MBG do'kon ilovasi"
+	},
+	"account": {
+		"orders": "Buyurtmalar",
+		"title": "Profil"
+	},
+	"sales": {
+		"sale": "Chegirmalar",
+		"title": "Chegirma bilan",
+		"more": "{count}% yoki undan ko'p"
+	},
+	"products": {
+		"title": "Mahsulotlar",
+		"plural": "ta mahsulot",
+		"rates": "Reytinglar",
+		"near": "Yaqin atrofdagi mahsulotlar",
+		"top": "Eng ko'p sotilganlar",
+		"popular": "Ommabop",
+		"withFeedbacks": "Sharh yozilgan mahsulotlar",
+		"sold": "Tugagan",
+		"addToCart": "Mahsulot savatga qo'shildi!",
+		"show_more": "Ko'proq ko'rsatish",
+		"no_product": "Mahsulot bazada qolmadi",
+		"unavailable_product": "Mavjud bo'lmagan mahsulatlar",
+		"add_address_for_see_near": "Yaqin atrofdagi mahsulotlarni ko'rish uchun manzilingizni kiriting",
+		"has_products": "mavjud tovarlar",
+		"some_product": "Shunga o'xshash",
+		"warning_products": "Savatingizdagi ayrim mahsulotlar hozirda mavjud emas",
+		"flag": {
+			"new": "Yangi",
+			"free_ship": "Bepul",
+			"sale": "Chegirmada"
+		}
+	},
+	"about": {
+		"title": "MBG do'koni haqida qisqacha",
+		"products": "turli xil tovarlar",
+		"stores": "saytdagi do'konlar",
+		"orders": "umumiy buyurtmalar",
+		"partners": "Bizning hamkorlar",
+		"faq": "Ko'p beriladigan savollar",
+		"chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
+		"writeToChat": "Chatga yozing"
+	},
+	"show": "{count} ta mahsulotni ko'rsatish",
+	"apply": "Tasdiqlash",
+	"show_count": "{count} ta mahsulotni ko'rsatish",
+	"hide": "Yashirish",
+	"filters": {
+		"title": "Filter",
+		"show_filter": "Filterni ko'rsatish",
+		"hide_filter": "Filterni yashirish",
+		"clear": "tozalash",
+		"up_to": "gacha",
+		"from": "ta mahsulotdan",
+		"sorting": {
+			"title": "Tartiblash",
+			"popular": "Mashhurlari",
+			"cheap": "Arzonroq",
+			"expensive": "Qimmatroq",
+			"highRate": "Yuqori reyting",
+			"null": "Mashhur"
+		},
+		"delivery": {
+			"title": "Yetkazib berish",
+			"free": "Bepul yetkazib berish",
+			"self": "Olib ketish",
+			"has": "Yetkazib berish mavjud"
+		},
+		"accessibility": {
+			"title": "Mavjudligi"
+		},
+		"empty_store": "Malumot topilmadi",
+		"no_data": {
+			"title": "Hech qanday mos mahsulot topilmadi",
+			"description": "Filtrlarni o'zgartirish yoki ularni qayta tiklashga harakat qiling"
+		},
+		"reset": "Filtrlarni tiklash"
+	},
+	"from": "dan",
+	"to": "gacha",
+	"fromBeginning": "Boshida",
+	"rating": {
+		"title": "Reyting",
+		"rate": "{count} dan yuqori"
+	},
+	"reset": "Qayta tiklash",
+	"price": {
+		"title": "Narxi, so'm"
+	},
+	"location": {
+		"title": "Manzil",
+		"select_location": "Filtr ishlashi uchun joyni belgilang",
+		"add_location": "Boshqa manzilmi? Joy qo'shing",
+		"distance": "Qidirish radiusi"
+	},
+	"product": {
+		"similar": "Birga sotib oling",
+		"onSale": "Sotish",
+		"has": "Sotuvda {count} ta",
+		"has_not": "Mavjud emas",
+		"seller": "Sotuvchi",
+		"rates": "Reytinglar",
+		"addToCart": "Savatga qo'shish",
+		"about": "Mahsulot haqida",
+		"comparison": "Shu kabi mahsulotlarni taqqoslash",
+		"title": "Mahsulot",
+		"price": "Narxi",
+		"feedback": "Mahsulot sharhlari",
+		"showOnFeedback": "Reyting bo'yicha ko'rsatish",
+		"allFeedbacks": "Barcha sharhlar",
+		"sendFeedback": "Fikr qoldiring",
+		"writeFeedback": "Sharh yozing",
+		"orders": "Buyurtmalar"
+	},
+	"feedback": {
+		"bad": "Yomon",
+		"excellent": "Ajoyib",
+		"name": "Sizning ismingiz",
+		"namePlaceholder": "Ismingizni kiriting",
+		"anonymus": "Anonim sharh",
+		"message": "Fikr-mulohazalaringiz",
+		"messagePlaceholder": "Mahsulot haqida fikringiz",
+		"photo": "Surat",
+		"photoDetails": "maksimal 4",
+		"photoPlaceholder": "yoki faylni shu yerga torting",
+		"send": "Yuboorish",
+		"file_too_large": "Fayl juda katta",
+		"file_invalid_type": "Noto‘g‘ri fayl turi",
+		"file_invalid": "Noto‘g‘ri fayl"
+	},
+	"cart": {
+		"title": "",
+		"yourOrder": "Sizning buyurtmangiz",
+		"price": "Tovarlarning narxi",
+		"sales": "Chegirmalar",
+		"actualPrice": "Yechilanadigan narx",
+		"order": "Buyurtma berish",
+		"promo_code": "Promakod",
+		"use": "qo'llaniladi",
+		"invalid_code": "Bu kod yaroqsiz",
+		"accept": "Qo'llash",
+		"type": "Yetkazib berish / olib ketish",
+		"type_value": "уточняется",
+		"checkout": "To'lovga o'ting",
+		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
+		"fill_cart": "Savatchaga qo'shish",
+		"on_sale": "Chegirmadagi mahsulotlar",
+		"delivery": {
+			"title_one": "Buyurtma oluvchi",
+			"name_label": "Ism va familiya",
+			"phone_label": "Telefon raqami",
+			"name_placeholder": "Ismingizni kiriting",
+			"delivery_to": "Yetkazib berish manzili"
+		},
+		"orders": {
+			"empty": "Savatcha bo'sh",
+			"done": "Buyurtma muvaffaqiyatli o'chirildi",
+			"error": "Xatolik yuz berdi. Iltimos mahsulotlarni bor yo'qligini tekshitib ko'ring",
+			"must_choose_one": "Asosiy manzilni tanlshingiz kerak!"
+		}
+	},
+	"order_placed": {
+		"order_detail": "Buyurtma tafsilotlari",
+		"number_order": "Buyurtma raqami",
+		"date_order": "Buyurtma vaqti",
+		"recipient": "Qabul qiluvchi",
+		"order_cost_title": "Buyurtma narxi",
+		"order_cost": "Tovarlarning narxi",
+		"order_all": "Jami",
+		"warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
+		"cancel_order": "Bekor qilish",
+		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?",
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
+	},
+	"modal": {
+		"no": "Yo'q",
+		"yes": "Ha,o'chirish",
+		"delete_address": "Manzilni o'chirilmoqda",
+		"delete_desc": "Haqiqatan ham manzilni o‘chirib tashlamoqchimisiz?"
+	},
+	"remove": "O'chirish",
+	"auth": {
+		"signUp": {
+			"title": "Hisob yaratish",
+			"phone_number": "Telefon raqami",
+			"password": "Parol",
+			"enter_password": "Parolni kiriting",
+			"label": "Telefon raqami",
+			"accept_terms": "Men <terms>Offerta</terms> shartlarini qabul qilaman",
+			"create_account": "Hisob yaratish",
+			"have_account": "Hisobingiz mavjudmi?",
+			"login": "Hisobga kirish",
+			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud",
+			"invalid_region": "Faqat Uzbekiston telefon raqamini kiriting"
+		},
+		"signUp_success": {
+			"title": "Xush kelibsiz!",
+			"description": "Siz MBG do'konida muvaffaqiyatli hisob yaratdingiz",
+			"login": "Kirish"
+		},
+		"login": {
+			"title": "Tizimga kirish",
+			"password": "Parol",
+			"enter_password": "Parolni kiriting",
+			"forgot_password": "Parolni unutdingizmi?",
+			"enter": "Kirish",
+			"no_account": "Hisobingiz yo'qmi?",
+			"create_account": "Hisob yaratish",
+			"invalid_phone_or_password": "Telefon raqami yoki parol noto‘g‘ri"
+		},
+		"reset_password": {
+			"title": "Parolni tiklash",
+			"description": "Parolni tiklash kodi telefon raqamingizga yuboriladi",
+			"phone_number": "Telefon raqami",
+			"current_password": "Joriy Parol",
+			"get_code": "Kodni olish",
+			"invalid_phone_number": "Telefon raqami noto‘g‘ri"
+		},
+		"otp": {
+			"title": "Kodni kiriting",
+			"description": "Kod <phone>{phone}</phone> raqamiga yuborildi",
+			"back": "Orqaga",
+			"confirm": "Tasdiqlang",
+			"new_code_after": "Yangi kod orqali",
+			"send_new_code": "Yangi kodni yuborish ({count} ta urinish)",
+			"invalid_code": "Yaroqsiz kod",
+			"no_more_attempts": "Urunushlar tugadi."
+		},
+		"otp_error": {
+			"title": "Ro'yxatga olish xatosi",
+			"description": "Noto'g'ri OTP kodi 3 martadan ortiq kiritilgan. Iltimos {hour} soatdan keyin qayta urinib ko'ring.",
+			"close": "Yopish"
+		},
+		"new_password": {
+			"title": "Yangi parol",
+			"description": "Yangi parol yarating",
+			"label": "Parol",
+			"placeholder": "Parolni kiriting",
+			"change_password": "Parolni o'zgartirish",
+			"min_length": "kamida 8 ta belgi",
+			"min_one_letter": "kamida 1 harf",
+			"min_one_digit": "kamida 1 ta raqam"
+		},
+		"reset_success": {
+			"title": "Parol yangilandi",
+			"description": "Endi siz yangi parolingiz bilan tizimga kirishingiz mumkin",
+			"login": "Kirish"
+		}
+	},
+	"profile": {
+		"title": "Profil",
+		"logout": {
+			"title": "Chiqish",
+			"modal_title": "Akkauntdan chiqish",
+			"modal_description": "Siz haqiqatdan ham akkauntingizdan chiqmoqchimisiz?",
+			"modal_cancel": "Bekor qilish",
+			"modal_logout": "Chiqish"
+		},
+		"personal_data": {
+			"title": "Shaxsiy ma'lumotlar",
+			"name_and_surname": "Ism va familiya",
+			"birthday": "Tug'ilgan sana",
+			"male": "Erkak",
+			"female": "Ayol"
+		},
+		"security": {
+			"title": "Xafsizlik",
+			"phone_number": "Telefon raqami",
+			"current_password": "Xozirgi parol"
+		},
+		"save": "Saqlash"
+	},
+	"orders": {
+		"title": "Buyurtmalar",
+		"search": "Qidirish",
+		"success": "Sizning buyurtmangiz qabul qilindi!",
+		"method": {
+			"DELIVERY": "Yetkazib berish",
+			"PICKUP": "Olib ketish"
+		},
+		"status": {
+			"WAITING_FOR_PAYMENT": "To'lov kutilmoqda",
+			"PAID": "To'langan",
+			"ACCEPTED": "Qabul qilingan",
+			"PROGRESSING": "Jarayonda",
+			"ON_THE_WAY": "Yo'ldaman",
+			"READY_FOR_PICKUP": "Olib ketishga tayyor",
+			"DELIVERED": "Yetkazib berildi",
+			"PICKED_UP": "Berilgan sana",
+			"CANCELLED": "Bekor qilingan"
+		},
+		"empty": "Sizda hali buyurtma yo'q",
+		"discount": "Chegirmali mahsulotlar",
+		"posted": "Joylashtirilgan",
+		"reorder": "Buyurtmani takrorlang",
+		"order_method": {
+			"title": "Qabul qilish usuli"
+		},
+		"delivery": {
+			"title": "Manzilga yetkazib berish",
+			"main": "asosiy",
+			"approximate_arrival_date": "Taxminiy yetkazib berish sanasi",
+			"delivery_details": "Yetkazib berish tafsilotlari",
+			"courier": "Kuryer",
+			"phone": "Telefon raqami",
+			"transport": "Transport",
+			"arrival_date": "Kelish vaqti"
+		},
+		"pickup": {
+			"title": "Do'kondan olib ketish",
+			"available_for_pickup": "Tovar(lar)ni olib ketish mumkin"
+		},
+		"order_item_list": {
+			"title": "Buyurtma bo'yicha mahsulotlar",
+			"qty": "miqdor"
+		},
+		"order_cost_card": {
+			"title": "Buyurtma narxi",
+			"products_cost": "Tovarlarning narxi",
+			"discounts": "Chegirmalar",
+			"promo_code": "Promokod",
+			"delivery": "Yetkazib berish",
+			"pickup": "Olib ketish",
+			"total": "Jami",
+			"payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
+			"cancel": "Buyurtmani bekor qilish",
+			"checkout": "To'lovga o'tish",
+			"error": "Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
+		},
+		"order_details_card": {
+			"title": "Buyurtma tafsilotlari",
+			"status": "Holat",
+			"order_datetime": "Buyurtma vaqti",
+			"receiver": "Qabul qiluvchi",
+			"phone": "Telefon raqami",
+			"reorder": "Buyurtmani takrorlash"
+		}
+	},
+	"favorites": {
+		"title": "Saralangan",
+		"search": "Qidiruv",
+		"empty": "Sizda hali sevimlilar yo‘q",
+		"products_on_sale": "Chegirmdagi mahsulotlar"
+	},
+	"address_book": {
+		"title": "Manzil kitobi",
+		"search": "Qidirmoq",
+		"add_address": "Manzil qo'shish",
+		"empty": "Sizda hali manzil yo'q",
+		"delivery": "Yetkazib berish",
+		"pickup": "Olib ketish"
+	},
+	"support": {
+		"title": "Qo'llab-quvvatlash",
+		"write_to_support": "Qo'llab-quvvatlashga yozing",
+		"statement": "So'rov",
+		"closed": "Yopiq",
+		"accepted": "Qabul qilindi",
+		"in_process": "Ko'rib chiqilmoqda",
+		"show_more": "Batafsil ko'rsatish...",
+		"show_less": "Kamroq ko'rsatish",
+		"empty_section": "Sizda hali hech qanday ilova yo'q",
+		"first_step": {
+			"title": "Qo'llab-quvvatlash",
+			"next": "Keyingi",
+			"email": "E-mail",
+			"this_is_required": "Ushbu qator to'ldirilishi shart",
+			"invalid_email": "Noto'g'ri pochta",
+			"topic": "Apellyatsiya mavzusi",
+			"select_topic": "Mavzuni tanlang",
+			"description": "Tavsif",
+			"your_message": "Sizning savolingiz",
+			"complaint": "Shikoyat",
+			"ask_question": "Savol berish",
+			"comment_suggestions": "Fikr va takliflar"
+		},
+		"second_step": {
+			"title": "Qo'llab-quvvatlash",
+			"applications": "Ilovalar",
+			"max_count": "maksimal 4",
+			"back": "Orqaga",
+			"send": "Yuborish"
+		}
+	},
+	"stories": {
+		"with_us": "MBD do'koni blan birga ",
+		"with_rule": "maxsus qoidalar",
+		"pay_on": "joyida to'lash"
+	},
+	"not_found": {
+		"main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
+		"to_back": "Asosiy sahifaga qaytish"
+	},
+	"notification": {
+		"title": "Eslatma",
+		"description": "Sizga turli xil do'konlardan bo'lgan mahsulotlarni sotib olmoqchisiz! Savatchangizga qo'shilaversinmi?",
+		"agree": "Ha",
+		"disagree": "Yo'q",
+		"notShowAgain": "Boshqa ko'rsatilmasin",
+		"error": "Xatolik yuz berdi!"
+	}
 }
+
