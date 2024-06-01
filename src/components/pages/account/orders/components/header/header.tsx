@@ -3,7 +3,11 @@ import Link from "next/link";
 import Search from "../search/search";
 import css from "./header.module.css";
 
-function Header() {
+interface Props {
+	setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function Header({ setSearchValue }: Props) {
 	const t = useTranslations("orders");
 
 	return (
@@ -27,7 +31,7 @@ function Header() {
 				{t("title")}
 			</h1>
 			<div className={css.search_box}>
-				<Search />
+				<Search setSearchValue={setSearchValue} />
 			</div>
 		</div>
 	);

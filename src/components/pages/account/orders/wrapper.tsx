@@ -5,26 +5,24 @@ import Search from "./components/search/search";
 
 import FormError from "@/components/shared/form-error/form-error";
 import Pagination from "@/components/shared/pagination/pagination";
-import { useClientSearch } from "@/hooks/use-client-search";
+import useDebounce from "@/hooks/use-debounce";
 import { fetchOrders } from "@/slices/order/ordersSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
-import { OrdersSearchContext } from "./context/orders-search-context";
 import css from "./wrapper.module.css";
 
 const Wrapper = () => {
 	const { orders, error } = useSelector((state: RootState) => state.orders);
 	const dispatch = useDispatch<AppDispatch>();
 	const [size, setSize] = useState(10);
+	const [searchValue, setSearchValue] = useState("");
+
+	const debouncedSearchValue: string = useDebounce(searchValue, 500);
 
 	useEffect(() => {
-		dispatch(fetchOrders({ page: 1, size }));
-	}, [dispatch, size]);
-
-	const { filteredData, onSearchValueChange, searchValue } = useClientSearch({
-		data: orders.content || [],
-		searchBy: ["id"],
-	});
+		dispatch(fetchOrders({ page: 1, size, q: debouncedSearchValue }));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [size, debouncedSearchValue]);
 
 	if (error)
 		return (
@@ -34,32 +32,26 @@ const Wrapper = () => {
 		);
 
 	return (
-		<OrdersSearchContext.Provider
-			value={{ filteredData, searchValue, onSearchValueChange }}
-		>
-			<section className={css.orders}>
-				<Header />
-				{orders && !!orders.numberOfElements && (
-					<div className={css.search_box}>
-						<Search />
-					</div>
-				)}
-				<OrdersList />
-				{orders.totalElements > 10 ? (
-					<div className={css.pagination}>
-						<Pagination
-							content
-							limit={10}
-							offset={size}
-							total={orders.totalElements}
-							setOffset={(size) => setSize(size)}
-						/>
-					</div>
-				) : (
-					""
-				)}
-			</section>
-		</OrdersSearchContext.Provider>
+		<section className={css.orders}>
+			<Header setSearchValue={setSearchValue} />
+			<div className={css.search_box}>
+				<Search setSearchValue={setSearchValue} />
+			</div>
+			<OrdersList />
+			{orders.totalElements > 10 ? (
+				<div className={css.pagination}>
+					<Pagination
+						content
+						limit={10}
+						offset={size}
+						total={orders.totalElements}
+						setOffset={(size) => setSize(size)}
+					/>
+				</div>
+			) : (
+				""
+			)}
+		</section>
 	);
 };
 
