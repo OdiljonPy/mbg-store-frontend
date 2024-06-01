@@ -34,11 +34,9 @@ const Wrapper = () => {
 	return (
 		<section className={css.orders}>
 			<Header setSearchValue={setSearchValue} />
-			{orders && !!orders.numberOfElements && (
-				<div className={css.search_box}>
-					<Search setSearchValue={setSearchValue} />
-				</div>
-			)}
+			<div className={css.search_box}>
+				<Search setSearchValue={setSearchValue} />
+			</div>
 			<OrdersList />
 			{orders.totalElements > 10 ? (
 				<div className={css.pagination}>
