@@ -5,6 +5,7 @@ import Search from "./components/search/search";
 
 import FormError from "@/components/shared/form-error/form-error";
 import Pagination from "@/components/shared/pagination/pagination";
+import useDebounce from "@/hooks/use-debounce";
 import { fetchOrders } from "@/slices/order/ordersSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
@@ -14,11 +15,14 @@ const Wrapper = () => {
 	const { orders, error } = useSelector((state: RootState) => state.orders);
 	const dispatch = useDispatch<AppDispatch>();
 	const [size, setSize] = useState(10);
+	const [searchValue, setSearchValue] = useState("");
+
+	const debouncedSearchValue: string = useDebounce(searchValue, 500);
 
 	useEffect(() => {
-		dispatch(fetchOrders({ page: 1, size }));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [size]);
+		dispatch(fetchOrders({ page: 1, size, q: debouncedSearchValue }));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [size, debouncedSearchValue]);
 
 	if (error)
 		return (
@@ -29,10 +33,10 @@ const Wrapper = () => {
 
 	return (
 		<section className={css.orders}>
-			<Header />
+			<Header setSearchValue={setSearchValue} />
 			{orders && !!orders.numberOfElements && (
 				<div className={css.search_box}>
-					<Search />
+					<Search setSearchValue={setSearchValue} />
 				</div>
 			)}
 			<OrdersList />
