@@ -13,9 +13,10 @@ interface OrdersResponse {
 
 export const fetchOrders = createAsyncThunk(
 	"order",
-	async ({ page, size }: { page: number; size: number }) => {
+	async ({ page, size, q }: { page?: number; size?: number; q?: string }) => {
+		if (!q) q = undefined;
 		const response = await API.get<OrdersResponse>("/store/orders/", {
-			params: { page, size },
+			params: { page, size, q },
 		});
 		return response.data;
 	}

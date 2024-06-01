@@ -38,7 +38,7 @@ function OrderItem({ order }: Props) {
 			>
 				<div className={css.header}>
 					<div className={css.header_left}>
-						<h2 className={css.title}>№ {order.id}</h2>
+						<h2 className={css.title}>№ MBG{order.id}</h2>
 						<p className={css.date}>
 							{dayjs(order.created_at).format(
 								"D MMMM YYYY г. H:mm"
