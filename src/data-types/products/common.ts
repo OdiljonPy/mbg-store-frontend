@@ -3,7 +3,7 @@ import { StaticImageData } from "next/image";
 export interface IImages {
   id: number;
   product: number;
-  image: StaticImageData | string;
+  image?: StaticImageData | string;
 }
 
 export interface IStore {

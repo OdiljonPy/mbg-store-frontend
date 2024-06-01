@@ -1,12 +1,12 @@
 import css from "@/components/pages/product/wrapper/components/info/gallery/thumbnail/thumbnail.module.css";
+import Badge from "@/components/shared/badge/badge";
+import FlagIcon from "@/components/shared/product/components/product-top/product-flag/flag-icon";
+import { productFlagMap } from "@/components/shared/product/components/product-top/product-flag/product-flag-map";
 import ResponsiveImage from "@/components/shared/responsive-image/responsive-image";
 import { IProductInner } from "@/data-types/products/product-inner/product-inner";
 import { useTranslations } from "next-intl";
 import { ForwardedRef, forwardRef } from "react";
 import mainCss from "./preview.module.css";
-import { productFlagMap } from "@/components/shared/product/components/product-top/product-flag/product-flag-map";
-import FlagIcon from "@/components/shared/product/components/product-top/product-flag/flag-icon";
-import Badge from "@/components/shared/badge/badge";
 
 interface props {
 	gallery: IProductInner;
@@ -59,10 +59,11 @@ const Preview = forwardRef(
 										)}
 									</div>
 									<ResponsiveImage
-										src={item.image}
-										alt={
-											"Кукуруза Bonduelle Classique сладкая"
+										src={
+											item.image ||
+											"/images/products/not-available.png"
 										}
+										alt={""}
 									/>
 								</div>
 							);
@@ -73,7 +74,7 @@ const Preview = forwardRef(
 					>
 						<ResponsiveImage
 							src={"/images/products/not-available.png"}
-							alt={"Кукуруза Bonduelle Classique сладкая"}
+							alt={"not available"}
 						/>
 					</div>
 				)}

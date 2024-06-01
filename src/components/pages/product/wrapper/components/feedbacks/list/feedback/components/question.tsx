@@ -15,7 +15,7 @@ interface props {
 }
 
 interface ILightBoxImages{
-    src:string | StaticImageData,
+    src?:string | StaticImageData,
     alt:string|number
 }
 const Question = ({feedback}:props) =>{
@@ -61,7 +61,7 @@ const Question = ({feedback}:props) =>{
                     images?.length ?  <div className={css.images}>
                         {images?.map((item) => (
                             <div key={item?.id} className={css.img} onClick={()=> setIsOpen(true)}>
-                                <ResponsiveImage src={item?.image} alt={''}/>
+                                <ResponsiveImage src={item?.image || '/images/products/not-available.png'} alt={''}/>
                             </div>
                         ))}
                     </div> : ''
