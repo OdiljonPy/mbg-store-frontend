@@ -15,53 +15,54 @@ import { useDispatch, useSelector } from "react-redux";
 interface props {}
 
 const Store = (props: props) => {
-	const t = useTranslations();
-	const {
-		query: { id },
-	} = useRouter();
-	const { loading, single_store } = useSelector(
-		(state: RootState) => state.all_stories
-	);
-	const dispatch = useDispatch<AppDispatch>();
+  const t = useTranslations();
+  const {
+    query: { id },
+  } = useRouter();
+  const { loading, single_store } = useSelector(
+    (state: RootState) => state.all_stories,
+  );
+  console.log(single_store, "single store");
+  const dispatch = useDispatch<AppDispatch>();
 
-	useEffect(() => {
-		dispatch(fetchStoreSingle(id));
-	}, [dispatch]);
-	return (
-		<>
-			<HeadWithSeo
-				name={single_store?.brand_name}
-				url={`/stores/${id}`}
-				description={single_store?.description}
-			/>
-			<section className={css.results}>
-				<div className={"container"}>
-					<Breadcrumbs
-						items={[
-							{
-								path: "/",
-								label: t("header.home"),
-							},
-							{
-								path: "/stores",
-								label: t("header.stores"),
-							},
-							{
-								path: "",
-								label: "Деревенская лавка",
-							},
-						]}
-					/>
-					<Intro store={single_store} loading={loading} />
-					<Header />
-					<div className={`${css.wrapper}`}>
-						<Filters />
-						<ProductList />
-					</div>
-				</div>
-			</section>
-		</>
-	);
+  useEffect(() => {
+    dispatch(fetchStoreSingle(id));
+  }, [dispatch]);
+  return (
+    <>
+      <HeadWithSeo
+        name={single_store?.brand_name}
+        url={`/stores/${id}`}
+        description={single_store?.description}
+      />
+      <section className={css.results}>
+        <div className={"container"}>
+          <Breadcrumbs
+            items={[
+              {
+                path: "/",
+                label: t("header.home"),
+              },
+              {
+                path: "/stores",
+                label: t("header.stores"),
+              },
+              {
+                path: "",
+                label: single_store?.brand_name ?? "...loading",
+              },
+            ]}
+          />
+          <Intro store={single_store} loading={loading} />
+          <Header />
+          <div className={`${css.wrapper}`}>
+            <Filters />
+            <ProductList />
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default Store;
