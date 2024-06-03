@@ -22,7 +22,6 @@ const Store = (props: props) => {
   const { loading, single_store } = useSelector(
     (state: RootState) => state.all_stories,
   );
-  console.log(single_store, "single store");
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {

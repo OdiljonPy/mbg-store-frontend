@@ -12,50 +12,47 @@ import css from "./index.module.css";
 interface props {}
 
 const Index = (props: props) => {
-	const t = useTranslations();
-	const { categories, loading } = useSelector(
-		(state: RootState) => state.category
-	);
-	const dispatch = useDispatch<AppDispatch>();
+  const t = useTranslations();
+  const { categories, loading } = useSelector(
+    (state: RootState) => state.category,
+  );
+  const dispatch = useDispatch<AppDispatch>();
 
-	useEffect(() => {
-		dispatch(fetchCategory(200));
-	}, []);
+  useEffect(() => {
+    dispatch(fetchCategory(200));
+  }, []);
 
-	return (
-		<>
-			<HeadWithSeo name={t("header.catalog")} url={"/catalog"} />
-			<section className={css.catalog}>
-				<div className={"container"}>
-					<Breadcrumbs
-						items={[
-							{
-								path: "/",
-								label: t("header.home"),
-							},
-							{
-								path: "/catalog",
-								label: t("header.catalog"),
-							},
-						]}
-					/>
-					<h1 className={css.title}>
-						{t("header.catalog")}{" "}
-						{t("products.plural").toLowerCase()}
-					</h1>
-					<CatalogList data={categories} />
-				</div>
-			</section>
-		</>
-	);
+  return (
+    <>
+      <HeadWithSeo name={t("header.catalog")} url={"/catalog"} />
+      <section className={css.catalog}>
+        <div className={"container"}>
+          <Breadcrumbs
+            items={[
+              {
+                path: "/",
+                label: t("header.home"),
+              },
+              {
+                path: "/catalog",
+                label: t("header.catalog"),
+              },
+            ]}
+          />
+          <h1 className={css.title}>{t("catalog_products")}</h1>
+          <CatalogList data={categories} />
+        </div>
+      </section>
+    </>
+  );
 };
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-	return {
-		props: {
-			messages: require(`@/../messages/${locale}.json`),
-		},
-	};
+  return {
+    props: {
+      messages: require(`@/../messages/${locale}.json`),
+    },
+  };
 };
 export default Index;
