@@ -65,6 +65,7 @@
 	"detect": "Aniqlash",
 	"approve": "Tasdiqlang",
 	"catalog": "Katalog",
+	"catalog_products": "Mahsulotlar katalogi",
 	"footer": {
 		"phone": "Telefon",
 		"email": "Pochta",
@@ -476,4 +477,3 @@
 		"error": "Xatolik yuz berdi!"
 	}
 }
-
