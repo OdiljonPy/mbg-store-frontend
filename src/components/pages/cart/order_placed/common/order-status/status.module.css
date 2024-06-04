@@ -25,7 +25,7 @@
 }
 
 .WAITING_FOR_PAYMENT {
-	background-color: #ef9545;
+	color: #ef9545;
 }
 
 .DELIVERED,
@@ -36,7 +36,7 @@
 }
 
 .PROGRESSING {
-	color: #efb754;
+	color: #efb754
 }
 
 .ON_THE_WAY,

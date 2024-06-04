@@ -19,7 +19,7 @@
 		"support": "Yordam",
 		"order_placed": "Buyurtma berilgan",
 		"offer": "Oferta",
-		"please_enter_address": "Iltimos,manzilingizni kiriting"
+		"please_enter_address": "Iltimos, manzilingizni kiriting"
 	},
 	"categories": {
 		"title": "Kategoriyalar",
@@ -65,6 +65,7 @@
 	"detect": "Aniqlash",
 	"approve": "Tasdiqlang",
 	"catalog": "Katalog",
+	"catalog_products": "Mahsulotlar katalogi",
 	"footer": {
 		"phone": "Telefon",
 		"email": "Pochta",
@@ -117,7 +118,8 @@
 		"chat": "Savolingizga javob topa olmadingizmi? Chatga yozing:",
 		"writeToChat": "Chatga yozing"
 	},
-	"show": "Ko'rsatish",
+	"show": "{count} ta mahsulotni ko'rsatish",
+	"apply": "Tasdiqlash",
 	"show_count": "{count} ta mahsulotni ko'rsatish",
 	"hide": "Yashirish",
 	"filters": {
@@ -198,7 +200,10 @@
 		"photo": "Surat",
 		"photoDetails": "maksimal 4",
 		"photoPlaceholder": "yoki faylni shu yerga torting",
-		"send": "Yuboorish"
+		"send": "Yuboorish",
+		"file_too_large": "Fayl juda katta",
+		"file_invalid_type": "Noto‘g‘ri fayl turi",
+		"file_invalid": "Noto‘g‘ri fayl"
 	},
 	"cart": {
 		"title": "",
@@ -216,6 +221,7 @@
 		"checkout": "To'lovga o'ting",
 		"info_enter_address": "Buyurtma olib borilishi kerak manzilni kiriting!",
 		"fill_cart": "Savatchaga qo'shish",
+		"on_sale": "Chegirmadagi mahsulotlar",
 		"delivery": {
 			"title_one": "Buyurtma oluvchi",
 			"name_label": "Ism va familiya",
@@ -240,7 +246,8 @@
 		"order_all": "Jami",
 		"warning_text": "Tovarlarni qabul qilgandan keyin to'lash",
 		"cancel_order": "Bekor qilish",
-		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?"
+		"agree_cancel_text": "Haqiqatan ham olib ketish buyurtmangizni bekor qilmoqchimisiz?",
+		"notAllowed_delete": "Siz asosiy manzilni o`chirolmaysiz"
 	},
 	"modal": {
 		"no": "Yo'q",
@@ -260,7 +267,8 @@
 			"create_account": "Hisob yaratish",
 			"have_account": "Hisobingiz mavjudmi?",
 			"login": "Hisobga kirish",
-			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud"
+			"account_already_exists": "Bu raqamga ega hisob allaqachon mavjud",
+			"invalid_region": "Faqat Uzbekiston telefon raqamini kiriting"
 		},
 		"signUp_success": {
 			"title": "Xush kelibsiz!",
@@ -392,7 +400,9 @@
 			"pickup": "Olib ketish",
 			"total": "Jami",
 			"payment_when_receiving": "Tovarlarni qabul qilgandan keyin to'lash",
-			"cancel": "Buyurtmani bekor qilish"
+			"cancel": "Buyurtmani bekor qilish",
+			"checkout": "To'lovga o'tish",
+			"error": "Xatolik yuz berdi. Iltimos keyinroq qayta urunib ko'ring yoki biz bilan bog'laning."
 		},
 		"order_details_card": {
 			"title": "Buyurtma tafsilotlari",
@@ -407,7 +417,7 @@
 		"title": "Saralangan",
 		"search": "Qidiruv",
 		"empty": "Sizda hali sevimlilar yo‘q",
-		"products_on_sale": "Chegirmali mahsulotlar"
+		"products_on_sale": "Chegirmdagi mahsulotlar"
 	},
 	"address_book": {
 		"title": "Manzil kitobi",
@@ -422,7 +432,8 @@
 		"write_to_support": "Qo'llab-quvvatlashga yozing",
 		"statement": "So'rov",
 		"closed": "Yopiq",
-		"processing": "Qayta ishlashda",
+		"accepted": "Qabul qilindi",
+		"in_process": "Ko'rib chiqilmoqda",
 		"show_more": "Batafsil ko'rsatish...",
 		"show_less": "Kamroq ko'rsatish",
 		"empty_section": "Sizda hali hech qanday ilova yo'q",

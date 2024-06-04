@@ -1,6 +1,7 @@
 .product {
     flex-basis: auto;
     min-width: 270px;
+    max-width: 280px;
     color: var(--black);
     transition: all .2s linear;
     border-radius: var(--medium-radius);

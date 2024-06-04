@@ -1,16 +1,26 @@
-import { IOrder, IPostOrder } from "@/data-types/order/order";
+import {
+	IOrder,
+	IOrderWithPagination,
+	IPostOrder,
+} from "@/data-types/order/order";
 import API from "@/utils/axios/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface OrdersResponse {
-	response: IOrder[];
+	response: IOrderWithPagination;
 	ok: boolean;
 }
 
-export const fetchOrders = createAsyncThunk("order", async () => {
-	const response = await API.get<OrdersResponse>("/store/orders/");
-	return response.data;
-});
+export const fetchOrders = createAsyncThunk(
+	"order",
+	async ({ page, size, q }: { page?: number; size?: number; q?: string }) => {
+		if (!q) q = undefined;
+		const response = await API.get<OrdersResponse>("/store/orders/", {
+			params: { page, size, q },
+		});
+		return response.data;
+	}
+);
 
 // create order
 
@@ -28,14 +38,16 @@ export const createOrder = createAsyncThunk(
 );
 
 interface InitialState {
-	orders: IOrder[];
+	orders: IOrderWithPagination;
 	loading: boolean;
 	createLoad: boolean;
 	error: boolean;
 }
 
 const initialState: InitialState = {
-	orders: [] as IOrder[],
+	orders: {
+		content: [] as IOrder[],
+	} as IOrderWithPagination,
 	loading: true,
 	createLoad: false,
 	error: false,

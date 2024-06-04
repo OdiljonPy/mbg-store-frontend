@@ -8,30 +8,30 @@ import HeadWithSeo from "@/layout/metadata";
 import dynamic from "next/dynamic";
 
 const Near = dynamic(() => import("@/components/pages/home/near/near"), {
-	ssr: false,
+  ssr: false,
 });
 
 interface props {
-	message: string;
+  message: string;
 }
 export default function Home(props: props) {
-	return (
-		<>
-			<HeadWithSeo />
-			<Hero />
-			<Sales />
-			<Popular />
-			<Near />
-			<Top />
-		</>
-	);
+  return (
+    <>
+      <HeadWithSeo />
+      <Hero />
+      <Sales />
+      <Popular />
+      <Near />
+      <Top />
+    </>
+  );
 }
 
 type Props = {};
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-	return {
-		props: {
-			messages: require(`@/../messages/${locale}.json`),
-		},
-	};
+  return {
+    props: {
+      messages: require(`@/../messages/${locale}.json`),
+    },
+  };
 };

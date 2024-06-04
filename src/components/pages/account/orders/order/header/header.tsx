@@ -64,7 +64,7 @@ function Header({ order, loading }: Props) {
 						) : (
 							<>
 								<h1 className={css.title}>
-									{t("header.order")} № {order.id}
+									{t("header.order")} № MBG{order.id}
 								</h1>
 								{order.type === EnumDeliveryType.DELIVERY ? (
 									<Badge

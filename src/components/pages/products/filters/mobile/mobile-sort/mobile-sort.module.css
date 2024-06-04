@@ -5,6 +5,7 @@
     .btn {
         border: none;
         background: none;
+        outline: none;
         cursor: pointer;
         display: flex;
         align-items: center;
