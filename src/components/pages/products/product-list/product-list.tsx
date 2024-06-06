@@ -26,6 +26,7 @@ const ProductList = ({}: props) => {
   const search = searchParams.get("search");
   const sort = searchParams.get("sort");
   const changeFilter = searchParams.get("changeFilter");
+  const categoryId = searchParams.get("category_id");
 
   const diffFilters: string[] = [
     "search",
@@ -71,11 +72,11 @@ const ProductList = ({}: props) => {
     if (activeFilters.length) {
       dispatch(filterProduct(filterParams));
     }
-  }, [dispatch, page, changeFilter, search, sort]);
+  }, [dispatch, page, changeFilter, search, sort, categoryId]);
 
   useEffect(() => {
     fetchProductFilter();
-  }, [fetchProductFilter, page, changeFilter, search, sort]);
+  }, [fetchProductFilter, page, changeFilter, search, sort, categoryId]);
 
   if (!isReady) return;
   return (
