@@ -1,5 +1,5 @@
-import Delivery from "@/components/pages/product/wrapper/components/info/description/delivery/delivery";
-import { Pickup } from "../pickup";
+import Delivery from "../delivery/delivery";
+import Pickup from "../pickup";
 import css from "./deliveries.module.css";
 
 interface props {

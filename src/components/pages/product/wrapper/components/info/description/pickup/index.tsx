@@ -7,7 +7,7 @@ interface props {
 	isWhite?: boolean;
 }
 
-export const Pickup = ({ isWhite }: props & { isWhite?: boolean }) => {
+const Pickup = ({ isWhite }: props & { isWhite?: boolean }) => {
 	const t = useTranslations();
 	return (
 		<div className={`${css.delivery} ${isWhite ? css.white : ""}`}>
@@ -22,3 +22,5 @@ export const Pickup = ({ isWhite }: props & { isWhite?: boolean }) => {
 		</div>
 	);
 };
+
+export default Pickup;
