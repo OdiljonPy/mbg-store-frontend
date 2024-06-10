@@ -3,10 +3,10 @@ import Body from "@/components/pages/products/filters/desktop/filter-collapse/bo
 import PlusBtn from "@/components/shared/plus-btn/plus-btn";
 import { PropsWithChildren } from "react";
 
+import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import css from "./filter-collapse.module.css";
-import {useTranslations} from "next-intl";
 
 interface props {
 	title: string;
@@ -18,10 +18,11 @@ const FilterCollapse = ({
 	children,
 	queryResetList: paramsResetList,
 }: PropsWithChildren<props>) => {
-	const t = useTranslations()
+	const t = useTranslations();
 	const { open, onToggle } = useCustomCollapse();
 	const searchQuery = useSearchParams();
 	const { push, query } = useRouter();
+	const params = paramsResetList?.find((item) => searchQuery.get(item));
 	const onReset = () => {
 		if (!paramsResetList) return;
 		paramsResetList.forEach((param) => {
@@ -45,7 +46,7 @@ const FilterCollapse = ({
 				<h4 className={css.title}>{title}</h4>
 				<div className={css.control}>
 					<button onClick={onReset} className={css.btn}>
-						{open && t('filters.clear')}
+						{open && !!params && t("filters.clear")}
 					</button>
 					<PlusBtn open={open} onClick={onToggle} />
 				</div>

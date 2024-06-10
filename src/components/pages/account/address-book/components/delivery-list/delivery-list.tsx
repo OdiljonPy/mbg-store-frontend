@@ -36,20 +36,10 @@ function DeliveryList() {
 		return <DeliveryEmpty />;
 	}
 
-	const sortedShippingList = filteredData.slice().sort((a, b) => {
-		if (a.main_address && !b.main_address) {
-			return -1;
-		} else if (!a.main_address && b.main_address) {
-			return 1;
-		} else {
-			return 0;
-		}
-	});
-
 	return (
 		<>
 			<ul className={css.list}>
-				{sortedShippingList.map((item) => (
+				{shippingList.map((item) => (
 					<li key={item.id}>
 						<DeliveryItem deliveryItem={item} />
 					</li>

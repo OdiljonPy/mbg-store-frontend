@@ -24,7 +24,7 @@ const Wrapper = (props: props) => {
 	const searchParams = useSearchParams();
 	const [slideLoad, setSlideLoad] = useState(true);
 
-	const { info, loading, comments } = useSelector(
+	const { info, loading, comments, error } = useSelector(
 		(state: RootState) => state.product_single
 	);
 	const {
@@ -55,6 +55,8 @@ const Wrapper = (props: props) => {
 		setSlideLoad(true);
 		setTimeout(() => setSlideLoad(false), 2000);
 	}, [router.query.id, ratingFilter, offset]);
+
+	if (error) router.push("/404");
 
 	return (
 		<section className={css.wrapper}>

@@ -18,6 +18,7 @@ const LocationItem = ({ location }: props) => {
 
 	const latitude = searchParams.get("location")?.split(",")[0];
 	const longitude = searchParams.get("location")?.split(",")[1];
+	const distance = searchParams.get("distance");
 
 	const dispatch = useDispatch<AppDispatch>();
 
@@ -31,6 +32,7 @@ const LocationItem = ({ location }: props) => {
 				pathname,
 				query: {
 					...query,
+					distance: distance || "5",
 					location: `${location.latitude},${location.longitude}`,
 					changeFilter:
 						searchParams.get("changeFilter") === "true"

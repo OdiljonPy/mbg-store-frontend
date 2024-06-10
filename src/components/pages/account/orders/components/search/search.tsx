@@ -1,19 +1,19 @@
 import Input from "@/components/shared/input";
 import { useTranslations } from "next-intl";
-import { useOrdersSearch } from "../../hooks/use-orders-search";
 import css from "./search.module.css";
 
-function Search() {
-	const t = useTranslations("orders");
+interface Props {
+	setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-	const { onSearchValueChange, searchValue } = useOrdersSearch();
+function Search({ setSearchValue }: Props) {
+	const t = useTranslations("orders");
 
 	return (
 		<div className={css.search_box}>
 			<Input
-				value={searchValue}
-				onChange={onSearchValueChange}
-				type='search'
+				onChange={(e) => setSearchValue(e.target.value.trim())}
+				type='number'
 				placeholder={t("search")}
 			/>
 			<span className={css.search_icon}>
