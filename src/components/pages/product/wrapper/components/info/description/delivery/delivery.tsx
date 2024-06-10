@@ -34,16 +34,18 @@ const Delivery = ({ isWhite, freeShippingDistance }: props) => {
 							fill='#60C787'
 						/>
 					</svg>
-					<div className={css.tooltip}>
-						<div className={css.tooltip_arrow} />
-						<div className={css.tooltip_content}>
-							<p className={css.text}>
-								{t("stories.free_shipping_distance", {
-									distance: freeShippingDistance,
-								})}
-							</p>
+					{!!freeShippingDistance && (
+						<div className={css.tooltip}>
+							<div className={css.tooltip_arrow} />
+							<div className={css.tooltip_content}>
+								<p className={css.text}>
+									{t("stories.free_shipping_distance", {
+										distance: freeShippingDistance,
+									})}
+								</p>
+							</div>
 						</div>
-					</div>
+					)}
 				</span>
 			</p>
 		</div>

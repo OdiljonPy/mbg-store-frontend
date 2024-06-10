@@ -5,15 +5,12 @@ import Price from "@/components/pages/product/wrapper/components/info/descriptio
 import { Rate } from "@/components/pages/product/wrapper/components/info/description/rate/rate";
 import Seller from "@/components/pages/product/wrapper/components/info/description/seller/seller";
 import Title from "@/components/pages/product/wrapper/components/info/description/title/title";
+import InfoPreloader from "@/components/pages/product/wrapper/components/info/info_preloader/info_preloader";
 import Badge from "@/components/shared/badge/badge";
 import { IProductInner } from "@/data-types/products/product-inner/product-inner";
+import { cn } from "@/utils/cn";
 import { useTranslations } from "next-intl";
 import css from "./description.module.css";
-import InfoPreloader from "@/components/pages/product/wrapper/components/info/info_preloader/info_preloader";
-import NotificationStore from "@/components/shared/notification-store/NotificationStore";
-import React, { useState } from "react";
-import Button from "@/components/shared/button";
-import { cn } from "@/utils/cn";
 
 interface props {
 	info: IProductInner;
@@ -61,7 +58,7 @@ const Description = ({ info, loading }: props) => {
 						discount_price={info?.discount_price}
 					/>
 					<Deliveries
-						freeShippingDistance={info?.store.free_shipping_distance}
+						freeShippingDistance={info?.store?.free_shipping_distance}
 						free_shipping={product?.free_shipping}
 						pickup={product?.pickup}
 					/>
