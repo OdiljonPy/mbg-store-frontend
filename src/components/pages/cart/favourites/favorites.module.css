@@ -1,0 +1,7 @@
+.skeleton_container {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+	overflow: hidden;
+	margin-top: 20px;
+}
