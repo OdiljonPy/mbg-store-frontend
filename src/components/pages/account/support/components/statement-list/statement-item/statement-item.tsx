@@ -6,6 +6,7 @@ import React from "react";
 import Badge from "../../badge/badge";
 
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { supportStatusMap } from "../../../constants/support/support-status-map";
 import css from "./statement-item.module.css";
 
@@ -40,9 +41,7 @@ function StatementItem({ statementItem }: Props) {
 						{t("statement")} № {statementItem.id}
 					</h3>
 					{statementItem.topic ? (
-						<p className={css.subtitle}>
-							{tn(statementItem.topic)}
-						</p>
+						<p className={css.subtitle}>{tn(statementItem.topic)}</p>
 					) : (
 						""
 					)}
@@ -61,10 +60,7 @@ function StatementItem({ statementItem }: Props) {
 					<p className={css.description}>
 						{showMore && statementItem.description}
 						{!showMore &&
-							statementItem.description
-								.split(" ")
-								.slice(0, 30)
-								.join(" ")}
+							statementItem.description.split(" ").slice(0, 30).join(" ")}
 					</p>
 					{statementItem.description.split(" ").length > 30 && (
 						<>
@@ -90,7 +86,12 @@ function StatementItem({ statementItem }: Props) {
 				{!!statementItem.files.length && (
 					<div className={css.files}>
 						{statementItem.files.map((file) => (
-							<div key={file.id} className={css.file_wrapper}>
+							<Link
+								href={file.file}
+								target='_blank'
+								key={file.id}
+								className={css.file_wrapper}
+							>
 								{isImage(file.file) ? (
 									<Image
 										className={css.img}
@@ -114,14 +115,11 @@ function StatementItem({ statementItem }: Props) {
 											/>
 										</svg>
 										<p className={css.file_ext}>
-											.
-											{getExtension(
-												file.file
-											)?.toUpperCase()}
+											.{getExtension(file.file)?.toUpperCase()}
 										</p>
 									</div>
 								)}
-							</div>
+							</Link>
 						))}
 					</div>
 				)}
