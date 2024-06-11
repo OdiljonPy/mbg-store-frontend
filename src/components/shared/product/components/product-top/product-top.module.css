@@ -42,7 +42,7 @@
 }
 
 @media (max-width: 991px) {
-	.left > * {
+	.left * {
 		font-size: 14px;
 	}
 	.discount {
@@ -62,10 +62,6 @@
 	.left {
 		padding: 8px;
 	}
-	.bottom_left {
-		bottom: 8px;
-		left: 8px;
-	}
 	.top_right {
 		top: 8px;
 		right: 8px;
@@ -80,7 +76,7 @@
 	.left {
 		gap: 3px;
 	}
-	.left > * {
+	.left * {
 		font-size: 10px;
 	}
 
