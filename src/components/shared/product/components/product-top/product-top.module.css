@@ -41,12 +41,15 @@
 	justify-content: center;
 }
 
+@media (max-width: 1199px) {
+	.discount {
+		position: static;
+	}
+}
+
 @media (max-width: 991px) {
 	.left * {
 		font-size: 14px;
-	}
-	.discount {
-		position: static;
 	}
 }
 
