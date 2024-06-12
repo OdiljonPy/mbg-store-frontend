@@ -8,6 +8,7 @@
 	align-items: start;
 	flex-direction: column;
 	gap: 6px;
+	text-decoration: none;
 }
 
 .discount {

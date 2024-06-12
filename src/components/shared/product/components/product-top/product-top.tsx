@@ -28,7 +28,10 @@ const ProductTop = ({ product }: props) => {
 
 	return (
 		<div className={css.actions}>
-			<div className={css.left}>
+			<Link
+				href={`/products/${id}`}
+				className={css.left}
+			>
 				{available > 1 && discount ? (
 					<div className={css.discount}>
 						<DiscountBadge discount_percentage={discount} />
@@ -53,7 +56,7 @@ const ProductTop = ({ product }: props) => {
 				) : (
 					""
 				)}
-			</div>
+			</Link>
 			<div className={css.top_right}>
 				<ClientAddToFav product={product} />
 			</div>
