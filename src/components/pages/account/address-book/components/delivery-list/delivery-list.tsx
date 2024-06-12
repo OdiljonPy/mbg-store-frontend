@@ -2,13 +2,13 @@ import AddNewAddressModal from "@/components/shared/address/modals/add-address-m
 import Button from "@/components/shared/button";
 import FormError from "@/components/shared/form-error/form-error";
 import { RootState } from "@/store";
+import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
 import { useAddressBookSearch } from "../../hooks/use-address-book-search";
 import DeliveryEmpty from "./delivery-empty/delivery-empty";
 import DeliveryItem from "./delivery-item/delivery-item";
 import css from "./delivery-list.module.css";
 import AddressBookSkeleton from "./skeleton/skeleton";
-import { useTranslations } from "next-intl";
 
 function DeliveryList() {
 	const t = useTranslations("address_book");
@@ -39,7 +39,7 @@ function DeliveryList() {
 	return (
 		<>
 			<ul className={css.list}>
-				{shippingList.map((item) => (
+				{filteredData.map((item) => (
 					<li key={item.id}>
 						<DeliveryItem deliveryItem={item} />
 					</li>
