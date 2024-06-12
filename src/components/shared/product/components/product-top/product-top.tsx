@@ -28,25 +28,23 @@ const ProductTop = ({ product }: props) => {
 
 	return (
 		<div className={css.actions}>
-			<div className={css.discount}>
-				{available > 1 && discount ? (
-					<DiscountBadge discount_percentage={discount} />
-				) : (
-					""
-				)}
-			</div>
-			<div className={css.unavailable}>
-				{available < 1 ? (
-					<Badge text={t("products.sold")} color={"#767BF9"} />
-				) : (
-					""
-				)}
-			</div>
-			<div
-				className={`${css.flag} ${
-					discount > 0 ? css.flag_with_discount : ""
-				}`}
+			<Link
+				href={`/products/${id}`}
+				className={css.left}
 			>
+				{available > 1 && discount ? (
+					<div className={css.discount}>
+						<DiscountBadge discount_percentage={discount} />
+					</div>
+				) : null}
+				{available < 1 ? (
+					<Badge
+						text={t("products.sold")}
+						color={"#767BF9"}
+					/>
+				) : (
+					""
+				)}
 				{available > 0 && product.flag ? (
 					<Badge
 						className={css.flag_badge}
@@ -58,19 +56,23 @@ const ProductTop = ({ product }: props) => {
 				) : (
 					""
 				)}
-			</div>
-			<div className={css.favorite_icon}>
+			</Link>
+			<div className={css.top_right}>
 				<ClientAddToFav product={product} />
 			</div>
-			<Link href={`/products/${id}`} className={css.img}>
+			<Link
+				href={`/products/${id}`}
+				className={css.img}
+			>
 				<ResponsiveImage
-					src={
-						images[0]?.image || "/images/products/not-available.png"
-					}
+					src={images[0]?.image || "/images/products/not-available.png"}
 					alt={name}
 				/>
 			</Link>
-			<ProductActions count={count} product={product} />
+			<ProductActions
+				count={count}
+				product={product}
+			/>
 		</div>
 	);
 };

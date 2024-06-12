@@ -462,7 +462,8 @@
 	"stories": {
 		"with_us": "MBD do'koni blan birga ",
 		"with_rule": "maxsus qoidalar",
-		"pay_on": "joyida to'lash"
+		"pay_on": "joyida to'lash",
+		"free_shipping_distance": "do'kondan {distance} km oraliqda"
 	},
 	"not_found": {
 		"main_text": "Afsus! Bu sahifa topilmadi, iltimos qayta harakat qilib ko'ring",
