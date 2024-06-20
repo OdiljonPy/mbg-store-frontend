@@ -33,6 +33,7 @@ const Wrapper = (props: props) => {
 		comparison_products,
 		related_products,
 		name,
+		is_comment: comment,
 	} = info;
 
 	const ratingFilter = searchParams.get("rating");
@@ -84,7 +85,12 @@ const Wrapper = (props: props) => {
 					]}
 				/>
 
-				{info && <Info info={info} loading={slideLoad} />}
+				{info && (
+					<Info
+						info={info}
+						loading={slideLoad}
+					/>
+				)}
 
 				{comparison_products?.length ? (
 					<Comparison
@@ -106,6 +112,7 @@ const Wrapper = (props: props) => {
 					</div>
 				)}
 				<Feedbacks
+					isComment={comment}
 					rating={rating}
 					rating_count={rating_count}
 					comments={comments}

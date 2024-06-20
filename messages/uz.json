@@ -193,6 +193,7 @@
 		"bad": "Yomon",
 		"excellent": "Ajoyib",
 		"name": "Sizning ismingiz",
+		"customer": "Xaridor",
 		"namePlaceholder": "Ismingizni kiriting",
 		"anonymus": "Anonim sharh",
 		"message": "Fikr-mulohazalaringiz",
@@ -203,7 +204,8 @@
 		"send": "Yuboorish",
 		"file_too_large": "Fayl juda katta",
 		"file_invalid_type": "Noto‘g‘ri fayl turi",
-		"file_invalid": "Noto‘g‘ri fayl"
+		"file_invalid": "Noto‘g‘ri fayl",
+		"send_error": "Sharh yuborishda xatolik yuz berdi"
 	},
 	"cart": {
 		"title": "",
